@@ -22,13 +22,12 @@
     }
 
     header {
-  margin-bottom: 80px;
-  display: flex;
-  gap: 32px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
+      margin-bottom: 80px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
     header h1 {
       font-size: 48px;
@@ -41,6 +40,15 @@
       font-size: 20px;
       max-width: 700px;
       color: #444;
+    }
+
+    .headshot {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+      margin: 24px 0;
     }
 
     section {
@@ -101,24 +109,32 @@
       font-size: 14px;
       color: #666;
     }
-    .headshot {
-@media (max-width: 700px) {
-  header {
-    align-items: flex-start;
-  }
-  .headshot {
-    max-width: 220px;
-    margin: 0 0 16px 0;
-  }
-}
-      width: 100%;
-  max-width: 320px;
-  height: auto;
-  border-radius: 16px;
-  display: block;
-  margin: 24px 0;
-}
 
+    /* Mobile adjustments */
+    @media (max-width: 700px) {
+      header {
+        align-items: flex-start;
+      }
+
+      header h1 {
+        font-size: 36px;
+      }
+
+      header p {
+        font-size: 18px;
+      }
+
+      .headshot {
+        max-width: 220px;
+        margin: 0 0 16px 0;
+      }
+
+      button {
+        margin-left: 0;
+        margin-top: 12px;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -127,14 +143,16 @@
 
     <header>
       <img src="images/sam-osborne.jpg" alt="Sam Osborne keynote speaker" class="headshot" />
-      <h1>Clarity Is the Competitive Advantage</h1>
-      <p>
-        I’m Sam Osborne. I speak to leaders, executives, and high-performers on clarity,
-        self-worth, and leading under pressure — when the stakes are real and the room is watching.
-      </p>
+      <div>
+        <h1>Clarity Is the Competitive Advantage</h1>
+        <p>
+          I’m Sam Osborne. I speak to leaders, executives, and high-performers on clarity,
+          self-worth, and leading under pressure — when the stakes are real and the room is watching.
+        </p>
 
-      <div class="cta">
-        <a href="#contact">Inquire About Speaking</a>
+        <div class="cta">
+          <a href="#contact">Inquire About Speaking</a>
+        </div>
       </div>
     </header>
 
@@ -169,8 +187,7 @@
         leave your email below.
       </p>
 
-      <!-- Email capture (no CRM, uses Formspree) -->
-    <form action="https://formspree.io/f/xjgkyypd" method="POST">
+      <form action="https://formspree.io/f/xjgkyypd" method="POST">
         <input type="email" name="email" placeholder="Your email address" required />
         <button type="submit">Subscribe</button>
       </form>
@@ -191,4 +208,3 @@
   </script>
 </body>
 </html>
-
