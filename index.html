@@ -22,8 +22,13 @@
     }
 
     header {
-      margin-bottom: 80px;
-    }
+  margin-bottom: 80px;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 
     header h1 {
       font-size: 48px;
@@ -97,7 +102,16 @@
       color: #666;
     }
     .headshot {
-  width: 100%;
+@media (max-width: 700px) {
+  header {
+    align-items: flex-start;
+  }
+  .headshot {
+    max-width: 220px;
+    margin: 0 0 16px 0;
+  }
+}
+      width: 100%;
   max-width: 320px;
   height: auto;
   border-radius: 16px;
