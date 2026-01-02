@@ -4,84 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sam Osborne — Keynote Speaker</title>
-  <meta name="description" content="Sam Osborne is a keynote speaker on clarity, self-worth, and leadership under pressure." />
+  <meta name="description"
+        content="Sam Osborne delivers high-trust keynotes on clarity, self-worth, and leadership under pressure for senior leaders and responsible audiences." />
 
   <style>
     :root {
       --overlay: rgba(0,0,0,0.45);
-      --ink: #111;
-      --muted: #444;
-      --muted2: #666;
-      --line: rgba(0,0,0,0.10);
-      --card: rgba(0,0,0,0.03);
-      --cta: #c51f1f;
     }
 
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
+
     body {
+      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--ink);
+      color: #111;
       background: #fff;
       line-height: 1.55;
     }
 
     /* =========================
-       TOP NAV (subtle)
+       TOP NAV
        ========================= */
+
     .topbar {
       position: sticky;
       top: 0;
       z-index: 50;
       background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
     }
+
     .topbar-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
     }
+
     .brand {
       font-weight: 800;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
       font-size: 18px;
-      color: var(--ink);
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #111;
       text-decoration: none;
-      white-space: nowrap;
     }
+
     .nav {
       display: flex;
       gap: 22px;
-      align-items: center;
     }
+
     .nav a {
-      font-size: 12px;
-      letter-spacing: 0.10em;
+      font-size: 13px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #333;
       text-decoration: none;
-      opacity: 0.9;
     }
-    .nav a:hover { opacity: 1; }
+
+    .nav a:hover { color: #111; }
 
     section { scroll-margin-top: 84px; }
 
     /* =========================
        HERO
        ========================= */
+
     .hero {
       position: relative;
-      min-height: 78vh;
-      color: #fff;
+      min-height: 80vh;
       display: flex;
       align-items: center;
+      color: #fff;
     }
+
     .hero::before {
       content: "";
       position: absolute;
@@ -93,323 +93,263 @@
       background-position: center;
       z-index: 0;
     }
+
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 1100px;
-      padding: 92px 24px;
+      max-width: 960px;
       margin: 0 auto;
+      padding: 96px 24px;
     }
+
     .hero h1 {
-      font-size: clamp(34px, 4.6vw, 58px);
-      line-height: 1.08;
+      font-size: 52px;
+      line-height: 1.12;
       margin: 0 0 14px 0;
-      letter-spacing: -0.03em;
-      font-weight: 850;
+      letter-spacing: -0.02em;
     }
+
     .hero .subhead {
-      font-size: clamp(16px, 1.7vw, 20px);
-      font-weight: 650;
-      margin: 0 0 12px 0;
-      color: rgba(255,255,255,0.94);
-    }
-    .hero .tagline {
-      font-size: clamp(18px, 2.2vw, 26px);
-      max-width: 820px;
-      margin: 0 0 26px 0;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
       color: rgba(255,255,255,0.92);
     }
-    .hero .cta a {
+
+    .hero p {
+      font-size: 22px;
+      max-width: 640px;
+      margin-bottom: 36px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .cta a {
       display: inline-block;
-      padding: 14px 22px;
-      background: var(--cta);
+      padding: 16px 34px;
+      background: #c51f1f;
       color: #fff;
       text-decoration: none;
-      font-weight: 800;
-      border-radius: 8px;
-      letter-spacing: 0.01em;
+      font-weight: 700;
+      border-radius: 6px;
     }
-    .hero .cta a:hover { filter: brightness(0.95); }
+
+    .cta a:hover { filter: brightness(0.95); }
 
     /* =========================
-       MAIN
+       CONTENT
        ========================= */
+
     .container {
-      max-width: 1100px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 76px 24px;
+      padding: 88px 24px;
     }
 
-    section.content {
-      margin-bottom: 84px;
+    .content-section {
+      margin-bottom: 96px;
     }
 
     h2 {
-      font-size: clamp(26px, 2.8vw, 36px);
-      margin: 0 0 14px 0;
-      letter-spacing: -0.02em;
+      font-size: 34px;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
     }
 
-    .big {
-      font-size: clamp(18px, 2.0vw, 22px);
-      color: var(--muted);
-      max-width: 900px;
-      margin: 0 0 18px 0;
+    p {
+      font-size: 19px;
+      max-width: 720px;
+      margin-bottom: 22px;
     }
 
-    .punch {
-      font-size: clamp(20px, 2.2vw, 26px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin: 0 0 12px 0;
+    ul {
+      list-style: disc;
+      margin-left: 22px;
+      font-size: 19px;
     }
 
-    .bullets {
-      max-width: 900px;
-      margin: 14px 0 0 0;
-      padding: 0;
-      list-style: none;
+    ul li {
+      margin-bottom: 12px;
     }
-    .bullets li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      font-size: 18px;
-      color: #222;
-    }
-    .bullets li:last-child { border-bottom: none; }
 
     .fit {
+      font-weight: 600;
+      color: #444;
       margin-top: 18px;
-      padding: 14px 16px;
-      border-left: 3px solid var(--ink);
-      background: var(--card);
-      color: #222;
-      max-width: 980px;
-      font-size: 17px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-      max-width: 1100px;
-    }
-    .card {
-      padding: 16px 16px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
-    }
-    .card .label {
-      font-size: 12px;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--muted2);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-    .card .text {
-      font-size: 18px;
-      color: #222;
-      margin: 0;
-      line-height: 1.4;
+    form {
+      margin-top: 28px;
     }
 
-    .booking {
-      margin-top: 18px;
-      padding: 18px 18px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-      max-width: 980px;
-    }
-    .booking .title {
-      font-weight: 900;
-      margin: 0 0 8px 0;
-      font-size: 16px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #222;
-    }
-    .booking p {
-      margin: 0;
-      font-size: 18px;
-      color: #222;
-      line-height: 1.45;
-    }
-
-    /* Contact */
-    form { margin-top: 18px; }
     input[type="email"] {
       padding: 14px;
-      width: 340px;
+      width: 320px;
       max-width: 100%;
-      font-size: 16px;
+      font-size: 17px;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      border-radius: 6px;
     }
+
     button {
       margin-left: 8px;
-      padding: 14px 18px;
-      font-size: 16px;
+      padding: 14px 22px;
+      font-size: 17px;
       background: #111;
       color: #fff;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      font-weight: 800;
     }
 
     footer {
-      padding-top: 40px;
-      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 48px;
+      border-top: 1px solid #eee;
       font-size: 14px;
-      color: var(--muted2);
+      color: #666;
+      text-align: center;
     }
 
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
-    }
+    /* =========================
+       MOBILE
+       ========================= */
 
     @media (max-width: 700px) {
       .hero { min-height: 70vh; }
       .hero-content { padding: 72px 24px; }
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 18px; }
+      h2 { font-size: 28px; }
+      p, ul { font-size: 17px; }
 
       button {
         margin-left: 0;
         margin-top: 12px;
         width: 100%;
       }
-
-      .nav { gap: 14px; }
-      .nav a { font-size: 12px; }
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#home">Sam Osborne</a>
-      <div class="nav">
-        <a href="#speaking">Speaking</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
+<!-- NAV -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#home">Sam Osborne</a>
+    <div class="nav">
+      <a href="#speaking">Speaking</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Clarity Is the Competitive Advantage</h1>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Clarity Is the Competitive Advantage</h1>
 
-      <p class="subhead">
-        Sam Osborne | Keynote Speaker on Clarity, Self-Worth &amp; Leadership Under Pressure
-      </p>
-
-      <p class="tagline">
-        Reduce internal pressure. Think clearly. Lead calmly. Decide well — when it matters most.
-      </p>
-
-      <div class="cta">
-        <a href="tel:+18189345140">Call Sam: (818) 934-5140</a>
-      </div>
+    <div class="subhead">
+      Sam Osborne · Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure
     </div>
+
+    <p>
+      When responsibility is high and decisions carry weight,
+      clarity matters more than confidence.
+    </p>
+
+    <div class="cta">
+      <a href="tel:+18189345140">Call Sam · (818) 934-5140</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <section class="content-section" id="speaking">
+    <h2>Speaking</h2>
+
+    <p><strong>Pressure doesn’t break leaders. Loss of clarity does.</strong></p>
+
+    <p>
+      In high-stakes environments, leaders don’t need more information or motivation.
+      They need steadiness — the ability to think clearly when pressure is present.
+    </p>
+
+    <ul>
+      <li>Restore clarity when urgency distorts judgment</li>
+      <li>Strengthen composure under scrutiny and responsibility</li>
+      <li>Support calm, decisive leadership without performance or hype</li>
+    </ul>
+
+    <p class="fit">
+      This work is designed for substance, responsibility, and real outcomes —
+      not entertainment, theatrics, or surface-level inspiration.
+    </p>
   </section>
 
-  <div class="container">
+  <section class="content-section">
+    <h2>30-Second Booking Decision</h2>
 
-    <section class="content" id="speaking">
-      <h2>Speaking</h2>
+    <p>
+      If your audience includes senior leaders who operate under pressure and responsibility,
+      Sam delivers a focused, high-trust keynote that holds the room and leaves people thinking
+      more clearly than when they arrived.
+    </p>
 
-      <p class="punch">Pressure doesn’t break leaders. Confusion does.</p>
+    <p>
+      The result is not excitement — it’s stability, insight, and better decisions.
+    </p>
 
-      <p class="big">
-        Most leaders don’t fail because they lack skill. They fail because pressure distorts judgment and collapses clarity.
-      </p>
+    <p>
+      If that’s the outcome you want for your event, call <strong>(818) 934-5140</strong>.
+    </p>
+  </section>
 
-      <ul class="bullets">
-        <li><strong>Cut through noise</strong> and urgency</li>
-        <li><strong>Stabilize decisions</strong> under pressure</li>
-        <li><strong>Lead calmly</strong> — without ego, burnout, or reaction</li>
-      </ul>
+  <section class="content-section" id="about">
+    <h2>About Sam</h2>
 
-      <div class="fit">
-        <strong>Fit:</strong> For leaders who want clearer thinking under pressure — not hype, theatrics, or feel-good motivation.
-      </div>
+    <p><strong>Calm leadership is not a personality trait. It’s a practiced discipline.</strong></p>
 
-      <h2 style="margin-top:46px;">Who I Speak For</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="label">Event Planners</div>
-          <p class="text">Clear, grounded keynotes that land across diverse audiences — practical, engaging, and safe for the room.</p>
-        </div>
-        <div class="card">
-          <div class="label">Corporate Leaders</div>
-          <p class="text">Executive teams operating under constant pressure who need clarity and decision quality — not motivation.</p>
-        </div>
-        <div class="card">
-          <div class="label">Associations</div>
-          <p class="text">Professional groups navigating responsibility and complexity who want insight they can apply immediately.</p>
-        </div>
-      </div>
+    <p>
+      Sam Osborne is a former educator turned marketing director and leadership advisor,
+      working at the intersection of psychology, self-worth, and decision-making under pressure.
+    </p>
 
-      <div class="booking">
-        <div class="title">30-Second Booking Decision</div>
-        <p>
-          If you want a keynote that helps leaders think clearly, stay composed, and lead effectively under pressure,
-          I deliver a grounded, high-impact experience your audience will respect and remember — calm, practical,
-          and designed for real stakes. If that’s the outcome you want for your event, call me.
-          <strong> (818) 934-5140</strong>
-        </p>
-      </div>
-    </section>
+    <p>
+      His work helps leaders stabilize internally so they can lead externally —
+      without bravado, burnout, or performative confidence.
+    </p>
+  </section>
 
-    <section class="content" id="about">
-      <h2>About</h2>
+  <section class="content-section" id="contact">
+    <h2>Stay in Touch</h2>
 
-      <p class="punch">Calm leadership is not a personality trait. It’s a skill.</p>
+    <p>
+      For occasional insights and availability for future speaking engagements,
+      leave your email below.
+    </p>
 
-      <p class="big">
-        I’m a former educator turned marketing director and leadership advisor, working at the intersection of psychology,
-        clarity, and real-world pressure.
-      </p>
+    <form action="https://formspree.io/f/xjgkyypd" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
 
-      <p class="big">
-        My work centers on self-worth, internal alignment, and decision-making when outcomes matter — without hype,
-        hustle culture, or performative inspiration.
-      </p>
-    </section>
+    <p style="font-size:15px;color:#666;margin-top:12px;">
+      No mailing lists. No funnels. No noise.
+    </p>
+  </section>
 
-    <section class="content" id="contact">
-      <h2>Stay in Touch</h2>
+  <footer>
+    © <span id="year"></span> Sam Osborne · samosborne.net
+  </footer>
 
-      <p class="big">
-        For insights, articles, and availability for future speaking engagements, leave your email below.
-      </p>
+</div>
 
-      <form action="https://formspree.io/f/xjgkyypd" method="POST">
-        <input type="email" name="email" placeholder="Your email address" required />
-        <button type="submit">Subscribe</button>
-      </form>
-
-      <p style="font-size:14px;color:#666;margin-top:12px;">
-        No spam. No funnels. Just thoughtful updates.
-      </p>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Sam Osborne · samosborne.net
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
