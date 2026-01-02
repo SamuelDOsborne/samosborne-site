@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Sam Osborne — Keynote Speaker</title>
   <meta name="description"
         content="Sam Osborne delivers high-trust keynotes on clarity, self-worth, and leadership under pressure for senior leaders and responsible audiences." />
@@ -56,6 +57,7 @@
     .nav {
       display: flex;
       gap: 22px;
+      align-items: center;
     }
 
     .nav a {
@@ -67,6 +69,24 @@
     }
 
     .nav a:hover { color: #111; }
+
+    .linkedin-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 4px;
+    }
+
+    .linkedin-icon img {
+      width: 18px;
+      height: 18px;
+      opacity: 0.75;
+      transition: opacity 0.2s ease;
+    }
+
+    .linkedin-icon img:hover {
+      opacity: 1;
+    }
 
     section { scroll-margin-top: 84px; }
 
@@ -112,7 +132,7 @@
     .hero .subhead {
       font-size: 18px;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       color: rgba(255,255,255,0.92);
     }
 
@@ -236,10 +256,19 @@
 <nav class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="#home">Sam Osborne</a>
+
     <div class="nav">
       <a href="#speaking">Speaking</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+
+      <a href="https://www.linkedin.com/in/sam-osborne-usa/"
+         target="_blank"
+         rel="noopener"
+         aria-label="LinkedIn"
+         class="linkedin-icon">
+        <img src="images/sam-osborne-linkedin-icon.jpg" alt="LinkedIn" />
+      </a>
     </div>
   </div>
 </nav>
