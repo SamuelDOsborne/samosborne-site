@@ -12,6 +12,10 @@
     :root {
       --overlay: rgba(0,0,0,0.45);
       --accent: #c51f1f;
+      --ink: rgba(0,0,0,0.92);
+      --muted: rgba(0,0,0,0.70);
+      --line: rgba(0,0,0,0.10);
+      --glass: rgba(255,255,255,0.72);
     }
 
     * { box-sizing: border-box; }
@@ -24,6 +28,8 @@
       line-height: 1.55;
     }
 
+    section { scroll-margin-top: 84px; }
+
     /* =========================
        TOP NAV
        ========================= */
@@ -33,7 +39,7 @@
       top: 0;
       z-index: 50;
       background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(0,0,0,0.08);
     }
 
@@ -88,15 +94,13 @@
 
     .linkedin-icon img:hover { opacity: 1; }
 
-    section { scroll-margin-top: 84px; }
-
     /* =========================
        HERO
        ========================= */
 
     .hero {
       position: relative;
-      min-height: 80vh;
+      min-height: 82vh;
       display: flex;
       align-items: center;
       color: #fff;
@@ -108,7 +112,7 @@
       inset: 0;
       background:
         linear-gradient(var(--overlay), var(--overlay)),
-        url("images/sam-osborne-hero-image.jpg");
+        url("images/sam-osborne-speaker.jpeg");
       background-size: cover;
       background-position: center;
       z-index: 0;
@@ -123,24 +127,24 @@
     }
 
     .hero h1 {
-      font-size: 52px;
-      line-height: 1.12;
+      font-size: 56px;
+      line-height: 1.06;
       margin: 0 0 14px 0;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
     }
 
     .hero .subhead {
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 650;
       margin-bottom: 22px;
       color: rgba(255,255,255,0.92);
     }
 
     .hero p {
       font-size: 22px;
-      max-width: 640px;
+      max-width: 680px;
       margin-bottom: 36px;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,0.90);
     }
 
     .cta a {
@@ -149,57 +153,56 @@
       background: var(--accent);
       color: #fff;
       text-decoration: none;
-      font-weight: 700;
-      border-radius: 6px;
+      font-weight: 800;
+      border-radius: 10px;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.22);
     }
 
-    .cta a:hover { filter: brightness(0.95); }
+    .cta a:hover { filter: brightness(0.96); }
 
     /* =========================
        CONTENT
        ========================= */
 
     .container {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 88px 24px;
+      padding: 92px 24px;
     }
 
     .content-section {
-      margin-bottom: 96px;
+      margin-bottom: 104px;
     }
 
     h2 {
-      font-size: 34px;
+      font-size: 36px;
       margin-bottom: 18px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
 
     p {
       font-size: 19px;
-      max-width: 720px;
+      max-width: 760px;
       margin-bottom: 22px;
+      color: var(--ink);
     }
 
     ul {
       list-style: disc;
       margin-left: 22px;
       font-size: 19px;
+      color: var(--ink);
     }
 
-    ul li {
-      margin-bottom: 12px;
-    }
+    ul li { margin-bottom: 12px; }
 
     .fit {
-      font-weight: 600;
-      color: #444;
+      font-weight: 650;
+      color: rgba(0,0,0,0.65);
       margin-top: 18px;
     }
 
-    form {
-      margin-top: 28px;
-    }
+    form { margin-top: 28px; }
 
     input[type="email"] {
       padding: 14px;
@@ -207,7 +210,7 @@
       max-width: 100%;
       font-size: 17px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 10px;
     }
 
     button {
@@ -217,7 +220,7 @@
       background: #111;
       color: #fff;
       border: none;
-      border-radius: 6px;
+      border-radius: 10px;
       cursor: pointer;
     }
 
@@ -234,13 +237,13 @@
        ========================= */
 
     .endorsements {
-      padding: 20px 0 0;
+      padding: 10px 0 0;
     }
 
     .endorsements-wrap {
       display: grid;
       grid-template-columns: 1fr 1.35fr;
-      gap: 42px;
+      gap: 46px;
       align-items: start;
     }
 
@@ -259,17 +262,18 @@
     }
 
     .e-title {
-      font-size: 44px;
-      line-height: 1.04;
-      letter-spacing: -0.03em;
+      font-size: 46px;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
       margin: 0 0 14px 0;
+      color: #111;
     }
 
     .e-sub {
       font-size: 18px;
-      color: rgba(0,0,0,0.72);
+      color: var(--muted);
       margin: 0 0 24px 0;
-      max-width: 380px;
+      max-width: 420px;
     }
 
     .e-mini {
@@ -278,9 +282,9 @@
       gap: 10px;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.10);
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
       font-size: 13px;
       color: rgba(0,0,0,0.75);
     }
@@ -293,44 +297,56 @@
       box-shadow: 0 0 0 6px rgba(197,31,31,0.14);
     }
 
+    /* Image stack (uses your images/) */
     .e-float {
       position: relative;
       margin-top: 22px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      max-width: 420px;
+      gap: 12px;
+      max-width: 520px;
     }
 
     .e-chip {
-      height: 86px;
-      border-radius: 18px;
-      border: 1px solid rgba(0,0,0,0.10);
-      background: rgba(255,255,255,0.70);
+      height: 108px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.65);
       backdrop-filter: blur(12px);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.08);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.10);
       transform: translateY(0);
-      transition: transform 900ms ease;
+      transition: transform 900ms ease, filter 500ms ease;
       overflow: hidden;
+      position: relative;
     }
 
-    .e-chip:nth-child(1) { transform: translateY(6px); }
-    .e-chip:nth-child(2) { transform: translateY(-4px); }
-    .e-chip:nth-child(3) { transform: translateY(10px); }
-
-    .e-chip::before {
-      content: "";
-      display: block;
+    .e-chip img {
+      width: 100%;
       height: 100%;
-      border-radius: 18px;
-      background:
-        radial-gradient(40px 40px at 25% 30%, rgba(197,31,31,0.10), transparent 60%),
-        radial-gradient(40px 40px at 70% 60%, rgba(0,0,0,0.06), transparent 60%);
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.03) contrast(1.02);
+      transform: scale(1.03);
     }
 
-    .endorsements.is-active .e-chip:nth-child(1) { transform: translateY(-2px); }
-    .endorsements.is-active .e-chip:nth-child(2) { transform: translateY(8px); }
-    .endorsements.is-active .e-chip:nth-child(3) { transform: translateY(0px); }
+    .e-chip::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(90px 70px at 20% 20%, rgba(255,255,255,0.35), transparent 55%),
+        linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.02));
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    .e-chip:nth-child(1) { transform: translateY(10px); }
+    .e-chip:nth-child(2) { transform: translateY(-6px); }
+    .e-chip:nth-child(3) { transform: translateY(14px); }
+
+    .endorsements.is-active .e-chip:nth-child(1) { transform: translateY(-4px); }
+    .endorsements.is-active .e-chip:nth-child(2) { transform: translateY(10px); }
+    .endorsements.is-active .e-chip:nth-child(3) { transform: translateY(2px); }
 
     .e-cards {
       display: grid;
@@ -342,16 +358,16 @@
       border-radius: 18px;
       padding: 22px 22px 18px;
       border: 1px solid rgba(0,0,0,0.09);
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(12px);
+      background: var(--glass);
+      backdrop-filter: blur(14px);
       box-shadow:
-        0 18px 40px rgba(0,0,0,0.08),
+        0 22px 48px rgba(0,0,0,0.10),
         0 1px 0 rgba(0,0,0,0.04);
       overflow: hidden;
 
       opacity: 0;
       transform: translateY(14px) scale(0.985);
-      transition: opacity 700ms ease, transform 700ms ease;
+      transition: opacity 720ms ease, transform 720ms ease;
     }
 
     .e-card.is-in {
@@ -364,8 +380,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(700px 220px at 0% 0%, rgba(197,31,31,0.10), transparent 60%),
-        radial-gradient(600px 220px at 100% 0%, rgba(0,0,0,0.05), transparent 55%);
+        radial-gradient(760px 240px at 0% 0%, rgba(197,31,31,0.10), transparent 60%),
+        radial-gradient(650px 240px at 100% 0%, rgba(0,0,0,0.06), transparent 55%);
       pointer-events: none;
     }
 
@@ -386,10 +402,10 @@
       margin: 0 0 16px 0;
       font-size: 18px;
       line-height: 1.6;
-      color: rgba(0,0,0,0.92);
+      color: var(--ink);
     }
 
-    .e-quote strong { font-weight: 800; }
+    .e-quote strong { font-weight: 850; }
 
     .e-footer {
       display: flex;
@@ -415,7 +431,7 @@
       border: 1px solid rgba(0,0,0,0.12);
       background:
         radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0) 70%),
-        linear-gradient(135deg, rgba(0,0,0,0.08), rgba(0,0,0,0.02));
+        linear-gradient(135deg, rgba(0,0,0,0.10), rgba(0,0,0,0.02));
       flex: 0 0 auto;
     }
 
@@ -425,7 +441,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 320px;
+      max-width: 360px;
     }
 
     .e-role {
@@ -435,7 +451,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 320px;
+      max-width: 360px;
     }
 
     .e-proof {
@@ -452,29 +468,126 @@
     }
 
     /* =========================
+       APPLE-STYLE GALLERY (horizontal filmstrip)
+       ========================= */
+
+    .gallery-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 46px;
+      align-items: start;
+    }
+
+    .g-sticky {
+      position: sticky;
+      top: 108px;
+      padding-right: 10px;
+    }
+
+    .g-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.55);
+      margin-bottom: 14px;
+    }
+
+    .g-title {
+      font-size: 42px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px 0;
+    }
+
+    .g-sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0 0 18px 0;
+      max-width: 420px;
+    }
+
+    .filmstrip {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 10px 4px 14px;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .filmstrip::-webkit-scrollbar { height: 8px; }
+    .filmstrip::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.18);
+      border-radius: 999px;
+    }
+
+    .shot {
+      flex: 0 0 78%;
+      scroll-snap-align: start;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 22px 48px rgba(0,0,0,0.10);
+      background: #fff;
+
+      opacity: 0;
+      transform: translateY(14px) scale(0.985);
+      transition: opacity 720ms ease, transform 720ms ease;
+    }
+
+    .shot.is-in {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .shot img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shot-cap {
+      padding: 14px 16px 16px;
+      font-size: 14px;
+      color: rgba(0,0,0,0.70);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    @media (min-width: 900px) {
+      .shot { flex-basis: 52%; }
+      .shot img { height: 420px; }
+    }
+
+    /* =========================
        MOBILE
        ========================= */
 
     @media (max-width: 900px) {
-      .endorsements-wrap {
+      .endorsements-wrap,
+      .gallery-wrap {
         grid-template-columns: 1fr;
         gap: 22px;
       }
 
-      .e-sticky {
+      .e-sticky,
+      .g-sticky {
         position: relative;
         top: auto;
       }
 
-      .e-title { font-size: 36px; }
+      .e-title { font-size: 38px; }
+      .g-title { font-size: 36px; }
     }
 
     @media (max-width: 700px) {
       .hero { min-height: 70vh; }
       .hero-content { padding: 72px 24px; }
-      .hero h1 { font-size: 38px; }
+      .hero h1 { font-size: 40px; }
       .hero p { font-size: 18px; }
-      h2 { font-size: 28px; }
+      h2 { font-size: 30px; }
       p, ul { font-size: 17px; }
 
       button {
@@ -497,6 +610,7 @@
       <a href="#home">Home</a>
       <a href="#speaking">Speaking</a>
       <a href="#endorsements">Endorsements</a>
+      <a href="#intheroom">In the Room</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
 
@@ -577,7 +691,8 @@
   <!-- APPLE-STYLE ENDORSEMENTS -->
   <section class="content-section endorsements" id="endorsements">
     <div class="endorsements-wrap">
-      <!-- LEFT: sticky header -->
+
+      <!-- LEFT: sticky header + image chips -->
       <div class="e-sticky">
         <div class="e-eyebrow">Endorsements</div>
         <h2 class="e-title">Proof of calm, clarity, and room control.</h2>
@@ -591,9 +706,15 @@
         </div>
 
         <div class="e-float" aria-hidden="true">
-          <div class="e-chip"></div>
-          <div class="e-chip"></div>
-          <div class="e-chip"></div>
+          <div class="e-chip">
+            <img src="images/sam-osborne-audience.jpeg" alt="">
+          </div>
+          <div class="e-chip">
+            <img src="images/sam-osborne-radio.jpg" alt="">
+          </div>
+          <div class="e-chip">
+            <img src="images/sam-osborne-board-member.jpg" alt="">
+          </div>
         </div>
       </div>
 
@@ -722,6 +843,51 @@
     </div>
   </section>
 
+  <!-- APPLE-STYLE "IN THE ROOM" GALLERY -->
+  <section class="content-section" id="intheroom">
+    <div class="gallery-wrap">
+      <div class="g-sticky">
+        <div class="g-eyebrow">In the Room</div>
+        <h2 class="g-title">Calm presence. Clear message. Real environments.</h2>
+        <p class="g-sub">
+          A quick visual snapshot of stage moments, audience energy, and broadcast settings.
+        </p>
+      </div>
+
+      <div class="filmstrip" id="filmstrip" aria-label="Photo gallery">
+        <figure class="shot">
+          <img src="images/sam-osborne-stage2.jpg" alt="Sam Osborne on stage">
+          <figcaption class="shot-cap">On stage — controlled delivery under lights.</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/sam-osborne-audience.jpeg" alt="Audience setting">
+          <figcaption class="shot-cap">Audience engagement — high-trust, low-noise.</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/sam-osborne-radio.jpg" alt="Podcast or radio appearance">
+          <figcaption class="shot-cap">Broadcast / podcast — clarity in conversation.</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/sam-osborne-board-member.jpg" alt="Professional headshot">
+          <figcaption class="shot-cap">Executive tone — substance-forward presence.</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/sam-osborne-stage4.jpg" alt="Stage moment">
+          <figcaption class="shot-cap">Room control — composed pacing and focus.</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/sam-osborne-stage3.png" alt="Stage moment">
+          <figcaption class="shot-cap">Key moments — decisive, steady communication.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="content-section" id="about">
     <h2>About Sam</h2>
 
@@ -768,18 +934,33 @@
 
 <script>
   (function () {
+    // Endorsement cards reveal
     var cards = document.querySelectorAll(".e-card");
     var section = document.querySelector(".endorsements");
-    if (!cards.length) return;
 
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) entry.target.classList.add("is-in");
-      });
-    }, { threshold: 0.18 });
+    if (cards.length) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) entry.target.classList.add("is-in");
+        });
+      }, { threshold: 0.18 });
 
-    cards.forEach(function (c) { io.observe(c); });
+      cards.forEach(function (c) { io.observe(c); });
+    }
 
+    // Gallery reveal
+    var shots = document.querySelectorAll(".shot");
+    if (shots.length) {
+      var gio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) entry.target.classList.add("is-in");
+        });
+      }, { threshold: 0.20 });
+
+      shots.forEach(function (s) { gio.observe(s); });
+    }
+
+    // Toggle section active for floating chips motion
     if (section) {
       var sio = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
