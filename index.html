@@ -100,7 +100,7 @@
     .linkedin-icon img:hover{ opacity:1; }
 
     /* =========================
-       HERO (image works better)
+       HERO
        ========================= */
 
     .hero{
@@ -146,23 +146,30 @@
     .hero h1{
       font-size: 58px;
       line-height: 1.04;
-      margin:0 0 14px 0;
+      margin:0 0 12px 0;
       letter-spacing:-.04em;
       max-width: 920px;
     }
 
     .hero .subhead{
       font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      font-weight: 800;
+      margin-bottom: 18px;
       color: rgba(255,255,255,.92);
     }
 
     .hero p{
-      font-size: 22px;
-      max-width: 700px;
-      margin: 0 0 34px 0;
+      font-size: 20px;
+      max-width: 720px;
+      margin: 0 0 22px 0;
       color: rgba(255,255,255,.90);
+    }
+
+    .hero .micro{
+      font-size: 18px;
+      font-weight: 700;
+      color: rgba(255,255,255,.92);
+      margin-top: 10px;
     }
 
     .cta{
@@ -170,6 +177,7 @@
       gap:12px;
       flex-wrap:wrap;
       align-items:center;
+      margin-top: 26px;
     }
 
     .cta a{
@@ -213,24 +221,27 @@
 
     p{
       font-size: 19px;
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 0 20px 0;
       color: var(--ink);
     }
 
-    ul{
-      list-style: disc;
-      margin: 0 0 22px 22px;
-      font-size: 19px;
+    .lead{
+      font-size: 20px;
       color: var(--ink);
+      max-width: 880px;
     }
 
-    ul li{ margin-bottom: 12px; }
-
-    .fit{
-      font-weight: 700;
-      color: rgba(0,0,0,.62);
+    .stack{
+      display:grid;
+      gap:14px;
       margin-top: 16px;
+    }
+
+    .callout{
+      border-left: 3px solid rgba(0,0,0,.14);
+      padding-left: 14px;
+      color: rgba(0,0,0,.76);
     }
 
     /* =========================
@@ -283,8 +294,40 @@
     }
 
     /* =========================
+       “DELIVERS” CARDS
+       ========================= */
+
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top: 16px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 42px rgba(0,0,0,.06);
+    }
+
+    .card h3{
+      margin:0 0 8px 0;
+      font-size: 16px;
+      letter-spacing: -.01em;
+    }
+
+    .card p{
+      margin:0;
+      font-size: 17px;
+      color: rgba(0,0,0,.74);
+    }
+
+    /* =========================
        ENDORSEMENTS CAROUSEL
-       - horizontal snap
+       - snap
        - dots update on scroll
        - auto-advance pauses on hover/focus
        ========================= */
@@ -505,39 +548,47 @@
     }
 
     /* =========================
-       ICON STRIP (svg works better)
-       ========================= */
-
-    .icon-strip{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top: 18px;
-    }
-    .icon{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.70);
-      color: rgba(0,0,0,.72);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .icon img{
-      width: 18px;
-      height: 18px;
-      display:block;
-      opacity: .85;
-    }
-
-    /* =========================
        CONTACT
        ========================= */
 
-    form{ margin-top: 28px; }
+    .cta-block{
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 42px rgba(0,0,0,.08);
+      padding: 22px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 14px;
+    }
+
+    .cta-row a{
+      display:inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      text-decoration:none;
+      font-weight: 900;
+    }
+
+    .cta-row .call{
+      background: var(--accent);
+      color:#fff;
+      box-shadow: 0 18px 38px rgba(0,0,0,.16);
+    }
+
+    .cta-row .email{
+      background: rgba(0,0,0,.06);
+      border: 1px solid rgba(0,0,0,.14);
+      color:#111;
+    }
+
+    form{ margin-top: 18px; }
 
     input[type="email"]{
       padding: 14px;
@@ -589,7 +640,7 @@
       .hero h1{ font-size: 40px; }
       .hero p{ font-size: 18px; }
       h2{ font-size: 30px; }
-      p, ul{ font-size: 17px; }
+      p{ font-size: 17px; }
 
       button{
         margin-left:0;
@@ -631,17 +682,20 @@
       <h1 class="reveal">Clarity Is the Competitive Advantage</h1>
 
       <div class="subhead reveal">
-        Sam Osborne · Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure
+        Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure
       </div>
 
       <p class="reveal">
-        When responsibility is high and decisions carry weight,
-        clarity matters more than confidence.
+        When responsibility is high and decisions carry weight, clarity matters more than confidence.
       </p>
+
+      <div class="micro reveal">
+        Pressure doesn’t break leaders. Loss of clarity does.
+      </div>
 
       <div class="cta reveal">
         <a href="tel:+18189345140">Call Sam · (818) 934-5140</a>
-        <a class="ghost" href="#endorsements">View endorsements</a>
+        <a class="ghost" href="#contact">Check availability</a>
       </div>
     </div>
   </section>
@@ -649,54 +703,158 @@
   <!-- CONTENT -->
   <div class="container">
 
+    <!-- POSITIONING -->
     <section class="content-section" id="speaking">
       <div class="two-col">
         <div class="sticky">
-          <div class="eyebrow reveal">Speaking</div>
-          <h2 class="big reveal">Pressure doesn’t break leaders. Loss of clarity does.</h2>
+          <div class="eyebrow reveal">Positioning</div>
+          <h2 class="big reveal">Decision-maker copy, not hype copy.</h2>
           <p class="sub reveal">
-            In high-stakes environments, leaders don’t need more information or motivation.
-            They need steadiness — the ability to think clearly when pressure is present.
+            Most leadership training focuses on performance. This work focuses on clarity.
           </p>
-
-          <div class="icon-strip reveal" aria-hidden="true">
-            <span class="icon"><img src="images/sam-osborne-chair.svg" alt="">High-trust rooms</span>
-            <span class="icon"><img src="images/sam-osborne-stage.svg" alt="">On-stage control</span>
-            <span class="icon"><img src="images/sam-osborne-chair.svg" alt="">Clear decisions</span>
-          </div>
         </div>
 
         <div>
-          <p class="reveal"><strong>Outcome-driven, not hype-driven.</strong></p>
-
-          <ul class="reveal">
-            <li>Restore clarity when urgency distorts judgment</li>
-            <li>Strengthen composure under scrutiny and responsibility</li>
-            <li>Support calm, decisive leadership without performance or theatrics</li>
-          </ul>
-
-          <p class="fit reveal">
-            This work is designed for substance, responsibility, and real outcomes —
-            not entertainment, theatrics, or surface-level inspiration.
+          <p class="lead reveal">
+            Most leadership training focuses on performance.
           </p>
-
           <p class="reveal">
-            If your audience includes senior leaders who operate under pressure and responsibility,
-            Sam delivers a focused keynote that holds the room and leaves people thinking more clearly than when they arrived.
+            Sam Osborne focuses on clarity — because clarity is what holds when pressure rises, scrutiny increases,
+            and decisions cannot be undone.
+          </p>
+          <p class="reveal">
+            This work is not about motivation or personality. It is about restoring internal order so leaders can think,
+            speak, and decide without distortion.
+          </p>
+          <p class="callout reveal">
+            The result is not excitement. It is stability, insight, and better decisions.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ENDORSEMENTS (single carousel style + dots + auto-advance pause hover/focus) -->
+    <!-- WHAT SAM DELIVERS -->
+    <section class="content-section">
+      <div class="two-col">
+        <div class="sticky">
+          <div class="eyebrow reveal">What Sam Delivers</div>
+          <h2 class="big reveal">Clear frameworks leaders can use in real time.</h2>
+          <p class="sub reveal">
+            Calm, precise, and practical. Built for high-responsibility environments.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal">
+            <h3>Restore clarity under pressure</h3>
+            <p>
+              Leaders learn how to regain internal alignment when emotions, expectations, and external noise threaten decision quality.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Strengthen composure in decision-making</h3>
+            <p>
+              Composure is treated as a practiced discipline — not a trait, not a style, and not a performance.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3>Support calm leadership without hype</h3>
+            <p>
+              No theatrics. No forced vulnerability. No motivational excess. Clear frameworks leaders can rely on when it matters most.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO THIS IS FOR -->
+    <section class="content-section">
+      <div class="two-col">
+        <div class="sticky">
+          <div class="eyebrow reveal">Who This Is For</div>
+          <h2 class="big reveal">For leaders whose decisions already carry weight.</h2>
+          <p class="sub reveal">
+            Designed for responsibility, scrutiny, and real consequences.
+          </p>
+        </div>
+
+        <div class="stack">
+          <p class="reveal">
+            Sam’s work is designed for leaders who carry responsibility on behalf of others, operate under scrutiny or visibility,
+            and make decisions with real consequences.
+          </p>
+          <p class="reveal">
+            This is not entry-level leadership content. It is for people expected to remain composed, even when challenged.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEYNOTE OUTCOMES -->
+    <section class="content-section">
+      <div class="two-col">
+        <div class="sticky">
+          <div class="eyebrow reveal">Keynote Outcomes</div>
+          <h2 class="big reveal">What changes after the keynote.</h2>
+          <p class="sub reveal">
+            The impact shows up in how leaders respond weeks and months later.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal">
+            <h3>How pressure distorts thinking</h3>
+            <p>A clear understanding of what happens under stress, and where judgment gets pulled off course.</p>
+          </div>
+          <div class="card reveal">
+            <h3>How to restore clarity in real time</h3>
+            <p>A practical method leaders can apply during tension, urgency, or scrutiny.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Language for high-stakes moments</h3>
+            <p>Simple, precise wording leaders can use when challenged or put on the spot.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Stability without posturing</h3>
+            <p>Greater internal steadiness without bravado, defensiveness, or performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 30-SECOND BOOKING DECISION -->
+    <section class="content-section">
+      <div class="two-col">
+        <div class="sticky">
+          <div class="eyebrow reveal">The 30-Second Booking Decision</div>
+          <h2 class="big reveal">Why organizations book Sam.</h2>
+          <p class="sub reveal">
+            Calm authority, precision, and depth — without drama.
+          </p>
+        </div>
+
+        <div class="stack">
+          <p class="reveal">
+            Organizations book Sam when they want calm authority, not charisma. Precision, not platitudes.
+            Depth without drama. Practical clarity leaders can actually use.
+          </p>
+          <p class="reveal">
+            If your leaders are facing complexity, tension, or high-stakes decisions, this work fits.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENDORSEMENTS (carousel) -->
     <section class="content-section" id="endorsements">
       <div class="two-col">
         <div class="sticky">
           <div class="eyebrow reveal">Endorsements</div>
-          <h2 class="big reveal">Proof of calm, clarity, and room control.</h2>
+          <h2 class="big reveal">Trusted by professionals who have seen it live.</h2>
           <p class="sub reveal">
-            A single, swipeable carousel. Auto-advances gently. Pauses on hover and keyboard focus.
-            Progress dots reflect your position as you scroll.
+            Swipe or use arrow keys. Auto-advances gently. Pauses on hover and focus.
           </p>
         </div>
 
@@ -704,29 +862,28 @@
           <div class="carousel-top">
             <p class="carousel-title">
               <span class="dotlive" aria-hidden="true"></span>
-              High-trust feedback
+              Endorsements
             </p>
-            <span class="pill" id="carouselStatus" aria-live="polite">1 / 6</span>
+            <span class="pill" id="carouselStatus" aria-live="polite">1 / 3</span>
           </div>
 
           <div class="slides" id="slides" tabindex="0" aria-label="Endorsements carousel">
             <!-- Slide 1 -->
             <article class="slide" data-index="0">
               <div class="slide-text">
-                <div class="slide-tag">Clarity · Trust · No Gimmicks</div>
+                <div class="slide-tag">Clarity · Trust</div>
                 <p class="quote">
-                  <strong>Sam isn’t just a speaker—he’s a catalyst.</strong> Steady, thoughtful, quietly powerful.
-                  No fluff. No ego. Just the kind of clarity that shifts people.
+                  Sam isn’t just a speaker — he’s a catalyst. No fluff. No ego. Just clarity.
                 </p>
                 <div class="person">
                   <div class="who">
                     <div class="avatar" aria-hidden="true"></div>
                     <div>
                       <div class="name">Davene Januszewski</div>
-                      <div class="role">Podcast Host · Training Solutions</div>
+                      <div class="role">Podcast Host</div>
                     </div>
                   </div>
-                  <div class="proof">Listener impact</div>
+                  <div class="proof">Trusted voice</div>
                 </div>
               </div>
               <div class="slide-media" aria-hidden="true">
@@ -737,20 +894,19 @@
             <!-- Slide 2 -->
             <article class="slide" data-index="1">
               <div class="slide-text">
-                <div class="slide-tag">Practical Tools · Real Outcomes</div>
+                <div class="slide-tag">Practical Outcomes</div>
                 <p class="quote">
-                  Engaging and packed with practical tools — actionable strategies for handling difficult interactions
-                  with composure and professionalism.
+                  Packed with practical tools and strategies for composure under pressure.
                 </p>
                 <div class="person">
                   <div class="who">
                     <div class="avatar" aria-hidden="true"></div>
                     <div>
                       <div class="name">Jake Gold</div>
-                      <div class="role">Executive Director · Foundation for Community Association Research</div>
+                      <div class="role">Executive Director</div>
                     </div>
                   </div>
-                  <div class="proof">Webinar</div>
+                  <div class="proof">Actionable</div>
                 </div>
               </div>
               <div class="slide-media" aria-hidden="true">
@@ -761,149 +917,96 @@
             <!-- Slide 3 -->
             <article class="slide" data-index="2">
               <div class="slide-text">
-                <div class="slide-tag">Influence · Application</div>
+                <div class="slide-tag">Stage Authority</div>
                 <p class="quote">
-                  One of the most influential speakers I’ve encountered in 20+ years —
-                  articulates universal principles with warmth and humor, and inspires audiences to apply them.
-                </p>
-                <div class="person">
-                  <div class="who">
-                    <div class="avatar" aria-hidden="true"></div>
-                    <div>
-                      <div class="name">Lori Enrico</div>
-                      <div class="role">Best-selling Author · Speaker, Trainer & Coach</div>
-                    </div>
-                  </div>
-                  <div class="proof">20+ years</div>
-                </div>
-              </div>
-              <div class="slide-media" aria-hidden="true">
-                <img src="images/sam-osborne-speaker.jpeg" alt="">
-              </div>
-            </article>
-
-            <!-- Slide 4 -->
-            <article class="slide" data-index="3">
-              <div class="slide-text">
-                <div class="slide-tag">Stage Authority · Room Control</div>
-                <p class="quote">
-                  Commands an audience and stays in control of the moment —
-                  seamless transitions and a confident presence on stage.
+                  He commands the room and is always in control of the moment.
                 </p>
                 <div class="person">
                   <div class="who">
                     <div class="avatar" aria-hidden="true"></div>
                     <div>
                       <div class="name">Bernard Salt AM</div>
-                      <div class="role">Corporate Speaker · Columnist & Author</div>
+                      <div class="role">Corporate Speaker</div>
                     </div>
                   </div>
-                  <div class="proof">On stage</div>
+                  <div class="proof">Room control</div>
                 </div>
               </div>
               <div class="slide-media" aria-hidden="true">
                 <img src="images/sam-osborne-stage2.jpg" alt="">
               </div>
             </article>
-
-            <!-- Slide 5 -->
-            <article class="slide" data-index="4">
-              <div class="slide-text">
-                <div class="slide-tag">Calm Under Pressure · Pivoting</div>
-                <p class="quote">
-                  Runs a tight ship — on time, speakers supported.
-                  Quick on his feet, pivots smoothly, and brings things back with light humour and decorum.
-                </p>
-                <div class="person">
-                  <div class="who">
-                    <div class="avatar" aria-hidden="true"></div>
-                    <div>
-                      <div class="name">Glenn Porter</div>
-                      <div class="role">Managing Director · Vertimax Australia</div>
-                    </div>
-                  </div>
-                  <div class="proof">Live control</div>
-                </div>
-              </div>
-              <div class="slide-media" aria-hidden="true">
-                <img src="images/sam-osborne-stage4.jpg" alt="">
-              </div>
-            </article>
-
-            <!-- Slide 6 -->
-            <article class="slide" data-index="5">
-              <div class="slide-text">
-                <div class="slide-tag">Executive Tone · Credibility</div>
-                <p class="quote">
-                  A composed, credible presence — delivers with clarity under scrutiny,
-                  and holds attention without theatrics.
-                </p>
-                <div class="person">
-                  <div class="who">
-                    <div class="avatar" aria-hidden="true"></div>
-                    <div>
-                      <div class="name">Professional partners</div>
-                      <div class="role">Events · Leadership · Education</div>
-                    </div>
-                  </div>
-                  <div class="proof">Trusted</div>
-                </div>
-              </div>
-              <div class="slide-media" aria-hidden="true">
-                <img src="images/sam-osborne-board-member.jpg" alt="">
-              </div>
-            </article>
           </div>
 
-          <div class="dots" id="dots" aria-label="Carousel progress">
-            <!-- JS will populate buttons -->
-          </div>
+          <div class="dots" id="dots" aria-label="Carousel progress"></div>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section class="content-section" id="about">
       <div class="two-col">
         <div class="sticky">
-          <div class="eyebrow reveal">About</div>
-          <h2 class="big reveal">Calm leadership is not a trait. It’s a practiced discipline.</h2>
+          <div class="eyebrow reveal">About Sam</div>
+          <h2 class="big reveal">Calm leadership is not a personality trait. It’s a practiced discipline.</h2>
           <p class="sub reveal">
-            Sam works at the intersection of psychology, self-worth, and decision-making under pressure —
-            helping leaders stabilize internally so they can lead externally.
+            Measured presence, precise language, and the ability to bring order to tense environments.
           </p>
         </div>
 
-        <div>
+        <div class="stack">
           <p class="reveal">
-            Sam Osborne is a former educator turned marketing director and leadership advisor.
-            His work helps leaders restore clarity when urgency distorts judgment — without bravado, burnout,
-            or performative confidence.
+            Sam Osborne helps leaders understand how clarity is lost under pressure — and how it can be restored deliberately.
           </p>
-
           <p class="reveal">
-            If you want your event to leave people steadier, clearer, and more decisive than when they arrived,
-            call <strong>(818) 934-5140</strong>.
+            His work sits at the intersection of decision-making, self-worth, and composure, offering leaders a grounded alternative
+            to reactive leadership models.
+          </p>
+          <p class="reveal">
+            Sam is known for his measured presence, precise language, and ability to bring order to tense environments without escalation or performance.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- CTA / CONTACT -->
     <section class="content-section" id="contact">
-      <h2 class="reveal">Stay in Touch</h2>
+      <div class="two-col">
+        <div class="sticky">
+          <div class="eyebrow reveal">Call to Action</div>
+          <h2 class="big reveal">If clarity matters more than confidence, let’s talk.</h2>
+          <p class="sub reveal">
+            Quick response on availability and fit for your event.
+          </p>
+        </div>
 
-      <p class="reveal">
-        For occasional insights and availability for future speaking engagements,
-        leave your email below.
-      </p>
+        <div class="cta-block reveal">
+          <p class="lead" style="margin-bottom:10px;">
+            For bookings and availability:
+          </p>
 
-      <form class="reveal" action="https://formspree.io/f/xjgkyypd" method="POST">
-        <input type="email" name="email" placeholder="Your email address" required />
-        <button type="submit">Subscribe</button>
-      </form>
+          <div class="cta-row">
+            <a class="call" href="tel:+18189345140">Call Sam · (818) 934-5140</a>
+            <a class="email" href="mailto:bookings@samosborne.net">Email bookings@samosborne.net</a>
+          </div>
 
-      <p class="reveal" style="font-size:15px;color:#666;margin-top:12px;">
-        No mailing lists. No funnels. No noise.
-      </p>
+          <div style="margin-top:18px;">
+            <p style="margin:0 0 8px 0; font-weight:900;">Occasional insights, no noise.</p>
+            <p style="margin:0 0 12px 0; color: rgba(0,0,0,.70);">
+              Leadership under pressure doesn’t announce itself in advance. Short notes on clarity, composure, and decision quality.
+            </p>
+
+            <form action="https://formspree.io/f/xjgkyypd" method="POST">
+              <input type="email" name="email" placeholder="Your email address" required />
+              <button type="submit">Subscribe</button>
+            </form>
+
+            <p style="font-size:15px;color:#666;margin-top:12px;">
+              No mailing lists. No funnels. No noise.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -918,9 +1021,7 @@
 
   <script>
     (function () {
-      // ---------------------------
-      // Apple-like reveal on scroll
-      // ---------------------------
+      // Reveal on scroll
       var reveals = document.querySelectorAll(".reveal");
       if (reveals.length) {
         var rio = new IntersectionObserver(function (entries) {
@@ -931,9 +1032,7 @@
         reveals.forEach(function (el) { rio.observe(el); });
       }
 
-      // ---------------------------
       // Carousel: dots + auto-advance
-      // ---------------------------
       var root = document.getElementById("endorsementCarousel");
       var slidesEl = document.getElementById("slides");
       var statusEl = document.getElementById("carouselStatus");
@@ -949,11 +1048,9 @@
         var b = document.createElement("button");
         b.className = "dotbtn";
         b.type = "button";
-        b.setAttribute("aria-label", "Go to slide " + (i + 1));
+        b.setAttribute("aria-label", "Go to endorsement " + (i + 1));
         b.setAttribute("aria-current", i === 0 ? "true" : "false");
-        b.addEventListener("click", function () {
-          scrollToIndex(i);
-        });
+        b.addEventListener("click", function () { scrollToIndex(i); });
         dotsEl.appendChild(b);
       });
 
@@ -976,7 +1073,7 @@
         setActive(i);
       }
 
-      // Progress dots update as you scroll (based on nearest slide)
+      // Dots update on scroll
       var ticking = false;
       slidesEl.addEventListener("scroll", function () {
         if (ticking) return;
@@ -994,15 +1091,14 @@
         });
       }, { passive: true });
 
-      // Auto-advance (pauses on hover/focus, resumes on leave/blur)
+      // Auto-advance (pause on hover/focus)
       var intervalMs = 6500;
       var timer = null;
       var paused = false;
 
       function next() {
         if (paused) return;
-        var n = (active + 1) % count;
-        scrollToIndex(n);
+        scrollToIndex((active + 1) % count);
       }
 
       function start() {
@@ -1018,10 +1114,10 @@
       function pause() { paused = true; }
       function resume() { paused = false; }
 
-      root.addEventListener("mouseenter", function(){ pause(); });
-      root.addEventListener("mouseleave", function(){ resume(); });
-      root.addEventListener("focusin", function(){ pause(); });
-      root.addEventListener("focusout", function(){ resume(); });
+      root.addEventListener("mouseenter", pause);
+      root.addEventListener("mouseleave", resume);
+      root.addEventListener("focusin", pause);
+      root.addEventListener("focusout", resume);
 
       // Keyboard support
       slidesEl.addEventListener("keydown", function (e) {
@@ -1029,7 +1125,6 @@
         if (e.key === "ArrowLeft") { e.preventDefault(); scrollToIndex((active - 1 + count) % count); }
       });
 
-      // Initialize
       setActive(0);
       start();
     })();
