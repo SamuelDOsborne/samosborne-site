@@ -3,47 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Sam Osborne — Keynote Speaker</title>
   <meta name="description"
         content="Sam Osborne delivers high-trust keynotes on clarity, self-worth, and leadership under pressure for senior leaders and responsible audiences." />
 
   <style>
     :root{
+      --overlay: rgba(0,0,0,0.45);
+      --ink:#111;
+      --muted:#666;
+      --line:rgba(0,0,0,0.08);
       --accent:#c51f1f;
-      --ink: rgba(0,0,0,.92);
-      --muted: rgba(0,0,0,.66);
-      --line: rgba(0,0,0,.10);
-      --glass: rgba(255,255,255,.72);
-      --overlay: rgba(0,0,0,.42);
-      --shadow: 0 22px 48px rgba(0,0,0,.10);
-      --radius: 18px;
     }
 
     *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
 
     body{
       margin:0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color:#111;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--ink);
       background:#fff;
       line-height:1.55;
     }
 
-    section{ scroll-margin-top:84px; }
-
-    /* =========================
-       TOP NAV
-       ========================= */
-
+    /* NAV */
     .topbar{
       position:sticky;
       top:0;
       z-index:50;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(0,0,0,.08);
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);
     }
 
     .topbar-inner{
@@ -51,65 +41,41 @@
       margin:0 auto;
       padding:16px 24px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:18px;
+      align-items:center;
     }
 
     .brand{
-      font-weight:900;
+      font-weight:800;
       font-size:18px;
-      letter-spacing:-.03em;
+      letter-spacing:-0.03em;
       text-transform:uppercase;
       color:#111;
       text-decoration:none;
-      white-space:nowrap;
     }
 
     .nav{
       display:flex;
-      gap:18px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      gap:22px;
     }
 
     .nav a{
-      font-size:12px;
-      letter-spacing:.10em;
+      font-size:13px;
+      letter-spacing:0.08em;
       text-transform:uppercase;
       color:#333;
       text-decoration:none;
     }
-    .nav a:hover{ color:#111; }
 
-    .linkedin-icon{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      margin-left:4px;
-    }
+    section{ scroll-margin-top:84px; }
 
-    .linkedin-icon img{
-      width:18px;
-      height:18px;
-      opacity:.75;
-      transition: opacity .2s ease;
-      display:block;
-    }
-    .linkedin-icon img:hover{ opacity:1; }
-
-    /* =========================
-       HERO
-       ========================= */
-
+    /* HERO */
     .hero{
       position:relative;
-      min-height: 82vh;
+      min-height:80vh;
       display:flex;
       align-items:center;
       color:#fff;
-      overflow:hidden;
     }
 
     .hero::before{
@@ -117,1018 +83,283 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(var(--overlay), var(--overlay)),
-        url("images/sam-osborne-speaker.jpeg");
-      background-size: cover;
-      background-position: center 18%;
-      transform: scale(1.04);
-      z-index:0;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:-60px -60px auto -60px;
-      height:260px;
-      background: radial-gradient(60% 120% at 30% 20%, rgba(255,255,255,.16), transparent 60%);
-      pointer-events:none;
+        linear-gradient(var(--overlay),var(--overlay)),
+        url("images/sam-osborne-hero-image.jpg");
+      background-size:cover;
+      background-position:center;
       z-index:0;
     }
 
     .hero-content{
       position:relative;
       z-index:1;
-      max-width: 980px;
+      max-width:960px;
       margin:0 auto;
-      padding: 96px 24px;
+      padding:96px 24px;
     }
 
     .hero h1{
-      font-size: 58px;
-      line-height: 1.04;
-      margin:0 0 12px 0;
-      letter-spacing:-.04em;
-      max-width: 920px;
+      font-size:52px;
+      line-height:1.12;
+      margin-bottom:14px;
+      letter-spacing:-0.02em;
     }
 
-    .hero .subhead{
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 18px;
-      color: rgba(255,255,255,.92);
+    .subhead{
+      font-size:18px;
+      font-weight:600;
+      margin-bottom:18px;
+      color:rgba(255,255,255,0.92);
     }
 
     .hero p{
-      font-size: 20px;
-      max-width: 720px;
-      margin: 0 0 22px 0;
-      color: rgba(255,255,255,.90);
+      font-size:22px;
+      max-width:640px;
+      margin-bottom:24px;
+      color:rgba(255,255,255,0.9);
     }
 
-    .hero .micro{
-      font-size: 18px;
-      font-weight: 700;
-      color: rgba(255,255,255,.92);
-      margin-top: 10px;
+    .micro{
+      font-size:15px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.85);
+      margin-bottom:22px;
     }
 
     .cta{
       display:flex;
-      gap:12px;
+      gap:14px;
       flex-wrap:wrap;
-      align-items:center;
-      margin-top: 26px;
     }
 
     .cta a{
-      display:inline-block;
-      padding: 15px 28px;
-      background: var(--accent);
-      color:#fff;
+      padding:16px 34px;
+      border-radius:6px;
+      font-weight:700;
       text-decoration:none;
-      font-weight: 900;
-      border-radius: 12px;
-      box-shadow: 0 18px 38px rgba(0,0,0,.22);
     }
-    .cta a:hover{ filter: brightness(.96); }
+
+    .cta .primary{
+      background:var(--accent);
+      color:#fff;
+    }
 
     .cta .ghost{
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.26);
-      backdrop-filter: blur(10px);
-      box-shadow: none;
-      font-weight: 800;
+      border:1px solid rgba(255,255,255,0.7);
+      color:#fff;
     }
 
-    /* =========================
-       LAYOUT
-       ========================= */
-
+    /* CONTENT */
     .container{
-      max-width: 1040px;
+      max-width:960px;
       margin:0 auto;
-      padding: 92px 24px;
+      padding:88px 24px;
     }
 
-    .content-section{ margin-bottom: 108px; }
+    .content-section{
+      margin-bottom:96px;
+    }
 
     h2{
-      font-size: 38px;
-      letter-spacing: -.03em;
-      margin: 0 0 18px 0;
-      color:#111;
+      font-size:34px;
+      margin-bottom:18px;
+      letter-spacing:-0.01em;
     }
 
     p{
-      font-size: 19px;
-      max-width: 860px;
-      margin: 0 0 20px 0;
-      color: var(--ink);
+      font-size:19px;
+      max-width:720px;
+      margin-bottom:22px;
     }
 
-    .lead{
-      font-size: 20px;
-      color: var(--ink);
-      max-width: 880px;
+    ul{
+      margin-left:22px;
+      font-size:19px;
     }
 
-    .stack{
-      display:grid;
-      gap:14px;
-      margin-top: 16px;
-    }
-
-    .callout{
-      border-left: 3px solid rgba(0,0,0,.14);
-      padding-left: 14px;
-      color: rgba(0,0,0,.76);
-    }
-
-    /* =========================
-       APPLE-LIKE “FLOAT IN”
-       ========================= */
-
-    .reveal{
-      opacity:0;
-      transform: translateY(14px) scale(.99);
-      transition: opacity 700ms ease, transform 700ms ease;
-      will-change: transform, opacity;
-    }
-    .reveal.in{
-      opacity:1;
-      transform: translateY(0) scale(1);
-    }
-
-    .two-col{
-      display:grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 46px;
-      align-items:start;
-    }
-
-    .sticky{
-      position:sticky;
-      top: 108px;
-    }
-
-    .eyebrow{
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color: rgba(0,0,0,.54);
-      margin: 0 0 14px 0;
-    }
-
-    .big{
-      font-size: 48px;
-      line-height: 1.02;
-      letter-spacing: -.045em;
-      margin: 0 0 14px 0;
-    }
-
-    .sub{
-      font-size: 18px;
-      color: var(--muted);
-      margin: 0 0 22px 0;
-      max-width: 520px;
-    }
-
-    /* =========================
-       “DELIVERS” CARDS
-       ========================= */
-
-    .cards{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-      margin-top: 16px;
-    }
-
-    .card{
-      border:1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 18px;
-      background: rgba(255,255,255,.78);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 18px 42px rgba(0,0,0,.06);
-    }
-
-    .card h3{
-      margin:0 0 8px 0;
-      font-size: 16px;
-      letter-spacing: -.01em;
-    }
-
-    .card p{
-      margin:0;
-      font-size: 17px;
-      color: rgba(0,0,0,.74);
-    }
-
-    /* =========================
-       ENDORSEMENTS CAROUSEL
-       - snap
-       - dots update on scroll
-       - auto-advance pauses on hover/focus
-       ========================= */
-
+    /* ENDORSEMENTS */
     .carousel{
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,.78);
-      backdrop-filter: blur(14px);
-      box-shadow: var(--shadow);
+      display:flex;
       overflow:hidden;
-    }
-
-    .carousel-top{
-      padding: 18px 18px 14px;
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      background: linear-gradient(to bottom, rgba(255,255,255,.92), rgba(255,255,255,.72));
-    }
-
-    .carousel-title{
-      font-size: 13px;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,.62);
-      margin:0;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.65);
-      color: rgba(0,0,0,.70);
-      font-size: 12px;
-      white-space:nowrap;
-    }
-
-    .dotlive{
-      width:8px; height:8px;
-      border-radius:50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(197,31,31,.14);
-      flex:0 0 auto;
-    }
-
-    .slides{
-      display:flex;
-      gap: 0;
-      overflow-x:auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-    }
-    .slides::-webkit-scrollbar{ height:10px; }
-    .slides::-webkit-scrollbar-thumb{
-      background: rgba(0,0,0,.18);
-      border-radius: 999px;
+      border-radius:14px;
+      border:1px solid var(--line);
     }
 
     .slide{
-      flex: 0 0 100%;
-      scroll-snap-align: start;
+      min-width:100%;
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      min-height: 420px;
-      position:relative;
+      grid-template-columns:1.2fr 1fr;
     }
 
-    .slide-text{
-      padding: 30px 28px 26px;
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .slide-copy{
+      padding:32px;
       display:flex;
       flex-direction:column;
       justify-content:center;
-      gap:14px;
-      position:relative;
-      z-index:2;
-    }
-
-    .slide-tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:12px;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      color: rgba(0,0,0,.62);
     }
 
     .quote{
-      font-size: 19px;
-      line-height: 1.65;
-      color: var(--ink);
-      margin: 0;
-    }
-    .quote strong{ font-weight: 900; }
-
-    .person{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      margin-top: 8px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(0,0,0,.08);
+      font-size:20px;
+      margin-bottom:12px;
     }
 
-    .who{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-
-    .avatar{
-      width:44px;
-      height:44px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.12);
-      background:
-        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,0) 70%),
-        linear-gradient(135deg, rgba(0,0,0,.10), rgba(0,0,0,.02));
-      flex: 0 0 auto;
-    }
-
-    .name{
-      font-weight: 900;
-      letter-spacing:-.01em;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      max-width: 420px;
-    }
-
-    .role{
-      font-size: 13px;
-      color: rgba(0,0,0,.62);
-      margin-top:2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      max-width: 420px;
-    }
-
-    .proof{
-      font-size: 12px;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,.62);
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.60);
-      padding: 9px 10px;
-      border-radius: 999px;
-      white-space: nowrap;
-      flex: 0 0 auto;
-    }
-
-    .slide-media{
-      position:relative;
-      overflow:hidden;
-    }
-
-    .slide-media::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: radial-gradient(900px 420px at 20% 20%, rgba(255,255,255,.35), transparent 60%),
-                  linear-gradient(to left, rgba(0,0,0,.14), rgba(0,0,0,.02));
-      z-index:2;
-      pointer-events:none;
-      opacity:.85;
-    }
-
-    .slide-media img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      transform: scale(1.03);
-      filter: saturate(1.03) contrast(1.02);
+    .cite{
+      font-size:14px;
+      color:var(--muted);
     }
 
     .dots{
       display:flex;
-      gap:10px;
-      align-items:center;
       justify-content:center;
-      padding: 14px 16px 18px;
-      background: rgba(255,255,255,.80);
-      border-top: 1px solid rgba(0,0,0,.08);
+      gap:8px;
+      margin-top:14px;
     }
 
-    .dotbtn{
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      border: 1px solid rgba(0,0,0,.22);
-      background: rgba(0,0,0,.08);
-      padding: 0;
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#ccc;
       cursor:pointer;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
-    }
-    .dotbtn[aria-current="true"]{
-      background: var(--accent);
-      border-color: rgba(197,31,31,.70);
-      transform: scale(1.25);
-      box-shadow: 0 0 0 7px rgba(197,31,31,.13);
     }
 
-    /* =========================
-       CONTACT
-       ========================= */
-
-    .cta-block{
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,.78);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 18px 42px rgba(0,0,0,.08);
-      padding: 22px;
-    }
-
-    .cta-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top: 14px;
-    }
-
-    .cta-row a{
-      display:inline-block;
-      padding: 14px 22px;
-      border-radius: 12px;
-      text-decoration:none;
-      font-weight: 900;
-    }
-
-    .cta-row .call{
-      background: var(--accent);
-      color:#fff;
-      box-shadow: 0 18px 38px rgba(0,0,0,.16);
-    }
-
-    .cta-row .email{
-      background: rgba(0,0,0,.06);
-      border: 1px solid rgba(0,0,0,.14);
-      color:#111;
-    }
-
-    form{ margin-top: 18px; }
-
-    input[type="email"]{
-      padding: 14px;
-      width: 320px;
-      max-width: 100%;
-      font-size: 17px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-    }
-
-    button{
-      margin-left: 8px;
-      padding: 14px 22px;
-      font-size: 17px;
-      background: #111;
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-    }
+    .dot.active{ background:#111; }
 
     footer{
-      padding-top: 48px;
-      border-top: 1px solid #eee;
-      font-size: 14px;
-      color: #666;
-      text-align: center;
+      padding-top:48px;
+      border-top:1px solid #eee;
+      font-size:14px;
+      color:#666;
+      text-align:center;
     }
 
-    /* =========================
-       RESPONSIVE
-       ========================= */
-
-    @media (max-width: 980px){
-      .two-col{ grid-template-columns: 1fr; gap: 22px; }
-      .sticky{ position: relative; top:auto; }
-      .big{ font-size: 40px; }
-
-      .slide{
-        grid-template-columns: 1fr;
-        min-height: 520px;
-      }
-      .slide-media{ min-height: 260px; }
-    }
-
-    @media (max-width: 700px){
-      .hero{ min-height: 70vh; }
-      .hero-content{ padding: 72px 24px; }
-      .hero h1{ font-size: 40px; }
-      .hero p{ font-size: 18px; }
-      h2{ font-size: 30px; }
-      p{ font-size: 17px; }
-
-      button{
-        margin-left:0;
-        margin-top:12px;
-        width:100%;
-      }
+    @media (max-width:800px){
+      .hero h1{ font-size:38px; }
+      .hero p{ font-size:18px; }
+      .slide{ grid-template-columns:1fr; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <nav class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#home">Sam Osborne</a>
-
-      <div class="nav">
-        <a href="#home">Home</a>
-        <a href="#speaking">Speaking</a>
-        <a href="#endorsements">Endorsements</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-
-        <a href="https://www.linkedin.com/in/sam-osborne-usa/"
-           target="_blank"
-           rel="noopener"
-           aria-label="LinkedIn"
-           class="linkedin-icon">
-          <img src="/images/sam-osborne-linkedin-icon.jpg" alt="LinkedIn">
-        </a>
-      </div>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#home">Sam Osborne</a>
+    <div class="nav">
+      <a href="#speaking">Speaking</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#endorsements">Endorsements</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1 class="reveal">Clarity Is the Competitive Advantage</h1>
-
-      <div class="subhead reveal">
-        Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure
-      </div>
-
-      <p class="reveal">
-        When responsibility is high and decisions carry weight, clarity matters more than confidence.
-      </p>
-
-      <div class="micro reveal">
-        Pressure doesn’t break leaders. Loss of clarity does.
-      </div>
-
-      <div class="cta reveal">
-        <a href="tel:+18189345140">Call Sam · (818) 934-5140</a>
-        <a class="ghost" href="#contact">Check availability</a>
-      </div>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Clarity Is the Competitive Advantage</h1>
+    <div class="subhead">Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure</div>
+    <p>When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
+    <div class="micro">Pressure doesn’t break leaders. Loss of clarity does.</div>
+    <div class="cta">
+      <a class="primary" href="tel:+18189345140">Call Sam · (818) 934-5140</a>
+      <a class="ghost" href="#contact">Availability & Fit</a>
     </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <section class="content-section" id="speaking">
+    <h2>Positioning</h2>
+    <p>Most leadership training focuses on performance. Sam Osborne focuses on clarity — because clarity is what holds when pressure rises, scrutiny increases, and decisions cannot be undone.</p>
+    <p>This work restores internal order so leaders can think, speak, and decide without distortion.</p>
   </section>
 
-  <!-- CONTENT -->
-  <div class="container">
+  <section class="content-section" id="outcomes">
+    <h2>Keynote Outcomes</h2>
+    <ul>
+      <li>Restore clarity under pressure</li>
+      <li>Strengthen composure as a discipline</li>
+      <li>Support calm leadership without hype</li>
+    </ul>
+  </section>
 
-    <!-- POSITIONING -->
-    <section class="content-section" id="speaking">
-      <div class="two-col">
-        <div class="sticky">
-          <div class="eyebrow reveal">Positioning</div>
-          <h2 class="big reveal">Decision-maker copy, not hype copy.</h2>
-          <p class="sub reveal">
-            Most leadership training focuses on performance. This work focuses on clarity.
-          </p>
-        </div>
+  <section class="content-section" id="endorsements">
+    <h2>Endorsements</h2>
 
-        <div>
-          <p class="lead reveal">
-            Most leadership training focuses on performance.
-          </p>
-          <p class="reveal">
-            Sam Osborne focuses on clarity — because clarity is what holds when pressure rises, scrutiny increases,
-            and decisions cannot be undone.
-          </p>
-          <p class="reveal">
-            This work is not about motivation or personality. It is about restoring internal order so leaders can think,
-            speak, and decide without distortion.
-          </p>
-          <p class="callout reveal">
-            The result is not excitement. It is stability, insight, and better decisions.
-          </p>
+    <div class="carousel" id="carousel">
+      <div class="slide">
+        <img src="images/sam-osborne-radio.jpg" alt="Sam recording a radio interview">
+        <div class="slide-copy">
+          <div class="quote">“Sam isn’t just a speaker — he’s a catalyst. No fluff. No ego. Just clarity.”</div>
+          <div class="cite">Davene Januszewski, Podcast Host</div>
         </div>
       </div>
-    </section>
 
-    <!-- WHAT SAM DELIVERS -->
-    <section class="content-section">
-      <div class="two-col">
-        <div class="sticky">
-          <div class="eyebrow reveal">What Sam Delivers</div>
-          <h2 class="big reveal">Clear frameworks leaders can use in real time.</h2>
-          <p class="sub reveal">
-            Calm, precise, and practical. Built for high-responsibility environments.
-          </p>
-        </div>
-
-        <div class="cards">
-          <div class="card reveal">
-            <h3>Restore clarity under pressure</h3>
-            <p>
-              Leaders learn how to regain internal alignment when emotions, expectations, and external noise threaten decision quality.
-            </p>
-          </div>
-
-          <div class="card reveal">
-            <h3>Strengthen composure in decision-making</h3>
-            <p>
-              Composure is treated as a practiced discipline — not a trait, not a style, and not a performance.
-            </p>
-          </div>
-
-          <div class="card reveal">
-            <h3>Support calm leadership without hype</h3>
-            <p>
-              No theatrics. No forced vulnerability. No motivational excess. Clear frameworks leaders can rely on when it matters most.
-            </p>
-          </div>
+      <div class="slide">
+        <img src="images/sam-osborne-board-member.jpg" alt="Sam presenting to a board">
+        <div class="slide-copy">
+          <div class="quote">“Packed with practical tools and strategies for composure under pressure.”</div>
+          <div class="cite">Jake Gold, Executive Director</div>
         </div>
       </div>
-    </section>
 
-    <!-- WHO THIS IS FOR -->
-    <section class="content-section">
-      <div class="two-col">
-        <div class="sticky">
-          <div class="eyebrow reveal">Who This Is For</div>
-          <h2 class="big reveal">For leaders whose decisions already carry weight.</h2>
-          <p class="sub reveal">
-            Designed for responsibility, scrutiny, and real consequences.
-          </p>
-        </div>
-
-        <div class="stack">
-          <p class="reveal">
-            Sam’s work is designed for leaders who carry responsibility on behalf of others, operate under scrutiny or visibility,
-            and make decisions with real consequences.
-          </p>
-          <p class="reveal">
-            This is not entry-level leadership content. It is for people expected to remain composed, even when challenged.
-          </p>
+      <div class="slide">
+        <img src="images/sam-osborne-stage2.jpg" alt="Sam speaking at a podium on stage">
+        <div class="slide-copy">
+          <div class="quote">“He commands the room and is always in control of the moment.”</div>
+          <div class="cite">Bernard Salt AM, Corporate Speaker</div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- KEYNOTE OUTCOMES -->
-    <section class="content-section">
-      <div class="two-col">
-        <div class="sticky">
-          <div class="eyebrow reveal">Keynote Outcomes</div>
-          <h2 class="big reveal">What changes after the keynote.</h2>
-          <p class="sub reveal">
-            The impact shows up in how leaders respond weeks and months later.
-          </p>
-        </div>
+    <div class="dots" id="dots"></div>
+  </section>
 
-        <div class="cards">
-          <div class="card reveal">
-            <h3>How pressure distorts thinking</h3>
-            <p>A clear understanding of what happens under stress, and where judgment gets pulled off course.</p>
-          </div>
-          <div class="card reveal">
-            <h3>How to restore clarity in real time</h3>
-            <p>A practical method leaders can apply during tension, urgency, or scrutiny.</p>
-          </div>
-          <div class="card reveal">
-            <h3>Language for high-stakes moments</h3>
-            <p>Simple, precise wording leaders can use when challenged or put on the spot.</p>
-          </div>
-          <div class="card reveal">
-            <h3>Stability without posturing</h3>
-            <p>Greater internal steadiness without bravado, defensiveness, or performance.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="content-section" id="contact">
+    <h2>Contact</h2>
+    <p><strong>Phone:</strong> (818) 934-5140<br>
+       <strong>Email:</strong> <a href="mailto:sam@samosborne.net">sam@samosborne.net</a></p>
+  </section>
 
-    <!-- 30-SECOND BOOKING DECISION -->
-    <section class="content-section">
-      <div class="two-col">
-        <div class="sticky">
-          <div class="eyebrow reveal">The 30-Second Booking Decision</div>
-          <h2 class="big reveal">Why organizations book Sam.</h2>
-          <p class="sub reveal">
-            Calm authority, precision, and depth — without drama.
-          </p>
-        </div>
+  <footer>
+    © <span id="year"></span> Sam Osborne · samosborne.net
+  </footer>
 
-        <div class="stack">
-          <p class="reveal">
-            Organizations book Sam when they want calm authority, not charisma. Precision, not platitudes.
-            Depth without drama. Practical clarity leaders can actually use.
-          </p>
-          <p class="reveal">
-            If your leaders are facing complexity, tension, or high-stakes decisions, this work fits.
-          </p>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <!-- ENDORSEMENTS (carousel) -->
-    <section class="content-section" id="endorsements">
-      <div class="two-col">
-        <div class="sticky">
-          <div class="eyebrow reveal">Endorsements</div>
-          <h2 class="big reveal">Trusted by professionals who have seen it live.</h2>
-          <p class="sub reveal">
-            Swipe or use arrow keys. Auto-advances gently. Pauses on hover and focus.
-          </p>
-        </div>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-        <div class="carousel reveal" id="endorsementCarousel">
-          <div class="carousel-top">
-            <p class="carousel-title">
-              <span class="dotlive" aria-hidden="true"></span>
-              Endorsements
-            </p>
-            <span class="pill" id="carouselStatus" aria-live="polite">1 / 3</span>
-          </div>
+  const carousel = document.getElementById('carousel');
+  const slides = carousel.children;
+  const dotsWrap = document.getElementById('dots');
+  let index = 0;
 
-          <div class="slides" id="slides" tabindex="0" aria-label="Endorsements carousel">
-            <!-- Slide 1 -->
-            <article class="slide" data-index="0">
-              <div class="slide-text">
-                <div class="slide-tag">Clarity · Trust</div>
-                <p class="quote">
-                  Sam isn’t just a speaker — he’s a catalyst. No fluff. No ego. Just clarity.
-                </p>
-                <div class="person">
-                  <div class="who">
-                    <div class="avatar" aria-hidden="true"></div>
-                    <div>
-                      <div class="name">Davene Januszewski</div>
-                      <div class="role">Podcast Host</div>
-                    </div>
-                  </div>
-                  <div class="proof">Trusted voice</div>
-                </div>
-              </div>
-              <div class="slide-media" aria-hidden="true">
-                <img src="images/sam-osborne-radio.jpg" alt="">
-              </div>
-            </article>
+  [...slides].forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => go(i);
+    dotsWrap.appendChild(d);
+  });
 
-            <!-- Slide 2 -->
-            <article class="slide" data-index="1">
-              <div class="slide-text">
-                <div class="slide-tag">Practical Outcomes</div>
-                <p class="quote">
-                  Packed with practical tools and strategies for composure under pressure.
-                </p>
-                <div class="person">
-                  <div class="who">
-                    <div class="avatar" aria-hidden="true"></div>
-                    <div>
-                      <div class="name">Jake Gold</div>
-                      <div class="role">Executive Director</div>
-                    </div>
-                  </div>
-                  <div class="proof">Actionable</div>
-                </div>
-              </div>
-              <div class="slide-media" aria-hidden="true">
-                <img src="images/sam-osborne-audience.jpeg" alt="">
-              </div>
-            </article>
+  function go(i){
+    index = i;
+    carousel.style.transform = `translateX(-${i * 100}%)`;
+    [...dotsWrap.children].forEach((d,di)=>d.classList.toggle('active', di === i));
+  }
 
-            <!-- Slide 3 -->
-            <article class="slide" data-index="2">
-              <div class="slide-text">
-                <div class="slide-tag">Stage Authority</div>
-                <p class="quote">
-                  He commands the room and is always in control of the moment.
-                </p>
-                <div class="person">
-                  <div class="who">
-                    <div class="avatar" aria-hidden="true"></div>
-                    <div>
-                      <div class="name">Bernard Salt AM</div>
-                      <div class="role">Corporate Speaker</div>
-                    </div>
-                  </div>
-                  <div class="proof">Room control</div>
-                </div>
-              </div>
-              <div class="slide-media" aria-hidden="true">
-                <img src="images/sam-osborne-stage2.jpg" alt="">
-              </div>
-            </article>
-          </div>
-
-          <div class="dots" id="dots" aria-label="Carousel progress"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="content-section" id="about">
-      <div class="two-col">
-        <div class="sticky">
-          <div class="eyebrow reveal">About Sam</div>
-          <h2 class="big reveal">Calm leadership is not a personality trait. It’s a practiced discipline.</h2>
-          <p class="sub reveal">
-            Measured presence, precise language, and the ability to bring order to tense environments.
-          </p>
-        </div>
-
-        <div class="stack">
-          <p class="reveal">
-            Sam Osborne helps leaders understand how clarity is lost under pressure — and how it can be restored deliberately.
-          </p>
-          <p class="reveal">
-            His work sits at the intersection of decision-making, self-worth, and composure, offering leaders a grounded alternative
-            to reactive leadership models.
-          </p>
-          <p class="reveal">
-            Sam is known for his measured presence, precise language, and ability to bring order to tense environments without escalation or performance.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA / CONTACT -->
-    <section class="content-section" id="contact">
-      <div class="two-col">
-        <div class="sticky">
-          <div class="eyebrow reveal">Call to Action</div>
-          <h2 class="big reveal">If clarity matters more than confidence, let’s talk.</h2>
-          <p class="sub reveal">
-            Quick response on availability and fit for your event.
-          </p>
-        </div>
-
-        <div class="cta-block reveal">
-          <p class="lead" style="margin-bottom:10px;">
-            For bookings and availability:
-          </p>
-
-          <div class="cta-row">
-            <a class="call" href="tel:+18189345140">Call Sam · (818) 934-5140</a>
-            <a class="email" href="mailto:bookings@samosborne.net">Email bookings@samosborne.net</a>
-          </div>
-
-          <div style="margin-top:18px;">
-            <p style="margin:0 0 8px 0; font-weight:900;">Occasional insights, no noise.</p>
-            <p style="margin:0 0 12px 0; color: rgba(0,0,0,.70);">
-              Leadership under pressure doesn’t announce itself in advance. Short notes on clarity, composure, and decision quality.
-            </p>
-
-            <form action="https://formspree.io/f/xjgkyypd" method="POST">
-              <input type="email" name="email" placeholder="Your email address" required />
-              <button type="submit">Subscribe</button>
-            </form>
-
-            <p style="font-size:15px;color:#666;margin-top:12px;">
-              No mailing lists. No funnels. No noise.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Sam Osborne · samosborne.net
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
-  <script>
-    (function () {
-      // Reveal on scroll
-      var reveals = document.querySelectorAll(".reveal");
-      if (reveals.length) {
-        var rio = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) e.target.classList.add("in");
-          });
-        }, { threshold: 0.16 });
-        reveals.forEach(function (el) { rio.observe(el); });
-      }
-
-      // Carousel: dots + auto-advance
-      var root = document.getElementById("endorsementCarousel");
-      var slidesEl = document.getElementById("slides");
-      var statusEl = document.getElementById("carouselStatus");
-      var dotsEl = document.getElementById("dots");
-      if (!root || !slidesEl || !statusEl || !dotsEl) return;
-
-      var slides = Array.prototype.slice.call(slidesEl.querySelectorAll(".slide"));
-      var count = slides.length;
-      var active = 0;
-
-      // Build dots
-      slides.forEach(function (_, i) {
-        var b = document.createElement("button");
-        b.className = "dotbtn";
-        b.type = "button";
-        b.setAttribute("aria-label", "Go to endorsement " + (i + 1));
-        b.setAttribute("aria-current", i === 0 ? "true" : "false");
-        b.addEventListener("click", function () { scrollToIndex(i); });
-        dotsEl.appendChild(b);
-      });
-
-      var dotBtns = Array.prototype.slice.call(dotsEl.querySelectorAll(".dotbtn"));
-
-      function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
-
-      function setActive(i) {
-        active = clamp(i, 0, count - 1);
-        dotBtns.forEach(function (b, idx) {
-          b.setAttribute("aria-current", idx === active ? "true" : "false");
-        });
-        statusEl.textContent = (active + 1) + " / " + count;
-      }
-
-      function scrollToIndex(i) {
-        var target = slides[i];
-        if (!target) return;
-        slidesEl.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
-        setActive(i);
-      }
-
-      // Dots update on scroll
-      var ticking = false;
-      slidesEl.addEventListener("scroll", function () {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(function () {
-          var left = slidesEl.scrollLeft;
-          var bestIdx = 0;
-          var bestDist = Infinity;
-          for (var i = 0; i < count; i++) {
-            var dist = Math.abs(slides[i].offsetLeft - left);
-            if (dist < bestDist) { bestDist = dist; bestIdx = i; }
-          }
-          setActive(bestIdx);
-          ticking = false;
-        });
-      }, { passive: true });
-
-      // Auto-advance (pause on hover/focus)
-      var intervalMs = 6500;
-      var timer = null;
-      var paused = false;
-
-      function next() {
-        if (paused) return;
-        scrollToIndex((active + 1) % count);
-      }
-
-      function start() {
-        stop();
-        timer = window.setInterval(next, intervalMs);
-      }
-
-      function stop() {
-        if (timer) window.clearInterval(timer);
-        timer = null;
-      }
-
-      function pause() { paused = true; }
-      function resume() { paused = false; }
-
-      root.addEventListener("mouseenter", pause);
-      root.addEventListener("mouseleave", resume);
-      root.addEventListener("focusin", pause);
-      root.addEventListener("focusout", resume);
-
-      // Keyboard support
-      slidesEl.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowRight") { e.preventDefault(); scrollToIndex((active + 1) % count); }
-        if (e.key === "ArrowLeft") { e.preventDefault(); scrollToIndex((active - 1 + count) % count); }
-      });
-
-      setActive(0);
-      start();
-    })();
-  </script>
+  setInterval(() => go((index + 1) % slides.length), 5000);
+</script>
 
 </body>
 </html>
