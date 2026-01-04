@@ -1,657 +1,1161 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Leadership Advisory | Sam Osborne</title>
+
     <style>
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
         }
 
         body {
+
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
             background: #000;
+
             color: #f5f5f7;
+
             overflow-x: hidden;
+
             line-height: 1.6;
+
         }
 
         nav {
+
             position: fixed;
+
             top: 0;
+
             width: 100%;
+
             background: rgba(0, 0, 0, 0.8);
+
             backdrop-filter: blur(20px);
+
             z-index: 1000;
+
             padding: 20px 0;
+
             transition: all 0.3s ease;
+
         }
 
         nav.scrolled {
+
             background: rgba(0, 0, 0, 0.95);
+
             padding: 15px 0;
+
         }
 
         .nav-content {
+
             max-width: 1400px;
+
             margin: 0 auto;
+
             padding: 0 40px;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
         }
 
         .logo {
+
             font-size: 20px;
+
             font-weight: 600;
+
             color: #f5f5f7;
+
             text-decoration: none;
+
         }
 
         .nav-links {
+
             display: flex;
+
             gap: 35px;
+
             list-style: none;
+
         }
 
         .nav-links a {
+
             color: #f5f5f7;
+
             text-decoration: none;
+
             font-size: 14px;
+
             transition: opacity 0.3s;
+
         }
 
         .nav-links a:hover {
+
             opacity: 0.7;
+
         }
 
         .mobile-menu-toggle {
+
             display: none;
+
             background: none;
+
             border: none;
+
             color: #f5f5f7;
+
             font-size: 28px;
+
             cursor: pointer;
+
         }
 
         .hero {
+
             min-height: 100vh;
+
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+
             align-items: center;
-            text-align: center;
-            padding: 0;
+
+            padding: 100px 40px;
+
             background: #000;
+
             position: relative;
+
             overflow: hidden;
+
+            margin-top: 80px;
+
         }
 
-        .hero-banner {
+        .hero-content {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+
+            max-width: 1400px;
+
+            margin: 0 auto;
+
             width: 100%;
-            height: 100vh;
-            position: relative;
+
         }
 
-        .hero-banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .hero-text {
 
-        .hero-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            width: 90%;
-            max-width: 1200px;
             z-index: 2;
+
             opacity: 0;
-            animation: fadeInText 1.5s ease 2s forwards;
+
+            animation: fadeInText 1.5s ease 0.5s forwards;
+
+        }
+
+        .hero-image {
+
+            z-index: 1;
+
+            opacity: 0;
+
+            animation: fadeInText 1.5s ease 0.5s forwards;
+
+        }
+
+        .hero-image img {
+
+            width: 100%;
+
+            height: auto;
+
+            border-radius: 20px;
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
         }
 
         @keyframes fadeInText {
+
             to {
+
                 opacity: 1;
+
             }
+
         }
 
         h1 {
+
             font-size: clamp(40px, 8vw, 96px);
+
             font-weight: 700;
+
             line-height: 1.05;
+
             margin-bottom: 30px;
+
             letter-spacing: -0.03em;
+
             color: #fff;
-            text-shadow: 0 4px 30px rgba(0,0,0,0.9);
+
         }
 
         h2 {
+
             font-size: clamp(32px, 6vw, 72px);
+
             font-weight: 700;
+
             margin-bottom: 30px;
+
             letter-spacing: -0.02em;
+
             line-height: 1.1;
+
         }
 
         h3 {
+
             font-size: clamp(24px, 4vw, 48px);
+
             font-weight: 600;
+
             margin-bottom: 20px;
+
             line-height: 1.2;
+
         }
 
         .subtitle {
+
             font-size: clamp(20px, 3vw, 32px);
+
             color: #fff;
+
             margin-bottom: 20px;
+
             font-weight: 400;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+
         }
 
         .tagline {
+
             font-size: clamp(16px, 2.5vw, 24px);
+
             color: #e5e5e7;
+
             margin-bottom: 50px;
+
             font-weight: 300;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+
+            max-width: 600px;
+
         }
 
         .cta-primary {
+
             background: #f5f5f7;
+
             color: #000;
+
             padding: 16px 40px;
+
             font-size: 18px;
+
             border-radius: 980px;
+
             text-decoration: none;
+
             transition: all 0.3s ease;
+
             font-weight: 500;
+
             display: inline-block;
+
             margin-top: 20px;
+
         }
 
         .cta-primary:hover {
+
             background: #fff;
+
             transform: scale(1.05);
+
         }
 
         .section {
+
             padding: 120px 40px;
+
             position: relative;
+
         }
 
         .section-content {
+
             max-width: 1200px;
+
             margin: 0 auto;
+
         }
 
         .section-dark {
+
             background: #000;
+
         }
 
         .section-light {
+
             background: #f5f5f7;
+
             color: #1d1d1f;
+
         }
 
         .section-light h2, .section-light h3 {
+
             color: #1d1d1f;
+
         }
 
         .section-light p {
+
             color: #6e6e73;
+
         }
 
         .section p {
+
             font-size: clamp(18px, 2.5vw, 28px);
+
             line-height: 1.6;
+
             color: #d1d1d6;
+
             margin-bottom: 30px;
+
         }
 
         .center-text {
+
             text-align: center;
+
         }
 
         .two-col {
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 80px;
+
             align-items: center;
+
             margin-top: 60px;
+
         }
 
         .two-col img {
+
             width: 100%;
+
             border-radius: 20px;
+
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
         }
 
         ul {
+
             list-style: none;
+
             margin-top: 30px;
+
         }
 
         li {
+
             font-size: clamp(16px, 2vw, 22px);
+
             line-height: 1.8;
+
             color: #d1d1d6;
+
             padding-left: 30px;
+
             position: relative;
+
             margin-bottom: 15px;
+
         }
 
         li:before {
+
             content: '•';
+
             position: absolute;
+
             left: 0;
+
             color: #2997ff;
+
             font-size: 24px;
+
         }
 
         .feature-grid {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
             gap: 40px;
+
             margin-top: 60px;
+
         }
 
         .feature-card {
+
             background: rgba(255, 255, 255, 0.03);
+
             border: 1px solid rgba(255, 255, 255, 0.1);
+
             border-radius: 20px;
+
             padding: 50px;
+
             transition: all 0.4s ease;
+
         }
 
         .feature-card:hover {
+
             background: rgba(255, 255, 255, 0.05);
+
             transform: translateY(-10px);
+
         }
 
         .feature-card h3 {
+
             font-size: 28px;
+
             margin-bottom: 20px;
+
             color: #f5f5f7;
+
         }
 
         .feature-card p {
+
             font-size: 18px;
+
             color: #d1d1d6;
+
             line-height: 1.6;
+
         }
 
         footer {
+
             background: #000;
+
             padding: 60px 40px 40px;
+
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+
         }
 
         .footer-content {
+
             max-width: 1200px;
+
             margin: 0 auto;
+
             text-align: center;
+
         }
 
         .social-links {
+
             display: flex;
+
             justify-content: center;
+
             gap: 30px;
+
             margin-bottom: 40px;
+
         }
 
         .social-links a {
+
             opacity: 0.7;
+
             transition: opacity 0.3s;
+
         }
 
         .social-links img {
+
             width: 40px;
+
             height: 40px;
+
         }
 
         .social-links a:hover {
+
             opacity: 1;
+
         }
 
         .footer-links {
+
             display: flex;
+
             justify-content: center;
+
             gap: 30px;
+
             margin-bottom: 30px;
+
             flex-wrap: wrap;
+
         }
 
         .footer-links a {
+
             color: #86868b;
+
             text-decoration: none;
+
             font-size: 14px;
+
             transition: opacity 0.3s;
+
         }
 
         .footer-links a:hover {
+
             opacity: 0.7;
+
         }
 
         .copyright {
+
             color: #86868b;
+
             font-size: 14px;
+
         }
 
         @media (max-width: 1024px) {
+
             .two-col {
+
                 grid-template-columns: 1fr;
+
                 gap: 40px;
+
             }
+
+            .hero-content {
+
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+
+            }
+
         }
 
         @media (max-width: 768px) {
+
             .nav-content {
+
                 padding: 0 20px;
+
             }
 
             .nav-links {
+
                 position: fixed;
+
                 top: 70px;
+
                 left: 0;
+
                 right: 0;
+
                 background: rgba(0, 0, 0, 0.98);
+
                 flex-direction: column;
+
                 gap: 0;
+
                 padding: 20px;
+
                 transform: translateY(-100%);
+
                 opacity: 0;
+
                 transition: all 0.3s ease;
+
                 pointer-events: none;
+
             }
 
             .nav-links.active {
+
                 transform: translateY(0);
+
                 opacity: 1;
+
                 pointer-events: all;
+
             }
 
             .nav-links li {
+
                 padding: 15px 0;
+
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
             }
 
             .nav-links a {
+
                 font-size: 18px;
+
                 display: block;
+
             }
 
             .mobile-menu-toggle {
+
                 display: block;
+
             }
 
             .section {
+
                 padding: 80px 20px;
+
             }
 
             .hero {
-                padding: 100px 20px 60px;
+
+                padding: 60px 20px;
+
+                margin-top: 60px;
+
             }
 
-            .hero-overlay {
-                width: 95%;
-                padding: 0 10px;
-            }
+            .hero-content {
 
-            .hero-overlay h1 {
-                font-size: clamp(32px, 10vw, 48px);
+                gap: 40px;
+
             }
 
             .feature-grid {
+
                 grid-template-columns: 1fr;
+
             }
+
         }
+
     </style>
+
 </head>
+
 <body id="top">
+
     <nav id="nav">
+
         <div class="nav-content">
+
             <a href="/" class="logo">Sam Osborne</a>
+
             <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+
             <ul class="nav-links" id="navLinks">
+
                 <li><a href="/">Home</a></li>
+
                 <li><a href="/#speaking">Speaking</a></li>
+
                 <li><a href="/leadership-advisory.html">Advisory</a></li>
+
                 <li><a href="/#contact">Contact</a></li>
+
             </ul>
+
         </div>
+
     </nav>
 
     <section class="hero">
-        <div class="hero-banner">
-            <img src="images/sam-osborne-chair.svg" alt="Sam Osborne">
-            <div class="hero-overlay">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
                 <h1>Leadership Advisory</h1>
+
                 <p class="subtitle">Clarity Under Pressure</p>
+
                 <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
+
                 <a href="mailto:sam@samosborne.net" class="cta-primary">Submit Inquiry</a>
+
             </div>
+
+            <div class="hero-image">
+
+                <img src="images/sam-osborne-chair.svg" alt="Sam Osborne">
+
+            </div>
+
         </div>
+
     </section>
 
     <section class="section section-dark center-text">
+
         <div class="section-content">
+
             <h2>The Problem This Work Solves</h2>
+
             <p style="max-width: 900px; margin: 40px auto;">Most leadership breakdowns are not caused by lack of intelligence, experience, or effort.</p>
+
             <p style="max-width: 900px; margin: 40px auto; font-weight: 600; font-size: clamp(20px, 3vw, 32px);">They are caused by loss of internal order under pressure.</p>
+
             <p style="max-width: 900px; margin: 40px auto;">When pressure rises, leaders often:</p>
+
             <ul style="max-width: 800px; margin: 40px auto; text-align: left;">
+
                 <li>Over-react or over-explain</li>
+
                 <li>Carry decisions that don't belong to the moment</li>
+
                 <li>Confuse perception with reality</li>
+
                 <li>Tie self-worth to outcomes or approval</li>
+
             </ul>
+
             <p style="max-width: 900px; margin: 40px auto;">This advisory work restores clarity, composure, and decision discipline — without hype, performance, or motivational excess.</p>
+
         </div>
+
     </section>
 
     <section class="section section-light">
+
         <div class="section-content">
+
             <div class="two-col">
+
                 <div>
+
                     <img src="images/sam-osborne-radio.jpg" alt="Sam Osborne">
+
                 </div>
+
                 <div>
+
                     <h2 style="color: #1d1d1f;">The Approach</h2>
+
                     <p style="color: #6e6e73; margin-top: 30px;">This work is grounded in a structured thinking sequence designed to be used in real time — before decisions, conversations, or responses that matter.</p>
+
                     <p style="color: #6e6e73;">Rather than focusing on personality or mindset, we focus on ordering perception.</p>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
     <section class="section section-dark">
+
         <div class="section-content">
+
             <h2 style="text-align: center;">Leaders Are Guided To:</h2>
+
             <ul style="max-width: 900px; margin: 40px auto;">
+
                 <li>Identify the true source of pressure</li>
+
                 <li>Separate observable facts from projection and assumption</li>
+
                 <li>Name the actual decision required — and defer what is not</li>
+
                 <li>Calibrate response intensity based on reversibility</li>
+
                 <li>Anchor authority without tying identity to outcomes</li>
+
                 <li>Choose composed, defensible responses under scrutiny</li>
+
             </ul>
+
             <p style="text-align: center; margin-top: 60px; font-weight: 600; font-size: clamp(20px, 3vw, 28px);">This sequence becomes an internal operating system leaders can rely on when things get loud.</p>
+
         </div>
+
     </section>
 
     <section class="section section-light">
+
         <div class="section-content">
+
             <div class="two-col">
+
                 <div>
+
                     <h2 style="color: #1d1d1f;">What This Is — And Is Not</h2>
+
                     <h3 style="color: #1d1d1f; font-size: clamp(20px, 3vw, 28px); margin-top: 40px;">This is:</h3>
+
                     <ul>
+
                         <li style="color: #6e6e73;">Practical, structured, and disciplined</li>
+
                         <li style="color: #6e6e73;">Grounded in real-world leadership pressure</li>
+
                         <li style="color: #6e6e73;">Designed for clarity, not catharsis</li>
+
                     </ul>
+
                     <h3 style="color: #1d1d1f; font-size: clamp(20px, 3vw, 28px); margin-top: 40px;">This is not:</h3>
+
                     <ul>
+
                         <li style="color: #6e6e73;">Therapy</li>
+
                         <li style="color: #6e6e73;">Motivation</li>
+
                         <li style="color: #6e6e73;">Performance coaching</li>
+
                         <li style="color: #6e6e73;">Emotional processing for its own sake</li>
+
                     </ul>
+
                     <p style="color: #1d1d1f; margin-top: 40px; font-weight: 600; font-size: clamp(20px, 3vw, 24px);">The goal is clarity that holds under pressure.</p>
+
                 </div>
+
                 <div>
+
                     <img src="images/sam-osborne-speaker.jpeg" alt="Sam Osborne">
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
     <section class="section section-dark">
+
         <div class="section-content">
+
             <h2 style="text-align: center;">Who This Is For</h2>
+
             <p style="text-align: center; margin-bottom: 40px;">This advisory work is suited for leaders who:</p>
+
             <ul style="max-width: 800px; margin: 40px auto;">
+
                 <li>Carry responsibility on behalf of others</li>
+
                 <li>Operate under visibility or political complexity</li>
+
                 <li>Make decisions with real downstream consequences</li>
+
                 <li>Are expected to remain composed even when challenged</li>
+
             </ul>
+
             <h3 style="text-align: center; margin-top: 60px;">It is especially effective for:</h3>
+
             <ul style="max-width: 700px; margin: 40px auto;">
+
                 <li>Senior leaders and executives</li>
+
                 <li>Founders and operators</li>
+
                 <li>Advisors, professionals, and decision-makers under scrutiny</li>
+
             </ul>
+
             <p style="text-align: center; margin-top: 60px; font-weight: 600; font-size: clamp(20px, 3vw, 24px);">This is not entry-level leadership development.</p>
+
         </div>
+
     </section>
 
     <section class="section section-dark">
+
         <div class="section-content">
+
             <h2 style="text-align: center;">Outcomes</h2>
+
             <p style="text-align: center; margin-bottom: 20px;">Leaders who engage in this work report:</p>
+
             <div class="feature-grid">
+
                 <div class="feature-card">
+
                     <h3>Greater Clarity</h3>
+
                     <p>Greater clarity in high-stakes moments</p>
+
                 </div>
+
                 <div class="feature-card">
+
                     <h3>Reduced Reactivity</h3>
+
                     <p>Reduced reactivity and second-guessing</p>
+
                 </div>
+
                 <div class="feature-card">
+
                     <h3>Stronger Composure</h3>
+
                     <p>Stronger composure during challenge or conflict</p>
+
                 </div>
+
                 <div class="feature-card">
+
                     <h3>Clearer Language</h3>
+
                     <p>Clearer language when decisions are questioned</p>
+
                 </div>
+
                 <div class="feature-card">
+
                     <h3>Increased Self-Trust</h3>
+
                     <p>Increased self-trust without defensiveness</p>
+
                 </div>
+
             </div>
+
             <p style="text-align: center; margin-top: 60px; font-weight: 600;">The impact shows up in decisions, conversations, and leadership presence — not in performative change.</p>
+
         </div>
+
     </section>
 
     <section class="section section-light">
+
         <div class="section-content">
+
             <div class="two-col">
+
                 <div>
+
                     <img src="images/sam-osborne-audience.jpeg" alt="Sam Osborne with audience">
+
                 </div>
+
                 <div>
+
                     <h2 style="color: #1d1d1f;">Format</h2>
+
                     <p style="color: #6e6e73; margin-top: 30px;">Engagements are intentionally selective and structured.</p>
+
                     <p style="color: #6e6e73; font-weight: 600; margin-top: 30px;">Formats may include:</p>
+
                     <ul>
+
                         <li style="color: #6e6e73;">One-to-one leadership advisory</li>
+
                         <li style="color: #6e6e73;">Short-term clarity intensives</li>
+
                         <li style="color: #6e6e73;">Decision-focused advisory sessions</li>
+
                         <li style="color: #6e6e73;">Ongoing strategic clarity support (limited availability)</li>
+
                     </ul>
+
                     <p style="color: #6e6e73; margin-top: 30px;">All engagements are anchored in the same clarity sequence, tailored to the leader's context and pressure profile.</p>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
     <section class="section section-dark center-text">
+
         <div class="section-content">
+
             <h2>About Sam</h2>
+
             <p style="max-width: 900px; margin: 40px auto; font-weight: 600; font-size: clamp(22px, 3vw, 36px);">Calm leadership is not a personality trait.<br>It is a practiced discipline.</p>
+
             <p style="max-width: 900px; margin: 40px auto;">Sam Osborne's advisory work sits at the intersection of clarity, self-worth, and decision-making under pressure.</p>
+
             <p style="max-width: 900px; margin: 40px auto;">Drawing from a background spanning education, philosophy, performance, and lived adversity, Sam is known for helping leaders restore internal order without escalation, theatrics, or ego.</p>
+
             <p style="max-width: 900px; margin: 40px auto; font-weight: 600;">His role is not to tell leaders what to do — but to help them see clearly enough to decide well.</p>
+
         </div>
+
     </section>
 
     <section class="section section-dark center-text">
+
         <div class="section-content">
+
             <h2>Inquiry</h2>
+
             <p style="max-width: 800px; margin: 40px auto; font-size: clamp(20px, 3vw, 28px);">This work is not offered at scale.</p>
+
             <p style="max-width: 800px; margin: 40px auto;">If you are navigating complexity, pressure, or high-stakes decisions and want to explore fit, you may inquire below.</p>
+
             <a href="mailto:sam@samosborne.net" class="cta-primary">Submit Inquiry</a>
+
         </div>
+
     </section>
 
     <footer>
+
         <div class="footer-content">
+
             <div class="social-links">
+
                 <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/63489f984a51d324b873dee9.png" alt="YouTube" style="filter: brightness(0) invert(1);">
+
                 </a>
+
                 <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/63489ff082251f62a8341107.png" alt="LinkedIn" style="filter: brightness(0) invert(1);">
+
                 </a>
+
                 <a href="https://www.tiktok.com/@selfworthsam" target="_blank">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/6348a0344a51d3359273def7.png" alt="TikTok" style="filter: brightness(0) invert(1);">
+
                 </a>
+
             </div>
+
             <div class="footer-links">
+
                 <a href="/">Home</a>
+
                 <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank">Book a Call</a>
+
                 <a href="mailto:sam@samosborne.net">Contact</a>
+
             </div>
+
             <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
+
         </div>
+
     </footer>
 
     <script>
+
         const menuToggle = document.getElementById('menuToggle');
+
         const navLinks = document.getElementById('navLinks');
+
         
+
         menuToggle.addEventListener('click', () => {
+
             navLinks.classList.toggle('active');
+
             menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
+
             link.addEventListener('click', () => {
+
                 navLinks.classList.remove('active');
+
                 menuToggle.textContent = '☰';
+
             });
+
         });
 
         const nav = document.getElementById('nav');
+
         window.addEventListener('scroll', () => {
+
             if (window.scrollY > 50) {
+
                 nav.classList.add('scrolled');
+
             } else {
+
                 nav.classList.remove('scrolled');
+
             }
+
         });
+
     </script>
+
 </body>
+
 </html>
