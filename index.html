@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +84,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0;
+            padding: 0 0 80px 0;
             background: #000;
             position: relative;
             overflow: hidden;
@@ -105,12 +104,12 @@
 
         .hero-overlay {
             position: absolute;
+            right: 40px;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateY(-50%);
             text-align: center;
-            width: 90%;
-            max-width: 1200px;
+            width: 45%;
+            max-width: 500px;
             z-index: 2;
             opacity: 0;
             animation: fadeInText 1.5s ease 2s forwards;
@@ -133,7 +132,7 @@
         }
 
         h1 {
-            font-size: clamp(40px, 8vw, 96px);
+            font-size: clamp(36px, 5vw, 72px);
             font-weight: 700;
             line-height: 1.05;
             margin-bottom: 30px;
@@ -185,13 +184,15 @@
             display: inline-block;
             cursor: pointer;
         }
-.hero-headline {
+
+        .hero-headline {
             font-size: clamp(36px, 5vw, 72px);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 25px;
             color: #fff;
         }
+
         .cta-primary {
             background: #f5f5f7;
             color: #000;
@@ -523,12 +524,10 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-
             .book-section {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-
             .book-image {
                 display: flex;
                 justify-content: center;
@@ -539,7 +538,6 @@
             .nav-content {
                 padding: 0 20px;
             }
-
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -554,45 +552,41 @@
                 transition: all 0.3s ease;
                 pointer-events: none;
             }
-
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
                 pointer-events: all;
             }
-
             .nav-links li {
                 padding: 15px 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
-
             .nav-links a {
                 font-size: 18px;
                 display: block;
             }
-
             .mobile-menu-toggle {
                 display: block;
             }
-
             .section {
                 padding: 80px 20px;
             }
-
             .hero {
                 padding: 100px 20px 60px;
             }
-
             .services-grid, .outcomes-grid, .articles-grid {
                 grid-template-columns: 1fr;
             }
-
             .logos-grid {
                 gap: 40px;
             }
-
             .logos-grid img {
                 height: 35px;
+            }
+            .hero-overlay {
+                right: 20px;
+                width: 85%;
+                max-width: none;
             }
         }
     </style>
@@ -781,7 +775,8 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         
@@ -816,6 +811,7 @@
             }
         });
     </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
