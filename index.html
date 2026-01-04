@@ -84,39 +84,43 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 40px 80px;
-            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+            padding: 0;
+            background: #000;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
+        .hero-banner {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .hero-banner img {
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
+            object-fit: cover;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.1); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        .hero-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
             max-width: 1200px;
+            z-index: 2;
         }
 
         .hero-label {
-            font-size: clamp(14px, 1.5vw, 16px);
-            color: #86868b;
+            font-size: clamp(14px, 1.5vw, 18px);
+            color: #fff;
             font-weight: 500;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
         }
 
         h1 {
@@ -125,20 +129,58 @@
             line-height: 1.05;
             margin-bottom: 30px;
             letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #f5f5f7 0%, #999 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #fff;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.9);
         }
 
         .subtitle {
             font-size: clamp(20px, 3vw, 32px);
-            color: #86868b;
-            margin-bottom: 40px;
+            color: #fff;
+            margin-bottom: 20px;
             font-weight: 400;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+        }
+
+        .tagline {
+            font-size: clamp(16px, 2.5vw, 24px);
+            color: #e5e5e7;
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 16px 40px;
+            font-size: 18px;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .cta-secondary:hover {
+            background: #fff;
+            color: #000;
+            transform: scale(1.05);
         }
 
         .cta-primary {
@@ -203,7 +245,7 @@
         .section p {
             font-size: clamp(18px, 2.5vw, 24px);
             line-height: 1.6;
-            color: #86868b;
+            color: #d1d1d6;
         }
 
         .intro-section {
@@ -237,7 +279,7 @@
         .keynote-section li {
             font-size: clamp(16px, 2vw, 20px);
             line-height: 1.8;
-            color: #86868b;
+            color: #d1d1d6;
             padding-left: 30px;
             position: relative;
             margin-bottom: 15px;
@@ -305,6 +347,7 @@
         .outcome-card p {
             font-size: 16px;
             line-height: 1.6;
+            color: #d1d1d6;
         }
 
         .logos-section {
