@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Leadership Advisory | Sam Osborne</title>
+    <title>Leadership Advisory | Sam Osborne</title>
     <style>
         * {
             margin: 0;
@@ -84,19 +84,51 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 40px 80px;
-            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+            padding: 0;
+            background: #000;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeInText 1.5s ease 2s forwards;
+        }
+
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+            }
         }
 
         h1 {
             font-size: clamp(40px, 8vw, 96px);
             font-weight: 700;
             line-height: 1.05;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             letter-spacing: -0.03em;
             color: #fff;
-            max-width: 1200px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.9);
         }
 
         h2 {
@@ -116,10 +148,21 @@
 
         .subtitle {
             font-size: clamp(20px, 3vw, 32px);
-            color: #d1d1d6;
-            margin-bottom: 40px;
-            max-width: 900px;
+            color: #fff;
+            margin-bottom: 20px;
             font-weight: 400;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+        }
+
+        .tagline {
+            font-size: clamp(16px, 2.5vw, 24px);
+            color: #e5e5e7;
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
         }
 
         .cta-primary {
@@ -192,23 +235,6 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
-        .process-steps {
-            margin-top: 60px;
-        }
-
-        .step {
-            margin-bottom: 40px;
-        }
-
-        .step h3 {
-            font-size: clamp(20px, 3vw, 28px);
-            margin-bottom: 15px;
-        }
-
-        .step p {
-            font-size: clamp(16px, 2vw, 20px);
-        }
-
         ul {
             list-style: none;
             margin-top: 30px;
@@ -231,46 +257,36 @@
             font-size: 24px;
         }
 
-        .testimonials-grid {
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             margin-top: 60px;
         }
 
-        .testimonial {
-            background: #1d1d1f;
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 40px;
+            padding: 50px;
             transition: all 0.4s ease;
         }
 
-        .testimonial:hover {
-            transform: scale(1.03);
-            background: #2a2a2c;
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px);
         }
 
-        .testimonial-text {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 15px;
+        .feature-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
             color: #f5f5f7;
-            font-style: italic;
         }
 
-        .testimonial-author {
-            font-size: 14px;
-            color: #86868b;
-            font-weight: 500;
-        }
-
-        .testimonial-category {
-            font-size: 14px;
-            color: #2997ff;
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .feature-card p {
+            font-size: 18px;
+            color: #d1d1d6;
+            line-height: 1.6;
         }
 
         footer {
@@ -385,7 +401,16 @@
                 padding: 100px 20px 60px;
             }
 
-            .testimonials-grid {
+            .hero-overlay {
+                width: 95%;
+                padding: 0 10px;
+            }
+
+            .hero-overlay h1 {
+                font-size: clamp(32px, 10vw, 48px);
+            }
+
+            .feature-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -406,80 +431,30 @@
     </nav>
 
     <section class="hero">
-        <h1>Private Leadership Advisory</h1>
-        <p class="subtitle">Reduce internal pressure. Think clearly. Decide well—when the stakes are high.</p>
-        <p class="subtitle" style="font-size: clamp(18px, 2.5vw, 24px);">Confidential advisory work for leaders carrying real responsibility.</p>
-        <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank" class="cta-primary">Check Alignment & Fit</a>
-    </section>
-
-    <section class="section section-dark center-text">
-        <div class="section-content">
-            <h2>The challenge isn't external.<br>It's internal.</h2>
-            <p style="max-width: 900px; margin: 40px auto;">You're already capable, experienced, and trusted. Yet the pressure keeps compounding.</p>
-            <p style="max-width: 900px; margin: 40px auto;">Decision fatigue. Mental noise. The constant need to be "on" for others.</p>
-            <p style="max-width: 900px; margin: 40px auto;">The next level of clarity, influence, and effectiveness is often limited not by skill or effort—but by unresolved internal friction that quietly distorts judgment and drains energy.</p>
-            <p style="max-width: 900px; margin: 40px auto; font-weight: 600; font-size: clamp(20px, 3vw, 32px);">This work exists to remove that friction.</p>
-        </div>
-    </section>
-
-    <section class="section section-light">
-        <div class="section-content">
-            <div class="two-col">
-                <div>
-                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68cef6b20563408dbf130bf4.jpeg" alt="Sam Osborne">
-                </div>
-                <div>
-                    <h3 style="color: #1d1d1f;">Clarity under pressure without hype, therapy, or motivation.</h3>
-                    <p style="color: #6e6e73; margin-top: 30px;">This is private, high-trust advisory work designed to help leaders:</p>
-                    <ul>
-                        <li style="color: #6e6e73;">Reduce internal pressure that clouds thinking</li>
-                        <li style="color: #6e6e73;">Stabilize decision-making in high-stakes environments</li>
-                        <li style="color: #6e6e73;">Communicate with calm authority during uncertainty</li>
-                        <li style="color: #6e6e73;">Restore self-worth that supports decisive leadership</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section section-dark">
-        <div class="section-content">
-            <h2 style="text-align: center;">A structured, practical approach to clarity</h2>
-            <p style="text-align: center; margin-bottom: 40px;">The work follows a simple, disciplined framework:</p>
-            <div class="process-steps">
-                <div class="step">
-                    <h3>1. Clarify</h3>
-                    <p>We identify the specific internal conflicts, assumptions, or perceptions creating friction in your thinking and leadership.</p>
-                </div>
-                <div class="step">
-                    <h3>2. Integrate</h3>
-                    <p>Rather than fighting pressure, we integrate it—turning challenges into perspective, stability, and usable insight.</p>
-                </div>
-                <div class="step">
-                    <h3>3. Decide & Lead</h3>
-                    <p>You leave with clearer judgment, grounded confidence, and the ability to lead without internal resistance.</p>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 60px; font-weight: 600; font-size: clamp(20px, 3vw, 28px);">This is not surface-level mindset work.</p>
-            <p style="text-align: center; font-weight: 600; font-size: clamp(20px, 3vw, 28px);">It's clarity at the root.</p>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank" class="cta-primary">Check Alignment & Fit</a>
+        <div class="hero-banner">
+            <img src="images/sam-osborne-chair.svg" alt="Sam Osborne">
+            <div class="hero-overlay">
+                <h1>Leadership Advisory</h1>
+                <p class="subtitle">Clarity Under Pressure</p>
+                <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
+                <a href="mailto:sam@samosborne.net" class="cta-primary">Submit Inquiry</a>
             </div>
         </div>
     </section>
 
     <section class="section section-dark center-text">
         <div class="section-content">
-            <h2>Clients consistently report:</h2>
+            <h2>The Problem This Work Solves</h2>
+            <p style="max-width: 900px; margin: 40px auto;">Most leadership breakdowns are not caused by lack of intelligence, experience, or effort.</p>
+            <p style="max-width: 900px; margin: 40px auto; font-weight: 600; font-size: clamp(20px, 3vw, 32px);">They are caused by loss of internal order under pressure.</p>
+            <p style="max-width: 900px; margin: 40px auto;">When pressure rises, leaders often:</p>
             <ul style="max-width: 800px; margin: 40px auto; text-align: left;">
-                <li>Clearer, faster decision-making under pressure</li>
-                <li>Reduced mental noise and internal conflict</li>
-                <li>Increased confidence without forcing positivity</li>
-                <li>Greater composure in difficult conversations</li>
-                <li>Sustained performance without burnout</li>
+                <li>Over-react or over-explain</li>
+                <li>Carry decisions that don't belong to the moment</li>
+                <li>Confuse perception with reality</li>
+                <li>Tie self-worth to outcomes or approval</li>
             </ul>
-            <p style="font-weight: 600; margin-top: 60px;">This is not about becoming someone new.</p>
-            <p style="font-weight: 600;">It's about removing what's in the way.</p>
+            <p style="max-width: 900px; margin: 40px auto;">This advisory work restores clarity, composure, and decision discipline — without hype, performance, or motivational excess.</p>
         </div>
     </section>
 
@@ -487,14 +462,12 @@
         <div class="section-content">
             <div class="two-col">
                 <div>
-                    <h2 style="color: #1d1d1f;">Sam Osborne</h2>
-                    <h3 style="color: #1d1d1f; font-size: clamp(20px, 3vw, 28px);">Keynote Speaker & Leadership Advisor</h3>
-                    <p style="color: #6e6e73; margin-top: 30px;">In 2008, a workplace accident nearly cost Sam his sight. While surgeons restored much of his vision, the experience revealed a deeper insight: clarity determines how we lead, decide, and perform under pressure.</p>
-                    <p style="color: #6e6e73;">For over 15 years, Sam has worked with leaders, executives, educators, and professionals worldwide—helping them resolve internal conflict, restore self-worth, and lead with grounded authority.</p>
-                    <p style="color: #6e6e73;">His work is practical, confidential, and grounded in real leadership environments.</p>
+                    <img src="images/sam-osborne-radio.jpg" alt="Sam Osborne">
                 </div>
                 <div>
-                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68dbe85c8da1735eb64beb91.jpeg" alt="Sam Osborne speaking">
+                    <h2 style="color: #1d1d1f;">The Approach</h2>
+                    <p style="color: #6e6e73; margin-top: 30px;">This work is grounded in a structured thinking sequence designed to be used in real time — before decisions, conversations, or responses that matter.</p>
+                    <p style="color: #6e6e73;">Rather than focusing on personality or mindset, we focus on ordering perception.</p>
                 </div>
             </div>
         </div>
@@ -502,53 +475,113 @@
 
     <section class="section section-dark">
         <div class="section-content">
-            <h2 style="text-align: center; margin-bottom: 40px;">Proof From Clients</h2>
-            
-            <h3 style="text-align: center; margin-top: 60px; margin-bottom: 30px;">Career & Leadership Clarity</h3>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text">"In just a few sessions, I accomplished what other coaches couldn't do in two years."</p>
-                    <p class="testimonial-author">— Evelyn Mighty, Health Coach</p>
+            <h2 style="text-align: center;">Leaders Are Guided To:</h2>
+            <ul style="max-width: 900px; margin: 40px auto;">
+                <li>Identify the true source of pressure</li>
+                <li>Separate observable facts from projection and assumption</li>
+                <li>Name the actual decision required — and defer what is not</li>
+                <li>Calibrate response intensity based on reversibility</li>
+                <li>Anchor authority without tying identity to outcomes</li>
+                <li>Choose composed, defensible responses under scrutiny</li>
+            </ul>
+            <p style="text-align: center; margin-top: 60px; font-weight: 600; font-size: clamp(20px, 3vw, 28px);">This sequence becomes an internal operating system leaders can rely on when things get loud.</p>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <div class="two-col">
+                <div>
+                    <h2 style="color: #1d1d1f;">What This Is — And Is Not</h2>
+                    <h3 style="color: #1d1d1f; font-size: clamp(20px, 3vw, 28px); margin-top: 40px;">This is:</h3>
+                    <ul>
+                        <li style="color: #6e6e73;">Practical, structured, and disciplined</li>
+                        <li style="color: #6e6e73;">Grounded in real-world leadership pressure</li>
+                        <li style="color: #6e6e73;">Designed for clarity, not catharsis</li>
+                    </ul>
+                    <h3 style="color: #1d1d1f; font-size: clamp(20px, 3vw, 28px); margin-top: 40px;">This is not:</h3>
+                    <ul>
+                        <li style="color: #6e6e73;">Therapy</li>
+                        <li style="color: #6e6e73;">Motivation</li>
+                        <li style="color: #6e6e73;">Performance coaching</li>
+                        <li style="color: #6e6e73;">Emotional processing for its own sake</li>
+                    </ul>
+                    <p style="color: #1d1d1f; margin-top: 40px; font-weight: 600; font-size: clamp(20px, 3vw, 24px);">The goal is clarity that holds under pressure.</p>
                 </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"I now feel confident and ready to lead as President of my Rotary Club."</p>
-                    <p class="testimonial-author">— Pamela Kratochvil, Club President</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"Sam helped me see my worth — I doubled my rates with confidence."</p>
-                    <p class="testimonial-author">— Ann Gordon, International Tax Agent</p>
+                <div>
+                    <img src="images/sam-osborne-speaker.jpeg" alt="Sam Osborne">
                 </div>
             </div>
+        </div>
+    </section>
 
-            <h3 style="text-align: center; margin-top: 80px; margin-bottom: 30px;">Sustained Calm & Perspective</h3>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text">"Sam resolved years of heartache with a family member. Lasting peace."</p>
-                    <p class="testimonial-author">— Corrine Westphal, Writer</p>
+    <section class="section section-dark">
+        <div class="section-content">
+            <h2 style="text-align: center;">Who This Is For</h2>
+            <p style="text-align: center; margin-bottom: 40px;">This advisory work is suited for leaders who:</p>
+            <ul style="max-width: 800px; margin: 40px auto;">
+                <li>Carry responsibility on behalf of others</li>
+                <li>Operate under visibility or political complexity</li>
+                <li>Make decisions with real downstream consequences</li>
+                <li>Are expected to remain composed even when challenged</li>
+            </ul>
+            <h3 style="text-align: center; margin-top: 60px;">It is especially effective for:</h3>
+            <ul style="max-width: 700px; margin: 40px auto;">
+                <li>Senior leaders and executives</li>
+                <li>Founders and operators</li>
+                <li>Advisors, professionals, and decision-makers under scrutiny</li>
+            </ul>
+            <p style="text-align: center; margin-top: 60px; font-weight: 600; font-size: clamp(20px, 3vw, 24px);">This is not entry-level leadership development.</p>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="section-content">
+            <h2 style="text-align: center;">Outcomes</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Leaders who engage in this work report:</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Greater Clarity</h3>
+                    <p>Greater clarity in high-stakes moments</p>
                 </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"My chronic neck tension melted away during one of the sessions — like the weight of stress left my body."</p>
-                    <p class="testimonial-author">— Darcy Corcoran, U.S. Army Veteran</p>
+                <div class="feature-card">
+                    <h3>Reduced Reactivity</h3>
+                    <p>Reduced reactivity and second-guessing</p>
                 </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"Like soul surgery — removed thorns I didn't know were there. Profound peace."</p>
-                    <p class="testimonial-author">— Vibeke Seymour, IT Portfolio Manager</p>
+                <div class="feature-card">
+                    <h3>Stronger Composure</h3>
+                    <p>Stronger composure during challenge or conflict</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Clearer Language</h3>
+                    <p>Clearer language when decisions are questioned</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Increased Self-Trust</h3>
+                    <p>Increased self-trust without defensiveness</p>
                 </div>
             </div>
+            <p style="text-align: center; margin-top: 60px; font-weight: 600;">The impact shows up in decisions, conversations, and leadership presence — not in performative change.</p>
+        </div>
+    </section>
 
-            <h3 style="text-align: center; margin-top: 80px; margin-bottom: 30px;">Mindset Upgrades</h3>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text">"After years of therapy, just one session with Sam brought the emotional release I needed."</p>
-                    <p class="testimonial-author">— Laura Chirinos, Actor</p>
+    <section class="section section-light">
+        <div class="section-content">
+            <div class="two-col">
+                <div>
+                    <img src="images/sam-osborne-audience.jpeg" alt="Sam Osborne with audience">
                 </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"Sam helped me break free from a cycle of self-loathing and reframe my thoughts with self-compassion."</p>
-                    <p class="testimonial-author">— Monica, HR Manager</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"My mind used to be my enemy — now I feel calm, clear, and mentally vitalized."</p>
-                    <p class="testimonial-author">— Daniele Farmer, Designer</p>
+                <div>
+                    <h2 style="color: #1d1d1f;">Format</h2>
+                    <p style="color: #6e6e73; margin-top: 30px;">Engagements are intentionally selective and structured.</p>
+                    <p style="color: #6e6e73; font-weight: 600; margin-top: 30px;">Formats may include:</p>
+                    <ul>
+                        <li style="color: #6e6e73;">One-to-one leadership advisory</li>
+                        <li style="color: #6e6e73;">Short-term clarity intensives</li>
+                        <li style="color: #6e6e73;">Decision-focused advisory sessions</li>
+                        <li style="color: #6e6e73;">Ongoing strategic clarity support (limited availability)</li>
+                    </ul>
+                    <p style="color: #6e6e73; margin-top: 30px;">All engagements are anchored in the same clarity sequence, tailored to the leader's context and pressure profile.</p>
                 </div>
             </div>
         </div>
@@ -556,32 +589,20 @@
 
     <section class="section section-dark center-text">
         <div class="section-content">
-            <h2>This private advisory is selective and by application only.</h2>
-            <p style="max-width: 800px; margin: 40px auto; font-weight: 600;">It is designed for:</p>
-            <ul style="max-width: 700px; margin: 40px auto; text-align: left;">
-                <li>Leaders carrying responsibility for others</li>
-                <li>Executives navigating complexity and pressure</li>
-                <li>Professionals whose decisions have real consequences</li>
-                <li>Individuals who value clarity over motivation</li>
-            </ul>
-            <p style="max-width: 800px; margin: 60px auto; font-size: clamp(18px, 2.5vw, 22px);">If you're looking for hype, therapy, or surface-level coaching, this is not the right fit.</p>
-            
-            <div style="max-width: 600px; margin: 60px auto; text-align: left;">
-                <div class="step">
-                    <h3>Step 1</h3>
-                    <p>Request a brief, confidential alignment call.</p>
-                </div>
-                <div class="step">
-                    <h3>Step 2</h3>
-                    <p>If there's a fit, we define the scope and structure of the advisory work.</p>
-                </div>
-                <div class="step">
-                    <h3>Step 3</h3>
-                    <p>We begin focused, private sessions designed to restore clarity and decision confidence.</p>
-                </div>
-            </div>
+            <h2>About Sam</h2>
+            <p style="max-width: 900px; margin: 40px auto; font-weight: 600; font-size: clamp(22px, 3vw, 36px);">Calm leadership is not a personality trait.<br>It is a practiced discipline.</p>
+            <p style="max-width: 900px; margin: 40px auto;">Sam Osborne's advisory work sits at the intersection of clarity, self-worth, and decision-making under pressure.</p>
+            <p style="max-width: 900px; margin: 40px auto;">Drawing from a background spanning education, philosophy, performance, and lived adversity, Sam is known for helping leaders restore internal order without escalation, theatrics, or ego.</p>
+            <p style="max-width: 900px; margin: 40px auto; font-weight: 600;">His role is not to tell leaders what to do — but to help them see clearly enough to decide well.</p>
+        </div>
+    </section>
 
-            <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank" class="cta-primary">Book a Call with Sam</a>
+    <section class="section section-dark center-text">
+        <div class="section-content">
+            <h2>Inquiry</h2>
+            <p style="max-width: 800px; margin: 40px auto; font-size: clamp(20px, 3vw, 28px);">This work is not offered at scale.</p>
+            <p style="max-width: 800px; margin: 40px auto;">If you are navigating complexity, pressure, or high-stakes decisions and want to explore fit, you may inquire below.</p>
+            <a href="mailto:sam@samosborne.net" class="cta-primary">Submit Inquiry</a>
         </div>
     </section>
 
