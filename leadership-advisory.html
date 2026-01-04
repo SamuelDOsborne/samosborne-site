@@ -1,1 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Leadership Advisory | Sam Osborne</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000;
+            color: #f5f5f7;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f5f5f7;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #f5f5f7;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(40px, 8vw, 96px);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 40px;
+            letter-spacing: -0.03em;
+            color: #fff;
+            max-width: 1200px;
+        }
+
+        h2 {
+            font-size: clamp(32px, 6vw, 72px);
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        h3 {
+            font-size: clamp(24px, 4vw, 48px);
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: clamp(20px, 3vw, 32px);
+            color: #d1d1d6;
+            margin-bottom: 40px;
+            max-width: 900px;
+            font-weight: 400;
+        }
+
+        .cta-primary {
+            background: #f5f5f7;
+            color: #000;
+            padding: 16px 40px;
+            font-size: 18px;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-primary:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: #000;
+        }
+
+        .section-light {
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        .section-light h2, .section-light h3 {
+            color: #1d1d1f;
+        }
+
+        .section-light p {
+            color: #6e6e73;
+        }
+
+        .section p {
+            font-size: clamp(18px, 2.5vw, 28px);
+            line-height: 1.6;
+            color: #d1d1d6;
+            margin-bottom: 30px;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .two-col img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .process-steps {
+            margin-top: 60px;
+        }
+
+        .step {
+            margin-bottom: 40px;
+        }
+
+        .step h3 {
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 15px;
+        }
+
+        .step p {
+            font-size: clamp(16px, 2vw, 20px);
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        li {
+            font-size: clamp(16px, 2vw, 22px);
+            line-height: 1.8;
+            color: #d1d1d6;
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2997ff;
+            font-size: 24px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            background: #1d1d1f;
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial:hover {
+            transform: scale(1.03);
+            background: #2a2a2c;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #f5f5f7;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            color: #86868b;
+            font-weight: 500;
+        }
+
+        .testimonial-category {
+            font-size: 14px;
+            color: #2997ff;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        footer {
+            background: #000;
+            padding: 60px 40px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #86868b;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        .copyright {
+            color: #86868b;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                pointer-events: none;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links a {
+                font-size: 18px;
+                display: block;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .section {
+                padding: 80px 20px;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <nav id="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">Sam Osborne</a>
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#speaking">Speaking</a></li>
+                <li><a href="/leadership-advisory.html">Advisory</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Private Leadership Advisory</h1>
+        <p class="subtitle">Reduce internal pressure. Think clearly. Decide well—when the stakes are high.</p>
+        <p class="subtitle" style="font-size: clamp(18px, 2.5vw, 24px);">Confidential advisory work for leaders carrying real responsibility.</p>
+        <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank" class="cta-primary">Check Alignment & Fit</a>
+    </section>
+
+    <section class="section section-dark center-text">
+        <div class="section-content">
+            <h2>The challenge isn't external.<br>It's internal.</h2>
+            <p style="max-width: 900px; margin: 40px auto;">You're already capable, experienced, and trusted. Yet the pressure keeps compounding.</p>
+            <p style="max-width: 900px; margin: 40px auto;">Decision fatigue. Mental noise. The constant need to be "on" for others.</p>
+            <p style="max-width: 900px; margin: 40px auto;">The next level of clarity, influence, and effectiveness is often limited not by skill or effort—but by unresolved internal friction that quietly distorts judgment and drains energy.</p>
+            <p style="max-width: 900px; margin: 40px auto; font-weight: 600; font-size: clamp(20px, 3vw, 32px);">This work exists to remove that friction.</p>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <div class="two-col">
+                <div>
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68cef6b20563408dbf130bf4.jpeg" alt="Sam Osborne">
+                </div>
+                <div>
+                    <h3 style="color: #1d1d1f;">Clarity under pressure without hype, therapy, or motivation.</h3>
+                    <p style="color: #6e6e73; margin-top: 30px;">This is private, high-trust advisory work designed to help leaders:</p>
+                    <ul>
+                        <li style="color: #6e6e73;">Reduce internal pressure that clouds thinking</li>
+                        <li style="color: #6e6e73;">Stabilize decision-making in high-stakes environments</li>
+                        <li style="color: #6e6e73;">Communicate with calm authority during uncertainty</li>
+                        <li style="color: #6e6e73;">Restore self-worth that supports decisive leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="section-content">
+            <h2 style="text-align: center;">A structured, practical approach to clarity</h2>
+            <p style="text-align: center; margin-bottom: 40px;">The work follows a simple, disciplined framework:</p>
+            <div class="process-steps">
+                <div class="step">
+                    <h3>1. Clarify</h3>
+                    <p>We identify the specific internal conflicts, assumptions, or perceptions creating friction in your thinking and leadership.</p>
+                </div>
+                <div class="step">
+                    <h3>2. Integrate</h3>
+                    <p>Rather than fighting pressure, we integrate it—turning challenges into perspective, stability, and usable insight.</p>
+                </div>
+                <div class="step">
+                    <h3>3. Decide & Lead</h3>
+                    <p>You leave with clearer judgment, grounded confidence, and the ability to lead without internal resistance.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 60px; font-weight: 600; font-size: clamp(20px, 3vw, 28px);">This is not surface-level mindset work.</p>
+            <p style="text-align: center; font-weight: 600; font-size: clamp(20px, 3vw, 28px);">It's clarity at the root.</p>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank" class="cta-primary">Check Alignment & Fit</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark center-text">
+        <div class="section-content">
+            <h2>Clients consistently report:</h2>
+            <ul style="max-width: 800px; margin: 40px auto; text-align: left;">
+                <li>Clearer, faster decision-making under pressure</li>
+                <li>Reduced mental noise and internal conflict</li>
+                <li>Increased confidence without forcing positivity</li>
+                <li>Greater composure in difficult conversations</li>
+                <li>Sustained performance without burnout</li>
+            </ul>
+            <p style="font-weight: 600; margin-top: 60px;">This is not about becoming someone new.</p>
+            <p style="font-weight: 600;">It's about removing what's in the way.</p>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <div class="two-col">
+                <div>
+                    <h2 style="color: #1d1d1f;">Sam Osborne</h2>
+                    <h3 style="color: #1d1d1f; font-size: clamp(20px, 3vw, 28px);">Keynote Speaker & Leadership Advisor</h3>
+                    <p style="color: #6e6e73; margin-top: 30px;">In 2008, a workplace accident nearly cost Sam his sight. While surgeons restored much of his vision, the experience revealed a deeper insight: clarity determines how we lead, decide, and perform under pressure.</p>
+                    <p style="color: #6e6e73;">For over 15 years, Sam has worked with leaders, executives, educators, and professionals worldwide—helping them resolve internal conflict, restore self-worth, and lead with grounded authority.</p>
+                    <p style="color: #6e6e73;">His work is practical, confidential, and grounded in real leadership environments.</p>
+                </div>
+                <div>
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68dbe85c8da1735eb64beb91.jpeg" alt="Sam Osborne speaking">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 40px;">Proof From Clients</h2>
+            
+            <h3 style="text-align: center; margin-top: 60px; margin-bottom: 30px;">Career & Leadership Clarity</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"In just a few sessions, I accomplished what other coaches couldn't do in two years."</p>
+                    <p class="testimonial-author">— Evelyn Mighty, Health Coach</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"I now feel confident and ready to lead as President of my Rotary Club."</p>
+                    <p class="testimonial-author">— Pamela Kratochvil, Club President</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Sam helped me see my worth — I doubled my rates with confidence."</p>
+                    <p class="testimonial-author">— Ann Gordon, International Tax Agent</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 80px; margin-bottom: 30px;">Sustained Calm & Perspective</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Sam resolved years of heartache with a family member. Lasting peace."</p>
+                    <p class="testimonial-author">— Corrine Westphal, Writer</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"My chronic neck tension melted away during one of the sessions — like the weight of stress left my body."</p>
+                    <p class="testimonial-author">— Darcy Corcoran, U.S. Army Veteran</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Like soul surgery — removed thorns I didn't know were there. Profound peace."</p>
+                    <p class="testimonial-author">— Vibeke Seymour, IT Portfolio Manager</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 80px; margin-bottom: 30px;">Mindset Upgrades</h3>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"After years of therapy, just one session with Sam brought the emotional release I needed."</p>
+                    <p class="testimonial-author">— Laura Chirinos, Actor</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Sam helped me break free from a cycle of self-loathing and reframe my thoughts with self-compassion."</p>
+                    <p class="testimonial-author">— Monica, HR Manager</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"My mind used to be my enemy — now I feel calm, clear, and mentally vitalized."</p>
+                    <p class="testimonial-author">— Daniele Farmer, Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark center-text">
+        <div class="section-content">
+            <h2>This private advisory is selective and by application only.</h2>
+            <p style="max-width: 800px; margin: 40px auto; font-weight: 600;">It is designed for:</p>
+            <ul style="max-width: 700px; margin: 40px auto; text-align: left;">
+                <li>Leaders carrying responsibility for others</li>
+                <li>Executives navigating complexity and pressure</li>
+                <li>Professionals whose decisions have real consequences</li>
+                <li>Individuals who value clarity over motivation</li>
+            </ul>
+            <p style="max-width: 800px; margin: 60px auto; font-size: clamp(18px, 2.5vw, 22px);">If you're looking for hype, therapy, or surface-level coaching, this is not the right fit.</p>
+            
+            <div style="max-width: 600px; margin: 60px auto; text-align: left;">
+                <div class="step">
+                    <h3>Step 1</h3>
+                    <p>Request a brief, confidential alignment call.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 2</h3>
+                    <p>If there's a fit, we define the scope and structure of the advisory work.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 3</h3>
+                    <p>We begin focused, private sessions designed to restore clarity and decision confidence.</p>
+                </div>
+            </div>
+
+            <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank" class="cta-primary">Book a Call with Sam</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/63489f984a51d324b873dee9.png" alt="YouTube" style="filter: brightness(0) invert(1);">
+                </a>
+                <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/63489ff082251f62a8341107.png" alt="LinkedIn" style="filter: brightness(0) invert(1);">
+                </a>
+                <a href="https://www.tiktok.com/@selfworthsam" target="_blank">
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/6348a0344a51d3359273def7.png" alt="TikTok" style="filter: brightness(0) invert(1);">
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank">Book a Call</a>
+                <a href="mailto:sam@samosborne.net">Contact</a>
+            </div>
+            <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.textContent = '☰';
+            });
+        });
+
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
