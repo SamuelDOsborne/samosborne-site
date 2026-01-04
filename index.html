@@ -185,7 +185,6 @@
             background: transparent;
             color: #2997ff;
             border: 2px solid #2997ff;
-            cursor: pointer;
         }
 
         .cta-secondary:hover {
@@ -213,13 +212,6 @@
             height: auto;
             border-radius: 20px;
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            bottom: 60px;
-            left: 60px;
-            max-width: 600px;
         }
 
         .section {
@@ -457,12 +449,6 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-
-            .hero-overlay {
-                bottom: 40px;
-                left: 40px;
-                max-width: 400px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -537,10 +523,6 @@
             .hero {
                 padding: 100px 20px 60px;
             }
-
-            .hero-overlay {
-                display: none;
-            }
         }
     </style>
 </head>
@@ -562,29 +544,20 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Clarity Is the<br>Competitive Advantage</h1>
-            <h2 style="font-size: clamp(24px, 4vw, 48px); color: #f5f5f7; font-weight: 700; letter-spacing: 0.05em; margin-top: 25px; margin-bottom: 35px;">SAM OSBORNE</h2>
-            <p class="subtitle">Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure</p>
+       
+
+    <h1>Clarity Is the<br>Competitive Advantage</h1>
+    
+<div style="display: inline-block; background: #f5f5f7; color: #000; padding: 10px 28px; border-radius: 8px; font-size: clamp(20px, 3vw, 32px); font-weight: 600; letter-spacing: 0.05em; margin-top: 25px; margin-bottom: 35px;">SAM OSBORNE</div>
+<p class="subtitle">Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure</p>
             <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
             <div class="cta-group">
                 <a href="tel:+18189345140" class="cta-primary">Call Sam · (818) 934-5140</a>
-                <button class="cta-secondary" onclick="toggleContactOptions()" id="availabilityBtn">Check Availability</button>
-            </div>
-            <div id="contactOptions" style="display: none; margin-top: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 30px; backdrop-filter: blur(10px); max-width: 500px; margin-left: auto; margin-right: auto;">
-                <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <a href="tel:+18189345140" style="background: #f5f5f7; color: #000; padding: 16px 32px; border-radius: 980px; text-decoration: none; font-weight: 500; text-align: center; transition: all 0.3s; font-size: 18px;">📞 Call Sam · (818) 934-5140</a>
-                    <a href="sms:+18189345140" style="background: transparent; color: #2997ff; border: 2px solid #2997ff; padding: 16px 32px; border-radius: 980px; text-decoration: none; font-weight: 500; text-align: center; transition: all 0.3s; font-size: 18px;">💬 Text Sam</a>
-                    <a href="mailto:sam@samosborne.net" style="background: transparent; color: #2997ff; border: 2px solid #2997ff; padding: 16px 32px; border-radius: 980px; text-decoration: none; font-weight: 500; text-align: center; transition: all 0.3s; font-size: 18px;">✉️ Email Sam</a>
-                </div>
+               <a href="mailto:sam@samosborne.net" class="cta-secondary">Check Availability</a>
             </div>
         </div>
         <div class="hero-banner">
-            <div style="position: relative;">
-                <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne">
-                <div class="hero-overlay">
-                    <p style="font-size: clamp(24px, 4vw, 48px); font-weight: 600; color: #fff; text-shadow: 0 2px 20px rgba(0,0,0,0.8); margin: 0;">Command the room.<br>Control the moment.</p>
-                </div>
-            </div>
+            <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne">
         </div>
     </section>
 
@@ -735,11 +708,11 @@
             <h2>Booking</h2>
             <p style="text-align: center; margin: 40px auto;">If your leaders are navigating complexity, scrutiny, or high-stakes decisions, this work fits.</p>
             <div class="contact-info">
-                <div class="cta-group">
-                    <a href="tel:+18189345140" class="cta-primary">Call Sam · (818) 934-5140</a>
-                    <a href="mailto:sam@samosborne.net" class="cta-secondary">Email Sam</a>
-                </div>
-                <p style="color: #86868b; margin-top: 40px;">Or inquire about availability and fit.</p>
+               <div class="cta-group">
+    <a href="tel:+18189345140" class="cta-primary">Call Sam · (818) 934-5140</a>
+    <a href="mailto:sam@samosborne.net" class="cta-secondary">Email Sam</a>
+</div>
+<p style="color: #86868b; margin-top: 40px;">Or inquire about availability and fit.</p>
             </div>
         </div>
     </section>
@@ -766,19 +739,6 @@
             });
         });
 
-        // Toggle contact options dropdown
-        function toggleContactOptions() {
-            const options = document.getElementById('contactOptions');
-            const btn = document.getElementById('availabilityBtn');
-            if (options.style.display === 'none') {
-                options.style.display = 'block';
-                btn.textContent = 'Close Options';
-            } else {
-                options.style.display = 'none';
-                btn.textContent = 'Check Availability';
-            }
-        }
-
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -793,4 +753,30 @@
         // Nav scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
-            if (window.scrollY >
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-content').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
