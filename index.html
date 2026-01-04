@@ -68,6 +68,16 @@
             opacity: 0.7;
         }
 
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #f5f5f7;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
         .hero {
             min-height: 100vh;
             display: flex;
@@ -112,9 +122,9 @@
         }
 
         h1 {
-            font-size: clamp(48px, 8vw, 96px);
+            font-size: clamp(36px, 8vw, 96px);
             font-weight: 700;
-            line-height: 1.05;
+            line-height: 1.1;
             margin-bottom: 30px;
             letter-spacing: -0.03em;
             background: linear-gradient(135deg, #f5f5f7 0%, #999 100%);
@@ -124,7 +134,7 @@
         }
 
         .subtitle {
-            font-size: clamp(20px, 3vw, 32px);
+            font-size: clamp(18px, 3vw, 32px);
             color: #86868b;
             margin-bottom: 20px;
             font-weight: 400;
@@ -134,7 +144,7 @@
         }
 
         .tagline {
-            font-size: clamp(18px, 2.5vw, 24px);
+            font-size: clamp(16px, 2.5vw, 24px);
             color: #a1a1a6;
             margin-bottom: 50px;
             font-weight: 300;
@@ -183,19 +193,21 @@
             transform: scale(1.05);
         }
 
-        .hero-image {
+        .hero-banner {
             margin-top: 60px;
             width: 100%;
-            max-width: 900px;
+            max-width: 1400px;
             opacity: 0;
             animation: fadeIn 1.5s ease 0.5s forwards;
+            position: relative;
+            z-index: 1;
         }
 
         @keyframes fadeIn {
             to { opacity: 1; }
         }
 
-        .hero-image img {
+        .hero-banner img {
             width: 100%;
             height: auto;
             border-radius: 20px;
@@ -242,7 +254,7 @@
         }
 
         h2 {
-            font-size: clamp(40px, 6vw, 72px);
+            font-size: clamp(32px, 6vw, 72px);
             font-weight: 700;
             margin-bottom: 30px;
             letter-spacing: -0.02em;
@@ -289,6 +301,20 @@
             width: 100%;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .full-width-banner {
+            width: 100%;
+            margin: 80px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .full-width-banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
         }
 
         .outcomes-grid {
@@ -366,67 +392,18 @@
             letter-spacing: 0.05em;
         }
 
-        .logos-section {
-            text-align: center;
-            padding: 80px 40px;
-        }
-
-        .logos-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            margin-top: 60px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .logos-grid img {
-            height: 50px;
-            width: auto;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            filter: brightness(0) invert(1);
-        }
-
-        .logos-grid img:hover {
-            opacity: 1;
-        }
-
-        .book-section {
-            background: #f5f5f7;
-            padding: 120px 40px;
-        }
-
-        .book-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .about-image-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
+            margin-top: 60px;
         }
 
-        .book-image img {
+        .about-image-section img {
             width: 100%;
-            max-width: 400px;
-            border-radius: 12px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
-        }
-
-        .book-info h2 {
-            color: #1d1d1f;
-            font-size: clamp(36px, 5vw, 56px);
-            margin-bottom: 30px;
-        }
-
-        .book-info p {
-            color: #6e6e73;
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 15px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .contact-section {
@@ -468,49 +445,83 @@
                 gap: 40px;
             }
 
-            .book-content {
+            .about-image-section {
                 grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .book-image {
-                display: flex;
-                justify-content: center;
+                gap: 40px;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-
             .nav-content {
                 padding: 0 20px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
                 flex-direction: column;
-                gap: 15px;
+                gap: 0;
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                pointer-events: none;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+                display: block;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            h1 {
+                font-size: clamp(32px, 10vw, 48px);
             }
 
             .cta-group {
                 flex-direction: column;
                 width: 100%;
+                gap: 15px;
             }
 
             .cta-primary, .cta-secondary {
                 width: 100%;
                 text-align: center;
+                padding: 14px 30px;
+                font-size: 16px;
             }
 
             .outcomes-grid, .testimonials {
                 grid-template-columns: 1fr;
             }
 
-            .logos-grid {
-                gap: 40px;
+            .section {
+                padding: 80px 20px;
             }
 
-            .logos-grid img {
-                height: 35px;
+            .hero {
+                padding: 100px 20px 60px;
             }
         }
     </style>
@@ -519,7 +530,8 @@
     <nav id="nav">
         <div class="nav-content">
             <a href="#" class="logo">Sam Osborne</a>
-            <ul class="nav-links">
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#problem">The Problem</a></li>
                 <li><a href="#approach">Approach</a></li>
                 <li><a href="#outcomes">Outcomes</a></li>
@@ -540,8 +552,8 @@
                 <a href="#contact" class="cta-secondary">Inquire About Availability</a>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/695575806c5175e1bb0411a4.jpg" alt="Sam Osborne speaking">
+        <div class="hero-banner">
+            <img src="sam-osborne-hero-image.jpg" alt="Sam Osborne">
         </div>
     </section>
 
@@ -556,6 +568,9 @@
                 <li>Or second-guess decisions they once trusted</li>
             </ul>
             <p style="margin-top: 40px;">Sam Osborne speaks to leaders who are already capable — but operating under pressure where clarity, not charisma, determines outcomes.</p>
+            <div class="full-width-banner">
+                <img src="images/sam-osborne-audience.jpeg" alt="Sam Osborne speaking to audience">
+            </div>
         </div>
     </section>
 
@@ -563,7 +578,7 @@
         <div class="section-content">
             <div class="image-text-section">
                 <div>
-                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68dbe85c8da1735eb64beb91.jpeg" alt="Sam Osborne presenting">
+                    <img src="images/sam-osborne-radio.jpg" alt="Sam Osborne on radio">
                 </div>
                 <div>
                     <h2 style="color: #1d1d1f;">This is not motivation. It's not performance. And it's not hype.</h2>
@@ -636,6 +651,9 @@
         <div class="section-content">
             <h2 style="text-align: center;">The Experience</h2>
             <p style="text-align: center; margin: 40px auto;">Sam's keynotes combine grounded storytelling, intellectual clarity, measured humor, and precise language.</p>
+            <div class="full-width-banner">
+                <img src="images/sam-osborne-stage4.jpg" alt="Sam Osborne on stage with audience">
+            </div>
             <p style="text-align: center; margin: 40px auto;">From beatboxing demonstrations to deeply personal moments of loss and recovery, every element serves one purpose:</p>
             <p style="text-align: center; margin: 40px auto; font-size: clamp(20px, 3vw, 32px); color: #f5f5f7; font-weight: 600;">Helping leaders see more clearly — themselves and the moment in front of them.</p>
         </div>
@@ -668,9 +686,16 @@
         <div class="section-content">
             <h2 style="color: #1d1d1f; text-align: center;">About Sam</h2>
             <p style="text-align: center; margin: 40px auto; color: #1d1d1f; font-size: clamp(22px, 3vw, 36px); font-weight: 600;">Calm leadership is not a personality trait. It's a practiced discipline.</p>
-            <p style="text-align: center; margin: 40px auto; color: #6e6e73;">Sam Osborne's work explores how clarity is lost — and restored — under pressure.</p>
-            <p style="text-align: center; margin: 40px auto; color: #6e6e73;">His background spans education, philosophy, performance, and lived adversity, including a serious eye injury that reshaped how he understands vision, insight, and resilience.</p>
-            <p style="text-align: center; margin: 40px auto; color: #6e6e73;">Known for his steady presence and precise delivery, Sam helps leaders integrate their experiences, reclaim perspective, and respond with composure when it matters most.</p>
+            <div class="about-image-section">
+                <div>
+                    <p style="color: #6e6e73;">Sam Osborne's work explores how clarity is lost — and restored — under pressure.</p>
+                    <p style="margin-top: 30px; color: #6e6e73;">His background spans education, philosophy, performance, and lived adversity, including a serious eye injury that reshaped how he understands vision, insight, and resilience.</p>
+                    <p style="margin-top: 30px; color: #6e6e73;">Known for his steady presence and precise delivery, Sam helps leaders integrate their experiences, reclaim perspective, and respond with composure when it matters most.</p>
+                </div>
+                <div>
+                    <img src="images/sam-osborne-speaker.jpeg" alt="Sam Osborne in three piece suit">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -690,6 +715,24 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.textContent = '☰';
+            });
+        });
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -700,6 +743,7 @@
             });
         });
 
+        // Nav scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -709,6 +753,7 @@
             }
         });
 
+        // Intersection Observer
         const observerOptions = {
             threshold: 0.15,
             rootMargin: '0px 0px -100px 0px'
