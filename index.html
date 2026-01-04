@@ -1,819 +1,1455 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sam Osborne | Clarity Is the Competitive Advantage</title>
+
     <style>
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
         }
 
         body {
+
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
             background: #000;
+
             color: #f5f5f7;
+
             overflow-x: hidden;
+
             line-height: 1.6;
+
         }
 
         nav {
+
             position: fixed;
+
             top: 0;
+
             width: 100%;
+
             background: rgba(0, 0, 0, 0.8);
+
             backdrop-filter: blur(20px);
+
             z-index: 1000;
+
             padding: 20px 0;
+
             transition: all 0.3s ease;
+
         }
 
         nav.scrolled {
+
             background: rgba(0, 0, 0, 0.95);
+
             padding: 15px 0;
+
         }
 
         .nav-content {
+
             max-width: 1400px;
+
             margin: 0 auto;
+
             padding: 0 40px;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
         }
 
         .logo {
+
             font-size: 20px;
+
             font-weight: 600;
+
             color: #f5f5f7;
+
             text-decoration: none;
+
         }
 
         .nav-links {
+
             display: flex;
+
             gap: 35px;
+
             list-style: none;
+
         }
 
         .nav-links a {
+
             color: #f5f5f7;
+
             text-decoration: none;
+
             font-size: 14px;
+
             transition: opacity 0.3s;
+
         }
 
         .nav-links a:hover {
+
             opacity: 0.7;
+
         }
 
         .mobile-menu-toggle {
+
             display: none;
+
             background: none;
+
             border: none;
+
             color: #f5f5f7;
+
             font-size: 28px;
+
             cursor: pointer;
+
         }
 
         .hero {
-            min-height: 100vh;
+
+            height: 100vh;
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
+
             align-items: center;
+
             text-align: center;
-            padding: 0 0 80px 0;
-            background: #000;
+
+            padding: 0;
+
+            background: transparent;
+
             position: relative;
+
             overflow: hidden;
+
         }
 
         .hero-banner {
+
             width: 100%;
+
             height: 100vh;
+
             position: relative;
+
         }
 
-.hero-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-        
+        .hero-banner img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center 10%;
+
+        }
 
         .hero-overlay {
+
             position: absolute;
+
             right: 40px;
+
             top: 50%;
+
             transform: translateY(-50%);
+
             text-align: center;
+
             width: 45%;
+
             max-width: 500px;
+
             z-index: 2;
+
             opacity: 0;
+
             animation: fadeInText 1.5s ease 2s forwards;
+
             margin-top: 80px;
+
         }
 
         @keyframes fadeInText {
+
             to {
+
                 opacity: 1;
+
             }
+
         }
 
         .hero-label {
-            font-size: clamp(14px, 1.5vw, 18px);
+
+            font-size: clamp(18px, 2vw, 24px);
+
             color: #fff;
+
             font-weight: 500;
+
             letter-spacing: 0.15em;
+
             text-transform: uppercase;
+
             margin-bottom: 20px;
+
             text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+
         }
 
         h1 {
+
             font-size: clamp(36px, 5vw, 72px);
+
             font-weight: 700;
+
             line-height: 1.05;
+
             margin-bottom: 30px;
+
             letter-spacing: -0.03em;
+
             color: #fff;
+
             text-shadow: 0 4px 30px rgba(0,0,0,0.9);
+
         }
 
         .subtitle {
+
             font-size: clamp(20px, 3vw, 32px);
+
             color: #fff;
+
             margin-bottom: 20px;
+
             font-weight: 400;
+
             max-width: 1000px;
+
             margin-left: auto;
+
             margin-right: auto;
+
             text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+
         }
 
         .tagline {
+
             font-size: clamp(16px, 2.5vw, 24px);
+
             color: #e5e5e7;
+
             margin-bottom: 50px;
+
             font-weight: 300;
+
             max-width: 900px;
+
             margin-left: auto;
+
             margin-right: auto;
+
             text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+
         }
 
         .cta-group {
+
             display: flex;
+
             gap: 20px;
+
             flex-wrap: wrap;
+
             justify-content: center;
+
             margin-top: 40px;
+
         }
 
         .cta-secondary {
+
             background: transparent;
+
             color: #fff;
+
             border: 2px solid #fff;
+
             padding: 16px 40px;
+
             font-size: 18px;
+
             border-radius: 980px;
+
             text-decoration: none;
+
             transition: all 0.3s ease;
+
             font-weight: 500;
+
             display: inline-block;
+
             cursor: pointer;
+
         }
 
         .hero-headline {
+
             font-size: clamp(36px, 5vw, 72px);
+
             font-weight: 700;
+
             line-height: 1.1;
+
             margin-bottom: 25px;
+
             color: #fff;
+
         }
 
         .cta-primary {
+
             background: #f5f5f7;
+
             color: #000;
+
             padding: 16px 40px;
+
             font-size: 18px;
+
             border-radius: 980px;
+
             text-decoration: none;
+
             transition: all 0.3s ease;
+
             font-weight: 500;
+
             display: inline-block;
+
         }
 
         .cta-primary:hover {
+
             background: #fff;
+
             transform: scale(1.05);
+
         }
 
         .section {
+
             padding: 120px 40px;
+
             position: relative;
+
         }
 
         .section-content {
+
             max-width: 1200px;
+
             margin: 0 auto;
+
         }
 
         .section-dark {
+
             background: #000;
+
         }
 
         .section-light {
+
             background: #f5f5f7;
+
             color: #1d1d1f;
+
         }
 
         .section-light h2, .section-light h3 {
+
             color: #1d1d1f;
+
         }
 
         .section-light p {
+
             color: #6e6e73;
+
         }
 
         h2 {
+
             font-size: clamp(36px, 6vw, 72px);
+
             font-weight: 700;
+
             margin-bottom: 30px;
+
             letter-spacing: -0.02em;
+
             line-height: 1.1;
+
         }
 
         h3 {
+
             font-size: clamp(24px, 4vw, 36px);
+
             font-weight: 600;
+
             margin-bottom: 20px;
+
             line-height: 1.2;
+
         }
 
         .section p {
+
             font-size: clamp(18px, 2.5vw, 24px);
+
             line-height: 1.6;
+
             color: #d1d1d6;
+
         }
 
         .intro-section {
+
             text-align: center;
+
         }
 
         .intro-section p {
+
             max-width: 900px;
+
             margin: 0 auto 40px;
+
         }
 
         .two-col-section {
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 80px;
+
             align-items: center;
+
             margin-top: 60px;
+
         }
 
         .two-col-section img {
+
             width: 100%;
+
             border-radius: 20px;
+
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
         }
 
         .keynote-section ul {
+
             list-style: none;
+
             margin-top: 30px;
+
         }
 
         .keynote-section li {
+
             font-size: clamp(16px, 2vw, 20px);
+
             line-height: 1.8;
+
             color: #d1d1d6;
+
             padding-left: 30px;
+
             position: relative;
+
             margin-bottom: 15px;
+
         }
 
         .keynote-section li:before {
+
             content: '•';
+
             position: absolute;
+
             left: 0;
+
             color: #2997ff;
+
             font-size: 24px;
+
         }
 
         .services-grid {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
             gap: 40px;
+
             margin-top: 60px;
+
         }
 
         .service-card {
+
             text-align: center;
+
             padding: 40px 30px;
+
         }
 
         .service-card h3 {
+
             font-size: clamp(20px, 3vw, 28px);
+
             margin-bottom: 15px;
+
         }
 
         .service-card p {
+
             font-size: clamp(14px, 1.8vw, 18px);
+
             line-height: 1.6;
+
             color: #1d1d1f;
+
         }
 
         .outcomes-grid {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
             gap: 40px;
+
             margin-top: 60px;
+
         }
 
         .outcome-card {
+
             background: rgba(255, 255, 255, 0.03);
+
             border: 1px solid rgba(255, 255, 255, 0.1);
+
             border-radius: 20px;
+
             padding: 50px;
+
             transition: all 0.4s ease;
+
         }
 
         .outcome-card:hover {
+
             background: rgba(255, 255, 255, 0.05);
+
             transform: translateY(-10px);
+
         }
 
         .outcome-card h3 {
+
             font-size: 24px;
+
             margin-bottom: 15px;
+
             color: #f5f5f7;
+
             text-transform: uppercase;
+
             letter-spacing: 0.05em;
+
             font-weight: 700;
+
         }
 
         .outcome-card p {
+
             font-size: 16px;
+
             line-height: 1.6;
+
             color: #d1d1d6;
+
         }
 
         .logos-section {
+
             text-align: center;
+
             padding: 80px 40px;
+
         }
 
         .logos-grid {
+
             display: flex;
+
             flex-wrap: wrap;
+
             justify-content: center;
+
             align-items: center;
+
             gap: 60px;
+
             margin-top: 60px;
+
         }
 
         .logos-grid img {
+
             height: 50px;
+
             width: auto;
+
             opacity: 0.7;
+
             transition: opacity 0.3s;
+
             filter: brightness(0) invert(1);
+
         }
 
         .logos-grid img:hover {
+
             opacity: 1;
+
         }
 
         .book-section {
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 80px;
+
             align-items: center;
+
             padding: 120px 40px;
+
             background: #f5f5f7;
+
         }
 
         .book-content {
+
             max-width: 1200px;
+
             margin: 0 auto;
+
             width: 100%;
+
             display: contents;
+
         }
 
         .book-image img {
+
             width: 100%;
+
             max-width: 400px;
+
             border-radius: 12px;
+
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+
         }
 
         .book-info h2 {
+
             color: #1d1d1f;
+
             font-size: clamp(32px, 5vw, 56px);
+
             margin-bottom: 30px;
+
         }
 
         .book-info p {
+
             color: #6e6e73;
+
             font-size: 18px;
+
             line-height: 1.8;
+
             margin-bottom: 12px;
+
         }
 
         .articles-section {
+
             text-align: center;
+
         }
 
         .articles-grid {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
             gap: 40px;
+
             margin-top: 60px;
+
         }
 
         .article-card {
+
             background: #1d1d1f;
+
             border-radius: 20px;
+
             overflow: hidden;
+
             transition: all 0.4s ease;
+
         }
 
         .article-card:hover {
+
             transform: scale(1.03);
+
         }
 
         .article-card img {
+
             width: 100%;
+
             height: 200px;
+
             object-fit: cover;
+
         }
 
         .article-card h3 {
+
             padding: 30px 30px 20px;
+
             font-size: 20px;
+
             line-height: 1.4;
+
         }
 
         .contact-section {
+
             text-align: center;
+
             padding: 120px 40px;
+
         }
 
         footer {
+
             background: #000;
+
             padding: 60px 40px 40px;
+
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+
         }
 
         .footer-content {
+
             max-width: 1200px;
+
             margin: 0 auto;
+
             text-align: center;
+
         }
 
         .social-links {
+
             display: flex;
+
             justify-content: center;
+
             gap: 30px;
+
             margin-bottom: 40px;
+
         }
 
         .social-links a {
+
             opacity: 0.7;
+
             transition: opacity 0.3s;
+
         }
 
         .social-links img {
+
             width: 40px;
+
             height: 40px;
+
         }
 
         .social-links a:hover {
+
             opacity: 1;
+
         }
 
         .footer-links {
+
             display: flex;
+
             justify-content: center;
+
             gap: 30px;
+
             margin-bottom: 30px;
+
             flex-wrap: wrap;
+
         }
 
         .footer-links a {
+
             color: #86868b;
+
             text-decoration: none;
+
             font-size: 14px;
+
             transition: opacity 0.3s;
+
         }
 
         .footer-links a:hover {
+
             opacity: 0.7;
+
         }
 
         .copyright {
+
             color: #86868b;
+
             font-size: 14px;
+
         }
 
         @media (max-width: 1024px) {
+
             .two-col-section {
+
                 grid-template-columns: 1fr;
+
                 gap: 40px;
+
             }
+
             .book-section {
+
                 grid-template-columns: 1fr;
+
                 text-align: center;
+
             }
+
             .book-image {
+
                 display: flex;
+
                 justify-content: center;
+
             }
+
         }
 
         @media (max-width: 768px) {
+
             .nav-content {
+
                 padding: 0 20px;
+
             }
+
             .nav-links {
+
                 position: fixed;
+
                 top: 70px;
+
                 left: 0;
+
                 right: 0;
+
                 background: rgba(0, 0, 0, 0.98);
+
                 flex-direction: column;
+
                 gap: 0;
+
                 padding: 20px;
+
                 transform: translateY(-100%);
+
                 opacity: 0;
+
                 transition: all 0.3s ease;
+
                 pointer-events: none;
+
             }
+
             .nav-links.active {
+
                 transform: translateY(0);
+
                 opacity: 1;
+
                 pointer-events: all;
+
             }
+
             .nav-links li {
+
                 padding: 15px 0;
+
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
             }
+
             .nav-links a {
+
                 font-size: 18px;
+
                 display: block;
+
             }
+
             .mobile-menu-toggle {
+
                 display: block;
+
             }
+
             .section {
+
                 padding: 80px 20px;
+
             }
+
             .hero {
+
                 padding: 100px 20px 60px;
+
             }
+
             .services-grid, .outcomes-grid, .articles-grid {
+
                 grid-template-columns: 1fr;
+
             }
+
             .logos-grid {
+
                 gap: 40px;
+
             }
+
             .logos-grid img {
+
                 height: 35px;
+
             }
+
             .hero-overlay {
+
                 right: 20px;
+
                 width: 85%;
+
                 max-width: none;
+
             }
+
         }
+
     </style>
+
 </head>
+
 <body id="top">
+
     <nav id="nav">
+
         <div class="nav-content">
+
             <a href="#top" class="logo">Sam Osborne</a>
+
             <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+
             <ul class="nav-links" id="navLinks">
+
                 <li><a href="#speaking">Speaking</a></li>
+
                 <li><a href="#who">Who I Work With</a></li>
+
                 <li><a href="#delivers">What I Deliver</a></li>
+
                 <li><a href="/leadership-advisory.html">Advisory</a></li>
+
                 <li><a href="#book">Book</a></li>
+
                 <li><a href="#articles">Articles</a></li>
+
                 <li><a href="#contact">Contact</a></li>
+
             </ul>
+
         </div>
+
     </nav>
 
     <section class="hero">
+
         <div class="hero-banner">
+
             <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking">
+
             <div class="hero-overlay">
-    <h1>Clarity Is the<br>Competitive Advantage</h1>
-    <p class="hero-label">Sam Osborne | Keynote Speaker</p>
-    <p class="subtitle">Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure</p>
-    <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
-    <div class="cta-group">
-        <a href="/cdn-cgi/l/email-protection#6714060a2714060a0814050815090249090213" class="cta-secondary">Check Availability</a>
-    </div>
-</div>
+
+                <h1>Clarity Is the<br>Competitive Advantage</h1>
+
+                <p class="hero-label">Sam Osborne</p>
+
+                <p class="subtitle">Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure</p>
+
+                <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
+
+                <div class="cta-group">
+
+                    <a href="/cdn-cgi/l/email-protection#6714060a2714060a0814050815090249090213" class="cta-secondary">Check Availability</a>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
 
     <section class="section section-light intro-section">
+
         <div class="section-content">
+
             <p style="color: #1d1d1f;">Sam Osborne helps leaders and high-responsibility professionals remove internal conflict so they can perform with clarity, composure, and confidence under real-world pressure.</p>
+
         </div>
+
     </section>
 
     <section id="speaking" class="section section-dark keynote-section">
+
         <div class="section-content">
+
             <div class="two-col-section">
+
                 <div>
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68dbe85c8da1735eb64beb91.jpeg" alt="Sam Osborne speaking">
+
                 </div>
+
                 <div>
+
                     <h3>Signature Keynote</h3>
+
                     <h2>The Gift of Sight. The Power of Insight.</h2>
+
                     <p style="margin-bottom: 20px;">How clarity under pressure creates calm leadership and better decisions.</p>
+
                     <p style="margin-bottom: 20px; font-weight: 600;">Audiences will learn how to:</p>
+
                     <ul>
+
                         <li>Reduce internal conflict so pressure no longer distorts thinking or behavior</li>
+
                         <li>Make clearer, more grounded decisions in high-stakes environments</li>
+
                         <li>Integrate challenges rather than fight them—resulting in confidence, identity, and purpose</li>
+
                         <li>Communicate with calm authority, even during uncertainty and conflict</li>
+
                     </ul>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
     <section id="who" class="section section-light">
+
         <div class="section-content">
+
             <h2 style="text-align: center; color: #1d1d1f;">Who Sam Works With</h2>
+
             <div class="services-grid">
+
                 <div class="service-card">
+
                     <h3>Corporate Events</h3>
+
                     <p>Leadership retreats · Annual conferences · Company offsites · Sales & strategy kickoffs · Culture & people-development programs</p>
+
                 </div>
+
                 <div class="service-card">
+
                     <h3>Professional Associations</h3>
+
                     <p>Industry associations · Academic conferences · Leadership summits · Global development and innovation initiatives</p>
+
                 </div>
+
                 <div class="service-card">
+
                     <h3>Vision & Health Science Leaders</h3>
+
                     <p>Ophthalmology & optometry groups · Vision research conferences · Medtech & device innovators summits</p>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
     <section id="delivers" class="section section-dark">
+
         <div class="section-content">
+
             <h2 style="text-align: center;">What Sam Delivers for Audiences</h2>
+
             <div class="outcomes-grid">
+
                 <div class="outcome-card">
+
                     <h3>Engaged, Purpose-Driven Rooms</h3>
+
                     <p>Professionals lean in, connect the science with the human impact, and leave inspired by practical tools they can apply immediately.</p>
+
                 </div>
+
                 <div class="outcome-card">
+
                     <h3>Insight & Vision That Lasts</h3>
+
                     <p>Memorable stories and strategies that link restored sight to restored self-worth—turning big ideas into long-term clarity, confidence, and cultural ROI.</p>
+
                 </div>
+
                 <div class="outcome-card">
+
                     <h3>Confident, Resilient Leaders</h3>
+
                     <p>Researchers and industry leaders walk out ready to lead teams, patients, and organizations with steady presence under pressure.</p>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
     <section class="logos-section section-dark">
+
         <div class="section-content">
+
             <h2>Endorsed By</h2>
+
             <div class="logos-grid">
+
                 <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68cf1d2905634041911b8020.png" alt="Organization logo">
+
                 <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68cf1d2932a0201c81e00a96.png" alt="Organization logo">
+
                 <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68cf1d2917e9650fdcc3ea33.png" alt="Organization logo">
+
                 <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68cf1d8c17e9651b56c3f256.png" alt="Organization logo">
+
                 <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68cf1d2932a020202de00a95.png" alt="Organization logo">
+
                 <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68cf1d29ee40406277de8eca.png" alt="Organization logo">
+
             </div>
+
         </div>
+
     </section>
 
     <section id="book" class="book-section">
+
         <div class="book-content">
+
             <div class="book-image">
+
                 <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/66f86b0196de2fcf247f9054.png" alt="Sam's Book Cover">
+
             </div>
+
             <div class="book-info">
+
                 <h2>How to Beat Imposter Syndrome and Be Confident</h2>
+
                 <p style="font-size: 20px; margin-bottom: 30px;">The Ultimate 30-Day Challenge</p>
+
                 <p>Provide you with a roadmap for beating imposter syndrome.</p>
+
                 <p>Guide you to let go of perfectionism, doubt and over-thinking.</p>
+
                 <p>Teach you strategies to recognize and value yourself more.</p>
+
                 <p>Empower you to stand in your authority and authentic self.</p>
+
                 <p>Increase your inner strength and self-determination.</p>
+
                 <p style="margin-bottom: 30px;">Enhance your self-worth via quizzes, journalling and challenges.</p>
+
                 <a href="https://www.amazon.com/s?k=how+to+beat+imposter+syndrome+and+be+confident" target="_blank" class="cta-primary">Purchase on Amazon</a>
+
             </div>
+
         </div>
+
     </section>
 
     <section id="articles" class="section section-dark articles-section">
+
         <div class="section-content">
+
             <h2>Published Articles</h2>
+
             <p style="text-align: center; margin-bottom: 40px;">Industry Magazines and Journals</p>
+
             <div class="articles-grid">
+
                 <a href="https://drive.google.com/file/d/14Hym-VGr9X2VPIS2_mxm4_PXGCj_QCSf/view" target="_blank" class="article-card">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68697481aa55b32edd5429c6.jpeg" alt="Article cover">
+
                     <h3>The Authentic Association: A New Paradigm for Mental Health in Association Leadership</h3>
+
                 </a>
+
                 <a href="https://storage.googleapis.com/msgsndr/theUBbWZ6psBoHnSIzCR/media/6882963b79310508cb3c8c90.pdf" target="_blank" class="article-card">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/6882960a0e62fe45cdf17a2a.png" alt="Article cover">
+
                     <h3>Beyond the Mask: From Self Doubt to Confident Trainer</h3>
+
                 </a>
+
                 <a href="https://drive.google.com/file/d/1LPPTOqaGezQGQ9jjyNn4PV4c1YS7joI-/view" target="_blank" class="article-card">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/686974c5aa55b356bf5429ea.jpeg" alt="Article cover">
+
                     <h3>Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?</h3>
+
                 </a>
+
             </div>
+
         </div>
+
     </section>
 
     <section id="contact" class="contact-section section-dark">
+
         <div class="section-content">
+
             <h2>Get in Touch</h2>
+
             <p style="text-align: center; margin: 40px auto 50px; max-width: 700px;">Ready to bring clarity to your next event? Let's discuss how Sam can support your leaders.</p>
+
             <a href="/cdn-cgi/l/email-protection#b9cad8d4f9cad8d4d6cadbd6cbd7dc97d7dccd" class="cta-primary">Check Availability</a>
+
         </div>
+
     </section>
 
     <footer>
+
         <div class="footer-content">
+
             <div class="social-links">
+
                 <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/63489f984a51d324b873dee9.png" alt="YouTube" style="filter: brightness(0) invert(1);">
+
                 </a>
+
                 <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/63489ff082251f62a8341107.png" alt="LinkedIn" style="filter: brightness(0) invert(1);">
+
                 </a>
+
                 <a href="https://www.tiktok.com/@selfworthsam" target="_blank">
+
                     <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/6348a0344a51d3359273def7.png" alt="TikTok" style="filter: brightness(0) invert(1);">
+
                 </a>
+
             </div>
+
             <div class="footer-links">
+
                 <a href="#top">Home</a>
+
                 <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank">Book a Call</a>
+
                 <a href="/cdn-cgi/l/email-protection#7d0e1c103d0e1c10120e1f120f131853131809">Contact</a>
+
             </div>
+
             <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
+
         </div>
+
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
     <script>
+
         const menuToggle = document.getElementById('menuToggle');
+
         const navLinks = document.getElementById('navLinks');
+
         
+
         menuToggle.addEventListener('click', () => {
+
             navLinks.classList.toggle('active');
+
             menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
+
             link.addEventListener('click', () => {
+
                 navLinks.classList.remove('active');
+
                 menuToggle.textContent = '☰';
+
             });
+
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
             anchor.addEventListener('click', function (e) {
+
                 e.preventDefault();
+
                 const target = document.querySelector(this.getAttribute('href'));
+
                 if (target) {
+
                     target.scrollIntoView({ behavior: 'smooth' });
+
                 }
+
             });
+
         });
 
         const nav = document.getElementById('nav');
+
         window.addEventListener('scroll', () => {
+
             if (window.scrollY > 50) {
+
                 nav.classList.add('scrolled');
+
             } else {
+
                 nav.classList.remove('scrolled');
+
             }
+
         });
+
     </script>
 
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
 </body>
+
 </html>
