@@ -138,74 +138,94 @@
 
         .hero {
 
-            height: 100vh;
+            min-height: 100vh;
 
             display: flex;
 
-            flex-direction: column;
-
-            justify-content: center;
-
             align-items: center;
 
-            text-align: center;
+            padding: 100px 40px;
 
-            padding: 0;
-
-            background: transparent;
+            background: #000;
 
             position: relative;
 
             overflow: hidden;
 
+            margin-top: 80px;
+
         }
 
-        .hero-banner {
+        .hero-content {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+
+            max-width: 1400px;
+
+            margin: 0 auto;
 
             width: 100%;
 
-            height: 100vh;
+        }
 
-            position: relative;
+        .hero-text {
+
+            z-index: 2;
+
+            opacity: 0;
+
+            animation: fadeInFloat 0.8s ease-out 0.3s forwards;
 
         }
 
-        .hero-banner img {
+        .hero-image {
+
+            z-index: 1;
+
+            opacity: 0;
+
+            animation: fadeInFloat 0.8s ease-out 0.3s forwards;
+
+        }
+
+        .hero-image img {
 
             width: 100%;
 
-            height: 100%;
+            height: auto;
 
-            object-fit: cover;
+            border-radius: 20px;
 
-            object-position: center 10%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 
         }
 
- .hero-overlay {
-    position: absolute;
-    right: 40px;
-    top: 48%;
-    transform: translateY(-50%);
-    text-align: center;
-    width: 45%;
-    max-width: 500px;
-    z-index: 2;
-    opacity: 0;
-    animation: fadeInFloat 0.8s ease-out 0.3s forwards;
-    margin-top: 0px;
-}
+        @keyframes fadeInFloat {
 
-@keyframes fadeInFloat {
-    from {
-        opacity: 0;
-        transform: translateY(-50%) translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(-50%) translateY(0);
-    }
-}
+            from {
+
+                opacity: 0;
+
+                transform: translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
         .hero-label {
 
             font-size: clamp(18px, 2vw, 24px);
@@ -219,8 +239,6 @@
             text-transform: uppercase;
 
             margin-bottom: 20px;
-
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
 
         }
 
@@ -238,8 +256,6 @@
 
             color: #fff;
 
-            text-shadow: 0 4px 30px rgba(0,0,0,0.9);
-
         }
 
         .subtitle {
@@ -254,12 +270,6 @@
 
             max-width: 1000px;
 
-            margin-left: auto;
-
-            margin-right: auto;
-
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
-
         }
 
         .tagline {
@@ -272,13 +282,7 @@
 
             font-weight: 300;
 
-            max-width: 900px;
-
-            margin-left: auto;
-
-            margin-right: auto;
-
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+            max-width: 600px;
 
         }
 
@@ -289,8 +293,6 @@
             gap: 20px;
 
             flex-wrap: wrap;
-
-            justify-content: center;
 
             margin-top: 40px;
 
@@ -322,17 +324,11 @@
 
         }
 
-        .hero-headline {
+        .cta-secondary:hover {
 
-            font-size: clamp(36px, 5vw, 72px);
+            background: #fff;
 
-            font-weight: 700;
-
-            line-height: 1.1;
-
-            margin-bottom: 25px;
-
-            color: #fff;
+            color: #000;
 
         }
 
@@ -908,6 +904,14 @@
 
             }
 
+            .hero-content {
+
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+
+            }
+
         }
 
         @media (max-width: 768px) {
@@ -986,7 +990,15 @@
 
             .hero {
 
-                padding: 100px 20px 60px;
+                padding: 60px 20px;
+
+                margin-top: 60px;
+
+            }
+
+            .hero-content {
+
+                gap: 40px;
 
             }
 
@@ -1005,16 +1017,6 @@
             .logos-grid img {
 
                 height: 35px;
-
-            }
-
-            .hero-overlay {
-
-                right: 20px;
-
-                width: 85%;
-
-                max-width: none;
 
             }
 
@@ -1058,13 +1060,11 @@
 
     <section class="hero">
 
-        <div class="hero-banner">
+        <div class="hero-content">
 
-            <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking">
+            <div class="hero-text">
 
-            <div class="hero-overlay">
-
-                <h1>Clarity Is the<br>Competitive Advantage</h1>
+                <h1>Clarity Is the Competitive Advantage</h1>
 
                 <p class="hero-label">Sam Osborne</p>
 
@@ -1077,6 +1077,12 @@
                     <a href="/cdn-cgi/l/email-protection#6714060a2714060a0814050815090249090213" class="cta-secondary">Check Availability</a>
 
                 </div>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking">
 
             </div>
 
@@ -1436,7 +1442,7 @@
 
     </script>
 
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 
 </body>
 
