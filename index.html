@@ -138,65 +138,43 @@
 
         .hero {
 
-            height: 100vh;
+            min-height: 100vh;
 
             display: flex;
 
-            flex-direction: column;
-
-            justify-content: center;
-
             align-items: center;
 
-            text-align: center;
+            padding: 100px 40px;
 
-            padding: 0;
-
-            background: transparent;
+            background: #000;
 
             position: relative;
 
             overflow: hidden;
 
+            margin-top: 80px;
+
         }
 
-        .hero-banner {
+        .hero-content {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+
+            max-width: 1400px;
+
+            margin: 0 auto;
 
             width: 100%;
 
-            height: 100vh;
-
-            position: relative;
-
         }
 
-        .hero-banner img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            object-position: center 10%;
-
-        }
-
-        .hero-overlay {
-
-            position: absolute;
-
-            right: 40px;
-
-            top: 48%;
-
-            transform: translateY(-40%);
-
-            text-align: center;
-
-            width: 45%;
-
-            max-width: 500px;
+        .hero-text {
 
             z-index: 2;
 
@@ -204,7 +182,27 @@
 
             animation: fadeInFloat 0.8s ease-out 0.3s forwards;
 
-            margin-top: 0px;
+        }
+
+        .hero-image {
+
+            z-index: 1;
+
+            opacity: 0;
+
+            animation: fadeInFloat 0.8s ease-out 0.3s forwards;
+
+        }
+
+        .hero-image img {
+
+            width: 100%;
+
+            height: auto;
+
+            border-radius: 20px;
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 
         }
 
@@ -214,7 +212,7 @@
 
                 opacity: 0;
 
-                transform: translateY(-40%) translateY(20px);
+                transform: translateY(20px);
 
             }
 
@@ -222,9 +220,21 @@
 
                 opacity: 1;
 
-                transform: translateY(-40%) translateY(0);
+                transform: translateY(0);
 
             }
+
+        }
+
+        .hero-banner {
+
+            display: none;
+
+        }
+
+        .hero-overlay {
+
+            display: none;
 
         }
 
@@ -258,8 +268,6 @@
 
             color: #fff;
 
-            text-shadow: 0 4px 30px rgba(0,0,0,0.9);
-
         }
 
         .subtitle {
@@ -273,12 +281,6 @@
             font-weight: 400;
 
             max-width: 1000px;
-
-            margin-left: auto;
-
-            margin-right: auto;
-
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
 
         }
 
@@ -294,12 +296,6 @@
 
             max-width: 900px;
 
-            margin-left: auto;
-
-            margin-right: auto;
-
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
-
         }
 
         .cta-group {
@@ -309,8 +305,6 @@
             gap: 20px;
 
             flex-wrap: wrap;
-
-            justify-content: center;
 
             margin-top: 40px;
 
@@ -1000,63 +994,27 @@
 
             .hero {
 
-                display: grid;
-
-                grid-template-columns: 1fr;
-
-                height: auto;
-
-                min-height: auto;
-
                 padding: 60px 20px;
 
                 margin-top: 60px;
 
             }
 
-            .hero-banner {
+            .hero-content {
 
-                display: none;
+                grid-template-columns: 1fr;
+
+                gap: 40px;
 
             }
 
-            .hero-overlay {
-
-                position: static;
-
-                transform: none;
-
-                width: 100%;
-
-                max-width: 100%;
+            .hero-text {
 
                 text-align: left;
 
                 animation: none;
 
                 opacity: 1;
-
-                margin-bottom: 40px;
-
-            }
-
-            .hero-image {
-
-                width: 100%;
-
-                order: 2;
-
-            }
-
-            .hero-image img {
-
-                width: 100%;
-
-                height: auto;
-
-                border-radius: 20px;
-
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 
             }
 
@@ -1156,11 +1114,9 @@
 
     <section class="hero">
 
-        <div class="hero-banner">
+        <div class="hero-content">
 
-            <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking">
-
-            <div class="hero-overlay">
+            <div class="hero-text">
 
                 <h1>Clarity Is the Competitive Advantage</h1>
 
@@ -1178,11 +1134,11 @@
 
             </div>
 
-        </div>
+            <div class="hero-image">
 
-        <div class="hero-image" style="display: none;">
+                <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking">
 
-            <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking">
+            </div>
 
         </div>
 
