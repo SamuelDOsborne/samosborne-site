@@ -10,6 +10,63 @@
 
     <title>Sam Osborne | Clarity Is the Competitive Advantage</title>
 
+    <meta name="description" content="Sam Osborne is a keynote speaker on clarity, self-worth, and leadership under pressure. Discover how to make clearer decisions when responsibility is high.">
+
+    <meta name="keywords" content="keynote speaker, leadership, clarity under pressure, executive coaching, decision making">
+
+    <meta property="og:title" content="Sam Osborne | Clarity Is the Competitive Advantage">
+
+    <meta property="og:description" content="Keynote speaker helping leaders remove internal conflict and perform with clarity under real-world pressure.">
+
+    <meta property="og:image" content="https://samosborne.net/images/sam-osborne-hero-image.jpg">
+
+    <meta property="og:url" content="https://samosborne.net/">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sam Osborne",
+      "url": "https://samosborne.net",
+      "image": "https://samosborne.net/images/sam-osborne-hero-image.jpg",
+      "jobTitle": "Keynote Speaker & Leadership Advisor",
+      "sameAs": [
+        "https://www.linkedin.com/in/sam-osborne-usa/",
+        "https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/",
+        "https://www.tiktok.com/@selfworthsam"
+      ],
+      "description": "Keynote speaker on clarity, self-worth, and leadership under pressure"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Clarity Is the Competitive Advantage Keynote",
+      "description": "Keynote on clarity, self-worth, and leadership under pressure",
+      "organizer": {
+        "@type": "Person",
+        "name": "Sam Osborne"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sam Osborne",
+      "url": "https://samosborne.net",
+      "sameAs": [
+        "https://www.linkedin.com/in/sam-osborne-usa/",
+        "https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/"
+      ]
+    }
+    </script>
+
     <style>
 
         * {
@@ -138,43 +195,73 @@
 
         .hero {
 
-            min-height: 100vh;
+            height: 100vh;
 
             display: flex;
 
+            flex-direction: column;
+
+            justify-content: center;
+
             align-items: center;
 
-            padding: 100px 40px;
+            text-align: center;
 
-            background: #000;
+            padding: 0;
+
+            background: transparent;
 
             position: relative;
 
             overflow: hidden;
 
-            margin-top: 80px;
+        }
+
+        .hero-banner {
+
+            width: 100%;
+
+            height: 100vh;
+
+            position: relative;
+
+            display: block;
+
+        }
+
+        .hero-banner img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center 10%;
 
         }
 
         .hero-content {
 
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 80px;
-
-            align-items: center;
-
-            max-width: 1400px;
-
-            margin: 0 auto;
-
-            width: 100%;
+            display: none;
 
         }
 
-        .hero-text {
+        .hero-overlay {
+
+            position: absolute;
+
+            right: 40px;
+
+            top: 48%;
+
+            transform: translateY(-40%);
+
+            text-align: center;
+
+            width: 45%;
+
+            max-width: 500px;
 
             z-index: 2;
 
@@ -182,27 +269,9 @@
 
             animation: fadeInFloat 0.8s ease-out 0.3s forwards;
 
-        }
+            margin-top: 0px;
 
-        .hero-image {
-
-            z-index: 1;
-
-            opacity: 0;
-
-            animation: fadeInFloat 0.8s ease-out 0.3s forwards;
-
-        }
-
-        .hero-image img {
-
-            width: 100%;
-
-            height: auto;
-
-            border-radius: 20px;
-
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: block;
 
         }
 
@@ -212,7 +281,7 @@
 
                 opacity: 0;
 
-                transform: translateY(20px);
+                transform: translateY(-40%) translateY(20px);
 
             }
 
@@ -220,19 +289,19 @@
 
                 opacity: 1;
 
-                transform: translateY(0);
+                transform: translateY(-40%) translateY(0);
 
             }
 
         }
 
-        .hero-banner {
+        .hero-text {
 
             display: none;
 
         }
 
-        .hero-overlay {
+        .hero-image {
 
             display: none;
 
@@ -268,6 +337,8 @@
 
             color: #fff;
 
+            text-shadow: 0 4px 30px rgba(0,0,0,0.9);
+
         }
 
         .subtitle {
@@ -281,6 +352,12 @@
             font-weight: 400;
 
             max-width: 1000px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
 
         }
 
@@ -296,6 +373,12 @@
 
             max-width: 900px;
 
+            margin-left: auto;
+
+            margin-right: auto;
+
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+
         }
 
         .cta-group {
@@ -305,6 +388,8 @@
             gap: 20px;
 
             flex-wrap: wrap;
+
+            justify-content: center;
 
             margin-top: 40px;
 
@@ -994,13 +1079,51 @@
 
             .hero {
 
+                display: grid;
+
+                grid-template-columns: 1fr;
+
+                height: auto;
+
+                min-height: auto;
+
                 padding: 60px 20px;
 
                 margin-top: 60px;
 
             }
 
+            .hero-banner {
+
+                display: none;
+
+            }
+
+            .hero-overlay {
+
+                position: static;
+
+                transform: none;
+
+                width: 100%;
+
+                max-width: 100%;
+
+                text-align: left;
+
+                animation: none;
+
+                opacity: 1;
+
+                margin-bottom: 40px;
+
+                display: block;
+
+            }
+
             .hero-content {
+
+                display: grid;
 
                 grid-template-columns: 1fr;
 
@@ -1015,6 +1138,28 @@
                 animation: none;
 
                 opacity: 1;
+
+                display: block;
+
+            }
+
+            .hero-image {
+
+                width: 100%;
+
+                display: block;
+
+            }
+
+            .hero-image img {
+
+                width: 100%;
+
+                height: auto;
+
+                border-radius: 20px;
+
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 
             }
 
@@ -1114,6 +1259,30 @@
 
     <section class="hero">
 
+        <div class="hero-banner">
+
+            <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about leadership clarity">
+
+            <div class="hero-overlay">
+
+                <h1>Clarity Is the Competitive Advantage</h1>
+
+                <p class="hero-label">Sam Osborne</p>
+
+                <p class="subtitle">Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure</p>
+
+                <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
+
+                <div class="cta-group">
+
+                    <a href="/cdn-cgi/l/email-protection#6714060a2714060a0814050815090249090213" class="cta-secondary">Check Availability</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
         <div class="hero-content">
 
             <div class="hero-text">
@@ -1136,7 +1305,7 @@
 
             <div class="hero-image">
 
-                <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking">
+                <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about leadership clarity">
 
             </div>
 
@@ -1148,7 +1317,7 @@
 
         <div class="section-content">
 
-            <p style="color: #1d1d1f;">Sam Osborne helps leaders and high-responsibility professionals remove internal conflict so they can perform with clarity, composure, and confidence under real-world pressure.</p>
+            <p style="color: #1d1d1f;">Sam Osborne helps leaders and high-responsibility professionals remove internal conflict so they can perform with clarity, composure, and confidence under real-world pressure. Whether you're navigating organizational complexity, making high-stakes decisions, or leading through uncertainty, clarity matters more than confidence.</p>
 
         </div>
 
@@ -1162,7 +1331,7 @@
 
                 <div>
 
-                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68dbe85c8da1735eb64beb91.jpeg" alt="Sam Osborne speaking">
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68dbe85c8da1735eb64beb91.jpeg" alt="Sam Osborne delivering keynote on clarity and decision-making">
 
                 </div>
 
@@ -1304,7 +1473,7 @@
 
             <div class="book-image">
 
-                <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/66f86b0196de2fcf247f9054.png" alt="Sam's Book Cover">
+                <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/66f86b0196de2fcf247f9054.png" alt="How to Beat Imposter Syndrome and Be Confident book cover by Sam Osborne">
 
             </div>
 
@@ -1346,7 +1515,7 @@
 
                 <a href="https://drive.google.com/file/d/14Hym-VGr9X2VPIS2_mxm4_PXGCj_QCSf/view" target="_blank" class="article-card">
 
-                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68697481aa55b32edd5429c6.jpeg" alt="Article cover">
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/68697481aa55b32edd5429c6.jpeg" alt="The Authentic Association: A New Paradigm for Mental Health in Association Leadership">
 
                     <h3>The Authentic Association: A New Paradigm for Mental Health in Association Leadership</h3>
 
@@ -1354,7 +1523,7 @@
 
                 <a href="https://storage.googleapis.com/msgsndr/theUBbWZ6psBoHnSIzCR/media/6882963b79310508cb3c8c90.pdf" target="_blank" class="article-card">
 
-                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/6882960a0e62fe45cdf17a2a.png" alt="Article cover">
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/6882960a0e62fe45cdf17a2a.png" alt="Beyond the Mask: From Self Doubt to Confident Trainer">
 
                     <h3>Beyond the Mask: From Self Doubt to Confident Trainer</h3>
 
@@ -1362,7 +1531,7 @@
 
                 <a href="https://drive.google.com/file/d/1LPPTOqaGezQGQ9jjyNn4PV4c1YS7joI-/view" target="_blank" class="article-card">
 
-                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/686974c5aa55b356bf5429ea.jpeg" alt="Article cover">
+                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/686974c5aa55b356bf5429ea.jpeg" alt="Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?">
 
                     <h3>Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?</h3>
 
@@ -1406,11 +1575,7 @@
 
                 </a>
 
-                <a href="https://www.tiktok.com/@selfworthsam" target="_blank">
-
-                    <img src="https://assets.cdn.filesafe.space/theUBbWZ6psBoHnSIzCR/media/6348a0344a51d3359273def7.png" alt="TikTok" style="filter: brightness(0) invert(1);">
-
-                </a>
+            
 
             </div>
 
@@ -1418,7 +1583,6 @@
 
                 <a href="#top">Home</a>
 
-                <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank">Book a Call</a>
 
                 <a href="/cdn-cgi/l/email-protection#7d0e1c103d0e1c10120e1f120f131853131809">Contact</a>
 
@@ -1496,7 +1660,7 @@
 
     </script>
 
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 
 </body>
 
