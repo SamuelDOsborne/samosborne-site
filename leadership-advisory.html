@@ -425,9 +425,11 @@
 
         }
 
-        .section-light .two-col img {
-    display: block;
-    width: 100%;
+        .section-light .two-col img,
+.two-col img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
 }
 
         .section p {
@@ -1326,7 +1328,8 @@
 
         });
 
-        navLinks.querySelectorAll('a').forEach(link => {
+        navLinks.querySelectorAll('li a').forEach(link => {
+
 
             link.addEventListener('click', () => {
 
