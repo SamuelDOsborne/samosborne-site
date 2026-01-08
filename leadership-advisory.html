@@ -156,15 +156,20 @@
 
         }
 
-
 .nav-links a:before {
+
     display: none;
+
 }
 
         .nav-links li:before {
+
     display: none;
+
 }
+
         
+
         .mobile-menu-toggle {
 
             display: none;
@@ -257,12 +262,18 @@
 
         }
 
-    .hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
+        .hero-image img {
+
+            width: 100%;
+
+            height: auto;
+
+            border-radius: 20px;
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+        }
+
         @keyframes fadeInText {
 
             from {
@@ -430,10 +441,15 @@
         }
 
         .section-light .two-col img,
+
 .two-col img {
+
     display: block !important;
+
     width: 100% !important;
+
     height: auto !important;
+
 }
 
         .section p {
@@ -608,6 +624,8 @@
 
             transition: opacity 0.3s;
 
+            display: inline-block;
+
         }
 
         .social-links img {
@@ -615,6 +633,8 @@
             width: 40px;
 
             height: 40px;
+
+            display: block;
 
         }
 
@@ -716,17 +736,19 @@
 
                 transform: translateY(0);
 
-                opacity: 1; thank 
+                opacity: 1;
 
                 pointer-events: all;
 
             }
 
             .nav-links.active a {
-    pointer-events: all;
-    cursor: pointer;
-}
 
+                pointer-events: all;
+
+                cursor: pointer;
+
+            }
 
             .nav-links li {
 
@@ -745,14 +767,20 @@
             }
 
             .two-col {
-    grid-template-columns: 1fr;
-    gap: 40px;
-}
 
-.two-col img {
-    display: block;
-    width: 100%;
-}
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+
+            }
+
+            .two-col img {
+
+                display: block;
+
+                width: 100%;
+
+            }
 
             .mobile-menu-toggle {
 
@@ -816,7 +844,13 @@
 
             .hero-image img {
 
-                content: url('images/sam-osborne-smile.svg');
+                width: 100%;
+
+                height: auto;
+
+                border-radius: 20px;
+
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 
             }
 
@@ -895,6 +929,44 @@
             li {
 
                 font-size: clamp(18px, 2.5vw, 24px);
+
+            }
+
+            .social-links {
+
+                display: flex;
+
+                justify-content: center;
+
+                gap: 30px;
+
+                margin-bottom: 40px;
+
+            }
+
+            .social-links a {
+
+                opacity: 0.7;
+
+                transition: opacity 0.3s;
+
+                display: inline-block;
+
+            }
+
+            .social-links img {
+
+                width: 40px;
+
+                height: 40px;
+
+                display: block;
+
+            }
+
+            .social-links a:hover {
+
+                opacity: 1;
 
             }
 
@@ -1298,7 +1370,6 @@
 
                 </a>
 
-                
             </div>
 
             <div class="footer-links">
@@ -1334,7 +1405,6 @@
         });
 
         navLinks.querySelectorAll('li a').forEach(link => {
-
 
             link.addEventListener('click', () => {
 
