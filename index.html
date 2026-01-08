@@ -978,6 +978,38 @@
 
         }
 
+        .video-section {
+
+            padding: 100px 40px;
+
+        }
+
+        .video-container {
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            aspect-ratio: 16 / 9;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .video-container iframe {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: none;
+
+        }
+
         footer {
 
             background: #000;
@@ -1015,6 +1047,8 @@
             opacity: 0.7;
 
             transition: opacity 0.3s;
+
+            display: inline-block;
 
         }
 
@@ -1352,16 +1386,20 @@
 
             }
 
+            .video-section {
+
+                padding: 80px 20px;
+
+            }
+
+            .video-container {
+
+                aspect-ratio: 16 / 9;
+
+            }
+
         }
 
-<section class="newsletter-section">
-  <h2 class="newsletter-heading">Clarity Under Pressure</h2>
-  <img src="clarity-under-pressure.jpg" alt="Clarity Under Pressure" class="newsletter-image">
-  <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7344169546796146688" target="_blank">Subscribe on LinkedIn</a>
-</section>
-
-<a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7344169546796146688" target="_blank">Subscribe on LinkedIn</a>
-        
     </style>
 
 </head>
@@ -1461,6 +1499,22 @@
             <p style="color: #1d1d1f;">Sam Osborne helps leaders and high-responsibility professionals remove internal conflict so they can perform with clarity, composure, and confidence under real-world pressure.</p>
 
             <a href="mailto:sam@samosborne.net" class="cta-primary">Check Availability</a>
+
+        </div>
+
+    </section>
+
+    <section class="section section-dark video-section">
+
+        <div class="section-content">
+
+            <h2 style="text-align: center; margin-bottom: 50px;">See Sam in Action</h2>
+
+            <div class="video-container">
+
+                <iframe width="100%" height="600" src="https://www.youtube.com/embed/gNgJzUhJAMg" title="Sam Osborne - Clarity Under Pressure Keynote" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+            </div>
 
         </div>
 
@@ -1662,7 +1716,7 @@
 
                     <h3>The Authentic Association: A New Paradigm for Mental Health in Association Leadership</h3>
 
-    
+                </a>
 
                 <a href="https://drive.google.com/file/d/1LPPTOqaGezQGQ9jjyNn4PV4c1YS7joI-/view" target="_blank" class="article-card">
 
@@ -1693,23 +1747,39 @@
     </section>
 
     <footer>
-    <div class="footer-content">
-        <div class="social-links">
-            <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
-                <img src="images/youtube.png" alt="YouTube">
-            </a>
-            <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
-                <img src="images/linkedin.png" alt="LinkedIn">
-            </a>
+
+        <div class="footer-content">
+
+            <div class="social-links">
+
+                <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
+
+                    <img src="images/youtube.png" alt="YouTube">
+
+                </a>
+
+                <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
+
+                    <img src="images/linkedin.png" alt="LinkedIn">
+
+                </a>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#top">Home</a>
+
+                <a href="mailto:sam@samosborne.net">Contact</a>
+
+            </div>
+
+            <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
+
         </div>
-        <div class="footer-links">
-            <a href="#top">Home</a>
-            <a href="mailto:sam@samosborne.net">Contact</a>
-        </div>
-        <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
-    </div>
-</footer>
-    
+
+    </footer>
+
     <script>
 
         const menuToggle = document.getElementById('menuToggle');
