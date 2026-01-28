@@ -792,6 +792,96 @@
 
         }
 
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 40px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.15);
+            font-weight: 700;
+        }
+
+        .testimonial-quote {
+            flex-grow: 1;
+            margin-bottom: 30px;
+            padding-left: 10px;
+        }
+
+        .testimonial-quote p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #d1d1d6;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-quote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .testimonial-quote em {
+            color: #2997ff;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .testimonial-author h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin-bottom: 6px;
+        }
+
+        .author-title {
+            font-size: 14px;
+            color: #86868b;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .author-credential {
+            font-size: 13px;
+            color: #2997ff;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
         .logos-section {
 
             text-align: center;
@@ -1210,6 +1300,29 @@
 
             }
 
+            .testimonials-section {
+                padding: 80px 20px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testimonial-card {
+                padding: 30px;
+            }
+
+            .testimonial-quote p {
+                font-size: 15px;
+            }
+
+            .testimonial-card::before {
+                font-size: 40px;
+                top: 15px;
+                left: 20px;
+            }
+
             .hero {
 
                 display: grid;
@@ -1447,6 +1560,7 @@
                 <h1>Clarity Is the Competitive Advantage</h1>
 
                 <p class="hero-label">Sam Osborne</p>
+
                  <p class="hero-label" style="font-size: 16px; font-weight: 300; letter-spacing: 0.1em; margin-top: 12px;">The Neurosurgeon of Self Worth</p>
 
                 <p class="subtitle">Keynote Speaker on Clarity,<br>Self-Worth & Leadership<br>Under Pressure</p>
@@ -1528,6 +1642,7 @@
             <div class="video-container">
 
                 <iframe width="100%" height="600" src="https://www.youtube.com/embed/B9nWe4PjdH8" title="Sam Osborne - Clarity Under Pressure Keynote" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
             </div>
 
         </div>
@@ -1565,13 +1680,8 @@
                         <li>See both sides of any challenge: the difficulty and the hidden benefit</li>
 
                         <li>Lead with composed authority even when outcomes are uncertain</li>
-</ul>
-               
 
-
-    
-
-            
+                    </ul>
 
                 </div>
 
@@ -1657,18 +1767,62 @@
 
     </section>
 
-    <section class="logos-section section-dark">
-    <div class="section-content">
-        <h2>Endorsed By</h2>
-        <div class="logos-grid">
-            <img src="images/american-business.png" alt="American Business logo">
-            <img src="images/art-institute.png" alt="Art Institute logo">
-            <img src="images/cai.png" alt="CAI logo">
-            <img src="images/glendale-college.png" alt="Glendale College logo">
-            <img src="images/hispanic-business.png" alt="Hispanic Business logo">
+    <section class="section section-dark testimonials-section">
+        <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 60px;">Client Endorsements</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <p>"During the 2026 Law Seminar in San Diego, I had the opportunity to attend a session titled <em>Composure Through Conflict: Stop Taking Things So Personally</em>, led by Sam Osborne and David Graf. This course stood out as a practical and timely resource for professionals working in high accountability, high emotion environments such as community management.</p>
+                        
+                        <p>The session reinforced emotional discipline during difficult conversations. It provided clear tools to separate facts from reactions. It supported staying grounded, professional, and effective when conflict arises. It also strengthened approaches to board relationships and internal communication.</p>
+                        
+                        <p>This discussion was not about avoiding conflict. It centered on managing it with confidence, credibility, and consistency. The content aligns directly with our expectations around professionalism, sound judgment, and leadership presence. I strongly recommend this class as part of your ongoing development and growth as leaders within our organization."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Michael Tillotson</h4>
+                        <p class="author-title">VP of Community Management<br>HOALiving/CAM, Southern Utah</p>
+                        <p class="author-credential">CMCA®, AMS®</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <p>"Composure is a critical part of being a lawyer — and perhaps of any pressure situation. Sam gives real-life and real-time examples of how to manage composure and ensure you perform at your best. I attended Sam's workshop at the CAI LawSeminar in January 2026, and have no hesitation in recommending his insights and engaging workshop style to others."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Thomas Gibbons</h4>
+                        <p class="author-title">Property Law Expert</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="logos-section section-dark">
+
+        <div class="section-content">
+
+            <h2>Endorsed By</h2>
+
+            <div class="logos-grid">
+
+                <img src="images/american-business.png" alt="American Business logo">
+
+                <img src="images/art-institute.png" alt="Art Institute logo">
+
+                <img src="images/cai.png" alt="CAI logo">
+
+                <img src="images/glendale-college.png" alt="Glendale College logo">
+
+                <img src="images/hispanic-business.png" alt="Hispanic Business logo">
+
+            </div>
+
+        </div>
+
+    </section>
 
     <section id="book" class="book-section">
 
@@ -1698,158 +1852,4 @@
 
                 <p style="margin-bottom: 30px;">Enhance your self-worth via quizzes, journalling and challenges.</p>
 
-                <a href="https://www.amazon.com/s?k=how+to+beat+imposter+syndrome+and+be+confident" target="_blank" class="cta-primary">Purchase on Amazon</a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section id="articles" class="section section-dark articles-section">
-
-        <div class="section-content">
-
-            <h2>Published Articles</h2>
-
-            <p style="text-align: center; margin-bottom: 40px;">Industry Journals</p>
-
-            <div class="articles-grid">
-
-                <a href="https://drive.google.com/file/d/14Hym-VGr9X2VPIS2_mxm4_PXGCj_QCSf/view" target="_blank" class="article-card">
-
-                    <img src="images/sam-osborne-article2.png" alt="The Authentic Association: A New Paradigm for Mental Health in Association Leadership">
-
-                    <h3>The Authentic Association: A New Paradigm for Mental Health in Association Leadership</h3>
-
-                </a>
-
-                <a href="https://drive.google.com/file/d/1LPPTOqaGezQGQ9jjyNn4PV4c1YS7joI-/view" target="_blank" class="article-card">
-
-                    <img src="images/sam-osborne-article1.png" alt="Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?">
-
-                    <h3>Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?</h3>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section id="contact" class="contact-section section-dark">
-
-        <div class="section-content">
-
-            <h2>Get in Touch</h2>
-
-            <p style="text-align: center; margin: 40px auto 50px; max-width: 700px; font-size: clamp(20px, 3vw, 28px);">Ready to bring clarity to your next event?<br>Let's discuss how Sam can support your leaders.</p>
-
-            <a href="mailto:sam@samosborne.net" class="cta-primary">Check Availability</a>
-
-        </div>
-
-    </section>
-
-    <footer>
-
-        <div class="footer-content">
-
-            <div class="social-links">
-
-                <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
-
-                    <img src="images/youtube.png" alt="YouTube">
-
-                </a>
-
-                <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
-
-                    <img src="images/linkedin.png" alt="LinkedIn">
-
-                </a>
-
-            </div>
-
-            <div class="footer-links">
-
-                <a href="#top">Home</a>
-
-                <a href="mailto:sam@samosborne.net">Contact</a>
-
-            </div>
-
-            <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
-
-        </div>
-
-    </footer>
-
-    <script>
-
-        const menuToggle = document.getElementById('menuToggle');
-
-        const navLinks = document.getElementById('navLinks');
-
-        
-
-        menuToggle.addEventListener('click', () => {
-
-            navLinks.classList.toggle('active');
-
-            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-
-            link.addEventListener('click', () => {
-
-                navLinks.classList.remove('active');
-
-                menuToggle.textContent = '☰';
-
-            });
-
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-            anchor.addEventListener('click', function (e) {
-
-                e.preventDefault();
-
-                const target = document.querySelector(this.getAttribute('href'));
-
-                if (target) {
-
-                    target.scrollIntoView({ behavior: 'smooth' });
-
-                }
-
-            });
-
-        });
-
-        const nav = document.getElementById('nav');
-
-        window.addEventListener('scroll', () => {
-
-            if (window.scrollY > 50) {
-
-                nav.classList.add('scrolled');
-
-            } else {
-
-                nav.classList.remove('scrolled');
-
-            }
-
-        });
-
-    </script>
-
-</body>
-
-</html>
+                <a href="https://www.amazon.com/s?k=how+to+beat+imposter+syndrome+and+be+confident" target
