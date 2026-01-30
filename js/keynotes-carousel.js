@@ -1,77 +1,90 @@
-// Testimonial Carousel Functionality
-class TestimonialCarousel {
-  constructor() {
-    this.currentIndex = 0;
-    this.slides = document.querySelectorAll('.testimonial-slide');
-    this.dots = document.querySelectorAll('.dot');
-    this.prevBtn = document.getElementById('prevBtn');
-    this.nextBtn = document.getElementById('nextBtn');
-    this.track = document.querySelector('.carousel-track');
-    this.autoplayInterval = null;
-    this.init();
-  }
+// Keynotes Testimonial Carousel
+(function() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let autoplayInterval;
 
-  init() {
-    // Button click handlers
-    this.prevBtn.addEventListener('click', () => this.prev());
-    this.nextBtn.addEventListener('click', () => this.next());
+    if (!slides.length) return; // Exit if no slides found
 
-    // Dot click handlers
-    this.dots.forEach(dot => {
-      dot.addEventListener('click', (e) => {
-        const index = parseInt(e.target.dataset.index);
-        this.goToSlide(index);
-      });
+    function showSlide(index) {
+        // Remove active class from all slides and dots
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Add active class to current slide and dot
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 6000); // Change slide every 6 seconds
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Event listeners for buttons
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            stopAutoplay();
+            nextSlide();
+            startAutoplay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            stopAutoplay();
+            prevSlide();
+            startAutoplay();
+        });
+    }
+
+    // Event listeners for dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopAutoplay();
+            currentSlide = index;
+            showSlide(currentSlide);
+            startAutoplay();
+        });
     });
 
-    // Start autoplay
-    this.startAutoplay();
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            stopAutoplay();
+            prevSlide();
+            startAutoplay();
+        } else if (e.key === 'ArrowRight') {
+            stopAutoplay();
+            nextSlide();
+            startAutoplay();
+        }
+    });
 
-    // Pause on hover
-    const testimonialSection = document.querySelector('.testimonials-section');
-    testimonialSection.addEventListener('mouseenter', () => this.stopAutoplay());
-    testimonialSection.addEventListener('mouseleave', () => this.startAutoplay());
-  }
-
-  goToSlide(index) {
-    // Remove active class from current slide and dot
-    this.slides[this.currentIndex].classList.remove('active');
-    this.dots[this.currentIndex].classList.remove('active');
-
-    // Update index
-    this.currentIndex = index;
-
-    // Add active class to new slide and dot
-    this.slides[this.currentIndex].classList.add('active');
-    this.dots[this.currentIndex].classList.add('active');
-
-    // Transform the track to show the correct slide
-    const offset = -index * 100;
-    this.track.style.transform = `translateX(${offset}%)`;
-  }
-
-  next() {
-    const nextIndex = (this.currentIndex + 1) % this.slides.length;
-    this.goToSlide(nextIndex);
-  }
-
-  prev() {
-    const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
-    this.goToSlide(prevIndex);
-  }
-
-  startAutoplay() {
-    this.autoplayInterval = setInterval(() => this.next(), 6000);
-  }
-
-  stopAutoplay() {
-    if (this.autoplayInterval) {
-      clearInterval(this.autoplayInterval);
+    // Pause autoplay on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoplay);
+        carouselContainer.addEventListener('mouseleave', startAutoplay);
     }
-  }
-}
 
-// Initialize carousel when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  new TestimonialCarousel();
-});
+    // Initialize
+    showSlide(0);
+    startAutoplay();
+})();
