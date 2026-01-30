@@ -357,6 +357,44 @@
 
         .service-card p { font-size: clamp(16px, 2.2vw, 20px); line-height: 1.6; color: #1d1d1f; }
 
+/* WHO section — Apple-style cards with hover pop */
+.who-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 22px;
+    padding: 46px 40px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.10);
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                background 0.4s ease,
+                border-color 0.4s ease;
+    text-align: left;
+}
+
+.who-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.16);
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.14);
+}
+
+.who-subhead {
+    color: #1d1d1f;
+    opacity: 0.78;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.who-list {
+    color: #1d1d1f;
+    opacity: 0.72;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+        
         .outcomes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -813,41 +851,42 @@
     </section>
 
     <section id="who" class="section section-light">
-    <div class="section-content">
-        <h2 style="text-align: center; color: #1d1d1f;">Who Sam Works With</h2>
+  <div class="section-content">
+    <h2 style="text-align: center; color: #1d1d1f;">Who Sam Works With</h2>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Executive Leadership &<br>Enterprise Organizations</h3>
-                <p>Where decisions carry enterprise-level consequences.</p>
-                <p style="margin-top: 16px;">
-                    C-suite & senior leadership teams · Fortune 500 & global enterprises ·
-                    Private equity–backed companies · High-growth technology & innovation firms ·
-                    Executive retreats, board meetings & leadership summits
-                </p>
-            </div>
+    <div class="services-grid who-grid">
+      <div class="service-card who-card">
+        <h3>Executive Leadership &<br>Enterprise Organizations</h3>
+        <p class="who-subhead">Where decisions carry enterprise-level consequences.</p>
+        <p class="who-list">
+          C-suite & senior leadership teams · Fortune 500 & global enterprises ·
+          Private equity–backed companies · High-growth technology & innovation firms ·
+          Executive retreats, board meetings & leadership summits
+        </p>
+      </div>
 
-            <div class="service-card">
-                <h3>Legal, Financial &<br>Risk-Driven Professions</h3>
-                <p>Where composure protects reputation, liability, and capital.</p>
-                <p style="margin-top: 16px;">
-                    Law firms & legal associations · Financial services & wealth management ·
-                    Compliance, governance & risk teams · Insurance, audit & regulatory bodies ·
-                    Professional conferences & closed-door leadership forums
-                </p>
-            </div>
+      <div class="service-card who-card">
+        <h3>Legal, Financial &<br>Risk-Driven Professions</h3>
+        <p class="who-subhead">Where composure protects reputation, liability, and capital.</p>
+        <p class="who-list">
+          Law firms & legal associations · Financial services & wealth management ·
+          Compliance, governance & risk teams · Insurance, audit & regulatory bodies ·
+          Professional conferences & closed-door leadership forums
+        </p>
+      </div>
 
-            <div class="service-card">
-                <h3>Healthcare, Life Sciences &<br>Medical Innovation Leaders</h3>
-                <p>Where clarity impacts lives, ethics, and outcomes.</p>
-                <p style="margin-top: 16px;">
-                    Healthcare executives & physician leaders · Ophthalmology, optometry & vision science organizations ·
-                    Medical device & medtech innovators · Research institutions & academic medical conferences
-                </p>
-            </div>
-        </div>
+      <div class="service-card who-card">
+        <h3>Healthcare, Life Sciences &<br>Medical Innovation Leaders</h3>
+        <p class="who-subhead">Where clarity impacts lives, ethics, and outcomes.</p>
+        <p class="who-list">
+          Healthcare executives & physician leaders · Ophthalmology, optometry & vision science organizations ·
+          Medical device & medtech innovators · Research institutions & academic medical conferences
+        </p>
+      </div>
     </div>
+  </div>
 </section>
+
 
 
     <section id="delivers" class="section section-dark">
