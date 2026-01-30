@@ -57,7 +57,7 @@
 
     function startAutoplay() {
         stopAutoplay();
-        autoplayTimer = setInterval(nextSlide, 5000);
+        autoplayTimer = setInterval(nextSlide, 8000);
     }
 
     function stopAutoplay() {
