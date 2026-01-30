@@ -14,6 +14,7 @@
     <meta property="og:url" content="https://samosborne.net/">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -24,55 +25,26 @@
       "jobTitle": "Corporate Keynote Speaker & Leadership Advisor",
       "sameAs": [
         "https://www.linkedin.com/in/sam-osborne-usa/",
-        "https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/",
-        "https://www.tiktok.com/@selfworthsam"
+        "https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/"
       ],
       "description": "Corporate keynote speaker on clarity, composure, and executive performance under pressure"
     }
     </script>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "Clarity Is the Competitive Advantage Keynote",
-      "description": "Corporate keynote on clarity, composure, and executive performance under reputational risk",
-      "organizer": {
-        "@type": "Person",
-        "name": "Sam Osborne"
-      }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Sam Osborne",
-      "url": "https://samosborne.net",
-      "sameAs": [
-        "https://www.linkedin.com/in/sam-osborne-usa/",
-        "https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/"
-      ]
-    }
-    </script>
-
-    <!-- Google Fonts for Keynotes Section -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Keynotes Section Styles -->
     <link rel="stylesheet" href="css/keynotes-styles.css">
 
     <style>
+        /* --- BASE STYLES (unchanged except CTAs & label removal) --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: #000;
             color: #f5f5f7;
-            overflow-x: hidden;
             line-height: 1.6;
         }
 
@@ -80,16 +52,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.85);
             backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 20px 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 15px 0;
         }
 
         .nav-content {
@@ -101,12 +67,7 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: #f5f5f7;
-            text-decoration: none;
-        }
+        .logo { color: #fff; font-weight: 600; text-decoration: none; }
 
         .nav-links {
             display: flex;
@@ -115,138 +76,56 @@
         }
 
         .nav-links a {
-            color: #f5f5f7;
+            color: #fff;
             text-decoration: none;
             font-size: 14px;
-            transition: opacity 0.3s;
         }
 
-        .nav-links a:hover { opacity: 0.7; }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #f5f5f7;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0;
-            background: transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-banner {
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            display: block;
-        }
-
+        /* HERO */
+        .hero { height: 100vh; position: relative; }
         .hero-banner img {
             width: 100%;
-            height: 100%;
+            height: 100vh;
             object-fit: cover;
-            object-position: center 10%;
         }
-
-        .hero-content { display: none; }
 
         .hero-overlay {
             position: absolute;
             right: 40px;
-            top: 48%;
-            transform: translateY(-40%);
-            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
             width: 45%;
             max-width: 560px;
-            z-index: 2;
-            opacity: 0;
-            animation: fadeInFloat 0.8s ease-out 0.3s forwards;
-            margin-top: 0px;
-            display: block;
+            text-align: center;
         }
-
-        @keyframes fadeInFloat {
-            from { opacity: 0; transform: translateY(-40%) translateY(20px); }
-            to { opacity: 1; transform: translateY(-40%) translateY(0); }
-        }
-
-        .hero-text, .hero-image { display: none; }
 
         .hero-label {
-            font-size: clamp(14px, 1.6vw, 16px);
-            color: rgba(255,255,255,0.9);
-            font-weight: 600;
+            font-size: 14px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             margin-bottom: 14px;
+            color: rgba(255,255,255,0.9);
         }
 
         h1 {
             font-size: clamp(36px, 5vw, 72px);
-            font-weight: 700;
             line-height: 1.05;
             margin-bottom: 18px;
-            letter-spacing: -0.03em;
-            color: #fff;
-            text-shadow: 0 4px 30px rgba(0,0,0,0.9);
         }
 
         .subtitle {
             font-size: clamp(18px, 2.4vw, 26px);
-            color: rgba(255,255,255,0.95);
             margin-bottom: 18px;
-            font-weight: 400;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
         }
 
         .tagline {
             font-size: clamp(16px, 2.1vw, 22px);
-            color: rgba(229,229,231,0.95);
-            margin-bottom: 0;
             font-weight: 300;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
         }
 
         .cta-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
             margin-top: 34px;
         }
-
-        .cta-secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #000;
-            padding: 16px 40px;
-            font-size: 18px;
-            border-radius: 980px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .cta-secondary:hover { background: #fff; color: #000; }
 
         .cta-primary {
             background: #f5f5f7;
@@ -255,351 +134,149 @@
             font-size: 18px;
             border-radius: 980px;
             text-decoration: none;
-            transition: all 0.3s ease;
             font-weight: 600;
-            display: inline-block;
         }
 
-        .cta-primary:hover { background: #fff; transform: scale(1.05); }
-
-        @media (min-width: 769px) {
-            .cta-primary { border: 2px solid black; }
-            .hero-overlay .cta-group { display: none; }
+        .cta-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 980px;
+            border: 2px solid #fff;
+            text-decoration: none;
+            font-size: 18px;
         }
 
-        @media (max-width: 768px) {
-            .hero-content .cta-secondary { border: 2px solid white; }
-            .cta-secondary { border: 2px solid white; }
-            .intro-section .cta-primary { border: 2px solid black !important; }
-            .keynote-section .two-col-section img { display: block; }
-        }
-
-        .section { padding: 120px 40px; position: relative; }
-        .section-content { max-width: 1200px; margin: 0 auto; }
-
-        .section-dark { background: #000; }
+        /* SECTIONS */
+        .section { padding: 120px 40px; }
         .section-light { background: #f5f5f7; color: #1d1d1f; }
-        .section-light h2, .section-light h3 { color: #1d1d1f; }
-        .section-light p { color: #6e6e73; }
+        .section-dark { background: #000; }
 
-        h2 {
-            font-size: clamp(36px, 6vw, 72px);
-            font-weight: 700;
-            margin-bottom: 30px;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        h3 {
-            font-size: clamp(24px, 4vw, 36px);
+        .intro-statement {
+            font-size: clamp(24px, 3vw, 36px);
             font-weight: 600;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            max-width: 980px;
+            margin: 0 auto 30px;
+            text-align: center;
         }
 
-        .section p {
-            font-size: clamp(18px, 2.5vw, 24px);
-            line-height: 1.6;
-            color: #d1d1d6;
-        }
-
-        .intro-section p { max-width: 900px; margin: 0 auto 40px; }
-
+        /* WHO CARDS */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
             gap: 40px;
             margin-top: 60px;
         }
 
-        .service-card { text-align: center; padding: 40px 30px; }
-        .service-card h3 { font-size: clamp(24px, 4vw, 36px); margin-bottom: 15px; }
-        .service-card p { font-size: clamp(16px, 2.2vw, 20px); line-height: 1.6; color: #1d1d1f; }
-
-        /* WHO section — Apple-style cards with hover pop */
         .who-card {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(0, 0, 0, 0.10);
+            background: #fff;
+            color: #1d1d1f;
             border-radius: 22px;
             padding: 46px 40px;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.10);
-            transition: transform 0.4s ease,
-                        box-shadow 0.4s ease,
-                        background 0.4s ease,
-                        border-color 0.4s ease;
-            text-align: left;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.1);
+            transition: transform .4s ease, box-shadow .4s ease;
         }
 
         .who-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 26px 70px rgba(0, 0, 0, 0.16);
-            background: #ffffff;
-            border-color: rgba(0, 0, 0, 0.14);
+            box-shadow: 0 26px 70px rgba(0,0,0,0.16);
         }
 
         .who-subhead {
-            color: #1d1d1f;
-            opacity: 0.78;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 18px;
+            opacity: 0.75;
+            margin-bottom: 14px;
         }
 
         .who-list {
-            color: #1d1d1f;
-            opacity: 0.72;
-            font-size: 17px;
-            line-height: 1.8;
-            margin: 0;
+            opacity: 0.7;
+            line-height: 1.7;
         }
 
-        @media (max-width: 1024px) {
-            .book-section { grid-template-columns: 1fr; text-align: center; }
-            .book-image { display: flex; justify-content: center; }
-        }
-
+        /* MOBILE */
         @media (max-width: 768px) {
-            .nav-content { padding: 0 20px; }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.98);
-                flex-direction: column;
-                gap: 0;
-                padding: 20px;
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
-                pointer-events: none;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: all;
-            }
-
-            .nav-links li {
-                padding: 15px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .nav-links a { font-size: 18px; display: block; }
-            .mobile-menu-toggle { display: block; }
-
-            .section { padding: 80px 20px; }
-
-            .hero {
-                display: grid;
-                grid-template-columns: 1fr;
-                height: auto;
-                min-height: auto;
-                padding: 60px 20px;
-                margin-top: 60px;
-            }
-
-            .hero-banner { display: none; }
-
             .hero-overlay {
                 position: static;
                 transform: none;
                 width: 100%;
-                max-width: 100%;
                 text-align: left;
-                animation: none;
-                opacity: 1;
-                margin-bottom: 40px;
-                display: block;
+                padding: 80px 20px;
             }
-
-            .hero-content { display: grid; grid-template-columns: 1fr; gap: 40px; }
-            .hero-text { text-align: left; animation: none; opacity: 1; display: block; }
-            .hero-image { width: 100%; display: block; }
-
-            .hero-image img {
-                width: 100%;
-                height: auto;
-                border-radius: 20px;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                display: block !important;
-            }
-
-            h1 { text-align: left; text-shadow: none; }
-            .subtitle { text-align: left; text-shadow: none; margin-left: 0; margin-right: 0; }
-            .tagline { text-align: left; text-shadow: none; margin-left: 0; margin-right: 0; }
-            .cta-group { justify-content: flex-start; }
-            .services-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Intro statement (positioning) */
-        .intro-statement {
-            font-size: clamp(24px, 3vw, 36px);
-            line-height: 1.3;
-            font-weight: 600;
-            color: #1d1d1f;
-            max-width: 980px;
-            margin: 0 auto 28px;
-            letter-spacing: -0.01em;
-        }
-
-        /* Optional: adds a smaller sub-line under the intro statement */
-        .intro-support {
-            font-size: clamp(16px, 1.8vw, 20px);
-            line-height: 1.6;
-            font-weight: 400;
-            color: #4b4b50;
-            max-width: 980px;
-            margin: 0 auto 40px;
         }
     </style>
 </head>
 
-<body id="top">
-    <nav id="nav">
-        <div class="nav-content">
-            <a href="#top" class="logo">Sam Osborne</a>
-            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#speaking">Speaking</a></li>
-                <li><a href="#who">Who I Work With</a></li>
-                <li><a href="#delivers">What I Deliver</a></li>
-                <li><a href="/leadership-advisory.html">Advisory</a></li>
-                <li><a href="#book">Book</a></li>
-                <li><a href="#articles">Articles</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<body>
 
-    <!-- HERO (UPDATED: premium corporate; removed association/self-worth framing) -->
-    <section class="hero">
-        <div class="hero-banner">
-            <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about leadership clarity">
-            <div class="hero-overlay">
-                <p class="hero-label">Corporate Keynote Speaker</p>
-                <h1>Clarity Is the Competitive Advantage</h1>
-                <p class="subtitle">Executive performance when decisions carry reputational and financial consequences.</p>
-                <p class="tagline">Practical tools to stay composed, credible, and decisive under real-world pressure.</p>
-                <div class="cta-group">
-                    <a href="/cdn-cgi/l/email-protection#fc8f9d91bc8f9d91938f9e938e9299d2929988" class="cta-primary">Check Availability</a>
-                </div>
+<nav>
+    <div class="nav-content">
+        <a href="#top" class="logo">Sam Osborne</a>
+        <ul class="nav-links">
+            <li><a href="#speaking">Speaking</a></li>
+            <li><a href="#who">Who I Work With</a></li>
+            <li><a href="#delivers">What I Deliver</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+    <div class="hero-banner">
+        <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage">
+        <div class="hero-overlay">
+            <p class="hero-label">Corporate Keynote Speaker</p>
+            <h1>Clarity Is the Competitive Advantage</h1>
+            <p class="subtitle">Executive performance when decisions carry reputational and financial consequences.</p>
+            <p class="tagline">Practical tools to stay composed, credible, and decisive under real-world pressure.</p>
+            <div class="cta-group">
+                <a href="/cdn-cgi/l/email-protection#fc8f9d91bc8f9d91938f9e938e9299d2929988" class="cta-primary">Request Dates</a>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="hero-content">
-            <div class="hero-text">
-                <p class="hero-label">Corporate Keynote Speaker</p>
-                <h1>Clarity Is the Competitive Advantage</h1>
-                <p class="subtitle">Executive performance when decisions carry reputational and financial consequences.</p>
-                <p class="tagline">Practical tools to stay composed, credible, and decisive under real-world pressure.</p>
-                <div class="cta-group">
-                    <a href="/cdn-cgi/l/email-protection#9fecfef2dfecfef2f0ecfdf0edf1fab1f1faeb" class="cta-secondary">Check Availability</a>
-                </div>
-            </div>
+<!-- POSITIONING -->
+<section class="section section-light">
+    <p class="intro-statement">
+        Sam Osborne works with senior leaders in financial services, large enterprises, and healthcare systems where clarity, composure, and credibility are non-negotiable.
+    </p>
+    <div style="text-align:center;">
+        <a href="/cdn-cgi/l/email-protection#ec9f8d81ac9f8d81839f8e839e8289c2828998" class="cta-primary">Request Dates</a>
+    </div>
+</section>
 
-            <div class="hero-image">
-                <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about leadership clarity">
-            </div>
+<!-- WHO I WORK WITH -->
+<section id="who" class="section section-light">
+    <h2 style="text-align:center;">Who Sam Works With</h2>
+
+    <div class="services-grid">
+        <div class="who-card">
+            <h3>Financial Services & Risk-Exposed Enterprises</h3>
+            <p class="who-subhead">Where decisions are regulated, scrutinized, and remembered.</p>
+            <p class="who-list">Banking · Wealth Management · Insurance · Private Equity · Fintech</p>
         </div>
-    </section>
 
-    <section class="section section-dark">
-        <div class="section-content">
-            <div style="max-width: 900px; margin: 0 auto;">
-                <img src="images/sam-osborne-stage4.jpg" alt="Sam Osborne speaking on stage delivering leadership keynote" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block;">
-            </div>
+        <div class="who-card">
+            <h3>Fortune 1000 & Enterprise Leadership Teams</h3>
+            <p class="who-subhead">Where clarity scales execution and protects reputations.</p>
+            <p class="who-list">Executive Offsites · Senior Leadership Meetings · High-Accountability Teams</p>
         </div>
-    </section>
 
-    <!-- POSITIONING (UPDATED: corporate, higher-fee language; no associations) -->
-    <section class="section section-light intro-section">
-        <div class="section-content" style="text-align: center;">
-            <p class="intro-statement">
-                Sam Osborne works with senior leaders in financial services, large enterprises, and healthcare systems where clarity, composure, and credibility are non-negotiable.
-            </p>
-            <p class="intro-support">
-                When stakes rise, the best leaders don’t get louder—they get clearer.
-            </p>
-            <a href="/cdn-cgi/l/email-protection#ec9f8d81ac9f8d81839f8e839e8289c2828998" class="cta-primary">Check Availability</a>
+        <div class="who-card">
+            <h3>Healthcare System & Clinical Executives</h3>
+            <p class="who-subhead">Where composure strengthens trust, ethics, and outcomes.</p>
+            <p class="who-list">Health Systems · Physician Executives · Clinical Governance</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- WHO I WORK WITH (UPDATED: less busy, classic corporate buyers, no conferences/associations) -->
-    <section id="who" class="section section-light">
-        <div class="section-content">
-            <h2 style="text-align: center; color: #1d1d1f;">Who Sam Works With</h2>
+<!-- CONTACT -->
+<section id="contact" class="section section-dark" style="text-align:center;">
+    <h2>Ready to bring clarity to your next leadership moment?</h2>
+    <div style="margin-top:40px;">
+        <a href="/cdn-cgi/l/email-protection#5122303c1122303c3e22333e233f347f3f3425" class="cta-primary">Request Dates</a>
+    </div>
+</section>
 
-            <div class="services-grid who-grid">
-                <div class="service-card who-card">
-                    <h3>Financial Services &<br>Risk-Exposed Enterprises</h3>
-                    <p class="who-subhead">Where decisions are regulated, scrutinized, and remembered.</p>
-                    <p class="who-list">
-                        Banking · Wealth management · Insurance · Private equity · Fintech
-                    </p>
-                </div>
-
-                <div class="service-card who-card">
-                    <h3>Fortune 1000 &<br>Enterprise Leadership Teams</h3>
-                    <p class="who-subhead">Where clarity scales execution and protects reputations.</p>
-                    <p class="who-list">
-                        Executive offsites · Senior leadership meetings · Transformation moments · High-accountability teams
-                    </p>
-                </div>
-
-                <div class="service-card who-card">
-                    <h3>Healthcare System &<br>Clinical Executive Leadership</h3>
-                    <p class="who-subhead">Where composure strengthens trust, ethics, and outcomes.</p>
-                    <p class="who-list">
-                        Health systems · Physician executives · Clinical governance · Medical leadership teams
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Everything below remains your existing page (unchanged) -->
-    <!-- Keep your video section, keynotes section, testimonials, delivers, etc. as-is -->
-    <!-- NOTE: You asked only for hero + positioning + Who I Work With. -->
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-
-    <script>
-        // Mobile menu
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.textContent = '☰';
-            });
-        });
-
-        // Smooth scroll for in-page anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Nav scroll state
-        const nav = document.getElementById('nav');
-        const setNavScrolled = () => {
-            if (window.scrollY > 40) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        };
-        window.addEventListener('scroll', setNavScrolled);
-        setNavScrolled();
-    </script>
 </body>
 </html>
