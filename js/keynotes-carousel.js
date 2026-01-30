@@ -57,7 +57,7 @@
 
     function startAutoplay() {
         stopAutoplay();
-        autoplayTimer = setInterval(nextSlide, 8000);
+        autoplayTimer = setInterval(nextSlide, 0);
     }
 
     function stopAutoplay() {
@@ -73,7 +73,7 @@
             console.log('Next button clicked');
             stopAutoplay();
             nextSlide();
-            startAutoplay();
+// startAutoplay();
         });
     }
 
