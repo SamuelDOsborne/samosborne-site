@@ -17,7 +17,7 @@
 }
 
 .section-subtitle {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -26,7 +26,7 @@
 }
 
 .section-title {
-    font-size: clamp(48px, 7vw, 80px);
+    font-size: clamp(52px, 8vw, 90px);
     font-weight: 700;
     line-height: 1.05;
     color: #ffffff;
@@ -35,7 +35,7 @@
 }
 
 .section-description {
-    font-size: clamp(20px, 3vw, 28px);
+    font-size: clamp(22px, 3.5vw, 32px);
     line-height: 1.6;
     color: #ffffff;
     max-width: 900px;
@@ -86,7 +86,7 @@
 /* Card Labels - BLACK TEXT ON WHITE */
 .keynote-label {
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -96,7 +96,7 @@
 
 /* Card Titles - BLACK TEXT */
 .keynote-title {
-    font-size: clamp(32px, 4.5vw, 44px);
+    font-size: clamp(36px, 5vw, 48px);
     font-weight: 700;
     line-height: 1.15;
     color: #1d1d1f;
@@ -105,7 +105,7 @@
 }
 
 .keynote-subtitle {
-    font-size: clamp(18px, 2.2vw, 22px);
+    font-size: clamp(20px, 2.5vw, 26px);
     line-height: 1.5;
     color: #1d1d1f;
     margin-bottom: 40px;
@@ -114,7 +114,7 @@
 
 /* Perfect For Section - BLACK TEXT */
 .keynote-for {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -124,7 +124,7 @@
 }
 
 .keynote-audience {
-    font-size: 17px;
+    font-size: 19px;
     line-height: 1.6;
     color: #1d1d1f;
     margin-bottom: 30px;
@@ -136,7 +136,7 @@
 }
 
 .keynote-benefits h4 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: #1d1d1f;
     margin-bottom: 15px;
@@ -149,7 +149,7 @@
 }
 
 .keynote-benefits li {
-    font-size: 17px;
+    font-size: 19px;
     line-height: 1.7;
     color: #1d1d1f;
     padding-left: 25px;
@@ -162,7 +162,7 @@
     position: absolute;
     left: 0;
     color: #c9a961;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* What Makes This Different - BLACK TEXT */
@@ -172,14 +172,14 @@
     background: rgba(201, 169, 97, 0.1);
     border-left: 3px solid #c9a961;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6;
     color: #1d1d1f;
 }
 
 .keynote-difference strong {
     display: block;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: #1d1d1f;
     margin-bottom: 8px;
@@ -187,7 +187,7 @@
 
 /* Presenter Credit - GRAY TEXT */
 .presenter-credit {
-    font-size: 14px;
+    font-size: 16px;
     color: #6e6e73;
     margin-top: 20px;
     font-style: italic;
@@ -209,7 +209,7 @@
 }
 
 .testimonials-header h3 {
-    font-size: clamp(28px, 5vw, 48px);
+    font-size: clamp(36px, 6vw, 56px);
     font-weight: 700;
     color: #f5f5f7;
     margin-bottom: 15px;
@@ -217,7 +217,7 @@
 }
 
 .testimonials-header p {
-    font-size: 16px;
+    font-size: 18px;
     color: #c9a961;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -229,6 +229,7 @@
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
+    overflow: hidden;
 }
 
 .carousel-track {
@@ -236,27 +237,17 @@
     min-height: 400px;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
-/* Testimonial Slides */
+/* Testimonial Slides - SIMPLIFIED */
 .testimonial-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
-    pointer-events: none;
+    display: none;
+    width: 100%;
 }
 
 .testimonial-slide.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    position: relative;
-    pointer-events: all;
+    display: block;
 }
 
 .testimonial-content {
@@ -266,7 +257,7 @@
 
 /* Testimonial Quote */
 .testimonial-quote {
-    font-size: clamp(22px, 3vw, 30px);
+    font-size: clamp(24px, 3.5vw, 34px);
     line-height: 1.7;
     color: #f5f5f7;
     margin-bottom: 40px;
@@ -283,14 +274,14 @@
 }
 
 .author-name {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     color: #f5f5f7;
     margin-bottom: 8px;
 }
 
 .author-title {
-    font-size: 17px;
+    font-size: 19px;
     line-height: 1.6;
     color: #86868b;
 }
@@ -372,7 +363,7 @@
     }
     
     .carousel-track {
-        min-height: 450px;
+        min-height: 500px;
     }
 }
 
@@ -405,28 +396,28 @@
     }
     
     .carousel-track {
-        min-height: 500px;
+        min-height: 550px;
     }
 }
 
 @media (max-width: 640px) {
     .section-subtitle {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .keynote-label {
-        font-size: 13px;
+        font-size: 15px;
     }
 
     .keynote-for {
-        font-size: 13px;
+        font-size: 15px;
     }
 
     .testimonial-quote {
-        font-size: 20px;
+        font-size: 22px;
     }
     
     .carousel-track {
-        min-height: 550px;
+        min-height: 600px;
     }
 }
