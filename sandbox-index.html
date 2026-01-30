@@ -1,1545 +1,756 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Sam Osborne | Clarity Is the Competitive Advantage</title>
 
     <meta name="description" content="Sam Osborne is a keynote speaker on clarity, self-worth, and leadership under pressure. Discover how to make clearer decisions when responsibility is high.">
-
     <meta name="keywords" content="keynote speaker, leadership, clarity under pressure, executive coaching, decision making">
 
     <meta property="og:title" content="Sam Osborne | Clarity Is the Competitive Advantage">
-
     <meta property="og:description" content="Keynote speaker helping leaders remove internal conflict and perform with clarity under real-world pressure.">
-
     <meta property="og:image" content="https://samosborne.net/images/sam-osborne-hero-banner.jpg">
-
     <meta property="og:url" content="https://samosborne.net/">
-
     <meta name="twitter:card" content="summary_large_image">
 
     <script type="application/ld+json">
-
     {
-
       "@context": "https://schema.org",
-
       "@type": "Person",
-
       "name": "Sam Osborne",
-
       "url": "https://samosborne.net",
-
       "image": "https://samosborne.net/images/sam-osborne-hero-banner.jpg",
-
       "jobTitle": "Keynote Speaker & Leadership Advisor",
-
       "sameAs": [
-
         "https://www.linkedin.com/in/sam-osborne-usa/",
-
         "https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/",
-
         "https://www.tiktok.com/@selfworthsam"
-
       ],
-
       "description": "Keynote speaker on clarity, self-worth, and leadership under pressure"
-
     }
-
     </script>
 
     <script type="application/ld+json">
-
     {
-
       "@context": "https://schema.org",
-
       "@type": "Event",
-
       "name": "Clarity Is the Competitive Advantage Keynote",
-
       "description": "Keynote on clarity, self-worth, and leadership under pressure",
-
       "organizer": {
-
         "@type": "Person",
-
         "name": "Sam Osborne"
-
       }
-
     }
-
     </script>
 
     <script type="application/ld+json">
-
     {
-
       "@context": "https://schema.org",
-
       "@type": "Organization",
-
       "name": "Sam Osborne",
-
       "url": "https://samosborne.net",
-
       "sameAs": [
-
         "https://www.linkedin.com/in/sam-osborne-usa/",
-
         "https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/"
-
       ]
-
     }
-
     </script>
 
     <!-- Google Fonts for Keynotes Section -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
+
     <!-- Keynotes Section Styles -->
     <link rel="stylesheet" href="css/keynotes-styles.css">
 
     <style>
-
-        * {
-
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-
             background: #000;
-
             color: #f5f5f7;
-
             overflow-x: hidden;
-
             line-height: 1.6;
-
         }
 
         nav {
-
             position: fixed;
-
             top: 0;
-
             width: 100%;
-
             background: rgba(0, 0, 0, 0.8);
-
             backdrop-filter: blur(20px);
-
             z-index: 1000;
-
             padding: 20px 0;
-
             transition: all 0.3s ease;
-
         }
 
         nav.scrolled {
-
             background: rgba(0, 0, 0, 0.95);
-
             padding: 15px 0;
-
         }
 
         .nav-content {
-
             max-width: 1400px;
-
             margin: 0 auto;
-
             padding: 0 40px;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
         }
 
         .logo {
-
             font-size: 20px;
-
             font-weight: 600;
-
             color: #f5f5f7;
-
             text-decoration: none;
-
         }
 
         .nav-links {
-
             display: flex;
-
             gap: 35px;
-
             list-style: none;
-
         }
 
         .nav-links a {
-
             color: #f5f5f7;
-
             text-decoration: none;
-
             font-size: 14px;
-
             transition: opacity 0.3s;
-
         }
 
-        .nav-links a:hover {
-
-            opacity: 0.7;
-
-        }
+        .nav-links a:hover { opacity: 0.7; }
 
         .mobile-menu-toggle {
-
             display: none;
-
             background: none;
-
             border: none;
-
             color: #f5f5f7;
-
             font-size: 28px;
-
             cursor: pointer;
-
         }
 
         .hero {
-
             height: 100vh;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: center;
-
             align-items: center;
-
             text-align: center;
-
             padding: 0;
-
             background: transparent;
-
             position: relative;
-
             overflow: hidden;
-
         }
 
         .hero-banner {
-
             width: 100%;
-
             height: 100vh;
-
             position: relative;
-
             display: block;
-
         }
 
         .hero-banner img {
-
             width: 100%;
-
             height: 100%;
-
             object-fit: cover;
-
             object-position: center 10%;
-
         }
 
-        .hero-content {
-
-            display: none;
-
-        }
+        .hero-content { display: none; }
 
         .hero-overlay {
-
             position: absolute;
-
             right: 40px;
-
             top: 48%;
-
             transform: translateY(-40%);
-
             text-align: center;
-
             width: 45%;
-
             max-width: 500px;
-
             z-index: 2;
-
             opacity: 0;
-
             animation: fadeInFloat 0.8s ease-out 0.3s forwards;
-
             margin-top: 0px;
-
             display: block;
-
         }
 
         @keyframes fadeInFloat {
-
-            from {
-
-                opacity: 0;
-
-                transform: translateY(-40%) translateY(20px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform: translateY(-40%) translateY(0);
-
-            }
-
+            from { opacity: 0; transform: translateY(-40%) translateY(20px); }
+            to { opacity: 1; transform: translateY(-40%) translateY(0); }
         }
 
-        .hero-text {
-
-            display: none;
-
-        }
-
-        .hero-image {
-
-            display: none;
-
-        }
+        .hero-text, .hero-image { display: none; }
 
         .hero-label {
-
             font-size: clamp(18px, 2vw, 24px);
-
             color: #fff;
-
             font-weight: 500;
-
             letter-spacing: 0.15em;
-
             text-transform: uppercase;
-
             margin-bottom: 20px;
-
         }
 
         h1 {
-
             font-size: clamp(36px, 5vw, 72px);
-
             font-weight: 700;
-
             line-height: 1.05;
-
             margin-bottom: 30px;
-
             letter-spacing: -0.03em;
-
             color: #fff;
-
             text-shadow: 0 4px 30px rgba(0,0,0,0.9);
-
         }
 
         .subtitle {
-
             font-size: clamp(20px, 3vw, 32px);
-
             color: #fff;
-
             margin-bottom: 20px;
-
             font-weight: 400;
-
             max-width: 1000px;
-
             margin-left: auto;
-
             margin-right: auto;
-
             text-shadow: 0 2px 20px rgba(0,0,0,0.9);
-
         }
 
         .tagline {
-
             font-size: clamp(16px, 2.5vw, 24px);
-
             color: #e5e5e7;
-
             margin-bottom: 50px;
-
             font-weight: 300;
-
             max-width: 900px;
-
             margin-left: auto;
-
             margin-right: auto;
-
             text-shadow: 0 2px 20px rgba(0,0,0,0.9);
-
         }
 
         .cta-group {
-
             display: flex;
-
             gap: 20px;
-
             flex-wrap: wrap;
-
             justify-content: center;
-
             margin-top: 40px;
-
         }
 
         .cta-secondary {
-
             background: transparent;
-
             color: #fff;
-
             border: 2px solid #000;
-
             padding: 16px 40px;
-
             font-size: 18px;
-
             border-radius: 980px;
-
             text-decoration: none;
-
             transition: all 0.3s ease;
-
             font-weight: 500;
-
             display: inline-block;
-
             cursor: pointer;
-
         }
 
-        .cta-secondary:hover {
-
-            background: #fff;
-
-            color: #000;
-
-        }
+        .cta-secondary:hover { background: #fff; color: #000; }
 
         .cta-primary {
-
             background: #f5f5f7;
-
             color: #000;
-
             padding: 16px 40px;
-
             font-size: 18px;
-
             border-radius: 980px;
-
             text-decoration: none;
-
             transition: all 0.3s ease;
-
             font-weight: 500;
-
             display: inline-block;
-
         }
 
-        .cta-primary:hover {
-
-            background: #fff;
-
-            transform: scale(1.05);
-
-        }
+        .cta-primary:hover { background: #fff; transform: scale(1.05); }
 
         @media (min-width: 769px) {
-
-            .cta-primary {
-
-                border: 2px solid black;
-
-            }
-
-            .hero-overlay .cta-group {
-
-                display: none;
-
-            }
-
+            .cta-primary { border: 2px solid black; }
+            .hero-overlay .cta-group { display: none; }
         }
 
         @media (max-width: 768px) {
-
-            .hero-content .cta-secondary {
-
-                border: 2px solid white;
-
-            }
-
-            .cta-secondary {
-
-                border: 2px solid white;
-
-            }
-
-            .intro-section .cta-primary {
-
-                border: 2px solid black !important;
-
-            }
-
-            .keynote-section .two-col-section img {
-
-                display: block;
-
-            }
-
+            .hero-content .cta-secondary { border: 2px solid white; }
+            .cta-secondary { border: 2px solid white; }
+            .intro-section .cta-primary { border: 2px solid black !important; }
+            .keynote-section .two-col-section img { display: block; }
         }
 
-        .section {
+        .section { padding: 120px 40px; position: relative; }
 
-            padding: 120px 40px;
+        .section-content { max-width: 1200px; margin: 0 auto; }
 
-            position: relative;
+        .section-dark { background: #000; }
 
-        }
+        .section-light { background: #f5f5f7; color: #1d1d1f; }
 
-        .section-content {
+        .section-light h2, .section-light h3 { color: #1d1d1f; }
 
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-        }
-
-        .section-dark {
-
-            background: #000;
-
-        }
-
-        .section-light {
-
-            background: #f5f5f7;
-
-            color: #1d1d1f;
-
-        }
-
-        .section-light h2, .section-light h3 {
-
-            color: #1d1d1f;
-
-        }
-
-        .section-light p {
-
-            color: #6e6e73;
-
-        }
+        .section-light p { color: #6e6e73; }
 
         h2 {
-
             font-size: clamp(36px, 6vw, 72px);
-
             font-weight: 700;
-
             margin-bottom: 30px;
-
             letter-spacing: -0.02em;
-
             line-height: 1.1;
-
         }
 
         h3 {
-
             font-size: clamp(24px, 4vw, 36px);
-
             font-weight: 600;
-
             margin-bottom: 20px;
-
             line-height: 1.2;
-
         }
 
         .section p {
-
             font-size: clamp(18px, 2.5vw, 24px);
-
             line-height: 1.6;
-
             color: #d1d1d6;
-
         }
 
-        .850 {
+        .850 { text-align: center; }
 
-            text-align: center;
-
-        }
-
-        .intro-section p {
-
-            max-width: 900px;
-
-            margin: 0 auto 40px;
-
-        }
+        .intro-section p { max-width: 900px; margin: 0 auto 40px; }
 
         .two-col-section {
-
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 80px;
-
             align-items: center;
-
             margin-top: 60px;
-
         }
 
         .two-col-section img {
-
             width: 100%;
-
             border-radius: 20px;
-
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-
         }
 
-        .keynote-section ul {
-
-            list-style: none;
-
-            margin-top: 30px;
-
-        }
+        .keynote-section ul { list-style: none; margin-top: 30px; }
 
         .keynote-section li {
-
             font-size: clamp(16px, 2vw, 20px);
-
             line-height: 1.8;
-
             color: #d1d1d6;
-
             padding-left: 30px;
-
             position: relative;
-
             margin-bottom: 15px;
-
         }
 
         .keynote-section li:before {
-
             content: '•';
-
             position: absolute;
-
             left: 0;
-
             color: #2997ff;
-
             font-size: 24px;
-
         }
 
         .services-grid {
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
             gap: 40px;
-
             margin-top: 60px;
-
         }
 
-        .service-card {
+        .service-card { text-align: center; padding: 40px 30px; }
 
-            text-align: center;
+        .service-card h3 { font-size: clamp(24px, 4vw, 36px); margin-bottom: 15px; }
 
-            padding: 40px 30px;
+        .service-card p { font-size: clamp(16px, 2.2vw, 20px); line-height: 1.6; color: #1d1d1f; }
 
+        /* WHO section — Apple-style cards with hover pop */
+        .who-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.10);
+            border-radius: 22px;
+            padding: 46px 40px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.10);
+            transition: transform 0.4s ease,
+                        box-shadow 0.4s ease,
+                        background 0.4s ease,
+                        border-color 0.4s ease;
+            text-align: left;
         }
 
-        .service-card h3 {
-
-            font-size: clamp(24px, 4vw, 36px);
-
-            margin-bottom: 15px;
-
+        .who-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 26px 70px rgba(0, 0, 0, 0.16);
+            background: #ffffff;
+            border-color: rgba(0, 0, 0, 0.14);
         }
 
-        .service-card p {
-
-            font-size: clamp(16px, 2.2vw, 20px);
-
-            line-height: 1.6;
-
+        .who-subhead {
             color: #1d1d1f;
+            opacity: 0.78;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
 
+        .who-list {
+            color: #1d1d1f;
+            opacity: 0.72;
+            font-size: 17px;
+            line-height: 1.8;
+            margin: 0;
         }
 
         .outcomes-grid {
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
             gap: 40px;
-
             margin-top: 60px;
-
         }
 
         .outcome-card {
-
             background: rgba(255, 255, 255, 0.03);
-
             border: 1px solid rgba(255, 255, 255, 0.1);
-
             border-radius: 20px;
-
             padding: 50px;
-
             transition: all 0.4s ease;
-
         }
 
-        .outcome-card:hover {
-
-            background: rgba(255, 255, 255, 0.05);
-
-            transform: translateY(-10px);
-
-        }
+        .outcome-card:hover { background: rgba(255, 255, 255, 0.05); transform: translateY(-10px); }
 
         .outcome-card h3 {
-
             font-size: 24px;
-
             margin-bottom: 15px;
-
             color: #f5f5f7;
-
             text-transform: uppercase;
-
             letter-spacing: 0.05em;
-
             font-weight: 700;
-
         }
 
-        .outcome-card p {
+        .outcome-card p { font-size: 16px; line-height: 1.6; color: #d1d1d6; }
 
-            font-size: 16px;
-
-            line-height: 1.6;
-
-            color: #d1d1d6;
-
-        }
-
-        .logos-section {
-
-            text-align: center;
-
-            padding: 80px 40px;
-
-        }
+        .logos-section { text-align: center; padding: 80px 40px; }
 
         .logos-grid {
-
             display: flex;
-
             flex-wrap: wrap;
-
             justify-content: center;
-
             align-items: center;
-
             gap: 60px;
-
             margin-top: 60px;
-
         }
 
         .logos-grid img {
-
             height: 50px;
-
             width: auto;
-
             opacity: 0.7;
-
             transition: opacity 0.3s;
-
             filter: brightness(0) invert(1);
-
             display: block !important;
-
         }
 
-        .logos-grid img:hover {
-
-            opacity: 1;
-
-        }
+        .logos-grid img:hover { opacity: 1; }
 
         .book-section {
-
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 80px;
-
             align-items: center;
-
             padding: 120px 40px;
-
             background: #f5f5f7;
-
         }
 
         .book-content {
-
             max-width: 1200px;
-
             margin: 0 auto;
-
             width: 100%;
-
             display: contents;
-
         }
 
         .book-image img {
-
             width: 100%;
-
             max-width: 400px;
-
             border-radius: 12px;
-
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
-
             display: block !important;
-
         }
 
         .book-info h2 {
-
             color: #1d1d1f;
-
             font-size: clamp(32px, 5vw, 56px);
-
             margin-bottom: 30px;
-
         }
 
-        .book-info p {
+        .book-info p { color: #6e6e73; font-size: 18px; line-height: 1.8; margin-bottom: 12px; }
 
-            color: #6e6e73;
+        .book-info .cta-primary { border: 2px solid black; }
 
-            font-size: 18px;
-
-            line-height: 1.8;
-
-            margin-bottom: 12px;
-
-        }
-
-        .book-info .cta-primary {
-
-            border: 2px solid black;
-
-        }
-
-        .articles-section {
-
-            text-align: center;
-
-        }
+        .articles-section { text-align: center; }
 
         .articles-grid {
-
             display: grid;
-
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
             gap: 40px;
-
             margin-top: 60px;
-
         }
 
         .article-card {
-
             background: #1d1d1f;
-
             border-radius: 20px;
-
             overflow: hidden;
-
             transition: all 0.4s ease;
-
             color: white;
-
             border: 2px solid white;
-
         }
 
-        .article-card:hover {
-
-            transform: scale(1.03);
-
-        }
+        .article-card:hover { transform: scale(1.03); }
 
         .article-card img {
-
             width: 100%;
-
             height: 200px;
-
             object-fit: cover;
-
             display: block !important;
-
         }
 
-        .article-card h3 {
+        .article-card h3 { padding: 30px 30px 20px; font-size: 20px; line-height: 1.4; }
 
-            padding: 30px 30px 20px;
+        .contact-section { text-align: center; padding: 120px 40px; }
 
-            font-size: 20px;
-
-            line-height: 1.4;
-
-        }
-
-        .contact-section {
-
-            text-align: center;
-
-            padding: 120px 40px;
-
-        }
-
-        .video-section {
-
-            padding: 100px 40px;
-
-        }
+        .video-section { padding: 100px 40px; }
 
         .video-container {
-
             max-width: 900px;
-
             margin: 0 auto;
-
             aspect-ratio: 16 / 9;
-
             border-radius: 20px;
-
             overflow: hidden;
-
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-
         }
 
-        .video-container iframe {
-
-            width: 100%;
-
-            height: 100%;
-
-            border: none;
-
-        }
+        .video-container iframe { width: 100%; height: 100%; border: none; }
 
         footer {
-
             background: #000;
-
             padding: 60px 40px 40px;
-
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-
         }
 
-        .footer-content {
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            text-align: center;
-
-        }
+        .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
 
         .social-links {
-
             display: flex;
-
             justify-content: center;
-
             gap: 30px;
-
             margin-bottom: 40px;
-
         }
 
-        .social-links a {
+        .social-links a { opacity: 0.7; transition: opacity 0.3s; display: inline-block; }
 
-            opacity: 0.7;
+        .social-links img { width: 40px; height: 40px; display: block !important; }
 
-            transition: opacity 0.3s;
-
-            display: inline-block;
-
-        }
-
-        .social-links img {
-
-            width: 40px;
-
-            height: 40px;
-
-            display: block !important;
-
-        }
-
-        .social-links a:hover {
-
-            opacity: 1;
-
-        }
+        .social-links a:hover { opacity: 1; }
 
         .footer-links {
-
             display: flex;
-
             justify-content: center;
-
             gap: 30px;
-
             margin-bottom: 30px;
-
             flex-wrap: wrap;
-
         }
 
         .footer-links a {
-
             color: #86868b;
-
             text-decoration: none;
-
             font-size: 14px;
-
             transition: opacity 0.3s;
-
         }
 
-        .footer-links a:hover {
+        .footer-links a:hover { opacity: 0.7; }
 
-            opacity: 0.7;
-
-        }
-
-        .copyright {
-
-            color: #86868b;
-
-            font-size: 14px;
-
-        }
+        .copyright { color: #86868b; font-size: 14px; }
 
         @media (max-width: 1024px) {
-
-            .two-col-section {
-
-                grid-template-columns: 1fr;
-
-                gap: 40px;
-
-            }
-
-            .book-section {
-
-                grid-template-columns: 1fr;
-
-                text-align: center;
-
-            }
-
-            .book-image {
-
-                display: flex;
-
-                justify-content: center;
-
-            }
-
+            .two-col-section { grid-template-columns: 1fr; gap: 40px; }
+            .book-section { grid-template-columns: 1fr; text-align: center; }
+            .book-image { display: flex; justify-content: center; }
         }
 
         @media (max-width: 768px) {
-
-            .nav-content {
-
-                padding: 0 20px;
-
-            }
+            .nav-content { padding: 0 20px; }
 
             .nav-links {
-
                 position: fixed;
-
                 top: 70px;
-
                 left: 0;
-
                 right: 0;
-
                 background: rgba(0, 0, 0, 0.98);
-
                 flex-direction: column;
-
                 gap: 0;
-
                 padding: 20px;
-
                 transform: translateY(-100%);
-
                 opacity: 0;
-
                 transition: all 0.3s ease;
-
                 pointer-events: none;
-
             }
 
             .nav-links.active {
-
                 transform: translateY(0);
-
                 opacity: 1;
-
                 pointer-events: all;
-
             }
 
             .nav-links li {
-
                 padding: 15px 0;
-
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
             }
 
-            .nav-links a {
+            .nav-links a { font-size: 18px; display: block; }
 
-                font-size: 18px;
+            .mobile-menu-toggle { display: block; }
 
-                display: block;
-
-            }
-
-            .mobile-menu-toggle {
-
-                display: block;
-
-            }
-
-            .section {
-
-                padding: 80px 20px;
-
-            }
+            .section { padding: 80px 20px; }
 
             .hero {
-
                 display: grid;
-
                 grid-template-columns: 1fr;
-
                 height: auto;
-
                 min-height: auto;
-
                 padding: 60px 20px;
-
                 margin-top: 60px;
-
             }
 
-            .hero-banner {
-
-                display: none;
-
-            }
+            .hero-banner { display: none; }
 
             .hero-overlay {
-
                 position: static;
-
                 transform: none;
-
                 width: 100%;
-
                 max-width: 100%;
-
                 text-align: left;
-
                 animation: none;
-
                 opacity: 1;
-
                 margin-bottom: 40px;
-
                 display: block;
-
             }
 
-            .hero-content {
+            .hero-content { display: grid; grid-template-columns: 1fr; gap: 40px; }
 
-                display: grid;
+            .hero-text { text-align: left; animation: none; opacity: 1; display: block; }
 
-                grid-template-columns: 1fr;
-
-                gap: 40px;
-
-            }
-
-            .hero-text {
-
-                text-align: left;
-
-                animation: none;
-
-                opacity: 1;
-
-                display: block;
-
-            }
-
-            .hero-image {
-
-                width: 100%;
-
-                display: block;
-
-            }
+            .hero-image { width: 100%; display: block; }
 
             .hero-image img {
-
                 width: 100%;
-
                 height: auto;
-
                 border-radius: 20px;
-
                 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-
                 display: block !important;
-
             }
 
-            h1 {
+            h1 { text-align: left; text-shadow: none; }
 
-                text-align: left;
+            .subtitle { text-align: left; text-shadow: none; margin-left: 0; margin-right: 0; }
 
-                text-shadow: none;
+            .tagline { text-align: left; text-shadow: none; margin-left: 0; margin-right: 0; }
 
-            }
+            .cta-group { justify-content: flex-start; }
 
-            .subtitle {
+            .services-grid, .outcomes-grid, .articles-grid { grid-template-columns: 1fr; }
 
-                text-align: left;
+            .logos-grid { gap: 40px; }
 
-                text-shadow: none;
+            .logos-grid img { height: 35px; display: block !important; }
 
-                margin-left: 0;
+            .two-col-section img { display: block !important; width: 100% !important; }
 
-                margin-right: 0;
+            .article-card img { display: block !important; width: 100% !important; }
 
-            }
+            .book-image img { display: block !important; width: 100% !important; }
 
-            .tagline {
+            .social-links img { display: block !important; }
 
-                text-align: left;
+            .video-section { padding: 80px 20px; }
 
-                text-shadow: none;
-
-                margin-left: 0;
-
-                margin-right: 0;
-
-            }
-
-            .cta-group {
-
-                justify-content: flex-start;
-
-            }
-
-            .services-grid, .outcomes-grid, .articles-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-            .logos-grid {
-
-                gap: 40px;
-
-            }
-
-            .logos-grid img {
-
-                height: 35px;
-
-                display: block !important;
-
-            }
-
-            .two-col-section img {
-
-                display: block !important;
-
-                width: 100% !important;
-
-            }
-
-            .article-card img {
-
-                display: block !important;
-
-                width: 100% !important;
-
-            }
-
-            .book-image img {
-
-                display: block !important;
-
-                width: 100% !important;
-
-            }
-
-            .social-links img {
-
-                display: block !important;
-
-            }
-
-            .video-section {
-
-                padding: 80px 20px;
-
-            }
-
-            .video-container {
-
-                aspect-ratio: 16 / 9;
-
-            }
-
+            .video-container { aspect-ratio: 16 / 9; }
         }
 
+        .intro-statement {
+            font-size: clamp(26px, 3.2vw, 38px);
+            line-height: 1.35;
+            font-weight: 500;
+            color: #1d1d1f;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
     </style>
-
 </head>
 
 <body id="top">
-
     <nav id="nav">
-
         <div class="nav-content">
-
             <a href="#top" class="logo">Sam Osborne</a>
-
             <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-
             <ul class="nav-links" id="navLinks">
-
                 <li><a href="#speaking">Speaking</a></li>
-
                 <li><a href="#who">Who I Work With</a></li>
-
                 <li><a href="#delivers">What I Deliver</a></li>
-
                 <li><a href="/leadership-advisory.html">Advisory</a></li>
-
                 <li><a href="#book">Book</a></li>
-
                 <li><a href="#articles">Articles</a></li>
-
                 <li><a href="#contact">Contact</a></li>
-
             </ul>
-
         </div>
-
     </nav>
 
     <section class="hero">
-
         <div class="hero-banner">
-
             <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about leadership clarity">
-
             <div class="hero-overlay">
-
                 <h1>Clarity Is the Competitive Advantage</h1>
-
                 <p class="hero-label">Sam Osborne</p>
-                 <p class="hero-label" style="font-size: 16px; font-weight: 300; letter-spacing: 0.1em; margin-top: 12px;">The Neurosurgeon of Self Worth</p>
-
                 <p class="subtitle">Keynote Speaker on Clarity,<br>Self-Worth & Leadership<br>Under Pressure</p>
-
                 <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
-
                 <div class="cta-group">
-
-                    <a href="/cdn-cgi/l/email-protection#fc8f9d91bc8f9d91938f9e938e9299d2929988" class="cta-primary">Check Availability</a>
-
+                    <a href="/cdn-cgi/l/email-protection#fc8f9d91bc8f9d91938f9e938e9299d2929988" class="cta-primary">Request Dates</a>
                 </div>
-
             </div>
-
         </div>
 
         <div class="hero-content">
-
             <div class="hero-text">
-
                 <h1>Clarity Is the Competitive Advantage</h1>
-
                 <p class="hero-label">Sam Osborne</p>
-
                 <p class="subtitle">Keynote Speaker on Clarity, Self-Worth & Leadership Under Pressure</p>
-
                 <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
-
                 <div class="cta-group">
-
-                    <a href="/cdn-cgi/l/email-protection#9fecfef2dfecfef2f0ecfdf0edf1fab1f1faeb" class="cta-secondary">Check Availability</a>
-
+                    <a href="/cdn-cgi/l/email-protection#9fecfef2dfecfef2f0ecfdf0edf1fab1f1faeb" class="cta-secondary">Request Dates</a>
                 </div>
-
             </div>
 
             <div class="hero-image">
-
                 <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about leadership clarity">
-
             </div>
-
         </div>
-
     </section>
 
     <section class="section section-dark">
-
         <div class="section-content">
-
             <div style="max-width: 900px; margin: 0 auto;">
-
                 <img src="images/sam-osborne-stage4.jpg" alt="Sam Osborne speaking on stage delivering leadership keynote" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block;">
-
             </div>
-
         </div>
-
     </section>
 
     <section class="section section-light intro-section">
-
         <div class="section-content" style="text-align: center;">
+            <p class="intro-statement">
+                Sam Osborne works with corporate leaders in financial services, large enterprises, and healthcare organizations when clarity, composure, and credibility are non-negotiable.
+            </p>
 
-            <p style="color: #1d1d1f;">Sam Osborne helps leaders and high-responsibility professionals remove internal conflict so they can perform with clarity, composure, and confidence under real-world pressure.</p>
-
-            <a href="/cdn-cgi/l/email-protection#ec9f8d81ac9f8d81839f8e839e8289c2828998" class="cta-primary">Check Availability</a>
-
+            <a href="/cdn-cgi/l/email-protection#ec9f8d81ac9f8d81839f8e839e8289c2828998" class="cta-primary">Request Dates</a>
         </div>
-
     </section>
 
     <section class="section section-dark video-section">
-
         <div class="section-content">
-
             <h2 style="text-align: center; margin-bottom: 50px;">See Sam in Action</h2>
-
             <div class="video-container">
-
                 <iframe width="100%" height="600" src="https://www.youtube.com/embed/B9nWe4PjdH8" title="Sam Osborne - Clarity Under Pressure Keynote" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
-
         </div>
-
     </section>
 
     <!-- NEW KEYNOTES SECTION REPLACES OLD "GIFT OF SIGHT" SECTION -->
@@ -1555,10 +766,10 @@
                 <span class="keynote-label">Vision & Clarity</span>
                 <h3 class="keynote-title">The Gift of Sight. The Power of Insight.</h3>
                 <p class="keynote-subtitle">Clarity isn't confidence. It's ordered perception under pressure.</p>
-                
+
                 <div class="keynote-for">Perfect For:</div>
                 <p class="keynote-audience">Vision science leaders · Healthcare & medical conferences · Innovation & research summits · Corporate leadership retreats</p>
-                
+
                 <div class="keynote-benefits">
                     <h4>Audiences will learn how to:</h4>
                     <ul>
@@ -1574,10 +785,10 @@
                 <span class="keynote-label">Conflict & Composure</span>
                 <h3 class="keynote-title">Composure Through Conflict</h3>
                 <p class="keynote-subtitle">How to Stop Taking Things So Personally</p>
-                
+
                 <div class="keynote-for">Perfect For:</div>
-                <p class="keynote-audience">Healthcare professionals · Legal & compliance teams · Financial services leaders · Government & public sector · Hospitality management · Real estate & property management</p>
-                
+                <p class="keynote-audience">Healthcare professionals · Legal & compliance teams · Financial services leaders · Government & public sector · Hospitality management · Real Estate management</p>
+
                 <div class="keynote-benefits">
                     <h4>Audiences will learn how to:</h4>
                     <ul>
@@ -1603,7 +814,7 @@
                 <p>Composure Through Conflict</p>
             </div>
 
-            <div class="carousel-container">
+            <div class="carousel-container" id="testimonialCarousel">
                 <div class="carousel-track" id="carouselTrack">
                     <div class="testimonial-slide active">
                         <div class="testimonial-content">
@@ -1650,256 +861,268 @@
     </section>
 
     <section id="who" class="section section-light">
-
         <div class="section-content">
-
             <h2 style="text-align: center; color: #1d1d1f;">Who Sam Works With</h2>
 
-            <div class="services-grid">
-
-                <div class="service-card">
-
-                    <h3>Corporate<br>Events</h3>
-
-                    <p>Leadership retreats · Annual conferences · Company offsites · Sales & strategy kickoffs · Culture & people-development programs</p>
-
+            <div class="services-grid who-grid">
+                <div class="service-card who-card">
+                    <h3>Executive Leadership &<br>Enterprise Organizations</h3>
+                    <p class="who-subhead">Where decisions carry enterprise-level consequences.</p>
+                    <p class="who-list">
+                        C-suite & senior leadership teams · Fortune 500 & global enterprises ·
+                        Private equity–backed companies · High-growth technology & innovation firms ·
+                        Executive retreats, board meetings & leadership summits
+                    </p>
                 </div>
 
-                <div class="service-card">
-
-                    <h3>Professional Associations</h3>
-
-                    <p>Industry associations · Academic conferences · Leadership summits · Global development and innovation initiatives</p>
-
+                <div class="service-card who-card">
+                    <h3>Legal, Financial &<br>Risk-Driven Professions</h3>
+                    <p class="who-subhead">Where composure protects reputation, liability, and capital.</p>
+                    <p class="who-list">
+                        Law firms & legal associations · Financial services & wealth management ·
+                        Compliance, governance & risk teams · Insurance, audit & regulatory bodies ·
+                        Professional conferences & closed-door leadership forums
+                    </p>
                 </div>
 
-                <div class="service-card">
-
-                    <h3>Vision & Health Science Leaders</h3>
-
-                    <p>Ophthalmology & optometry groups · Vision research conferences · Medtech & device innovators summits</p>
-
+                <div class="service-card who-card">
+                    <h3>Healthcare, Life Sciences &<br>Medical Innovation Leaders</h3>
+                    <p class="who-subhead">Where clarity impacts lives, ethics, and outcomes.</p>
+                    <p class="who-list">
+                        Healthcare executives & physician leaders · Ophthalmology, optometry & vision science organizations ·
+                        Medical device & medtech innovators · Research institutions & academic medical conferences
+                    </p>
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
+    <!-- Everything below is unchanged (except CTA label updates where present) -->
     <section id="delivers" class="section section-dark">
-
         <div class="section-content">
-
             <h2 style="text-align: center;">What Sam Delivers for Audiences</h2>
-
             <div class="outcomes-grid">
-
                 <div class="outcome-card">
-
                     <h3>Engaged, Purpose-Driven Rooms</h3>
-
                     <p>Professionals lean in, connect the science with the human impact, and leave inspired by practical tools they can apply immediately.</p>
-
                 </div>
 
                 <div class="outcome-card">
-
                     <h3>Insight & Vision That Lasts</h3>
-
                     <p>Memorable stories and strategies that link restored sight to restored self-worth—turning big ideas into long-term clarity, confidence, and cultural ROI.</p>
-
                 </div>
 
                 <div class="outcome-card">
-
                     <h3>Confident, Resilient Leaders</h3>
-
                     <p>Researchers and industry leaders walk out ready to lead teams, patients, and organizations with steady presence under pressure.</p>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <section class="logos-section section-dark">
-    <div class="section-content">
-        <h2>Endorsed By</h2>
-        <div class="logos-grid">
-            <img src="images/american-business.png" alt="American Business logo">
-            <img src="images/art-institute.png" alt="Art Institute logo">
-            <img src="images/cai.png" alt="CAI logo">
-            <img src="images/glendale-college.png" alt="Glendale College logo">
-            <img src="images/hispanic-business.png" alt="Hispanic Business logo">
+        <div class="section-content">
+            <h2>Endorsed By</h2>
+            <div class="logos-grid">
+                <img src="images/american-business.png" alt="American Business logo">
+                <img src="images/art-institute.png" alt="Art Institute logo">
+                <img src="images/cai.png" alt="CAI logo">
+                <img src="images/glendale-college.png" alt="Glendale College logo">
+                <img src="images/hispanic-business.png" alt="Hispanic Business logo">
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="book" class="book-section">
-
         <div class="book-content">
-
             <div class="book-image">
-
                 <img src="images/sam-osborne-book.jpg" alt="How to Beat Imposter Syndrome and Be Confident book cover by Sam Osborne">
-
             </div>
 
             <div class="book-info">
-
                 <h2>How to Beat Imposter Syndrome and Be Confident</h2>
-
                 <p style="font-size: 20px; margin-bottom: 30px;">The Ultimate 30-Day Challenge</p>
-
                 <p>Provide you with a roadmap for beating imposter syndrome.</p>
-
                 <p>Guide you to let go of perfectionism, doubt and over-thinking.</p>
-
                 <p>Teach you strategies to recognize and value yourself more.</p>
-
                 <p>Empower you to stand in your authority and authentic self.</p>
-
                 <p>Increase your inner strength and self-determination.</p>
-
                 <p style="margin-bottom: 30px;">Enhance your self-worth via quizzes, journalling and challenges.</p>
-
                 <a href="https://www.amazon.com/s?k=how+to+beat+imposter+syndrome+and+be+confident" target="_blank" class="cta-primary">Purchase on Amazon</a>
-
             </div>
-
         </div>
-
     </section>
 
     <section id="articles" class="section section-dark articles-section">
-
         <div class="section-content">
-
             <h2>Published Articles</h2>
-
             <p style="text-align: center; margin-bottom: 40px;">Industry Journals</p>
 
             <div class="articles-grid">
-
                 <a href="https://drive.google.com/file/d/14Hym-VGr9X2VPIS2_mxm4_PXGCj_QCSf/view" target="_blank" class="article-card">
-
                     <img src="images/sam-osborne-article2.png" alt="The Authentic Association: A New Paradigm for Mental Health in Association Leadership">
-
                     <h3>The Authentic Association: A New Paradigm for Mental Health in Association Leadership</h3>
-
                 </a>
 
                 <a href="https://drive.google.com/file/d/1LPPTOqaGezQGQ9jjyNn4PV4c1YS7joI-/view" target="_blank" class="article-card">
-
                     <img src="images/sam-osborne-article1.png" alt="Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?">
-
                     <h3>Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?</h3>
-
                 </a>
-
             </div>
-
         </div>
-
     </section>
 
     <section id="contact" class="contact-section section-dark">
-
         <div class="section-content">
-
             <h2>Get in Touch</h2>
-
             <p style="text-align: center; margin: 40px auto 50px; max-width: 700px; font-size: clamp(20px, 3vw, 28px);">Ready to bring clarity to your next event?<br>Let's discuss how Sam can support your leaders.</p>
-
-            <a href="/cdn-cgi/l/email-protection#5122303c1122303c3e22333e233f347f3f3425" class="cta-primary">Check Availability</a>
-
+            <a href="/cdn-cgi/l/email-protection#5122303c1122303c3e22333e233f347f3f3425" class="cta-primary">Request Dates</a>
         </div>
-
     </section>
 
     <footer>
-
         <div class="footer-content">
-
             <div class="social-links">
-
                 <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
-
                     <img src="images/youtube.png" alt="YouTube">
-
                 </a>
-
                 <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
-
                     <img src="images/linkedin.png" alt="LinkedIn">
-
                 </a>
-
             </div>
 
             <div class="footer-links">
-
                 <a href="#top">Home</a>
-
                 <a href="/cdn-cgi/l/email-protection#d8abb9b598abb9b5b7abbab7aab6bdf6b6bdac">Contact</a>
-
             </div>
 
             <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
-
         </div>
-
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
+    <script>
+        // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
-
         const navLinks = document.getElementById('navLinks');
 
-        
-
         menuToggle.addEventListener('click', () => {
-
             navLinks.classList.toggle('active');
-
             menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
-
             link.addEventListener('click', () => {
-
                 navLinks.classList.remove('active');
-
                 menuToggle.textContent = '☰';
-
             });
-
         });
 
+        // Smooth scroll for in-page anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
             anchor.addEventListener('click', function (e) {
-
                 e.preventDefault();
-
                 const target = document.querySelector(this.getAttribute('href'));
-
-                if (target) {
-
-                    target.scrollIntoView({ behavior: 'smooth' });
-
-                }
-
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
-
         });
 
+        // Nav scroll state
         const nav = document.getElementById('nav');
+        const setNavScrolled = () => {
+            if (window.scrollY > 40) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', setNavScrolled);
+        setNavScrolled();
 
-        window.addEventListener('scroll', () => {
+        // Testimonials carousel (auto-advance every 3 seconds)
+        (function () {
+            const carousel = document.getElementById('testimonialCarousel');
+            const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
+            const dots = Array.from(document.querySelectorAll('.carousel-dots .dot'));
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (!carousel || slides.length === 0) return;
+
+            let currentIndex = 0;
+            let timer = null;
+            const INTERVAL_MS = 3000;
+
+            const showSlide = (index) => {
+                currentIndex = (index + slides.length) % slides.length;
+
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === currentIndex);
+                    // Fallback visibility (in case CSS doesn't handle active state)
+                    slide.style.display = (i === currentIndex) ? 'block' : 'none';
+                });
+
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                    dot.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
+                });
+            };
+
+            const startAuto = () => {
+                stopAuto();
+                timer = window.setInterval(() => {
+                    showSlide(currentIndex + 1);
+                }, INTERVAL_MS);
+            };
+
+            const stopAuto = () => {
+                if (timer) {
+                    window.clearInterval(timer);
+                    timer = null;
+                }
+            };
+
+            const resetAuto = () => {
+                startAuto();
+            };
+
+            // Init (ensure only first is visible)
+            showSlide(0);
+            startAuto();
+
+            // Controls
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    showSlide(currentIndex - 1);
+                    resetAuto();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    showSlide(currentIndex + 1);
+                    resetAuto();
+                });
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const idx = parseInt(dot.getAttribute('data-index'), 10);
+                    if (!Number.isNaN(idx)) {
+                        showSlide(idx);
+                        resetAuto();
+                    }
+                });
+            });
+
+            // Optional: pause on hover (keeps it feeling intentional)
+            carousel.addEventListener('mouseenter', stopAuto);
+            carousel.addEventListener('mouseleave', startAuto);
+
+            // Optional: pause when tab is hidden
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopAuto();
+                else startAuto();
+            });
+        })();
+    </script>
+</body>
+</html>
