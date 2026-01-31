@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sam Osborne | Clarity Is the Competitive Advantage</title>
-
     <meta name="description" content="Sam Osborne is a keynote speaker on clarity, self-worth, and leadership under pressure. Discover how to make clearer decisions when responsibility is high.">
     <meta name="keywords" content="keynote speaker, leadership, clarity under pressure, executive coaching, decision making">
-
     <meta property="og:title" content="Sam Osborne | Clarity Is the Competitive Advantage">
     <meta property="og:description" content="Keynote speaker helping leaders remove internal conflict and perform with clarity under real-world pressure.">
     <meta property="og:image" content="https://samosborne.net/images/sam-osborne-hero-banner.jpg">
     <meta property="og:url" content="https://samosborne.net/">
     <meta name="twitter:card" content="summary_large_image">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -30,7 +27,6 @@
       "description": "Keynote speaker on clarity, self-worth, and leadership under pressure"
     }
     </script>
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,7 +39,6 @@
       }
     }
     </script>
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -358,6 +353,7 @@
         .service-card p { font-size: clamp(16px, 2.2vw, 20px); line-height: 1.6; color: #1d1d1f; }
 
         /* WHO section — Apple-style cards with hover pop */
+
         .who-card {
             background: rgba(255, 255, 255, 0.85);
             border: 1px solid rgba(0, 0, 0, 0.10);
@@ -522,50 +518,317 @@
 
         .video-container iframe { width: 100%; height: 100%; border: none; }
 
-        footer {
-            background: #000;
-            padding: 60px 40px 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        /* ============================
+           PRICING SECTION - APPLE STYLE
+           ============================ */
+
+        .pricing-section {
+            background-color: #000;
+            padding: 120px 20px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
         }
 
-        .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
+        .pricing-heading {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-align: center;
+            color: #fff;
+            margin: 0 0 60px 0;
+            line-height: 1.1;
+        }
+
+        /* Pricing Card */
+        .pricing-card {
+            background-color: #1d1d1d;
+            border: 1px solid #333;
+            border-radius: 18px;
+            padding: 60px;
             margin-bottom: 40px;
         }
 
-        .social-links a { opacity: 0.7; transition: opacity 0.3s; display: inline-block; }
-
-        .social-links img { width: 40px; height: 40px; display: block !important; }
-
-        .social-links a:hover { opacity: 1; }
-
-        .footer-links {
+        /* Price Display */
+        .price-display {
             display: flex;
+            align-items: baseline;
             justify-content: center;
+            margin-bottom: 50px;
+            gap: 8px;
+        }
+
+        .price-currency {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #a1a1a1;
+        }
+
+        .price-amount {
+            font-size: 4.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .price-label {
+            font-size: 1rem;
+            color: #a1a1a1;
+            font-weight: 400;
+        }
+
+        /* What's Included */
+        .price-includes {
+            margin-bottom: 40px;
+        }
+
+        .includes-heading {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #a1a1a1;
+            margin-bottom: 20px;
+        }
+
+        .includes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .includes-list li {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            align-items: flex-start;
+        }
+
+        .checkmark {
+            color: #0071e3;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .includes-list span:last-child {
+            color: #f5f5f7;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Divider */
+        .pricing-divider {
+            height: 1px;
+            background-color: #333;
+            margin: 40px 0;
+        }
+
+        /* Pricing Details */
+        .pricing-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: #86868b;
+        .detail-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #a1a1a1;
+            margin: 0 0 12px 0;
+        }
+
+        .detail-item p {
+            color: #f5f5f7;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .format-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .format-list li {
+            color: #f5f5f7;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            line-height: 1.5;
+        }
+
+        /* CTA Button */
+        .pricing-cta {
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background-color: #0071e3;
+            color: #fff;
             text-decoration: none;
-            font-size: 14px;
-            transition: opacity 0.3s;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
-        .footer-links a:hover { opacity: 0.7; }
+        .cta-button:hover {
+            background-color: #0077ed;
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.3);
+        }
 
-        .copyright { color: #86868b; font-size: 14px; }
+        .cta-button:active {
+            background-color: #0066cc;
+        }
+
+        /* ============================
+           FAQ SECTION - APPLE STYLE
+           ============================ */
+
+        .faq-section {
+            background-color: #000;
+            padding: 120px 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-heading {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-align: center;
+            color: #fff;
+            margin: 0 0 60px 0;
+            line-height: 1.1;
+        }
+
+        /* FAQ Grid */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* FAQ Item */
+        .faq-item {
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* FAQ Question Button */
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 16px 0;
+            cursor: pointer;
+            gap: 20px;
+        }
+
+        .faq-question:hover {
+            opacity: 0.7;
+        }
+
+        .faq-question span:first-child {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #f5f5f7;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .faq-toggle {
+            color: #a1a1a1;
+            font-size: 1.5rem;
+            font-weight: 300;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question[aria-expanded="true"] .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* FAQ Answer */
+        .faq-answer {
+            padding: 0 0 20px 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer[hidden] {
+            display: block;
+        }
+
+        .faq-question[aria-expanded="true"] + .faq-answer {
+            display: block;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: #a1a1a1;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ============================
+           RESPONSIVE DESIGN
+           ============================ */
 
         @media (max-width: 1024px) {
-            .two-col-section { grid-template-columns: 1fr; gap: 40px; }
-            .book-section { grid-template-columns: 1fr; text-align: center; }
-            .book-image { display: flex; justify-content: center; }
+            .pricing-heading,
+            .faq-heading {
+                font-size: 2.5rem;
+            }
+
+            .pricing-card {
+                padding: 40px;
+            }
+
+            .price-amount {
+                font-size: 3.5rem;
+            }
+
+            .pricing-details {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -602,6 +865,33 @@
             .mobile-menu-toggle { display: block; }
 
             .section { padding: 80px 20px; }
+
+            .pricing-section,
+            .faq-section {
+                padding: 80px 20px;
+            }
+
+            .pricing-heading,
+            .faq-heading {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .pricing-card {
+                padding: 30px;
+            }
+
+            .price-amount {
+                font-size: 2.5rem;
+            }
+
+            .price-display {
+                margin-bottom: 30px;
+            }
+
+            .pricing-divider {
+                margin: 30px 0;
+            }
 
             .hero {
                 display: grid;
@@ -665,6 +955,40 @@
             .video-section { padding: 80px 20px; }
 
             .video-container { aspect-ratio: 16 / 9; }
+
+            .cta-button {
+                padding: 14px 40px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-section,
+            .faq-section {
+                padding: 60px 16px;
+            }
+
+            .pricing-heading,
+            .faq-heading {
+                font-size: 1.75rem;
+                margin-bottom: 30px;
+            }
+
+            .pricing-card {
+                padding: 20px;
+            }
+
+            .price-amount {
+                font-size: 2rem;
+            }
+
+            .price-currency {
+                font-size: 1rem;
+            }
+
+            .price-label {
+                font-size: 0.85rem;
+            }
         }
 
         .intro-statement {
@@ -675,10 +999,13 @@
             max-width: 900px;
             margin: 0 auto 40px;
         }
+
     </style>
+
 </head>
 
 <body id="top">
+
     <nav id="nav">
         <div class="nav-content">
             <a href="#top" class="logo">Sam Osborne</a>
@@ -688,6 +1015,8 @@
                 <li><a href="#who">Who I Work With</a></li>
                 <li><a href="#delivers">What I Deliver</a></li>
                 <li><a href="/leadership-advisory.html">Advisory</a></li>
+                <li><a href="#pricing">Pricing & Booking</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#book">Book</a></li>
                 <li><a href="#articles">Articles</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -719,7 +1048,6 @@
                     <a href="/cdn-cgi/l/email-protection#9fecfef2dfecfef2f0ecfdf0edf1fab1f1faeb" class="cta-secondary">Request Dates</a>
                 </div>
             </div>
-
             <div class="hero-image">
                 <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about leadership clarity">
             </div>
@@ -739,7 +1067,6 @@
             <p class="intro-statement" style="color:#111;"">
                 Sam Osborne works with corporate leaders in financial services, large enterprises, and healthcare organizations when clarity, composure, and credibility are non-negotiable.
             </p>
-
             <a href="/cdn-cgi/l/email-protection#ec9f8d81ac9f8d81839f8e839e8289c2828998" class="cta-primary">Request Dates</a>
         </div>
     </section>
@@ -753,376 +1080,28 @@
         </div>
     </section>
 
-    <!-- NEW KEYNOTES SECTION REPLACES OLD "GIFT OF SIGHT" SECTION -->
-    <section class="keynotes-container" id="speaking">
-        <div class="section-header">
-            <p class="section-subtitle">Signature Keynotes</p>
-            <h2 class="section-title">Clarity & Composure Under Pressure</h2>
-            <p class="section-description">Two complementary programs designed to help leaders and high-responsibility professionals restore ordered perception and maintain composure when stakes are highest.</p>
-        </div>
-
-        <div class="keynotes-grid">
-            <div class="keynote-card">
-                <span class="keynote-label">Vision & Clarity</span>
-                <h3 class="keynote-title">The Gift of Sight. The Power of Insight.</h3>
-                <p class="keynote-subtitle">Clarity isn't confidence. It's ordered perception under pressure.</p>
-
-                <div class="keynote-for">Perfect For:</div>
-                <p class="keynote-audience">Vision science leaders · Healthcare & medical conferences · Innovation & research summits · Corporate leadership retreats</p>
-
-                <div class="keynote-benefits">
-                    <h4>Audiences will learn how to:</h4>
-                    <ul>
-                        <li>Restore ordered perception when pressure creates distortion</li>
-                        <li>Make values-aligned decisions in high-stakes environments</li>
-                        <li>See both sides of any challenge: the difficulty and the hidden benefit</li>
-                        <li>Lead with composed authority even when outcomes are uncertain</li>
-                    </ul>
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="pricing-section">
+        <div class="pricing-container">
+            <h2 class="pricing-heading">Keynote Investment</h2>
+            
+            <div class="pricing-card">
+                <div class="price-display">
+                    <span class="price-currency">$</span>
+                    <span class="price-amount">25,000</span>
+                    <span class="price-label">per keynote</span>
                 </div>
-            </div>
-
-            <div class="keynote-card">
-                <span class="keynote-label">Conflict & Composure</span>
-                <h3 class="keynote-title">Composure Through Conflict</h3>
-                <p class="keynote-subtitle">How to Stop Taking Things So Personally</p>
-
-                <div class="keynote-for">Perfect For:</div>
-                <p class="keynote-audience">Healthcare professionals · Legal & compliance teams · Financial services leaders · Government & public sector · Hospitality management · Real Estate management</p>
-
-                <div class="keynote-benefits">
-                    <h4>Audiences will learn how to:</h4>
-                    <ul>
-                        <li>Identify the science behind emotional reactions and brain response</li>
-                        <li>Separate facts from reactions in high-pressure conversations</li>
-                        <li>Use reflective awareness to stay grounded and professional</li>
-                        <li>Exhibit emotional discipline during difficult interactions</li>
-                        <li>Lead with credibility and consistency when conflict is unavoidable</li>
-                    </ul>
-                </div>
-
-                <div class="keynote-difference">
-                    <strong>What makes this different:</strong> This isn't about avoiding conflict—it's about managing it with composure, credibility, and confidence. Delivered by Sam Osborne and attorney Dave Graf, this presentation combines neuroscience, practical tools, and real-world legal scenarios.
-                </div>
-
-                <p class="presenter-credit">Presented with Dave Graf, Esq., community association attorney</p>
-            </div>
-        </div>
-
-        <div class="testimonials-section">
-            <div class="testimonials-header">
-                <h3>What Leaders Say About This Keynote</h3>
-                <p>Composure Through Conflict</p>
-            </div>
-
-            <div class="carousel-container" id="testimonialCarousel">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="testimonial-slide active">
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote">"I recently attended one of Sam's educational sessions on conflict management and self-governance, which he presented to a 'standing room only' room of HOA professionals at a national HOA law seminar. Sam's approach really stood out."</p>
-                            <div class="testimonial-author">
-                                <p class="author-name">Leah K. Burton, Esq., CCAL</p>
-                                <p class="author-title">Board Certified Texas HOA Attorney<br>National HOA Law Seminar</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote">"The session reinforced emotional discipline during difficult conversations. It provided clear tools to separate facts from reactions. It supported staying grounded, professional, and effective when conflict arises."</p>
-                            <div class="testimonial-author">
-                                <p class="author-name">Michael Tillotson, CMCA®, AMS®</p>
-                                <p class="author-title">VP of Community Management<br>HOALiving/CAM, Southern Utah</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote">"I highly recommend Sam and Dave and their specific presentation for conferences or leadership events serving professionals who operate regularly in stressful, conflict-rich environments."</p>
-                            <div class="testimonial-author">
-                                <p class="author-name">Brian Butler</p>
-                                <p class="author-title">President, FirstService Residential Illinois<br>CAI Law Seminar 2026</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-controls">
-                    <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">‹</button>
-                    <div class="carousel-dots">
-                        <span class="dot active" data-index="0"></span>
-                        <span class="dot" data-index="1"></span>
-                        <span class="dot" data-index="2"></span>
-                    </div>
-                    <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">›</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="who" class="section section-light">
-        <div class="section-content">
-            <h2 style="text-align: center; color: #1d1d1f;">Who Sam Works With</h2>
-
-            <div class="services-grid who-grid">
-                <div class="service-card who-card">
-                    <h3>Executive Leadership &<br>Enterprise Organizations</h3>
-                    <p class="who-subhead">Where decisions carry enterprise-level consequences.</p>
-                    <p class="who-list">
-                        C-suite & senior leadership teams · Fortune 500 & global enterprises ·
-                        Private equity–backed companies · High-growth technology & innovation firms ·
-                        Executive retreats, board meetings & leadership summits
-                    </p>
-                </div>
-
-                <div class="service-card who-card">
-                    <h3>Legal, Financial &<br>Risk-Driven Professions</h3>
-                    <p class="who-subhead">Where composure protects reputation, liability, and capital.</p>
-                    <p class="who-list">
-                        Law firms & legal associations · Financial services & wealth management ·
-                        Compliance, governance & risk teams · Insurance, audit & regulatory bodies ·
-                        Professional conferences & closed-door leadership forums
-                    </p>
-                </div>
-
-                <div class="service-card who-card">
-                    <h3>Healthcare, Life Sciences &<br>Medical Innovation Leaders</h3>
-                    <p class="who-subhead">Where clarity impacts lives, ethics, and outcomes.</p>
-                    <p class="who-list">
-                        Healthcare executives & physician leaders · Ophthalmology, optometry & vision science organizations ·
-                        Medical device & medtech innovators · Research institutions & academic medical conferences
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Everything below is unchanged (except CTA label updates where present) -->
-    <section id="delivers" class="section section-dark">
-        <div class="section-content">
-            <h2 style="text-align: center;">What Sam Delivers for Audiences</h2>
-            <div class="outcomes-grid">
-                <div class="outcome-card">
-                    <h3>Engaged, Purpose-Driven Rooms</h3>
-                    <p>Professionals lean in, connect the science with the human impact, and leave inspired by practical tools they can apply immediately.</p>
-                </div>
-
-                <div class="outcome-card">
-                    <h3>Insight & Vision That Lasts</h3>
-                    <p>Memorable stories and strategies that link restored sight to restored self-worth—turning big ideas into long-term clarity, confidence, and cultural ROI.</p>
-                </div>
-
-                <div class="outcome-card">
-                    <h3>Confident, Resilient Leaders</h3>
-                    <p>Researchers and industry leaders walk out ready to lead teams, patients, and organizations with steady presence under pressure.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="logos-section section-dark">
-        <div class="section-content">
-            <h2>Endorsed By</h2>
-            <div class="logos-grid">
-                <img src="images/american-business.png" alt="American Business logo">
-                <img src="images/art-institute.png" alt="Art Institute logo">
-                <img src="images/cai.png" alt="CAI logo">
-                <img src="images/glendale-college.png" alt="Glendale College logo">
-                <img src="images/hispanic-business.png" alt="Hispanic Business logo">
-            </div>
-        </div>
-    </section>
-
-    <section id="book" class="book-section">
-        <div class="book-content">
-            <div class="book-image">
-                <img src="images/sam-osborne-book.jpg" alt="How to Beat Imposter Syndrome and Be Confident book cover by Sam Osborne">
-            </div>
-
-            <div class="book-info">
-                <h2>How to Beat Imposter Syndrome and Be Confident</h2>
-                <p style="font-size: 20px; margin-bottom: 30px;">The Ultimate 30-Day Challenge</p>
-                <p>Provide you with a roadmap for beating imposter syndrome.</p>
-                <p>Guide you to let go of perfectionism, doubt and over-thinking.</p>
-                <p>Teach you strategies to recognize and value yourself more.</p>
-                <p>Empower you to stand in your authority and authentic self.</p>
-                <p>Increase your inner strength and self-determination.</p>
-                <p style="margin-bottom: 30px;">Enhance your self-worth via quizzes, journalling and challenges.</p>
-                <a href="https://www.amazon.com/s?k=how+to+beat+imposter+syndrome+and+be+confident" target="_blank" class="cta-primary">Purchase on Amazon</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="articles" class="section section-dark articles-section">
-        <div class="section-content">
-            <h2>Published Articles</h2>
-            <p style="text-align: center; margin-bottom: 40px;">Industry Journals</p>
-
-            <div class="articles-grid">
-                <a href="https://drive.google.com/file/d/14Hym-VGr9X2VPIS2_mxm4_PXGCj_QCSf/view" target="_blank" class="article-card">
-                    <img src="images/sam-osborne-article2.png" alt="The Authentic Association: A New Paradigm for Mental Health in Association Leadership">
-                    <h3>The Authentic Association: A New Paradigm for Mental Health in Association Leadership</h3>
-                </a>
-
-                <a href="https://drive.google.com/file/d/1LPPTOqaGezQGQ9jjyNn4PV4c1YS7joI-/view" target="_blank" class="article-card">
-                    <img src="images/sam-osborne-article1.png" alt="Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?">
-                    <h3>Imposter Syndrome in Associations: Are You Out of Sync With Your True Values?</h3>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section section-dark">
-        <div class="section-content">
-            <h2>Get in Touch</h2>
-            <p style="text-align: center; margin: 40px auto 50px; max-width: 700px; font-size: clamp(20px, 3vw, 28px);">Ready to bring clarity to your next event?<br>Let's discuss how Sam can support your leaders.</p>
-            <a href="/cdn-cgi/l/email-protection#5122303c1122303c3e22333e233f347f3f3425" class="cta-primary">Request Dates</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
-                    <img src="images/youtube.png" alt="YouTube">
-                </a>
-                <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
-                    <img src="images/linkedin.png" alt="LinkedIn">
-                </a>
-            </div>
-
-            <div class="footer-links">
-                <a href="#top">Home</a>
-                <a href="/cdn-cgi/l/email-protection#d8abb9b598abb9b5b7abbab7aab6bdf6b6bdac">Contact</a>
-            </div>
-
-            <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
-        </div>
-    </footer>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-
-    <script>
-        // Mobile menu
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.textContent = '☰';
-            });
-        });
-
-        // Smooth scroll for in-page anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Nav scroll state
-        const nav = document.getElementById('nav');
-        const setNavScrolled = () => {
-            if (window.scrollY > 40) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        };
-        window.addEventListener('scroll', setNavScrolled);
-        setNavScrolled();
-
-        // Testimonials carousel (auto-advance every 3 seconds)
-        (function () {
-            const carousel = document.getElementById('testimonialCarousel');
-            const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
-            const dots = Array.from(document.querySelectorAll('.carousel-dots .dot'));
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-
-            if (!carousel || slides.length === 0) return;
-
-            let currentIndex = 0;
-            let timer = null;
-            const INTERVAL_MS = 3000;
-
-            const showSlide = (index) => {
-                currentIndex = (index + slides.length) % slides.length;
-
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active', i === currentIndex);
-                    // Fallback visibility (in case CSS doesn't handle active state)
-                    slide.style.display = (i === currentIndex) ? 'block' : 'none';
-                });
-
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentIndex);
-                    dot.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
-                });
-            };
-
-            const startAuto = () => {
-                stopAuto();
-                timer = window.setInterval(() => {
-                    showSlide(currentIndex + 1);
-                }, INTERVAL_MS);
-            };
-
-            const stopAuto = () => {
-                if (timer) {
-                    window.clearInterval(timer);
-                    timer = null;
-                }
-            };
-
-            const resetAuto = () => {
-                startAuto();
-            };
-
-            // Init (ensure only first is visible)
-            showSlide(0);
-            startAuto();
-
-            // Controls
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    showSlide(currentIndex - 1);
-                    resetAuto();
-                });
-            }
-
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    showSlide(currentIndex + 1);
-                    resetAuto();
-                });
-            }
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const idx = parseInt(dot.getAttribute('data-index'), 10);
-                    if (!Number.isNaN(idx)) {
-                        showSlide(idx);
-                        resetAuto();
-                    }
-                });
-            });
-
-            // Optional: pause on hover (keeps it feeling intentional)
-            carousel.addEventListener('mouseenter', stopAuto);
-            carousel.addEventListener('mouseleave', startAuto);
-
-            // Optional: pause when tab is hidden
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) stopAuto();
-                else startAuto();
-            });
-        })();
-    </script>
-</body>
-</html>
+                
+                <div class="price-includes">
+                    <h3 class="includes-heading">What's Included</h3>
+                    <ul class="includes-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Full 60–90 minute keynote tailored to your audience</span>
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            <span>Pre-event consultation with event organizer</span>
+                        </li>
+                        <li>
+                            <span
