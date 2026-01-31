@@ -837,7 +837,7 @@
                     </div>
 <div class="testimonial-slide">
                         <div class="testimonial-content">
-                            <p class="testimonial-quote">"This transformational experience has forever changed the way I practice law and relate to people. The ability to maintain composure in our current volatile society is essential. This Seminar provided practical and easily adaptable concepts to aid in maintaining calm and composure. I highly recommend this seminar!"</p>
+                            <p class="testimonial-quote">"This transformational experience has forever changed the way I practice law and relate to people. The ability to maintain composure in our current volatile society is essential. This seminar provided practical and easily adaptable concepts to aid in maintaining calm and composure. I highly recommend this seminar!"</p>
                             <div class="testimonial-author">
                                 <p class="author-name">Augustus Shaw IV, Esq., CCAL</p>
                                 <p class="author-title">Nationally Recognized Community Association Attorney<br>Partner, Shaw & Lines, LLC<br>ASU College of Law Faculty Associate Professor</p>
@@ -1042,7 +1042,7 @@
         window.addEventListener('scroll', setNavScrolled);
         setNavScrolled();
 
-        // Testimonials carousel (auto-advance every 3 seconds)
+// Testimonials carousel (manual navigation only)
         (function () {
             const carousel = document.getElementById('testimonialCarousel');
             const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
@@ -1053,15 +1053,12 @@
             if (!carousel || slides.length === 0) return;
 
             let currentIndex = 0;
-            let timer = null;
-            const INTERVAL_MS = 3000;
 
             const showSlide = (index) => {
                 currentIndex = (index + slides.length) % slides.length;
 
                 slides.forEach((slide, i) => {
                     slide.classList.toggle('active', i === currentIndex);
-                    // Fallback visibility (in case CSS doesn't handle active state)
                     slide.style.display = (i === currentIndex) ? 'block' : 'none';
                 });
 
@@ -1071,40 +1068,19 @@
                 });
             };
 
-            const startAuto = () => {
-                stopAuto();
-                timer = window.setInterval(() => {
-                    showSlide(currentIndex + 1);
-                }, INTERVAL_MS);
-            };
-
-            const stopAuto = () => {
-                if (timer) {
-                    window.clearInterval(timer);
-                    timer = null;
-                }
-            };
-
-            const resetAuto = () => {
-                startAuto();
-            };
-
             // Init (ensure only first is visible)
             showSlide(0);
-            startAuto();
 
             // Controls
             if (prevBtn) {
                 prevBtn.addEventListener('click', () => {
                     showSlide(currentIndex - 1);
-                    resetAuto();
                 });
             }
 
             if (nextBtn) {
                 nextBtn.addEventListener('click', () => {
                     showSlide(currentIndex + 1);
-                    resetAuto();
                 });
             }
 
@@ -1113,19 +1089,8 @@
                     const idx = parseInt(dot.getAttribute('data-index'), 10);
                     if (!Number.isNaN(idx)) {
                         showSlide(idx);
-                        resetAuto();
                     }
                 });
-            });
-
-            // Optional: pause on hover (keeps it feeling intentional)
-            carousel.addEventListener('mouseenter', stopAuto);
-            carousel.addEventListener('mouseleave', startAuto);
-
-            // Optional: pause when tab is hidden
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) stopAuto();
-                else startAuto();
             });
         })();
     </script>
