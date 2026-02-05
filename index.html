@@ -274,8 +274,12 @@
             .keynote-section .two-col-section img { display: block; }
         }
 
-         @media (min-width: 769px) {
-    h1 { font-size: clamp(40px, 5vw, 80px); }
+        @media (min-width: 769px) and (max-width: 1440px) {
+    h1 { font-size: clamp(48px, 4.5vw, 72px); }
+}
+
+@media (min-width: 1441px) {
+    h1 { font-size: clamp(60px, 4vw, 85px); }
 }
         .section { padding: 120px 40px; position: relative; }
 
