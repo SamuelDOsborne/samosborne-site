@@ -274,8 +274,9 @@
             .keynote-section .two-col-section img { display: block; }
         }
 
-         h1 { font-size: clamp(56px, 6.4vw, 150px); }
-
+         @media (min-width: 769px) {
+    h1 { font-size: clamp(40px, 5vw, 80px); }
+}
         .section { padding: 120px 40px; position: relative; }
 
         .section-content { max-width: 1200px; margin: 0 auto; }
