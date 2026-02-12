@@ -1,0 +1,115 @@
+<!-- SPEAKER FEES SECTION -->
+    <section id="fees" class="section section-light">
+        <div class="section-content">
+            <h2 style="text-align: center; color: #1d1d1f; margin-bottom: 20px;">Speaking Fees</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; font-size: clamp(18px, 2.2vw, 24px); color: #1d1d1f;">
+                Investment in systematic transformation through the Demartini Method.
+            </p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Keynote Investment</h3>
+                    <p style="font-size: 42px; font-weight: 700; color: #1d1d1f; margin: 20px 0;">$20,000 – $30,000</p>
+                    <p style="color: #6e6e73; margin-bottom: 30px;">Depending on scope and customization</p>
+                    
+                    <div style="text-align: left; margin-top: 30px;">
+                        <p style="font-weight: 600; color: #1d1d1f; margin-bottom: 15px;">What's Included:</p>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Pre-event consultation to align keynote with organizational challenges
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Customization of framework to your industry and audience
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Live Demartini Method demonstration with audience volunteer
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Post-keynote Q&A session
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Perceptual balance framework handouts for attendees
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <h3>Multi-Keynote Engagements</h3>
+                    <p style="color: #1d1d1f; margin: 20px 0 30px; font-size: 17px; line-height: 1.7;">
+                        For organizations requiring multiple sessions, breakout facilitations, or multi-day conference presence.
+                    </p>
+                    
+                    <div style="text-align: left; margin-top: 30px;">
+                        <p style="font-weight: 600; color: #1d1d1f; margin-bottom: 15px;">Custom Packages Include:</p>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Opening keynote + breakout session combinations
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Multi-day conference programming
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Executive leadership team sessions
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Board retreat facilitation
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p style="margin-top: 30px; color: #1d1d1f; font-weight: 500;">Contact for custom engagement pricing</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>Travel & Logistics</h3>
+                    <p style="color: #1d1d1f; margin: 20px 0 30px; font-size: 17px; line-height: 1.7;">
+                        Standard arrangements for seamless event execution.
+                    </p>
+                    
+                    <div style="text-align: left; margin-top: 30px;">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Round-trip airfare (business class for flights over 3 hours)
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Ground transportation to/from airport and venue
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Hotel accommodation (night before and night of event)
+                            </li>
+                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                                Standard AV requirements (wireless microphone, presentation screen)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p style="margin-top: 30px; color: #6e6e73; font-size: 15px; line-height: 1.6;">
+                        Virtual keynotes available at the same fee structure. Los Angeles-area events may have reduced travel requirements.
+                    </p>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="background: rgba(0, 0, 0, 0.03); border-color: rgba(0, 0, 0, 0.1); margin-top: 60px;">
+                <p style="color: #1d1d1f; text-align: center; font-size: 18px; line-height: 1.7; margin-bottom: 20px;">
+                    <strong>Booking Process:</strong> Initial consultation to assess event fit and customization needs → Contract and 50% deposit → Pre-event planning call → Event delivery → Final payment due within 30 days.
+                </p>
+                <p style="color: #6e6e73; font-size: 16px; line-height: 1.6; text-align: center;">
+                    Preferred lead time: 90 days minimum. Rush bookings (under 60 days) may incur expedited preparation fee.
+                </p>
+            </div>
+        </div>
+    </section>
