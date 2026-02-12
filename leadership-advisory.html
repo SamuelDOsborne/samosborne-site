@@ -1,1422 +1,807 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Osborne | Leadership Advisory | Demartini Method Private Facilitation</title>
 
-    <title>Leadership Advisory | Sam Osborne</title>
+    <meta name="description" content="Private Demartini Method facilitation for leaders whose reactivity toward specific people undermines their authority. Sequential 1:1 sessions dissolving emotional charge that erodes composure and credibility.">
+    <meta name="keywords" content="Demartini Method, leadership advisory, executive coaching, conflict transformation, emotional reactivity, perceptual balance, private facilitation">
 
-    <meta name="description" content="Leadership advisory for high-responsibility professionals. Restore clarity, composure, and decision discipline without escalation or ego.">
-
-    <meta name="keywords" content="leadership advisory, executive coaching, decision-making under pressure, organizational leadership">
-
-    <meta property="og:title" content="Leadership Advisory | Sam Osborne">
-
-    <meta property="og:description" content="Clarity-focused advisory work for leaders navigating complexity and high-stakes decisions.">
-
-    <meta property="og:image" content="https://samosborne.net/images/sam-osborne-chair.svg">
-
-    <meta property="og:url" content="https://samosborne.net/leadership-advisory.html">
-
-    <script type="application/ld+json">
-
-    {
-
-      "@context": "https://schema.org",
-
-      "@type": "Person",
-
-      "name": "Sam Osborne",
-
-      "url": "https://samosborne.net",
-
-      "jobTitle": "Leadership Advisor",
-
-      "sameAs": [
-
-        "https://www.linkedin.com/in/sam-osborne-usa/"
-
-      ]
-
-    }
-
-    </script>
+    <meta property="og:title" content="Sam Osborne | Leadership Advisory | Transform Reactivity Into Composure">
+    <meta property="og:description" content="Private Demartini Method facilitation dissolving the emotional charge around people who trigger you. For leaders who witnessed the live demonstration and want that transformation.">
+    <meta property="og:url" content="https://samosborne.net/advisory">
+    <meta name="twitter:card" content="summary_large_image">
 
     <style>
-
-        * {
-
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-
             background: #000;
-
             color: #f5f5f7;
-
             overflow-x: hidden;
-
             line-height: 1.6;
-
         }
 
         nav {
-
             position: fixed;
-
             top: 0;
-
             width: 100%;
-
             background: rgba(0, 0, 0, 0.8);
-
             backdrop-filter: blur(20px);
-
             z-index: 1000;
-
             padding: 20px 0;
-
             transition: all 0.3s ease;
-
         }
 
         nav.scrolled {
-
             background: rgba(0, 0, 0, 0.95);
-
             padding: 15px 0;
-
         }
 
         .nav-content {
-
             max-width: 1400px;
-
             margin: 0 auto;
-
             padding: 0 40px;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
         }
 
         .logo {
-
             font-size: 20px;
-
             font-weight: 600;
-
             color: #f5f5f7;
-
             text-decoration: none;
-
         }
 
         .nav-links {
-
             display: flex;
-
             gap: 35px;
-
             list-style: none;
-
         }
 
         .nav-links a {
-
             color: #f5f5f7;
-
             text-decoration: none;
-
             font-size: 14px;
-
             transition: opacity 0.3s;
-
         }
 
-        .nav-links a:hover {
-
-            opacity: 0.7;
-
-        }
-
-.nav-links a:before {
-
-    display: none;
-
-}
-
-        .nav-links li:before {
-
-    display: none;
-
-}
-
-        
+        .nav-links a:hover { opacity: 0.7; }
 
         .mobile-menu-toggle {
-
             display: none;
-
             background: none;
-
             border: none;
-
             color: #f5f5f7;
-
             font-size: 28px;
-
             cursor: pointer;
-
         }
 
         .hero {
-
-            position: relative;
-
-            width: 100%;
-
-            height: 100vh;
-
-            margin-top: 80px;
-
+            min-height: 100vh;
             display: flex;
-
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-
-            justify-content: flex-start;
-
-            overflow: hidden;
-
-        }
-
-        .hero-background {
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            height: 100%;
-
-            z-index: 0;
-
-        }
-
-        .hero-background img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            object-position: center 20%;
-
-        }
-
-        .hero-content {
-
-            position: relative;
-
-            z-index: 2;
-
-            padding: 120px 40px;
-
-            max-width: 600px;
-
-            opacity: 0;
-
-            animation: fadeInText 0.8s ease-out 0.3s forwards;
-
-        }
-
-        .hero-text {
-
-            display: block;
-
-        }
-
-        .hero-image {
-
-            display: none;
-
-        }
-
-        .hero-image img {
-
-            width: 100%;
-
-            height: auto;
-
-            border-radius: 20px;
-
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-
-        }
-
-        @keyframes fadeInText {
-
-            from {
-
-                opacity: 0;
-
-                transform: translateY(20px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform: translateY(0);
-
-            }
-
+            text-align: center;
+            padding: 140px 40px 80px;
+            background: #000;
         }
 
         h1 {
-
-            font-size: clamp(40px, 8vw, 96px);
-
+            font-size: clamp(48px, 6vw, 96px);
             font-weight: 700;
-
             line-height: 1.05;
-
             margin-bottom: 30px;
-
-            letter-spacing: -0.03em;
-
-            color: #000;
-
-        }
-
-        h2 {
-
-            font-size: clamp(32px, 6vw, 72px);
-
-            font-weight: 700;
-
-            margin-bottom: 30px;
-
             letter-spacing: -0.02em;
-
-            line-height: 1.1;
-
+            color: #fff;
+            max-width: 1200px;
         }
 
-        h3 {
-
-            font-size: clamp(24px, 4vw, 48px);
-
-            font-weight: 600;
-
+        .hero-label {
+            font-size: clamp(16px, 2vw, 22px);
+            color: #86868b;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
             margin-bottom: 20px;
-
-            line-height: 1.2;
-
         }
 
         .subtitle {
-
-            font-size: clamp(20px, 3vw, 32px);
-
-            color: #000;
-
-            margin-bottom: 20px;
-
+            font-size: clamp(24px, 3.5vw, 42px);
+            color: #d1d1d6;
+            margin-bottom: 30px;
             font-weight: 400;
-
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.25;
         }
 
         .tagline {
-
-            font-size: clamp(16px, 2.5vw, 24px);
-
-            color: #000;
-
-            margin-bottom: 50px;
-
+            font-size: clamp(18px, 2.5vw, 28px);
+            color: #86868b;
+            margin-bottom: 60px;
             font-weight: 300;
-
-            max-width: 600px;
-
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-primary {
-
-            background: #000;
-
-            color: #fff;
-
-            padding: 16px 40px;
-
-            font-size: 18px;
-
-            border-radius: 980px;
-
-            text-decoration: none;
-
-            transition: all 0.3s ease;
-
-            font-weight: 500;
-
-            display: inline-block;
-
-            margin-top: 20px;
-
-            border: 2px solid #fff;
-
-        }
-
-        .cta-primary:hover {
-
-            background: #fff;
-
-            color: #000;
-
-            transform: scale(1.05);
-
-        }
-
-        .section {
-
-            padding: 120px 40px;
-
-            position: relative;
-
-        }
-
-        .section-content {
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-        }
-
-        .section-dark {
-
-            background: #000;
-
-        }
-
-        .section-light {
-
             background: #f5f5f7;
-
-            color: #1d1d1f;
-
+            color: #000;
+            padding: 18px 48px;
+            font-size: 20px;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-block;
+            border: 2px solid #f5f5f7;
         }
 
-        .section-light h2, .section-light h3 {
+        .cta-primary:hover { 
+            background: #fff; 
+            transform: scale(1.05);
+            border-color: #fff;
+        }
 
-            color: #1d1d1f;
+        .section { 
+            padding: 120px 40px; 
+            position: relative; 
+        }
 
+        .section-content { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .section-dark { 
+            background: #000; 
+        }
+
+        .section-light { 
+            background: #f5f5f7; 
+            color: #1d1d1f; 
+        }
+
+        .section-light h2, 
+        .section-light h3 { 
+            color: #1d1d1f; 
+        }
+
+        .section-light p { 
+            color: #6e6e73; 
+        }
+
+        h2 {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        h3 {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section p {
+            font-size: clamp(18px, 2.2vw, 24px);
+            line-height: 1.6;
+            color: #d1d1d6;
         }
 
         .section-light p {
-
-            color: #6e6e73;
-
+            color: #1d1d1f;
         }
 
-        .section-light .two-col img,
-
-.two-col img {
-
-    display: block !important;
-
-    width: 100% !important;
-
-    height: auto !important;
-
-}
-
-        .section p {
-
-            font-size: clamp(18px, 2.5vw, 28px);
-
-            line-height: 1.6;
-
-            color: #d1d1d6;
-
-            margin-bottom: 30px;
-
-        }
-
-        .center-text {
-
-            text-align: center;
-
-        }
-
-        .two-col {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 80px;
-
-            align-items: center;
-
-            margin-top: 60px;
-
-        }
-
-        .two-col img {
-
-            width: 100%;
-
-            border-radius: 20px;
-
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-
-        }
-
-        ul {
-
-            list-style: none;
-
-            margin-top: 30px;
-
-        }
-
-        li {
-
-            font-size: clamp(16px, 2vw, 22px);
-
-            line-height: 1.8;
-
-            color: #d1d1d6;
-
-            padding-left: 30px;
-
-            position: relative;
-
-            margin-bottom: 15px;
-
-        }
-
-        li:before {
-
-            content: '•';
-
-            position: absolute;
-
-            left: 0;
-
-            color: #2997ff;
-
-            font-size: 24px;
-
-        }
-
-        .feature-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-            gap: 40px;
-
-            margin-top: 60px;
-
-        }
-
-        .feature-card {
-
-            background: rgba(255, 255, 255, 0.03);
-
-            border: 1px solid rgba(255, 255, 255, 0.1);
-
-            border-radius: 20px;
-
-            padding: 50px;
-
-            transition: all 0.4s ease;
-
-        }
-
-        .feature-card:hover {
-
-            background: rgba(255, 255, 255, 0.05);
-
-            transform: translateY(-10px);
-
-        }
-
-        .feature-card h3 {
-
-            font-size: 28px;
-
-            margin-bottom: 20px;
-
+        .intro-statement {
+            font-size: clamp(28px, 3.5vw, 48px);
+            line-height: 1.35;
+            font-weight: 400;
             color: #f5f5f7;
-
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            text-align: center;
         }
 
-        .feature-card p {
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
 
-            font-size: 18px;
+        .problem-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px 40px;
+            transition: all 0.4s ease;
+        }
 
+        .problem-card:hover { 
+            background: rgba(255, 255, 255, 0.05); 
+            transform: translateY(-10px); 
+        }
+
+        .problem-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #f5f5f7;
+            font-weight: 600;
+        }
+
+        .problem-card p { 
+            font-size: 17px; 
+            line-height: 1.7; 
+            color: #d1d1d6; 
+        }
+
+        .two-col-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .process-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        .process-list li {
+            font-size: 20px;
+            line-height: 1.8;
             color: #d1d1d6;
+            padding-left: 40px;
+            position: relative;
+            margin-bottom: 20px;
+        }
 
+        .process-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #2997ff;
+            border-radius: 50%;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+            margin-top: 80px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 60px 50px;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-12px);
+        }
+
+        .pricing-label {
+            font-size: 16px;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .pricing-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #f5f5f7;
+            margin-bottom: 20px;
+        }
+
+        .pricing-amount {
+            font-size: 56px;
+            font-weight: 700;
+            color: #f5f5f7;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .pricing-detail {
+            font-size: 18px;
+            color: #86868b;
+            margin-bottom: 40px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .pricing-features li {
+            font-size: 17px;
+            color: #d1d1d6;
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 16px;
             line-height: 1.6;
+        }
 
+        .pricing-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2997ff;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .faq-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 24px;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin-bottom: 15px;
+        }
+
+        .faq-answer {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #d1d1d6;
+        }
+
+        .contact-section { 
+            text-align: center; 
+            padding: 120px 40px; 
         }
 
         footer {
-
             background: #000;
-
             padding: 60px 40px 40px;
-
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-
         }
 
-        .footer-content {
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            text-align: center;
-
-        }
-
-        .social-links {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 30px;
-
-            margin-bottom: 40px;
-
-        }
-
-        .social-links a {
-
-            opacity: 0.7;
-
-            transition: opacity 0.3s;
-
-            display: inline-block;
-
-        }
-
-        .social-links img {
-
-            width: 40px;
-
-            height: 40px;
-
-            display: block;
-
-        }
-
-        .social-links a:hover {
-
-            opacity: 1;
-
+        .footer-content { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            text-align: center; 
         }
 
         .footer-links {
-
             display: flex;
-
             justify-content: center;
-
             gap: 30px;
-
             margin-bottom: 30px;
-
             flex-wrap: wrap;
-
         }
 
         .footer-links a {
-
             color: #86868b;
-
             text-decoration: none;
-
             font-size: 14px;
-
             transition: opacity 0.3s;
-
         }
 
-        .footer-links a:hover {
-
-            opacity: 0.7;
-
+        .footer-links a:hover { 
+            opacity: 0.7; 
         }
 
-        .copyright {
-
-            color: #86868b;
-
-            font-size: 14px;
-
+        .copyright { 
+            color: #86868b; 
+            font-size: 14px; 
         }
 
         @media (max-width: 1024px) {
-
-            .two-col {
-
-                grid-template-columns: 1fr;
-
-                gap: 40px;
-
+            .two-col-section { 
+                grid-template-columns: 1fr; 
+                gap: 40px; 
             }
 
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
         }
 
         @media (max-width: 768px) {
-
-            .nav-content {
-
-                padding: 0 20px;
-
+            .nav-content { 
+                padding: 0 20px; 
             }
 
             .nav-links {
-
                 position: fixed;
-
                 top: 70px;
-
                 left: 0;
-
                 right: 0;
-
                 background: rgba(0, 0, 0, 0.98);
-
                 flex-direction: column;
-
                 gap: 0;
-
                 padding: 20px;
-
                 transform: translateY(-100%);
-
                 opacity: 0;
-
                 transition: all 0.3s ease;
-
                 pointer-events: none;
-
             }
 
             .nav-links.active {
-
                 transform: translateY(0);
-
                 opacity: 1;
-
                 pointer-events: all;
-
-            }
-
-            .nav-links.active a {
-
-                pointer-events: all;
-
-                cursor: pointer;
-
             }
 
             .nav-links li {
-
                 padding: 15px 0;
-
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
             }
 
-            .nav-links a {
-
-                font-size: 18px;
-
-                display: block;
-
+            .nav-links a { 
+                font-size: 18px; 
+                display: block; 
             }
 
-            .two-col {
-
-                grid-template-columns: 1fr;
-
-                gap: 40px;
-
+            .mobile-menu-toggle { 
+                display: block; 
             }
 
-            .two-col img {
-
-                display: block;
-
-                width: 100%;
-
-            }
-
-            .mobile-menu-toggle {
-
-                display: block;
-
-            }
-
-            .section {
-
-                padding: 80px 20px;
-
+            .section { 
+                padding: 80px 20px; 
             }
 
             .hero {
-
-                height: auto;
-
-                min-height: auto;
-
-                padding: 60px 20px;
-
-                margin-top: 60px;
-
-                display: block;
-
+                padding: 100px 20px 60px;
             }
 
-            .hero-background {
-
-                display: none;
-
-            }
-
-            .hero-content {
-
-                position: static;
-
-                padding: 40px 0;
-
-                max-width: 100%;
-
-                animation: none;
-
-                opacity: 1;
-
-            }
-
-            .hero-text {
-
-                text-align: left;
-
-            }
-
-            .hero-image {
-
-                display: block;
-
-                margin-top: 40px;
-
-            }
-
-            .hero-image img {
-
-                width: 100%;
-
-                height: auto;
-
-                border-radius: 20px;
-
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-
-            }
-
-            h1 {
-
-                text-align: left;
-
-                color: #fff;
-
-                font-size: clamp(48px, 9vw, 72px);
-
-            }
-
-            .subtitle {
-
-                text-align: left;
-
-                color: #fff;
-
-                margin-left: 0;
-
-                margin-right: 0;
-
-                font-size: clamp(24px, 4vw, 32px);
-
-            }
-
-            .tagline {
-
-                text-align: left;
-
-                color: #e5e5e7;
-
-                margin-left: 0;
-
-                margin-right: 0;
-
-                font-size: clamp(18px, 3vw, 28px);
-
-            }
-
-            .cta-primary {
-
-                background: #000;
-
-                color: #fff;
-
-                border: 2px solid #fff;
-
-            }
-
-            .feature-grid {
-
+            .problem-grid {
                 grid-template-columns: 1fr;
-
             }
 
-            h2 {
-
-                font-size: clamp(40px, 7vw, 56px);
-
+            .pricing-grid {
+                grid-template-columns: 1fr;
             }
-
-            h3 {
-
-                font-size: clamp(28px, 5vw, 40px);
-
-            }
-
-            .section p {
-
-                font-size: clamp(20px, 3vw, 26px);
-
-            }
-
-            li {
-
-                font-size: clamp(18px, 2.5vw, 24px);
-
-            }
-
-            .social-links {
-
-                display: flex;
-
-                justify-content: center;
-
-                gap: 30px;
-
-                margin-bottom: 40px;
-
-            }
-
-            .social-links a {
-
-                opacity: 0.7;
-
-                transition: opacity 0.3s;
-
-                display: inline-block;
-
-            }
-
-            .social-links img {
-
-                width: 40px;
-
-                height: 40px;
-
-                display: block;
-
-            }
-
-            .social-links a:hover {
-
-                opacity: 1;
-
-            }
-
         }
 
-    </style>
+        .highlight-box {
+            background: rgba(41, 151, 255, 0.1);
+            border: 1px solid rgba(41, 151, 255, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 60px 0;
+        }
 
+        .highlight-box p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #f5f5f7;
+            font-weight: 400;
+        }
+    </style>
 </head>
 
 <body id="top">
-
     <nav id="nav">
-
         <div class="nav-content">
-
-            <a href="/" class="logo">Sam Osborne</a>
-
+            <a href="index.html" class="logo">Sam Osborne</a>
             <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-
             <ul class="nav-links" id="navLinks">
-
-                <li><a href="/">Home</a></li>
-
-                <li><a href="/#speaking">Speaking</a></li>
-
-                <li><a href="/leadership-advisory.html">Advisory</a></li>
-
-                <li><a href="/#contact">Contact</a></li>
-
+                <li><a href="index.html#speaking">Speaking</a></li>
+                <li><a href="#advisory">Advisory</a></li>
+                <li><a href="index.html#method">The Method</a></li>
+                <li><a href="#investment">Investment</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-
         </div>
-
     </nav>
 
-    <section class="hero">
-
-        <div class="hero-background">
-
-            <img src="images/sam-osborne-chair-landscape.jpg" alt="Sam Osborne sitting in chair for leadership advisory">
-
-        </div>
-
-        <div class="hero-content">
-
-            <div class="hero-text">
-
-                <h1>Leadership Advisory</h1>
-
-                <p class="subtitle">Clarity Under Pressure</p>
-
-                <p class="tagline">When responsibility is high and decisions carry weight, clarity matters more than confidence.</p>
-
-                <a href="mailto:sam@samosborne.net" class="cta-primary">Submit Inquiry</a>
-
-            </div>
-
-            <div class="hero-image">
-
-                <img src="images/sam-osborne-chair.svg" alt="Sam Osborne sitting in chair for leadership advisory">
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="section section-dark center-text">
-
-        <div class="section-content">
-
-            <h2>The Problem This Work Solves</h2>
-
-            <p style="max-width: 900px; margin: 40px auto;">Most leadership breakdowns are not caused by lack of intelligence, experience, or effort.</p>
-
-            <p style="max-width: 900px; margin: 40px auto; font-weight: 600; font-size: clamp(20px, 3vw, 32px);">They are caused by loss of internal order under pressure.</p>
-
-            <p style="max-width: 900px; margin: 40px auto;">When pressure rises, leaders often:</p>
-
-            <ul style="max-width: 800px; margin: 40px auto; text-align: left;">
-
-                <li>Over-react or over-explain</li>
-
-                <li>Carry decisions that don't belong to the moment</li>
-
-                <li>Confuse perception with reality</li>
-
-                <li>Tie self-worth to outcomes or approval</li>
-
-            </ul>
-
-            <p style="max-width: 900px; margin: 40px auto;">This advisory work restores clarity, composure, and decision discipline — without hype, performance, or motivational excess.</p>
-
-        </div>
-
-    </section>
-
-    <section class="section section-light">
-
-        <div class="section-content">
-
-            <div class="two-col">
-
-                <div>
-
-                    <img src="images/sam-osborne-radio.jpg" alt="Sam Osborne in radio studio">
-
-                </div>
-
-                <div>
-
-                    <h2 style="color: #1d1d1f;">The Approach</h2>
-
-                    <p style="color: #6e6e73; margin-top: 30px;">This work is grounded in a structured thinking sequence designed to be used in real time — before decisions, conversations, or responses that matter.</p>
-
-                    <p style="color: #6e6e73;">Rather than focusing on personality or mindset, we focus on ordering perception.</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <section class="hero" id="advisory">
+        <p class="hero-label">Leadership Advisory</p>
+        <h1>You Saw What Happened on Stage. Now Apply It to Your Leadership.</h1>
+        <p class="subtitle">Private Demartini Method facilitation dissolving the emotional charge around people who undermine your authority.</p>
+        <p class="tagline">Sequential 1:1 sessions. Systematic transformation. Not coaching. Facilitation.</p>
+        <a href="#contact" class="cta-primary">Schedule Consultation</a>
     </section>
 
     <section class="section section-dark">
-
         <div class="section-content">
-
-            <h2 style="text-align: center;">Leaders Are Guided To:</h2>
-
-            <ul style="max-width: 900px; margin: 40px auto;">
-
-                <li>Identify the true source of pressure</li>
-
-                <li>Separate observable facts from projection and assumption</li>
-
-                <li>Name the actual decision required — and defer what is not</li>
-
-                <li>Calibrate response intensity based on reversibility</li>
-
-                <li>Anchor authority without tying identity to outcomes</li>
-
-                <li>Choose composed, defensible responses under scrutiny</li>
-
-            </ul>
-
-            <p style="text-align: center; margin-top: 60px; font-weight: 600; font-size: clamp(20px, 3vw, 28px);">This sequence becomes an internal operating system leaders can rely on when things get loud.</p>
-
+            <p class="intro-statement">
+                During the keynote, you witnessed someone move from years of resentment to balanced perception in forty-five minutes. You recognized your version of that charge. This is how you get the same transformation.
+            </p>
         </div>
-
     </section>
 
     <section class="section section-light">
+        <div class="section-content" style="text-align: center;">
+            <h2>The Problem This Solves</h2>
+            <p style="max-width: 900px; margin: 20px auto 60px; font-size: clamp(20px, 2.5vw, 26px); color: #1d1d1f;">
+                Specific people trigger emotional reactivity that erodes your composure, undermines your credibility, and distorts your strategic judgment.
+            </p>
 
-        <div class="section-content">
-
-            <div class="two-col">
-
-                <div>
-
-                    <h2 style="color: #1d1d1f;">What This Is — And Is Not</h2>
-
-                    <h3 style="color: #1d1d1f; font-size: clamp(20px, 3vw, 28px); margin-top: 40px;">This is:</h3>
-
-                    <ul>
-
-                        <li style="color: #6e6e73;">Practical, structured, and disciplined</li>
-
-                        <li style="color: #6e6e73;">Grounded in real-world leadership pressure</li>
-
-                        <li style="color: #6e6e73;">Designed for clarity, not catharsis</li>
-
-                    </ul>
-
-                    <h3 style="color: #1d1d1f; font-size: clamp(20px, 3vw, 28px); margin-top: 40px;">This is not:</h3>
-
-                    <ul>
-
-                        <li style="color: #6e6e73;">Therapy</li>
-
-                        <li style="color: #6e6e73;">Motivation</li>
-
-                        <li style="color: #6e6e73;">Performance coaching</li>
-
-                        <li style="color: #6e6e73;">Emotional processing for its own sake</li>
-
-                    </ul>
-
-                    <p style="color: #1d1d1f; margin-top: 40px; font-weight: 600; font-size: clamp(20px, 3vw, 24px);">The goal is clarity that holds under pressure.</p>
-
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>The Board Member</h3>
+                    <p>Their dismissiveness in meetings triggers defensive reactivity. You leave feeling undermined. Your authority erodes because the emotional charge is visible to everyone else in the room.</p>
                 </div>
 
-                <div>
-
-                    <img src="images/sam-osborne-speaker.jpeg" alt="Sam Osborne speaking at event">
-
+                <div class="problem-card">
+                    <h3>The Business Partner</h3>
+                    <p>Resentment toward their decision-making style creates friction in every strategic conversation. You can't lead collaboratively when projection mechanics dominate the relationship.</p>
                 </div>
 
+                <div class="problem-card">
+                    <h3>The Executive</h3>
+                    <p>Infatuation with their performance makes you question your own judgment. Or their arrogance triggers contempt. Either way, the imbalanced perception distorts how you evaluate their work.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>The Investor</h3>
+                    <p>Their scrutiny activates imposter phenomenon. You perform rather than lead. The relationship dynamic reinforces borrowed authority instead of authentic command of your role.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>The Direct Report</h3>
+                    <p>Their resistance triggers frustration that shows up as micromanagement or avoidance. You can't delegate effectively when the emotional charge distorts your perception of their capabilities.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>The Regulator</h3>
+                    <p>Anxiety around compliance interactions creates paralysis. You over-prepare, second-guess decisions, or avoid necessary communication because fear dominates the relationship.</p>
+                </div>
             </div>
-
         </div>
-
     </section>
 
     <section class="section section-dark">
-
         <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 60px;">What the Advisory Delivers</h2>
 
+            <div class="two-col-section">
+                <div>
+                    <h3>Sequential Facilitation</h3>
+                    <p style="margin-bottom: 30px;">Each session applies the Demartini Method to a different person in your leadership environment. Session one dissolves the charge around your board chair. Session two addresses your CFO. Session three handles the investor who triggers imposter phenomenon.</p>
+                    
+                    <p style="margin-bottom: 30px;">This isn't generic executive coaching. It's systematic perceptual balance applied to the specific relationships where emotional reactivity undermines your leadership.</p>
+
+                    <p>You don't learn coping strategies. You permanently transform how you perceive the people who currently trigger you.</p>
+                </div>
+
+                <div>
+                    <h3>The Demartini Method Process</h3>
+                    <ul class="process-list">
+                        <li>Identify the specific trait that triggers emotional charge</li>
+                        <li>Apply precision questions revealing where you display that same trait</li>
+                        <li>Dissolve projection mechanics through reflective awareness</li>
+                        <li>Balance perception by seeing equal drawbacks and benefits</li>
+                        <li>Collapse the emotional charge permanently</li>
+                        <li>Restore composure and strategic clarity in the relationship</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 80px;">
+                <p style="text-align: center;">
+                    <strong>This is not therapy. This is not coaching.</strong> This is systematic facilitation using the Demartini Method to dissolve the perceptual imbalances that create emotional reactivity. When perception balances, the charge dissolves. When the charge dissolves, you lead with equanimity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
             <h2 style="text-align: center;">Who This Is For</h2>
+            <p style="text-align: center; max-width: 900px; margin: 20px auto 60px; font-size: clamp(20px, 2.5vw, 26px); color: #1d1d1f;">
+                Leaders in high-stakes roles where specific people trigger reactivity that undermines authority, distorts judgment, or erodes credibility.
+            </p>
 
-            <p style="text-align: center; margin-bottom: 40px;">This advisory work is suited for leaders who:</p>
-
-            <ul style="max-width: 800px; margin: 40px auto;">
-
-                <li>Carry responsibility on behalf of others</li>
-
-                <li>Operate under visibility or political complexity</li>
-
-                <li>Make decisions with real downstream consequences</li>
-
-                <li>Are expected to remain composed even when challenged</li>
-
-            </ul>
-
-            <h3 style="text-align: center; margin-top: 60px;">It is especially effective for:</h3>
-
-            <ul style="max-width: 700px; margin: 40px auto;">
-
-                <li>Senior leaders and executives</li>
-
-                <li>Founders and operators</li>
-
-                <li>Advisors, professionals, and decision-makers under scrutiny</li>
-
-            </ul>
-
-            <p style="text-align: center; margin-top: 60px; font-weight: 600; font-size: clamp(20px, 3vw, 24px);">This is not entry-level leadership development.</p>
-
-        </div>
-
-    </section>
-
-    <section class="section section-dark">
-
-        <div class="section-content">
-
-            <h2 style="text-align: center;">Outcomes</h2>
-
-            <p style="text-align: center; margin-bottom: 20px;">Leaders who engage in this work report:</p>
-
-            <div class="feature-grid">
-
-                <div class="feature-card">
-
-                    <h3>Greater Clarity</h3>
-
-                    <p>Greater clarity in high-stakes moments</p>
-
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>C-Suite Executives</h3>
+                    <p>Board dynamics, investor relationships, executive team friction — multiple stakeholders where emotional charge creates strategic blindspots and undermines composure.</p>
                 </div>
 
-                <div class="feature-card">
-
-                    <h3>Reduced Reactivity</h3>
-
-                    <p>Reduced reactivity and second-guessing</p>
-
+                <div class="problem-card">
+                    <h3>Founders & Entrepreneurs</h3>
+                    <p>Co-founder resentment, investor infatuation, key employee conflict — charged relationships that distort decision-making during critical growth phases.</p>
                 </div>
 
-                <div class="feature-card">
-
-                    <h3>Stronger Composure</h3>
-
-                    <p>Stronger composure during challenge or conflict</p>
-
+                <div class="problem-card">
+                    <h3>Professional Services Leaders</h3>
+                    <p>Legal professionals, healthcare executives, financial advisors — anyone whose authority is constantly questioned and whose reactivity to specific people undermines client confidence.</p>
                 </div>
 
-                <div class="feature-card">
-
-                    <h3>Clearer Language</h3>
-
-                    <p>Clearer language when decisions are questioned</p>
-
+                <div class="problem-card">
+                    <h3>Government & Regulatory Officials</h3>
+                    <p>Managing public criticism, navigating political pressure, handling adversarial stakeholders — roles where composure under scrutiny is non-negotiable.</p>
                 </div>
-
-                <div class="feature-card">
-
-                    <h3>Increased Self-Trust</h3>
-
-                    <p>Increased self-trust without defensiveness</p>
-
-                </div>
-
-                <div class="feature-card">
-
-                    <h3>Sustained Confidence</h3>
-
-                    <p>Confidence grounded in clarity—resilient under pressure and scrutiny</p>
-
-                </div>
-
             </div>
 
-            <p style="text-align: center; margin-top: 60px; font-weight: 600;">The impact shows up in decisions, conversations, and leadership presence — not in performative change.</p>
-
+            <div class="highlight-box" style="background: rgba(0, 0, 0, 0.03); border-color: rgba(0, 0, 0, 0.1); margin-top: 60px;">
+                <p style="color: #1d1d1f; text-align: center;">
+                    <strong>If you watched the live demonstration during the keynote and thought "I need that for my board member / business partner / investor / executive,"</strong> this advisory is the mechanism for getting that transformation applied to your specific leadership reality.
+                </p>
+            </div>
         </div>
+    </section>
 
+    <section class="section section-dark" id="investment">
+        <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 20px;">Investment</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; font-size: clamp(18px, 2.2vw, 24px);">
+                Two engagement options. Sequential facilitations dissolving charge around the people who trigger reactivity in your leadership environment.
+            </p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <p class="pricing-label">Foundation</p>
+                    <h3 class="pricing-title">8 Sessions</h3>
+                    <p class="pricing-amount">$10,000</p>
+                    <p class="pricing-detail">One hour per session</p>
+
+                    <ul class="pricing-features">
+                        <li>8 private Demartini Method facilitations</li>
+                        <li>Each session dissolves charge around a different person</li>
+                        <li>Systematic perceptual balance applied to your key stakeholder relationships</li>
+                        <li>Conducted via video conference</li>
+                        <li>Completed within 4 months</li>
+                    </ul>
+
+                    <a href="#contact" class="cta-primary">Schedule Consultation</a>
+                </div>
+
+                <div class="pricing-card">
+                    <p class="pricing-label">Comprehensive</p>
+                    <h3 class="pricing-title">16 Sessions</h3>
+                    <p class="pricing-amount">$18,000</p>
+                    <p class="pricing-detail">One hour per session</p>
+
+                    <ul class="pricing-features">
+                        <li>16 private Demartini Method facilitations</li>
+                        <li>Deeper transformation across your entire leadership ecosystem</li>
+                        <li>Addresses board, executive team, investors, key reports, external stakeholders</li>
+                        <li>Conducted via video conference</li>
+                        <li>Completed within 8 months</li>
+                    </ul>
+
+                    <a href="#contact" class="cta-primary">Schedule Consultation</a>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 60px; font-size: 18px; color: #86868b; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Payment plans available. Sessions scheduled at your pace within the completion timeframe. All engagements begin with a consultation call to confirm the Demartini Method is the appropriate intervention for your specific leadership challenges.
+            </p>
+        </div>
     </section>
 
     <section class="section section-light">
-
         <div class="section-content">
+            <h2 style="text-align: center; margin-bottom: 60px;">Common Questions</h2>
 
-            <div class="two-col">
-
-                <div>
-
-                    <img src="images/sam-osborne-vest-cropped.jpg" alt="Sam Osborne with audience">
-
+            <div class="faq-section">
+                <div class="faq-item">
+                    <p class="faq-question">How is this different from executive coaching?</p>
+                    <p class="faq-answer">Executive coaching typically focuses on skill development, behavioral modification, or goal achievement. This is perceptual transformation. The Demartini Method dissolves the emotional charge at the root of reactivity. You don't learn techniques to manage your emotions around difficult people. You permanently transform how you perceive them. When perception balances, the charge disappears.</p>
                 </div>
 
-                <div>
-
-                    <h2 style="color: #1d1d1f;">Format</h2>
-
-                    <p style="color: #6e6e73; margin-top: 30px;">Engagements are intentionally selective and structured.</p>
-
-                    <p style="color: #6e6e73; font-weight: 600; margin-top: 30px;">Formats may include:</p>
-
-                    <ul>
-
-                        <li style="color: #6e6e73;">One-to-one leadership advisory</li>
-
-                        <li style="color: #6e6e73;">Short-term clarity intensives</li>
-
-                        <li style="color: #6e6e73;">Decision-focused advisory sessions</li>
-
-                        <li style="color: #6e6e73;">Ongoing strategic clarity support (limited availability)</li>
-
-                    </ul>
-
-                    <p style="color: #6e6e73; margin-top: 30px;">All engagements are anchored in the same clarity sequence, tailored to the leader's context and pressure profile.</p>
-
+                <div class="faq-item">
+                    <p class="faq-question">What if I need more than 8 or 16 sessions?</p>
+                    <p class="faq-answer">Most leaders find that 8-16 facilitations address their highest-priority charged relationships. If additional sessions are required after completing your initial engagement, we can discuss extension options. However, the goal is permanent transformation, not ongoing dependency. Once you've experienced the method systematically applied across your key relationships, the perceptual pattern becomes self-evident.</p>
                 </div>
 
+                <div class="faq-item">
+                    <p class="faq-question">How quickly will I see results?</p>
+                    <p class="faq-answer">Perceptual balance occurs during the facilitation session itself. You'll notice the shift immediately — the person who previously triggered intense reactivity no longer carries the same emotional charge. The composure you demonstrate in your next interaction with them confirms the transformation. This isn't a process that requires months of practice. The charge dissolves when perception balances.</p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">What happens during a session?</p>
+                    <p class="faq-answer">Each one-hour session is a structured facilitation. You identify the specific person and the trait that triggers emotional charge. I guide you through precision questions that reveal where you display that same trait in your own form. Through reflective awareness and perceptual balance equations, the projection mechanics dissolve. By the end of the session, the emotional charge around that person is gone. Permanently.</p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">Is this appropriate for organizational teams?</p>
+                    <p class="faq-answer">This advisory service is for individual leaders. If you're interested in applying the Demartini Method to team dynamics, organizational conflict, or leadership group facilitation, that requires a different engagement structure. Contact me to discuss organizational consulting options.</p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-question">Do I need to have attended one of your keynotes?</p>
+                    <p class="faq-answer">No. While most advisory clients are keynote attendees who witnessed the live demonstration, the engagement is open to any leader experiencing emotional reactivity toward specific people that undermines their authority. The consultation call will determine whether the Demartini Method is the appropriate intervention for your situation.</p>
+                </div>
             </div>
-
         </div>
-
     </section>
 
-    <section class="section section-dark center-text">
-
+    <section id="contact" class="contact-section section-dark">
         <div class="section-content">
-
-            <h2>About Sam</h2>
-
-            <p style="max-width: 900px; margin: 40px auto; font-weight: 600; font-size: clamp(22px, 3vw, 36px);">Calm leadership is not a personality trait.<br>It is a practiced discipline.</p>
-
-            <p style="max-width: 900px; margin: 40px auto;">Sam Osborne's advisory work sits at the intersection of clarity, self-worth, and decision-making under pressure.</p>
-
-            <p style="max-width: 900px; margin: 40px auto;">Drawing from a background spanning education, philosophy, performance, and lived adversity, Sam is known for helping leaders restore internal order without escalation, theatrics, or ego.</p>
-
-            <p style="max-width: 900px; margin: 40px auto; font-weight: 600;">His role is not to tell leaders what to do — but to help them see clearly enough to decide well.</p>
-
+            <h2>Schedule Your Consultation</h2>
+            <p style="text-align: center; margin: 40px auto 50px; max-width: 800px; font-size: clamp(20px, 2.8vw, 32px); line-height: 1.4;">
+                If specific people trigger reactivity that undermines your leadership, let's discuss whether the Demartini Method is the appropriate intervention.
+            </p>
+            <a href="mailto:sam@samosborne.net" class="cta-primary">Contact Sam Osborne</a>
         </div>
-
-    </section>
-
-    <section class="section section-dark center-text">
-
-        <div class="section-content">
-
-            <h2>Inquiry</h2>
-
-            <p style="max-width: 800px; margin: 40px auto; font-size: clamp(20px, 3vw, 28px);">This work is not offered at scale.</p>
-
-            <p style="max-width: 800px; margin: 40px auto;">If you are navigating complexity, pressure, or high-stakes decisions and want to explore fit, you may inquire below.</p>
-
-            <a href="mailto:sam@samosborne.net" class="cta-primary">Submit Inquiry</a>
-
-        </div>
-
     </section>
 
     <footer>
-    <div class="footer-content">
-        <div class="social-links">
-            <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank">
-                <img src="images/youtube.png" alt="YouTube">
-            </a>
-            <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank">
-                <img src="images/linkedin.png" alt="LinkedIn">
-            </a>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#speaking">Speaking</a>
+                <a href="#advisory">Advisory</a>
+                <a href="index.html#method">The Method</a>
+                <a href="mailto:sam@samosborne.net">Contact</a>
+            </div>
+
+            <p class="copyright">© 2026 Sam Osborne · Demartini Method Facilitator · Based in Burbank, California · samosborne.net</p>
         </div>
-        <div class="footer-links">
-            <a href="/">Home</a>
-            <a href="https://link.tekmatix.com/widget/bookings/free-15min" target="_blank">Book a Call</a>
-            <a href="mailto:sam@samosborne.net">Contact</a>
-        </div>
-        <p class="copyright">© 2024 Sam Osborne. Based in Burbank, California · samosborne.net</p>
-    </div>
-</footer>
-    
+    </footer>
+
     <script>
-
+        // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
-
         const navLinks = document.getElementById('navLinks');
 
-        
-
         menuToggle.addEventListener('click', () => {
-
             navLinks.classList.toggle('active');
-
             menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-
         });
 
-        navLinks.querySelectorAll('li a').forEach(link => {
-
+        navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-
                 navLinks.classList.remove('active');
-
                 menuToggle.textContent = '☰';
-
             });
-
         });
 
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Nav scroll state
         const nav = document.getElementById('nav');
-
-        window.addEventListener('scroll', () => {
-
-            if (window.scrollY > 50) {
-
-                nav.classList.add('scrolled');
-
-            } else {
-
-                nav.classList.remove('scrolled');
-
-            }
-
-        });
-
+        const setNavScrolled = () => {
+            if (window.scrollY > 40) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', setNavScrolled);
+        setNavScrolled();
     </script>
-
 </body>
-
 </html>
