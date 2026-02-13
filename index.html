@@ -978,121 +978,270 @@
             </div>
         </div>
     </section>
-<!-- SPEAKER FEES SECTION -->
-    <section id="fees" class="section section-light">
-        <div class="section-content">
-            <h2 style="text-align: center; color: #1d1d1f; margin-bottom: 20px;">Speaking Fees</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; font-size: clamp(18px, 2.2vw, 24px); color: #1d1d1f;">
-                Investment in systematic transformation through the Demartini Method.
-            </p>
 
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>Keynote Investment</h3>
-                    <p style="font-size: 42px; font-weight: 700; color: #1d1d1f; margin: 20px 0;">$20,000 – $30,000</p>
-                    <p style="color: #6e6e73; margin-bottom: 30px;">Depending on scope and customization</p>
-                    
-                    <div style="text-align: left; margin-top: 30px;">
-                        <p style="font-weight: 600; color: #1d1d1f; margin-bottom: 15px;">What's Included:</p>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Pre-event consultation to align keynote with organizational challenges
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Customization of framework to your industry and audience
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Live Demartini Method demonstration with audience volunteer
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Post-keynote Q&A session
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Perceptual balance framework handouts for attendees
-                            </li>
-                        </ul>
-                    </div>
+    <!-- SPEAKER FEES SECTION -->
+<section id="fees" class="section section-light">
+    <div class="section-content">
+        <h2 style="text-align: center; color: #1d1d1f; margin-bottom: 20px;">Speaking Fees</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; font-size: clamp(18px, 2.2vw, 24px); color: #1d1d1f;">
+            Investment in systematic transformation through the Demartini Method.
+        </p>
+
+        <!-- FEES CARDS WITH DROPDOWNS -->
+        <div class="problem-grid">
+            <!-- KEYNOTE INVESTMENT CARD -->
+            <div class="problem-card">
+                <h3>Keynote Investment</h3>
+                <p style="font-size: 42px; font-weight: 700; color: #1d1d1f; margin: 20px 0;">$20,000 – $30,000</p>
+                <p style="color: #6e6e73; margin-bottom: 30px;">Depending on scope and customization</p>
+
+                <!-- DROPDOWN BUTTON -->
+                <button class="dropdown-toggle" onclick="toggleDropdown(this)" style="
+                    width: 100%;
+                    background: #f5f5f7;
+                    border: 1px solid #d2d2d7;
+                    border-radius: 8px;
+                    padding: 14px 16px;
+                    color: #1d1d1f;
+                    font-weight: 500;
+                    font-size: 16px;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    transition: all 0.3s ease;
+                    margin-bottom: 15px;
+                ">
+                    <span>What's Included</span>
+                    <span class="dropdown-icon" style="font-size: 18px; transition: transform 0.3s ease;">▼</span>
+                </button>
+
+                <!-- DROPDOWN CONTENT -->
+                <div class="dropdown-content" style="
+                    display: none;
+                    overflow: hidden;
+                    max-height: 0;
+                    transition: max-height 0.3s ease;
+                    text-align: left;
+                ">
+                    <ul style="list-style: none; padding: 20px 0 0 0; margin: 0; border-top: 1px solid #e5e5ea; padding-top: 20px;">
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Pre-event consultation to align keynote with organizational challenges
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Customization of framework to your industry and audience
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Live Demartini Method demonstration with audience volunteer
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Post-keynote Q&A session
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Perceptual balance framework handouts for attendees
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MULTI-KEYNOTE ENGAGEMENTS CARD -->
+            <div class="problem-card">
+                <h3>Multi-Keynote Engagements</h3>
+                <p style="color: #1d1d1f; margin: 20px 0 30px; font-size: 17px; line-height: 1.7;">
+                    For organizations requiring multiple sessions or multi-day conferences.
+                </p>
+
+                <!-- DROPDOWN BUTTON -->
+                <button class="dropdown-toggle" onclick="toggleDropdown(this)" style="
+                    width: 100%;
+                    background: #f5f5f7;
+                    border: 1px solid #d2d2d7;
+                    border-radius: 8px;
+                    padding: 14px 16px;
+                    color: #1d1d1f;
+                    font-weight: 500;
+                    font-size: 16px;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    transition: all 0.3s ease;
+                    margin-bottom: 15px;
+                ">
+                    <span>Custom Packages</span>
+                    <span class="dropdown-icon" style="font-size: 18px; transition: transform 0.3s ease;">▼</span>
+                </button>
+
+                <!-- DROPDOWN CONTENT -->
+                <div class="dropdown-content" style="
+                    display: none;
+                    overflow: hidden;
+                    max-height: 0;
+                    transition: max-height 0.3s ease;
+                    text-align: left;
+                ">
+                    <ul style="list-style: none; padding: 20px 0 0 0; margin: 0; border-top: 1px solid #e5e5ea; padding-top: 20px;">
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Opening keynote + breakout session combinations
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Multi-day conference programming
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Executive leadership team sessions
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Board retreat facilitation
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="problem-card">
-                    <h3>Multi-Keynote Engagements</h3>
-                    <p style="color: #1d1d1f; margin: 20px 0 30px; font-size: 17px; line-height: 1.7;">
-                        For organizations requiring multiple sessions, breakout facilitations, or multi-day conference presence.
-                    </p>
-                    
-                    <div style="text-align: left; margin-top: 30px;">
-                        <p style="font-weight: 600; color: #1d1d1f; margin-bottom: 15px;">Custom Packages Include:</p>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Opening keynote + breakout session combinations
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Multi-day conference programming
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Executive leadership team sessions
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Board retreat facilitation
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <p style="margin-top: 30px; color: #1d1d1f; font-weight: 500;">Contact for custom engagement pricing</p>
-                </div>
+                <p style="margin-top: 20px; color: #1d1d1f; font-weight: 500;">Contact for custom engagement pricing</p>
+            </div>
 
-                <div class="problem-card">
-                    <h3>Travel & Logistics</h3>
-                    <p style="color: #1d1d1f; margin: 20px 0 30px; font-size: 17px; line-height: 1.7;">
-                        Standard arrangements for seamless event execution.
-                    </p>
-                    
-                    <div style="text-align: left; margin-top: 30px;">
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Round-trip airfare (business class for flights over 3 hours)
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Ground transportation to/from airport and venue
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Hotel accommodation (night before and night of event)
-                            </li>
-                            <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
-                                <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
-                                Standard AV requirements (wireless microphone, presentation screen)
-                            </li>
-                        </ul>
-                    </div>
+            <!-- TRAVEL & LOGISTICS CARD -->
+            <div class="problem-card">
+                <h3>Travel & Logistics</h3>
+                <p style="color: #1d1d1f; margin: 20px 0 30px; font-size: 17px; line-height: 1.7;">
+                    Standard arrangements for seamless event execution.
+                </p>
 
-                    <p style="margin-top: 30px; color: #6e6e73; font-size: 15px; line-height: 1.6;">
+                <!-- DROPDOWN BUTTON -->
+                <button class="dropdown-toggle" onclick="toggleDropdown(this)" style="
+                    width: 100%;
+                    background: #f5f5f7;
+                    border: 1px solid #d2d2d7;
+                    border-radius: 8px;
+                    padding: 14px 16px;
+                    color: #1d1d1f;
+                    font-weight: 500;
+                    font-size: 16px;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    transition: all 0.3s ease;
+                    margin-bottom: 15px;
+                ">
+                    <span>What's Included</span>
+                    <span class="dropdown-icon" style="font-size: 18px; transition: transform 0.3s ease;">▼</span>
+                </button>
+
+                <!-- DROPDOWN CONTENT -->
+                <div class="dropdown-content" style="
+                    display: none;
+                    overflow: hidden;
+                    max-height: 0;
+                    transition: max-height 0.3s ease;
+                    text-align: left;
+                ">
+                    <ul style="list-style: none; padding: 20px 0 0 0; margin: 0; border-top: 1px solid #e5e5ea; padding-top: 20px;">
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Round-trip airfare (business class for flights over 3 hours)
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Ground transportation to/from airport and venue
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Hotel accommodation (night before and night of event)
+                        </li>
+                        <li style="padding-left: 25px; position: relative; margin-bottom: 12px; color: #1d1d1f; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: #2997ff; font-weight: 700;">✓</span>
+                            Standard AV requirements (wireless microphone, presentation screen)
+                        </li>
+                    </ul>
+
+                    <p style="margin-top: 20px; color: #6e6e73; font-size: 15px; line-height: 1.6; padding-top: 20px; border-top: 1px solid #e5e5ea;">
                         Virtual keynotes available at the same fee structure. Los Angeles-area events may have reduced travel requirements.
                     </p>
                 </div>
             </div>
+        </div>
 
-            <div class="highlight-box" style="background: rgba(0, 0, 0, 0.03); border-color: rgba(0, 0, 0, 0.1); margin-top: 60px;">
-                <p style="color: #1d1d1f; text-align: center; font-size: 18px; line-height: 1.7; margin-bottom: 20px;">
-                    <strong>Booking Process:</strong> Initial consultation to assess event fit and customization needs → Contract and 50% deposit → Pre-event planning call → Event delivery → Final payment due within 30 days.
-                </p>
-                <p style="color: #6e6e73; font-size: 16px; line-height: 1.6; text-align: center;">
-                    Preferred lead time: 90 days minimum. Rush bookings (under 60 days) may incur expedited preparation fee.
-                </p>
+        <!-- BOOKING PROCESS SECTION -->
+        <div class="highlight-box" style="background: rgba(0, 0, 0, 0.03); border-color: rgba(0, 0, 0, 0.1); margin-top: 60px;">
+            <!-- DROPDOWN BUTTON -->
+            <button class="dropdown-toggle" onclick="toggleDropdown(this)" style="
+                width: 100%;
+                background: transparent;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                padding: 16px 20px;
+                color: #1d1d1f;
+                font-weight: 600;
+                font-size: 18px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: all 0.3s ease;
+                margin-bottom: 0;
+            ">
+                <span>Booking Process</span>
+                <span class="dropdown-icon" style="font-size: 18px; transition: transform 0.3s ease;">▼</span>
+            </button>
+
+            <!-- DROPDOWN CONTENT -->
+            <div class="dropdown-content" style="
+                display: none;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.3s ease;
+            ">
+                <div style="padding: 20px 0; border-top: 1px solid rgba(0, 0, 0, 0.1); margin-top: 16px;">
+                    <p style="color: #1d1d1f; text-align: left; font-size: 16px; line-height: 1.7; margin-bottom: 16px;">
+                        <strong>Steps:</strong> Initial consultation to assess event fit and customization needs → Contract and 50% deposit → Pre-event planning call → Event delivery → Final payment due within 30 days.
+                    </p>
+
+                    <p style="color: #6e6e73; font-size: 15px; line-height: 1.6; text-align: left;">
+                        <strong>Lead Time:</strong> Preferred minimum of 90 days. Rush bookings (under 60 days) may incur expedited preparation fee.
+                    </p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- DROPDOWN FUNCTIONALITY SCRIPT -->
+<script>
+function toggleDropdown(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('.dropdown-icon');
+    const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+    if (isOpen) {
+        content.style.maxHeight = '0px';
+        icon.style.transform = 'rotate(0deg)';
+    } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+    }
+}
+
+// Optional: Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const dropdownToggle = event.target.closest('.dropdown-toggle');
+    if (!dropdownToggle) {
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                // Keep open for better UX - only close on button click
+            }
+        });
+    }
+});
+</script>    
     
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section section-dark">
