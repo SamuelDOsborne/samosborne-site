@@ -1233,17 +1233,412 @@ document.querySelectorAll('.dropdown-toggle').forEach(button => {
     });
 });
 </script>    
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="contact-section section-dark">
-        <div class="section-content">
-            <h2>Get in Touch</h2>
-            <p style="text-align: center; margin: 40px auto 50px; max-width: 700px; font-size: clamp(20px, 3vw, 28px);">
-                Ready to bring Sam Osborne to your next event?<br>Let's discuss how balanced perception transforms leadership.
-            </p>
-            <a href="mailto:sam@samosborne.net" class="cta-primary">Contact</a>
-        </div>
-    </section>
 
+<!-- GET IN TOUCH / CONTACT FORM SECTION -->
+<section id="contact" class="section section-dark" style="background: #1d1d1f; color: white;">
+    <div class="section-content">
+        <h2 style="text-align: center; color: white; margin-bottom: 15px;">Get in Touch</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 18px; color: #a1a1a6; line-height: 1.6;">
+            Ready to bring Sam Osborne to your next event? Share details about your event and let's discuss how balanced perception transforms leadership.
+        </p>
+
+        <!-- CONTACT FORM -->
+        <form id="event-inquiry-form" name="event-inquiry" method="POST" action="https://formspree.io/f/xaqdebvj" style="max-width: 700px; margin: 0 auto;">
+            
+            <!-- YOUR NAME & EMAIL ROW -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Your Name *</label>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        required 
+                        placeholder="First and Last Name"
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Email Address *</label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        required 
+                        placeholder="you@company.com"
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                </div>
+            </div>
+
+            <!-- PHONE & TITLE ROW -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Phone Number</label>
+                    <input 
+                        type="tel" 
+                        name="phone" 
+                        placeholder="(555) 000-0000"
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Your Title/Role</label>
+                    <input 
+                        type="text" 
+                        name="title" 
+                        placeholder="e.g., Event Manager, HR Director"
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                </div>
+            </div>
+
+            <!-- ORGANIZATION & WEBSITE ROW -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Organization/Company *</label>
+                    <input 
+                        type="text" 
+                        name="organization" 
+                        required 
+                        placeholder="Company or Organization Name"
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Organization Website</label>
+                    <input 
+                        type="url" 
+                        name="website" 
+                        placeholder="https://company.com"
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                </div>
+            </div>
+
+            <!-- EVENT TYPE & AUDIENCE SIZE ROW -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Event Type *</label>
+                    <select 
+                        name="event_type" 
+                        required
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                        <option value="">Select event type...</option>
+                        <option value="Conference">Conference</option>
+                        <option value="Corporate Event">Corporate Event</option>
+                        <option value="Executive Retreat">Executive Retreat</option>
+                        <option value="Team Building">Team Building Event</option>
+                        <option value="Summit">Summit</option>
+                        <option value="Professional Association">Professional Association Meeting</option>
+                        <option value="Workshop">Workshop/Training</option>
+                        <option value="Webinar">Webinar/Virtual Event</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Expected Audience Size *</label>
+                    <select 
+                        name="audience_size" 
+                        required
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                        <option value="">Select audience size...</option>
+                        <option value="Under 50">Under 50</option>
+                        <option value="50-100">50-100</option>
+                        <option value="100-250">100-250</option>
+                        <option value="250-500">250-500</option>
+                        <option value="500-1000">500-1,000</option>
+                        <option value="1000+">1,000+</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- EVENT DATE & LOCATION ROW -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Preferred Event Date *</label>
+                    <input 
+                        type="date" 
+                        name="event_date" 
+                        required
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Event Location *</label>
+                    <input 
+                        type="text" 
+                        name="location" 
+                        required 
+                        placeholder="City, State or Virtual"
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                </div>
+            </div>
+
+            <!-- KEYNOTE FORMAT & DURATION ROW -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Keynote Format *</label>
+                    <select 
+                        name="keynote_format" 
+                        required
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                        <option value="">Select format...</option>
+                        <option value="Single Keynote">Single Keynote (60-90 min)</option>
+                        <option value="Keynote + Breakout">Keynote + Breakout Session</option>
+                        <option value="Multi-Day">Multi-Day Programming</option>
+                        <option value="Executive Facilitation">Executive Team Facilitation</option>
+                        <option value="Workshop">Interactive Workshop</option>
+                        <option value="Virtual">Virtual Keynote</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Primary Audience Challenge *</label>
+                    <select 
+                        name="challenge_area" 
+                        required
+                        style="
+                            width: 100%;
+                            padding: 12px 14px;
+                            border: 1px solid #424245;
+                            border-radius: 6px;
+                            background: #2d2d2f;
+                            color: white;
+                            font-size: 15px;
+                            box-sizing: border-box;
+                            transition: border-color 0.3s ease;
+                        "
+                        onfocus="this.style.borderColor='#2997ff'"
+                        onblur="this.style.borderColor='#424245'"
+                    >
+                        <option value="">Select primary challenge...</option>
+                        <option value="Team Conflict">Team Conflict & Tension</option>
+                        <option value="Organizational Change">Organizational Change</option>
+                        <option value="Leadership Development">Leadership Development</option>
+                        <option value="Decision Making">Decision-Making & Values Clarity</option>
+                        <option value="Company Culture">Company Culture</option>
+                        <option value="Resilience">Resilience & Adversity</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ADDITIONAL DETAILS TEXTAREA -->
+            <div style="margin-bottom: 25px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Additional Details & Questions</label>
+                <textarea 
+                    name="message" 
+                    placeholder="Tell us more about your event, audience, specific goals, or any questions you have for Sam..."
+                    rows="6"
+                    style="
+                        width: 100%;
+                        padding: 12px 14px;
+                        border: 1px solid #424245;
+                        border-radius: 6px;
+                        background: #2d2d2f;
+                        color: white;
+                        font-size: 15px;
+                        font-family: inherit;
+                        box-sizing: border-box;
+                        resize: vertical;
+                        transition: border-color 0.3s ease;
+                    "
+                    onfocus="this.style.borderColor='#2997ff'"
+                    onblur="this.style.borderColor='#424245'"
+                ></textarea>
+            </div>
+
+            <!-- BUDGET RANGE (OPTIONAL) -->
+            <div style="margin-bottom: 30px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 12px; color: white; font-size: 14px;">Budget Range (Optional)</label>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <label style="display: flex; align-items: center; gap: 8px; color: #a1a1a6; cursor: pointer; font-size: 14px;">
+                        <input type="radio" name="budget" value="Under $20K" style="cursor: pointer;">
+                        Under $20K
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; color: #a1a1a6; cursor: pointer; font-size: 14px;">
+                        <input type="radio" name="budget" value="$20K - $30K" style="cursor: pointer;">
+                        $20K - $30K
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; color: #a1a1a6; cursor: pointer; font-size: 14px;">
+                        <input type="radio" name="budget" value="$30K - $50K" style="cursor: pointer;">
+                        $30K - $50K
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; color: #a1a1a6; cursor: pointer; font-size: 14px;">
+                        <input type="radio" name="budget" value="$50K+" style="cursor: pointer;">
+                        $50K+
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; color: #a1a1a6; cursor: pointer; font-size: 14px;">
+                        <input type="radio" name="budget" value="To Be Discussed" style="cursor: pointer;">
+                        To Be Discussed
+                    </label>
+                </div>
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button 
+                type="submit" 
+                style="
+                    width: 100%;
+                    padding: 16px 32px;
+                    background: white;
+                    color: #1d1d1f;
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    margin-bottom: 15px;
+                "
+                onmouseover="this.style.opacity='0.85'"
+                onmouseout="this.style.opacity='1'"
+            >
+                Send Event Inquiry
+            </button>
+
+            <p style="text-align: center; color: #a1a1a6; font-size: 13px;">
+                * Required fields. We'll review your inquiry and be in touch within 2 business days.
+            </p>
+        </form>
+    </div>
+</section>
+
+    
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
