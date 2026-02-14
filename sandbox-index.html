@@ -1,898 +1,978 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam Osborne | Leadership Advisory | Demartini Method Private Facilitation</title>
-
-    <meta name="description" content="Private Demartini Method facilitation for leaders whose reactivity toward specific people undermines their authority. Sequential 1:1 sessions dissolving emotional charge that erodes composure and credibility.">
-    <meta name="keywords" content="Demartini Method, leadership advisory, executive coaching, conflict transformation, emotional reactivity, perceptual balance, private facilitation">
-
-    <meta property="og:title" content="Sam Osborne | Leadership Advisory | Transform Reactivity Into Composure">
-    <meta property="og:description" content="Private Demartini Method facilitation dissolving the emotional charge around people who trigger you. For leaders who witnessed the live demonstration and want that transformation.">
-    <meta property="og:url" content="https://samosborne.net/advisory">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        /* ===== Brand Palette (Matches Index) ===== */
-        :root{
-            --charcoal: #1A1A1A;
-            --white: #FFFFFF;
-            --gold: #D4A574;
-            --slate: #4A5E7F;
-            --warmGrey: #F5F3F0;
-
-            --textDark: #1d1d1f;
-            --textMuted: #6e6e73;
-            --textLight: #f5f5f7;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--charcoal);
-            color: var(--textLight);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.75);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        nav.scrolled {
-            background: rgba(26, 26, 26, 0.92);
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.10);
-        }
-
-        .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--textLight);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--textLight);
-            text-decoration: none;
-            font-size: 14px;
-            transition: opacity 0.3s, color 0.3s;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .nav-links a:hover { opacity: 0.85; color: var(--white); }
-
-        /* gold underline on active link */
-        .nav-links a.active::after{
-            content:"";
-            position:absolute;
-            left:0;
-            right:0;
-            bottom:4px;
-            height:2px;
-            background: var(--gold);
-            border-radius: 999px;
-            opacity: 0.95;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--textLight);
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 140px 40px 80px;
-            background: var(--charcoal);
-        }
-
-        h1 {
-            font-size: clamp(48px, 6vw, 96px);
-            font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 30px;
-            letter-spacing: -0.02em;
-            color: var(--white);
-            max-width: 1200px;
-        }
-
-        .hero-label {
-            font-size: clamp(16px, 2vw, 22px);
-            color: rgba(245,245,247,0.70);
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .subtitle {
-            font-size: clamp(24px, 3.5vw, 42px);
-            color: rgba(245,245,247,0.88);
-            margin-bottom: 30px;
-            font-weight: 400;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.25;
-        }
-
-        .tagline {
-            font-size: clamp(18px, 2.5vw, 28px);
-            color: rgba(245,245,247,0.70);
-            margin-bottom: 60px;
-            font-weight: 300;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Buttons (Match Index) */
-        .cta-primary {
-            background: var(--slate);
-            color: var(--white);
-            padding: 18px 48px;
-            font-size: 20px;
-            border-radius: 980px;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            font-weight: 600;
-            display: inline-block;
-            border: 2px solid rgba(255,255,255,0.12);
-        }
-
-        .cta-primary:hover { 
-            background: var(--gold); 
-            transform: translateY(-2px);
-            border-color: rgba(255,255,255,0.18);
-        }
-
-        .section { 
-            padding: 120px 40px; 
-            position: relative; 
-        }
-
-        .section-content { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
-
-        .section-dark { 
-            background: var(--charcoal); 
-        }
-
-        .section-light { 
-            background: var(--warmGrey); 
-            color: var(--textDark); 
-        }
-
-        .section-light h2, 
-        .section-light h3 { 
-            color: var(--textDark); 
-        }
-
-        .section-light p { 
-            color: var(--textMuted); 
-        }
-
-        h2 {
-            font-size: clamp(40px, 5vw, 64px);
-            font-weight: 700;
-            margin-bottom: 30px;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        h3 {
-            font-size: clamp(28px, 3.5vw, 40px);
-            font-weight: 600;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .section p {
-            font-size: clamp(18px, 2.2vw, 24px);
-            line-height: 1.6;
-            color: rgba(245,245,247,0.82);
-        }
-
-        .section-light p {
-            color: var(--textMuted);
-        }
-
-        .intro-statement {
-            font-size: clamp(28px, 3.5vw, 48px);
-            line-height: 1.35;
-            font-weight: 400;
-            color: var(--textLight);
-            max-width: 1000px;
-            margin: 0 auto 40px;
-            text-align: center;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .problem-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            border-radius: 20px;
-            padding: 50px 40px;
-            transition: all 0.4s ease;
-        }
-
-        .problem-card:hover { 
-            background: rgba(255, 255, 255, 0.05); 
-            transform: translateY(-10px); 
-        }
-
-        .problem-card h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--textLight);
-            font-weight: 650;
-        }
-
-        .problem-card p { 
-            font-size: 17px; 
-            line-height: 1.7; 
-            color: rgba(245,245,247,0.82); 
-        }
-
-        /* Light section cards should match index (white cards on warmGrey) */
-        .section-light .problem-card{
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(0, 0, 0, 0.10);
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.10);
-        }
-
-        .section-light .problem-card:hover{
-            background: #ffffff;
-            border-color: rgba(0, 0, 0, 0.14);
-            box-shadow: 0 26px 70px rgba(0, 0, 0, 0.16);
-        }
-
-        .section-light .problem-card h3 {
-            color: var(--textDark);
-        }
-
-        .section-light .problem-card p {
-            color: var(--textMuted);
-        }
-
-        .two-col-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            margin-top: 60px;
-        }
-
-        .process-list {
-            list-style: none;
-            margin-top: 40px;
-        }
-
-        .process-list li {
-            font-size: 20px;
-            line-height: 1.8;
-            color: rgba(245,245,247,0.82);
-            padding-left: 40px;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .process-list li:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 12px;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--slate);
-            border-radius: 50%;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 50px;
-            margin-top: 80px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 60px 50px;
-            transition: all 0.4s ease;
-            text-align: center;
-            box-shadow: 0 18px 50px rgba(0,0,0,0.20);
-        }
-
-        .pricing-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(212,165,116,0.35);
-            transform: translateY(-12px);
-        }
-
-        .pricing-label {
-            font-size: 16px;
-            color: rgba(245,245,247,0.70);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 15px;
-            font-weight: 650;
-        }
-
-        .pricing-title {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--textLight);
-            margin-bottom: 20px;
-        }
-
-        .pricing-amount {
-            font-size: 56px;
-            font-weight: 700;
-            color: var(--textLight);
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-
-        .pricing-detail {
-            font-size: 18px;
-            color: rgba(245,245,247,0.70);
-            margin-bottom: 40px;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 40px;
-        }
-
-        .pricing-features li {
-            font-size: 17px;
-            color: rgba(245,245,247,0.82);
-            padding-left: 30px;
-            position: relative;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        .pricing-features li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--slate);
-            font-weight: 800;
-            font-size: 20px;
-        }
-
-        .faq-section {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
-        }
-
-        .section-dark .faq-item{
-            border-bottom: 1px solid rgba(255,255,255,0.10);
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            font-size: 24px;
-            font-weight: 650;
-            color: var(--textDark);
-            margin-bottom: 15px;
-        }
-
-        .section-dark .faq-question{ color: var(--textLight); }
-
-        .faq-answer {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--textMuted);
-        }
-
-        .section-dark .faq-answer{ color: rgba(245,245,247,0.82); }
-
-        .contact-section { 
-            text-align: center; 
-            padding: 120px 40px; 
-        }
-
-        footer {
-            background: var(--charcoal);
-            padding: 60px 40px 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.10);
-        }
-
-        .footer-content { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            text-align: center; 
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: rgba(245,245,247,0.55);
-            text-decoration: none;
-            font-size: 14px;
-            transition: opacity 0.3s, color 0.3s;
-        }
-
-        .footer-links a:hover { 
-            opacity: 0.85; 
-            color: var(--gold);
-        }
-
-        .copyright { 
-            color: rgba(245,245,247,0.55); 
-            font-size: 14px; 
-        }
-
-        /* Replace old blue accents with slate/gold */
-        a{ color: var(--slate); }
-        a:hover{ color: var(--gold); }
-
-        @media (max-width: 1024px) {
-            .two-col-section { 
-                grid-template-columns: 1fr; 
-                gap: 40px; 
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-content { 
-                padding: 0 20px; 
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(26, 26, 26, 0.98);
-                flex-direction: column;
-                gap: 0;
-                padding: 20px;
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
-                pointer-events: none;
-                border-bottom: 1px solid rgba(255,255,255,0.08);
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: all;
-            }
-
-            .nav-links li {
-                padding: 15px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            }
-
-            .nav-links a { 
-                font-size: 18px; 
-                display: block; 
-            }
-
-            .nav-links a.active::after{ bottom: 8px; }
-
-            .mobile-menu-toggle { 
-                display: block; 
-            }
-
-            .section { 
-                padding: 80px 20px; 
-            }
-
-            .hero {
-                padding: 100px 20px 60px;
-            }
-
-            .problem-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Gold highlight box (matches index premium accent) */
-        .highlight-box {
-            background: rgba(212,165,116,0.08);
-            border: 1px solid rgba(212,165,116,0.35);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 60px 0;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
-        }
-
-        .highlight-box p {
-            font-size: 20px;
-            line-height: 1.6;
-            color: var(--textLight);
-            font-weight: 400;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Osborne | Leadership Advisory | Demartini Method Private Facilitation</title>
+
+<meta name="description" content="Private Demartini Method facilitation for leaders whose reactivity toward specific people undermines their authority. Sequential 1:1 sessions dissolving emotional charge that erodes composure and credibility.">
+<meta name="keywords" content="Demartini Method, leadership advisory, executive coaching, conflict transformation, emotional reactivity, perceptual balance, private facilitation">
+
+<meta property="og:title" content="Sam Osborne | Leadership Advisory | Transform Reactivity Into Composure">
+<meta property="og:description" content="Private Demartini Method facilitation dissolving the emotional charge around people who trigger you. For leaders who witnessed the live demonstration and want that transformation.">
+<meta property="og:url" content="https://samosborne.net/advisory">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* ===== Brand Palette (Matches Index) ===== */
+:root{
+  --charcoal:#1A1A1A;
+  --white:#FFFFFF;
+  --gold:#D4A574;
+  --slate:#4A5E7F;
+  --warmGrey:#F5F3F0;
+
+  --textDark:#1d1d1f;
+  --textMuted:#6e6e73;
+  --textLight:#f5f5f7;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+  background:var(--charcoal);
+  color:var(--textLight);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ================= NAV ================= */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(26,26,26,.75);
+  backdrop-filter:blur(20px);
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  z-index:1000;
+  transition:.3s ease;
+}
+
+nav.scrolled{
+  background:rgba(26,26,26,.92);
+  padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.nav-content{
+  max-width:1400px;
+  margin:0 auto;
+  padding:0 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  color:var(--textLight);
+  text-decoration:none;
+  font-weight:600;
+  font-size:20px;
+}
+
+.nav-links{
+  display:flex;
+  gap:35px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:var(--textLight);
+  text-decoration:none;
+  font-size:14px;
+  position:relative;
+  padding-bottom:10px;
+  transition:opacity .3s,color .3s;
+}
+
+.nav-links a:hover{opacity:.85;color:var(--white);}
+
+.nav-links a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:4px;
+  height:2px;
+  background:var(--gold);
+  border-radius:999px;
+  opacity:.95;
+}
+
+.mobile-menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  color:var(--textLight);
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:140px 40px 80px;
+}
+
+/* Make "SAM OSBORNE" gold (matches index premium accent) */
+.hero-label{
+  font-size:clamp(16px,2vw,22px);
+  color:var(--gold);
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+h1{
+  font-size:clamp(48px,6vw,96px);
+  font-weight:700;
+  line-height:1.05;
+  margin-bottom:30px;
+  letter-spacing:-.02em;
+  color:var(--white);
+  max-width:1200px;
+}
+
+.subtitle{
+  font-size:clamp(24px,3.5vw,42px);
+  color:rgba(245,245,247,.88);
+  margin-bottom:30px;
+  font-weight:400;
+  max-width:1000px;
+  line-height:1.25;
+}
+
+.tagline{
+  font-size:clamp(18px,2.5vw,28px);
+  color:rgba(245,245,247,.70);
+  margin-bottom:60px;
+  font-weight:300;
+  max-width:900px;
+}
+
+/* ================= BUTTONS ================= */
+.cta-primary{
+  background:var(--slate);
+  color:var(--white);
+  padding:18px 48px;
+  font-size:20px;
+  border-radius:980px;
+  text-decoration:none;
+  transition:all .25s ease;
+  font-weight:600;
+  display:inline-block;
+  border:2px solid rgba(255,255,255,.12);
+}
+
+.cta-primary:hover{
+  background:var(--gold);
+  border-color:rgba(255,255,255,.18);
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(212,165,116,.18);
+}
+
+/* ================= SECTIONS ================= */
+.section{padding:120px 40px;position:relative;}
+.section-content{max-width:1200px;margin:0 auto;}
+
+.section-dark{background:var(--charcoal);}
+.section-light{background:var(--warmGrey);color:var(--textDark);}
+.section-light h2,.section-light h3{color:var(--textDark);}
+.section-light p{color:var(--textMuted);}
+
+h2{
+  font-size:clamp(40px,5vw,64px);
+  font-weight:700;
+  margin-bottom:30px;
+  letter-spacing:-.02em;
+  line-height:1.1;
+  position:relative;
+  display:inline-block;
+}
+
+/* Gold “hairline” under section headings */
+h2::after{
+  content:"";
+  display:block;
+  height:3px;
+  width:84px;
+  margin:16px auto 0;
+  border-radius:999px;
+  background:var(--gold);
+  opacity:.95;
+}
+
+h3{
+  font-size:clamp(28px,3.5vw,40px);
+  font-weight:600;
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.section p{
+  font-size:clamp(18px,2.2vw,24px);
+  line-height:1.6;
+  color:rgba(245,245,247,.82);
+}
+
+.section-light .section p{color:var(--textMuted);}
+
+.intro-statement{
+  font-size:clamp(28px,3.5vw,48px);
+  line-height:1.35;
+  font-weight:400;
+  color:var(--textLight);
+  max-width:1000px;
+  margin:0 auto 40px;
+  text-align:center;
+}
+
+/* Helper for gold emphasis in body copy */
+.gold{color:var(--gold);font-weight:700;}
+
+/* ================= GRIDS / CARDS ================= */
+.problem-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+
+.problem-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:20px;
+  padding:50px 40px;
+  transition:all .4s ease;
+}
+
+.problem-card:hover{
+  background:rgba(255,255,255,.05);
+  transform:translateY(-10px);
+}
+
+.problem-card h3{
+  font-size:24px;
+  margin-bottom:20px;
+  color:var(--textLight);
+  font-weight:600;
+}
+
+.problem-card p{
+  font-size:17px;
+  line-height:1.7;
+  color:rgba(245,245,247,.82);
+}
+
+.section-light .problem-card{
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 18px 50px rgba(0,0,0,.08);
+}
+
+.section-light .problem-card h3{color:var(--textDark);}
+.section-light .problem-card p{color:var(--textMuted);}
+
+.section-light .problem-card:hover{
+  border-color:rgba(212,165,116,.55);
+}
+
+/* ================= TWO-COL ================= */
+.two-col-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  margin-top:60px;
+}
+
+/* ================= PROCESS LIST ================= */
+.process-list{list-style:none;margin-top:40px;}
+.process-list li{
+  font-size:20px;
+  line-height:1.8;
+  color:rgba(245,245,247,.82);
+  padding-left:40px;
+  position:relative;
+  margin-bottom:20px;
+}
+
+/* Replace bright blue with slate (index-matching) */
+.process-list li:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:12px;
+  width:20px;
+  height:20px;
+  border:2px solid var(--slate);
+  border-radius:50%;
+}
+
+/* ================= PRICING ================= */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+  gap:50px;
+  margin-top:80px;
+  max-width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.pricing-card{
+  background:rgba(255,255,255,.03);
+  border:2px solid rgba(255,255,255,.15);
+  border-radius:24px;
+  padding:60px 50px;
+  transition:all .4s ease;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Gold top rule */
+.pricing-card::before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;
+  height:4px;
+  background:var(--gold);
+  opacity:.9;
+}
+
+.pricing-card:hover{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.30);
+  transform:translateY(-12px);
+}
+
+.pricing-label{
+  font-size:16px;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:15px;
+  font-weight:700;
+}
+
+.pricing-title{
+  font-size:36px;
+  font-weight:700;
+  color:var(--textLight);
+  margin-bottom:20px;
+}
+
+.pricing-amount{
+  font-size:56px;
+  font-weight:800;
+  color:var(--textLight);
+  margin-bottom:10px;
+  line-height:1;
+}
+
+.pricing-detail{
+  font-size:18px;
+  color:rgba(245,245,247,.70);
+  margin-bottom:40px;
+}
+
+.pricing-features{list-style:none;text-align:left;margin-bottom:40px;}
+.pricing-features li{
+  font-size:17px;
+  color:rgba(245,245,247,.82);
+  padding-left:30px;
+  position:relative;
+  margin-bottom:16px;
+  line-height:1.6;
+}
+
+.pricing-features li:before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:var(--slate);
+  font-weight:800;
+  font-size:20px;
+}
+
+/* ================= FAQ ================= */
+.faq-section{max-width:900px;margin:0 auto;}
+
+.faq-item{
+  margin-bottom:30px;
+  padding-bottom:30px;
+  border-bottom:1px solid rgba(0,0,0,.10);
+}
+
+.faq-item:last-child{border-bottom:none;}
+
+.faq-question{
+  font-size:24px;
+  font-weight:650;
+  color:var(--textDark);
+  margin-bottom:12px;
+  position:relative;
+  padding-left:18px;
+}
+
+.faq-question::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.55em;
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--gold);
+  opacity:.95;
+}
+
+.faq-answer{
+  font-size:18px;
+  line-height:1.7;
+  color:var(--textMuted);
+}
+
+/* ================= HIGHLIGHT BOX ================= */
+.highlight-box{
+  background:rgba(212,165,116,.10);
+  border:1px solid rgba(212,165,116,.30);
+  border-radius:16px;
+  padding:40px;
+  margin:60px 0;
+}
+
+.highlight-box p{
+  font-size:20px;
+  line-height:1.6;
+  color:var(--textLight);
+  font-weight:400;
+}
+
+/* Light highlight box variant */
+.highlight-box.light{
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(0,0,0,.10);
+}
+.highlight-box.light p{color:var(--textDark);}
+
+/* ================= DETAILS / SUMMARY DROPDOWNS (Index-copy) ================= */
+.details{
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:16px;
+  padding:14px 16px;
+  margin-top:18px;
+  background:rgba(255,255,255,0.03);
+}
+
+.section-light .details{
+  border:1px solid rgba(0,0,0,0.10);
+  background:rgba(255,255,255,0.85);
+}
+
+.details > summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  font-weight:650;
+  font-size:16px;
+  color:inherit;
+}
+
+.details > summary::-webkit-details-marker{display:none;}
+
+.details > summary .chev{
+  display:inline-flex;
+  transition:transform .25s ease;
+  opacity:.8;
+  font-size:16px;
+}
+.details[open] > summary .chev{transform:rotate(180deg);}
+
+.details .details-body{
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,0.10);
+  margin-top:12px;
+}
+
+.section-light .details .details-body{
+  border-top:1px solid rgba(0,0,0,0.10);
+}
+
+.details .details-body p{
+  font-size:16px;
+  line-height:1.7;
+}
+
+.details .details-body ul{margin-top:10px;padding-left:18px;}
+.details .details-body li{margin-bottom:10px;color:inherit;}
+.details .details-body li::marker{color:var(--slate);}
+
+.details:hover{border-color:rgba(212,165,116,0.35);}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--charcoal);
+  padding:60px 40px 40px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+.footer-content{max-width:1200px;margin:0 auto;text-align:center;}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+
+.footer-links a{
+  color:rgba(245,245,247,.55);
+  text-decoration:none;
+  font-size:14px;
+  transition:opacity .3s,color .3s;
+}
+.footer-links a:hover{opacity:.85;color:var(--gold);}
+
+.copyright{color:rgba(245,245,247,.55);font-size:14px;}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1024px){
+  .two-col-section{grid-template-columns:1fr;gap:40px;}
+  .pricing-grid{grid-template-columns:1fr;max-width:520px;}
+}
+
+@media(max-width:768px){
+  .nav-content{padding:0 20px;}
+
+  .nav-links{
+    position:fixed;
+    top:70px;
+    left:0;
+    right:0;
+    background:rgba(26,26,26,.98);
+    flex-direction:column;
+    gap:0;
+    padding:20px;
+    transform:translateY(-100%);
+    opacity:0;
+    transition:all .3s ease;
+    pointer-events:none;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-links.active{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:all;
+  }
+
+  .nav-links li{
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-links a{font-size:18px;display:block;}
+  .mobile-menu-toggle{display:block;}
+
+  .section{padding:80px 20px;}
+  .hero{padding:110px 20px 60px;}
+
+  .problem-grid{grid-template-columns:1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 
 <body id="top">
-    <nav id="nav">
-        <div class="nav-content">
-            <a href="index.html" class="logo">Sam Osborne</a>
-            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#speaking">Speaking</a></li>
-                <li><a href="index.html#method">The Method</a></li>
-                <li><a href="#advisory">Advisory</a></li>
-                <li><a href="#investment">Investment</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <section class="hero" id="advisory">
-        <p class="hero-label">Leadership Advisory</p>
-        <h1>You Saw What Happened on Stage. Now Apply It to Your Leadership.</h1>
-        <p class="subtitle">Private Demartini Method facilitation dissolving the emotional charge around people who undermine your authority.</p>
-        <p class="tagline">Sequential 1:1 sessions. Systematic transformation. Not coaching. Facilitation.</p>
+<nav id="nav">
+  <div class="nav-content">
+    <a href="index.html" class="logo">Sam Osborne</a>
+    <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#speaking">Speaking</a></li>
+      <li><a href="index.html#method">The Method</a></li>
+      <li><a href="#advisory" class="active">Advisory</a></li>
+      <li><a href="#investment">Investment</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="advisory">
+  <!-- Make sure SAM OSBORNE is gold like index -->
+  <p class="hero-label">SAM OSBORNE</p>
+
+  <h1>You Saw What Happened on Stage. Now Apply It to Your Leadership.</h1>
+  <p class="subtitle">Private Demartini Method facilitation dissolving the emotional charge around people who undermine your authority.</p>
+  <p class="tagline">Sequential 1:1 sessions. Systematic transformation. Not coaching. Facilitation.</p>
+  <a href="#contact" class="cta-primary">Schedule Consultation</a>
+</section>
+
+<section class="section section-dark">
+  <div class="section-content">
+    <p class="intro-statement">
+      During the keynote, you witnessed someone move from years of resentment to balanced perception in forty-five minutes.
+      You recognized your version of that charge. <span class="gold">This is how you get the same transformation.</span>
+    </p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="section-content" style="text-align:center;">
+    <h2>The Problem This Solves</h2>
+    <p style="max-width:900px;margin:20px auto 60px;font-size:clamp(20px,2.5vw,26px);color:var(--textDark);">
+      Specific people trigger emotional reactivity that erodes your composure, undermines your credibility, and distorts your strategic judgment.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>The Board Member</h3>
+        <p>Their dismissiveness in meetings triggers defensive reactivity. You leave feeling undermined. Your authority erodes because the emotional charge is visible to everyone else in the room.</p>
+      </div>
+
+      <div class="problem-card">
+        <h3>The Business Partner</h3>
+        <p>Resentment toward their decision-making style creates friction in every strategic conversation. You can't lead collaboratively when projection mechanics dominate the relationship.</p>
+      </div>
+
+      <div class="problem-card">
+        <h3>The Executive</h3>
+        <p>Infatuation with their performance makes you question your own judgment. Or their arrogance triggers contempt. Either way, the imbalanced perception distorts how you evaluate their work.</p>
+      </div>
+
+      <div class="problem-card">
+        <h3>The Investor</h3>
+        <p>Their scrutiny activates imposter phenomenon. You perform rather than lead. The relationship dynamic reinforces borrowed authority instead of authentic command of your role.</p>
+      </div>
+
+      <div class="problem-card">
+        <h3>The Direct Report</h3>
+        <p>Their resistance triggers frustration that shows up as micromanagement or avoidance. You can't delegate effectively when the emotional charge distorts your perception of their capabilities.</p>
+      </div>
+
+      <div class="problem-card">
+        <h3>The Regulator</h3>
+        <p>Anxiety around compliance interactions creates paralysis. You over-prepare, second-guess decisions, or avoid necessary communication because fear dominates the relationship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="section-content">
+    <h2 style="text-align:center;margin-bottom:60px;">What the Advisory Delivers</h2>
+
+    <div class="two-col-section">
+      <div>
+        <h3>Sequential Facilitation</h3>
+        <p style="margin-bottom:30px;">
+          Each session applies the Demartini Method to a different person in your leadership environment. Session one dissolves the charge around your board chair. Session two addresses your CFO. Session three handles the investor who triggers imposter phenomenon.
+        </p>
+        <p style="margin-bottom:30px;">
+          This isn't generic executive coaching. It's <span class="gold">systematic perceptual balance</span> applied to the specific relationships where emotional reactivity undermines your leadership.
+        </p>
+        <p>You don't learn coping strategies. You permanently transform how you perceive the people who currently trigger you.</p>
+      </div>
+
+      <div>
+        <h3>The Demartini Method Process</h3>
+        <ul class="process-list">
+          <li>Identify the specific trait that triggers emotional charge</li>
+          <li>Apply precision questions revealing where you display that same trait</li>
+          <li>Dissolve projection mechanics through reflective awareness</li>
+          <li>Balance perception by seeing equal drawbacks and benefits</li>
+          <li>Collapse the emotional charge permanently</li>
+          <li>Restore composure and strategic clarity in the relationship</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:80px;">
+      <p style="text-align:center;">
+        <strong>This is not therapy. This is not coaching.</strong>
+        This is systematic facilitation using the Demartini Method to dissolve the perceptual imbalances that create emotional reactivity.
+        When perception balances, the charge dissolves. When the charge dissolves, you lead with equanimity.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="section-content">
+    <h2 style="text-align:center;">Who This Is For</h2>
+    <p style="text-align:center;max-width:900px;margin:20px auto 60px;font-size:clamp(20px,2.5vw,26px);color:var(--textDark);">
+      Leaders in high-stakes roles where specific people trigger reactivity that undermines authority, distorts judgment, or erodes credibility.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>C-Suite Executives</h3>
+        <p>Board dynamics, investor relationships, executive team friction — multiple stakeholders where emotional charge creates strategic blindspots and undermines composure.</p>
+      </div>
+
+      <div class="problem-card">
+        <h3>Founders & Entrepreneurs</h3>
+        <p>Co-founder resentment, investor infatuation, key employee conflict — charged relationships that distort decision-making during critical growth phases.</p>
+      </div>
+
+      <div class="problem-card">
+        <h3>Professional Services Leaders</h3>
+        <p>Legal professionals, healthcare executives, financial advisors — anyone whose authority is constantly questioned and whose reactivity to specific people undermines client confidence.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box light" style="margin-top:60px;">
+      <p style="text-align:center;">
+        <strong>If you watched the live demonstration during the keynote and thought “I need that for my board member / business partner / investor / executive,”</strong>
+        this advisory is the mechanism for getting that transformation applied to your specific leadership reality.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="investment">
+  <div class="section-content">
+    <h2 style="text-align:center;margin-bottom:20px;">Investment</h2>
+    <p style="text-align:center;max-width:800px;margin:0 auto 60px;font-size:clamp(18px,2.2vw,24px);">
+      Two engagement options. Sequential facilitations dissolving charge around the people who trigger reactivity in your leadership environment.
+    </p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-label">Foundation</p>
+        <h3 class="pricing-title">8 Sessions</h3>
+        <p class="pricing-amount">$10,000</p>
+        <p class="pricing-detail">One hour per session</p>
+
+        <ul class="pricing-features">
+          <li>8 private Demartini Method facilitations</li>
+          <li>Each session dissolves charge around a different person</li>
+          <li>Systematic perceptual balance applied to your key stakeholder relationships</li>
+          <li>Conducted via video conference</li>
+          <li>Completed within 4 months</li>
+        </ul>
+
         <a href="#contact" class="cta-primary">Schedule Consultation</a>
-    </section>
+      </div>
 
-    <section class="section section-dark">
-        <div class="section-content">
-            <p class="intro-statement">
-                During the keynote, you witnessed someone move from years of resentment to balanced perception in forty-five minutes. You recognized your version of that charge. This is how you get the same transformation.
-            </p>
+      <div class="pricing-card">
+        <p class="pricing-label">Comprehensive</p>
+        <h3 class="pricing-title">16 Sessions</h3>
+        <p class="pricing-amount">$18,000</p>
+        <p class="pricing-detail">One hour per session</p>
+
+        <ul class="pricing-features">
+          <li>16 private Demartini Method facilitations</li>
+          <li>Deeper transformation across your entire leadership ecosystem</li>
+          <li>Addresses board, executive team, investors, key reports, external stakeholders</li>
+          <li>Conducted via video conference</li>
+          <li>Completed within 8 months</li>
+        </ul>
+
+        <a href="#contact" class="cta-primary">Schedule Consultation</a>
+      </div>
+    </div>
+
+    <details class="details" style="max-width:900px;margin:28px auto 0;">
+      <summary>
+        <span>Payment plans & scheduling</span>
+        <span class="chev">▼</span>
+      </summary>
+      <div class="details-body">
+        <p>
+          Payment plans available. Sessions scheduled at your pace within the completion timeframe.
+          All engagements begin with a consultation call to confirm the Demartini Method is the appropriate intervention for your specific leadership challenges.
+        </p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="section-content">
+    <h2 style="text-align:center;margin-bottom:60px;">Common Questions</h2>
+
+    <div class="faq-section">
+
+      <details class="details">
+        <summary>
+          <span>How is this different from executive coaching?</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <p class="faq-answer">
+            Executive coaching typically focuses on skill development, behavioral modification, or goal achievement. This is perceptual transformation.
+            The Demartini Method dissolves the emotional charge at the root of reactivity. You don't learn techniques to manage your emotions around difficult people.
+            You permanently transform how you perceive them. When perception balances, the charge disappears.
+          </p>
         </div>
-    </section>
+      </details>
 
-    <section class="section section-light">
-        <div class="section-content" style="text-align: center;">
-            <h2>The Problem This Solves</h2>
-            <p style="max-width: 900px; margin: 20px auto 60px; font-size: clamp(20px, 2.5vw, 26px); color: var(--textDark);">
-                Specific people trigger emotional reactivity that erodes your composure, undermines your credibility, and distorts your strategic judgment.
-            </p>
-
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>The Board Member</h3>
-                    <p>Their dismissiveness in meetings triggers defensive reactivity. You leave feeling undermined. Your authority erodes because the emotional charge is visible to everyone else in the room.</p>
-                </div>
-
-                <div class="problem-card">
-                    <h3>The Business Partner</h3>
-                    <p>Resentment toward their decision-making style creates friction in every strategic conversation. You can't lead collaboratively when projection mechanics dominate the relationship.</p>
-                </div>
-
-                <div class="problem-card">
-                    <h3>The Executive</h3>
-                    <p>Infatuation with their performance makes you question your own judgment. Or their arrogance triggers contempt. Either way, the imbalanced perception distorts how you evaluate their work.</p>
-                </div>
-
-                <div class="problem-card">
-                    <h3>The Investor</h3>
-                    <p>Their scrutiny activates imposter phenomenon. You perform rather than lead. The relationship dynamic reinforces borrowed authority instead of authentic command of your role.</p>
-                </div>
-
-                <div class="problem-card">
-                    <h3>The Direct Report</h3>
-                    <p>Their resistance triggers frustration that shows up as micromanagement or avoidance. You can't delegate effectively when the emotional charge distorts your perception of their capabilities.</p>
-                </div>
-
-                <div class="problem-card">
-                    <h3>The Regulator</h3>
-                    <p>Anxiety around compliance interactions creates paralysis. You over-prepare, second-guess decisions, or avoid necessary communication because fear dominates the relationship.</p>
-                </div>
-            </div>
+      <details class="details">
+        <summary>
+          <span>What if I need more than 8 or 16 sessions?</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <p class="faq-answer">
+            Most leaders find that 8–16 facilitations address their highest-priority charged relationships. If additional sessions are required after completing your initial engagement,
+            we can discuss extension options. The goal is permanent transformation, not ongoing dependency.
+          </p>
         </div>
-    </section>
+      </details>
 
-    <section class="section section-dark">
-        <div class="section-content">
-            <h2 style="text-align: center; margin-bottom: 60px;">What the Advisory Delivers</h2>
-
-            <div class="two-col-section">
-                <div>
-                    <h3>Sequential Facilitation</h3>
-                    <p style="margin-bottom: 30px;">Each session applies the Demartini Method to a different person in your leadership environment. Session one dissolves the charge around your board chair. Session two addresses your CFO. Session three handles the investor who triggers imposter phenomenon.</p>
-                    
-                    <p style="margin-bottom: 30px;">This isn't generic executive coaching. It's systematic perceptual balance applied to the specific relationships where emotional reactivity undermines your leadership.</p>
-
-                    <p>You don't learn coping strategies. You permanently transform how you perceive the people who currently trigger you.</p>
-                </div>
-
-                <div>
-                    <h3>The Demartini Method Process</h3>
-                    <ul class="process-list">
-                        <li>Identify the specific trait that triggers emotional charge</li>
-                        <li>Apply precision questions revealing where you display that same trait</li>
-                        <li>Dissolve projection mechanics through reflective awareness</li>
-                        <li>Balance perception by seeing equal drawbacks and benefits</li>
-                        <li>Collapse the emotional charge permanently</li>
-                        <li>Restore composure and strategic clarity in the relationship</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="highlight-box" style="margin-top: 80px;">
-                <p style="text-align: center;">
-                    <strong>This is not therapy. This is not coaching.</strong> This is systematic facilitation using the Demartini Method to dissolve the perceptual imbalances that create emotional reactivity. When perception balances, the charge dissolves. When the charge dissolves, you lead with equanimity.
-                </p>
-            </div>
+      <details class="details">
+        <summary>
+          <span>How quickly will I see results?</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <p class="faq-answer">
+            Perceptual balance occurs during the facilitation session itself. You'll notice the shift immediately — the person who previously triggered intense reactivity
+            no longer carries the same emotional charge. The composure you demonstrate in your next interaction confirms the transformation.
+          </p>
         </div>
-    </section>
+      </details>
 
-    <section class="section section-light">
-        <div class="section-content">
-            <h2 style="text-align: center;">Who This Is For</h2>
-            <p style="text-align: center; max-width: 900px; margin: 20px auto 60px; font-size: clamp(20px, 2.5vw, 26px); color: var(--textDark);">
-                Leaders in high-stakes roles where specific people trigger reactivity that undermines authority, distorts judgment, or erodes credibility.
-            </p>
-
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>C-Suite Executives</h3>
-                    <p>Board dynamics, investor relationships, executive team friction — multiple stakeholders where emotional charge creates strategic blindspots and undermines composure.</p>
-                </div>
-
-                <div class="problem-card">
-                    <h3>Founders & Entrepreneurs</h3>
-                    <p>Co-founder resentment, investor infatuation, key employee conflict — charged relationships that distort decision-making during critical growth phases.</p>
-                </div>
-
-                <div class="problem-card">
-                    <h3>Professional Services Leaders</h3>
-                    <p>Legal professionals, healthcare executives, financial advisors — anyone whose authority is constantly questioned and whose reactivity to specific people undermines client confidence.</p>
-                </div>
-            </div>
-
-            <div class="highlight-box" style="background: rgba(255, 255, 255, 0.70); border-color: rgba(0, 0, 0, 0.10); margin-top: 60px;">
-                <p style="color: var(--textDark); text-align: center;">
-                    <strong>If you watched the live demonstration during the keynote and thought "I need that for my board member / business partner / investor / executive,"</strong> this advisory is the mechanism for getting that transformation applied to your specific leadership reality.
-                </p>
-            </div>
+      <details class="details">
+        <summary>
+          <span>What happens during a session?</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <p class="faq-answer">
+            Each one-hour session is a structured facilitation. You identify the specific person and the trait that triggers emotional charge.
+            I guide you through precision questions that reveal where you display that same trait in your own form. Through reflective awareness and perceptual balance,
+            the projection mechanics dissolve. By the end, the emotional charge around that person is gone.
+          </p>
         </div>
-    </section>
+      </details>
 
-    <section class="section section-dark" id="investment">
-        <div class="section-content">
-            <h2 style="text-align: center; margin-bottom: 20px;">Investment</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; font-size: clamp(18px, 2.2vw, 24px);">
-                Two engagement options. Sequential facilitations dissolving charge around the people who trigger reactivity in your leadership environment.
-            </p>
-
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <p class="pricing-label">Foundation</p>
-                    <h3 class="pricing-title">8 Sessions</h3>
-                    <p class="pricing-amount">$10,000</p>
-                    <p class="pricing-detail">One hour per session</p>
-
-                    <ul class="pricing-features">
-                        <li>8 private Demartini Method facilitations</li>
-                        <li>Each session dissolves charge around a different person</li>
-                        <li>Systematic perceptual balance applied to your key stakeholder relationships</li>
-                        <li>Conducted via video conference</li>
-                        <li>Completed within 4 months</li>
-                    </ul>
-
-                    <a href="#contact" class="cta-primary">Schedule Consultation</a>
-                </div>
-
-                <div class="pricing-card">
-                    <p class="pricing-label">Comprehensive</p>
-                    <h3 class="pricing-title">16 Sessions</h3>
-                    <p class="pricing-amount">$18,000</p>
-                    <p class="pricing-detail">One hour per session</p>
-
-                    <ul class="pricing-features">
-                        <li>16 private Demartini Method facilitations</li>
-                        <li>Deeper transformation across your entire leadership ecosystem</li>
-                        <li>Addresses board, executive team, investors, key reports, external stakeholders</li>
-                        <li>Conducted via video conference</li>
-                        <li>Completed within 8 months</li>
-                    </ul>
-
-                    <a href="#contact" class="cta-primary">Schedule Consultation</a>
-                </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 60px; font-size: 18px; color: rgba(245,245,247,0.70); max-width: 800px; margin-left: auto; margin-right: auto;">
-                Payment plans available. Sessions scheduled at your pace within the completion timeframe. All engagements begin with a consultation call to confirm the Demartini Method is the appropriate intervention for your specific leadership challenges.
-            </p>
+      <details class="details">
+        <summary>
+          <span>Is this appropriate for organizational teams?</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <p class="faq-answer">
+            This advisory service is for individual leaders. If you're interested in applying the Demartini Method to team dynamics or leadership group facilitation,
+            that requires a different engagement structure. Contact me to discuss organizational options.
+          </p>
         </div>
-    </section>
+      </details>
 
-    <section class="section section-light">
-        <div class="section-content">
-            <h2 style="text-align: center; margin-bottom: 60px;">Common Questions</h2>
-
-            <div class="faq-section">
-                <div class="faq-item">
-                    <p class="faq-question">How is this different from executive coaching?</p>
-                    <p class="faq-answer">Executive coaching typically focuses on skill development, behavioral modification, or goal achievement. This is perceptual transformation. The Demartini Method dissolves the emotional charge at the root of reactivity. You don't learn techniques to manage your emotions around difficult people. You permanently transform how you perceive them. When perception balances, the charge disappears.</p>
-                </div>
-
-                <div class="faq-item">
-                    <p class="faq-question">What if I need more than 8 or 16 sessions?</p>
-                    <p class="faq-answer">Most leaders find that 8-16 facilitations address their highest-priority charged relationships. If additional sessions are required after completing your initial engagement, we can discuss extension options. However, the goal is permanent transformation, not ongoing dependency. Once you've experienced the method systematically applied across your key relationships, the perceptual pattern becomes self-evident.</p>
-                </div>
-
-                <div class="faq-item">
-                    <p class="faq-question">How quickly will I see results?</p>
-                    <p class="faq-answer">Perceptual balance occurs during the facilitation session itself. You'll notice the shift immediately — the person who previously triggered intense reactivity no longer carries the same emotional charge. The composure you demonstrate in your next interaction with them confirms the transformation. This isn't a process that requires months of practice. The charge dissolves when perception balances.</p>
-                </div>
-
-                <div class="faq-item">
-                    <p class="faq-question">What happens during a session?</p>
-                    <p class="faq-answer">Each one-hour session is a structured facilitation. You identify the specific person and the trait that triggers emotional charge. I guide you through precision questions that reveal where you display that same trait in your own form. Through reflective awareness and perceptual balance equations, the projection mechanics dissolve. By the end of the session, the emotional charge around that person is gone. Permanently.</p>
-                </div>
-
-                <div class="faq-item">
-                    <p class="faq-question">Is this appropriate for organizational teams?</p>
-                    <p class="faq-answer">This advisory service is for individual leaders. If you're interested in applying the Demartini Method to team dynamics, organizational conflict, or leadership group facilitation, that requires a different engagement structure. Contact me to discuss organizational consulting options.</p>
-                </div>
-
-                <div class="faq-item">
-                    <p class="faq-question">Do I need to have attended one of your keynotes?</p>
-                    <p class="faq-answer">No. While most advisory clients are keynote attendees who witnessed the live demonstration, the engagement is open to any leader experiencing emotional reactivity toward specific people that undermines their authority. The consultation call will determine whether the Demartini Method is the appropriate intervention for your situation.</p>
-                </div>
-            </div>
+      <details class="details">
+        <summary>
+          <span>Do I need to have attended one of your keynotes?</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <p class="faq-answer">
+            No. While many advisory clients are keynote attendees who witnessed the live demonstration, this is open to any leader experiencing emotional reactivity
+            toward specific people that undermines authority. The consultation call determines fit.
+          </p>
         </div>
-    </section>
+      </details>
 
-    <section id="contact" class="contact-section section-dark">
-        <div class="section-content">
-            <h2>Schedule Your Consultation</h2>
-            <p style="text-align: center; margin: 40px auto 50px; max-width: 800px; font-size: clamp(20px, 2.8vw, 32px); line-height: 1.4;">
-                If specific people trigger reactivity that undermines your leadership, let's discuss whether the Demartini Method is the appropriate intervention.
-            </p>
-            <a href="mailto:sam@samosborne.net" class="cta-primary">Contact Sam Osborne</a>
-        </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#speaking">Speaking</a>
-                <a href="#advisory">Advisory</a>
-                <a href="index.html#method">The Method</a>
-                <a href="mailto:sam@samosborne.net">Contact</a>
-            </div>
+<section id="contact" class="section section-dark">
+  <div class="section-content" style="text-align:center;">
+    <h2 style="text-align:center;">Schedule Your Consultation</h2>
+    <p style="text-align:center;margin:40px auto 50px;max-width:800px;font-size:clamp(20px,2.8vw,32px);line-height:1.4;">
+      If specific people trigger reactivity that undermines your leadership, let's discuss whether the Demartini Method is the appropriate intervention.
+    </p>
+    <a href="mailto:sam@samosborne.net" class="cta-primary">Contact Sam Osborne</a>
+  </div>
+</section>
 
-            <p class="copyright">© 2026 Sam Osborne · Demartini Method Facilitator · Based in Burbank, California · samosborne.net</p>
-        </div>
-    </footer>
+<footer>
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#speaking">Speaking</a>
+      <a href="#advisory">Advisory</a>
+      <a href="index.html#method">The Method</a>
+      <a href="mailto:sam@samosborne.net">Contact</a>
+    </div>
 
-    <script>
-        // Mobile menu
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+    <p class="copyright">© 2026 Sam Osborne · Demartini Method Facilitator · Based in Burbank, California · samosborne.net</p>
+  </div>
+</footer>
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
+<script>
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
 
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.textContent = '☰';
-            });
-        });
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+  });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuToggle.textContent = '☰';
+    });
+  });
 
-        // Nav scroll state
-        const nav = document.getElementById('nav');
-        const setNavScrolled = () => {
-            if (window.scrollY > 40) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        };
-        window.addEventListener('scroll', setNavScrolled);
-        setNavScrolled();
+  // Smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e){
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target) target.scrollIntoView({behavior:'smooth'});
+    });
+  });
 
-        // Active nav underline (gold) for in-page anchors on this page
-        (function(){
-            const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-            const sections = links
-                .map(a => document.querySelector(a.getAttribute('href')))
-                .filter(Boolean);
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  const setNavScrolled = () => {
+    if(window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', setNavScrolled);
+  setNavScrolled();
 
-            if (!links.length || !sections.length) return;
+  // Active link underline (simple)
+  (function(){
+    const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    if(!links.length || !sections.length) return;
 
-            const setActive = (id) => {
-                links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
-            };
+    const setActive = (id) => {
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+    };
 
-            const observer = new IntersectionObserver((entries) => {
-                const visible = entries
-                    .filter(e => e.isIntersecting)
-                    .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-                if (visible && visible.target && visible.target.id) setActive(visible.target.id);
-            }, { root: null, threshold: [0.25, 0.4, 0.6], rootMargin: "-10% 0px -65% 0px" });
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if(visible && visible.target && visible.target.id) setActive(visible.target.id);
+    }, {threshold:[0.25,0.4,0.6], rootMargin:"-10% 0px -65% 0px"});
 
-            sections.forEach(s => observer.observe(s));
+    sections.forEach(s => observer.observe(s));
+    setActive(sections[0].id);
+  })();
+</script>
 
-            setActive(sections[0].id);
-        })();
-    </script>
 </body>
 </html>
