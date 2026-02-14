@@ -500,7 +500,13 @@
             transition: opacity 0.3s;
             filter: brightness(0) invert(1);
             display: block !important;
+            
         }
+
+        .logos-grid img.logo-white {
+  filter: none !important;
+  opacity: 0.8;
+}
 
         .logos-grid img:hover { opacity: 1; }
 
@@ -1300,7 +1306,7 @@
         <div class="section-content">
             <h2>Endorsed By</h2>
             <div class="logos-grid">
-                <img src="images/ccal-logo.png" alt="CCAL logo">
+              <img src="images/ccal-logo.png" alt="CCAL logo" class="logo-white">
                 <img src="images/american-business.png" alt="American Business logo">
                 <img src="images/art-institute.png" alt="Art Institute logo">
                 <img src="images/cai.png" alt="CAI logo">
