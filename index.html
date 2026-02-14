@@ -759,6 +759,69 @@
         transform: translateY(0);
     }
 }
+
+
+/* DETAILS / SUMMARY (Apple-ish accordion) */
+.details {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-top: 18px;
+  background: rgba(255,255,255,0.03);
+}
+
+.section-light .details{
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.85);
+}
+
+.details > summary{
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  color: inherit;
+}
+
+.details > summary::-webkit-details-marker{ display:none; }
+
+.details > summary .chev{
+  display: inline-flex;
+  transition: transform 0.25s ease;
+  opacity: 0.8;
+  font-size: 16px;
+}
+.details[open] > summary .chev{ transform: rotate(180deg); }
+
+.details .details-body{
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  margin-top: 12px;
+}
+
+.section-light .details .details-body{
+  border-top: 1px solid rgba(0,0,0,0.10);
+}
+
+.details .details-body p{
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.details .details-body ul{
+  margin-top: 10px;
+}
+
+/* Keep your existing keynote list bullets looking good inside details */
+.keynote-card .details .details-body ul{
+  padding-left: 18px;
+}
+
+        
     </style>
 </head>
 
@@ -902,143 +965,290 @@
 
     
     <!-- KEYNOTES SECTION -->
-    <section class="keynotes-container" id="speaking">
-        <div class="section-header">
-            <p class="section-subtitle">Signature Keynotes</p>
-            <h2 class="section-title">The Demartini Method for Leadership</h2>
-            <p class="section-description">Two complementary programs applying values hierarchy, projection mechanics, and perceptual balance to high-stakes leadership challenges.</p>
+<section class="keynotes-container" id="speaking">
+  <div class="section-header">
+    <p class="section-subtitle">Signature Keynotes</p>
+    <h2 class="section-title">The Demartini Method for Leadership</h2>
+    <p class="section-description">Two complementary programs applying values hierarchy, projection mechanics, and perceptual balance to high-stakes leadership challenges.</p>
+  </div>
+
+  <div class="keynotes-grid">
+    <!-- KEYNOTE 1 -->
+    <div class="keynote-card">
+      <span class="keynote-label">Conflict & Perceptual Balance</span>
+      <h3 class="keynote-title">Conflict Is Data, Not Danger</h3>
+      <p class="keynote-subtitle">How the Demartini Method transforms reactivity into composure</p>
+
+      <!-- Collapse: Perfect For -->
+      <details class="details">
+        <summary>
+          <span>Perfect For</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <p class="keynote-audience">
+            Leaders managing conflict-heavy teams · Executives navigating organizational change · Professionals whose authority is constantly questioned · Anyone whose emotional reactivity undermines credibility · Teams where resentment and blame erode trust · Organizations in crisis or transition
+          </p>
         </div>
+      </details>
 
-        <div class="keynotes-grid">
-            <div class="keynote-card">
-                <span class="keynote-label">Conflict & Perceptual Balance</span>
-                <h3 class="keynote-title">Conflict Is Data, Not Danger</h3>
-                <p class="keynote-subtitle">How the Demartini Method transforms reactivity into composure</p>
-
-                <div class="keynote-for">Perfect For:</div>
-                <p class="keynote-audience">Leaders managing conflict-heavy teams · Executives navigating organizational change · Professionals whose authority is constantly questioned · Anyone whose emotional reactivity undermines credibility · Teams where resentment and blame erode trust · Organizations in crisis or transition</p>
-
-                <div class="keynote-benefits">
-                    <h4>Audiences will learn how to:</h4>
-                    <ul>
-                        <li>Identify how conflicts reveal misaligned values hierarchies within teams</li>
-                        <li>See both sides of every challenge: the difficulty and the hidden benefit</li>
-                        <li>Use precision language to collapse ambiguity and dissolve emotional charge</li>
-                        <li>Apply reflective awareness to stay grounded when conflict escalates</li>
-                        <li>Lead with equanimity by transforming perception rather than managing emotions</li>
-                        <li>Recognize projection and injection mechanics in team dynamics</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="keynote-card">
-                <span class="keynote-label">Values & Authority</span>
-                <h3 class="keynote-title">Lead From Your Values, Not Others' Expectations</h3>
-                <p class="keynote-subtitle">How values hierarchy reveals authentic authority</p>
-
-                <div class="keynote-for">Perfect For:</div>
-                <p class="keynote-audience">Leaders experiencing decision paralysis · Executives torn between competing stakeholder demands · Professionals who feel like imposters in their role · Anyone struggling to say "no" without guilt · Leaders whose personal brand feels performative rather than authentic</p>
-
-                <div class="keynote-benefits">
-                    <h4>Audiences will learn how to:</h4>
-                    <ul>
-                        <li>Understand how your values hierarchy determines what you truly prioritize</li>
-                        <li>Recognize when you're operating from borrowed values vs. authentic values</li>
-                        <li>Dissolve the guilt and resentment that come from misaligned decisions</li>
-                        <li>Use reflective awareness to identify your highest-value work</li>
-                        <li>Lead with clarity when competing demands create internal conflict</li>
-                        <li>Stop borrowing authority from admired colleagues and own your unique form</li>
-                    </ul>
-                </div>
-            </div>
+      <!-- Collapse: Learning outcomes -->
+      <details class="details">
+        <summary>
+          <span>Audiences will learn how to</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <ul>
+            <li>Identify how conflicts reveal misaligned values hierarchies within teams</li>
+            <li>See both sides of every challenge: the difficulty and the hidden benefit</li>
+            <li>Use precision language to collapse ambiguity and dissolve emotional charge</li>
+            <li>Apply reflective awareness to stay grounded when conflict escalates</li>
+            <li>Lead with equanimity by transforming perception rather than managing emotions</li>
+            <li>Recognize projection and injection mechanics in team dynamics</li>
+          </ul>
         </div>
-    </section>
+      </details>
+    </div>
+
+    <!-- KEYNOTE 2 -->
+    <div class="keynote-card">
+      <span class="keynote-label">Values & Authority</span>
+      <h3 class="keynote-title">Lead From Your Values, Not Others' Expectations</h3>
+      <p class="keynote-subtitle">How values hierarchy reveals authentic authority</p>
+
+      <!-- Collapse: Perfect For -->
+      <details class="details">
+        <summary>
+          <span>Perfect For</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <p class="keynote-audience">
+            Leaders experiencing decision paralysis · Executives torn between competing stakeholder demands · Professionals who feel like imposters in their role · Anyone struggling to say "no" without guilt · Leaders whose personal brand feels performative rather than authentic
+          </p>
+        </div>
+      </details>
+
+      <!-- Collapse: Learning outcomes -->
+      <details class="details">
+        <summary>
+          <span>Audiences will learn how to</span>
+          <span class="chev">▼</span>
+        </summary>
+        <div class="details-body">
+          <ul>
+            <li>Understand how your values hierarchy determines what you truly prioritize</li>
+            <li>Recognize when you're operating from borrowed values vs. authentic values</li>
+            <li>Dissolve the guilt and resentment that come from misaligned decisions</li>
+            <li>Use reflective awareness to identify your highest-value work</li>
+            <li>Lead with clarity when competing demands create internal conflict</li>
+            <li>Stop borrowing authority from admired colleagues and own your unique form</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
 
     <!-- THE DEMARTINI METHOD EXPLANATION SECTION -->
     <section id="method" class="section section-dark">
-        <div class="section-content">
-            <h2 style="text-align: center;">The Demartini Method</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; font-size: clamp(18px, 2.5vw, 24px);">
-                Developed by Dr. John Demartini, this research-informed, systematic methodology grounded in established principles of psychology, perception, and values reveals how conflict, infatuation, and resentment arise from imbalanced perception — and how reflective awareness restores equilibrium. Sam applies this framework to high-stakes leadership challenges.
+  <div class="section-content">
+    <h2 style="text-align: center;">The Demartini Method</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; font-size: clamp(18px, 2.5vw, 24px);">
+      Developed by Dr. John Demartini, this research-informed, systematic methodology grounded in established principles of psychology, perception, and values reveals how conflict, infatuation, and resentment arise from imbalanced perception — and how reflective awareness restores equilibrium. Sam applies this framework to high-stakes leadership challenges.
+    </p>
+
+    <div class="outcomes-grid">
+      <!-- Pillar 1 -->
+      <div class="method-card">
+        <h3>Perceptual Balance</h3>
+        <p style="margin-bottom: 0;">See both sides. Composure replaces charge.</p>
+
+        <details class="details">
+          <summary>
+            <span>Read more</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p>
+              Leaders who learn to identify both the support and the challenge within events gain composure and clarity. When you develop the precision to see both sides, emotional reactivity decreases and response-ability increases. This is the foundation of conflict transformation — not by avoiding difficulty, but by seeing it completely.
             </p>
+          </div>
+        </details>
+      </div>
 
-            <div class="outcomes-grid">
-                <div class="method-card">
-                    <h3>Perceptual Balance</h3>
-                    <p>Leaders who learn to identify both the support and the challenge within events gain composure and clarity. When you develop the precision to see both sides, emotional reactivity decreases and response-ability increases. This is the foundation of conflict transformation — not by avoiding difficulty, but by seeing it completely.</p>
-                </div>
+      <!-- Pillar 2 -->
+      <div class="method-card">
+        <h3>Values Hierarchy</h3>
+        <p style="margin-bottom: 0;">Conflict often signals misaligned values.</p>
 
-                <div class="method-card">
-                    <h3>Values Hierarchy</h3>
-                    <p>Conflict often signals misaligned values. Your values hierarchy determines what you care about most, what you'll fight for, and what you'll ignore. When you lead from your highest values — not borrowed values — internal and external conflict diminish dramatically.</p>
-                </div>
+        <details class="details">
+          <summary>
+            <span>Read more</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p>
+              Your values hierarchy determines what you care about most, what you'll fight for, and what you'll ignore. When you lead from your highest values — not borrowed values — internal and external conflict diminish dramatically.
+            </p>
+          </div>
+        </details>
+      </div>
 
-                <div class="method-card">
-                    <h3>Projection & Injection</h3>
-                    <p>The people who trigger you most often reflect traits you have either suppressed or over-identified with. Through reflective awareness, you reclaim these traits in your own form. When projection dissolves, so does the emotional charge that fuels conflict and undermines composure.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <!-- Pillar 3 -->
+      <div class="method-card">
+        <h3>Projection & Injection</h3>
+        <p style="margin-bottom: 0;">Triggers become mirrors. Clarity returns.</p>
+
+        <details class="details">
+          <summary>
+            <span>Read more</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p>
+              The people who trigger you most often reflect traits you have either suppressed or over-identified with. Through reflective awareness, you reclaim these traits in your own form. When projection dissolves, so does the emotional charge that fuels conflict and undermines composure.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- WHO SECTION -->
-    <section id="who" class="section section-light">
-        <div class="section-content">
-            <h2 style="text-align: center; color: #1d1d1f; margin-bottom: 60px;">Who Sam Works With</h2>
-            <div class="services-grid who-grid">
-                <div class="service-card who-card">
-                    <h3>Leaders in High-Conflict Environments</h3>
-                    <p class="who-list">
-                        Legal professionals managing adversarial relationships · Healthcare executives navigating regulatory pressure · Financial services leaders under stakeholder scrutiny · Government officials managing public criticism · Hospitality managers handling customer conflict · Claims adjusters in emotionally charged situations · Anyone whose role involves sustained interpersonal friction
-                    </p>
-                </div>
+   <section id="who" class="section section-light">
+  <div class="section-content">
+    <h2 style="text-align: center; color: #1d1d1f; margin-bottom: 60px;">Who Sam Works With</h2>
+    <div class="services-grid who-grid">
 
-                <div class="service-card who-card">
-                    <h3>Organizations Navigating Crisis or Change</h3>
-                    <p class="who-list">
-                        Teams fractured by resentment, blame, or power struggles · Cultures where comparison undermines collaboration · Leadership groups managing mergers, acquisitions, or restructuring · Organizations with toxic dynamics requiring transformation · Boards navigating stakeholder conflict with precision · Companies facing reputational crises
-                    </p>
-                </div>
+      <div class="service-card who-card">
+        <h3>Leaders in High-Conflict Environments</h3>
+        <p style="color:#1d1d1f; opacity:0.72; margin-bottom: 0;">
+          Roles where sustained interpersonal friction is normal.
+        </p>
 
-                <div class="service-card who-card">
-                    <h3>Events Demanding Substance Over Sizzle</h3>
-                    <p class="who-list">
-                        Conferences seeking frameworks, not motivational theater · Professional associations where members expect evidence-based methods · Leadership summits requiring live transformation demonstrations · Events where the audience values psychology and philosophy over tactics · Organizers who want attendees to leave with a repeatable process, not just motivation
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <details class="details">
+          <summary>
+            <span>See examples</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p class="who-list">
+              Legal professionals managing adversarial relationships · Healthcare executives navigating regulatory pressure · Financial services leaders under stakeholder scrutiny · Government officials managing public criticism · Hospitality managers handling customer conflict · Claims adjusters in emotionally charged situations · Anyone whose role involves sustained interpersonal friction
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="service-card who-card">
+        <h3>Organizations Navigating Crisis or Change</h3>
+        <p style="color:#1d1d1f; opacity:0.72; margin-bottom: 0;">
+          When blame, comparison, or politics erode trust.
+        </p>
+
+        <details class="details">
+          <summary>
+            <span>See examples</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p class="who-list">
+              Teams fractured by resentment, blame, or power struggles · Cultures where comparison undermines collaboration · Leadership groups managing mergers, acquisitions, or restructuring · Organizations with toxic dynamics requiring transformation · Boards navigating stakeholder conflict with precision · Companies facing reputational crises
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="service-card who-card">
+        <h3>Events Demanding Substance Over Sizzle</h3>
+        <p style="color:#1d1d1f; opacity:0.72; margin-bottom: 0;">
+          Audiences who want frameworks, not motivational theater.
+        </p>
+
+        <details class="details">
+          <summary>
+            <span>See examples</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p class="who-list">
+              Conferences seeking frameworks, not motivational theater · Professional associations where members expect evidence-based methods · Leadership summits requiring live transformation demonstrations · Events where the audience values psychology and philosophy over tactics · Organizers who want attendees to leave with a repeatable process, not just motivation
+            </p>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- WHAT SAM DELIVERS -->
     <section id="delivers" class="section section-dark">
-        <div class="section-content">
-            <h2 style="text-align: center;">What Sam Delivers for Audiences</h2>
-            <div class="outcomes-grid">
-                <div class="outcome-card">
-                    <h3>Conflict Becomes Data</h3>
-                    <p>Audiences don't leave with coping strategies or communication scripts. They leave understanding the perceptual mechanics behind reactivity — and a systematic method (the Demartini Method) for seeing both sides of every challenge. When perception balances, emotional charge dissolves. Conflict transforms from emotional threat into actionable data.</p>
-                </div>
+  <div class="section-content">
+    <h2 style="text-align: center;">What Sam Delivers for Audiences</h2>
+    <div class="outcomes-grid">
 
-                <div class="outcome-card">
-                    <h3>Live Demonstrations of Perceptual Balance</h3>
-                    <p>Every keynote includes a live application of the Demartini Method. Audiences witness someone move from resentment, infatuation, or blame to clarity and composure in real time — using precision language and reflective awareness to collapse emotional charge. This isn't theory. It's transformation.</p>
-                </div>
+      <div class="outcome-card">
+        <h3>Conflict Becomes Data</h3>
+        <p style="margin-bottom: 0;">
+          A systematic method for dissolving emotional charge by balancing perception.
+        </p>
 
-                <div class="outcome-card">
-                    <h3>A Repeatable Framework for High-Stakes Leadership</h3>
-                    <p>This isn't motivational storytelling. It's systematic methodology: values hierarchy, projection mechanics, perceptual balance equations. Leaders walk away knowing how to identify their highest-value work, dissolve reactivity in team dynamics, and lead through conflict without borrowing authority or avoiding hard conversations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <details class="details">
+          <summary>
+            <span>How it works</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p>
+              Audiences don't leave with coping strategies or communication scripts. They leave understanding the perceptual mechanics behind reactivity — and a systematic method (the Demartini Method) for seeing both sides of every challenge. When perception balances, emotional charge dissolves. Conflict transforms from emotional threat into actionable data.
+            </p>
+          </div>
+        </details>
+      </div>
 
-    <section class="section section-dark">
-    <div class="section-content">
-        <div style="max-width: 600px; margin: 0 auto;">
-            <img src="images/sam-osborne-smile-suit.jpg" alt="Sam Osborne Demartini Method facilitator" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block;">
-        </div>
+      <div class="outcome-card">
+        <h3>Live Demonstrations of Perceptual Balance</h3>
+        <p style="margin-bottom: 0;">
+          Real-time transformation—so the framework becomes believable.
+        </p>
+
+        <details class="details">
+          <summary>
+            <span>What audiences experience</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p>
+              Every keynote includes a live application of the Demartini Method. Audiences witness someone move from resentment, infatuation, or blame to clarity and composure in real time — using precision language and reflective awareness to collapse emotional charge. This isn't theory. It's transformation.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="outcome-card">
+        <h3>A Repeatable Framework for High-Stakes Leadership</h3>
+        <p style="margin-bottom: 0;">
+          Values, projection mechanics, and perceptual balance—applied, not abstract.
+        </p>
+
+        <details class="details">
+          <summary>
+            <span>What leaders leave with</span>
+            <span class="chev">▼</span>
+          </summary>
+          <div class="details-body">
+            <p>
+              This isn't motivational storytelling. It's systematic methodology: values hierarchy, projection mechanics, perceptual balance equations. Leaders walk away knowing how to identify their highest-value work, dissolve reactivity in team dynamics, and lead through conflict without borrowing authority or avoiding hard conversations.
+            </p>
+          </div>
+        </details>
+      </div>
+
     </div>
+  </div>
 </section>
 
     <!-- LOGOS SECTION -->
