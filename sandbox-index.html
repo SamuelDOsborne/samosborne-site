@@ -549,6 +549,62 @@
         .section-light .details .details-body li{
             color: var(--textDark) !important;
         }
+
+        /* ===== LEADERSHIP ADVISORY – BUTTON COLOR OVERRIDE ===== */
+
+:root{
+  --slate: #4A5E7F;
+  --gold: #D4A574;
+}
+
+/* Primary CTA buttons */
+.cta-primary {
+  background: var(--slate) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+.cta-primary:hover {
+  background: var(--gold) !important;
+}
+
+/* Any form buttons */
+button,
+input[type="submit"] {
+  background: var(--slate) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: var(--gold) !important;
+}
+
+        /* ===== LEADERSHIP ADVISORY – GOLD CAPS HEADINGS ===== */
+
+/* Hero label (Leadership Advisory) */
+.hero-label {
+  color: var(--gold) !important;
+}
+
+/* Any uppercase headings */
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+h2,
+h3,
+.pricing-label {
+  color: var(--gold);
+}
+
+/* If you only want SMALL caps labels gold (recommended) */
+.hero-label,
+.pricing-label {
+  color: var(--gold) !important;
+}
     </style>
 </head>
 
