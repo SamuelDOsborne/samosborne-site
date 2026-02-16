@@ -328,6 +328,39 @@
   padding-bottom: 40px; /* this is the key one */
 }
 
+        .about-grid{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.about-sub{
+  font-size: 20px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.about-copy p{
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(245,245,247,0.85);
+}
+
+.about-image img{
+  width:100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  display:block;
+}
+
+@media (max-width: 1024px){
+  .about-grid{
+    grid-template-columns: 1fr;
+    gap:40px;
+  }
+}
+
         .section-content { max-width: 1200px; margin: 0 auto; }
 
         .section-dark { background: var(--charcoal); }
@@ -1024,13 +1057,67 @@
         </div>
     </section>
 
-    <section class="section section-dark">
-        <div class="section-content">
-            <div style="max-width: 600px; margin: 0 auto;">
-                <img src="images/sam-osborne-corporate-keynote-speaker.jpg" alt="Sam Osborne corporate keynote speaker" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block;">
-            </div>
-        </div>
-    </section>
+    <section class="section section-dark about-mission">
+  <div class="section-content">
+    <div class="about-grid">
+
+      <!-- LEFT: TEXT -->
+      <div class="about-copy">
+
+        <h2>About Sam Osborne</h2>
+
+        <p class="about-sub">
+          Transform how leaders see conflict — so it transforms how they lead.
+        </p>
+
+        <p>
+          Sam Osborne’s mission is to bring the Demartini Method into mainstream corporate leadership — equipping leaders in high-conflict, high-stakes environments with the precision to permanently transform how they perceive tension, authority, and opposition.
+        </p>
+
+        <details class="details" style="margin-top: 25px;">
+          <summary>
+            <span>Read more</span>
+            <span class="chev">▼</span>
+          </summary>
+
+          <div class="details-body">
+
+            <p>
+              He believes most leadership breakdown is not a competence problem — it is a perception problem.
+            </p>
+
+            <p>
+              Through live demonstration and executive keynotes, Sam guides leaders to own what they admire and resist in others, dissolving reactivity so clarity and values-aligned decisions replace emotional charge.
+            </p>
+
+            <p>
+              The work is personal. The Demartini Method altered his trajectory — revealing worth he could not see and reshaping both leadership and financial destiny.
+            </p>
+
+            <p>
+              His vision is a shift from emotionally driven leadership to precision-based, values-aligned leadership — where methodology replaces motivation.
+            </p>
+
+            <p style="margin-top:20px; font-weight:600;">
+              Not motivation.<br>
+              Structural transformation.
+            </p>
+
+          </div>
+        </details>
+
+      </div>
+
+      <!-- RIGHT: IMAGE -->
+      <div class="about-image">
+        <img src="images/sam-osborne-corporate-keynote-speaker.jpg"
+             alt="Sam Osborne corporate keynote speaker">
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     
     <section class="section section-dark">
