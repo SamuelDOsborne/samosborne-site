@@ -1,0 +1,43 @@
+{
+    "articles": [
+          {
+                  "id": "emotional-reactivity-1",
+                  "title": "The Cost of Emotional Reactivity in Leadership",
+                  "excerpt": "Explore how emotional reactivity clouds judgment and learn proven strategies to cultivate balanced perception in high-pressure situations.",
+                  "date": "2026-02-16",
+                  "category": "Leadership",
+                  "url": "blogs/blog-emotional-reactivity.html",
+                  "emoji": "🧠",
+                  "color": "#667eea",
+                  "colorEnd": "#764ba2",
+                  "readingTime": "6 min read",
+                  "author": "Sam Osborne"
+          },
+          {
+                  "id": "conflict-frameworks-1",
+                  "title": "Three Frameworks for Transforming Workplace Conflict",
+                  "excerpt": "Discover practical frameworks for turning conflicts into opportunities for growth and stronger team relationships.",
+                  "date": "2026-02-09",
+                  "category": "Conflict",
+                  "url": "blogs/blog-conflict-frameworks.html",
+                  "emoji": "⚡",
+                  "color": "#f093fb",
+                  "colorEnd": "#f5576c",
+                  "readingTime": "7 min read",
+                  "author": "Sam Osborne"
+          },
+          {
+                  "id": "balanced-perception-1",
+                  "title": "Building Balanced Perception: A Leader's Essential Skill",
+                  "excerpt": "Learn how balanced perception enables better decision-making and stronger leadership presence.",
+                  "date": "2026-02-02",
+                  "category": "Growth",
+                  "url": "blogs/blog-balanced-perception.html",
+                  "emoji": "🎯",
+                  "color": "#4facfe",
+                  "colorEnd": "#00f2fe",
+                  "readingTime": "5 min read",
+                  "author": "Sam Osborne"
+          }
+    ]
+}
