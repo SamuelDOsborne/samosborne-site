@@ -128,14 +128,6 @@
         .eval-out-of { font-size: 16px; color: var(--textMuted); }
         .eval-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--textDark); margin-top: 10px; }
         .eval-sub { font-size: 12px; color: var(--textMuted); margin-top: 4px; }
-        .excellence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
-        .excellence-card { background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 18px; padding: 30px; box-shadow: 0 6px 24px rgba(0,0,0,0.05); }
-        .excellence-card h4 { font-size: 16px; font-weight: 700; color: var(--textDark); margin-bottom: 16px; }
-        .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .bar-label { font-size: 13px; color: var(--textMuted); width: 70px; flex-shrink: 0; }
-        .bar-track { flex: 1; height: 8px; background: rgba(0,0,0,0.07); border-radius: 99px; overflow: hidden; }
-        .bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--slate), var(--gold)); }
-        .bar-pct { font-size: 13px; font-weight: 700; color: var(--textDark); width: 38px; text-align: right; }
 
         /* WHO */
         .who-section { padding: 100px 40px; background: var(--charcoal); }
@@ -218,7 +210,7 @@
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .speakers-grid, .excellence-grid { grid-template-columns: 1fr; }
+            .speakers-grid,
             .session-two-col { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
@@ -464,20 +456,20 @@
             <div class="speaker-card">
                 <!--
                     HEADSHOT — David Graf
-                    Place photo at: images/david-graf-headshot.png
+                    Place photo at: images/david-graf-headshot.jpg
                     Recommended: square crop, minimum 300×300 px, face centred
                     If the file is missing the initials placeholder below will show instead.
                 -->
                 <div class="speaker-headshot-wrap">
                     <img
-                        src="images/david-graf.png"
+                        src="images/dave-graf.png"
                         alt="David J. Graf, Esq., CCAL"
                         class="speaker-headshot"
                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                     >
                     <div class="speaker-headshot-placeholder">
                         <span class="placeholder-initials">DG</span>
-                        <span class="placeholder-hint">images/david-graf.png</span>
+                        <span class="placeholder-hint">images/david-graf-headshot.jpg</span>
                     </div>
                 </div>
                 <p class="speaker-cred">Attorney · CCAL Fellow · Colorado</p>
@@ -494,8 +486,8 @@
             <div class="speaker-card">
                 <!--
                     HEADSHOT — Sam Osborne
-                    The existing file images/sam-osborne-headshot is pre-loaded.
-                    To use a dedicated headshot, add: images/sam-osborne-headshot.png and update src below.
+                    The existing file images/sam-osborne-corporate-keynote-speaker.jpg is pre-loaded.
+                    To use a dedicated headshot, add: images/sam-osborne-headshot.jpg and update src below.
                     Recommended: square crop, minimum 300×300 px, face centred
                 -->
                 <div class="speaker-headshot-wrap">
@@ -507,7 +499,7 @@
                     >
                     <div class="speaker-headshot-placeholder">
                         <span class="placeholder-initials">SO</span>
-                        <span class="placeholder-hint">images/sam-osborne-headshot.png</span>
+                        <span class="placeholder-hint">images/sam-osborne-headshot.jpg</span>
                     </div>
                 </div>
                 <p class="speaker-cred">Demartini Method Facilitator · Los Angeles</p>
@@ -533,20 +525,6 @@
                 <div class="eval-card"><div class="eval-num">4.7 <span class="eval-out-of">/ 5</span></div><div class="eval-label">Session Rating</div><div class="eval-sub">Overall evaluation score</div></div>
                 <div class="eval-card"><div class="eval-num">4.9 <span class="eval-out-of">/ 5</span></div><div class="eval-label">Content Match</div><div class="eval-sub">Description matched session</div></div>
                 <div class="eval-card"><div class="eval-num">39</div><div class="eval-label">Evaluations</div><div class="eval-sub">Submitted responses</div></div>
-            </div>
-            <div class="excellence-grid">
-                <div class="excellence-card">
-                    <h4>Sam Osborne — Presentation Skills</h4>
-                    <div class="bar-row"><span class="bar-label">Excellent</span><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div><span class="bar-pct">95%</span></div>
-                    <div class="bar-row"><span class="bar-label">Good</span><div class="bar-track"><div class="bar-fill" style="width:5%;opacity:0.35"></div></div><span class="bar-pct">5%</span></div>
-                    <div class="bar-row" style="margin-top:18px;"><span class="bar-label" style="width:70px;font-size:12px;color:var(--textMuted);">Content</span><span style="font-size:13px;color:var(--textMuted);">84% Excellent &nbsp;·&nbsp; 10% Good</span></div>
-                </div>
-                <div class="excellence-card">
-                    <h4>David J. Graf — Presentation Skills</h4>
-                    <div class="bar-row"><span class="bar-label">Excellent</span><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div><span class="bar-pct">92%</span></div>
-                    <div class="bar-row"><span class="bar-label">Good</span><div class="bar-track"><div class="bar-fill" style="width:8%;opacity:0.35"></div></div><span class="bar-pct">8%</span></div>
-                    <div class="bar-row" style="margin-top:18px;"><span class="bar-label" style="width:70px;font-size:12px;color:var(--textMuted);">Content</span><span style="font-size:13px;color:var(--textMuted);">77% Excellent &nbsp;·&nbsp; 16% Good</span></div>
-                </div>
             </div>
         </div>
     </section>
@@ -624,7 +602,6 @@
                         <li>Ground transportation to/from airport and venue</li>
                         <li>Hotel accommodation (night before and night of event)</li>
                         <li>Standard AV: wireless microphones, presentation screen</li>
-                        <li>Los Angeles-area events may have reduced travel requirements</li>
                     </ul>
                 </div>
 
