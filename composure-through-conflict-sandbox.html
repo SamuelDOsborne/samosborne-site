@@ -210,34 +210,32 @@
 
 
         /* ===== MOBILE ACCORDIONS ===== */
-        /* Toggle button — hidden on desktop, visible on mobile */
-        .mob-toggle {
-            display: none;
-            width: 100%;
-            background: transparent;
-            border: 1px solid rgba(0,0,0,0.12);
-            border-radius: 10px;
-            padding: 12px 16px;
-            color: var(--textMuted);
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            font-family: inherit;
-            text-align: left;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            transition: all 0.25s ease;
-        }
-        .section-dark .mob-toggle { color: rgba(245,245,247,0.65); border-color: rgba(255,255,255,0.15); }
-        .mob-toggle .mob-icon { transition: transform 0.25s ease; font-size: 13px; }
-        .mob-toggle:hover { background: rgba(0,0,0,0.04); }
-        .section-dark .mob-toggle:hover { background: rgba(255,255,255,0.05); }
-        /* On mobile: show the toggle button, hide body by default */
+        /* Desktop: toggle hidden, body always visible */
+        .mob-toggle { display: none; }
+        /* Mobile: show toggle, hide body unless .open */
         @media (max-width: 768px) {
-            .mob-toggle { display: flex; }
-            .mob-body { display: none !important; }
-            .mob-body.open { display: block !important; }
+            .mob-toggle {
+                display: flex;
+                width: 100%;
+                background: transparent;
+                border: 1px solid rgba(0,0,0,0.15);
+                border-radius: 10px;
+                padding: 14px 18px;
+                color: var(--textMuted);
+                font-weight: 700;
+                font-size: 16px;
+                cursor: pointer;
+                font-family: inherit;
+                text-align: left;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 0;
+                transition: all 0.25s ease;
+            }
+            .section-dark .mob-toggle { color: rgba(245,245,247,0.75); border-color: rgba(255,255,255,0.18); }
+            .mob-toggle .mob-icon { transition: transform 0.3s ease; font-size: 14px; flex-shrink: 0; margin-left: 12px; }
+            .mob-body { display: none; }
+            .mob-body.open { display: block; }
         }
 
         /* RESPONSIVE */
@@ -256,37 +254,30 @@
             .testimonial-slide { padding: 36px 24px; }
             .score-item { padding: 16px 18px; }
             /* ---- MOBILE FONT SIZES ---- */
-            /* Headings */
-            .section-title { font-size: clamp(44px, 10vw, 64px) !important; }
-            h2.section-title { font-size: clamp(44px, 10vw, 64px) !important; }
-            .speaker-name { font-size: 42px !important; }
-            .testimonials-header h3 { font-size: clamp(36px, 9vw, 52px) !important; }
-            .session-two-col h3,
-            #session h3[style] { font-size: 32px !important; }
-            #who .who-title { font-size: 22px !important; }
-            /* Section labels */
-            .section-label { font-size: 14px !important; letter-spacing: 0.14em; }
-            /* Body text */
-            .section-desc { font-size: 19px !important; line-height: 1.65; }
-            .speaker-bio { font-size: 18px !important; line-height: 1.75; }
-            .speaker-cred { font-size: 14px !important; }
-            .testimonial-quote { font-size: 22px !important; line-height: 1.6; }
+            .section-title { font-size: clamp(42px, 9vw, 60px) !important; line-height: 1.05 !important; }
+            .speaker-name { font-size: 38px !important; }
+            .testimonials-header h3 { font-size: clamp(34px, 8vw, 48px) !important; }
+            .session-two-col h3, #session h3[style] { font-size: 30px !important; }
+            .who-title { font-size: 22px !important; }
+            .hero-eyebrow { font-size: 20px !important; }
+            .section-label { font-size: 13px !important; }
+            .section-desc { font-size: 18px !important; line-height: 1.65 !important; }
+            .speaker-bio { font-size: 17px !important; line-height: 1.75 !important; }
+            .speaker-cred { font-size: 13px !important; }
+            .testimonial-quote { font-size: 21px !important; line-height: 1.6 !important; }
             .author-name { font-size: 17px !important; }
             .author-title { font-size: 15px !important; }
-            .who-desc { font-size: 17px !important; line-height: 1.7; }
-            /* Accordion body text */
-            .mob-body p,
-            .mob-body li { font-size: 18px !important; line-height: 1.75 !important; color: var(--textMuted); }
-            .section-dark .mob-body p { color: rgba(245,245,247,0.75) !important; }
-            /* Fees */
-            .fee-card h3 { font-size: 24px !important; }
-            .fee-price { font-size: 30px !important; }
+            .who-desc { font-size: 17px !important; line-height: 1.7 !important; }
+            .mob-body p, .mob-body li { font-size: 17px !important; line-height: 1.75 !important; }
+            .fee-card h3 { font-size: 22px !important; }
+            .fee-price { font-size: 28px !important; }
             .fee-note { font-size: 16px !important; }
             .fee-list li { font-size: 17px !important; }
-            /* Hero scores */
-            .score-number { font-size: 46px !important; }
-            .score-label { font-size: 13px !important; }
-            /* Stack the 3-col audiences grid to 1-col on mobile */
+            .score-number { font-size: 44px !important; }
+            .score-label { font-size: 12px !important; }
+            .form-label { font-size: 14px !important; }
+            .form-input, .form-select, .form-textarea { font-size: 16px !important; }
+            .btn-primary, .btn-secondary { font-size: 17px !important; padding: 16px 32px !important; }
             div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
             /* Prevent horizontal scroll / page shift */
             *, *::before, *::after { box-sizing: border-box; }
@@ -301,6 +292,7 @@
             .who-grid { grid-template-columns: 1fr; }
         }
         .session-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+        @media (max-width: 768px) { .session-two-col { grid-template-columns: 1fr !important; gap: 24px !important; } }
     </style>
 </head>
 <body>
@@ -884,6 +876,19 @@
                 });
             });
         })();
+
+        // Mobile accordion toggles
+        function toggleMob(btn) {
+            var icon = btn.querySelector('.mob-icon');
+            // mob-body is always the next sibling div inside .mob-accordion
+            var accordion = btn.parentElement;
+            var body = accordion.querySelector('.mob-body');
+            if (!body) return;
+            var isOpen = body.classList.contains('open');
+            body.classList.toggle('open', !isOpen);
+            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+            btn.querySelector('span:first-child').textContent = isOpen ? 'Read more' : 'Read less';
+        }
     </script>
 
 </body>
