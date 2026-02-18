@@ -114,10 +114,6 @@
         .speaker-name { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--white); margin-bottom: 4px; line-height: 1.1; }
         .speaker-cred { font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
         .speaker-bio { font-size: 16px; line-height: 1.7; color: rgba(245,245,247,0.72); }
-        .speaker-stats { display: flex; gap: 24px; margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); }
-        .stat-block { text-align: center; }
-        .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: var(--gold); line-height: 1; }
-        .stat-lbl { font-size: 11px; color: rgba(245,245,247,0.45); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 4px; }
 
         /* RESULTS */
         .eval-section { padding: 100px 40px; background: var(--warmGrey); }
@@ -212,6 +208,7 @@
         /* ===== MOBILE ACCORDIONS ===== */
         /* Desktop: toggle hidden, body always visible */
         .mob-toggle { display: none; }
+        .mob-body { display: block; }
         /* Mobile: show toggle, hide body unless .open */
         @media (max-width: 768px) {
             .mob-toggle {
@@ -536,12 +533,6 @@
 
             <!-- DAVID GRAF -->
             <div class="speaker-card">
-                <!--
-                    HEADSHOT — David Graf
-                    Place photo at: images/david-graf-headshot.jpg
-                    Recommended: square crop, minimum 300×300 px, face centred
-                    If the file is missing the initials placeholder below will show instead.
-                -->
                 <div class="speaker-headshot-wrap">
                     <img
                         src="images/dave-graf.png"
@@ -551,7 +542,7 @@
                     >
                     <div class="speaker-headshot-placeholder">
                         <span class="placeholder-initials">DG</span>
-                        <span class="placeholder-hint">images/david-graf-headshot.jpg</span>
+                        <span class="placeholder-hint">images/dave-graf.png</span>
                     </div>
                 </div>
                 <p class="speaker-cred">Attorney · CCAL Fellow · Colorado</p>
@@ -565,20 +556,10 @@
                         <p class="speaker-bio" style="margin-top:14px;">His delivery is candid, self-aware, and real. He puts words to the feelings professionals experience but rarely name. Attendees recognize themselves in his stories — and leave with different eyes.</p>
                     </div>
                 </div>
-                <div class="speaker-stats">
-                    <div class="stat-block"><div class="stat-num">92%</div><div class="stat-lbl">Excellent · Skills</div></div>
-                    <div class="stat-block"><div class="stat-num">77%</div><div class="stat-lbl">Excellent · Content</div></div>
-                </div>
             </div>
 
             <!-- SAM OSBORNE -->
             <div class="speaker-card">
-                <!--
-                    HEADSHOT — Sam Osborne
-                    The existing file images/sam-osborne-corporate-keynote-speaker.jpg is pre-loaded.
-                    To use a dedicated headshot, add: images/sam-osborne-headshot.jpg and update src below.
-                    Recommended: square crop, minimum 300×300 px, face centred
-                -->
                 <div class="speaker-headshot-wrap">
                     <img
                         src="images/sam-osborne-headshot.png"
@@ -588,7 +569,7 @@
                     >
                     <div class="speaker-headshot-placeholder">
                         <span class="placeholder-initials">SO</span>
-                        <span class="placeholder-hint">images/sam-osborne-headshot.jpg</span>
+                        <span class="placeholder-hint">images/sam-osborne-headshot.png</span>
                     </div>
                 </div>
                 <p class="speaker-cred">Demartini Method Facilitator · Los Angeles</p>
@@ -601,10 +582,6 @@
                         <p class="speaker-bio">Sam Osborne is a Demartini Method Facilitator and corporate keynote speaker specialising in conflict transformation and high-stakes leadership. His mission is to bring systematic perceptual methodology into mainstream corporate leadership — equipping leaders with the precision to permanently transform how they see tension, authority, and opposition.</p>
                         <p class="speaker-bio" style="margin-top:14px;">He delivers live demonstrations of perceptual transformation. Audiences don't just hear about the framework — they witness it working in real time.</p>
                     </div>
-                </div>
-                <div class="speaker-stats">
-                    <div class="stat-block"><div class="stat-num">95%</div><div class="stat-lbl">Excellent · Skills</div></div>
-                    <div class="stat-block"><div class="stat-num">84%</div><div class="stat-lbl">Excellent · Content</div></div>
                 </div>
             </div>
 
