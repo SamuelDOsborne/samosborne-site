@@ -79,7 +79,7 @@
         hr.divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 60px 0; }
         .section-light hr.divider { border-top-color: rgba(0,0,0,0.08); }
 
-        /* TESTIMONIAL CAROUSEL — exact match to index.html */
+        /* TESTIMONIALS */
         .testimonials-section { padding: 100px 40px; background: var(--charcoal); }
         .testimonials-header { max-width: 1200px; margin: 0 auto 50px; text-align: center; }
         .testimonials-header h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,4vw,48px); font-weight: 700; color: var(--white); margin-bottom: 12px; }
@@ -103,14 +103,11 @@
         .speakers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: 60px auto 0; }
         .speaker-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.09); border-radius: 24px; padding: 50px 44px; transition: all 0.4s ease; }
         .speaker-card:hover { background: rgba(255,255,255,0.055); border-color: rgba(212,165,116,0.3); transform: translateY(-6px); }
-
-        /* Headshot */
         .speaker-headshot-wrap { width: 150px; height: 150px; margin: 0 0 28px 0; border-radius: 50%; overflow: hidden; border: 3px solid rgba(212,165,116,0.45); box-shadow: 0 8px 30px rgba(0,0,0,0.4); position: relative; flex-shrink: 0; }
         .speaker-headshot { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
         .speaker-headshot-placeholder { display: flex; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(74,94,127,0.55), rgba(26,26,26,0.85)); flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 14px; }
         .placeholder-initials { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 6px; }
         .placeholder-hint { font-size: 9px; color: rgba(245,245,247,0.40); line-height: 1.4; }
-
         .speaker-name { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--white); margin-bottom: 4px; line-height: 1.1; }
         .speaker-cred { font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
         .speaker-bio { font-size: 16px; line-height: 1.7; color: rgba(245,245,247,0.72); }
@@ -136,46 +133,18 @@
         /* FEES */
         .fees-section { padding: 100px 40px; background: var(--warmGrey); }
         .fees-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; margin-top: 50px; }
-        .fee-card {
-            background: rgba(255,255,255,0.80);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: 24px; padding: 40px;
-            box-shadow: 0 10px 34px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
-            transition: all 0.4s cubic-bezier(0.28,0.11,0.32,1);
-            display: flex; flex-direction: column;
-        }
+        .fee-card { background: rgba(255,255,255,0.80); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(0,0,0,0.08); border-radius: 24px; padding: 40px; box-shadow: 0 10px 34px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9); transition: all 0.4s cubic-bezier(0.28,0.11,0.32,1); display: flex; flex-direction: column; }
         .fee-card:hover { transform: translateY(-8px); box-shadow: 0 14px 52px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,1); background: rgba(255,255,255,0.90); }
         .fee-card h3 { font-size: 22px; font-weight: 700; color: var(--textDark); margin-bottom: 14px; }
         .fee-price { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--slate); margin: 16px 0 8px; line-height: 1.2; }
         .fee-note { font-size: 14px; color: var(--textMuted); margin-bottom: 22px; line-height: 1.5; min-height: 40px; }
-        .fee-toggle {
-            width: 100%;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(0,0,0,0.10);
-            border-radius: 12px; padding: 16px 20px;
-            color: var(--textDark); font-weight: 600; font-size: 16px;
-            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-            font-family: inherit;
-            transition: all 0.3s cubic-bezier(0.28,0.11,0.32,1);
-            margin-bottom: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+        .fee-toggle { width: 100%; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.10); border-radius: 12px; padding: 16px 20px; color: var(--textDark); font-weight: 600; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; transition: all 0.3s cubic-bezier(0.28,0.11,0.32,1); margin-bottom: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .fee-toggle:hover { background: rgba(245,243,240,0.95); border-color: rgba(0,0,0,0.12); }
         .fee-toggle-icon { font-size: 18px; transition: transform 0.3s cubic-bezier(0.28,0.11,0.32,1); }
         .fee-list { display: none; list-style: none; padding: 20px 0; margin: 0; border-top: 1px solid rgba(0,0,0,0.10); }
         .fee-list li { padding-left: 25px; position: relative; margin-bottom: 12px; color: var(--textDark); font-size: 15px; line-height: 1.6; }
         .fee-list li::before { content: '✓'; position: absolute; left: 0; color: var(--slate); font-weight: 800; }
-        .fee-highlight {
-            background: rgba(255,255,255,0.35);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(0,0,0,0.10);
-            border-radius: 20px; padding: 40px;
-            margin-top: 60px;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
-        }
+        .fee-highlight { background: rgba(255,255,255,0.35); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.10); border-radius: 20px; padding: 40px; margin-top: 60px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.65); }
         .booking-body { display: none; padding: 20px 0 0; border-top: 1px solid rgba(0,0,0,0.10); margin-top: 16px; }
 
         /* CONTACT */
@@ -204,12 +173,10 @@
         .footer-links a:hover { color: var(--gold); }
         .footer-copy { font-size: 13px; color: rgba(245,245,247,0.30); }
 
-
         /* ===== MOBILE ACCORDIONS ===== */
-        /* Desktop: toggle hidden, body always visible */
         .mob-toggle { display: none; }
         .mob-body { display: block; }
-        /* Mobile: show toggle, hide body unless .open */
+
         @media (max-width: 768px) {
             .mob-toggle {
                 display: flex;
@@ -217,10 +184,10 @@
                 background: transparent;
                 border: 1px solid rgba(0,0,0,0.15);
                 border-radius: 10px;
-                padding: 14px 18px;
+                padding: 16px 20px;
                 color: var(--textMuted);
                 font-weight: 700;
-                font-size: 16px;
+                font-size: 18px;
                 cursor: pointer;
                 font-family: inherit;
                 text-align: left;
@@ -230,64 +197,127 @@
                 transition: all 0.25s ease;
             }
             .section-dark .mob-toggle { color: rgba(245,245,247,0.75); border-color: rgba(255,255,255,0.18); }
-            .mob-toggle .mob-icon { transition: transform 0.3s ease; font-size: 14px; flex-shrink: 0; margin-left: 12px; }
+            .mob-toggle .mob-icon { transition: transform 0.3s ease; font-size: 16px; flex-shrink: 0; margin-left: 12px; }
             .mob-body { display: none; }
             .mob-body.open { display: block; }
         }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .speakers-grid,
-            .session-two-col { grid-template-columns: 1fr; }
+            .speakers-grid, .session-two-col { grid-template-columns: 1fr; }
         }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .section, .testimonials-section, .eval-section, .who-section, .fees-section, .contact-section { padding: 70px 20px; }
             .hero { padding: 100px 20px 60px; }
-            .hero-title { font-size: clamp(46px,10vw,80px); }
             .hero-speakers { flex-direction: column; gap: 16px; }
             .speaker-divider { transform: rotate(90deg); }
             .form-grid-2 { grid-template-columns: 1fr; }
             .testimonial-slide { padding: 36px 24px; }
-            .score-item { padding: 16px 18px; }
-            /* ---- MOBILE FONT SIZES ---- */
-            .section-title { font-size: clamp(42px, 9vw, 60px) !important; line-height: 1.05 !important; }
-            .speaker-name { font-size: 38px !important; }
-            .testimonials-header h3 { font-size: clamp(34px, 8vw, 48px) !important; }
-            .session-two-col h3, #session h3[style] { font-size: 30px !important; }
-            .who-title { font-size: 22px !important; }
-            .hero-eyebrow { font-size: 20px !important; }
-            .section-label { font-size: 13px !important; }
-            .section-desc { font-size: 18px !important; line-height: 1.65 !important; }
-            .speaker-bio { font-size: 17px !important; line-height: 1.75 !important; }
-            .speaker-cred { font-size: 13px !important; }
-            .testimonial-quote { font-size: 21px !important; line-height: 1.6 !important; }
-            .author-name { font-size: 17px !important; }
-            .author-title { font-size: 15px !important; }
-            .who-desc { font-size: 17px !important; line-height: 1.7 !important; }
-            .mob-body p, .mob-body li { font-size: 17px !important; line-height: 1.75 !important; }
-            .fee-card h3 { font-size: 22px !important; }
-            .fee-price { font-size: 28px !important; }
-            .fee-note { font-size: 16px !important; }
-            .fee-list li { font-size: 17px !important; }
-            .score-number { font-size: 44px !important; }
-            .score-label { font-size: 12px !important; }
-            .form-label { font-size: 14px !important; }
-            .form-input, .form-select, .form-textarea { font-size: 16px !important; }
-            .btn-primary, .btn-secondary { font-size: 17px !important; padding: 16px 32px !important; }
+
+            /* ============================================
+               HERO TAG — "CAI Law Seminar 2026 · Rated Best of Conference"
+            ============================================ */
+            .hero-tag {
+                font-size: 16px !important;
+                padding: 13px 26px !important;
+                letter-spacing: 0.10em !important;
+                gap: 12px !important;
+                margin-bottom: 30px !important;
+            }
+            .hero-tag::before { font-size: 16px !important; }
+
+            /* ============================================
+               HERO TITLE — "Composure Through Conflict"
+            ============================================ */
+            .hero-title { font-size: clamp(72px, 18vw, 100px) !important; line-height: 0.93 !important; }
+
+            /* ---- REST OF HERO ---- */
+            .hero-eyebrow { font-size: 24px !important; }
+            .hero-subtitle { font-size: 22px !important; line-height: 1.55 !important; }
+            .speaker-chip .name { font-size: 21px !important; }
+            .speaker-chip .role { font-size: 15px !important; }
+
+            /* ---- SCORE ITEMS ---- */
+            .score-item { padding: 20px 18px; width: 100%; }
+            .score-number { font-size: 56px !important; }
+            .score-stars { font-size: 20px !important; }
+            .score-label { font-size: 15px !important; }
+
+            /* ---- BUTTONS ---- */
+            .btn-primary, .btn-secondary { font-size: 20px !important; padding: 18px 36px !important; }
+
+            /* ---- SECTION HEADINGS ---- */
+            .section-label { font-size: 15px !important; letter-spacing: 0.14em !important; }
+            .section-title { font-size: clamp(50px, 12vw, 74px) !important; line-height: 1.05 !important; }
+            .section-desc { font-size: 20px !important; line-height: 1.65 !important; }
+
+            /* ---- TESTIMONIALS ---- */
+            .testimonials-header h3 { font-size: clamp(40px, 10vw, 56px) !important; }
+            .testimonials-header p { font-size: 19px !important; }
+            .testimonial-quote { font-size: 25px !important; line-height: 1.6 !important; }
+            .author-name { font-size: 20px !important; }
+            .author-title { font-size: 17px !important; }
+
+            /* ---- SESSION ---- */
+            .session-two-col h3, #session h3[style] { font-size: 34px !important; }
+
+            /* ---- SPEAKERS ---- */
+            .speaker-name { font-size: 46px !important; }
+            .speaker-cred { font-size: 16px !important; }
+            .speaker-bio { font-size: 20px !important; line-height: 1.75 !important; }
+
+            /* ---- WHO ---- */
+            .who-title { font-size: 28px !important; }
+            .who-desc { font-size: 20px !important; line-height: 1.7 !important; }
+
+            /* ---- ACCORDION CONTENT ---- */
+            .mob-body p, .mob-body li { font-size: 20px !important; line-height: 1.75 !important; }
+
+            /* ---- FEES ---- */
+            .fee-card h3 { font-size: 26px !important; }
+            .fee-price { font-size: 34px !important; }
+            .fee-note { font-size: 18px !important; }
+            .fee-list li { font-size: 19px !important; }
+            .fee-toggle { font-size: 18px !important; }
+
+            /* ---- EVAL CARDS ---- */
+            .eval-num { font-size: 60px !important; }
+            .eval-label { font-size: 16px !important; }
+            .eval-sub { font-size: 15px !important; }
+
+            /* ---- FORM ---- */
+            .form-label { font-size: 15px !important; }
+            .form-input, .form-select, .form-textarea { font-size: 17px !important; padding: 15px 16px !important; }
+            .form-submit { font-size: 20px !important; padding: 18px 32px !important; }
+            .form-note { font-size: 15px !important; }
+            .budget-option { font-size: 18px !important; }
+
+            /* ---- "AUDIENCES LEAVE KNOWING" GRID ---- */
             div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
-            /* Prevent horizontal scroll / page shift */
+            div[style*="repeat(3,1fr)"] p { font-size: 19px !important; line-height: 1.65 !important; }
+
+            /* ---- FOOTER ---- */
+            .footer-names { font-size: 28px !important; }
+            .footer-tagline { font-size: 17px !important; }
+            .footer-links a { font-size: 16px !important; }
+            .footer-copy { font-size: 15px !important; }
+
+            /* Prevent horizontal scroll */
             *, *::before, *::after { box-sizing: border-box; }
             section, .section, .hero, .testimonials-section, .speakers-section,
             .eval-section, .who-section, .fees-section, .contact-section,
             nav, footer { max-width: 100vw; overflow-x: hidden; }
+
+            /* Layout fixes */
             .hero-score { flex-direction: column; align-items: stretch; }
-            .score-item { width: 100%; }
             .speakers-grid { grid-template-columns: 1fr; gap: 30px; }
             .session-two-col { grid-template-columns: 1fr; gap: 30px; }
             .fees-grid { grid-template-columns: 1fr; }
             .who-grid { grid-template-columns: 1fr; }
         }
+
         .session-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
         @media (max-width: 768px) { .session-two-col { grid-template-columns: 1fr !important; gap: 24px !important; } }
     </style>
@@ -362,10 +392,8 @@
             <h3>What Leaders Say About Sam &amp; David's Keynote</h3>
             <p>From the official CAI Law Seminar 2026 evaluation &nbsp;·&nbsp; 39 responses</p>
         </div>
-
         <div class="carousel-container" id="testimonialCarousel">
             <div class="carousel-track" id="carouselTrack">
-
                 <div class="testimonial-slide active">
                     <p class="testimonial-quote">"This transformational experience has forever changed the way I practice law and relate to people. This seminar provided practical and easily adaptable concepts to aid in maintaining calm and composure. I highly recommend this seminar!"</p>
                     <div class="testimonial-author">
@@ -373,7 +401,6 @@
                         <p class="author-title">Nationally Recognized Community Association Attorney<br>Partner, Shaw &amp; Lines, LLC · ASU College of Law Faculty Associate Professor</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"I recently attended one of Sam and David's sessions on conflict management and self-governance, presented to a 'standing room only' room of legal professionals at a national law seminar. Their approach really stood out."</p>
                     <div class="testimonial-author">
@@ -381,7 +408,6 @@
                         <p class="author-title">Board Certified Texas HOA Attorney<br>National HOA Law Seminar</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"The session reinforced emotional discipline during difficult conversations. It provided clear tools to separate facts from reactions. It supported staying grounded, professional, and effective when conflict arises."</p>
                     <div class="testimonial-author">
@@ -389,7 +415,6 @@
                         <p class="author-title">VP of Community Management<br>HOALiving/CAM, Southern Utah</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"I highly recommend Sam and David for their specific presentation for conferences or leadership events serving professionals who operate regularly in stressful, conflict-rich environments."</p>
                     <div class="testimonial-author">
@@ -397,7 +422,6 @@
                         <p class="author-title">President, FirstService Residential Illinois<br>CAI Law Seminar 2026</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"Totally engaging. Different. Funny. Challenging. Best session I attended this conference. And on a Friday morning! Bravo, gentlemen."</p>
                     <div class="testimonial-author">
@@ -405,7 +429,6 @@
                         <p class="author-title">CAI Law Seminar 2026</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"Literally the best law seminar session I've been to in many years. Thank you!"</p>
                     <div class="testimonial-author">
@@ -413,7 +436,6 @@
                         <p class="author-title">CAI Law Seminar 2026</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"Fabulous speaker in all ways. Confident. Entertaining. Funny. Laser-focused on getting the message out. Superb and passionate about the topic. Very challenging from a personal level."</p>
                     <div class="testimonial-author">
@@ -421,7 +443,6 @@
                         <p class="author-title">CAI Law Seminar 2026</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"He is my favorite speaker of all time."</p>
                     <div class="testimonial-author">
@@ -429,7 +450,6 @@
                         <p class="author-title">CAI Law Seminar 2026</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"Sam was outstanding and provided a refreshing perspective. He also gave common sense and practical solutions. I wish I had learned this years ago!"</p>
                     <div class="testimonial-author">
@@ -437,7 +457,6 @@
                         <p class="author-title">CAI Law Seminar 2026</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"Funny. Poignant. Really puts words to the feelings we have as lawyers. Outstanding presentation — always exceptional."</p>
                     <div class="testimonial-author">
@@ -445,7 +464,6 @@
                         <p class="author-title">CAI Law Seminar 2026</p>
                     </div>
                 </div>
-
                 <div class="testimonial-slide">
                     <p class="testimonial-quote">"Great relevant topic presented in a smart and engaging manner. Very impressive — thought I'd love his accent the most, but his content was superb."</p>
                     <div class="testimonial-author">
@@ -453,9 +471,7 @@
                         <p class="author-title">CAI Law Seminar 2026</p>
                     </div>
                 </div>
-
             </div>
-
             <div class="carousel-controls">
                 <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">‹</button>
                 <div class="carousel-dots">
@@ -530,16 +546,9 @@
             <p class="section-desc" style="margin:20px auto 0;">Each brings a different lens — the legal practitioner's lived reality, and the perceptual methodologist's systematic approach. Together they create something neither could deliver alone.</p>
         </div>
         <div class="speakers-grid">
-
-            <!-- DAVID GRAF -->
             <div class="speaker-card">
                 <div class="speaker-headshot-wrap">
-                    <img
-                        src="images/dave-graf.png"
-                        alt="David J. Graf, Esq., CCAL"
-                        class="speaker-headshot"
-                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                    >
+                    <img src="images/dave-graf.png" alt="David J. Graf, Esq., CCAL" class="speaker-headshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                     <div class="speaker-headshot-placeholder">
                         <span class="placeholder-initials">DG</span>
                         <span class="placeholder-hint">images/dave-graf.png</span>
@@ -557,16 +566,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- SAM OSBORNE -->
             <div class="speaker-card">
                 <div class="speaker-headshot-wrap">
-                    <img
-                        src="images/sam-osborne-headshot.png"
-                        alt="Sam Osborne — Demartini Method Facilitator"
-                        class="speaker-headshot"
-                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                    >
+                    <img src="images/sam-osborne-headshot.png" alt="Sam Osborne — Demartini Method Facilitator" class="speaker-headshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                     <div class="speaker-headshot-placeholder">
                         <span class="placeholder-initials">SO</span>
                         <span class="placeholder-hint">images/sam-osborne-headshot.png</span>
@@ -584,7 +586,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -624,16 +625,13 @@
                 <h2 class="section-title" style="color:var(--textDark);">Investment in Transformation</h2>
                 <p class="section-desc" style="margin:16px auto 0; color:var(--textDark);">Not motivational theater. A proven methodology with evaluation scores to match.</p>
             </div>
-
             <div class="fees-grid">
-
                 <div class="fee-card">
                     <h3>Duo Keynote Investment</h3>
                     <div class="fee-price">$25,000 – $35,000</div>
                     <p class="fee-note">Depending on scope and customization</p>
                     <button class="fee-toggle" onclick="toggleFee(this)">
-                        <span>What's Included</span>
-                        <span class="fee-toggle-icon">▼</span>
+                        <span>What's Included</span><span class="fee-toggle-icon">▼</span>
                     </button>
                     <ul class="fee-list">
                         <li>Pre-event consultation to align keynote with organizational challenges</li>
@@ -644,14 +642,12 @@
                         <li>Full coordination between both speakers for seamless delivery</li>
                     </ul>
                 </div>
-
                 <div class="fee-card">
                     <h3>Custom Packages</h3>
                     <div class="fee-price">Contact for Pricing</div>
                     <p class="fee-note">For multi-session, multi-day, or conference series engagements</p>
                     <button class="fee-toggle" onclick="toggleFee(this)">
-                        <span>What's Included</span>
-                        <span class="fee-toggle-icon">▼</span>
+                        <span>What's Included</span><span class="fee-toggle-icon">▼</span>
                     </button>
                     <ul class="fee-list">
                         <li>Opening keynote + breakout session combinations</li>
@@ -661,14 +657,12 @@
                         <li>Virtual keynotes available at same fee structure</li>
                     </ul>
                 </div>
-
                 <div class="fee-card">
                     <h3>Travel &amp; Logistics</h3>
                     <div class="fee-price" style="font-size:22px;">Billed at Cost</div>
                     <p class="fee-note">Standard arrangements for seamless event execution</p>
                     <button class="fee-toggle" onclick="toggleFee(this)">
-                        <span>What's Included</span>
-                        <span class="fee-toggle-icon">▼</span>
+                        <span>What's Included</span><span class="fee-toggle-icon">▼</span>
                     </button>
                     <ul class="fee-list">
                         <li>Round-trip airfare for both speakers (business class for flights over 3 hours)</li>
@@ -677,21 +671,14 @@
                         <li>Standard AV: wireless microphones, presentation screen</li>
                     </ul>
                 </div>
-
             </div>
-
             <div class="fee-highlight">
                 <button class="fee-toggle" style="background:transparent;box-shadow:none;font-size:17px;font-weight:700;border:1px solid rgba(0,0,0,0.10);" onclick="toggleBooking(this)">
-                    <span>Booking Process</span>
-                    <span class="fee-toggle-icon">▼</span>
+                    <span>Booking Process</span><span class="fee-toggle-icon">▼</span>
                 </button>
                 <div class="booking-body">
-                    <p style="color:var(--textDark);font-size:15px;line-height:1.7;margin-bottom:12px;">
-                        <strong>Steps:</strong> Initial consultation to assess event fit and customization needs → Contract and 50% deposit → Pre-event planning call with both speakers → Event delivery → Final payment due within 30 days.
-                    </p>
-                    <p style="color:var(--textMuted);font-size:14px;line-height:1.6;">
-                        <strong>Lead Time:</strong> Preferred minimum 90 days for the duo. Rush bookings under 60 days may incur an expedited preparation fee.
-                    </p>
+                    <p style="color:var(--textDark);font-size:15px;line-height:1.7;margin-bottom:12px;"><strong>Steps:</strong> Initial consultation to assess event fit and customization needs → Contract and 50% deposit → Pre-event planning call with both speakers → Event delivery → Final payment due within 30 days.</p>
+                    <p style="color:var(--textMuted);font-size:14px;line-height:1.6;"><strong>Lead Time:</strong> Preferred minimum 90 days for the duo. Rush bookings under 60 days may incur an expedited preparation fee.</p>
                 </div>
             </div>
         </div>
@@ -703,10 +690,8 @@
             <p class="section-label">Book the Duo</p>
             <h2 class="section-title">Request This Keynote</h2>
             <p class="section-desc" style="margin:16px auto 0;">Share details about your event. We'll be in touch within 2 business days to discuss fit and availability.</p>
-
             <form class="form-container" method="POST" action="https://formspree.io/f/xaqdebvj">
                 <input type="hidden" name="keynote" value="Composure Through Conflict — Duo (Sam Osborne & David Graf)">
-
                 <div class="form-grid-2">
                     <div class="form-group" style="margin-bottom:0"><label class="form-label">Your Name *</label><input class="form-input" type="text" name="name" required placeholder="First and Last Name"></div>
                     <div class="form-group" style="margin-bottom:0"><label class="form-label">Email Address *</label><input class="form-input" type="email" name="email" required placeholder="you@company.com"></div>
@@ -784,18 +769,16 @@
                 <a href="#results">Results</a>
                 <a href="#fees">Fees</a>
                 <a href="https://samosborne.net" target="_blank">SamOsborne.net</a>
-                <a href="/cdn-cgi/l/email-protection#fc8f9d91bc8f9d91938f9e938e9299d2929988"><span class="__cf_email__" data-cfemail="b5c6d4d8f5c6d4d8dac6d7dac7dbd09bdbd0c1">[email&#160;protected]</span></a>
+                <a href="mailto:sam@samosborne.net">sam@samosborne.net</a>
             </div>
             <p class="footer-copy">© 2026 Sam Osborne · Demartini Method Facilitator · Los Angeles, California</p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Nav scroll
+    <script>
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 const t = document.querySelector(a.getAttribute('href'));
@@ -803,7 +786,6 @@
             });
         });
 
-        // Fee card toggles
         function toggleFee(btn) {
             const icon = btn.querySelector('.fee-toggle-icon');
             const list = btn.nextElementSibling;
@@ -821,7 +803,6 @@
             icon.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
         }
 
-        // Testimonials carousel
         (function () {
             var slides  = Array.from(document.querySelectorAll('.testimonial-slide'));
             var dots    = Array.from(document.querySelectorAll('.carousel-dots .dot'));
@@ -829,37 +810,26 @@
             var nextBtn = document.getElementById('nextBtn');
             if (!slides.length) return;
             var current = 0;
-
             function show(idx) {
                 current = (idx + slides.length) % slides.length;
                 slides.forEach(function(s, i) {
                     s.style.display = (i === current) ? 'block' : 'none';
-                    if (i === current) { s.classList.add('active'); } else { s.classList.remove('active'); }
+                    s.classList.toggle('active', i === current);
                 });
-                dots.forEach(function(d, i) {
-                    if (i === current) { d.classList.add('active'); } else { d.classList.remove('active'); }
-                });
+                dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
             }
-
-            // Hide all slides first, then reveal slide 0
             slides.forEach(function(s) { s.style.display = 'none'; s.classList.remove('active'); });
             show(0);
-
             if (prevBtn) prevBtn.addEventListener('click', function() { show(current - 1); });
             if (nextBtn) nextBtn.addEventListener('click', function() { show(current + 1); });
             dots.forEach(function(d) {
-                d.addEventListener('click', function() {
-                    show(parseInt(d.getAttribute('data-index'), 10));
-                });
+                d.addEventListener('click', function() { show(parseInt(d.getAttribute('data-index'), 10)); });
             });
         })();
 
-        // Mobile accordion toggles
         function toggleMob(btn) {
             var icon = btn.querySelector('.mob-icon');
-            // mob-body is always the next sibling div inside .mob-accordion
-            var accordion = btn.parentElement;
-            var body = accordion.querySelector('.mob-body');
+            var body = btn.parentElement.querySelector('.mob-body');
             if (!body) return;
             var isOpen = body.classList.contains('open');
             body.classList.toggle('open', !isOpen);
