@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keynote Programs — Sam Osborne | Demartini Method for Leadership</title>
+<meta name="description" content="Four keynote programs applying the Demartini Method to leadership. The Conflict Advantage, The Admiration Trap, The Defended Self, The Disowned Self.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --charcoal:#1A1A1A;
+  --white:#FFFFFF;
+  --gold:#D4A574;
+  --gold-dim:rgba(212,165,116,0.15);
+  --slate:#4A5E7F;
+  --warm:#F5F3F0;
+  --warm-mid:#EDE9E3;
+  --text-dark:#1d1d1f;
+  --text-muted:#6e6e73;
+  --text-light:#f5f5f7;
+  --rule-light:rgba(255,255,255,0.10);
+  --rule-dark:rgba(0,0,0,0.10);
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--charcoal);
+  color:var(--text-light);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(26,26,26,0.82);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--rule-light);
+  transition:padding 0.3s;
+}
+nav.scrolled{padding:14px 48px;background:rgba(26,26,26,0.95);}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:500;letter-spacing:0.04em;
+  color:var(--text-light);text-decoration:none;
+}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{
+  font-size:13px;font-weight:400;letter-spacing:0.07em;text-transform:uppercase;
+  color:rgba(245,245,247,0.75);text-decoration:none;transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{
+  background:var(--slate);color:var(--white);
+  padding:10px 24px;border-radius:980px;font-size:13px;font-weight:600;
+  text-decoration:none;transition:background 0.2s;letter-spacing:0.04em;
+}
+.nav-cta:hover{background:var(--gold);}
+.mobile-toggle{display:none;background:none;border:none;color:var(--text-light);font-size:26px;cursor:pointer;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:140px 48px 80px;
+  position:relative;
+  overflow:hidden;
+  background:var(--charcoal);
+}
+
+.hero::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 40%, rgba(212,165,116,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(74,94,127,0.08) 0%, transparent 60%);
+  pointer-events:none;
+}
+
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;}
+
+.hero-eyebrow{
+  font-size:12px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:28px;display:block;
+  opacity:0;animation:fadeUp 0.7s ease 0.1s forwards;
+}
+
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,7vw,96px);
+  font-weight:300;line-height:1.03;letter-spacing:-0.02em;
+  margin-bottom:32px;
+  opacity:0;animation:fadeUp 0.7s ease 0.2s forwards;
+}
+
+.hero-title em{font-style:italic;color:var(--gold);}
+
+.hero-rule{
+  width:52px;height:1px;background:var(--gold);
+  margin-bottom:32px;
+  opacity:0;animation:fadeUp 0.7s ease 0.3s forwards;
+}
+
+.hero-desc{
+  font-size:clamp(18px,2.2vw,22px);
+  color:rgba(245,245,247,0.72);
+  max-width:640px;line-height:1.75;margin-bottom:48px;
+  font-weight:300;
+  opacity:0;animation:fadeUp 0.7s ease 0.4s forwards;
+}
+
+.hero-method-note{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(245,245,247,0.5);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:12px 20px;border-radius:2px;
+  opacity:0;animation:fadeUp 0.7s ease 0.5s forwards;
+}
+.hero-method-note::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ── QUADRANT MAP ── */
+.quadrant-section{
+  background:var(--warm);padding:80px 48px;
+}
+.quadrant-inner{max-width:1100px;margin:0 auto;}
+
+.section-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);display:block;margin-bottom:16px;
+}
+.section-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,5vw,56px);font-weight:300;
+  color:var(--text-dark);line-height:1.1;margin-bottom:48px;
+}
+.section-heading em{font-style:italic;color:#8b6f47;}
+
+.quad-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:#d6d0c8;border:1px solid #d6d0c8;
+}
+.quad-card{
+  background:var(--warm);padding:40px 36px;
+  transition:background 0.2s;
+}
+.quad-card:hover{background:var(--white);}
+.quad-axis{
+  font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  color:#9a8060;margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.axis-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.dot-1{background:#c4a882;} .dot-2{background:#8b6f47;}
+.dot-3{background:#a0856a;} .dot-4{background:#6b5040;}
+
+.quad-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,2.5vw,28px);font-weight:500;
+  color:var(--text-dark);margin-bottom:6px;line-height:1.2;
+}
+.quad-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;font-style:italic;color:var(--text-muted);
+  margin-bottom:14px;line-height:1.45;
+}
+.quad-body{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:16px;}
+.quad-resolves{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:#8b6f47;display:flex;align-items:center;gap:6px;
+}
+.quad-resolves::before{content:'→';}
+
+/* ── PROGRAMS ── */
+.programs-section{background:var(--charcoal);padding:80px 48px;}
+.programs-inner{max-width:1100px;margin:0 auto;}
+
+.programs-header{margin-bottom:64px;}
+.programs-header .section-heading{color:var(--text-light);}
+.programs-header .section-eyebrow{color:var(--gold);}
+
+/* Program card */
+.prog-card{
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:4px;
+  margin-bottom:3px;
+  overflow:hidden;
+  transition:border-color 0.2s;
+}
+.prog-card:hover{border-color:rgba(212,165,116,0.25);}
+
+.prog-header{
+  padding:40px 44px;
+  display:grid;grid-template-columns:1fr auto;
+  gap:24px;align-items:start;
+  cursor:pointer;
+  background:rgba(255,255,255,0.02);
+  transition:background 0.2s;
+}
+.prog-header:hover{background:rgba(255,255,255,0.04);}
+
+.prog-number{
+  font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(212,165,116,0.6);display:block;margin-bottom:10px;
+}
+.prog-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,4vw,48px);font-weight:400;
+  color:var(--text-light);line-height:1.1;margin-bottom:8px;
+}
+.prog-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(16px,1.8vw,20px);font-style:italic;
+  color:rgba(245,245,247,0.55);line-height:1.45;
+}
+
+.prog-toggle{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(245,245,247,0.5);font-size:14px;flex-shrink:0;
+  margin-top:6px;transition:all 0.25s ease;
+}
+.prog-card.open .prog-toggle{
+  transform:rotate(180deg);
+  background:var(--gold);border-color:var(--gold);color:var(--charcoal);
+}
+
+/* Bullets row — always visible */
+.prog-bullets{
+  padding:0 44px 28px;
+  display:flex;flex-direction:column;gap:0;
+}
+.prog-bullet{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:16px 0;
+  border-top:1px solid rgba(255,255,255,0.06);
+  font-size:clamp(16px,1.8vw,18px);
+  color:rgba(245,245,247,0.80);
+  line-height:1.6;font-weight:300;
+}
+.prog-bullet::before{
+  content:'';
+  width:6px;height:6px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;
+  margin-top:8px;
+}
+
+/* Expandable body */
+.prog-body{
+  display:none;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.prog-card.open .prog-body{display:block;}
+
+.prog-body-inner{padding:40px 44px 48px;}
+
+/* Dropdown toggle inside body */
+.para-toggle{
+  width:100%;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);border-radius:10px;
+  padding:16px 20px;
+  color:rgba(245,245,247,0.75);font-size:16px;font-weight:500;
+  font-family:'DM Sans',sans-serif;
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;margin-bottom:12px;
+  transition:background 0.2s,border-color 0.2s;
+}
+.para-toggle:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.14);}
+.para-toggle .chev{font-size:13px;transition:transform 0.25s ease;opacity:0.6;}
+.para-toggle.open .chev{transform:rotate(180deg);}
+
+.para-body{
+  display:none;
+  padding:20px 24px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:0 0 10px 10px;
+  margin-top:-12px;margin-bottom:12px;
+}
+.para-body.open{display:block;}
+.para-body p{
+  font-size:clamp(16px,1.8vw,18px);
+  color:rgba(245,245,247,0.70);
+  line-height:1.8;font-weight:300;
+  margin-bottom:14px;
+}
+.para-body p:last-child{margin-bottom:0;}
+
+/* Movements */
+.movements-label{
+  font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(212,165,116,0.7);margin:32px 0 20px;display:block;
+}
+
+.movements{display:flex;flex-direction:column;}
+.movement{
+  padding:22px 0;
+  border-top:1px solid rgba(255,255,255,0.07);
+}
+.movement:last-child{border-bottom:1px solid rgba(255,255,255,0.07);}
+.movement-num{
+  font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--gold);display:block;margin-bottom:8px;opacity:0.7;
+}
+.movement-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,2.5vw,26px);font-weight:500;
+  color:var(--text-light);margin-bottom:10px;line-height:1.3;
+}
+.movement-body{
+  font-size:clamp(15px,1.6vw,17px);
+  color:rgba(245,245,247,0.62);line-height:1.75;font-weight:300;
+}
+
+.prog-closing{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,2.5vw,26px);font-style:italic;
+  color:var(--gold);margin-top:32px;padding-top:32px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  line-height:1.5;
+}
+
+/* ── SERIES SUMMARY ── */
+.summary-section{background:var(--warm);padding:80px 48px;}
+.summary-inner{max-width:1100px;margin:0 auto;}
+
+.summary-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:#d6d0c8;border:1px solid #d6d0c8;
+  margin-top:48px;
+}
+.summary-card{
+  background:var(--warm);padding:40px 36px;
+}
+.summary-card-num{
+  font-size:10px;letter-spacing:0.15em;text-transform:uppercase;
+  color:#c4a882;display:block;margin-bottom:12px;
+}
+.summary-card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,2.5vw,28px);font-weight:500;
+  color:var(--text-dark);margin-bottom:6px;
+}
+.summary-card-sub{
+  font-size:13px;font-style:italic;font-family:'Cormorant Garamond',serif;
+  color:var(--text-muted);margin-bottom:16px;line-height:1.4;
+}
+.summary-card-charge{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:#9a8060;display:flex;align-items:center;gap:8px;
+  margin-bottom:14px;
+}
+.summary-card-charge::before{content:'';width:20px;height:1px;background:#c4a882;}
+.summary-card-resolves{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:#8b6f47;display:flex;align-items:center;gap:6px;
+  padding-top:16px;border-top:1px solid #d6d0c8;
+}
+.summary-card-resolves::before{content:'→';}
+
+.summary-closing{
+  margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+}
+.summary-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(26px,3.5vw,40px);font-weight:300;font-style:italic;
+  color:var(--text-dark);line-height:1.4;
+}
+.summary-body{font-size:17px;color:var(--text-muted);line-height:1.8;}
+
+/* ── CONTACT FORM ── */
+.contact-section{background:var(--charcoal);padding:100px 48px;}
+.contact-inner{max-width:760px;margin:0 auto;}
+
+.contact-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,5vw,64px);font-weight:300;
+  color:var(--text-light);line-height:1.1;margin-bottom:16px;
+  text-align:center;
+}
+.contact-desc{
+  font-size:18px;color:rgba(245,245,247,0.60);
+  text-align:center;max-width:600px;margin:0 auto 56px;line-height:1.7;
+}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+.form-group{display:flex;flex-direction:column;gap:8px;}
+
+.form-label{
+  font-size:13px;font-weight:500;letter-spacing:0.05em;
+  color:rgba(245,245,247,0.80);
+}
+
+.form-input{
+  width:100%;padding:13px 16px;
+  border:1px solid rgba(255,255,255,0.12);border-radius:8px;
+  background:rgba(255,255,255,0.05);color:var(--white);
+  font-size:15px;font-family:'DM Sans',sans-serif;
+  transition:border-color 0.2s,background 0.2s;
+  outline:none;
+}
+.form-input:focus{border-color:var(--gold);background:rgba(255,255,255,0.07);}
+.form-input option{background:var(--charcoal);color:var(--white);}
+
+textarea.form-input{resize:vertical;min-height:130px;}
+
+.budget-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:4px;}
+.budget-option{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;color:rgba(245,245,247,0.65);cursor:pointer;
+}
+.budget-option input{cursor:pointer;accent-color:var(--gold);}
+
+.form-submit{
+  width:100%;padding:17px 32px;
+  background:var(--slate);color:var(--white);
+  border:none;border-radius:10px;
+  font-size:16px;font-weight:600;font-family:'DM Sans',sans-serif;
+  cursor:pointer;transition:background 0.2s;
+  margin-top:8px;letter-spacing:0.03em;
+}
+.form-submit:hover{background:var(--gold);}
+
+.form-note{
+  text-align:center;font-size:13px;
+  color:rgba(245,245,247,0.45);margin-top:12px;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--charcoal);
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:48px;text-align:center;
+}
+.footer-links{
+  display:flex;justify-content:center;gap:32px;flex-wrap:wrap;
+  margin-bottom:24px;
+}
+.footer-links a{
+  font-size:13px;color:rgba(245,245,247,0.45);text-decoration:none;
+  transition:color 0.2s;letter-spacing:0.04em;
+}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:13px;color:rgba(245,245,247,0.30);letter-spacing:0.04em;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .quad-grid,.summary-grid,.summary-closing{grid-template-columns:1fr;}
+}
+
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  nav.scrolled{padding:12px 20px;}
+  .nav-links,.nav-cta{display:none;}
+  .mobile-toggle{display:block;}
+
+  .nav-links.mobile-open{
+    display:flex;flex-direction:column;gap:0;
+    position:fixed;top:58px;left:0;right:0;
+    background:rgba(26,26,26,0.98);
+    padding:16px 20px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links.mobile-open li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .nav-links.mobile-open a{font-size:18px;}
+
+  .hero{padding:120px 20px 60px;}
+  .hero-title{font-size:clamp(48px,10vw,68px);}
+  .hero-desc{font-size:19px;}
+
+  .quadrant-section,.programs-section,.summary-section,.contact-section{padding:60px 20px;}
+
+  .section-heading{font-size:clamp(36px,8vw,52px);}
+
+  .quad-card{padding:28px 20px;}
+  .quad-title{font-size:clamp(22px,5vw,28px);}
+  .quad-sub{font-size:15px;}
+  .quad-body{font-size:16px;}
+
+  .prog-header{padding:28px 20px;gap:16px;}
+  .prog-title{font-size:clamp(28px,7vw,40px);}
+  .prog-subtitle{font-size:17px;}
+  .prog-number{font-size:12px;}
+
+  .prog-bullets{padding:0 20px 24px;}
+  .prog-bullet{font-size:17px;gap:14px;}
+
+  .prog-body-inner{padding:28px 20px 36px;}
+
+  .para-toggle{font-size:17px;padding:16px 18px;}
+  .para-body p{font-size:17px;}
+
+  .movements-label{font-size:13px;}
+  .movement-title{font-size:clamp(20px,5vw,26px);}
+  .movement-body{font-size:16px;}
+  .prog-closing{font-size:clamp(20px,5vw,26px);}
+
+  .summary-card{padding:28px 20px;}
+  .summary-card-title{font-size:clamp(22px,5vw,28px);}
+  .summary-quote{font-size:clamp(24px,6vw,36px);}
+  .summary-body{font-size:17px;}
+  .summary-closing{gap:40px;margin-top:48px;}
+
+  .form-row{grid-template-columns:1fr;}
+  .contact-heading{font-size:clamp(36px,8vw,52px);}
+  .contact-desc{font-size:17px;}
+  .form-label{font-size:15px;}
+  .form-input{font-size:16px;padding:14px 16px;}
+  .form-submit{font-size:17px;padding:18px;}
+
+  footer{padding:40px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Sam Osborne</a>
+  <button class="mobile-toggle" id="mobileToggle">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#speaking">Speaking</a></li>
+    <li><a href="index.html#method">The Method</a></li>
+    <li><a href="index.html#who">Who I Work With</a></li>
+    <li><a href="leadership-advisory.html">Advisory</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Keynote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Signature Keynote Programs</span>
+    <h1 class="hero-title">Four charges.<br>One <em>systematic</em><br>solution.</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">Every charge that undermines your leadership — whether it points outward toward others or inward toward yourself, whether it's resentment or infatuation — is a perceptual imbalance with a systematic solution. These four programs address the complete picture.</p>
+    <span class="hero-method-note">All four programs feature a live Demartini Method demonstration</span>
+  </div>
+</section>
+
+<!-- QUADRANT MAP -->
+<section class="quadrant-section">
+  <div class="quadrant-inner">
+    <span class="section-eyebrow">The Complete Framework</span>
+    <h2 class="section-heading">Four charges.<br><em>One destination.</em></h2>
+    <div class="quad-grid">
+      <div class="quad-card">
+        <div class="quad-axis"><span class="axis-dot dot-2"></span>Outward · Resentment</div>
+        <h3 class="quad-title">The Conflict Advantage</h3>
+        <p class="quad-sub">How Precision Perception Transforms What Triggers You Into What Leads You</p>
+        <p class="quad-body">Specific people trigger reactivity that erodes your composure. The charge is not the problem — it's data. Precision perception transforms it into a leadership instrument.</p>
+        <span class="quad-resolves">Strategic Clarity</span>
+      </div>
+      <div class="quad-card">
+        <div class="quad-axis"><span class="axis-dot dot-1"></span>Outward · Infatuation</div>
+        <h3 class="quad-title">The Admiration Trap</h3>
+        <p class="quad-sub">Why the Leaders You Look Up to Are Quietly Costing You Your Authority</p>
+        <p class="quad-body">Every time you place someone above you, you unconsciously place yourself below them. That imbalance is costing you the authority you're trying to develop.</p>
+        <span class="quad-resolves">Leadership Authority</span>
+      </div>
+      <div class="quad-card">
+        <div class="quad-axis"><span class="axis-dot dot-3"></span>Inward · Infatuation</div>
+        <h3 class="quad-title">The Defended Self</h3>
+        <p class="quad-sub">Why What You're Most Proud of Is Quietly Limiting Your Leadership</p>
+        <p class="quad-body">The traits you're most proud of are the ones you're most defended about. Your greatest strength is not the problem. Your inability to see past it is.</p>
+        <span class="quad-resolves">Authentic Self-Knowledge</span>
+      </div>
+      <div class="quad-card">
+        <div class="quad-axis"><span class="axis-dot dot-4"></span>Inward · Resentment</div>
+        <h3 class="quad-title">The Disowned Self</h3>
+        <p class="quad-sub">How the Parts of You You've Rejected Are Running Your Leadership</p>
+        <p class="quad-body">What you despise in yourself doesn't disappear — it goes underground and distorts how you lead everyone around you.</p>
+        <span class="quad-resolves">Authentic Authority</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-section">
+  <div class="programs-inner">
+
+    <div class="programs-header">
+      <span class="section-eyebrow">The Four Programs</span>
+      <h2 class="section-heading" style="color:var(--text-light);">Each one a different<br><em>door to the same transformation.</em></h2>
+    </div>
+
+    <!-- PROGRAM 1 -->
+    <div class="prog-card" id="p1">
+      <div class="prog-header" onclick="toggleProg('p1')">
+        <div>
+          <span class="prog-number">Program I — Outward Resentment</span>
+          <h3 class="prog-title">The Conflict Advantage</h3>
+          <p class="prog-subtitle">How Precision Perception Transforms What Triggers You Into What Leads You</p>
+        </div>
+        <div class="prog-toggle">▼</div>
+      </div>
+      <div class="prog-bullets">
+        <div class="prog-bullet">The people who trigger you most are showing you where your perception is imbalanced — not where your authority is weak</div>
+        <div class="prog-bullet">Emotional reactivity isn't a character flaw. It's a perceptual imbalance with a systematic solution</div>
+        <div class="prog-bullet">When the charge dissolves, conflict stops happening to your leadership and starts informing it</div>
+      </div>
+      <div class="prog-body">
+        <div class="prog-body-inner">
+
+          <button class="para-toggle" onclick="togglePara(this)">
+            The premise <span class="chev">▼</span>
+          </button>
+          <div class="para-body">
+            <p>Every leader has people who trigger them. The board member whose dismissiveness activates defensiveness. The partner whose decisions create friction in every strategic conversation. The investor whose scrutiny collapses confidence into performance.</p>
+            <p>Most leadership development teaches you to manage the reaction. Breathe through it. Reframe it. Build resilience around it. This keynote teaches something fundamentally different: the emotional charge itself is data — and when you learn to read it with precision, conflict stops being a threat to your authority and becomes the most accurate diagnostic tool you have.</p>
+          </div>
+
+          <button class="para-toggle" onclick="togglePara(this)">
+            The argument <span class="chev">▼</span>
+          </button>
+          <div class="para-body">
+            <p>Emotional reactivity isn't a character flaw. It's a perceptual imbalance. When you see only the cost of someone's behavior and none of the benefit, perception distorts. That distortion drives the charge. The charge erodes your credibility, your composure, and your strategic judgment. Precision perception dissolves the imbalance — permanently.</p>
+            <p>The keynote closes with a live demonstration of the Demartini Method: a real leader, a real relationship, a real charge dissolved in real time. Audiences leave having witnessed what systematic transformation looks like — and recognizing their own version of the charge.</p>
+          </div>
+
+          <span class="movements-label">The Three Movements</span>
+          <div class="movements">
+            <div class="movement">
+              <span class="movement-num">Movement I</span>
+              <h4 class="movement-title">The Charge Is the Clue</h4>
+              <p class="movement-body">What triggers you reveals what you haven't balanced in your perception. The board member who triggers defensiveness is showing you where your authority feels borrowed rather than owned. The charge isn't the problem — the charge is the map.</p>
+            </div>
+            <div class="movement">
+              <span class="movement-num">Movement II</span>
+              <h4 class="movement-title">Precision Is the Process</h4>
+              <p class="movement-body">The Demartini Method applies systematic questioning to dissolve the perceptual imbalance driving the charge. Not introspection — precision work. Methodical, repeatable, and permanent. You don't cope with the trigger. You transform the perception that created it.</p>
+            </div>
+            <div class="movement">
+              <span class="movement-num">Movement III</span>
+              <h4 class="movement-title">Conflict Becomes Command</h4>
+              <p class="movement-body">When the charge dissolves, what remains is clarity. The relationships consuming your energy become sources of strategic intelligence. Conflict stops being something that happens to your leadership and becomes something your leadership moves through — cleanly, with equanimity.</p>
+            </div>
+          </div>
+          <p class="prog-closing">The people who trigger you are not your problem. Your perception of them is.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM 2 -->
+    <div class="prog-card" id="p2">
+      <div class="prog-header" onclick="toggleProg('p2')">
+        <div>
+          <span class="prog-number">Program II — Outward Infatuation</span>
+          <h3 class="prog-title">The Admiration Trap</h3>
+          <p class="prog-subtitle">Why the Leaders You Look Up to Are Quietly Costing You Your Authority</p>
+        </div>
+        <div class="prog-toggle">▼</div>
+      </div>
+      <div class="prog-bullets">
+        <div class="prog-bullet">Every time you place someone above you, you unconsciously place yourself below them</div>
+        <div class="prog-bullet">The traits you admire most in others are traits you already possess — expressed differently, in different contexts</div>
+        <div class="prog-bullet">Dissolving the charge doesn't diminish the people you admire. It reclaims the worth you've been outsourcing to them</div>
+      </div>
+      <div class="prog-body">
+        <div class="prog-body-inner">
+
+          <button class="para-toggle" onclick="togglePara(this)">
+            The premise <span class="chev">▼</span>
+          </button>
+          <div class="para-body">
+            <p>Every leader has them. The mentor whose judgment feels infallible. The founder whose vision makes yours feel small. The executive whose presence makes you recalibrate how you speak, how you sit, how you lead before you've said a word.</p>
+            <p>We call this admiration. Leadership culture celebrates it. What leadership culture doesn't tell you is that every time you place someone above you, you unconsciously place yourself below them — and that imbalance is costing you the very authority you're trying to develop.</p>
+          </div>
+
+          <button class="para-toggle" onclick="togglePara(this)">
+            The argument <span class="chev">▼</span>
+          </button>
+          <div class="para-body">
+            <p>Admiration feels like inspiration. But unchecked admiration is a perceptual imbalance — and like all perceptual imbalances, it distorts your judgment and produces a version of leadership that performs authority rather than embodies it. Not the hot charge of conflict — the quiet charge of diminishment.</p>
+            <p>The live demonstration applies the Method to admiration rather than resentment. Audiences watch infatuation dissolve — not through criticism of the admired figure, but through the recognition that every trait they've been projecting outward already exists within them.</p>
+          </div>
+
+          <span class="movements-label">The Three Movements</span>
+          <div class="movements">
+            <div class="movement">
+              <span class="movement-num">Movement I</span>
+              <h4 class="movement-title">The Hidden Cost of Looking Up</h4>
+              <p class="movement-body">When you perceive someone as possessing qualities you lack, you simultaneously perceive yourself as lacking them. Every mentor placed on a pedestal is a mirror showing you your own perceived inadequacy. The admiration feels expansive. The diminishment is invisible — until you look at how you lead when they're in the room.</p>
+            </div>
+            <div class="movement">
+              <span class="movement-num">Movement II</span>
+              <h4 class="movement-title">You Already Own What You Admire</h4>
+              <p class="movement-body">The traits you admire most in others are traits you already possess — expressed differently, in different contexts, through different behaviors. You haven't been lacking these qualities. You've been failing to recognize them in yourself because you've been too busy seeing them in someone else.</p>
+            </div>
+            <div class="movement">
+              <span class="movement-num">Movement III</span>
+              <h4 class="movement-title">Reclaim the Worth You've Been Outsourcing</h4>
+              <p class="movement-body">When the infatuation balances, something returns. The worth you'd been placing outward comes back — not as arrogance, but as a quiet recognition that the authority you were waiting for permission to inhabit was always yours. You stop performing the leader you think they would be and start embodying the leader you actually are.</p>
+            </div>
+          </div>
+          <p class="prog-closing">The leaders you admire most are not showing you what you lack. They are showing you what you haven't yet claimed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM 3 -->
+    <div class="prog-card" id="p3">
+      <div class="prog-header" onclick="toggleProg('p3')">
+        <div>
+          <span class="prog-number">Program III — Inward Infatuation</span>
+          <h3 class="prog-title">The Defended Self</h3>
+          <p class="prog-subtitle">Why What You're Most Proud of Is Quietly Limiting Your Leadership</p>
+        </div>
+        <div class="prog-toggle">▼</div>
+      </div>
+      <div class="prog-bullets">
+        <div class="prog-bullet">The traits you're most proud of are the ones you're most defended about — and least able to examine</div>
+        <div class="prog-bullet">Every quality that makes you exceptional creates an equal and opposite blind spot visible to everyone but you</div>
+        <div class="prog-bullet">When the charge dissolves, what remains isn't less confidence — it's the kind that doesn't need protecting</div>
+      </div>
+      <div class="prog-body">
+        <div class="prog-body-inner">
+
+          <button class="para-toggle" onclick="togglePara(this)">
+            The premise <span class="chev">▼</span>
+          </button>
+          <div class="para-body">
+            <p>Every leader has a story about themselves. The vision that sets them apart. The resilience that got them through. The particular quality — intelligence, drive, discipline, precision — that they know, quietly or not so quietly, is the reason they're in the room.</p>
+            <p>We call this confidence. Leadership culture calls it self-awareness. What neither calls it is what it actually is: a perceptual imbalance pointed inward. Because the traits you're most proud of are also the ones you're most defended about.</p>
+          </div>
+
+          <button class="para-toggle" onclick="togglePara(this)">
+            The argument <span class="chev">▼</span>
+          </button>
+          <div class="para-body">
+            <p>When infatuation with your own traits becomes fixed perception — when you see only their value and none of their cost — you are no longer leading from those qualities. You are defending them. You stop receiving feedback because it threatens the identity. You start surrounding yourself with people who reflect the story back rather than challenge it.</p>
+            <p>The live demonstration applies the Method to self-infatuation. A leader works through a quality they take deep pride in, and the audience watches the charge dissolve — not through self-criticism but through precision perception. Often the most confronting demonstration in the series.</p>
+          </div>
+
+          <span class="movements-label">The Three Movements</span>
+          <div class="movements">
+            <div class="movement">
+              <span class="movement-num">Movement I</span>
+              <h4 class="movement-title">The Story You're Most Attached To</h4>
+              <p class="movement-body">Every leader carries a self-narrative built around their defining qualities. That narrative shapes what feedback you can receive, what development you'll pursue, what weaknesses you'll tolerate in yourself that you'd never accept in others. The trait you're most proud of is the one you're least able to see clearly — because the charge around it makes examination feel like betrayal.</p>
+            </div>
+            <div class="movement">
+              <span class="movement-num">Movement II</span>
+              <h4 class="movement-title">The Cost of Your Greatest Strength</h4>
+              <p class="movement-body">Every quality that makes you exceptional creates an equal and opposite blind spot. The visionary who can't execute detail. The resilient founder who can't acknowledge when something isn't working. The charge around your greatest strength is precisely what makes its shadow invisible to you — and visible to everyone else in the room.</p>
+            </div>
+            <div class="movement">
+              <span class="movement-num">Movement III</span>
+              <h4 class="movement-title">From Defended to Authentic</h4>
+              <p class="movement-body">When the infatuation with your own qualities balances, the defensiveness dissolves. What remains is something more useful than pride: genuine self-knowledge. You stop performing the version of yourself you've decided is the best version, and start leading from who you actually are. That's not a smaller identity. It's a freer one.</p>
+            </div>
+          </div>
+          <p class="prog-closing">Your greatest strength is not the problem. Your inability to see past it is.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM 4 -->
+    <div class="prog-card" id="p4">
+      <div class="prog-header" onclick="toggleProg('p4')">
+        <div>
+          <span class="prog-number">Program IV — Inward Resentment</span>
+          <h3 class="prog-title">The Disowned Self</h3>
+          <p class="prog-subtitle">How the Parts of You You've Rejected Are Running Your Leadership</p>
+        </div>
+        <div class="prog-toggle">▼</div>
+      </div>
+      <div class="prog-bullets">
+        <div class="prog-bullet">What you despise in yourself doesn't disappear — it goes underground and surfaces as the harshness of your judgment toward others</div>
+        <div class="prog-bullet">The traits you've disowned in yourself are precisely the ones you're least able to tolerate in the people you lead</div>
+        <div class="prog-bullet">Dissolving the shame charge doesn't produce self-indulgence — it produces authenticity, and the energy to actually lead</div>
+      </div>
+      <div class="prog-body">
+        <div class="prog-body-inner">
+
+          <button class="para-toggle" onclick="togglePara(this)">
+            The premise <span class="chev">▼</span>
+          </button>
+          <div class="para-body">
+            <p>Every leader has parts of themselves they've buried. The neediness they learned early to hide. The anger they decided made them dangerous. The weakness — laziness, cowardice, selfishness — that they've spent a career proving they don't have.</p>
+            <p>The disowned traits don't disappear. They go underground. And from underground, they run things — in the harshness of your judgment toward others, in the speed of your contempt for certain behaviors, in the disproportionate charge you feel when a particular kind of person walks into a room.</p>
+          </div>
+
+          <button class="para-toggle" onclick="togglePara(this)">
+            The argument <span class="chev">▼</span>
+          </button>
+          <div class="para-body">
+            <p>Shame is not humility. It presents itself that way — as honest reckoning. But shame is a perceptual imbalance pointed inward. When you see only the cost of a trait you carry and none of its benefit, you don't transcend it. You suppress it. And suppression distorts — the traits you've disowned in yourself are the ones you're least able to tolerate in others.</p>
+            <p>The live demonstration applies the Method to self-resentment. Audiences watch someone move from self-contempt to genuine self-recognition — often the most quietly transformative demonstration in the series. The relief of dissolving shame is different from dissolving any other charge. Audiences feel it in the room before the person speaks.</p>
+          </div>
+
+          <span class="movements-label">The Three Movements</span>
+          <div class="movements">
+            <div class="movement">
+              <span class="movement-num">Movement I</span>
+              <h4 class="movement-title">What You've Disowned Is Still Leading</h4>
+              <p class="movement-body">The traits you've rejected most thoroughly are the ones with the most charge — and charge drives behavior whether you acknowledge it or not. The leader who has disowned their anger leads with a controlled coldness their team experiences as something worse than anger. The disowned self doesn't disappear. It shows up in everything.</p>
+            </div>
+            <div class="movement">
+              <span class="movement-num">Movement II</span>
+              <h4 class="movement-title">The Judgment Mirror</h4>
+              <p class="movement-body">The traits you despise in yourself are the ones you judge most harshly in others. When a direct report triggers disproportionate contempt, you are not responding to them — you are responding to the disowned version of yourself they're reflecting back. Dissolving the inward charge dissolves the outward judgment.</p>
+            </div>
+            <div class="movement">
+              <span class="movement-num">Movement III</span>
+              <h4 class="movement-title">Authenticity Is What Remains</h4>
+              <p class="movement-body">When the shame charge dissolves, what returns is not self-indulgence — it is authenticity. The energy you were spending managing, hiding, and compensating for the disowned self becomes available for actual leadership. You stop performing the version of yourself that has successfully buried the unacceptable parts, and start leading from the whole of who you are.</p>
+            </div>
+          </div>
+          <p class="prog-closing">The parts of you you've most tried to hide are not your liability. Your inability to see them clearly is.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERIES SUMMARY -->
+<section class="summary-section">
+  <div class="summary-inner">
+    <span class="section-eyebrow">The Complete Picture</span>
+    <h2 class="section-heading">Same method.<br><em>Four charges.</em></h2>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <span class="summary-card-num">Program I</span>
+        <h3 class="summary-card-title">The Conflict Advantage</h3>
+        <p class="summary-card-sub">"How Precision Perception Transforms What Triggers You Into What Leads You"</p>
+        <p class="summary-card-charge">Outward Resentment</p>
+        <span class="summary-card-resolves">Strategic Clarity</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card-num">Program II</span>
+        <h3 class="summary-card-title">The Admiration Trap</h3>
+        <p class="summary-card-sub">"Why the Leaders You Look Up to Are Quietly Costing You Your Authority"</p>
+        <p class="summary-card-charge">Outward Infatuation</p>
+        <span class="summary-card-resolves">Leadership Authority</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card-num">Program III</span>
+        <h3 class="summary-card-title">The Defended Self</h3>
+        <p class="summary-card-sub">"Why What You're Most Proud of Is Quietly Limiting Your Leadership"</p>
+        <p class="summary-card-charge">Inward Infatuation</p>
+        <span class="summary-card-resolves">Authentic Self-Knowledge</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-card-num">Program IV</span>
+        <h3 class="summary-card-title">The Disowned Self</h3>
+        <p class="summary-card-sub">"How the Parts of You You've Rejected Are Running Your Leadership"</p>
+        <p class="summary-card-charge">Inward Resentment</p>
+        <span class="summary-card-resolves">Authentic Authority</span>
+      </div>
+    </div>
+
+    <div class="summary-closing">
+      <p class="summary-quote">"Most leaders enter through one program and recognize themselves in all four."</p>
+      <p class="summary-body">All four keynotes are bookable independently or sequenced as a multi-program engagement. Each includes a live Demartini Method demonstration, customized framing for your audience, and a post-keynote debrief with event leadership. The series is designed to be experienced in sequence or booked individually depending on where the charge is most acute.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-heading">Book a Keynote</h2>
+    <p class="contact-desc">Ready to bring Sam Osborne to your next event? Share details below and we'll confirm fit and next steps within 2 business days.</p>
+
+    <form name="keynote-inquiry" method="POST" action="https://formspree.io/f/xaqdebvj">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your Name *</label>
+          <input class="form-input" type="text" name="name" required placeholder="First and Last Name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address *</label>
+          <input class="form-input" type="email" name="email" required placeholder="you@company.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" type="tel" name="phone" placeholder="(555) 000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Title / Role</label>
+          <input class="form-input" type="text" name="title" placeholder="e.g., CEO, Event Manager">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Organization *</label>
+          <input class="form-input" type="text" name="organization" required placeholder="Company or Organization Name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organization Website</label>
+          <input class="form-input" type="url" name="website" placeholder="https://company.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Keynote of Interest *</label>
+          <select class="form-input" name="keynote" required>
+            <option value="">Select a program...</option>
+            <option>The Conflict Advantage</option>
+            <option>The Admiration Trap</option>
+            <option>The Defended Self</option>
+            <option>The Disowned Self</option>
+            <option>Multiple / Full Series</option>
+            <option>To Be Discussed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Event Type *</label>
+          <select class="form-input" name="event_type" required>
+            <option value="">Select event type...</option>
+            <option>Conference</option>
+            <option>Corporate Event</option>
+            <option>Executive Retreat</option>
+            <option>Leadership Summit</option>
+            <option>Professional Association</option>
+            <option>Workshop / Training</option>
+            <option>Virtual Keynote</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Preferred Event Date *</label>
+          <input class="form-input" type="date" name="event_date" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Event Location *</label>
+          <input class="form-input" type="text" name="location" required placeholder="City, State or Virtual">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Expected Audience Size</label>
+          <select class="form-input" name="audience_size">
+            <option value="">Select size...</option>
+            <option>Under 50</option>
+            <option>50–100</option>
+            <option>100–250</option>
+            <option>250–500</option>
+            <option>500–1,000</option>
+            <option>1,000+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Format</label>
+          <select class="form-input" name="format">
+            <option value="">Select format...</option>
+            <option>Single Keynote (60–90 min)</option>
+            <option>Keynote + Breakout</option>
+            <option>Multi-Day Programming</option>
+            <option>Executive Team Facilitation</option>
+            <option>Virtual Keynote</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:20px;">
+        <label class="form-label">Additional Details & Questions</label>
+        <textarea class="form-input" name="message" placeholder="Tell us more about your event, audience, specific goals, or any questions you have for Sam..."></textarea>
+      </div>
+
+      <div class="form-group" style="margin-bottom:28px;">
+        <label class="form-label">Budget Range (Optional)</label>
+        <div class="budget-row">
+          <label class="budget-option"><input type="radio" name="budget" value="Under $20K"> Under $20K</label>
+          <label class="budget-option"><input type="radio" name="budget" value="$20K–$30K"> $20K–$30K</label>
+          <label class="budget-option"><input type="radio" name="budget" value="$30K–$50K"> $30K–$50K</label>
+          <label class="budget-option"><input type="radio" name="budget" value="$50K+"> $50K+</label>
+          <label class="budget-option"><input type="radio" name="budget" value="To Be Discussed"> To Be Discussed</label>
+        </div>
+      </div>
+
+      <button class="form-submit" type="submit">Send Keynote Inquiry</button>
+      <p class="form-note">* Required fields. We'll respond within 2 business days to confirm fit and scheduling.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#speaking">Speaking</a>
+    <a href="index.html#method">The Method</a>
+    <a href="leadership-advisory.html">Advisory</a>
+    <a href="mailto:sam@samosborne.net">Contact</a>
+  </div>
+  <p class="footer-copy">© 2026 Sam Osborne · Demartini Method Facilitator · Burbank, California · samosborne.net</p>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile nav
+  const toggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-open');
+    toggle.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-open');
+      toggle.textContent = '☰';
+    });
+  });
+
+  // Program accordion — one open at a time
+  function toggleProg(id) {
+    const card = document.getElementById(id);
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.prog-card').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+  }
+
+  // Para dropdown inside each program
+  function togglePara(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
