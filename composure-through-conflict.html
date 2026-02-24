@@ -52,9 +52,35 @@
         .mobile-menu .menu-cta:hover { background: var(--gold) !important; }
         .mobile-menu-divider { width: 40px; height: 1px; background: rgba(255,255,255,0.12); margin: 8px 0; }
 
-        /* HERO */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 40px 80px; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(74,94,127,0.18) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 80% 80%, rgba(212,165,116,0.08) 0%, transparent 50%); pointer-events: none; }
+        /* =============================================
+           HERO — banner image on top, content below
+        ============================================= */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-top: 72px; /* nav height offset */
+        }
+
+        /* Full-width banner image */
+        .hero-banner-img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* Content area below the image */
+        .hero-content {
+            width: 100%;
+            padding: 70px 40px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero::before { display: none; }
+
         .hero-tag { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; background: rgba(212,165,116,0.12); border: 1px solid rgba(212,165,116,0.35); border-radius: 999px; padding: 12px 24px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards; }
         .hero-tag-stars { font-size: 16px; letter-spacing: 3px; }
         .hero-tag::before { display: none; }
@@ -226,107 +252,63 @@
             .nav-links { display: none; }
             .hamburger { display: flex; }
             .section, .testimonials-section, .eval-section, .who-section, .fees-section, .contact-section { padding: 70px 20px; }
-            .hero { padding: 100px 20px 60px; }
+            .hero { padding-top: 60px; }
+            .hero-content { padding: 50px 20px 60px; }
             .hero-speakers { flex-direction: column; gap: 16px; }
             .speaker-divider { transform: rotate(90deg); }
             .form-grid-2 { grid-template-columns: 1fr; }
             .testimonial-slide { padding: 36px 24px; }
 
-            /* ============================================
-               HERO TAG — "CAI Law Seminar 2026 · Rated Best of Conference"
-            ============================================ */
-            .hero-tag {
-                font-size: 16px !important;
-                padding: 13px 26px !important;
-                letter-spacing: 0.10em !important;
-                gap: 12px !important;
-                margin-bottom: 30px !important;
-            }
+            .hero-tag { font-size: 16px !important; padding: 13px 26px !important; letter-spacing: 0.10em !important; gap: 12px !important; margin-bottom: 30px !important; }
             .hero-tag::before { font-size: 16px !important; }
-
-            /* ============================================
-               HERO TITLE — "Composure Through Conflict"
-            ============================================ */
             .hero-title { font-size: clamp(72px, 18vw, 100px) !important; line-height: 0.93 !important; }
-
-            /* ---- REST OF HERO ---- */
             .hero-eyebrow { font-size: 24px !important; }
             .hero-subtitle { font-size: 22px !important; line-height: 1.55 !important; }
             .speaker-chip .name { font-size: 21px !important; }
             .speaker-chip .role { font-size: 15px !important; }
-
-            /* ---- SCORE ITEMS ---- */
             .score-item { padding: 20px 18px; width: 100%; }
             .score-number { font-size: 56px !important; }
             .score-stars { font-size: 20px !important; }
             .score-label { font-size: 15px !important; }
-
-            /* ---- BUTTONS ---- */
             .btn-primary, .btn-secondary { font-size: 20px !important; padding: 18px 36px !important; }
-
-            /* ---- SECTION HEADINGS ---- */
             .section-label { font-size: 15px !important; letter-spacing: 0.14em !important; }
             .section-title { font-size: clamp(50px, 12vw, 74px) !important; line-height: 1.05 !important; }
             .section-desc { font-size: 20px !important; line-height: 1.65 !important; }
-
-            /* ---- TESTIMONIALS ---- */
             .testimonials-header h3 { font-size: clamp(40px, 10vw, 56px) !important; }
             .testimonials-header p { font-size: 19px !important; }
             .testimonial-quote { font-size: 25px !important; line-height: 1.6 !important; }
             .author-name { font-size: 20px !important; }
             .author-title { font-size: 17px !important; }
-
-            /* ---- SESSION ---- */
             .session-two-col h3, #session h3[style] { font-size: 34px !important; }
-
-            /* ---- SPEAKERS ---- */
             .speaker-name { font-size: 46px !important; }
             .speaker-cred { font-size: 16px !important; }
             .speaker-bio { font-size: 20px !important; line-height: 1.75 !important; }
-
-            /* ---- WHO ---- */
             .who-title { font-size: 28px !important; }
             .who-desc { font-size: 20px !important; line-height: 1.7 !important; }
-
-            /* ---- ACCORDION CONTENT ---- */
             .mob-body p, .mob-body li { font-size: 20px !important; line-height: 1.75 !important; }
-
-            /* ---- FEES ---- */
             .fee-card h3 { font-size: 26px !important; }
             .fee-price { font-size: 34px !important; }
             .fee-note { font-size: 18px !important; }
             .fee-list li { font-size: 19px !important; }
             .fee-toggle { font-size: 18px !important; }
-
-            /* ---- EVAL CARDS ---- */
             .eval-num { font-size: 60px !important; }
             .eval-label { font-size: 16px !important; }
             .eval-sub { font-size: 15px !important; }
-
-            /* ---- FORM ---- */
             .form-label { font-size: 15px !important; }
             .form-input, .form-select, .form-textarea { font-size: 17px !important; padding: 15px 16px !important; }
             .form-submit { font-size: 20px !important; padding: 18px 32px !important; }
             .form-note { font-size: 15px !important; }
             .budget-option { font-size: 18px !important; }
-
-            /* ---- "AUDIENCES LEAVE KNOWING" GRID ---- */
             div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
             div[style*="repeat(3,1fr)"] p { font-size: 19px !important; line-height: 1.65 !important; }
-
-            /* ---- FOOTER ---- */
             .footer-names { font-size: 28px !important; }
             .footer-tagline { font-size: 17px !important; }
             .footer-links a { font-size: 16px !important; }
             .footer-copy { font-size: 15px !important; }
-
-            /* Prevent horizontal scroll */
             *, *::before, *::after { box-sizing: border-box; }
             section, .section, .hero, .testimonials-section, .speakers-section,
             .eval-section, .who-section, .fees-section, .contact-section,
             nav, footer { max-width: 100vw; overflow-x: hidden; }
-
-            /* Layout fixes */
             .hero-score { flex-direction: column; align-items: stretch; }
             .speakers-grid { grid-template-columns: 1fr; gap: 30px; }
             .session-two-col { grid-template-columns: 1fr; gap: 30px; }
@@ -372,6 +354,11 @@
 
     <!-- HERO -->
     <section class="hero" id="top">
+
+        <!-- Full-width banner image, visible, content flows below -->
+        <img src="images/sam_dave_hero_banner.png" alt="Sam Osborne and David Graf — Composure Through Conflict" class="hero-banner-img">
+
+        <div class="hero-content">
         <div class="hero-tag"><span class="hero-tag-stars">★★★★★</span>CAI Law Seminar 2026 · Rated Best of Conference</div>
         <p class="hero-eyebrow">A Keynote Duo</p>
         <h1 class="hero-title">Composure<br><em>Through</em><br>Conflict</h1>
@@ -413,6 +400,7 @@
                 <div class="score-label">David · Presentation Skills</div>
             </div>
         </div>
+        </div><!-- /.hero-content -->
     </section>
 
     <!-- TESTIMONIAL CAROUSEL -->
@@ -798,17 +786,16 @@
                 <a href="#results">Results</a>
                 <a href="#fees">Fees</a>
                 <a href="https://samosborne.net" target="_blank">SamOsborne.net</a>
-                <a href="mailto:sam@samosborne.net">sam@samosborne.net</a>
+                <a href="/cdn-cgi/l/email-protection#186b7975586b7975776b7a776a767d36767d6c"><span class="__cf_email__" data-cfemail="e093818da093818d8f93828f928e85ce8e8594">[email&#160;protected]</span></a>
             </div>
             <p class="footer-copy">© 2026 Sam Osborne · Demartini Method Facilitator · Los Angeles, California</p>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
 
-        // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         hamburger.addEventListener('click', () => {
