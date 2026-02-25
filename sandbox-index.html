@@ -180,13 +180,15 @@
             height: 100vh;
             position: relative;
             display: block;
+            overflow: hidden;
         }
 
         .hero-banner img {
             width: 100%;
-            height: 100%;
+            height: 115%;
             object-fit: cover;
             object-position: center 10%;
+            will-change: transform;
         }
 
         .hero-content { display: none; }
@@ -358,6 +360,12 @@
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   display:block;
+  will-change: transform;
+}
+
+.about-image {
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 @media (max-width: 1024px){
@@ -984,7 +992,7 @@
 
     <section class="hero">
         <div class="hero-banner">
-            <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about conflict transformation through the Demartini Method">
+            <img id="heroImg" src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about conflict transformation through the Demartini Method">
             <div class="hero-overlay">
                 <h1>Transform How You See Conflict. Transform How You Lead.</h1>
                 <p class="hero-label">SAM OSBORNE</p>
@@ -1157,7 +1165,7 @@
 
       <!-- RIGHT: IMAGE -->
       <div class="about-image reveal reveal-right">
-        <img src="images/sam-osborne-corporate-keynote-speaker.jpg"
+        <img id="aboutImg" src="images/sam-osborne-corporate-keynote-speaker.jpg"
              alt="Sam Osborne corporate keynote speaker">
       </div>
 
@@ -1169,8 +1177,8 @@
     
     <section class="section section-dark">
         <div class="section-content">
-            <div style="max-width: 900px; margin: 0 auto;" class="reveal reveal-scale">
-                <img src="images/sam-osborne-stage4.jpg" alt="Sam Osborne speaking on stage delivering Demartini Method keynote" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block;">
+            <div style="max-width: 900px; margin: 0 auto; overflow: hidden; border-radius: 20px;" class="reveal reveal-scale">
+                <img id="stagePhoto" src="images/sam-osborne-stage4.jpg" alt="Sam Osborne speaking on stage delivering Demartini Method keynote" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block; will-change: transform; transform-origin: center center;">
             </div>
         </div>
     </section>
@@ -2304,6 +2312,44 @@
             });
         })();
 
+        // ===== PARALLAX SCROLL =====
+        (function () {
+            const heroImg   = document.getElementById('heroImg');
+            const aboutImg  = document.getElementById('aboutImg');
+            const stageImg  = document.getElementById('stagePhoto');
+
+            function getCenter(el) {
+                const r = el.closest('section, .hero, .about-image') || el.parentElement;
+                const rect = r.getBoundingClientRect();
+                return rect.top + rect.height / 2 - window.innerHeight / 2;
+            }
+
+            function parallax() {
+                const scrollY = window.scrollY;
+
+                // 1. Hero: slow scroll (image moves up at 40% of scroll speed)
+                if (heroImg) {
+                    heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
+                }
+
+                // 2. About photo: subtle drift as you scroll past
+                if (aboutImg) {
+                    const rect = aboutImg.closest('.about-image').getBoundingClientRect();
+                    const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.12;
+                    aboutImg.style.transform = `translateY(${offset}px)`;
+                }
+
+                // 3. Stage photo: subtle zoom-parallax
+                if (stageImg) {
+                    const rect = stageImg.parentElement.getBoundingClientRect();
+                    const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.1;
+                    stageImg.style.transform = `translateY(${offset}px)`;
+                }
+            }
+
+            window.addEventListener('scroll', parallax, { passive: true });
+            parallax();
+        })();
+
     </script>
-</body>
 </html>
