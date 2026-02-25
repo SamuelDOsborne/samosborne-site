@@ -2229,4 +2229,15 @@
 
             dots.forEach(dot => {
                 dot.addEventListener('click', () => {
-                    const idx = parseInt(dot.getAttribute('data-index
+                    const idx = parseInt(dot.getAttribute('data-index'));
+                    showSlide(idx);
+                });
+            });
+        })();
+
+        // Details/accordion chevron rotation is handled via CSS (.details[open] > summary .chev)
+        // No additional JS needed for dropdowns
+
+    </script>
+</body>
+</html>
