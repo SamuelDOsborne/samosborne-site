@@ -667,18 +667,21 @@
 
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 0;
                 left: 0;
                 right: 0;
                 background: rgba(26, 26, 26, 0.98);
                 flex-direction: column;
                 gap: 0;
                 padding: 20px;
-                transform: translateY(-100%);
+                padding-top: 75px;
+                transform: translateY(-110%);
                 opacity: 0;
-                transition: all 0.3s ease;
+                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                            opacity 0.3s ease;
                 pointer-events: none;
                 border-bottom: 1px solid rgba(255,255,255,0.08);
+                z-index: 999;
             }
 
             .nav-links.active {
@@ -700,33 +703,38 @@
             .section { padding: 80px 20px; }
 
             .hero {
-                display: grid;
-                grid-template-columns: 1fr;
+                display: block;
                 height: auto;
                 min-height: auto;
-                padding: 60px 20px;
+                overflow: visible;
+                padding: 0 20px 60px;
                 margin-top: 60px;
             }
 
-            .hero-banner { display: none; }
+            .hero-banner { display: none !important; }
 
             .hero-overlay {
                 position: static;
-                transform: none;
+                transform: none !important;
                 width: 100%;
                 max-width: 100%;
                 text-align: left;
-                animation: none;
+                animation: none !important;
                 opacity: 1;
                 margin-bottom: 40px;
-                display: block;
+                display: none; /* hero-overlay lives inside hero-banner; use hero-content on mobile */
             }
 
-            .hero-content { display: grid; grid-template-columns: 1fr; gap: 40px; }
+            .hero-content {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding-top: 60px;
+            }
 
             .hero-text { text-align: left; animation: none; opacity: 1; display: block; }
 
-            .hero-image { width: 100%; display: block; }
+            .hero-image { width: 100%; display: block; overflow: hidden; border-radius: 20px; }
 
             .hero-image img {
                 width: 100%;
@@ -734,17 +742,18 @@
                 border-radius: 20px;
                 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
                 display: block !important;
+                transform: none !important;
             }
 
             h1 { 
                 text-align: left; 
                 text-shadow: none;
-                font-size: clamp(50px, 6vw, 86px);
+                font-size: clamp(38px, 7vw, 64px);
             }
 
-            .hero-label { font-size: clamp(26px, 2vw, 35px); }
-            .subtitle { font-size: clamp(29px, 3vw, 46px); }
-            .tagline { text-align: left; text-shadow: none; margin-left: 0; margin-right: 0; }
+            .hero-label { font-size: clamp(14px, 3.5vw, 20px); }
+            .subtitle { font-size: clamp(20px, 5vw, 32px); }
+            .tagline { text-align: left; text-shadow: none; margin-left: 0; margin-right: 0; font-size: clamp(15px, 4vw, 20px); }
 
             .cta-group { justify-content: flex-start; }
             .services-grid, .outcomes-grid, .articles-grid { grid-template-columns: 1fr; }
@@ -756,6 +765,9 @@
             .social-links img { display: block !important; }
             .video-section { padding: 80px 20px; }
             .video-container { aspect-ratio: 16 / 9; }
+
+            /* Prevent parallax images from overflowing their containers on mobile */
+            .about-image, .about-image img { transform: none !important; }
         }
 
         .intro-statement {
@@ -2384,13 +2396,18 @@
             const aboutImg  = document.getElementById('aboutImg');
             const stageImg  = document.getElementById('stagePhoto');
 
-            function getCenter(el) {
-                const r = el.closest('section, .hero, .about-image') || el.parentElement;
-                const rect = r.getBoundingClientRect();
-                return rect.top + rect.height / 2 - window.innerHeight / 2;
-            }
+            // Disable parallax on mobile — prevents images drifting off-frame
+            function isMobile() { return window.innerWidth <= 768; }
 
             function parallax() {
+                if (isMobile()) {
+                    // Reset any transforms applied before resize
+                    if (heroImg)  heroImg.style.transform  = '';
+                    if (aboutImg) aboutImg.style.transform = '';
+                    if (stageImg) stageImg.style.transform = '';
+                    return;
+                }
+
                 const scrollY = window.scrollY;
 
                 // 1. Hero: slow scroll (image moves up at 40% of scroll speed)
@@ -2414,6 +2431,8 @@
             }
 
             window.addEventListener('scroll', parallax, { passive: true });
+            // Re-check on resize (e.g. orientation change)
+            window.addEventListener('resize', parallax, { passive: true });
             parallax();
         })();
 
