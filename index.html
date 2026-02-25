@@ -180,13 +180,15 @@
             height: 100vh;
             position: relative;
             display: block;
+            overflow: hidden;
         }
 
         .hero-banner img {
             width: 100%;
-            height: 100%;
+            height: 115%;
             object-fit: cover;
             object-position: center 10%;
+            will-change: transform;
         }
 
         .hero-content { display: none; }
@@ -358,6 +360,12 @@
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   display:block;
+  will-change: transform;
+}
+
+.about-image {
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 @media (max-width: 1024px){
@@ -857,10 +865,31 @@
           padding-top: 14px;
           border-top: 1px solid rgba(255,255,255,0.10);
           margin-top: 12px;
+          overflow: hidden;
+          max-height: 0;
+          opacity: 0;
+          transition: max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                      opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                      padding-top 0.4s ease;
+          padding-top: 0;
+          margin-top: 0;
+        }
+
+        .details[open] .details-body {
+          max-height: 1200px;
+          opacity: 1;
+          padding-top: 14px;
+          margin-top: 12px;
         }
 
         .section-light .details .details-body{
           border-top: 1px solid rgba(0,0,0,0.10);
+        }
+        .details[open] .details-body {
+          border-top-color: rgba(255,255,255,0.10);
+        }
+        .section-light .details[open] .details-body {
+          border-top-color: rgba(0,0,0,0.10);
         }
 
         .details .details-body p{
@@ -922,6 +951,47 @@
         a{ color: var(--slate); }
         a:hover{ color: var(--gold); }
 
+    /* ===== SCROLL ANIMATIONS (Apple-style) ===== */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: opacity, transform;
+    }
+
+    .reveal.reveal-left {
+        transform: translateX(-30px);
+    }
+
+    .reveal.reveal-right {
+        transform: translateX(30px);
+    }
+
+    .reveal.reveal-scale {
+        transform: scale(0.96);
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    /* Staggered children */
+    .reveal-stagger > * {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: opacity, transform;
+    }
+
+    .reveal-stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
+    .reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
+    .reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
+    .reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.3s; }
+    .reveal-stagger.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.4s; }
+    .reveal-stagger.visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.5s; }
     </style>
 </head>
 
@@ -943,7 +1013,7 @@
 
     <section class="hero">
         <div class="hero-banner">
-            <img src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about conflict transformation through the Demartini Method">
+            <img id="heroImg" src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about conflict transformation through the Demartini Method">
             <div class="hero-overlay">
                 <h1>Transform How You See Conflict. Transform How You Lead.</h1>
                 <p class="hero-label">SAM OSBORNE</p>
@@ -977,8 +1047,8 @@
 <!-- LOGOS SECTION -->
     <section class="logos-section section-dark">
         <div class="section-content">
-            <h2>Endorsed By</h2>
-           <div class="logos-grid">
+            <h2 class="reveal">Endorsed By</h2>
+           <div class="logos-grid reveal-stagger">
   <img src="/images/ccal-grey.jpg" alt="CCAL logo">
 <img src="/images/american-business.png" alt="American Business logo">
   <img src="/images/art-institute.png" alt="Art Institute logo">
@@ -992,7 +1062,7 @@
 
     
     <section class="section section-light intro-section">
-        <div class="section-content" style="text-align: center;">
+        <div class="section-content reveal" style="text-align: center;">
             <p class="intro-statement" style="color:#111;">
                 Sam Osborne equips leaders in high-stakes, high-conflict environments with the Demartini Method, so they permanently transform how they see conflict. Not with motivation. With methodology.
             </p>
@@ -1002,7 +1072,7 @@
 
     <section class="section section-dark" style="padding-top: 0;">
         <div class="testimonials-section">
-            <div class="testimonials-header">
+            <div class="testimonials-header reveal">
                 <h3>What Leaders Say About Sam's Keynotes</h3>
             </div>
 
@@ -1068,9 +1138,9 @@
     <div class="about-grid">
 
       <!-- LEFT: TEXT -->
-      <div class="about-copy">
+      <div class="about-copy reveal reveal-left">
 
-        <h2>About Sam Osborne</h2>
+        <h2 class="reveal">About Sam Osborne</h2>
 
         <p class="about-sub">
           Transform how leaders see conflict — so it transforms how they lead.
@@ -1115,8 +1185,8 @@
       </div>
 
       <!-- RIGHT: IMAGE -->
-      <div class="about-image">
-        <img src="images/sam-osborne-corporate-keynote-speaker.jpg"
+      <div class="about-image reveal reveal-right">
+        <img id="aboutImg" src="images/sam-osborne-corporate-keynote-speaker.jpg"
              alt="Sam Osborne corporate keynote speaker">
       </div>
 
@@ -1126,23 +1196,15 @@
 
 
     
-    <section class="section section-dark">
-        <div class="section-content">
-            <div style="max-width: 900px; margin: 0 auto;">
-                <img src="images/sam-osborne-stage4.jpg" alt="Sam Osborne speaking on stage delivering Demartini Method keynote" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block;">
-            </div>
-        </div>
-    </section>
-
     <!-- KEYNOTES SECTION -->
     <section class="keynotes-container" id="speaking">
-      <div class="section-header">
+      <div class="section-header reveal">
         <p class="section-subtitle">Signature Keynotes</p>
         <h2 class="section-title">Four Charges. One Systematic Solution.</h2>
         <p class="section-description">Every charge that undermines your leadership — whether it points outward toward others or inward toward yourself, whether it's resentment or infatuation — is a perceptual imbalance with a systematic solution. These four programs address the complete picture.</p>
       </div>
 
-      <div class="keynotes-grid">
+      <div class="keynotes-grid reveal-stagger">
         <!-- KEYNOTE 1 -->
         <div class="keynote-card">
           <span class="keynote-label">Outward · Resentment</span>
@@ -1277,15 +1339,23 @@
       </div>
     </section>
 
+    <section class="section section-dark">
+        <div class="section-content">
+            <div style="max-width: 900px; margin: 0 auto; overflow: hidden; border-radius: 20px;" class="reveal reveal-scale">
+                <img id="stagePhoto" src="images/sam-osborne-stage4.jpg" alt="Sam Osborne speaking on stage delivering Demartini Method keynote" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block; will-change: transform; transform-origin: center center;">
+            </div>
+        </div>
+    </section>
+
     <!-- THE DEMARTINI METHOD EXPLANATION SECTION -->
     <section id="method" class="section section-dark">
       <div class="section-content">
-        <h2 style="text-align: center;">The Demartini Method</h2>
+        <h2 class="reveal" style="text-align: center;">The Demartini Method</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 60px; font-size: clamp(18px, 2.5vw, 24px);">
           Developed by Dr. John Demartini, this research-informed methodology is grounded in principles of psychology, perception, and values. It explains how conflict, infatuation, and resentment arise from imbalanced perception—and how reflective awareness restores balance. Sam applies this framework to high-stakes leadership challenges.
         </p>
 
-        <div class="outcomes-grid">
+        <div class="outcomes-grid reveal-stagger">
           <div class="method-card">
             <h3>Perceptual Balance</h3>
             <p style="margin-bottom: 0;">See both sides. Composure replaces charge.</p>
@@ -1343,8 +1413,8 @@
     <!-- WHO SECTION -->
     <section id="who" class="section section-light">
       <div class="section-content">
-        <h2 style="text-align: center; color: #1d1d1f; margin-bottom: 60px;">Who Sam Works With</h2>
-        <div class="services-grid who-grid">
+        <h2 class="reveal" style="text-align: center; color: #1d1d1f; margin-bottom: 60px;">Who Sam Works With</h2>
+        <div class="services-grid who-grid reveal-stagger">
 
           <div class="service-card who-card">
             <h3>Leaders in High-Conflict Environments</h3>
@@ -1410,8 +1480,8 @@
     <!-- WHAT SAM DELIVERS -->
     <section id="delivers" class="section section-dark">
       <div class="section-content">
-        <h2 style="text-align: center;">What Sam Delivers for Audiences</h2>
-        <div class="outcomes-grid">
+        <h2 class="reveal" style="text-align: center;">What Sam Delivers for Audiences</h2>
+        <div class="outcomes-grid reveal-stagger">
 
           <div class="outcome-card">
             <h3>Conflict Becomes Data</h3>
@@ -2244,6 +2314,95 @@
         // Details/accordion chevron rotation is handled via CSS (.details[open] > summary .chev)
         // No additional JS needed for dropdowns
 
+        // ===== SCROLL REVEAL (Apple-style) =====
+        (function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+                observer.observe(el);
+            });
+        })();
+
+        // ===== SMOOTH DETAILS DROPDOWNS =====
+        (function () {
+            document.querySelectorAll('details.details').forEach(details => {
+                const summary = details.querySelector('summary');
+                const body    = details.querySelector('.details-body');
+                if (!summary || !body) return;
+
+                summary.addEventListener('click', e => {
+                    e.preventDefault();
+
+                    if (!details.open) {
+                        // Opening
+                        details.open = true;
+                        // Force reflow so transition fires
+                        body.style.maxHeight = body.scrollHeight + 'px';
+                        body.style.opacity   = '1';
+                        body.style.paddingTop = '14px';
+                        body.style.marginTop  = '12px';
+                    } else {
+                        // Closing — animate then remove open
+                        body.style.maxHeight  = '0';
+                        body.style.opacity    = '0';
+                        body.style.paddingTop = '0';
+                        body.style.marginTop  = '0';
+                        body.addEventListener('transitionend', () => {
+                            details.open = false;
+                        }, { once: true });
+                    }
+                });
+            });
+        })();
+
+        // ===== PARALLAX SCROLL =====
+        (function () {
+            const heroImg   = document.getElementById('heroImg');
+            const aboutImg  = document.getElementById('aboutImg');
+            const stageImg  = document.getElementById('stagePhoto');
+
+            function getCenter(el) {
+                const r = el.closest('section, .hero, .about-image') || el.parentElement;
+                const rect = r.getBoundingClientRect();
+                return rect.top + rect.height / 2 - window.innerHeight / 2;
+            }
+
+            function parallax() {
+                const scrollY = window.scrollY;
+
+                // 1. Hero: slow scroll (image moves up at 40% of scroll speed)
+                if (heroImg) {
+                    heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
+                }
+
+                // 2. About photo: subtle drift as you scroll past
+                if (aboutImg) {
+                    const rect = aboutImg.closest('.about-image').getBoundingClientRect();
+                    const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.12;
+                    aboutImg.style.transform = `translateY(${offset}px)`;
+                }
+
+                // 3. Stage photo: subtle zoom-parallax
+                if (stageImg) {
+                    const rect = stageImg.parentElement.getBoundingClientRect();
+                    const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.1;
+                    stageImg.style.transform = `translateY(${offset}px)`;
+                }
+            }
+
+            window.addEventListener('scroll', parallax, { passive: true });
+            parallax();
+        })();
+
     </script>
-</body>
 </html>
