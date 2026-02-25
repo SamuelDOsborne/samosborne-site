@@ -865,10 +865,31 @@
           padding-top: 14px;
           border-top: 1px solid rgba(255,255,255,0.10);
           margin-top: 12px;
+          overflow: hidden;
+          max-height: 0;
+          opacity: 0;
+          transition: max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                      opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                      padding-top 0.4s ease;
+          padding-top: 0;
+          margin-top: 0;
+        }
+
+        .details[open] .details-body {
+          max-height: 1200px;
+          opacity: 1;
+          padding-top: 14px;
+          margin-top: 12px;
         }
 
         .section-light .details .details-body{
           border-top: 1px solid rgba(0,0,0,0.10);
+        }
+        .details[open] .details-body {
+          border-top-color: rgba(255,255,255,0.10);
+        }
+        .section-light .details[open] .details-body {
+          border-top-color: rgba(0,0,0,0.10);
         }
 
         .details .details-body p{
@@ -2309,6 +2330,38 @@
 
             document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
                 observer.observe(el);
+            });
+        })();
+
+        // ===== SMOOTH DETAILS DROPDOWNS =====
+        (function () {
+            document.querySelectorAll('details.details').forEach(details => {
+                const summary = details.querySelector('summary');
+                const body    = details.querySelector('.details-body');
+                if (!summary || !body) return;
+
+                summary.addEventListener('click', e => {
+                    e.preventDefault();
+
+                    if (!details.open) {
+                        // Opening
+                        details.open = true;
+                        // Force reflow so transition fires
+                        body.style.maxHeight = body.scrollHeight + 'px';
+                        body.style.opacity   = '1';
+                        body.style.paddingTop = '14px';
+                        body.style.marginTop  = '12px';
+                    } else {
+                        // Closing — animate then remove open
+                        body.style.maxHeight  = '0';
+                        body.style.opacity    = '0';
+                        body.style.paddingTop = '0';
+                        body.style.marginTop  = '0';
+                        body.addEventListener('transitionend', () => {
+                            details.open = false;
+                        }, { once: true });
+                    }
+                });
             });
         })();
 
