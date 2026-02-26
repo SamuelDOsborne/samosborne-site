@@ -13,6 +13,10 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            overflow-x: hidden;
+        }
+
         :root {
             --charcoal: #1A1A1A;
             --white: #FFFFFF;
@@ -114,6 +118,13 @@
             filter: saturate(1.1) brightness(0.85);
             transform: scale(1.05);
             will-change: transform;
+        }
+
+        @media (max-width: 768px) {
+            .hero-bg img {
+                transform: none !important;
+                will-change: auto;
+            }
         }
 
         /* Dark gradient overlay so text stays readable */
@@ -921,6 +932,72 @@
             .hero-content { padding: 120px 20px 80px; }
             .form-row { grid-template-columns: 1fr; }
 
+            /* Prevent any element from causing horizontal scroll */
+            img, svg, video { max-width: 100%; }
+            .bridge-diagram, .bridge-track { overflow: hidden; }
+            .bridge-steps { padding: 0 10px; }
+            .method-cards, .impact-cards, .eq-grid { width: 100%; }
+            .reveal-stagger > * { transform: translateY(22px) !important; }
+
+            /* ===== LARGER MOBILE TEXT ===== */
+
+            /* Hero */
+            .hero-eyebrow { font-size: 14px; letter-spacing: 0.2em; margin-bottom: 22px; }
+            .hero-title { font-size: 52px; line-height: 1.0; }
+            .hero-subtitle { font-size: 18px; letter-spacing: 0.06em; }
+            .hero-quote { font-size: 22px; line-height: 1.5; }
+
+            /* Section headings */
+            h2 { font-size: 42px; }
+            h3 { font-size: 26px; }
+
+            /* Vision / story section */
+            .vision-label { font-size: 14px; }
+            .vision-copy p { font-size: 19px; line-height: 1.75; }
+            .big-quote { font-size: 26px; line-height: 1.4; padding-left: 20px; }
+
+            /* Equilibrium */
+            .eq-header p { font-size: 19px; }
+            .eq-col-label { font-size: 13px; }
+            .eq-item { font-size: 20px; }
+            .eq-conclusion { font-size: 24px; }
+
+            /* Method */
+            .method-header p { font-size: 19px; }
+            .bridge-step-title { font-size: 15px; }
+            .bridge-step-desc { font-size: 13px; }
+            .bridge-end-title { font-size: 20px; }
+            .bridge-end-label { font-size: 12px; }
+            .method-tagline { font-size: 22px; }
+            .method-card h3 { font-size: 22px; }
+            .method-card p { font-size: 17px; line-height: 1.7; }
+
+            /* Impact */
+            .impact-header p { font-size: 19px; }
+            .impact-audience { font-size: 13px; }
+            .impact-card h3 { font-size: 24px; }
+            .impact-card p { font-size: 17px; line-height: 1.7; }
+
+            /* About */
+            .about-name { font-size: 38px; }
+            .about-title { font-size: 15px; }
+            .about-tagline { font-size: 24px; }
+            .credential { font-size: 14px; padding: 8px 16px; }
+
+            /* Closing */
+            .closing-inner h2 { font-size: 38px; }
+            .closing-inner p { font-size: 20px; }
+
+            /* Booking */
+            .booking-section h2 { font-size: 42px; }
+            .booking-section > .section-content > p { font-size: 20px; }
+            .form-group label { font-size: 14px; }
+            .form-input { font-size: 16px; padding: 15px 16px; }
+            .form-submit { font-size: 18px; padding: 18px; }
+
+            /* General body text */
+            .section p { font-size: 19px; }
+            .section-label { font-size: 13px; }
         }
     </style>
 </head>
@@ -1239,14 +1316,18 @@
             nav.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        // Hero parallax
+        // Hero parallax — desktop only
         const heroBgImg = document.querySelector('.hero-bg img');
         function heroParallax() {
-            if (heroBgImg && window.innerWidth > 768) {
-                heroBgImg.style.transform = `scale(1.05) translateY(${window.scrollY * 0.25}px)`;
+            if (!heroBgImg) return;
+            if (window.innerWidth <= 768) {
+                heroBgImg.style.transform = 'none';
+                return;
             }
+            heroBgImg.style.transform = `scale(1.05) translateY(${window.scrollY * 0.25}px)`;
         }
         window.addEventListener('scroll', heroParallax, { passive: true });
+        window.addEventListener('resize', heroParallax, { passive: true });
         heroParallax();
 
         // Mobile menu
