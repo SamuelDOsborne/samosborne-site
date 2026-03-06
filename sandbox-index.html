@@ -27,7 +27,7 @@
         "https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/",
         "https://www.tiktok.com/@selfworthsam"
       ],
-      "description": "Demartini Method Facilitator specializing in conflict transformation for high-stakes leadership"
+      "description": "Resentment toward others. Admiration of others. Pride in yourself. Shame about yourself. <br>Each is a perceptual imbalance — and each has a systematic solution through the Demartini Method."
     }
     </script>
 
@@ -325,55 +325,55 @@
         .section { padding: 120px 40px; position: relative; }
 
         /* Tighten the warm-grey intro section so it doesn't leave a big gap before testimonials */
-.intro-section{
-  padding-top: 70px;
-  padding-bottom: 20px;
-}
+        .intro-section{
+          padding-top: 70px;
+          padding-bottom: 20px;
+        }
 
         .about-grid{
-  display:grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 70px;
-  align-items: center;
-}
+          display:grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 70px;
+          align-items: center;
+        }
 
-.about-sub{
-  font-size: 20px;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
+        .about-sub{
+          font-size: 20px;
+          color: var(--gold);
+          margin-bottom: 20px;
+        }
 
-.about-copy p{
-  font-size: 17px;
-  line-height: 1.7;
-  color: rgba(245,245,247,0.85);
-}
+        .about-copy p{
+          font-size: 17px;
+          line-height: 1.7;
+          color: rgba(245,245,247,0.85);
+        }
 
-.about-copy .details .details-body p {
-  font-size: clamp(18px, 2.5vw, 24px);
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
+        .about-copy .details .details-body p {
+          font-size: clamp(18px, 2.5vw, 24px);
+          line-height: 1.7;
+          margin-bottom: 20px;
+        }
 
-.about-image img{
-  width:100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  display:block;
-  will-change: transform;
-}
+        .about-image img{
+          width:100%;
+          border-radius: 20px;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+          display:block;
+          will-change: transform;
+        }
 
-.about-image {
-  overflow: hidden;
-  border-radius: 20px;
-}
+        .about-image {
+          overflow: hidden;
+          border-radius: 20px;
+        }
 
-@media (max-width: 1024px){
-  .about-grid{
-    grid-template-columns: 1fr;
-    gap:40px;
-  }
-}
+        @media (max-width: 1024px){
+          .about-grid{
+            grid-template-columns: 1fr;
+            gap:40px;
+          }
+        }
 
         .section-content { max-width: 1200px; margin: 0 auto; }
 
@@ -547,15 +547,13 @@
         }
 
         .logos-grid img {
-    height: 50px;
-    width: auto;
-    opacity: 0.9;
-    transition: opacity 0.3s;
-    filter: none;
-    display: block !important;
-}
-
-
+            height: 50px;
+            width: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+            filter: none;
+            display: block !important;
+        }
 
         .logos-grid img:hover { opacity: 1; }
 
@@ -830,24 +828,18 @@
         .dropdown-toggle { transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1); }
         .dropdown-toggle:hover { background: rgba(245,243,240,0.95) !important; border-color: rgba(0,0,0,0.12) !important; }
         .dropdown-icon { transition: transform 0.3s cubic-bezier(0.28, 0.11, 0.32, 1); }
-        .dropdown-content { animation: slideDown 0.3s cubic-bezier(0.28, 0.11, 0.32, 1); }
 
-        /* Fix select dropdown option visibility */
-        select option {
-            background: #2a2a2a;
-            color: #ffffff;
-            padding: 8px 12px;
+        /* =====================================================================
+           FIX: Dropdown content — removed max-height clipping.
+           The JS animation drives the height; overflow stays visible once open
+           so absolutely no content is ever cut off.
+           ===================================================================== */
+        .dropdown-content {
+            overflow: hidden;
+            animation: slideDown 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
         }
-        select {
-            -webkit-appearance: auto;
-            appearance: auto;
-        }
-
-        /* Responsive form grid — stack on small screens */
-        @media (max-width: 600px) {
-            .form-grid-2col {
-                grid-template-columns: 1fr !important;
-            }
+        .dropdown-content.is-open {
+            overflow: visible; /* allow shadows / tooltips to escape after open */
         }
 
         @keyframes slideDown {
@@ -891,6 +883,11 @@
         }
         .details[open] > summary .chev{ transform: rotate(180deg); }
 
+        /* =====================================================================
+           FIX: Details body — removed hard max-height cap (was 1200px which
+           clipped tall content). Height is now driven entirely by JS animation;
+           once fully open, overflow is set to visible so nothing gets clipped.
+           ===================================================================== */
         .details .details-body{
           padding-top: 14px;
           border-top: 1px solid rgba(255,255,255,0.10);
@@ -905,21 +902,23 @@
           margin-top: 0;
         }
 
-        .details[open] .details-body {
-          max-height: 1200px;
-          opacity: 1;
-          padding-top: 14px;
-          margin-top: 12px;
-        }
-
-        .section-light .details .details-body{
-          border-top: 1px solid rgba(0,0,0,0.10);
-        }
+        /* CSS-only open state intentionally removed — JS handles this now
+           to avoid the max-height cap causing text cut-off. The .is-open
+           class is applied by JS after the transition completes. */
         .details[open] .details-body {
           border-top-color: rgba(255,255,255,0.10);
         }
         .section-light .details[open] .details-body {
           border-top-color: rgba(0,0,0,0.10);
+        }
+
+        /* When JS finishes the open animation it adds .is-open for clean display */
+        .details .details-body.is-open {
+          max-height: none !important;
+          overflow: visible !important;
+          opacity: 1 !important;
+          padding-top: 14px !important;
+          margin-top: 12px !important;
         }
 
         .details .details-body p{
@@ -1045,10 +1044,10 @@
         <div class="hero-banner">
             <img id="heroImg" src="images/sam-osborne-hero-image.jpg" alt="Sam Osborne speaking on stage about conflict transformation through the Demartini Method">
             <div class="hero-overlay">
-                <h1>Most leaders manage their reactions. The Demartini Method dissolves them.</h1>
+                <h1>One framework.<br>Every conflict.</h1>
                 <p class="hero-label">SAM OSBORNE</p>
                 <p class="subtitle">Demartini Method Facilitator & Corporate Keynote Speaker</p>
-                <p class="tagline">The Demartini Method for High-Stakes Leadership</p>
+                <p class="tagline">Rated Best of Conference at Community Association Institute National Law Seminar 2026.</p>
 
                 <div class="cta-group">
                     <a href="#contact" class="cta-primary">Contact</a>
@@ -1058,10 +1057,10 @@
 
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Most leaders manage their reactions. The Demartini Method dissolves them.</h1>
+                <h1>One framework.<br>Every conflict.</h1>
                 <p class="hero-label">SAM OSBORNE</p>
                 <p class="subtitle">Demartini Method Facilitator & Corporate Keynote Speaker</p>
-                <p class="tagline">The Demartini Method for High-Stakes Leadership</p>
+                <p class="tagline">Rated best session at Community Association Institute National Law Seminar 2026.</p>
 
                 <div class="cta-group">
                     <a href="#contact" class="cta-secondary">Contact</a>
@@ -1073,6 +1072,158 @@
             </div>
         </div>
     </section>
+
+    
+    <!-- KEYNOTES SECTION -->
+    <section class="keynotes-container" id="speaking">
+      <div class="section-header reveal">
+        <p class="section-subtitle">Signature Keynotes</p>
+        <h2 class="section-title">Four Charges. One Systematic Solution.</h2>
+        <p class="section-description">Every charge that undermines your leadership — whether it points outward toward others or inward toward yourself, whether it's resentment or infatuation — is a perceptual imbalance with a systematic solution. These four programs address the complete picture.</p>
+      </div>
+
+      <div class="keynotes-grid reveal-stagger">
+        <!-- KEYNOTE 1 -->
+        <div class="keynote-card">
+          <span class="keynote-label">Outward · Resentment</span>
+          <h3 class="keynote-title">The Conflict Advantage</h3>
+          <p class="keynote-subtitle">Own the Trigger. Own the Room.</p>
+
+          <details class="details">
+            <summary>
+              <span>The Premise</span>
+              <span class="chev">▼</span>
+            </summary>
+            <div class="details-body">
+              <p class="keynote-audience">
+                Specific people trigger reactivity that erodes your composure. The charge is not the problem — it's data. Precision perception transforms it into a leadership instrument. The people who trigger you most are showing you where your perception is imbalanced — not where your authority is weak.
+              </p>
+            </div>
+          </details>
+
+          <details class="details">
+            <summary>
+              <span>The Three Perceptual Shifts</span>
+              <span class="chev">▼</span>
+            </summary>
+            <div class="details-body">
+              <ul>
+                <li><strong>The Charge Is the Clue</strong> — What triggers you reveals what you haven't balanced in your perception. The charge isn't the problem — it's the map.</li>
+                <li><strong>Precision Is the Process</strong> — The Demartini Method applies systematic questioning to dissolve the perceptual imbalance. Methodical, repeatable, and permanent.</li>
+                <li><strong>Conflict Becomes Command</strong> — When the charge dissolves, conflict stops being something that happens to your leadership and becomes something your leadership moves through cleanly.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- KEYNOTE 2 -->
+        <div class="keynote-card">
+          <span class="keynote-label">Outward · Infatuation</span>
+          <h3 class="keynote-title">The Admiration Trap</h3>
+          <p class="keynote-subtitle">Own the Traits of the Greats.</p>
+
+          <details class="details">
+            <summary>
+              <span>The Premise</span>
+              <span class="chev">▼</span>
+            </summary>
+            <div class="details-body">
+              <p class="keynote-audience">
+                Every time you place someone above you, you unconsciously place yourself below them. That imbalance is costing you the authority you're trying to develop. The traits you admire most in others are traits you already possess — expressed differently, in different contexts.
+              </p>
+            </div>
+          </details>
+
+          <details class="details">
+            <summary>
+              <span>The Three Perceptual Shifts</span>
+              <span class="chev">▼</span>
+            </summary>
+            <div class="details-body">
+              <ul>
+                <li><strong>The Hidden Cost of Looking Up</strong> — When you perceive someone as possessing qualities you lack, you simultaneously perceive yourself as lacking them. The admiration feels expansive. The diminishment is invisible.</li>
+                <li><strong>You Already Own What You Admire</strong> — The traits you admire most in others are traits you already possess — expressed differently, through different behaviors.</li>
+                <li><strong>Reclaim the Worth You've Been Outsourcing</strong> — You stop performing the leader you think they would be and start embodying the leader you actually are.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- KEYNOTE 3 -->
+        <div class="keynote-card">
+          <span class="keynote-label">Inward · Infatuation</span>
+          <h3 class="keynote-title">The Defended Self</h3>
+          <p class="keynote-subtitle">Face the Armor. Free the Leader.</p>
+
+          <details class="details">
+            <summary>
+              <span>The Premise</span>
+              <span class="chev">▼</span>
+            </summary>
+            <div class="details-body">
+              <p class="keynote-audience">
+                The traits you're most proud of are the ones you're most defended about — and least able to examine. Every quality that makes you exceptional creates an equal and opposite blind spot visible to everyone but you.
+              </p>
+            </div>
+          </details>
+
+          <details class="details">
+            <summary>
+              <span>The Three Perceptual Shifts</span>
+              <span class="chev">▼</span>
+            </summary>
+            <div class="details-body">
+              <ul>
+                <li><strong>The Story You're Most Attached To</strong> — The trait you're most proud of is the one you're least able to see clearly — because the charge around it makes examination feel like betrayal.</li>
+                <li><strong>The Cost of Your Greatest Strength</strong> — Every quality that makes you exceptional creates an equal and opposite blind spot. Visible to everyone else in the room.</li>
+                <li><strong>From Defended to Authentic</strong> — When the infatuation balances, the defensiveness dissolves. What remains is genuine self-knowledge — a freer identity.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- KEYNOTE 4 -->
+        <div class="keynote-card">
+          <span class="keynote-label">Inward · Resentment</span>
+          <h3 class="keynote-title">The Disowned Self</h3>
+          <p class="keynote-subtitle">What you despise in yourself is already in the room.</p>
+
+          <details class="details">
+            <summary>
+              <span>The Premise</span>
+              <span class="chev">▼</span>
+            </summary>
+            <div class="details-body">
+              <p class="keynote-audience">
+                What you despise in yourself doesn't disappear — it goes underground and distorts how you lead everyone around you. The traits you've disowned are precisely the ones you're least able to tolerate in the people you lead.</p>
+            </div>
+          </details>
+
+          <details class="details">
+            <summary>
+              <span>The Three Perceptual Shifts</span>
+              <span class="chev">▼</span>
+            </summary>
+            <div class="details-body">
+              <ul>
+                <li><strong>What You've Disowned Is Still Leading</strong> — The traits you've rejected most thoroughly are the ones with the most charge — and charge drives behavior whether you acknowledge it or not.</li>
+                <li><strong>The Judgment Mirror</strong> — The traits you despise in yourself are the ones you judge most harshly in others. Dissolving the inward charge dissolves the outward judgment.</li>
+                <li><strong>Authenticity Is What Remains</strong> — The energy you were spending managing and hiding the disowned self becomes available for actual leadership.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="section-content">
+            <div style="max-width: 900px; margin: 0 auto; overflow: hidden; border-radius: 20px;" class="reveal reveal-scale">
+                <img id="stagePhoto" src="images/sam-osborne-stage4.jpg" alt="Sam Osborne speaking on stage delivering Demartini Method keynote" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block; will-change: transform; transform-origin: center center;">
+            </div>
+        </div>
+    </section>
+
     
 <!-- LOGOS SECTION -->
     <section class="logos-section section-dark">
@@ -1226,157 +1377,6 @@
 
 
     
-    <!-- KEYNOTES SECTION -->
-    <section class="keynotes-container" id="speaking">
-      <div class="section-header reveal">
-        <p class="section-subtitle">Signature Keynotes</p>
-        <h2 class="section-title">Four Charges. One Systematic Solution.</h2>
-        <p class="section-description">Every charge that undermines your leadership — whether it points outward toward others or inward toward yourself, whether it's resentment or infatuation — is a perceptual imbalance with a systematic solution. These four programs address the complete picture.</p>
-      </div>
-
-      <div class="keynotes-grid reveal-stagger">
-        <!-- KEYNOTE 1 -->
-        <div class="keynote-card">
-          <span class="keynote-label">Outward · Resentment</span>
-          <h3 class="keynote-title">The Conflict Advantage</h3>
-          <p class="keynote-subtitle">How Precision Perception Transforms What Triggers You Into What Leads You</p>
-
-          <details class="details">
-            <summary>
-              <span>The Premise</span>
-              <span class="chev">▼</span>
-            </summary>
-            <div class="details-body">
-              <p class="keynote-audience">
-                Specific people trigger reactivity that erodes your composure. The charge is not the problem — it's data. Precision perception transforms it into a leadership instrument. The people who trigger you most are showing you where your perception is imbalanced — not where your authority is weak.
-              </p>
-            </div>
-          </details>
-
-          <details class="details">
-            <summary>
-              <span>The Three Perceptual Shifts</span>
-              <span class="chev">▼</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>The Charge Is the Clue</strong> — What triggers you reveals what you haven't balanced in your perception. The charge isn't the problem — it's the map.</li>
-                <li><strong>Precision Is the Process</strong> — The Demartini Method applies systematic questioning to dissolve the perceptual imbalance. Methodical, repeatable, and permanent.</li>
-                <li><strong>Conflict Becomes Command</strong> — When the charge dissolves, conflict stops being something that happens to your leadership and becomes something your leadership moves through cleanly.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <!-- KEYNOTE 2 -->
-        <div class="keynote-card">
-          <span class="keynote-label">Outward · Infatuation</span>
-          <h3 class="keynote-title">The Admiration Trap</h3>
-          <p class="keynote-subtitle">Why the Leaders You Look Up to Are Quietly Costing You Your Authority</p>
-
-          <details class="details">
-            <summary>
-              <span>The Premise</span>
-              <span class="chev">▼</span>
-            </summary>
-            <div class="details-body">
-              <p class="keynote-audience">
-                Every time you place someone above you, you unconsciously place yourself below them. That imbalance is costing you the authority you're trying to develop. The traits you admire most in others are traits you already possess — expressed differently, in different contexts.
-              </p>
-            </div>
-          </details>
-
-          <details class="details">
-            <summary>
-              <span>The Three Perceptual Shifts</span>
-              <span class="chev">▼</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>The Hidden Cost of Looking Up</strong> — When you perceive someone as possessing qualities you lack, you simultaneously perceive yourself as lacking them. The admiration feels expansive. The diminishment is invisible.</li>
-                <li><strong>You Already Own What You Admire</strong> — The traits you admire most in others are traits you already possess — expressed differently, through different behaviors.</li>
-                <li><strong>Reclaim the Worth You've Been Outsourcing</strong> — You stop performing the leader you think they would be and start embodying the leader you actually are.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <!-- KEYNOTE 3 -->
-        <div class="keynote-card">
-          <span class="keynote-label">Inward · Infatuation</span>
-          <h3 class="keynote-title">The Defended Self</h3>
-          <p class="keynote-subtitle">Why What You're Most Proud of Is Quietly Limiting Your Leadership</p>
-
-          <details class="details">
-            <summary>
-              <span>The Premise</span>
-              <span class="chev">▼</span>
-            </summary>
-            <div class="details-body">
-              <p class="keynote-audience">
-                The traits you're most proud of are the ones you're most defended about — and least able to examine. Every quality that makes you exceptional creates an equal and opposite blind spot visible to everyone but you.
-              </p>
-            </div>
-          </details>
-
-          <details class="details">
-            <summary>
-              <span>The Three Perceptual Shifts</span>
-              <span class="chev">▼</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>The Story You're Most Attached To</strong> — The trait you're most proud of is the one you're least able to see clearly — because the charge around it makes examination feel like betrayal.</li>
-                <li><strong>The Cost of Your Greatest Strength</strong> — Every quality that makes you exceptional creates an equal and opposite blind spot. Visible to everyone else in the room.</li>
-                <li><strong>From Defended to Authentic</strong> — When the infatuation balances, the defensiveness dissolves. What remains is genuine self-knowledge — a freer identity.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <!-- KEYNOTE 4 -->
-        <div class="keynote-card">
-          <span class="keynote-label">Inward · Resentment</span>
-          <h3 class="keynote-title">The Disowned Self</h3>
-          <p class="keynote-subtitle">How the Parts of You You've Rejected Are Running Your Leadership</p>
-
-          <details class="details">
-            <summary>
-              <span>The Premise</span>
-              <span class="chev">▼</span>
-            </summary>
-            <div class="details-body">
-              <p class="keynote-audience">
-                What you despise in yourself doesn't disappear — it goes underground and distorts how you lead everyone around you. The traits you've disowned are precisely the ones you're least able to tolerate in the people you lead.
-              </p>
-            </div>
-          </details>
-
-          <details class="details">
-            <summary>
-              <span>The Three Perceptual Shifts</span>
-              <span class="chev">▼</span>
-            </summary>
-            <div class="details-body">
-              <ul>
-                <li><strong>What You've Disowned Is Still Leading</strong> — The traits you've rejected most thoroughly are the ones with the most charge — and charge drives behavior whether you acknowledge it or not.</li>
-                <li><strong>The Judgment Mirror</strong> — The traits you despise in yourself are the ones you judge most harshly in others. Dissolving the inward charge dissolves the outward judgment.</li>
-                <li><strong>Authenticity Is What Remains</strong> — The energy you were spending managing and hiding the disowned self becomes available for actual leadership.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-        <div class="section-content">
-            <div style="max-width: 900px; margin: 0 auto; overflow: hidden; border-radius: 20px;" class="reveal reveal-scale">
-                <img id="stagePhoto" src="images/sam-osborne-stage4.jpg" alt="Sam Osborne speaking on stage delivering Demartini Method keynote" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: block; will-change: transform; transform-origin: center center;">
-            </div>
-        </div>
-    </section>
-
     <!-- THE DEMARTINI METHOD EXPLANATION SECTION -->
     <section id="method" class="section section-dark">
       <div class="section-content">
@@ -1794,32 +1794,6 @@
         </div>
     </section>
 
-    <!-- DROPDOWN FUNCTIONALITY SCRIPT -->
-    <script>
-    document.querySelectorAll('.dropdown-toggle').forEach(button => {
-        button.addEventListener('click', function() {
-            let content = this.nextElementSibling;
-
-            if (!content || !content.classList.contains('dropdown-content')) {
-                content = this.parentElement.querySelector('.dropdown-content');
-            }
-
-            const icon = this.querySelector('.dropdown-icon');
-            if (!content) return;
-
-            const isOpen = content.style.display !== 'none';
-
-            if (isOpen) {
-                content.style.display = 'none';
-                if (icon) icon.style.transform = 'rotate(0deg)';
-            } else {
-                content.style.display = 'block';
-                if (icon) icon.style.transform = 'rotate(180deg)';
-            }
-        });
-    });
-    </script>
-
     <!-- CLOSING STATEMENT -->
     <section class="section section-dark" style="padding-top: 80px; padding-bottom: 80px; text-align: center;">
         <div class="section-content reveal">
@@ -1843,7 +1817,7 @@
 
             <form id="event-inquiry-form" name="event-inquiry" method="POST" action="https://formspree.io/f/xaqdebvj" style="max-width: 700px; margin: 0 auto;">
 
-                <div class="form-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
                     <div>
                         <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Your Name *</label>
                         <input
@@ -1890,7 +1864,7 @@
                     </div>
                 </div>
 
-                <div class="form-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
                     <div>
                         <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Phone Number</label>
                         <input
@@ -1935,7 +1909,7 @@
                     </div>
                 </div>
 
-                <div class="form-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
                     <div>
                         <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Organization/Company *</label>
                         <input
@@ -1981,7 +1955,7 @@
                     </div>
                 </div>
 
-                <div class="form-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
                     <div>
                         <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Event Type *</label>
                         <select
@@ -2043,7 +2017,7 @@
                     </div>
                 </div>
 
-                <div class="form-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
                     <div>
                         <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Preferred Event Date *</label>
                         <input
@@ -2089,7 +2063,7 @@
                     </div>
                 </div>
 
-                <div class="form-grid-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
                     <div>
                         <label style="display: block; font-weight: 600; margin-bottom: 8px; color: white; font-size: 14px;">Keynote Format *</label>
                         <select
@@ -2254,7 +2228,8 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -2310,12 +2285,10 @@
             }, { root: null, threshold: [0.25, 0.4, 0.6], rootMargin: "-10% 0px -65% 0px" });
 
             sections.forEach(s => observer.observe(s));
-
-            // default
             setActive(sections[0].id);
         })();
 
-        // Testimonials carousel (manual navigation only)
+        // Testimonials carousel
         (function () {
             const carousel = document.getElementById('testimonialCarousel');
             const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
@@ -2329,12 +2302,10 @@
 
             const showSlide = (index) => {
                 currentIndex = (index + slides.length) % slides.length;
-
                 slides.forEach((slide, i) => {
                     slide.classList.toggle('active', i === currentIndex);
                     slide.style.display = (i === currentIndex) ? 'block' : 'none';
                 });
-
                 dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === currentIndex);
                     dot.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
@@ -2342,20 +2313,130 @@
             };
 
             showSlide(0);
-
             if (prevBtn) prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
             if (nextBtn) nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
-
             dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const idx = parseInt(dot.getAttribute('data-index'));
-                    showSlide(idx);
-                });
+                dot.addEventListener('click', () => showSlide(parseInt(dot.getAttribute('data-index'))));
             });
         })();
 
-        // Details/accordion chevron rotation is handled via CSS (.details[open] > summary .chev)
-        // No additional JS needed for dropdowns
+        // =====================================================================
+        // FIX: Dropdown toggles — use scrollHeight to measure exact content
+        // height, then set max-height to 'none' after transition so content
+        // is never clipped regardless of how tall it grows.
+        // =====================================================================
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', function () {
+                let content = this.nextElementSibling;
+                if (!content || !content.classList.contains('dropdown-content')) {
+                    content = this.parentElement.querySelector('.dropdown-content');
+                }
+                const icon = this.querySelector('.dropdown-icon');
+                if (!content) return;
+
+                const isOpen = content.style.display !== 'none' && content.style.display !== '';
+
+                if (isOpen) {
+                    // Closing: lock current height, then animate to 0
+                    content.style.overflow = 'hidden';
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    // Force reflow
+                    content.offsetHeight;
+                    content.style.transition = 'max-height 0.35s cubic-bezier(0.28, 0.11, 0.32, 1), opacity 0.3s ease';
+                    content.style.maxHeight = '0';
+                    content.style.opacity = '0';
+                    content.classList.remove('is-open');
+                    content.addEventListener('transitionend', () => {
+                        content.style.display = 'none';
+                        content.style.maxHeight = '';
+                        content.style.opacity = '';
+                        content.style.transition = '';
+                        content.style.overflow = '';
+                    }, { once: true });
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+                } else {
+                    // Opening: measure full height, animate in, then remove cap
+                    content.style.display = 'block';
+                    content.style.overflow = 'hidden';
+                    content.style.maxHeight = '0';
+                    content.style.opacity = '0';
+                    // Force reflow so scrollHeight is accurate
+                    content.offsetHeight;
+                    const fullHeight = content.scrollHeight;
+                    content.style.transition = 'max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease';
+                    content.style.maxHeight = fullHeight + 'px';
+                    content.style.opacity = '1';
+                    content.classList.add('is-open');
+                    content.addEventListener('transitionend', () => {
+                        // Remove the cap so content is never clipped if it reflows
+                        content.style.maxHeight = 'none';
+                        content.style.overflow = 'visible';
+                        content.style.transition = '';
+                    }, { once: true });
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // =====================================================================
+        // FIX: Details/accordion — same pattern. After open transition
+        // completes, set max-height: none + overflow: visible so text
+        // is never clipped. Adds .is-open to the body element.
+        // =====================================================================
+        (function () {
+            document.querySelectorAll('details.details').forEach(details => {
+                const summary = details.querySelector('summary');
+                const body    = details.querySelector('.details-body');
+                if (!summary || !body) return;
+
+                summary.addEventListener('click', e => {
+                    e.preventDefault();
+
+                    if (!details.open) {
+                        // Opening
+                        details.open = true;
+                        body.style.overflow   = 'hidden';
+                        body.style.maxHeight  = '0';
+                        body.style.opacity    = '0';
+                        body.style.paddingTop = '0';
+                        body.style.marginTop  = '0';
+                        // Force reflow
+                        body.offsetHeight;
+                        const fullHeight = body.scrollHeight + 28; // +28 for padding
+                        body.style.transition = 'max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease, padding-top 0.4s ease, margin-top 0.4s ease';
+                        body.style.maxHeight  = fullHeight + 'px';
+                        body.style.opacity    = '1';
+                        body.style.paddingTop = '14px';
+                        body.style.marginTop  = '12px';
+                        body.addEventListener('transitionend', () => {
+                            // Remove height cap — content can never be clipped
+                            body.style.maxHeight  = 'none';
+                            body.style.overflow   = 'visible';
+                            body.style.transition = '';
+                            body.classList.add('is-open');
+                        }, { once: true });
+                    } else {
+                        // Closing
+                        body.classList.remove('is-open');
+                        body.style.overflow   = 'hidden';
+                        body.style.maxHeight  = body.scrollHeight + 'px';
+                        body.style.opacity    = '1';
+                        // Force reflow
+                        body.offsetHeight;
+                        body.style.transition = 'max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease, padding-top 0.35s ease, margin-top 0.35s ease';
+                        body.style.maxHeight  = '0';
+                        body.style.opacity    = '0';
+                        body.style.paddingTop = '0';
+                        body.style.marginTop  = '0';
+                        body.addEventListener('transitionend', () => {
+                            details.open      = false;
+                            body.style.transition = '';
+                            body.style.overflow   = '';
+                        }, { once: true });
+                    }
+                });
+            });
+        })();
 
         // ===== SCROLL REVEAL (Apple-style) =====
         (function () {
@@ -2376,50 +2457,16 @@
             });
         })();
 
-        // ===== SMOOTH DETAILS DROPDOWNS =====
-        (function () {
-            document.querySelectorAll('details.details').forEach(details => {
-                const summary = details.querySelector('summary');
-                const body    = details.querySelector('.details-body');
-                if (!summary || !body) return;
-
-                summary.addEventListener('click', e => {
-                    e.preventDefault();
-
-                    if (!details.open) {
-                        // Opening
-                        details.open = true;
-                        // Force reflow so transition fires
-                        body.style.maxHeight = body.scrollHeight + 'px';
-                        body.style.opacity   = '1';
-                        body.style.paddingTop = '14px';
-                        body.style.marginTop  = '12px';
-                    } else {
-                        // Closing — animate then remove open
-                        body.style.maxHeight  = '0';
-                        body.style.opacity    = '0';
-                        body.style.paddingTop = '0';
-                        body.style.marginTop  = '0';
-                        body.addEventListener('transitionend', () => {
-                            details.open = false;
-                        }, { once: true });
-                    }
-                });
-            });
-        })();
-
         // ===== PARALLAX SCROLL =====
         (function () {
-            const heroImg   = document.getElementById('heroImg');
-            const aboutImg  = document.getElementById('aboutImg');
-            const stageImg  = document.getElementById('stagePhoto');
+            const heroImg  = document.getElementById('heroImg');
+            const aboutImg = document.getElementById('aboutImg');
+            const stageImg = document.getElementById('stagePhoto');
 
-            // Disable parallax on mobile — prevents images drifting off-frame
             function isMobile() { return window.innerWidth <= 768; }
 
             function parallax() {
                 if (isMobile()) {
-                    // Reset any transforms applied before resize
                     if (heroImg)  heroImg.style.transform  = '';
                     if (aboutImg) aboutImg.style.transform = '';
                     if (stageImg) stageImg.style.transform = '';
@@ -2428,19 +2475,16 @@
 
                 const scrollY = window.scrollY;
 
-                // 1. Hero: slow scroll (image moves up at 40% of scroll speed)
                 if (heroImg) {
                     heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
                 }
 
-                // 2. About photo: subtle drift as you scroll past
                 if (aboutImg) {
                     const rect = aboutImg.closest('.about-image').getBoundingClientRect();
                     const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.12;
                     aboutImg.style.transform = `translateY(${offset}px)`;
                 }
 
-                // 3. Stage photo: subtle zoom-parallax
                 if (stageImg) {
                     const rect = stageImg.parentElement.getBoundingClientRect();
                     const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.1;
@@ -2449,10 +2493,8 @@
             }
 
             window.addEventListener('scroll', parallax, { passive: true });
-            // Re-check on resize (e.g. orientation change)
             window.addEventListener('resize', parallax, { passive: true });
             parallax();
         })();
-
     </script>
 </html>
