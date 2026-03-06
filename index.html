@@ -325,55 +325,55 @@
         .section { padding: 120px 40px; position: relative; }
 
         /* Tighten the warm-grey intro section so it doesn't leave a big gap before testimonials */
-.intro-section{
-  padding-top: 70px;
-  padding-bottom: 20px;
-}
+        .intro-section{
+          padding-top: 70px;
+          padding-bottom: 20px;
+        }
 
         .about-grid{
-  display:grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 70px;
-  align-items: center;
-}
+          display:grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 70px;
+          align-items: center;
+        }
 
-.about-sub{
-  font-size: 20px;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
+        .about-sub{
+          font-size: 20px;
+          color: var(--gold);
+          margin-bottom: 20px;
+        }
 
-.about-copy p{
-  font-size: 17px;
-  line-height: 1.7;
-  color: rgba(245,245,247,0.85);
-}
+        .about-copy p{
+          font-size: 17px;
+          line-height: 1.7;
+          color: rgba(245,245,247,0.85);
+        }
 
-.about-copy .details .details-body p {
-  font-size: clamp(18px, 2.5vw, 24px);
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
+        .about-copy .details .details-body p {
+          font-size: clamp(18px, 2.5vw, 24px);
+          line-height: 1.7;
+          margin-bottom: 20px;
+        }
 
-.about-image img{
-  width:100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  display:block;
-  will-change: transform;
-}
+        .about-image img{
+          width:100%;
+          border-radius: 20px;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+          display:block;
+          will-change: transform;
+        }
 
-.about-image {
-  overflow: hidden;
-  border-radius: 20px;
-}
+        .about-image {
+          overflow: hidden;
+          border-radius: 20px;
+        }
 
-@media (max-width: 1024px){
-  .about-grid{
-    grid-template-columns: 1fr;
-    gap:40px;
-  }
-}
+        @media (max-width: 1024px){
+          .about-grid{
+            grid-template-columns: 1fr;
+            gap:40px;
+          }
+        }
 
         .section-content { max-width: 1200px; margin: 0 auto; }
 
@@ -547,15 +547,13 @@
         }
 
         .logos-grid img {
-    height: 50px;
-    width: auto;
-    opacity: 0.9;
-    transition: opacity 0.3s;
-    filter: none;
-    display: block !important;
-}
-
-
+            height: 50px;
+            width: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+            filter: none;
+            display: block !important;
+        }
 
         .logos-grid img:hover { opacity: 1; }
 
@@ -830,7 +828,19 @@
         .dropdown-toggle { transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1); }
         .dropdown-toggle:hover { background: rgba(245,243,240,0.95) !important; border-color: rgba(0,0,0,0.12) !important; }
         .dropdown-icon { transition: transform 0.3s cubic-bezier(0.28, 0.11, 0.32, 1); }
-        .dropdown-content { animation: slideDown 0.3s cubic-bezier(0.28, 0.11, 0.32, 1); }
+
+        /* =====================================================================
+           FIX: Dropdown content — removed max-height clipping.
+           The JS animation drives the height; overflow stays visible once open
+           so absolutely no content is ever cut off.
+           ===================================================================== */
+        .dropdown-content {
+            overflow: hidden;
+            animation: slideDown 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
+        }
+        .dropdown-content.is-open {
+            overflow: visible; /* allow shadows / tooltips to escape after open */
+        }
 
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-10px); }
@@ -873,6 +883,11 @@
         }
         .details[open] > summary .chev{ transform: rotate(180deg); }
 
+        /* =====================================================================
+           FIX: Details body — removed hard max-height cap (was 1200px which
+           clipped tall content). Height is now driven entirely by JS animation;
+           once fully open, overflow is set to visible so nothing gets clipped.
+           ===================================================================== */
         .details .details-body{
           padding-top: 14px;
           border-top: 1px solid rgba(255,255,255,0.10);
@@ -887,21 +902,23 @@
           margin-top: 0;
         }
 
-        .details[open] .details-body {
-          max-height: 1200px;
-          opacity: 1;
-          padding-top: 14px;
-          margin-top: 12px;
-        }
-
-        .section-light .details .details-body{
-          border-top: 1px solid rgba(0,0,0,0.10);
-        }
+        /* CSS-only open state intentionally removed — JS handles this now
+           to avoid the max-height cap causing text cut-off. The .is-open
+           class is applied by JS after the transition completes. */
         .details[open] .details-body {
           border-top-color: rgba(255,255,255,0.10);
         }
         .section-light .details[open] .details-body {
           border-top-color: rgba(0,0,0,0.10);
+        }
+
+        /* When JS finishes the open animation it adds .is-open for clean display */
+        .details .details-body.is-open {
+          max-height: none !important;
+          overflow: visible !important;
+          opacity: 1 !important;
+          padding-top: 14px !important;
+          margin-top: 12px !important;
         }
 
         .details .details-body p{
@@ -1777,32 +1794,6 @@
         </div>
     </section>
 
-    <!-- DROPDOWN FUNCTIONALITY SCRIPT -->
-    <script>
-    document.querySelectorAll('.dropdown-toggle').forEach(button => {
-        button.addEventListener('click', function() {
-            let content = this.nextElementSibling;
-
-            if (!content || !content.classList.contains('dropdown-content')) {
-                content = this.parentElement.querySelector('.dropdown-content');
-            }
-
-            const icon = this.querySelector('.dropdown-icon');
-            if (!content) return;
-
-            const isOpen = content.style.display !== 'none';
-
-            if (isOpen) {
-                content.style.display = 'none';
-                if (icon) icon.style.transform = 'rotate(0deg)';
-            } else {
-                content.style.display = 'block';
-                if (icon) icon.style.transform = 'rotate(180deg)';
-            }
-        });
-    });
-    </script>
-
     <!-- CLOSING STATEMENT -->
     <section class="section section-dark" style="padding-top: 80px; padding-bottom: 80px; text-align: center;">
         <div class="section-content reveal">
@@ -2237,7 +2228,8 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -2293,12 +2285,10 @@
             }, { root: null, threshold: [0.25, 0.4, 0.6], rootMargin: "-10% 0px -65% 0px" });
 
             sections.forEach(s => observer.observe(s));
-
-            // default
             setActive(sections[0].id);
         })();
 
-        // Testimonials carousel (manual navigation only)
+        // Testimonials carousel
         (function () {
             const carousel = document.getElementById('testimonialCarousel');
             const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
@@ -2312,12 +2302,10 @@
 
             const showSlide = (index) => {
                 currentIndex = (index + slides.length) % slides.length;
-
                 slides.forEach((slide, i) => {
                     slide.classList.toggle('active', i === currentIndex);
                     slide.style.display = (i === currentIndex) ? 'block' : 'none';
                 });
-
                 dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === currentIndex);
                     dot.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
@@ -2325,20 +2313,130 @@
             };
 
             showSlide(0);
-
             if (prevBtn) prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
             if (nextBtn) nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
-
             dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const idx = parseInt(dot.getAttribute('data-index'));
-                    showSlide(idx);
-                });
+                dot.addEventListener('click', () => showSlide(parseInt(dot.getAttribute('data-index'))));
             });
         })();
 
-        // Details/accordion chevron rotation is handled via CSS (.details[open] > summary .chev)
-        // No additional JS needed for dropdowns
+        // =====================================================================
+        // FIX: Dropdown toggles — use scrollHeight to measure exact content
+        // height, then set max-height to 'none' after transition so content
+        // is never clipped regardless of how tall it grows.
+        // =====================================================================
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', function () {
+                let content = this.nextElementSibling;
+                if (!content || !content.classList.contains('dropdown-content')) {
+                    content = this.parentElement.querySelector('.dropdown-content');
+                }
+                const icon = this.querySelector('.dropdown-icon');
+                if (!content) return;
+
+                const isOpen = content.style.display !== 'none' && content.style.display !== '';
+
+                if (isOpen) {
+                    // Closing: lock current height, then animate to 0
+                    content.style.overflow = 'hidden';
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    // Force reflow
+                    content.offsetHeight;
+                    content.style.transition = 'max-height 0.35s cubic-bezier(0.28, 0.11, 0.32, 1), opacity 0.3s ease';
+                    content.style.maxHeight = '0';
+                    content.style.opacity = '0';
+                    content.classList.remove('is-open');
+                    content.addEventListener('transitionend', () => {
+                        content.style.display = 'none';
+                        content.style.maxHeight = '';
+                        content.style.opacity = '';
+                        content.style.transition = '';
+                        content.style.overflow = '';
+                    }, { once: true });
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+                } else {
+                    // Opening: measure full height, animate in, then remove cap
+                    content.style.display = 'block';
+                    content.style.overflow = 'hidden';
+                    content.style.maxHeight = '0';
+                    content.style.opacity = '0';
+                    // Force reflow so scrollHeight is accurate
+                    content.offsetHeight;
+                    const fullHeight = content.scrollHeight;
+                    content.style.transition = 'max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease';
+                    content.style.maxHeight = fullHeight + 'px';
+                    content.style.opacity = '1';
+                    content.classList.add('is-open');
+                    content.addEventListener('transitionend', () => {
+                        // Remove the cap so content is never clipped if it reflows
+                        content.style.maxHeight = 'none';
+                        content.style.overflow = 'visible';
+                        content.style.transition = '';
+                    }, { once: true });
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // =====================================================================
+        // FIX: Details/accordion — same pattern. After open transition
+        // completes, set max-height: none + overflow: visible so text
+        // is never clipped. Adds .is-open to the body element.
+        // =====================================================================
+        (function () {
+            document.querySelectorAll('details.details').forEach(details => {
+                const summary = details.querySelector('summary');
+                const body    = details.querySelector('.details-body');
+                if (!summary || !body) return;
+
+                summary.addEventListener('click', e => {
+                    e.preventDefault();
+
+                    if (!details.open) {
+                        // Opening
+                        details.open = true;
+                        body.style.overflow   = 'hidden';
+                        body.style.maxHeight  = '0';
+                        body.style.opacity    = '0';
+                        body.style.paddingTop = '0';
+                        body.style.marginTop  = '0';
+                        // Force reflow
+                        body.offsetHeight;
+                        const fullHeight = body.scrollHeight + 28; // +28 for padding
+                        body.style.transition = 'max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease, padding-top 0.4s ease, margin-top 0.4s ease';
+                        body.style.maxHeight  = fullHeight + 'px';
+                        body.style.opacity    = '1';
+                        body.style.paddingTop = '14px';
+                        body.style.marginTop  = '12px';
+                        body.addEventListener('transitionend', () => {
+                            // Remove height cap — content can never be clipped
+                            body.style.maxHeight  = 'none';
+                            body.style.overflow   = 'visible';
+                            body.style.transition = '';
+                            body.classList.add('is-open');
+                        }, { once: true });
+                    } else {
+                        // Closing
+                        body.classList.remove('is-open');
+                        body.style.overflow   = 'hidden';
+                        body.style.maxHeight  = body.scrollHeight + 'px';
+                        body.style.opacity    = '1';
+                        // Force reflow
+                        body.offsetHeight;
+                        body.style.transition = 'max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease, padding-top 0.35s ease, margin-top 0.35s ease';
+                        body.style.maxHeight  = '0';
+                        body.style.opacity    = '0';
+                        body.style.paddingTop = '0';
+                        body.style.marginTop  = '0';
+                        body.addEventListener('transitionend', () => {
+                            details.open      = false;
+                            body.style.transition = '';
+                            body.style.overflow   = '';
+                        }, { once: true });
+                    }
+                });
+            });
+        })();
 
         // ===== SCROLL REVEAL (Apple-style) =====
         (function () {
@@ -2359,50 +2457,16 @@
             });
         })();
 
-        // ===== SMOOTH DETAILS DROPDOWNS =====
-        (function () {
-            document.querySelectorAll('details.details').forEach(details => {
-                const summary = details.querySelector('summary');
-                const body    = details.querySelector('.details-body');
-                if (!summary || !body) return;
-
-                summary.addEventListener('click', e => {
-                    e.preventDefault();
-
-                    if (!details.open) {
-                        // Opening
-                        details.open = true;
-                        // Force reflow so transition fires
-                        body.style.maxHeight = body.scrollHeight + 'px';
-                        body.style.opacity   = '1';
-                        body.style.paddingTop = '14px';
-                        body.style.marginTop  = '12px';
-                    } else {
-                        // Closing — animate then remove open
-                        body.style.maxHeight  = '0';
-                        body.style.opacity    = '0';
-                        body.style.paddingTop = '0';
-                        body.style.marginTop  = '0';
-                        body.addEventListener('transitionend', () => {
-                            details.open = false;
-                        }, { once: true });
-                    }
-                });
-            });
-        })();
-
         // ===== PARALLAX SCROLL =====
         (function () {
-            const heroImg   = document.getElementById('heroImg');
-            const aboutImg  = document.getElementById('aboutImg');
-            const stageImg  = document.getElementById('stagePhoto');
+            const heroImg  = document.getElementById('heroImg');
+            const aboutImg = document.getElementById('aboutImg');
+            const stageImg = document.getElementById('stagePhoto');
 
-            // Disable parallax on mobile — prevents images drifting off-frame
             function isMobile() { return window.innerWidth <= 768; }
 
             function parallax() {
                 if (isMobile()) {
-                    // Reset any transforms applied before resize
                     if (heroImg)  heroImg.style.transform  = '';
                     if (aboutImg) aboutImg.style.transform = '';
                     if (stageImg) stageImg.style.transform = '';
@@ -2411,19 +2475,16 @@
 
                 const scrollY = window.scrollY;
 
-                // 1. Hero: slow scroll (image moves up at 40% of scroll speed)
                 if (heroImg) {
                     heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
                 }
 
-                // 2. About photo: subtle drift as you scroll past
                 if (aboutImg) {
                     const rect = aboutImg.closest('.about-image').getBoundingClientRect();
                     const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.12;
                     aboutImg.style.transform = `translateY(${offset}px)`;
                 }
 
-                // 3. Stage photo: subtle zoom-parallax
                 if (stageImg) {
                     const rect = stageImg.parentElement.getBoundingClientRect();
                     const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.1;
@@ -2432,10 +2493,8 @@
             }
 
             window.addEventListener('scroll', parallax, { passive: true });
-            // Re-check on resize (e.g. orientation change)
             window.addEventListener('resize', parallax, { passive: true });
             parallax();
         })();
-
     </script>
 </html>
