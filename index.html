@@ -95,7 +95,7 @@
             width: 100%;
             background: rgba(26, 26, 26, 0.75);
             backdrop-filter: blur(20px);
-            z-index: 1000;
+            z-index: 1050;
             padding: 20px 0;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -224,8 +224,9 @@
             margin-bottom: 20px;
         }
 
+        /* CHANGE 1: Hero h1 increased to match "Four Charges. One Systematic Solution." size */
         h1 {
-            font-size: clamp(20px, 3vw, 32px);
+            font-size: clamp(36px, 5vw, 68px);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 20px;
@@ -696,7 +697,7 @@
             .nav-links a { font-size: 18px; display: block; }
             .nav-links a.active::after{ bottom: 8px; }
 
-            .mobile-menu-toggle { display: block; }
+            .mobile-menu-toggle { display: block; position: relative; z-index: 1100; }
 
             .section { padding: 80px 20px; }
 
@@ -746,12 +747,17 @@
             h1 { 
                 text-align: left; 
                 text-shadow: none;
-                font-size: clamp(38px, 7vw, 64px);
+                /* CHANGE 1 (mobile): Keep hero h1 large on mobile too */
+                font-size: clamp(38px, 9vw, 64px);
             }
 
-            .hero-label { font-size: clamp(14px, 3.5vw, 20px); }
+            /* CHANGE 2: hero-label increased by 50% on mobile */
+            .hero-label { font-size: clamp(21px, 5vw, 30px); }
+
             .subtitle { font-size: clamp(20px, 5vw, 32px); }
-            .tagline { text-align: left; text-shadow: none; margin-left: 0; margin-right: 0; font-size: clamp(15px, 4vw, 20px); }
+
+            /* CHANGE 3: tagline increased on mobile */
+            .tagline { text-align: left; text-shadow: none; margin-left: 0; margin-right: 0; font-size: clamp(18px, 5vw, 26px); }
 
             .cta-group { justify-content: flex-start; }
             .services-grid, .outcomes-grid, .articles-grid { grid-template-columns: 1fr; }
@@ -829,17 +835,12 @@
         .dropdown-toggle:hover { background: rgba(245,243,240,0.95) !important; border-color: rgba(0,0,0,0.12) !important; }
         .dropdown-icon { transition: transform 0.3s cubic-bezier(0.28, 0.11, 0.32, 1); }
 
-        /* =====================================================================
-           FIX: Dropdown content — removed max-height clipping.
-           The JS animation drives the height; overflow stays visible once open
-           so absolutely no content is ever cut off.
-           ===================================================================== */
         .dropdown-content {
             overflow: hidden;
             animation: slideDown 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
         }
         .dropdown-content.is-open {
-            overflow: visible; /* allow shadows / tooltips to escape after open */
+            overflow: visible;
         }
 
         @keyframes slideDown {
@@ -883,11 +884,6 @@
         }
         .details[open] > summary .chev{ transform: rotate(180deg); }
 
-        /* =====================================================================
-           FIX: Details body — removed hard max-height cap (was 1200px which
-           clipped tall content). Height is now driven entirely by JS animation;
-           once fully open, overflow is set to visible so nothing gets clipped.
-           ===================================================================== */
         .details .details-body{
           padding-top: 14px;
           border-top: 1px solid rgba(255,255,255,0.10);
@@ -902,9 +898,6 @@
           margin-top: 0;
         }
 
-        /* CSS-only open state intentionally removed — JS handles this now
-           to avoid the max-height cap causing text cut-off. The .is-open
-           class is applied by JS after the transition completes. */
         .details[open] .details-body {
           border-top-color: rgba(255,255,255,0.10);
         }
@@ -912,7 +905,6 @@
           border-top-color: rgba(0,0,0,0.10);
         }
 
-        /* When JS finishes the open animation it adds .is-open for clean display */
         .details .details-body.is-open {
           max-height: none !important;
           overflow: visible !important;
@@ -928,7 +920,6 @@
 
         .details .details-body ul{ margin-top: 10px; }
 
-        /* Keep your existing keynote list bullets looking good inside details */
         .keynote-card .details .details-body ul{ padding-left: 18px; }
 
         /* Ensure keynote details are black in speaking section */
@@ -1047,6 +1038,8 @@
                 <h1>One framework.<br>Every conflict.</h1>
                 <p class="hero-label">SAM OSBORNE</p>
                 <p class="subtitle">Demartini Method Facilitator & Corporate Keynote Speaker</p>
+                <!-- CHANGE 4 (desktop): 5 gold stars above tagline -->
+                <p style="font-size: 24px; letter-spacing: 4px; color: #D4A574; margin-bottom: 8px; text-shadow: none;">★★★★★</p>
                 <p class="tagline">Rated Best of Conference at Community Association Institute National Law Seminar 2026.</p>
 
                 <div class="cta-group">
@@ -1060,6 +1053,8 @@
                 <h1>One framework.<br>Every conflict.</h1>
                 <p class="hero-label">SAM OSBORNE</p>
                 <p class="subtitle">Demartini Method Facilitator & Corporate Keynote Speaker</p>
+                <!-- CHANGE 5 (mobile): 5 gold stars above tagline -->
+                <p style="font-size: 26px; letter-spacing: 4px; color: #D4A574; margin-bottom: 8px;">★★★★★</p>
                 <p class="tagline">Rated best session at Community Association Institute National Law Seminar 2026.</p>
 
                 <div class="cta-group">
@@ -1255,21 +1250,23 @@
         <div class="testimonials-section">
             <div class="testimonials-header reveal">
                 <h3>What Leaders Say About Sam's Keynotes</h3>
+                <p style="color: rgba(245,245,247,0.55); font-size: 15px; margin-top: 8px;">From the official CAI Law Seminar 2026 evaluation · 39 responses</p>
             </div>
 
             <div class="carousel-container" id="testimonialCarousel">
                 <div class="carousel-track" id="carouselTrack">
-                    <div class="testimonial-slide">
+
+                    <div class="testimonial-slide active">
                         <div class="testimonial-content">
                             <p class="testimonial-quote">"This transformational experience has forever changed the way I practice law and relate to people. This seminar provided practical and easily adaptable concepts to aid in maintaining calm and composure. I highly recommend this seminar!"</p>
                             <div class="testimonial-author">
                                 <p class="author-name">Augustus Shaw IV, Esq., CCAL</p>
-                                <p class="author-title">Nationally Recognized Community Association Attorney<br>Partner, Shaw & Lines, LLC<br>ASU College of Law Faculty Associate Professor</p>
+                                <p class="author-title">Nationally Recognized Community Association Attorney<br>Partner, Shaw &amp; Lines, LLC · ASU College of Law Faculty Associate Professor</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="testimonial-slide active">
+                    <div class="testimonial-slide">
                         <div class="testimonial-content">
                             <p class="testimonial-quote">"I recently attended one of Sam's educational sessions on conflict management and self-governance, which he presented to a 'standing room only' room of legal professionals at a national law seminar. Sam's approach really stood out."</p>
                             <div class="testimonial-author">
@@ -1298,6 +1295,57 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Totally engaging. Different. Funny. Challenging. Best session I attended this conference. And on a Friday morning! Bravo."</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Conference Attendee</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Literally the best law seminar session I've been to in many years. Thank you!"</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Legal Professional</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Fabulous speaker in all ways. Confident. Entertaining. Funny. Laser-focused on getting the message out. Superb and passionate about the topic. Very challenging from a personal level."</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Conference Attendee</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Sam was outstanding and provided a refreshing perspective. He also gave common sense and practical solutions. I wish I had learned this years ago!"</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Legal Professional</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Great relevant topic presented in a smart and engaging manner. Very impressive — thought I'd love his accent the most, but his content was superb."</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Conference Attendee</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="carousel-controls">
@@ -1307,6 +1355,11 @@
                         <span class="dot" data-index="1"></span>
                         <span class="dot" data-index="2"></span>
                         <span class="dot" data-index="3"></span>
+                        <span class="dot" data-index="4"></span>
+                        <span class="dot" data-index="5"></span>
+                        <span class="dot" data-index="6"></span>
+                        <span class="dot" data-index="7"></span>
+                        <span class="dot" data-index="8"></span>
                     </div>
                     <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">›</button>
                 </div>
@@ -2320,11 +2373,7 @@
             });
         })();
 
-        // =====================================================================
-        // FIX: Dropdown toggles — use scrollHeight to measure exact content
-        // height, then set max-height to 'none' after transition so content
-        // is never clipped regardless of how tall it grows.
-        // =====================================================================
+        // Dropdown toggles
         document.querySelectorAll('.dropdown-toggle').forEach(button => {
             button.addEventListener('click', function () {
                 let content = this.nextElementSibling;
@@ -2337,10 +2386,8 @@
                 const isOpen = content.style.display !== 'none' && content.style.display !== '';
 
                 if (isOpen) {
-                    // Closing: lock current height, then animate to 0
                     content.style.overflow = 'hidden';
                     content.style.maxHeight = content.scrollHeight + 'px';
-                    // Force reflow
                     content.offsetHeight;
                     content.style.transition = 'max-height 0.35s cubic-bezier(0.28, 0.11, 0.32, 1), opacity 0.3s ease';
                     content.style.maxHeight = '0';
@@ -2355,12 +2402,10 @@
                     }, { once: true });
                     if (icon) icon.style.transform = 'rotate(0deg)';
                 } else {
-                    // Opening: measure full height, animate in, then remove cap
                     content.style.display = 'block';
                     content.style.overflow = 'hidden';
                     content.style.maxHeight = '0';
                     content.style.opacity = '0';
-                    // Force reflow so scrollHeight is accurate
                     content.offsetHeight;
                     const fullHeight = content.scrollHeight;
                     content.style.transition = 'max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease';
@@ -2368,7 +2413,6 @@
                     content.style.opacity = '1';
                     content.classList.add('is-open');
                     content.addEventListener('transitionend', () => {
-                        // Remove the cap so content is never clipped if it reflows
                         content.style.maxHeight = 'none';
                         content.style.overflow = 'visible';
                         content.style.transition = '';
@@ -2378,11 +2422,7 @@
             });
         });
 
-        // =====================================================================
-        // FIX: Details/accordion — same pattern. After open transition
-        // completes, set max-height: none + overflow: visible so text
-        // is never clipped. Adds .is-open to the body element.
-        // =====================================================================
+        // Details/accordion
         (function () {
             document.querySelectorAll('details.details').forEach(details => {
                 const summary = details.querySelector('summary');
@@ -2393,35 +2433,30 @@
                     e.preventDefault();
 
                     if (!details.open) {
-                        // Opening
                         details.open = true;
                         body.style.overflow   = 'hidden';
                         body.style.maxHeight  = '0';
                         body.style.opacity    = '0';
                         body.style.paddingTop = '0';
                         body.style.marginTop  = '0';
-                        // Force reflow
                         body.offsetHeight;
-                        const fullHeight = body.scrollHeight + 28; // +28 for padding
+                        const fullHeight = body.scrollHeight + 28;
                         body.style.transition = 'max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease, padding-top 0.4s ease, margin-top 0.4s ease';
                         body.style.maxHeight  = fullHeight + 'px';
                         body.style.opacity    = '1';
                         body.style.paddingTop = '14px';
                         body.style.marginTop  = '12px';
                         body.addEventListener('transitionend', () => {
-                            // Remove height cap — content can never be clipped
                             body.style.maxHeight  = 'none';
                             body.style.overflow   = 'visible';
                             body.style.transition = '';
                             body.classList.add('is-open');
                         }, { once: true });
                     } else {
-                        // Closing
                         body.classList.remove('is-open');
                         body.style.overflow   = 'hidden';
                         body.style.maxHeight  = body.scrollHeight + 'px';
                         body.style.opacity    = '1';
-                        // Force reflow
                         body.offsetHeight;
                         body.style.transition = 'max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease, padding-top 0.35s ease, margin-top 0.35s ease';
                         body.style.maxHeight  = '0';
@@ -2438,7 +2473,7 @@
             });
         })();
 
-        // ===== SCROLL REVEAL (Apple-style) =====
+        // Scroll reveal
         (function () {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -2457,7 +2492,7 @@
             });
         })();
 
-        // ===== PARALLAX SCROLL =====
+        // Parallax scroll
         (function () {
             const heroImg  = document.getElementById('heroImg');
             const aboutImg = document.getElementById('aboutImg');
