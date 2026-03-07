@@ -95,7 +95,7 @@
             width: 100%;
             background: rgba(26, 26, 26, 0.75);
             backdrop-filter: blur(20px);
-            z-index: 1000;
+            z-index: 1050;
             padding: 20px 0;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -697,7 +697,7 @@
             .nav-links a { font-size: 18px; display: block; }
             .nav-links a.active::after{ bottom: 8px; }
 
-            .mobile-menu-toggle { display: block; }
+            .mobile-menu-toggle { display: block; position: relative; z-index: 1100; }
 
             .section { padding: 80px 20px; }
 
@@ -1250,21 +1250,23 @@
         <div class="testimonials-section">
             <div class="testimonials-header reveal">
                 <h3>What Leaders Say About Sam's Keynotes</h3>
+                <p style="color: rgba(245,245,247,0.55); font-size: 15px; margin-top: 8px;">From the official CAI Law Seminar 2026 evaluation · 39 responses</p>
             </div>
 
             <div class="carousel-container" id="testimonialCarousel">
                 <div class="carousel-track" id="carouselTrack">
-                    <div class="testimonial-slide">
+
+                    <div class="testimonial-slide active">
                         <div class="testimonial-content">
                             <p class="testimonial-quote">"This transformational experience has forever changed the way I practice law and relate to people. This seminar provided practical and easily adaptable concepts to aid in maintaining calm and composure. I highly recommend this seminar!"</p>
                             <div class="testimonial-author">
                                 <p class="author-name">Augustus Shaw IV, Esq., CCAL</p>
-                                <p class="author-title">Nationally Recognized Community Association Attorney<br>Partner, Shaw & Lines, LLC<br>ASU College of Law Faculty Associate Professor</p>
+                                <p class="author-title">Nationally Recognized Community Association Attorney<br>Partner, Shaw &amp; Lines, LLC · ASU College of Law Faculty Associate Professor</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="testimonial-slide active">
+                    <div class="testimonial-slide">
                         <div class="testimonial-content">
                             <p class="testimonial-quote">"I recently attended one of Sam's educational sessions on conflict management and self-governance, which he presented to a 'standing room only' room of legal professionals at a national law seminar. Sam's approach really stood out."</p>
                             <div class="testimonial-author">
@@ -1293,6 +1295,57 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Totally engaging. Different. Funny. Challenging. Best session I attended this conference. And on a Friday morning! Bravo."</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Conference Attendee</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Literally the best law seminar session I've been to in many years. Thank you!"</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Legal Professional</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Fabulous speaker in all ways. Confident. Entertaining. Funny. Laser-focused on getting the message out. Superb and passionate about the topic. Very challenging from a personal level."</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Conference Attendee</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Sam was outstanding and provided a refreshing perspective. He also gave common sense and practical solutions. I wish I had learned this years ago!"</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Legal Professional</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">"Great relevant topic presented in a smart and engaging manner. Very impressive — thought I'd love his accent the most, but his content was superb."</p>
+                            <div class="testimonial-author">
+                                <p class="author-name">Conference Attendee</p>
+                                <p class="author-title">CAI Law Seminar 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="carousel-controls">
@@ -1302,6 +1355,11 @@
                         <span class="dot" data-index="1"></span>
                         <span class="dot" data-index="2"></span>
                         <span class="dot" data-index="3"></span>
+                        <span class="dot" data-index="4"></span>
+                        <span class="dot" data-index="5"></span>
+                        <span class="dot" data-index="6"></span>
+                        <span class="dot" data-index="7"></span>
+                        <span class="dot" data-index="8"></span>
                     </div>
                     <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">›</button>
                 </div>
