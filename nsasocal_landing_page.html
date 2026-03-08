@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSA SoCal | Build Your Speaking Business</title>
+  <meta name="description" content="Southern California’s speaker business accelerator for professional speakers ready to grow bookings, authority, and revenue." />
+  <style>
+    :root {
+      --navy: #16233b;
+      --navy-2: #22385c;
+      --gold: #d5a94d;
+      --gold-2: #f0d7a1;
+      --ink: #1d2430;
+      --muted: #657188;
+      --bg: #f7f8fb;
+      --white: #ffffff;
+      --line: #e6e9f0;
+      --shadow: 0 18px 50px rgba(13, 27, 54, 0.12);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(213, 169, 77, 0.12);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      box-shadow: 0 12px 24px rgba(213, 169, 77, 0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      border-color: rgba(22, 35, 59, 0.16);
+    }
+    .btn-dark {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .section {
+      padding: 88px 0;
+    }
+    .section-heading {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 34px;
+      max-width: 760px;
+    }
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+    }
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(230, 233, 240, 0.8);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .logo strong {
+      color: var(--navy);
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+    .logo span {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-top: 5px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at top right, rgba(213, 169, 77, 0.24), transparent 30%),
+        linear-gradient(135deg, #f9fbff 0%, #f3f6fb 100%);
+      padding: 48px 0 72px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 38px;
+      align-items: center;
+    }
+    .hero-copy h1 {
+      margin: 18px 0 18px;
+      font-size: clamp(2.9rem, 7vw, 5.5rem);
+      line-height: 0.93;
+      letter-spacing: -0.06em;
+      color: var(--navy);
+      max-width: 10ch;
+    }
+    .hero-copy p {
+      margin: 0 0 28px;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .hero-proof {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      color: var(--navy);
+    }
+    .hero-proof div {
+      display: grid;
+      gap: 2px;
+    }
+    .hero-proof strong {
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+    }
+    .hero-proof span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .hero-card {
+      background: var(--white);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(230, 233, 240, 0.9);
+    }
+    .hero-stage {
+      min-height: 320px;
+      background:
+        linear-gradient(180deg, rgba(10, 16, 29, 0.12), rgba(10, 16, 29, 0.45)),
+        url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80') center/cover;
+      display: flex;
+      align-items: flex-end;
+      padding: 22px;
+    }
+    .event-preview {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 20px;
+      padding: 18px;
+      width: 100%;
+    }
+    .event-preview small {
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .event-preview h3 {
+      margin: 10px 0 8px;
+      font-size: 1.3rem;
+      line-height: 1.15;
+      color: var(--navy);
+    }
+    .event-preview p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .logos {
+      padding: 26px 0 14px;
+      background: var(--white);
+    }
+    .logo-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      align-items: center;
+    }
+    .logo-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 700;
+      background: var(--bg);
+    }
+
+    .feature-grid,
+    .wins-grid,
+    .path-grid,
+    .benefits-grid,
+    .footer-grid {
+      display: grid;
+      gap: 22px;
+    }
+    .feature-grid { grid-template-columns: repeat(3, 1fr); }
+    .wins-grid { grid-template-columns: repeat(3, 1fr); }
+    .path-grid { grid-template-columns: repeat(3, 1fr); }
+    .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(15, 30, 58, 0.05);
+    }
+    .card h3, .card h4 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(213, 169, 77, 0.14);
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .event-section {
+      background: var(--bg);
+    }
+    .event-card {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 0;
+      overflow: hidden;
+      border-radius: 30px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(230, 233, 240, 0.9);
+    }
+    .event-image {
+      min-height: 420px;
+      background: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+    .event-copy {
+      padding: 38px;
+      display: grid;
+      gap: 18px;
+    }
+    .event-copy h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      color: var(--navy);
+      max-width: 12ch;
+    }
+    .event-copy p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+    .takeaways {
+      display: grid;
+      gap: 12px;
+      margin: 6px 0;
+    }
+    .takeaway {
+      display: flex;
+      gap: 12px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .takeaway::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .wins {
+      background: linear-gradient(180deg, #ffffff 0%, #f9fafc 100%);
+    }
+    .quote {
+      color: var(--navy);
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+    }
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      font-weight: 800;
+    }
+    .person strong { display: block; color: var(--navy); }
+    .person span { color: var(--muted); font-size: 0.92rem; }
+
+    .journey {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .journey .section-heading h2,
+    .journey .section-heading p {
+      color: var(--white);
+    }
+    .journey .section-heading p { opacity: 0.78; }
+    .path-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 26px;
+    }
+    .path-card h3 { margin: 0 0 10px; }
+    .path-card p { margin: 0 0 20px; color: rgba(255,255,255,0.78); }
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(213, 169, 77, 0.18);
+      color: var(--gold-2);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .experience-photo {
+      min-height: 460px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+    .stack {
+      display: grid;
+      gap: 24px;
+    }
+    .mini-photo {
+      min-height: 218px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background-size: cover;
+      background-position: center;
+    }
+    .mini-photo.a { background-image: url('https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=1200&q=80'); }
+    .mini-photo.b { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80'); }
+
+    .benefits {
+      background: var(--bg);
+    }
+    .cta-band {
+      padding: 88px 0;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: var(--white);
+    }
+    .cta-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .cta-wrap h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+    .cta-wrap p {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      max-width: 58ch;
+    }
+    .cta-panel {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+    }
+    .cta-panel input {
+      width: 100%;
+      min-height: 52px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.96);
+      padding: 0 16px;
+      font: inherit;
+    }
+
+    footer {
+      padding: 34px 0 48px;
+      background: #0f1726;
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-grid {
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr;
+      align-items: start;
+    }
+    footer h4 {
+      margin: 0 0 12px;
+      color: var(--white);
+    }
+    footer ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .footer-note {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.58);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .event-card,
+      .experience-grid,
+      .cta-wrap,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .feature-grid,
+      .wins-grid,
+      .path-grid,
+      .benefits-grid,
+      .logo-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .event-image { min-height: 280px; }
+      .hero-copy h1 { max-width: 12ch; }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-wrap: wrap;
+        padding: 14px 0;
+      }
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+      .feature-grid,
+      .wins-grid,
+      .path-grid,
+      .benefits-grid,
+      .logo-row {
+        grid-template-columns: 1fr;
+      }
+      .section,
+      .cta-band {
+        padding: 68px 0;
+      }
+      .hero {
+        padding-top: 28px;
+      }
+      .hero-copy h1 {
+        font-size: 3rem;
+      }
+      .event-copy {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <strong>NSA SoCal</strong>
+        <span>Build Your Speaking Business</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#event">Next Event</a>
+        <a href="#wins">Speaker Wins</a>
+        <a href="#journey">Who It’s For</a>
+        <a href="#benefits">Membership</a>
+        <a href="#footer">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#benefits">Explore Membership</a>
+        <a class="btn btn-primary" href="#event">Attend the Next Event</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Speaker Business Accelerator</span>
+          <h1>Build Your Speaking Business</h1>
+          <p>
+            Southern California’s growth community for speakers ready to grow bookings,
+            sharpen their platform, and turn momentum into real business results.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#event">Attend the Next Event</a>
+            <a class="btn btn-secondary" href="#wins">See Speaker Wins</a>
+          </div>
+          <div class="hero-proof">
+            <div>
+              <strong>1 room</strong>
+              <span>Where learning becomes opportunity</span>
+            </div>
+            <div>
+              <strong>3 stages</strong>
+              <span>Aspiring, emerging, established</span>
+            </div>
+            <div>
+              <strong>1 goal</strong>
+              <span>Transformation for your speaking business</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-stage">
+            <div class="event-preview">
+              <small>Featured event</small>
+              <h3>Turn One Talk Into Ten Corporate Bookings</h3>
+              <p>Learn how working speakers turn visibility, referrals, and positioning into repeatable revenue.</p>
+              <div class="meta">
+                <span>April 18</span>
+                <span>Irvine, CA</span>
+                <span>9:00 AM – 1:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos">
+      <div class="container logo-row">
+        <div class="logo-pill">Professional Speakers</div>
+        <div class="logo-pill">Business Growth</div>
+        <div class="logo-pill">Live Events</div>
+        <div class="logo-pill">Real Community</div>
+        <div class="logo-pill">Speaker Momentum</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Why NSA SoCal</span>
+          <h2>More than an association. A place to accelerate your speaking business.</h2>
+          <p>
+            The best speaker communities do not just share information. They create momentum,
+            relationships, visibility, and growth.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Learn what works now</h3>
+            <p>Get practical strategies from working speakers on positioning, fees, outreach, and business development.</p>
+          </article>
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Meet the right people</h3>
+            <p>Build relationships with speakers, leaders, and peers who understand the business side of the craft.</p>
+          </article>
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Create visible momentum</h3>
+            <p>Move from isolated effort to measurable growth through consistent exposure, accountability, and opportunity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section event-section" id="event">
+      <div class="container">
+        <div class="event-card">
+          <div class="event-image" aria-hidden="true"></div>
+          <div class="event-copy">
+            <span class="eyebrow">Next Event</span>
+            <h2>Attend the next room that could change your business.</h2>
+            <p>
+              Each NSA SoCal event is designed to help speakers build authority, sharpen offers,
+              increase bookings, and build stronger professional relationships.
+            </p>
+            <div class="meta">
+              <span>Saturday, April 18</span>
+              <span>Newport Beach Marriott</span>
+              <span>In Person + Networking</span>
+            </div>
+            <div class="takeaways">
+              <div class="takeaway">Build a more predictable pipeline for speaking opportunities</div>
+              <div class="takeaway">Increase your perceived value and command stronger fees</div>
+              <div class="takeaway">Turn every event into referrals, introductions, and next steps</div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
+              <a class="btn btn-secondary" href="#journey">See If It’s Right for You</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wins" id="wins">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Speaker Wins</span>
+          <h2>Transformation should be visible.</h2>
+          <p>
+            The most persuasive proof is not what we say about the community. It is what speakers say changed because they showed up.
+          </p>
+        </div>
+        <div class="wins-grid">
+          <article class="card">
+            <h3>Booked 18 corporate keynotes</h3>
+            <p class="quote">“The conversations I had through NSA SoCal completely shifted how I positioned my talk and how I sold it.”</p>
+            <div class="person">
+              <div class="avatar">JM</div>
+              <div>
+                <strong>Jordan M.</strong>
+                <span>Leadership keynote speaker</span>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Doubled keynote fee</h3>
+            <p class="quote">“I stopped sounding like a generalist and started presenting myself like a professional business asset.”</p>
+            <div class="person">
+              <div class="avatar">AR</div>
+              <div>
+                <strong>Ashley R.</strong>
+                <span>Workplace culture speaker</span>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>First international speaking invitation</h3>
+            <p class="quote">“One introduction at an NSA SoCal event opened the door to a speaking opportunity I never saw coming.”</p>
+            <div class="person">
+              <div class="avatar">DT</div>
+              <div>
+                <strong>Daniel T.</strong>
+                <span>Innovation speaker</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div style="margin-top: 28px; text-align: center;">
+          <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section journey" id="journey">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Who It’s For</span>
+          <h2>Three pathways. One room built for growth.</h2>
+          <p>
+            The site leads with emerging speakers, while still making it easy for aspiring and established speakers to see where they fit.
+          </p>
+        </div>
+        <div class="path-grid">
+          <article class="path-card">
+            <span class="tag">Aspiring</span>
+            <h3>Start with your first serious room.</h3>
+            <p>For experts ready to explore speaking, clarify their message, and step into the profession with confidence.</p>
+            <a class="btn btn-secondary" href="#cta">Attend Your First Event</a>
+          </article>
+          <article class="path-card">
+            <span class="tag">Emerging</span>
+            <h3>Build a real speaking business.</h3>
+            <p>For speakers actively growing bookings, improving their offer, and creating more consistent visibility and revenue.</p>
+            <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
+          </article>
+          <article class="path-card">
+            <span class="tag">Established</span>
+            <h3>Expand your authority and network.</h3>
+            <p>For experienced speakers who want stronger peer relationships, higher-level conversations, and chapter leadership opportunities.</p>
+            <a class="btn btn-secondary" href="#benefits">Explore Membership</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Experience the Room</span>
+          <h2>See the energy before you ever walk in.</h2>
+          <p>
+            A strong speaker community should look alive: real stage moments, audience engagement, and high-value conversations after the program ends.
+          </p>
+        </div>
+        <div class="experience-grid">
+          <div class="experience-photo" aria-hidden="true"></div>
+          <div class="stack">
+            <div class="mini-photo a" aria-hidden="true"></div>
+            <div class="mini-photo b" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section benefits" id="benefits">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Membership Pathway</span>
+          <h2>Attend first. Grow deeper over time.</h2>
+          <p>
+            The homepage should primarily drive event attendance, while showing the larger pathway into membership, relationships, and leadership.
+          </p>
+        </div>
+        <div class="benefits-grid">
+          <article class="card">
+            <h4>Business Growth</h4>
+            <p>Strategies to strengthen positioning, improve fees, and generate more speaking opportunities.</p>
+          </article>
+          <article class="card">
+            <h4>Community</h4>
+            <p>Access to serious speakers committed to learning, support, introductions, and professional momentum.</p>
+          </article>
+          <article class="card">
+            <h4>Education</h4>
+            <p>Programs, workshops, and speaker-led learning designed around the business of professional speaking.</p>
+          </article>
+          <article class="card">
+            <h4>Visibility</h4>
+            <p>More opportunities to be seen, known, and connected inside a recognized speaker community.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="cta">
+      <div class="container cta-wrap">
+        <div>
+          <span class="eyebrow" style="background: rgba(213, 169, 77, 0.18); color: #fff;">Final CTA</span>
+          <h2>Your next speaking breakthrough could start at the next event.</h2>
+          <p>
+            Join Southern California speakers committed to building stronger businesses, sharper platforms, and bigger opportunities.
+          </p>
+        </div>
+        <div class="cta-panel">
+          <input type="text" placeholder="Your name" aria-label="Your name" />
+          <input type="email" placeholder="Email address" aria-label="Email address" />
+          <a class="btn btn-primary" href="#">Attend the Next Event</a>
+          <a class="btn btn-secondary" href="#">View Upcoming Events</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>NSA SoCal</h4>
+        <p>Southern California’s speaker business accelerator for professionals ready to grow bookings, authority, and impact.</p>
+      </div>
+      <div>
+        <h4>Events</h4>
+        <ul>
+          <li><a href="#event">Next Event</a></li>
+          <li><a href="#cta">Upcoming Events</a></li>
+          <li><a href="#wins">Speaker Wins</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Membership</h4>
+        <ul>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#journey">Who It’s For</a></li>
+          <li><a href="#cta">Join the Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">About NSA SoCal</a></li>
+          <li><a href="#">Leadership</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-note">
+      Concept landing page for the NSA SoCal website redesign.
+    </div>
+  </footer>
+</body>
+</html>
