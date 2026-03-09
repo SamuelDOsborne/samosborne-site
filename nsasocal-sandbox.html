@@ -85,7 +85,7 @@
     .trust-item strong{display:block;color:var(--white);font-size:1.1rem}
     .trust-item span{font-size:.92rem}
 
-    .grid-2,.wins-grid,.path-grid,.proof-grid,.faq-grid,.footer-grid{display:grid;gap:22px}
+    .grid-2,.wins-grid,.path-grid,.proof-grid,.faq-grid,.footer-grid,.academy-grid,.academy-points{display:grid;gap:22px}
     .grid-2{grid-template-columns:1fr 1fr}
     .card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)}
     .message-card.left{background:linear-gradient(180deg,#fff 0%, var(--red-soft) 100%)}
@@ -105,6 +105,24 @@
     .takeaways{display:grid;gap:12px}
     .takeaway{display:flex;gap:12px;padding:14px 16px;border-radius:18px;background:var(--panel);color:var(--blue-navy);font-weight:700;border:1px solid rgba(29,79,145,.10)}
     .takeaway:before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--blue-royal),var(--red));margin-top:.55em}
+
+    .academy-section{background:linear-gradient(180deg,#ffffff 0%, var(--blue-pale) 100%)}
+    .academy-grid{grid-template-columns:1.05fr .95fr;align-items:start}
+    .academy-lead{background:var(--white);border:1px solid var(--line);border-radius:30px;padding:34px;box-shadow:var(--shadow)}
+    .academy-lead h2{margin:14px 0 12px;color:var(--ink);font-size:clamp(2.2rem,4vw,3.5rem);line-height:.96;letter-spacing:-.05em}
+    .academy-lead .sub{font-size:1.08rem;color:var(--text);margin-bottom:18px}
+    .academy-badges{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 22px}
+    .academy-badges span{padding:8px 12px;border-radius:999px;background:rgba(29,79,145,.08);border:1px solid rgba(29,79,145,.12);font-size:.9rem;font-weight:700;color:var(--blue-navy)}
+    .academy-points{grid-template-columns:1fr 1fr;margin-top:22px}
+    .academy-point{background:var(--panel);border:1px solid rgba(29,79,145,.08);border-radius:20px;padding:18px}
+    .academy-point strong{display:block;color:var(--ink);margin-bottom:6px}
+    .academy-side{display:grid;gap:22px}
+    .academy-quote,.academy-format,.academy-outcomes{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)}
+    .academy-quote blockquote{margin:0;color:var(--ink);font-size:1.1rem;line-height:1.6}
+    .academy-quote cite{display:block;margin-top:14px;color:var(--muted);font-style:normal;font-size:.95rem}
+    .academy-format h3,.academy-outcomes h3{margin:0 0 12px;color:var(--ink);letter-spacing:-.03em}
+    .academy-format ul,.academy-outcomes ul{margin:0;padding-left:18px}
+    .academy-format li,.academy-outcomes li{margin:10px 0}
 
     .wins-grid{grid-template-columns:repeat(3,1fr)}
     .card h3,.card h4{margin:0 0 12px;color:var(--ink);letter-spacing:-.03em}
@@ -157,8 +175,24 @@
     footer ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
     .foot-note{margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.92rem;color:rgba(255,255,255,.52)}
 
-    @media (max-width:1100px){.hero-grid,.event-card,.proof-grid,.cta-grid,.footer-grid{grid-template-columns:1fr}.wins-grid,.path-grid,.faq-grid,.trust-grid,.grid-2{grid-template-columns:repeat(2,1fr)}.hero-stats{grid-template-columns:1fr}.event-image,.proof-photo,.stage-media{min-height:360px}}
-    @media (max-width:760px){.nav{flex-wrap:wrap;padding:14px 0}.nav-links{order:3;width:100%;justify-content:space-between;overflow:auto;padding-bottom:4px}.nav-actions{width:100%;justify-content:space-between}.wins-grid,.path-grid,.faq-grid,.trust-grid,.grid-2{grid-template-columns:1fr}.section{padding:76px 0}.section-sm{padding:56px 0}.hero{padding:28px 0 56px}.hero-copy h1{font-size:3.35rem}.event-copy{padding:28px}.container{width:min(var(--max),calc(100% - 24px))}}
+    @media (max-width:1100px){
+      .hero-grid,.event-card,.proof-grid,.cta-grid,.footer-grid,.academy-grid{grid-template-columns:1fr}
+      .wins-grid,.path-grid,.faq-grid,.trust-grid,.grid-2,.academy-points{grid-template-columns:repeat(2,1fr)}
+      .hero-stats{grid-template-columns:1fr}
+      .event-image,.proof-photo,.stage-media{min-height:360px}
+    }
+    @media (max-width:760px){
+      .nav{flex-wrap:wrap;padding:14px 0}
+      .nav-links{order:3;width:100%;justify-content:space-between;overflow:auto;padding-bottom:4px}
+      .nav-actions{width:100%;justify-content:space-between}
+      .wins-grid,.path-grid,.faq-grid,.trust-grid,.grid-2,.academy-points{grid-template-columns:1fr}
+      .section{padding:76px 0}
+      .section-sm{padding:56px 0}
+      .hero{padding:28px 0 56px}
+      .hero-copy h1{font-size:3.35rem}
+      .event-copy,.academy-lead{padding:28px}
+      .container{width:min(var(--max),calc(100% - 24px))}
+    }
   </style>
 </head>
 <body>
@@ -179,7 +213,7 @@
         <a href="#footer">About</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-secondary" href="#academy">Explore Academy</a>
+        <a class="btn btn-secondary" href="/login">Log In</a>
         <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
       </div>
     </div>
@@ -195,11 +229,11 @@
           <div class="clarifier">We are not a speaker bureau. We help you become the speaker people want to book.</div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
-            <a class="btn btn-secondary" href="#wins">See Speaker Wins</a>
+            <a class="btn btn-secondary" href="#academy">Explore the Academy</a>
           </div>
           <div class="hero-stats">
+            <div class="stat"><strong>2 semesters</strong><span>Intensive mastermind-based Academy learning with industry experts.</span></div>
             <div class="stat"><strong>3 paths</strong><span>New, emerging, and established speakers each have a clear journey.</span></div>
-            <div class="stat"><strong>1 chapter</strong><span>The front door to the Southern California speaker community.</span></div>
             <div class="stat"><strong>1 next step</strong><span>Attend the next event and experience the room.</span></div>
           </div>
         </div>
@@ -248,6 +282,74 @@
             <li>Strengthen your speaking business systems</li>
             <li>Grow through community, strategy, and real relationships</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section academy-section" id="academy">
+      <div class="container academy-grid">
+        <div class="academy-lead">
+          <span class="eyebrow">NSA SoCal Speakers Academy</span>
+          <h2 class="oswald">Become a better speaker. Create a profitable speaking business.</h2>
+          <p class="sub">A cohort-based Academy for people who want to develop a signature talk, build a speaking business, gain traction faster, and learn directly from successful speakers who have already done it.</p>
+          <div class="academy-badges">
+            <span>2 Semesters</span>
+            <span>Bi-weekly Virtual Sessions</span>
+            <span>Industry Experts</span>
+            <span>Mastermind Cohort</span>
+            <span>Recorded Sessions</span>
+          </div>
+          <p>If you need to develop your signature talk, build a speaking business, create multiple income streams, increase your influence, or produce a demo reel that helps you get booked, the Academy is designed to give you the tools, structure, and support to move forward.</p>
+          <div class="academy-points">
+            <div class="academy-point">
+              <strong>Develop</strong>
+              Build your niche, signature story, brand, elevator speech, storytelling skills, business model, and marketing plan.
+            </div>
+            <div class="academy-point">
+              <strong>Become Clear</strong>
+              Understand the market landscape, identify what makes your path unique, and determine your road ahead as a professional speaker.
+            </div>
+            <div class="academy-point">
+              <strong>Join a Cohort</strong>
+              Collaborate with like-minded speaking professionals, receive peer coaching, and build accountability through mastermind support.
+            </div>
+            <div class="academy-point">
+              <strong>Learn From Pros</strong>
+              Established professional speakers share the tools, tactics, and strategic thinking behind real speaking businesses.
+            </div>
+          </div>
+          <div class="hero-actions" style="margin-top:24px;">
+            <a class="btn btn-primary" href="#cta">Explore the Academy</a>
+            <a class="btn btn-secondary" href="mailto:academy@nsasocal.org">Email Questions</a>
+          </div>
+        </div>
+        <div class="academy-side">
+          <div class="academy-quote">
+            <blockquote>
+              “What I learned, not only taught me how to put together a great keynote speech, but it gave me the ideas for the sample chapter that I wrote for my book, Never Split the Difference, which got me my book deal with Harper Collins.”
+            </blockquote>
+            <cite>Chris Voss — FBI Hostage Negotiator, Wall Street Journal Bestselling Author</cite>
+          </div>
+          <div class="academy-format">
+            <h3>Program Format</h3>
+            <ul>
+              <li>Choose full-year enrollment or individual semester enrollment</li>
+              <li>Bi-weekly virtual class sessions via Zoom</li>
+              <li>Learning Labs designed to deepen and apply what you learn</li>
+              <li>Monthly mastermind connection for peer feedback and accountability</li>
+              <li>NSA SoCal membership included with registration</li>
+            </ul>
+          </div>
+          <div class="academy-outcomes">
+            <h3>What Members Get</h3>
+            <ul>
+              <li>A clear path forward instead of guessing</li>
+              <li>Real-world strategy from working speakers</li>
+              <li>Community, collaboration, and relationships</li>
+              <li>Discounted access to professionally filmed demo reel opportunities</li>
+              <li>Tools to build and maintain a high-performing speaking business</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -309,7 +411,7 @@
       </div>
     </section>
 
-    <section class="section path-section" id="academy">
+    <section class="section path-section">
       <div class="container">
         <div class="section-heading">
           <span class="eyebrow">Speaker Pathways</span>
@@ -321,7 +423,7 @@
             <span class="tag">New Speakers</span>
             <h3 class="oswald">Start with the Academy.</h3>
             <p>Build fundamentals, gain clarity, and develop a strong professional foundation.</p>
-            <a class="btn btn-primary" href="#cta">Start with the Academy</a>
+            <a class="btn btn-primary" href="#academy">Start with the Academy</a>
           </article>
           <article class="path-card">
             <span class="tag">Emerging Speakers</span>
@@ -406,7 +508,7 @@
               <option>Learning about membership</option>
             </select>
             <button class="btn btn-primary" type="button">Attend the Next Event</button>
-            <a class="btn btn-secondary" href="#academy">See the Speaker Pathways</a>
+            <a class="btn btn-secondary" href="#academy">See the Academy</a>
           </form>
         </div>
       </div>
