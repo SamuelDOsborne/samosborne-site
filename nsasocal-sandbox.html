@@ -1,1253 +1,599 @@
-
-reverse enginner a modern versionhttps://nsasocal.org/
-
-15:22
-
-Searched the web, viewed a file
-Searched the web, viewed a file
-
-Now I have everything I need. Let me build a modern, elevated redesign of the NSA SoCal homepage.
-
-
-Created a file, read a file
-Created a file, read a file
-Here's the modern redesign — same content architecture, completely reimagined aesthetic. Key design decisions:
-
-Tone: Luxury editorial — think The Week meets a premium speakers bureau. Cormorant Garamond for elegant serif body, Syne for bold geometric headers, DM Mono for all the functional UI labels.
-
-Palette: Warm cream background with deep ink black and a consistent gold accent — authoritative without being corporate-cold.
-
-Layout upgrades:
-
-Split-panel hero with live stat grid and animated event card on the dark right column
-Animated ticker marquee replacing static taglines
-Three-pillar value prop section with overlapping large numerals
-Full-bleed dark feature section with atmospheric radial gradients
-Membership tiers as a clean three-column comparison
-Events calendar with date-badge cards replacing the basic list
-Gold pull-quote testimonial break
-Interactions: Scroll-triggered fade-up animations, hover states on all nav/cards/links, and a pulsing live dot on the upcoming event.
-
-Nsasocal modern
-Code · HTML 
-NSA_SoCal_Growth_Engine.pdf
-pdf
-
-keep in mind out marketing plan
-
-15:33
-Looking at your Growth Engine PDF alongside the website redesign, I can see a clear gap: the site as built doesn't yet reflect the strategic frameworks you've developed — the Conversion Staircase, the 3-segment audience matrix, the 5 pillars, the monthly rhythm. Let me rebuild it so the site itself is doing the perception engineering work.
-
-
-Created 2 files, edited a file, ran a command
-Created 2 files, edited a file, ran a command
-This version is now built on top of the Growth Engine PDF — every strategic framework is embedded directly into the site structure:
-
-What's new and why:
-
-The announcement bar uses the 3-Asset Stack urgency language ("Seats Filling") rather than generic event info. The hero's segmented CTAs surface your Audience Matrix — Established / Emerging / Aspiring — right where visitors first land, so every person self-identifies and gets the right message. The social proof stat block on the dark panel uses your actual documented outcomes (3 referrals, 8% retention, $40K→$120K) per the "no vague language, always show outcomes" design rule.
-
-The Conversion Staircase section maps the 5-step journey (Awareness → Leadership) with operational responsibilities visible alongside each step — perception engineering made structural. The 5 Pillars grid shows the psychology label on each card (Social Proof, Authority, Urgency, Visual Proof, Outcomes) so the logic is always visible. The Monthly Rhythm grid with the animated posting intensity bar that builds from steel blue to gold to rust as it approaches day-of — matching your escalation model visually.
-
-The Content Engine shows the 1 Event → 30 Days multiplication rule with the channel flow. And the Value Proof section isolates the three key ROI data points in large format cards — exactly as your "isolate the data" design rule specifies.
-
-Nsasocal modern
-Code · HTML 
-nsa_brand_moodboard_101619.pdf
-pdf
-
-use more theme from style guide
-
-15:44
-Now I have the official NSA brand guide. Let me rebuild the site with the actual brand colors, typography system, and visual language.
-
-
-Ran a command, created a file, read a file
-Ran a command, created a file, read a file
-Now fully brand-compliant. Here's what changed and why:
-
-Typography — replaced everything with the actual NSA font stack: Bebas Neue for all headlines and UI labels (tracked per spec), Roboto in multiple weights for body copy, and Raleway for accent labels and section eyebrows. Exactly as prescribed in the style guide.
-
-Colors — every hex is now pulled directly from the brand palette. Sky Blue (#049CD2) drives the nav border, marquee bar, section labels, staircase numbers, and stat figures. Orangutan (#F36E2C) is the single accent color used throughout (per the rule "only one accent at a time"), applied to the event card, value proof section, and intensity bar ramp. Charcoal (#58585B) for dark sections. Triple Mint (#5CC19D) for the Aspiring segment tab only.
-
-Brandscript — the exact NSA Brandscript statement ("Many professional speakers are trapped in the daily grind…") is now rendered as a full-bleed Sky Blue section in Raleway Bold, exactly matching the brand book's cyan callout treatment.
-
-Nav — the NSA pipe separator format ("NSA | SOCAL"), black background, 3px Sky Blue bottom border — all true to the logo and color system.
-
-Intensity bar — the gradient now transitions from Sky Blue to Orangutan as urgency builds toward day-of, using only the two sanctioned brand colors.
-
-Nsasocal modern
-Code · HTML 
-
-
-
-
-
-Claude is AI and can make mistakes. Please double-check responses.
-Nsasocal modern · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NSA SoCal — Where Serious Speakers Build Profitable, Sustainable Businesses</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<!-- Bebas Neue (headlines) + Roboto (body) + Raleway (accent) — per NSA brand guide -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&family=Raleway:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSA SoCal | Build a Better Speaking Business</title>
+  <meta name="description" content="NSA SoCal is not a speaker bureau. We help speakers build the skills, positioning, systems, and network that create speaking opportunities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0d2340;
+      --navy-2:#163255;
+      --sky:#6ec1ee;
+      --sky-2:#d8f0fb;
+      --orange:#f58220;
+      --orange-2:#ffb36b;
+      --red:#db5b5b;
+      --ink:#121826;
+      --text:#2f3b4e;
+      --muted:#6c7a91;
+      --panel:#f6f8fb;
+      --line:#dbe4ee;
+      --white:#ffffff;
+      --shadow:0 25px 70px rgba(10, 28, 52, 0.12);
+      --shadow-soft:0 16px 40px rgba(10, 28, 52, 0.08);
+      --radius:24px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+    .oswald{font-family:Oswald, Inter, sans-serif; letter-spacing:-.02em}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;
+      background:rgba(110,193,238,.12);color:var(--navy);font-weight:800;font-size:12px;
+      text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(110,193,238,.24)
+    }
+    .eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+    .section{padding:96px 0}
+    .section-sm{padding:72px 0}
+    .section-heading{max-width:760px;margin-bottom:32px}
+    .section-heading h2{
+      margin:14px 0 12px;color:var(--ink);font-size:clamp(2rem,4vw,3.6rem);line-height:.98;
+      font-weight:900;letter-spacing:-.05em
+    }
+    .section-heading p{margin:0;color:var(--muted);font-size:1.06rem}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;
+      padding:0 24px;border-radius:999px;font-weight:800;transition:.2s ease;border:1px solid transparent;cursor:pointer
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange-2));color:#111827;box-shadow:0 14px 30px rgba(245,130,32,.28)}
+    .btn-secondary{background:var(--white);border-color:rgba(13,35,64,.12);color:var(--navy)}
+    .btn-dark{background:var(--navy);color:var(--white)}
 
-  /* ── NSA BRAND COLORS (exact from style guide) ── */
-  :root {
-    /* Corporate */
-    --sky-blue:       #049CD2;   /* Primary brand blue */
-    --sky-blue-light: #72C3E5;
-    --charcoal:       #58585B;
-    --charcoal-light: #9C989A;
-    --gray:           #BCBEC0;
-    --gray-light:     #DCDDDE;
-    --rich-black:     #000000;
-    --white:          #ffffff;
-    /* Accent (Orangutan selected as primary accent for this design) */
-    --orangutan:      #F36E2C;
-    --orangutan-50:   #F9B696;
-    /* Mint as secondary accent */
-    --triple-mint:    #5CC19D;
-    --double-mint:    #A5D7B9;
-    --mint:           #D0E9D9;
-    /* Utilities */
-    --dark-bg:        #1a1a1c;   /* Rich black + slight warmth */
-    --border:         rgba(4,156,210,0.2);
-  }
+    header{
+      position:sticky;top:0;z-index:30;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(219,228,238,.85)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:84px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-mark{
+      width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-2));
+      color:var(--white);display:grid;place-items:center;font-weight:900;box-shadow:var(--shadow-soft)
+    }
+    .brand-copy{display:grid;gap:2px}
+    .brand-copy strong{font-size:1rem;color:var(--ink)}
+    .brand-copy span{font-size:.82rem;color:var(--muted)}
+    .nav-links{display:flex;align-items:center;gap:24px;font-weight:700;color:var(--navy);font-size:.96rem}
+    .nav-actions{display:flex;align-items:center;gap:12px}
 
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: var(--white);
-    color: var(--charcoal);
-    overflow-x: hidden;
-  }
+    .hero{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(110,193,238,.35), transparent 24%),
+        radial-gradient(circle at 15% 18%, rgba(245,130,32,.10), transparent 22%),
+        linear-gradient(135deg,#fbfdff 0%, #f3f7fb 60%, #eef4f9 100%);
+      padding:52px 0 72px;
+    }
+    .hero:after{
+      content:"";position:absolute;inset:0;background-image:
+      linear-gradient(rgba(13,35,64,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13,35,64,.045) 1px, transparent 1px);
+      background-size:48px 48px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 75%);pointer-events:none
+    }
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+    .hero-copy h1{
+      margin:18px 0 18px;color:var(--ink);font-size:clamp(3.3rem,8vw,6.25rem);line-height:.88;letter-spacing:-.08em;
+      max-width:10.5ch;font-weight:900
+    }
+    .hero-copy p{margin:0 0 18px;max-width:58ch;color:var(--text);font-size:1.08rem}
+    .hero-copy .clarifier{
+      margin:22px 0 28px;padding:18px 18px 18px 20px;border-left:4px solid var(--orange);
+      background:rgba(255,255,255,.75);border-radius:0 18px 18px 0;color:var(--navy);font-weight:700;max-width:60ch
+    }
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .stat{background:rgba(255,255,255,.78);backdrop-filter:blur(10px);border:1px solid rgba(219,228,238,.9);border-radius:20px;padding:18px;box-shadow:var(--shadow-soft)}
+    .stat strong{display:block;color:var(--ink);font-size:1.6rem;letter-spacing:-.04em}
+    .stat span{display:block;color:var(--muted);font-size:.93rem;margin-top:4px}
 
-  /* ── TYPOGRAPHY SYSTEM (NSA Brand Guide) ── */
-  /* Headlines: Bebas Neue, tracked 40 */
-  .headline {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.04em;
-    line-height: 0.95;
-    text-transform: uppercase;
-  }
-  /* Accent: Raleway */
-  .accent { font-family: 'Raleway', sans-serif; }
-  /* Body: Roboto */
+    .hero-visual{position:relative}
+    .stage-card{border-radius:32px;overflow:hidden;background:var(--white);box-shadow:var(--shadow);border:1px solid rgba(219,228,238,.95)}
+    .stage-media{
+      min-height:560px;
+      background:
+        linear-gradient(180deg, rgba(6,15,28,.10), rgba(6,15,28,.62)),
+        url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=80') center/cover;
+      display:flex;align-items:flex-end;padding:28px
+    }
+    .floating-event{
+      width:min(100%,420px);background:rgba(255,255,255,.92);backdrop-filter:blur(14px);padding:22px;border-radius:22px;
+      box-shadow:0 16px 40px rgba(11,27,52,.12)
+    }
+    .floating-event small{display:block;color:var(--orange);font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .floating-event h3{margin:10px 0 10px;color:var(--ink);font-size:1.7rem;line-height:1.02;letter-spacing:-.04em}
+    .floating-event p{margin:0 0 14px;color:var(--muted)}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;font-size:.9rem;color:var(--navy);font-weight:700}
+    .meta span{padding:7px 10px;border-radius:999px;background:rgba(110,193,238,.12);border:1px solid rgba(110,193,238,.18)}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 3rem; height: 60px;
-    background: var(--rich-black);
-    border-bottom: 3px solid var(--sky-blue);
-  }
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem; letter-spacing: 0.12em;
-    color: var(--white); text-decoration: none;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .nav-logo .pipe { color: var(--sky-blue); font-weight: 300; font-size: 1.1rem; }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; color: var(--gray-light);
-    transition: color 0.2s; padding-bottom: 2px;
-    border-bottom: 2px solid transparent;
-  }
-  .nav-links a:hover { color: var(--sky-blue); border-bottom-color: var(--sky-blue); }
-  .nav-cta {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none; color: var(--rich-black);
-    background: var(--sky-blue); padding: 0.55rem 1.5rem;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--orangutan); }
+    .trust-strip{background:var(--navy);color:rgba(255,255,255,.82);padding:22px 0}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+    .trust-item{padding:10px 8px;border-right:1px solid rgba(255,255,255,.08)}
+    .trust-item:last-child{border-right:none}
+    .trust-item strong{display:block;color:var(--white);font-size:1.1rem}
+    .trust-item span{font-size:.92rem}
 
-  /* ── ANNOUNCEMENT — 3-Asset Stack: Urgency ── */
-  .announcement {
-    background: var(--sky-blue); padding: 0.65rem 2rem;
-    margin-top: 60px;
-    display: flex; align-items: center; justify-content: center; gap: 2rem;
-  }
-  .ann-live {
-    display: flex; align-items: center; gap: 0.5rem;
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
-    letter-spacing: 0.12em; color: var(--rich-black);
-  }
-  .ann-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rich-black); animation: blink 1.4s infinite; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-  .ann-text {
-    font-family: 'Roboto', sans-serif; font-weight: 700;
-    font-size: 0.85rem; color: var(--rich-black); letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .ann-cta {
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    text-decoration: none; color: var(--white);
-    background: var(--rich-black); padding: 0.3rem 1rem;
-    transition: background 0.2s;
-  }
-  .ann-cta:hover { background: var(--orangutan); }
+    .bureau-box{
+      display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch
+    }
+    .compare-card{
+      border-radius:24px;padding:30px;border:1px solid var(--line);box-shadow:var(--shadow-soft);background:var(--white)
+    }
+    .compare-card.bad{background:linear-gradient(180deg,#fff 0%, #fff6f6 100%)}
+    .compare-card.good{background:linear-gradient(180deg,#fff 0%, #f4fbff 100%)}
+    .compare-card .label{display:inline-block;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
+    .compare-card.bad .label{background:rgba(219,91,91,.12);color:var(--red)}
+    .compare-card.good .label{background:rgba(110,193,238,.16);color:var(--navy)}
+    .compare-card h3{margin:0 0 12px;color:var(--ink);font-size:1.55rem;line-height:1.05;letter-spacing:-.04em}
+    .compare-card ul{margin:0;padding-left:18px;color:var(--text)}
+    .compare-card li{margin:10px 0}
 
-  /* ── HERO ── */
-  .hero {
-    display: grid; grid-template-columns: 1fr 1fr;
-    min-height: 90vh; overflow: hidden;
-  }
+    .event-section{background:linear-gradient(180deg,var(--panel) 0%, #fbfdff 100%)}
+    .event-card{display:grid;grid-template-columns:.92fr 1.08fr;background:var(--white);border:1px solid var(--line);border-radius:32px;overflow:hidden;box-shadow:var(--shadow)}
+    .event-image{
+      min-height:500px;
+      background:
+        linear-gradient(180deg, rgba(6,15,28,.14), rgba(6,15,28,.44)),
+        url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1400&q=80') center/cover
+    }
+    .event-copy{padding:38px;display:grid;gap:18px}
+    .event-copy h2{margin:0;color:var(--ink);font-size:clamp(2.25rem,4vw,3.5rem);line-height:.96;letter-spacing:-.05em;max-width:10.5ch}
+    .takeaways{display:grid;gap:12px}
+    .takeaway{
+      display:flex;gap:12px;padding:14px 16px;border-radius:18px;background:var(--panel);color:var(--navy);font-weight:700;border:1px solid rgba(110,193,238,.12)
+    }
+    .takeaway:before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));margin-top:.55em}
 
-  /* Left: cream/white with brand typography */
-  .hero-left {
-    padding: 5rem 3.5rem 5rem 3rem;
-    display: flex; flex-direction: column; justify-content: center;
-    background: var(--white);
-    position: relative;
-  }
-  .hero-left::after {
-    content: '';
-    position: absolute; top: 0; right: 0; bottom: 0;
-    width: 4px; background: var(--sky-blue);
-  }
+    .wins-grid,.path-grid,.proof-grid,.faq-grid,.footer-grid{display:grid;gap:22px}
+    .wins-grid{grid-template-columns:repeat(3,1fr)}
+    .card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)}
+    .card h3,.card h4{margin:0 0 12px;color:var(--ink);letter-spacing:-.03em}
+    .quote{font-size:1.03rem;color:var(--text)}
+    .person{display:flex;align-items:center;gap:14px;margin-top:18px}
+    .avatar{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--sky),var(--orange));color:var(--navy);font-weight:900}
+    .person strong{display:block;color:var(--ink)}
+    .person span{display:block;color:var(--muted);font-size:.92rem}
 
-  .hero-eyebrow {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--sky-blue); margin-bottom: 1.2rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .hero-eyebrow::before { content:''; display:block; width:30px; height:2px; background:var(--sky-blue); }
+    .path-section{background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 100%);color:var(--white);position:relative;overflow:hidden}
+    .path-section:before{
+      content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(110,193,238,.15), transparent 35%);pointer-events:none
+    }
+    .path-section .section-heading h2,.path-section .section-heading p{color:var(--white)}
+    .path-section .section-heading p{opacity:.82}
+    .path-grid{grid-template-columns:repeat(3,1fr);position:relative;z-index:1}
+    .path-card{padding:28px;border-radius:26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px)}
+    .path-card .tag{display:inline-block;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.10);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+    .path-card h3{margin:0 0 12px;color:var(--white);font-size:1.65rem;line-height:1.02;letter-spacing:-.03em}
+    .path-card p{margin:0 0 18px;color:rgba(255,255,255,.8)}
+    .path-card.academy{outline:2px solid rgba(245,130,32,.55);box-shadow:0 0 0 8px rgba(245,130,32,.08)}
 
-  .hero-h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 6vw, 7rem);
-    letter-spacing: 0.03em; line-height: 0.9;
-    text-transform: uppercase;
-    color: var(--charcoal);
-    margin-bottom: 0.2rem;
-  }
-  .hero-h1 .blue { color: var(--sky-blue); }
-  .hero-h1 .orange { color: var(--orangutan); }
+    .proof-grid{grid-template-columns:1.08fr .92fr;align-items:stretch}
+    .proof-photo{
+      min-height:520px;border-radius:30px;overflow:hidden;box-shadow:var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(6,15,28,.18), rgba(6,15,28,.38)),
+        url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=80') center/cover
+    }
+    .proof-stack{display:grid;gap:22px}
+    .mini-proof{min-height:160px;border-radius:24px;padding:24px;display:flex;flex-direction:column;justify-content:end;box-shadow:var(--shadow-soft);border:1px solid var(--line)}
+    .mini-proof:nth-child(1){background:linear-gradient(135deg,#ffffff 0%, #f4fbff 100%)}
+    .mini-proof:nth-child(2){background:linear-gradient(135deg,#ffffff 0%, #fff8ef 100%)}
+    .mini-proof:nth-child(3){background:linear-gradient(135deg,#ffffff 0%, #f8f9fc 100%)}
+    .mini-proof strong{display:block;color:var(--ink);font-size:2.25rem;line-height:.95;letter-spacing:-.06em}
+    .mini-proof span{display:block;color:var(--muted);margin-top:8px}
 
-  .hero-sub {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 1.05rem; line-height: 1.75;
-    color: var(--charcoal-light); max-width: 440px;
-    margin: 1.5rem 0 2rem;
-  }
+    .faq-grid{grid-template-columns:repeat(3,1fr)}
+    .faq-card{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--sky);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)}
+    .faq-card h3{margin:0 0 10px;color:var(--ink);font-size:1.45rem;letter-spacing:-.03em}
+    .faq-card h4{margin:18px 0 8px;color:var(--navy);font-size:1rem}
+    .faq-card ul{margin:0;padding-left:18px;color:var(--text)}
+    .faq-card li{margin:8px 0}
+    .faq-card .answer{margin-top:16px;padding:14px 16px;border-radius:18px;background:var(--panel);color:var(--navy);font-weight:700}
 
-  /* Segmented CTAs — Audience Matrix */
-  .seg-label {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--charcoal-light); margin-bottom: 0.5rem;
-  }
-  .seg-row { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-bottom: 2rem; max-width: 460px; }
-  .seg-btn {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; text-align: center;
-    padding: 0.75rem 0.4rem;
-    border: 1px solid var(--gray);
-    color: var(--charcoal); background: var(--white);
-    transition: all 0.2s; line-height: 1.2;
-    display: flex; flex-direction: column; align-items: center; gap: 0.15rem;
-  }
-  .seg-btn:hover { background: var(--sky-blue); color: var(--white); border-color: var(--sky-blue); }
-  .seg-btn.active { background: var(--sky-blue); color: var(--white); border-color: var(--sky-blue); }
-  .seg-sub {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.52rem; letter-spacing: 0.04em; text-transform: none;
-    opacity: 0.75;
-  }
+    .cta-band{padding:94px 0;background:linear-gradient(135deg,#09172b 0%, #14365f 72%, #2a6e9d 100%);color:var(--white);position:relative;overflow:hidden}
+    .cta-band:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%, rgba(110,193,238,.22), transparent 26%)}
+    .cta-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center}
+    .cta-grid h2{margin:16px 0 14px;font-size:clamp(2.3rem,4vw,3.7rem);line-height:.95;letter-spacing:-.06em}
+    .cta-grid p{margin:0;color:rgba(255,255,255,.82);max-width:56ch}
+    .cta-panel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:28px;padding:24px;box-shadow:var(--shadow-soft)}
+    .cta-panel form{display:grid;gap:14px}
+    .cta-panel input,.cta-panel select{
+      width:100%;min-height:54px;border-radius:16px;border:1px solid rgba(255,255,255,.12);padding:0 16px;font:inherit;background:rgba(255,255,255,.95);color:var(--ink)
+    }
 
-  /* Social proof row */
-  .proof-bar { display: flex; align-items: center; gap: 1.5rem; }
-  .proof-item { }
-  .proof-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.2rem; letter-spacing: 0.04em;
-    color: var(--charcoal); line-height: 1;
-  }
-  .proof-num .blue { color: var(--sky-blue); }
-  .proof-label {
-    font-family: 'Roboto', sans-serif; font-weight: 500;
-    font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--charcoal-light);
-  }
-  .proof-div { width: 1px; height: 36px; background: var(--gray); }
+    footer{background:#0a1320;color:rgba(255,255,255,.78);padding:40px 0 48px}
+    .footer-grid{grid-template-columns:1.3fr .8fr .8fr .8fr}
+    footer h4{margin:0 0 12px;color:var(--white)}
+    footer ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .foot-note{margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.92rem;color:rgba(255,255,255,.52)}
 
-  /* Right: dark panel */
-  .hero-right {
-    background: var(--dark-bg);
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column; justify-content: space-between;
-    padding: 3.5rem 3rem;
-  }
-  .hero-right::before {
-    content: 'NSA';
-    position: absolute; bottom: -3rem; right: -1rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18rem; letter-spacing: -0.02em;
-    color: rgba(4,156,210,0.05); line-height: 1; user-select: none;
-    pointer-events: none;
-  }
-
-  /* Spotlight card */
-  .spotlight-card {
-    border: 1px solid rgba(4,156,210,0.3);
-    background: rgba(4,156,210,0.07);
-    padding: 1.8rem 2rem; position: relative; z-index: 2;
-  }
-  .spotlight-badge {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--sky-blue); margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.6rem;
-  }
-  .spotlight-badge::before { content: '▲'; font-size: 0.5rem; }
-  .spotlight-win {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.2rem; letter-spacing: 0.03em;
-    color: var(--white); line-height: 1; margin-bottom: 0.3rem;
-  }
-  .spotlight-win .highlight { color: var(--sky-blue); }
-  .spotlight-detail {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); margin-bottom: 0.7rem;
-  }
-  .spotlight-quote {
-    font-family: 'Raleway', sans-serif; font-weight: 300;
-    font-style: italic; font-size: 0.92rem;
-    color: rgba(255,255,255,0.5); line-height: 1.55;
-  }
-
-  /* Stat grid */
-  .hero-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; position: relative; z-index: 2; }
-  .hero-stat {
-    padding: 1.4rem 1.5rem;
-    border: 1px solid rgba(255,255,255,0.06);
-    background: rgba(255,255,255,0.02);
-  }
-  .hero-stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem; letter-spacing: 0.03em;
-    color: var(--sky-blue); line-height: 1; margin-bottom: 0.2rem;
-  }
-  .hero-stat-label {
-    font-family: 'Roboto', sans-serif; font-weight: 500;
-    font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-  }
-
-  /* Event card */
-  .hero-event-card {
-    border: 1px solid rgba(243,110,44,0.45);
-    padding: 1.5rem 1.8rem;
-    background: rgba(243,110,44,0.07);
-    position: relative; z-index: 2;
-  }
-  .event-badge {
-    display: flex; align-items: center; gap: 0.6rem;
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem;
-    letter-spacing: 0.12em; color: var(--orangutan); margin-bottom: 0.7rem;
-  }
-  .event-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orangutan); animation: blink 1.4s infinite; }
-  .event-card-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
-    letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.4rem;
-    text-transform: uppercase;
-  }
-  .event-card-meta {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.35); margin-bottom: 0.8rem;
-  }
-  .event-seats {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--orangutan); margin-bottom: 0.9rem;
-    display: flex; align-items: center; gap: 0.4rem;
-  }
-  .event-seats::before { content: '●'; }
-  .event-link {
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    text-decoration: none; color: var(--orangutan);
-    border-bottom: 1px solid rgba(243,110,44,0.35); padding-bottom: 2px;
-    transition: border-color 0.2s;
-  }
-  .event-link:hover { border-color: var(--orangutan); }
-
-  /* ── SKY BLUE MARQUEE ── */
-  .marquee-bar { background: var(--sky-blue); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
-  .marquee-track { display: inline-flex; animation: marquee 30s linear infinite; }
-  .marquee-item {
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--rich-black); padding: 0 2.5rem;
-  }
-  .marquee-sep { color: var(--white); opacity: 0.5; }
-  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-  /* ── SECTION UTILITIES ── */
-  .section-label {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--sky-blue); margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .section-label::before { content:''; display:block; width:24px; height:2px; background:var(--sky-blue); }
-  .section-label.orange { color: var(--orangutan); }
-  .section-label.orange::before { background: var(--orangutan); }
-  .section-label.white { color: var(--sky-blue); }
-
-  .section-h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.4rem, 4vw, 4.2rem);
-    letter-spacing: 0.04em; text-transform: uppercase; line-height: 0.95;
-  }
-  .section-h2 .blue { color: var(--sky-blue); }
-  .section-h2 .orange { color: var(--orangutan); }
-  .section-h2 .white { color: var(--white); }
-  .section-h2 .mint { color: var(--triple-mint); }
-
-  /* ── BRANDSCRIPT BREAK ── */
-  .brandscript {
-    background: var(--sky-blue);
-    padding: 5rem 3rem; text-align: center;
-  }
-  .brandscript-text {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-    line-height: 1.45; color: var(--white);
-    max-width: 820px; margin: 0 auto;
-  }
-  .brandscript-text em { font-style: italic; font-weight: 300; }
-
-  /* ── CONVERSION STAIRCASE ── */
-  .staircase { background: var(--dark-bg); padding: 7rem 3rem; overflow: hidden; position: relative; }
-  .staircase::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: var(--sky-blue);
-  }
-  .staircase-header { margin-bottom: 3.5rem; }
-  .staircase-sub {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.45);
-    max-width: 500px; margin-top: 0.8rem;
-  }
-  .stairs { display: flex; flex-direction: column; gap: 3px; max-width: 860px; }
-  .stair {
-    display: grid; grid-template-columns: 100px 1fr 240px;
-    border: 1px solid rgba(255,255,255,0.06);
-    background: rgba(255,255,255,0.02);
-    transition: border-color 0.3s, background 0.3s;
-  }
-  .stair:hover { border-color: rgba(4,156,210,0.45); background: rgba(4,156,210,0.06); }
-  .stair-step {
-    padding: 1.4rem 1.2rem; border-right: 1px solid rgba(255,255,255,0.06);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-  }
-  .stair-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem;
-    letter-spacing: 0.04em; color: var(--sky-blue); line-height: 1;
-  }
-  .stair-name {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(4,156,210,0.5); margin-top: 0.15rem; text-align: center;
-  }
-  .stair-body { padding: 1.4rem 1.8rem; }
-  .stair-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem;
-    letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.3rem; text-transform: uppercase;
-  }
-  .stair-action {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.7rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.38);
-  }
-  .stair-op { padding: 1.4rem 1.8rem; border-left: 1px solid rgba(4,156,210,0.18); }
-  .stair-op-label {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--sky-blue); display: block; margin-bottom: 0.35rem;
-  }
-  .stair-op-detail {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.75rem; color: rgba(4,156,210,0.55); line-height: 1.5;
-  }
-
-  /* ── SEGMENTS ── */
-  .segments { padding: 7rem 3rem; background: var(--white); }
-  .segments-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; margin-top: 3rem; }
-  .segment-card {
-    padding: 2.5rem 2.2rem;
-    border-top: 4px solid var(--gray);
-    border-left: 1px solid var(--gray-light);
-    border-right: 1px solid var(--gray-light);
-    border-bottom: 1px solid var(--gray-light);
-    transition: border-top-color 0.3s, background 0.3s;
-  }
-  .segment-card:hover { background: rgba(4,156,210,0.03); }
-  .segment-card.established { border-top-color: var(--orangutan); }
-  .segment-card.emerging { border-top-color: var(--sky-blue); background: rgba(4,156,210,0.03); }
-  .segment-card.aspiring { border-top-color: var(--triple-mint); }
-  .seg-type {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem;
-    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem;
-  }
-  .seg-type.e { color: var(--orangutan); }
-  .seg-type.m { color: var(--sky-blue); }
-  .seg-type.a { color: var(--triple-mint); }
-  .seg-tagline {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 1.15rem; color: var(--charcoal); line-height: 1.3; margin-bottom: 1.3rem;
-  }
-  .seg-field-label {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--charcoal-light); display: block; margin-bottom: 0.4rem;
-  }
-  .seg-focus {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.9rem; color: var(--charcoal); line-height: 1.65; margin-bottom: 1.3rem;
-  }
-  .seg-tone {
-    font-family: 'Roboto', sans-serif; font-weight: 500;
-    font-size: 0.7rem; letter-spacing: 0.06em; color: var(--charcoal-light);
-  }
-  .seg-cta {
-    display: inline-block; margin-top: 1.5rem;
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
-    letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
-    color: var(--charcoal); border-bottom: 2px solid var(--gray);
-    padding-bottom: 2px; transition: all 0.2s;
-  }
-  .segment-card.established .seg-cta { color: var(--orangutan); border-color: var(--orangutan-50); }
-  .segment-card.emerging .seg-cta { color: var(--sky-blue); border-color: var(--sky-blue-light); }
-  .segment-card.aspiring .seg-cta { color: var(--triple-mint); border-color: var(--double-mint); }
-  .seg-cta:hover { border-color: currentColor; }
-
-  .impl-rule {
-    background: var(--charcoal); padding: 1.5rem 2.5rem;
-    display: flex; align-items: flex-start; gap: 1.8rem; margin-top: 3px;
-    border-top: 3px solid var(--sky-blue);
-  }
-  .impl-label {
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
-    letter-spacing: 0.14em; color: var(--sky-blue); white-space: nowrap;
-  }
-  .impl-text {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6;
-    font-style: italic;
-  }
-
-  /* ── 5 PILLARS ── */
-  .pillars { padding: 7rem 3rem; background: var(--gray-light); }
-  .pillars-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-top: 3rem; }
-  .pillar-card {
-    padding: 2rem 1.5rem; background: var(--white);
-    border-bottom: 4px solid var(--gray);
-    transition: border-bottom-color 0.3s, transform 0.3s;
-  }
-  .pillar-card:hover { border-bottom-color: var(--sky-blue); transform: translateY(-4px); }
-  .pillar-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 4rem;
-    letter-spacing: 0.04em; color: var(--gray); line-height: 1;
-  }
-  .pillar-icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
-  .pillar-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--charcoal); margin-bottom: 0.6rem;
-  }
-  .pillar-desc {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.85rem; line-height: 1.65; color: var(--charcoal-light);
-  }
-  .pillar-rule {
-    margin-top: 1rem;
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--sky-blue); border-top: 1px solid var(--gray-light); padding-top: 0.8rem;
-  }
-
-  /* ── MONTHLY RHYTHM ── */
-  .rhythm { background: var(--charcoal); padding: 7rem 3rem; }
-  .rhythm-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-top: 3rem; margin-bottom: 2.5rem; }
-  .week-card {
-    padding: 2rem 1.6rem; background: rgba(255,255,255,0.04);
-    border-top: 3px solid transparent; transition: border-top-color 0.3s, background 0.3s;
-  }
-  .week-card:hover { background: rgba(4,156,210,0.1); border-top-color: var(--sky-blue); }
-  .week-label {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--sky-blue); margin-bottom: 0.5rem;
-  }
-  .week-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem;
-    letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.6rem;
-  }
-  .week-action {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.55;
-  }
-  .intensity-bar {
-    border: 1px solid rgba(4,156,210,0.2); padding: 2rem 2.5rem;
-    background: rgba(4,156,210,0.05);
-  }
-  .intensity-header {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
-    letter-spacing: 0.12em; color: var(--sky-blue);
-    margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;
-  }
-  .intensity-header::after { content:''; flex:1; height:1px; background:rgba(4,156,210,0.2); }
-  .intensity-track { display: flex; align-items: flex-end; gap: 3px; height: 52px; }
-  .intensity-col { flex: 1; }
-  .intensity-stages { display: flex; justify-content: space-between; margin-top: 0.5rem; }
-  .intensity-stage-label {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-  }
-
-  /* ── CONTENT ENGINE ── */
-  .content-engine { padding: 7rem 3rem; background: var(--white); border-top: 4px solid var(--sky-blue); }
-  .engine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-  .engine-rows { display: flex; flex-direction: column; gap: 3px; }
-  .engine-row {
-    display: flex; align-items: center;
-    border: 1px solid var(--gray-light); background: var(--white);
-    transition: border-color 0.2s;
-  }
-  .engine-row:hover { border-color: var(--sky-blue-light); }
-  .engine-icon {
-    width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;
-    background: var(--charcoal); font-size: 1.1rem; flex-shrink: 0;
-    border-right: 1px solid var(--gray);
-  }
-  .engine-label {
-    padding: 0 1.5rem; flex: 1;
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal);
-  }
-  .engine-count {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
-    letter-spacing: 0.04em; color: var(--sky-blue); padding: 0 1.5rem;
-  }
-  .engine-bottom {
-    background: var(--charcoal); padding: 1.2rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    border-top: 3px solid var(--orangutan);
-  }
-  .engine-bottom-label {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-  }
-  .engine-bottom-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
-    letter-spacing: 0.06em; color: var(--orangutan);
-  }
-  .engine-channels {
-    font-family: 'Roboto', sans-serif; font-weight: 500;
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--sky-blue); line-height: 2; margin-top: 1.5rem;
-  }
-
-  /* ── VALUE PROOF ── */
-  .value-proof { background: var(--dark-bg); padding: 7rem 3rem; border-top: 4px solid var(--orangutan); }
-  .proof-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; margin-top: 3.5rem; }
-  .proof-card {
-    padding: 2.8rem 2.2rem;
-    border: 1px solid rgba(255,255,255,0.06);
-    background: rgba(255,255,255,0.02);
-    display: flex; flex-direction: column;
-    transition: border-color 0.3s;
-  }
-  .proof-card:hover { border-color: rgba(243,110,44,0.4); }
-  .proof-big {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5.5rem; letter-spacing: 0.02em;
-    color: var(--white); line-height: 1; margin-bottom: 0.2rem;
-  }
-  .proof-big .orange { color: var(--orangutan); }
-  .proof-big .blue { color: var(--sky-blue); }
-  .proof-metric {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.35); margin-bottom: 2rem; flex: 1; line-height: 1.8;
-  }
-  .proof-card-cta {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
-    letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
-    display: block; text-align: center; padding: 0.8rem;
-    border: 1px solid rgba(243,110,44,0.4); color: var(--orangutan);
-    transition: all 0.25s;
-  }
-  .proof-card-cta:hover { background: var(--orangutan); color: var(--white); }
-
-  /* ── BRANDSCRIPT QUOTE ── */
-  .testimonial {
-    background: var(--sky-blue); padding: 6rem 3rem; text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .testimonial blockquote {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: clamp(1.5rem, 2.5vw, 2.3rem); line-height: 1.45;
-    color: var(--white); max-width: 800px; margin: 0 auto 1.8rem;
-    position: relative; z-index: 2;
-  }
-  .testimonial blockquote em { font-weight: 300; font-style: italic; }
-  .testimonial cite {
-    font-family: 'Roboto', sans-serif; font-weight: 500;
-    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(0,0,0,0.45); font-style: normal;
-    position: relative; z-index: 2; display: block;
-  }
-
-  /* ── EVENTS ── */
-  .events { padding: 7rem 3rem; border-top: 1px solid var(--gray-light); }
-  .events-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; margin-top: 3rem; align-items: start; }
-  .events-intro {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 1rem; color: var(--charcoal-light); line-height: 1.75; margin-bottom: 1.8rem;
-  }
-  .btn-sec {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
-    letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
-    color: var(--charcoal); padding: 0.75rem 1.8rem;
-    border: 2px solid var(--charcoal); display: inline-block; transition: all 0.25s;
-  }
-  .btn-sec:hover { background: var(--sky-blue); border-color: var(--sky-blue); color: var(--white); }
-  .events-list { display: flex; flex-direction: column; }
-  .event-row {
-    display: grid; grid-template-columns: 76px 1fr auto;
-    gap: 1.6rem; align-items: center; padding: 1.6rem 0;
-    border-bottom: 1px solid var(--gray-light); text-decoration: none; color: inherit; cursor: pointer;
-  }
-  .event-row:hover .event-row-title { color: var(--sky-blue); }
-  .event-row-date { text-align: center; border: 2px solid var(--gray-light); padding: 0.6rem 0.4rem; }
-  .event-row-month {
-    font-family: 'Raleway', sans-serif; font-weight: 700;
-    font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--sky-blue); display: block;
-  }
-  .event-row-day {
-    font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem;
-    letter-spacing: 0.04em; color: var(--charcoal); display: block; line-height: 1;
-  }
-  .event-row-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem;
-    letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.2rem; transition: color 0.2s;
-  }
-  .event-row-meta {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal-light);
-  }
-  .event-row-arrow { color: var(--sky-blue); font-size: 1.1rem; opacity: 0; transition: opacity 0.2s, transform 0.2s; }
-  .event-row:hover .event-row-arrow { opacity: 1; transform: translateX(4px); }
-
-  /* ── FOOTER ── */
-  footer { background: var(--rich-black); padding: 5rem 3rem 2.5rem; border-top: 4px solid var(--sky-blue); }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4rem; }
-  .footer-brand {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
-    letter-spacing: 0.1em; color: var(--white); margin-bottom: 0.9rem;
-  }
-  .footer-brand .pipe { color: var(--sky-blue); }
-  .footer-tagline {
-    font-family: 'Raleway', sans-serif; font-weight: 300; font-style: italic;
-    font-size: 0.9rem; color: rgba(255,255,255,0.35); line-height: 1.65;
-    margin-bottom: 1.4rem; max-width: 280px;
-  }
-  .footer-contact {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.4rem;
-  }
-  .footer-contact a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
-  .footer-contact a:hover { color: var(--sky-blue); }
-  .footer-social { display: flex; gap: 0.6rem; }
-  .footer-social a {
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
-    text-decoration: none; color: rgba(255,255,255,0.28);
-    border: 1px solid rgba(255,255,255,0.12); padding: 0.38rem 0.65rem; transition: all 0.2s;
-  }
-  .footer-social a:hover { color: var(--white); border-color: var(--sky-blue); background: var(--sky-blue); }
-  .footer-col-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky-blue); margin-bottom: 1.4rem;
-  }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-  .footer-links a {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.88rem; text-decoration: none; color: rgba(255,255,255,0.38); transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--sky-blue-light); }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-  .footer-copy {
-    font-family: 'Roboto', sans-serif; font-weight: 300;
-    font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.18); text-transform: uppercase;
-  }
-
-  /* ── SCROLL ANIMATIONS ── */
-  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── MOBILE ── */
-  @media (max-width: 960px) {
-    nav { padding: 0 1.5rem; } .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; } .hero-right { display: none; } .hero-left { padding: 3rem 1.5rem; }
-    .seg-row { grid-template-columns: 1fr; max-width: 100%; }
-    .stairs .stair { grid-template-columns: 90px 1fr; } .stair-op { display: none; }
-    .segments-grid, .pillars-grid, .proof-cards, .rhythm-grid { grid-template-columns: 1fr; }
-    .engine-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .events-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .announcement { flex-direction: column; gap: 0.5rem; }
-  }
-</style>
+    @media (max-width:1100px){
+      .hero-grid,.event-card,.proof-grid,.cta-grid,.footer-grid{grid-template-columns:1fr}
+      .wins-grid,.path-grid,.faq-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-stats{grid-template-columns:1fr}
+      .event-image,.proof-photo,.stage-media{min-height:360px}
+    }
+    @media (max-width:760px){
+      .nav{flex-wrap:wrap;padding:14px 0}
+      .nav-links{order:3;width:100%;justify-content:space-between;overflow:auto;padding-bottom:4px}
+      .nav-actions{width:100%;justify-content:space-between}
+      .wins-grid,.path-grid,.faq-grid,.trust-grid,.bureau-box{grid-template-columns:1fr}
+      .section{padding:76px 0}
+      .section-sm{padding:56px 0}
+      .hero{padding:28px 0 56px}
+      .hero-copy h1{font-size:3.35rem}
+      .event-copy{padding:28px}
+      .container{width:min(var(--max),calc(100% - 24px))}
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="brand-mark">NSA</div>
+        <div class="brand-copy">
+          <strong>NSA SoCal</strong>
+          <span>Speaker Business Accelerator</span>
+        </div>
+      </a>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">NSA <span class="pipe">|</span> SOCAL</a>
-  <ul class="nav-links">
-    <li><a href="#">Membership</a></li>
-    <li><a href="#">Academy</a></li>
-    <li><a href="#">Events</a></li>
-    <li><a href="#">TEDx</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
-  <a class="nav-cta" href="#">Find A Speaker</a>
-</nav>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#event">Next Event</a>
+        <a href="#academy">Academy</a>
+        <a href="#wins">Speaker Wins</a>
+        <a href="#questions">Who It’s For</a>
+        <a href="#footer">About</a>
+      </nav>
 
-<!-- ANNOUNCEMENT — 3-Asset Stack: Seats Filling -->
-<div class="announcement">
-  <div class="ann-live"><span class="ann-dot"></span>Seats Filling</div>
-  <div class="ann-text">45th Anniversary Celebration &nbsp;·&nbsp; March 5, 2026 &nbsp;·&nbsp; Los Angeles</div>
-  <a class="ann-cta" href="#">Register Now →</a>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Southern California Chapter · Est. 1981</div>
-    <div class="hero-h1">Where Serious<br>Speakers Build<br><span class="blue">Profitable</span><br>Businesses</div>
-    <p class="hero-sub">NSA SoCal provides the community and resources professional speakers need to master their craft, propel their business, and ignite change.</p>
-
-    <!-- AUDIENCE MATRIX — segmented CTAs -->
-    <div class="seg-label">This program is ideal for —</div>
-    <div class="seg-row">
-      <a class="seg-btn" href="#established">Established<span class="seg-sub">Revenue &amp; scale</span></a>
-      <a class="seg-btn active" href="#emerging">Emerging<span class="seg-sub">Skills &amp; visibility</span></a>
-      <a class="seg-btn" href="#aspiring">Aspiring<span class="seg-sub">Clarity &amp; community</span></a>
-    </div>
-
-    <!-- SOCIAL PROOF — value messaging, always outcomes -->
-    <div class="proof-bar">
-      <div class="proof-item"><div class="proof-num">45</div><div class="proof-label">Years</div></div>
-      <div class="proof-div"></div>
-      <div class="proof-item"><div class="proof-num">200<span class="blue">+</span></div><div class="proof-label">Members</div></div>
-      <div class="proof-div"></div>
-      <div class="proof-item"><div class="proof-num">12</div><div class="proof-label">Events / Yr</div></div>
-      <div class="proof-div"></div>
-      <div class="proof-item"><div class="proof-num">TEDx</div><div class="proof-label">Alumni</div></div>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <!-- MEMBER SPOTLIGHT: Always show face + measurable win -->
-    <div class="spotlight-card">
-      <div class="spotlight-badge">Member Spotlight</div>
-      <div class="spotlight-win">$40K → <span class="highlight">$120K</span></div>
-      <div class="spotlight-detail">Annual Speaking Revenue · 18 Months</div>
-      <div class="spotlight-quote">"NSA SoCal gave me the peer accountability and resources I couldn't build alone."</div>
-    </div>
-
-    <!-- VALUE METRICS — outcomes, not vague language -->
-    <div class="hero-stat-grid">
-      <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">Referrals This Qtr</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">8%</div><div class="hero-stat-label">Retention Increase</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">30</div><div class="hero-stat-label">Days Content / Event</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">TEDx</div><div class="hero-stat-label">Alumni Network</div></div>
-    </div>
-
-    <!-- UPCOMING EVENT — Urgency signal -->
-    <div class="hero-event-card">
-      <div class="event-badge"><span class="event-dot"></span>Next Event · March 5</div>
-      <div class="event-card-title">45th Anniversary Celebration</div>
-      <div class="event-card-meta">6:30 pm – 9:30 pm &nbsp;·&nbsp; In-Person &nbsp;·&nbsp; Los Angeles</div>
-      <div class="event-seats">Seats Filling Fast</div>
-      <a class="event-link" href="#">Reserve Your Seat →</a>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE — Sky Blue (brand) -->
-<div class="marquee-bar">
-  <div class="marquee-track">
-    <span class="marquee-item">Engineering Perception</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Increase Perceived Value</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Grow Revenue</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Change Lives</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">45th Anniversary 2026</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Master Your Craft</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Propel Your Business</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Ignite Change</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Engineering Perception</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Increase Perceived Value</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Grow Revenue</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Change Lives</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">45th Anniversary 2026</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Master Your Craft</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Propel Your Business</span><span class="marquee-sep"> | </span>
-    <span class="marquee-item">Ignite Change</span><span class="marquee-sep"> | </span>
-  </div>
-</div>
-
-<!-- BRANDSCRIPT STATEMENT — direct from NSA style guide -->
-<div class="brandscript">
-  <p class="brandscript-text">
-    Many professional speakers are trapped in the daily grind of running their business.
-    At NSA SoCal, we provide community and resources to help them
-    <em>master their craft and propel their business</em>
-    so they can spend more time igniting change.
-  </p>
-</div>
-
-<!-- CONVERSION STAIRCASE -->
-<section class="staircase">
-  <div class="staircase-header fade-up">
-    <div class="section-label white">The Member Journey</div>
-    <div class="section-h2"><span class="white">The Conversion </span><span class="blue">Staircase</span></div>
-    <p class="staircase-sub">Every touchpoint moves someone one step further — from first awareness to lasting leadership. Precision at every stage.</p>
-  </div>
-  <div class="stairs">
-    <div class="stair fade-up">
-      <div class="stair-step"><span class="stair-num">01</span><span class="stair-name">Awareness</span></div>
-      <div class="stair-body"><div class="stair-title">Discover NSA SoCal</div><div class="stair-action">Segmented messaging · Clear CTA to register</div></div>
-      <div class="stair-op"><span class="stair-op-label">Op. Responsibility</span><span class="stair-op-detail">Segment messaging &amp; clear CTA to register.</span></div>
-    </div>
-    <div class="stair fade-up" style="transition-delay:.07s">
-      <div class="stair-step"><span class="stair-num">02</span><span class="stair-name">Attendance</span></div>
-      <div class="stair-body"><div class="stair-title">Attend an Event</div><div class="stair-action">Track guests · 48-hour follow-up · Personal outreach</div></div>
-      <div class="stair-op"><span class="stair-op-label">Op. Responsibility</span><span class="stair-op-detail">Track guests. 48-hr follow-up. Personal outreach.</span></div>
-    </div>
-    <div class="stair fade-up" style="transition-delay:.14s">
-      <div class="stair-step"><span class="stair-num">03</span><span class="stair-name">Membership</span></div>
-      <div class="stair-body"><div class="stair-title">Join the Community</div><div class="stair-action">Welcome sequence · Committee invite within 60 days</div></div>
-      <div class="stair-op"><span class="stair-op-label">Op. Responsibility</span><span class="stair-op-detail">Welcome sequence. Committee invite &lt;60 days.</span></div>
-    </div>
-    <div class="stair fade-up" style="transition-delay:.21s">
-      <div class="stair-step"><span class="stair-num">04</span><span class="stair-name">Engagement</span></div>
-      <div class="stair-body"><div class="stair-title">Become a Contributor</div><div class="stair-action">Feature 'Why I Serve' posts · Highlight member stories</div></div>
-      <div class="stair-op"><span class="stair-op-label">Op. Responsibility</span><span class="stair-op-detail">Feature 'Why I Serve' posts. Highlight stories.</span></div>
-    </div>
-    <div class="stair fade-up" style="transition-delay:.28s">
-      <div class="stair-step"><span class="stair-num">05</span><span class="stair-name">Leadership</span></div>
-      <div class="stair-body"><div class="stair-title">Lead &amp; Serve</div><div class="stair-action">Showcase board · Create visible leadership pipeline</div></div>
-      <div class="stair-op"><span class="stair-op-label">Op. Responsibility</span><span class="stair-op-detail">Showcase board. Create visible pipeline.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- AUDIENCE SEGMENTS -->
-<section class="segments" id="established">
-  <div class="fade-up">
-    <div class="section-label">Audience Matrix</div>
-    <div class="section-h2">We Speak to <span class="blue">Your Stage</span></div>
-  </div>
-  <div class="segments-grid fade-up">
-    <div class="segment-card established">
-      <div class="seg-type e">Established</div>
-      <div class="seg-tagline">Scale what's already working</div>
-      <span class="seg-field-label">Focus</span>
-      <div class="seg-focus">Revenue growth, corporate access, and scalable systems for speakers at $100K+.</div>
-      <span class="seg-field-label">Tone</span>
-      <div class="seg-tone">Strategic · Peer-level · ROI-focused</div>
-      <a class="seg-cta" href="#">This is for you →</a>
-    </div>
-    <div class="segment-card emerging" id="emerging">
-      <div class="seg-type m">Emerging</div>
-      <div class="seg-tagline">Build the machine that books you</div>
-      <span class="seg-field-label">Focus</span>
-      <div class="seg-focus">Skill mastery, booking systems, and visibility for speakers in the growth phase.</div>
-      <span class="seg-field-label">Tone</span>
-      <div class="seg-tone">Encouraging · Tactical · Development-focused</div>
-      <a class="seg-cta" href="#">This is for you →</a>
-    </div>
-    <div class="segment-card aspiring" id="aspiring">
-      <div class="seg-type a">Aspiring</div>
-      <div class="seg-tagline">Find your path and your people</div>
-      <span class="seg-field-label">Focus</span>
-      <div class="seg-focus">Roadmap clarity, credibility building, and a community that sees your potential.</div>
-      <span class="seg-field-label">Tone</span>
-      <div class="seg-tone">Invitational · Reassuring · Vision-driven</div>
-      <a class="seg-cta" href="#">This is for you →</a>
-    </div>
-  </div>
-  <div class="impl-rule">
-    <div class="impl-label">Implementation Rule</div>
-    <div class="impl-text">Every event promotion explicitly states: "This program is ideal for [Segment] seeking [Result]." No vague language. Always show outcomes. Isolate the data.</div>
-  </div>
-</section>
-
-<!-- 5 MARKETING PILLARS -->
-<section class="pillars">
-  <div class="fade-up">
-    <div class="section-label">The Engine</div>
-    <div class="section-h2">5 Marketing <span class="blue">Pillars</span></div>
-  </div>
-  <div class="pillars-grid fade-up">
-    <div class="pillar-card">
-      <div class="pillar-num">01</div><span class="pillar-icon">🎙️</span>
-      <div class="pillar-title">Member Spotlights</div>
-      <p class="pillar-desc">Always include a measurable win. Always show a face. Social proof that converts.</p>
-      <div class="pillar-rule">Psychology: Social Proof</div>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">02</div><span class="pillar-icon">🎤</span>
-      <div class="pillar-title">Speaker Spotlights</div>
-      <p class="pillar-desc">3 takeaways. Authority builders. Actionable insights that position our experts.</p>
-      <div class="pillar-rule">Psychology: Authority</div>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">03</div><span class="pillar-icon">🎟️</span>
-      <div class="pillar-title">Event Promotion</div>
-      <p class="pillar-desc">3-asset stack: Announcement → Countdown → Urgency/FOMO. Intensity ramps to day-of.</p>
-      <div class="pillar-rule">Psychology: Urgency</div>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">04</div><span class="pillar-icon">📸</span>
-      <div class="pillar-title">Event Recaps</div>
-      <p class="pillar-desc">No recap without faces. Visual proof of belonging. 1 event = 30 days of content.</p>
-      <div class="pillar-rule">Rule: Visual Proof</div>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-num">05</div><span class="pillar-icon">💎</span>
-      <div class="pillar-title">Value Messaging</div>
-      <p class="pillar-desc">No vague language. Always show outcomes. Isolate the data to prove ROI.</p>
-      <div class="pillar-rule">Rule: Always Outcomes</div>
-    </div>
-  </div>
-</section>
-
-<!-- MONTHLY RHYTHM -->
-<section class="rhythm">
-  <div class="fade-up">
-    <div class="section-label white">Content Cadence</div>
-    <div class="section-h2"><span class="white">The Monthly </span><span class="blue">Rhythm</span></div>
-  </div>
-  <div class="rhythm-grid fade-up">
-    <div class="week-card">
-      <div class="week-label">Week 1</div>
-      <div class="week-title">Speaker Spotlight</div>
-      <div class="week-action">Promote event. Share takeaways. Build authority signals.</div>
-    </div>
-    <div class="week-card">
-      <div class="week-label">Week 2</div>
-      <div class="week-title">Member Spotlight</div>
-      <div class="week-action">Highlight a measurable win. Soft value message.</div>
-    </div>
-    <div class="week-card">
-      <div class="week-label">Week 3</div>
-      <div class="week-title">Board Spotlight</div>
-      <div class="week-action">Humanize leadership. Reinforce mission and vision.</div>
-    </div>
-    <div class="week-card">
-      <div class="week-label">Week 4</div>
-      <div class="week-title">Event Week</div>
-      <div class="week-action">Ramp up urgency. Last chance. Day-of momentum.</div>
-    </div>
-  </div>
-  <div class="intensity-bar fade-up">
-    <div class="intensity-header">Event Posting Intensity</div>
-    <div class="intensity-track" id="intensityTrack"></div>
-    <div class="intensity-stages">
-      <span class="intensity-stage-label">6 Weeks Out</span>
-      <span class="intensity-stage-label">4 Weeks</span>
-      <span class="intensity-stage-label">2 Weeks</span>
-      <span class="intensity-stage-label">48 Hours</span>
-      <span class="intensity-stage-label">Day-Of</span>
-    </div>
-  </div>
-</section>
-
-<!-- CONTENT ENGINE -->
-<section class="content-engine">
-  <div class="engine-grid">
-    <div class="fade-up">
-      <div class="section-label">Multiplication Effect</div>
-      <div class="section-h2">1 Event = <span class="orange">30 Days</span><br>Of Content</div>
-      <p style="font-family:'Roboto',sans-serif;font-weight:300;font-size:1rem;color:var(--charcoal-light);line-height:1.75;margin:1.4rem 0 1.4rem;max-width:400px;">Every event is a content factory. The repurposing rule turns a single evening into a full month of presence across every channel.</p>
-      <div class="engine-channels">LinkedIn · Facebook · Instagram<br>→ Email Strategy (4 Types)<br>→ Events Page + Membership Page</div>
-    </div>
-    <div class="engine-rows fade-up">
-      <div class="engine-row"><div class="engine-icon">💬</div><div class="engine-label">Quote Graphics</div><div class="engine-count">×3</div></div>
-      <div class="engine-row"><div class="engine-icon">▶️</div><div class="engine-label">Short Video Clips</div><div class="engine-count">×2</div></div>
-      <div class="engine-row"><div class="engine-icon">📝</div><div class="engine-label">Recap Post</div><div class="engine-count">×1</div></div>
-      <div class="engine-row"><div class="engine-icon">✉️</div><div class="engine-label">Email</div><div class="engine-count">×1</div></div>
-      <div class="engine-row"><div class="engine-icon">🎙️</div><div class="engine-label">Testimonial Clip</div><div class="engine-count">×1</div></div>
-      <div class="engine-bottom">
-        <div class="engine-bottom-label">From 1 event →</div>
-        <div class="engine-bottom-num">30 Days of Content</div>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#academy">Explore Academy</a>
+        <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- VALUE PROOF — no vague language, always outcomes -->
-<section class="value-proof">
-  <div class="fade-up">
-    <div class="section-label orange">No Vague Language. Always Outcomes.</div>
-    <div class="section-h2"><span class="white">The ROI of </span><span class="orange">Membership</span></div>
-  </div>
-  <div class="proof-cards fade-up">
-    <div class="proof-card">
-      <div class="proof-big"><span class="orange">3</span></div>
-      <div class="proof-metric">Referrals generated this quarter from peer connections at chapter events</div>
-      <a class="proof-card-cta" href="#">Become A Member</a>
-    </div>
-    <div class="proof-card">
-      <div class="proof-big"><span class="blue">8</span><span class="orange">%</span></div>
-      <div class="proof-metric">Increase in member retention since implementing structured engagement framework</div>
-      <a class="proof-card-cta" href="#">Become A Member</a>
-    </div>
-    <div class="proof-card">
-      <div class="proof-big" style="font-size:3rem;line-height:1.15;"><span class="blue">$40K</span><br>→<span class="orange">$120K</span></div>
-      <div class="proof-metric">Member revenue growth in 18 months — documented outcome, not a promise</div>
-      <a class="proof-card-cta" href="#">Become A Member</a>
-    </div>
-  </div>
-</section>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Build a Better Speaking Business</span>
+          <h1 class="oswald">Build a Better Speaking Business.</h1>
+          <p>
+            NSA SoCal helps speakers develop the skills, positioning, systems, and professional network that create speaking opportunities.
+          </p>
+          <div class="clarifier">
+            We are not a speaker bureau. We help you become the speaker people want to book.
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
+            <a class="btn btn-secondary" href="#wins">See Speaker Wins</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>3 paths</strong>
+              <span>New, emerging, and established speakers each have a clear journey.</span>
+            </div>
+            <div class="stat">
+              <strong>1 chapter</strong>
+              <span>The front door to the Southern California speaker community.</span>
+            </div>
+            <div class="stat">
+              <strong>1 next step</strong>
+              <span>Attend the next event and see the room for yourself.</span>
+            </div>
+          </div>
+        </div>
 
-<!-- BRANDSCRIPT TESTIMONIAL -->
-<section class="testimonial">
-  <blockquote>"You're not designing aesthetics. You're engineering perception. <em>Every touchpoint either builds or erodes the stage you deserve.</em>"</blockquote>
-  <cite>NSA SoCal Member · Growth Engine Participant</cite>
-</section>
+        <div class="hero-visual">
+          <div class="stage-card">
+            <div class="stage-media">
+              <div class="floating-event">
+                <small>Featured Event</small>
+                <h3 class="oswald">How to Turn One Talk Into More Corporate Bookings</h3>
+                <p>Practical strategy for speakers who want stronger positioning, better systems, and more consistent opportunities.</p>
+                <div class="meta">
+                  <span>April 18</span>
+                  <span>Irvine, CA</span>
+                  <span>9:00 AM – 1:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- EVENTS -->
-<section class="events">
-  <div class="section-label">On The Calendar</div>
-  <div class="events-grid">
-    <div>
-      <div class="section-h2">Upcoming<br><span class="blue">Events</span></div>
-      <p class="events-intro" style="margin-top:1.2rem">Each event is a rung on the staircase. Connect with the community, tap into exclusive resources, and plug in to fast-track your growth.</p>
-      <a class="btn-sec" href="#">View Full Calendar</a>
-    </div>
-    <div class="events-list">
-      <a class="event-row" href="#">
-        <div class="event-row-date"><span class="event-row-month">Mar</span><span class="event-row-day">05</span></div>
-        <div><div class="event-row-title">45th Anniversary Celebration</div><div class="event-row-meta">6:30 pm – 9:30 pm · In-Person · Los Angeles</div></div>
-        <span class="event-row-arrow">→</span>
-      </a>
-      <a class="event-row" href="#">
-        <div class="event-row-date"><span class="event-row-month">Apr</span><span class="event-row-day">09</span></div>
-        <div><div class="event-row-title">Speaker Academy — Spring Session</div><div class="event-row-meta">9:00 am – 4:00 pm · Workshop · Pasadena</div></div>
-        <span class="event-row-arrow">→</span>
-      </a>
-      <a class="event-row" href="#">
-        <div class="event-row-date"><span class="event-row-month">May</span><span class="event-row-day">14</span></div>
-        <div><div class="event-row-title">Monthly Chapter Meeting</div><div class="event-row-meta">6:30 pm – 9:00 pm · Hybrid · Los Angeles</div></div>
-        <span class="event-row-arrow">→</span>
-      </a>
-      <a class="event-row" href="#">
-        <div class="event-row-date"><span class="event-row-month">Jun</span><span class="event-row-day">11</span></div>
-        <div><div class="event-row-title">West Coast Alliance Summit</div><div class="event-row-meta">All Day · In-Person · San Diego</div></div>
-        <span class="event-row-arrow">→</span>
-      </a>
-    </div>
-  </div>
-</section>
+    <section class="trust-strip section-sm">
+      <div class="container trust-grid">
+        <div class="trust-item"><strong>Skill Mastery</strong><span>Craft, positioning, delivery</span></div>
+        <div class="trust-item"><strong>Business Growth</strong><span>Systems, visibility, revenue</span></div>
+        <div class="trust-item"><strong>Professional Network</strong><span>Peers, mentors, leadership</span></div>
+        <div class="trust-item"><strong>Clear Pathways</strong><span>Academy, events, leadership</span></div>
+      </div>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand">NSA <span class="pipe">|</span> SOUTHERN CALIFORNIA</div>
-      <p class="footer-tagline">Where serious speakers build profitable, sustainable businesses — and ignite change.</p>
-      <div class="footer-contact"><a href="mailto:marketing@nsasocal.org">marketing@nsasocal.org</a></div>
-      <div class="footer-social"><a href="#">FB</a><a href="#">IG</a><a href="#">LI</a></div>
-    </div>
-    <div>
-      <div class="footer-col-title">Membership</div>
-      <ul class="footer-links">
-        <li><a href="#">Become a Member</a></li>
-        <li><a href="#">Member Vault</a></li>
-        <li><a href="#">Sponsorship</a></li>
-        <li><a href="#">West Coast Alliance</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Programs</div>
-      <ul class="footer-links">
-        <li><a href="#">Speaker Academy</a></li>
-        <li><a href="#">TEDx Speakers</a></li>
-        <li><a href="#">Find a Speaker</a></li>
-        <li><a href="#">Events</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Organization</div>
-      <ul class="footer-links">
-        <li><a href="#">Our Story</a></li>
-        <li><a href="#">The Board</a></li>
-        <li><a href="#">Past Presidents</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 NSA SoCal · All Rights Reserved</div>
-    <div class="footer-copy">Director of Marketing: Sam Osborne</div>
-  </div>
-</footer>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Clarifying the Value</span>
+          <h2 class="oswald">What NSA SoCal is — and what it is not.</h2>
+          <p>
+            One of the biggest conversion barriers is misunderstanding the chapter’s role. The website needs to clarify the model immediately and positively.
+          </p>
+        </div>
+        <div class="bureau-box">
+          <div class="compare-card bad">
+            <span class="label">Misconception</span>
+            <h3>“NSA gets speakers gigs.”</h3>
+            <ul>
+              <li>Creates the wrong expectation for first-time visitors</li>
+              <li>Frames the chapter like a bureau or agency</li>
+              <li>Undercuts the real value of the community</li>
+            </ul>
+          </div>
+          <div class="compare-card good">
+            <span class="label">Correct Positioning</span>
+            <h3>“NSA helps speakers build the business that gets them booked.”</h3>
+            <ul>
+              <li>Develop your speaking craft and marketability</li>
+              <li>Strengthen positioning, systems, and visibility</li>
+              <li>Build relationships that lead to real opportunities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script>
-  // Scroll fade-ups
-  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:.1});
-  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    <section class="section event-section" id="event">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Next Upcoming Event</span>
+          <h2 class="oswald">The homepage should lead with the next room worth showing up for.</h2>
+          <p>
+            The website’s primary job is to convert interest into attendance. Every major section should support that action with value and proof.
+          </p>
+        </div>
+        <div class="event-card">
+          <div class="event-image" aria-hidden="true"></div>
+          <div class="event-copy">
+            <span class="eyebrow">Attend the Next Event</span>
+            <h2 class="oswald">Learn the business side of speaking from people doing the work.</h2>
+            <p>
+              NSA SoCal events are designed for speakers who want to improve how they communicate, position, sell, and grow a sustainable speaking business.
+            </p>
+            <div class="meta">
+              <span>Saturday, April 18</span>
+              <span>Newport Beach Marriott</span>
+              <span>In-Person Networking</span>
+            </div>
+            <div class="takeaways">
+              <div class="takeaway">Build a more credible, marketable speaker offer</div>
+              <div class="takeaway">Understand the systems behind more consistent bookings</div>
+              <div class="takeaway">Meet speakers who can sharpen your business thinking</div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
+              <a class="btn btn-secondary" href="#questions">See the Pathways</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // Marquee
-  const t = document.querySelector('.marquee-track');
-  t.innerHTML += t.innerHTML;
+    <section class="section" id="wins">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Transformation Proof</span>
+          <h2 class="oswald">Speaker wins make the value visible.</h2>
+          <p>
+            The site should not rely on vague promises. It should show what changed for speakers who engaged with the chapter.
+          </p>
+        </div>
+        <div class="wins-grid">
+          <article class="card">
+            <h3>Booked 18 corporate keynotes</h3>
+            <p class="quote">“The chapter helped me sharpen how I positioned my expertise and talk about my value in a much more professional way.”</p>
+            <div class="person">
+              <div class="avatar">JM</div>
+              <div><strong>Jordan M.</strong><span>Leadership keynote speaker</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Doubled keynote fee</h3>
+            <p class="quote">“I stopped sounding broad and started sounding bookable. That shift changed the conversations I was having.”</p>
+            <div class="person">
+              <div class="avatar">AR</div>
+              <div><strong>Ashley R.</strong><span>Workplace culture speaker</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Built a stronger speaking business</h3>
+            <p class="quote">“The real value wasn’t one tactic. It was learning the systems, relationships, and thinking behind long-term growth.”</p>
+            <div class="person">
+              <div class="avatar">DT</div>
+              <div><strong>Daniel T.</strong><span>Innovation speaker</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  // Intensity bar — posting ramp from Growth Plan
-  const bar = document.getElementById('intensityTrack');
-  const vals = [2,2,3,3,4,5,5,6,7,8,9,10,11,13,14,14,15,16,15,14,16,18,22,26,30,36,42,48,56,62,58,52,48,44,50,58,62];
-  const max = Math.max(...vals);
-  vals.forEach((v,i) => {
-    const col = document.createElement('div');
-    col.className = 'intensity-col';
-    const p = i / (vals.length - 1);
-    // Color: sky blue → orangutan as it approaches day-of (NSA brand colors)
-    let color;
-    if (p < 0.55) color = `rgba(4,156,210,${0.25 + p*0.7})`;
-    else if (p < 0.82) color = `rgba(243,110,44,${0.35 + p*0.5})`;
-    else color = `rgba(243,110,44,${0.75 + p*0.25})`;
-    col.style.cssText = `height:${(v/max)*100}%;background:${color};border-radius:1px;`;
-    bar.appendChild(col);
-  });
-</script>
+    <section class="section path-section" id="academy">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Pathway to Growth</span>
+          <h2 class="oswald">Different speakers have different questions. The site should answer them.</h2>
+          <p>
+            New speakers ask how to get started. Emerging speakers ask how to get more bookings. Established speakers ask how to expand their platform. The chapter should make each path visible.
+          </p>
+        </div>
+        <div class="path-grid">
+          <article class="path-card academy">
+            <span class="tag">New Speakers</span>
+            <h3 class="oswald">How do I get started?</h3>
+            <p>For speakers who need roadmap clarity, fundamentals, feedback, and a structured place to begin.</p>
+            <a class="btn btn-primary" href="#cta">Start with the Academy</a>
+          </article>
+          <article class="path-card">
+            <span class="tag">Emerging Speakers</span>
+            <h3 class="oswald">How do I get more bookings?</h3>
+            <p>For speakers building skill mastery, business systems, visibility, and more consistent momentum.</p>
+            <a class="btn btn-secondary" href="#cta">Attend the Next Event</a>
+          </article>
+          <article class="path-card">
+            <span class="tag">Established Speakers</span>
+            <h3 class="oswald">How do I expand my platform?</h3>
+            <p>For experienced speakers who want stronger peer access, revenue growth, scalability, and leadership opportunities.</p>
+            <a class="btn btn-secondary" href="#cta">Explore Leadership</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container proof-grid">
+        <div class="proof-photo" aria-hidden="true"></div>
+        <div class="proof-stack">
+          <div class="mini-proof">
+            <strong>Not a bureau.</strong>
+            <span>Clearer messaging builds trust and sets the right expectation from the first visit.</span>
+          </div>
+          <div class="mini-proof">
+            <strong>Lead with events.</strong>
+            <span>Repeat the core action throughout the page: attend the next event.</span>
+          </div>
+          <div class="mini-proof">
+            <strong>Show proof.</strong>
+            <span>Use member stories, speaker spotlights, and event visuals to make the value tangible.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="questions">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Questions Speakers Ask</span>
+          <h2 class="oswald">The copy should answer the audience’s real questions.</h2>
+          <p>
+            This gives the homepage sharper segmentation and helps visitors immediately see where they fit.
+          </p>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-card">
+            <h3>New Speakers</h3>
+            <ul>
+              <li>How do I get started speaking professionally?</li>
+              <li>How do I build a talk people actually want?</li>
+              <li>How do I get my first paid opportunity?</li>
+            </ul>
+            <div class="answer">Answer on the site: NSA Academy as the entry pathway.</div>
+          </article>
+          <article class="faq-card">
+            <h3>Emerging Speakers</h3>
+            <ul>
+              <li>How do I get more bookings?</li>
+              <li>How do I raise my fee and position my talk better?</li>
+              <li>How do I turn this into a real business?</li>
+            </ul>
+            <div class="answer">Answer on the site: chapter events and speaker community.</div>
+          </article>
+          <article class="faq-card">
+            <h3>Established Speakers</h3>
+            <ul>
+              <li>How do I expand my platform and reach?</li>
+              <li>Where do I connect with serious peers?</li>
+              <li>How do I keep growing professionally?</li>
+            </ul>
+            <div class="answer">Answer on the site: peer access, collaboration, and leadership.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="cta">
+      <div class="container cta-grid">
+        <div>
+          <span class="eyebrow">Final Call to Action</span>
+          <h2 class="oswald">Build the front door to the Southern California speaker community.</h2>
+          <p>
+            A place where visitors immediately feel: this is where my speaking business can grow. Start with the next event and let the experience prove the value.
+          </p>
+        </div>
+        <div class="cta-panel">
+          <form>
+            <input type="text" placeholder="Your name" aria-label="Your name">
+            <input type="email" placeholder="Email address" aria-label="Email address">
+            <select aria-label="I am most interested in">
+              <option>I’m most interested in...</option>
+              <option>Attending the next event</option>
+              <option>Starting with the Academy</option>
+              <option>Learning about membership</option>
+            </select>
+            <button class="btn btn-primary" type="button">Attend the Next Event</button>
+            <a class="btn btn-secondary" href="#academy">See the Speaker Pathways</a>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>NSA SoCal</h4>
+        <p>Speaker business accelerator for professionals who want stronger craft, stronger positioning, and stronger business momentum.</p>
+      </div>
+      <div>
+        <h4>Events</h4>
+        <ul>
+          <li><a href="#event">Next Event</a></li>
+          <li><a href="#wins">Speaker Wins</a></li>
+          <li><a href="#cta">Register</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pathways</h4>
+        <ul>
+          <li><a href="#academy">Academy</a></li>
+          <li><a href="#questions">Emerging Speakers</a></li>
+          <li><a href="#questions">Established Speakers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Mission</a></li>
+          <li><a href="#">Leadership</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container foot-note">Professional concept landing page for the NSA SoCal website rebrand.</div>
+  </footer>
 </body>
 </html>
