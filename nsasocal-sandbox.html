@@ -10,14 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy:#0d2340;
-      --navy-2:#163255;
-      --sky:#6ec1ee;
-      --sky-2:#d8f0fb;
-      --orange:#f58220;
-      --orange-2:#ffb36b;
-      --red:#db5b5b;
-      --ink:#121826;
+      --blue-deep:#09172b;
+      --blue-navy:#112b4a;
+      --blue-royal:#1d4f91;
+      --blue-steel:#5f7fa6;
+      --blue-mist:#dfeaf6;
+      --blue-pale:#f4f8fc;
+      --red:#a63d4a;
+      --red-soft:#f8f2f4;
+      --ink:#101826;
       --text:#2f3b4e;
       --muted:#6c7a91;
       --panel:#f6f8fb;
@@ -30,157 +31,91 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-      background:var(--white);
-      line-height:1.55;
-    }
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--white);line-height:1.55}
     a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
     .container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
-    .oswald{font-family:Oswald, Inter, sans-serif; letter-spacing:-.02em}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;
-      background:rgba(110,193,238,.12);color:var(--navy);font-weight:800;font-size:12px;
-      text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(110,193,238,.24)
-    }
-    .eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+    .oswald{font-family:Oswald, Inter, sans-serif;letter-spacing:-.02em}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;background:rgba(29,79,145,.08);color:var(--blue-navy);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(29,79,145,.14)}
+    .eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
     .section{padding:96px 0}
     .section-sm{padding:72px 0}
     .section-heading{max-width:760px;margin-bottom:32px}
-    .section-heading h2{
-      margin:14px 0 12px;color:var(--ink);font-size:clamp(2rem,4vw,3.6rem);line-height:.98;
-      font-weight:900;letter-spacing:-.05em
-    }
+    .section-heading h2{margin:14px 0 12px;color:var(--ink);font-size:clamp(2rem,4vw,3.6rem);line-height:.98;font-weight:900;letter-spacing:-.05em}
     .section-heading p{margin:0;color:var(--muted);font-size:1.06rem}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;
-      padding:0 24px;border-radius:999px;font-weight:800;transition:.2s ease;border:1px solid transparent;cursor:pointer
-    }
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border-radius:999px;font-weight:800;transition:.2s ease;border:1px solid transparent;cursor:pointer}
     .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange-2));color:#111827;box-shadow:0 14px 30px rgba(245,130,32,.28)}
-    .btn-secondary{background:var(--white);border-color:rgba(13,35,64,.12);color:var(--navy)}
-    .btn-dark{background:var(--navy);color:var(--white)}
+    .btn-primary{background:linear-gradient(135deg,var(--blue-royal),var(--blue-steel));color:var(--white);box-shadow:0 14px 30px rgba(29,79,145,.22)}
+    .btn-secondary{background:var(--white);border-color:rgba(17,43,74,.12);color:var(--blue-navy)}
 
-    header{
-      position:sticky;top:0;z-index:30;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(219,228,238,.85)
-    }
+    header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(219,228,238,.85)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:84px}
     .brand{display:flex;align-items:center;gap:14px}
-    .brand-mark{
-      width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-2));
-      color:var(--white);display:grid;place-items:center;font-weight:900;box-shadow:var(--shadow-soft)
-    }
+    .brand-mark{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--blue-deep),var(--blue-royal));color:var(--white);display:grid;place-items:center;font-weight:900;box-shadow:var(--shadow-soft)}
     .brand-copy{display:grid;gap:2px}
     .brand-copy strong{font-size:1rem;color:var(--ink)}
     .brand-copy span{font-size:.82rem;color:var(--muted)}
-    .nav-links{display:flex;align-items:center;gap:24px;font-weight:700;color:var(--navy);font-size:.96rem}
+    .nav-links{display:flex;align-items:center;gap:24px;font-weight:700;color:var(--blue-navy);font-size:.96rem}
     .nav-actions{display:flex;align-items:center;gap:12px}
 
-    .hero{
-      position:relative;overflow:hidden;
-      background:
-        radial-gradient(circle at 85% 10%, rgba(110,193,238,.35), transparent 24%),
-        radial-gradient(circle at 15% 18%, rgba(245,130,32,.10), transparent 22%),
-        linear-gradient(135deg,#fbfdff 0%, #f3f7fb 60%, #eef4f9 100%);
-      padding:52px 0 72px;
-    }
-    .hero:after{
-      content:"";position:absolute;inset:0;background-image:
-      linear-gradient(rgba(13,35,64,.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(13,35,64,.045) 1px, transparent 1px);
-      background-size:48px 48px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 75%);pointer-events:none
-    }
+    .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 85% 10%, rgba(95,127,166,.18), transparent 24%),radial-gradient(circle at 15% 18%, rgba(29,79,145,.08), transparent 22%),linear-gradient(135deg,#fbfdff 0%, #f4f8fc 60%, #edf3f9 100%);padding:52px 0 72px}
+    .hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(13,35,64,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(13,35,64,.04) 1px, transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 75%);pointer-events:none}
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
-    .hero-copy h1{
-      margin:18px 0 18px;color:var(--ink);font-size:clamp(3.3rem,8vw,6.25rem);line-height:.88;letter-spacing:-.08em;
-      max-width:10.5ch;font-weight:900
-    }
+    .hero-copy h1{margin:18px 0;color:var(--ink);font-size:clamp(3.3rem,8vw,6.2rem);line-height:.88;letter-spacing:-.08em;max-width:10.5ch;font-weight:900}
     .hero-copy p{margin:0 0 18px;max-width:58ch;color:var(--text);font-size:1.08rem}
-    .hero-copy .clarifier{
-      margin:22px 0 28px;padding:18px 18px 18px 20px;border-left:4px solid var(--orange);
-      background:rgba(255,255,255,.75);border-radius:0 18px 18px 0;color:var(--navy);font-weight:700;max-width:60ch
-    }
+    .hero-copy .clarifier{margin:22px 0 28px;padding:18px 18px 18px 20px;border-left:4px solid var(--red);background:rgba(255,255,255,.86);border-radius:0 18px 18px 0;color:var(--blue-navy);font-weight:700;max-width:60ch}
     .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
     .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-    .stat{background:rgba(255,255,255,.78);backdrop-filter:blur(10px);border:1px solid rgba(219,228,238,.9);border-radius:20px;padding:18px;box-shadow:var(--shadow-soft)}
+    .stat{background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border:1px solid rgba(219,228,238,.9);border-radius:20px;padding:18px;box-shadow:var(--shadow-soft)}
     .stat strong{display:block;color:var(--ink);font-size:1.6rem;letter-spacing:-.04em}
     .stat span{display:block;color:var(--muted);font-size:.93rem;margin-top:4px}
 
-    .hero-visual{position:relative}
     .stage-card{border-radius:32px;overflow:hidden;background:var(--white);box-shadow:var(--shadow);border:1px solid rgba(219,228,238,.95)}
-    .stage-media{
-      min-height:560px;
-      background:
-        linear-gradient(180deg, rgba(6,15,28,.10), rgba(6,15,28,.62)),
-        url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=80') center/cover;
-      display:flex;align-items:flex-end;padding:28px
-    }
-    .floating-event{
-      width:min(100%,420px);background:rgba(255,255,255,.92);backdrop-filter:blur(14px);padding:22px;border-radius:22px;
-      box-shadow:0 16px 40px rgba(11,27,52,.12)
-    }
-    .floating-event small{display:block;color:var(--orange);font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .stage-media{min-height:560px;background:linear-gradient(180deg, rgba(6,15,28,.14), rgba(6,15,28,.64)),url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=80') center/cover;display:flex;align-items:flex-end;padding:28px}
+    .floating-event{width:min(100%,420px);background:rgba(255,255,255,.93);backdrop-filter:blur(14px);padding:22px;border-radius:22px;box-shadow:0 16px 40px rgba(11,27,52,.12)}
+    .floating-event small{display:block;color:var(--red);font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .floating-event h3{margin:10px 0 10px;color:var(--ink);font-size:1.7rem;line-height:1.02;letter-spacing:-.04em}
     .floating-event p{margin:0 0 14px;color:var(--muted)}
-    .meta{display:flex;flex-wrap:wrap;gap:10px;font-size:.9rem;color:var(--navy);font-weight:700}
-    .meta span{padding:7px 10px;border-radius:999px;background:rgba(110,193,238,.12);border:1px solid rgba(110,193,238,.18)}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;font-size:.9rem;color:var(--blue-navy);font-weight:700}
+    .meta span{padding:7px 10px;border-radius:999px;background:rgba(29,79,145,.08);border:1px solid rgba(29,79,145,.12)}
 
-    .trust-strip{background:var(--navy);color:rgba(255,255,255,.82);padding:22px 0}
+    .trust-strip{background:var(--blue-deep);color:rgba(255,255,255,.82);padding:22px 0}
     .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
     .trust-item{padding:10px 8px;border-right:1px solid rgba(255,255,255,.08)}
     .trust-item:last-child{border-right:none}
     .trust-item strong{display:block;color:var(--white);font-size:1.1rem}
     .trust-item span{font-size:.92rem}
 
-    .bureau-box{
-      display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch
-    }
-    .compare-card{
-      border-radius:24px;padding:30px;border:1px solid var(--line);box-shadow:var(--shadow-soft);background:var(--white)
-    }
-    .compare-card.bad{background:linear-gradient(180deg,#fff 0%, #fff6f6 100%)}
-    .compare-card.good{background:linear-gradient(180deg,#fff 0%, #f4fbff 100%)}
-    .compare-card .label{display:inline-block;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
-    .compare-card.bad .label{background:rgba(219,91,91,.12);color:var(--red)}
-    .compare-card.good .label{background:rgba(110,193,238,.16);color:var(--navy)}
-    .compare-card h3{margin:0 0 12px;color:var(--ink);font-size:1.55rem;line-height:1.05;letter-spacing:-.04em}
-    .compare-card ul{margin:0;padding-left:18px;color:var(--text)}
-    .compare-card li{margin:10px 0}
+    .grid-2,.wins-grid,.path-grid,.proof-grid,.faq-grid,.footer-grid{display:grid;gap:22px}
+    .grid-2{grid-template-columns:1fr 1fr}
+    .card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)}
+    .message-card.left{background:linear-gradient(180deg,#fff 0%, var(--red-soft) 100%)}
+    .message-card.right{background:linear-gradient(180deg,#fff 0%, var(--blue-pale) 100%)}
+    .label{display:inline-block;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px}
+    .label.red{background:rgba(166,61,74,.10);color:var(--red)}
+    .label.blue{background:rgba(29,79,145,.10);color:var(--blue-navy)}
+    .message-card h3{margin:0 0 12px;color:var(--ink);font-size:1.6rem;line-height:1.05;letter-spacing:-.04em}
+    .message-card ul{margin:0;padding-left:18px}
+    .message-card li{margin:10px 0}
 
     .event-section{background:linear-gradient(180deg,var(--panel) 0%, #fbfdff 100%)}
     .event-card{display:grid;grid-template-columns:.92fr 1.08fr;background:var(--white);border:1px solid var(--line);border-radius:32px;overflow:hidden;box-shadow:var(--shadow)}
-    .event-image{
-      min-height:500px;
-      background:
-        linear-gradient(180deg, rgba(6,15,28,.14), rgba(6,15,28,.44)),
-        url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1400&q=80') center/cover
-    }
+    .event-image{min-height:500px;background:linear-gradient(180deg, rgba(6,15,28,.16), rgba(6,15,28,.46)),url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1400&q=80') center/cover}
     .event-copy{padding:38px;display:grid;gap:18px}
     .event-copy h2{margin:0;color:var(--ink);font-size:clamp(2.25rem,4vw,3.5rem);line-height:.96;letter-spacing:-.05em;max-width:10.5ch}
     .takeaways{display:grid;gap:12px}
-    .takeaway{
-      display:flex;gap:12px;padding:14px 16px;border-radius:18px;background:var(--panel);color:var(--navy);font-weight:700;border:1px solid rgba(110,193,238,.12)
-    }
-    .takeaway:before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--red));margin-top:.55em}
+    .takeaway{display:flex;gap:12px;padding:14px 16px;border-radius:18px;background:var(--panel);color:var(--blue-navy);font-weight:700;border:1px solid rgba(29,79,145,.10)}
+    .takeaway:before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--blue-royal),var(--red));margin-top:.55em}
 
-    .wins-grid,.path-grid,.proof-grid,.faq-grid,.footer-grid{display:grid;gap:22px}
     .wins-grid{grid-template-columns:repeat(3,1fr)}
-    .card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)}
     .card h3,.card h4{margin:0 0 12px;color:var(--ink);letter-spacing:-.03em}
     .quote{font-size:1.03rem;color:var(--text)}
     .person{display:flex;align-items:center;gap:14px;margin-top:18px}
-    .avatar{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--sky),var(--orange));color:var(--navy);font-weight:900}
+    .avatar{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue-mist),var(--blue-steel));color:var(--blue-navy);font-weight:900}
     .person strong{display:block;color:var(--ink)}
     .person span{display:block;color:var(--muted);font-size:.92rem}
 
-    .path-section{background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 100%);color:var(--white);position:relative;overflow:hidden}
-    .path-section:before{
-      content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(110,193,238,.15), transparent 35%);pointer-events:none
-    }
+    .path-section{background:linear-gradient(135deg,var(--blue-deep) 0%, var(--blue-navy) 100%);color:var(--white);position:relative;overflow:hidden}
+    .path-section:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(95,127,166,.16), transparent 35%);pointer-events:none}
     .path-section .section-heading h2,.path-section .section-heading p{color:var(--white)}
     .path-section .section-heading p{opacity:.82}
     .path-grid{grid-template-columns:repeat(3,1fr);position:relative;z-index:1}
@@ -188,41 +123,33 @@
     .path-card .tag{display:inline-block;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.10);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
     .path-card h3{margin:0 0 12px;color:var(--white);font-size:1.65rem;line-height:1.02;letter-spacing:-.03em}
     .path-card p{margin:0 0 18px;color:rgba(255,255,255,.8)}
-    .path-card.academy{outline:2px solid rgba(245,130,32,.55);box-shadow:0 0 0 8px rgba(245,130,32,.08)}
+    .path-card.academy{outline:2px solid rgba(166,61,74,.5);box-shadow:0 0 0 8px rgba(166,61,74,.08)}
 
     .proof-grid{grid-template-columns:1.08fr .92fr;align-items:stretch}
-    .proof-photo{
-      min-height:520px;border-radius:30px;overflow:hidden;box-shadow:var(--shadow);
-      background:
-        linear-gradient(180deg, rgba(6,15,28,.18), rgba(6,15,28,.38)),
-        url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=80') center/cover
-    }
+    .proof-photo{min-height:520px;border-radius:30px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(6,15,28,.18), rgba(6,15,28,.38)),url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=80') center/cover}
     .proof-stack{display:grid;gap:22px}
     .mini-proof{min-height:160px;border-radius:24px;padding:24px;display:flex;flex-direction:column;justify-content:end;box-shadow:var(--shadow-soft);border:1px solid var(--line)}
-    .mini-proof:nth-child(1){background:linear-gradient(135deg,#ffffff 0%, #f4fbff 100%)}
-    .mini-proof:nth-child(2){background:linear-gradient(135deg,#ffffff 0%, #fff8ef 100%)}
-    .mini-proof:nth-child(3){background:linear-gradient(135deg,#ffffff 0%, #f8f9fc 100%)}
+    .mini-proof:nth-child(1){background:linear-gradient(135deg,#ffffff 0%, #f4f8fc 100%)}
+    .mini-proof:nth-child(2){background:linear-gradient(135deg,#ffffff 0%, #f8f2f4 100%)}
+    .mini-proof:nth-child(3){background:linear-gradient(135deg,#ffffff 0%, #f7f9fc 100%)}
     .mini-proof strong{display:block;color:var(--ink);font-size:2.25rem;line-height:.95;letter-spacing:-.06em}
     .mini-proof span{display:block;color:var(--muted);margin-top:8px}
 
     .faq-grid{grid-template-columns:repeat(3,1fr)}
-    .faq-card{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--sky);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)}
+    .faq-card{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--blue-royal);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)}
     .faq-card h3{margin:0 0 10px;color:var(--ink);font-size:1.45rem;letter-spacing:-.03em}
-    .faq-card h4{margin:18px 0 8px;color:var(--navy);font-size:1rem}
     .faq-card ul{margin:0;padding-left:18px;color:var(--text)}
     .faq-card li{margin:8px 0}
-    .faq-card .answer{margin-top:16px;padding:14px 16px;border-radius:18px;background:var(--panel);color:var(--navy);font-weight:700}
+    .faq-card .answer{margin-top:16px;padding:14px 16px;border-radius:18px;background:var(--panel);color:var(--blue-navy);font-weight:700}
 
-    .cta-band{padding:94px 0;background:linear-gradient(135deg,#09172b 0%, #14365f 72%, #2a6e9d 100%);color:var(--white);position:relative;overflow:hidden}
-    .cta-band:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%, rgba(110,193,238,.22), transparent 26%)}
+    .cta-band{padding:94px 0;background:linear-gradient(135deg,#09172b 0%, #112b4a 72%, #1d4f91 100%);color:var(--white);position:relative;overflow:hidden}
+    .cta-band:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%, rgba(95,127,166,.2), transparent 26%)}
     .cta-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center}
     .cta-grid h2{margin:16px 0 14px;font-size:clamp(2.3rem,4vw,3.7rem);line-height:.95;letter-spacing:-.06em}
     .cta-grid p{margin:0;color:rgba(255,255,255,.82);max-width:56ch}
     .cta-panel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:28px;padding:24px;box-shadow:var(--shadow-soft)}
     .cta-panel form{display:grid;gap:14px}
-    .cta-panel input,.cta-panel select{
-      width:100%;min-height:54px;border-radius:16px;border:1px solid rgba(255,255,255,.12);padding:0 16px;font:inherit;background:rgba(255,255,255,.95);color:var(--ink)
-    }
+    .cta-panel input,.cta-panel select{width:100%;min-height:54px;border-radius:16px;border:1px solid rgba(255,255,255,.12);padding:0 16px;font:inherit;background:rgba(255,255,255,.95);color:var(--ink)}
 
     footer{background:#0a1320;color:rgba(255,255,255,.78);padding:40px 0 48px}
     .footer-grid{grid-template-columns:1.3fr .8fr .8fr .8fr}
@@ -230,24 +157,8 @@
     footer ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
     .foot-note{margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.92rem;color:rgba(255,255,255,.52)}
 
-    @media (max-width:1100px){
-      .hero-grid,.event-card,.proof-grid,.cta-grid,.footer-grid{grid-template-columns:1fr}
-      .wins-grid,.path-grid,.faq-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}
-      .hero-stats{grid-template-columns:1fr}
-      .event-image,.proof-photo,.stage-media{min-height:360px}
-    }
-    @media (max-width:760px){
-      .nav{flex-wrap:wrap;padding:14px 0}
-      .nav-links{order:3;width:100%;justify-content:space-between;overflow:auto;padding-bottom:4px}
-      .nav-actions{width:100%;justify-content:space-between}
-      .wins-grid,.path-grid,.faq-grid,.trust-grid,.bureau-box{grid-template-columns:1fr}
-      .section{padding:76px 0}
-      .section-sm{padding:56px 0}
-      .hero{padding:28px 0 56px}
-      .hero-copy h1{font-size:3.35rem}
-      .event-copy{padding:28px}
-      .container{width:min(var(--max),calc(100% - 24px))}
-    }
+    @media (max-width:1100px){.hero-grid,.event-card,.proof-grid,.cta-grid,.footer-grid{grid-template-columns:1fr}.wins-grid,.path-grid,.faq-grid,.trust-grid,.grid-2{grid-template-columns:repeat(2,1fr)}.hero-stats{grid-template-columns:1fr}.event-image,.proof-photo,.stage-media{min-height:360px}}
+    @media (max-width:760px){.nav{flex-wrap:wrap;padding:14px 0}.nav-links{order:3;width:100%;justify-content:space-between;overflow:auto;padding-bottom:4px}.nav-actions{width:100%;justify-content:space-between}.wins-grid,.path-grid,.faq-grid,.trust-grid,.grid-2{grid-template-columns:1fr}.section{padding:76px 0}.section-sm{padding:56px 0}.hero{padding:28px 0 56px}.hero-copy h1{font-size:3.35rem}.event-copy{padding:28px}.container{width:min(var(--max),calc(100% - 24px))}}
   </style>
 </head>
 <body>
@@ -260,7 +171,6 @@
           <span>Speaker Business Accelerator</span>
         </div>
       </a>
-
       <nav class="nav-links" aria-label="Primary">
         <a href="#event">Next Event</a>
         <a href="#academy">Academy</a>
@@ -268,7 +178,6 @@
         <a href="#questions">Who It’s For</a>
         <a href="#footer">About</a>
       </nav>
-
       <div class="nav-actions">
         <a class="btn btn-secondary" href="#academy">Explore Academy</a>
         <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
@@ -282,32 +191,18 @@
         <div class="hero-copy">
           <span class="eyebrow">Build a Better Speaking Business</span>
           <h1 class="oswald">Build a Better Speaking Business.</h1>
-          <p>
-            NSA SoCal helps speakers develop the skills, positioning, systems, and professional network that create speaking opportunities.
-          </p>
-          <div class="clarifier">
-            We are not a speaker bureau. We help you become the speaker people want to book.
-          </div>
+          <p>NSA SoCal helps speakers develop the skills, positioning, systems, and professional network that create speaking opportunities.</p>
+          <div class="clarifier">We are not a speaker bureau. We help you become the speaker people want to book.</div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
             <a class="btn btn-secondary" href="#wins">See Speaker Wins</a>
           </div>
           <div class="hero-stats">
-            <div class="stat">
-              <strong>3 paths</strong>
-              <span>New, emerging, and established speakers each have a clear journey.</span>
-            </div>
-            <div class="stat">
-              <strong>1 chapter</strong>
-              <span>The front door to the Southern California speaker community.</span>
-            </div>
-            <div class="stat">
-              <strong>1 next step</strong>
-              <span>Attend the next event and see the room for yourself.</span>
-            </div>
+            <div class="stat"><strong>3 paths</strong><span>New, emerging, and established speakers each have a clear journey.</span></div>
+            <div class="stat"><strong>1 chapter</strong><span>The front door to the Southern California speaker community.</span></div>
+            <div class="stat"><strong>1 next step</strong><span>Attend the next event and experience the room.</span></div>
           </div>
         </div>
-
         <div class="hero-visual">
           <div class="stage-card">
             <div class="stage-media">
@@ -316,9 +211,7 @@
                 <h3 class="oswald">How to Turn One Talk Into More Corporate Bookings</h3>
                 <p>Practical strategy for speakers who want stronger positioning, better systems, and more consistent opportunities.</p>
                 <div class="meta">
-                  <span>April 18</span>
-                  <span>Irvine, CA</span>
-                  <span>9:00 AM – 1:00 PM</span>
+                  <span>April 18</span><span>Irvine, CA</span><span>9:00 AM – 1:00 PM</span>
                 </div>
               </div>
             </div>
@@ -337,33 +230,24 @@
     </section>
 
     <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Clarifying the Value</span>
-          <h2 class="oswald">What NSA SoCal is — and what it is not.</h2>
-          <p>
-            One of the biggest conversion barriers is misunderstanding the chapter’s role. The website needs to clarify the model immediately and positively.
-          </p>
+      <div class="container grid-2">
+        <div class="card message-card left">
+          <span class="label red">Not a Speaker Bureau</span>
+          <h3>We do not get speakers gigs.</h3>
+          <ul>
+            <li>No agent model</li>
+            <li>No booking marketplace</li>
+            <li>No bureau-style representation</li>
+          </ul>
         </div>
-        <div class="bureau-box">
-          <div class="compare-card bad">
-            <span class="label">Misconception</span>
-            <h3>“NSA gets speakers gigs.”</h3>
-            <ul>
-              <li>Creates the wrong expectation for first-time visitors</li>
-              <li>Frames the chapter like a bureau or agency</li>
-              <li>Undercuts the real value of the community</li>
-            </ul>
-          </div>
-          <div class="compare-card good">
-            <span class="label">Correct Positioning</span>
-            <h3>“NSA helps speakers build the business that gets them booked.”</h3>
-            <ul>
-              <li>Develop your speaking craft and marketability</li>
-              <li>Strengthen positioning, systems, and visibility</li>
-              <li>Build relationships that lead to real opportunities</li>
-            </ul>
-          </div>
+        <div class="card message-card right">
+          <span class="label blue">What We Do</span>
+          <h3>We help speakers build the tools, positioning, and business to get booked.</h3>
+          <ul>
+            <li>Sharpen your message and delivery</li>
+            <li>Strengthen your speaking business systems</li>
+            <li>Grow through community, strategy, and real relationships</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -371,24 +255,18 @@
     <section class="section event-section" id="event">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Next Upcoming Event</span>
-          <h2 class="oswald">The homepage should lead with the next room worth showing up for.</h2>
-          <p>
-            The website’s primary job is to convert interest into attendance. Every major section should support that action with value and proof.
-          </p>
+          <span class="eyebrow">Next Event</span>
+          <h2 class="oswald">Learn the business side of speaking from people doing the work.</h2>
+          <p>NSA SoCal events are designed for speakers who want to improve how they communicate, position, sell, and grow a sustainable speaking business.</p>
         </div>
         <div class="event-card">
           <div class="event-image" aria-hidden="true"></div>
           <div class="event-copy">
             <span class="eyebrow">Attend the Next Event</span>
-            <h2 class="oswald">Learn the business side of speaking from people doing the work.</h2>
-            <p>
-              NSA SoCal events are designed for speakers who want to improve how they communicate, position, sell, and grow a sustainable speaking business.
-            </p>
+            <h2 class="oswald">The next room worth showing up for.</h2>
+            <p>Build your offer, improve your marketability, and connect with serious speakers who understand the business side of the craft.</p>
             <div class="meta">
-              <span>Saturday, April 18</span>
-              <span>Newport Beach Marriott</span>
-              <span>In-Person Networking</span>
+              <span>Saturday, April 18</span><span>Newport Beach Marriott</span><span>In-Person Networking</span>
             </div>
             <div class="takeaways">
               <div class="takeaway">Build a more credible, marketable speaker offer</div>
@@ -407,36 +285,25 @@
     <section class="section" id="wins">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Transformation Proof</span>
-          <h2 class="oswald">Speaker wins make the value visible.</h2>
-          <p>
-            The site should not rely on vague promises. It should show what changed for speakers who engaged with the chapter.
-          </p>
+          <span class="eyebrow">Speaker Wins</span>
+          <h2 class="oswald">Visible outcomes. Stronger credibility.</h2>
+          <p>Real progress stories make the value tangible.</p>
         </div>
         <div class="wins-grid">
           <article class="card">
             <h3>Booked 18 corporate keynotes</h3>
             <p class="quote">“The chapter helped me sharpen how I positioned my expertise and talk about my value in a much more professional way.”</p>
-            <div class="person">
-              <div class="avatar">JM</div>
-              <div><strong>Jordan M.</strong><span>Leadership keynote speaker</span></div>
-            </div>
+            <div class="person"><div class="avatar">JM</div><div><strong>Jordan M.</strong><span>Leadership keynote speaker</span></div></div>
           </article>
           <article class="card">
             <h3>Doubled keynote fee</h3>
             <p class="quote">“I stopped sounding broad and started sounding bookable. That shift changed the conversations I was having.”</p>
-            <div class="person">
-              <div class="avatar">AR</div>
-              <div><strong>Ashley R.</strong><span>Workplace culture speaker</span></div>
-            </div>
+            <div class="person"><div class="avatar">AR</div><div><strong>Ashley R.</strong><span>Workplace culture speaker</span></div></div>
           </article>
           <article class="card">
             <h3>Built a stronger speaking business</h3>
             <p class="quote">“The real value wasn’t one tactic. It was learning the systems, relationships, and thinking behind long-term growth.”</p>
-            <div class="person">
-              <div class="avatar">DT</div>
-              <div><strong>Daniel T.</strong><span>Innovation speaker</span></div>
-            </div>
+            <div class="person"><div class="avatar">DT</div><div><strong>Daniel T.</strong><span>Innovation speaker</span></div></div>
           </article>
         </div>
       </div>
@@ -445,30 +312,28 @@
     <section class="section path-section" id="academy">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Pathway to Growth</span>
-          <h2 class="oswald">Different speakers have different questions. The site should answer them.</h2>
-          <p>
-            New speakers ask how to get started. Emerging speakers ask how to get more bookings. Established speakers ask how to expand their platform. The chapter should make each path visible.
-          </p>
+          <span class="eyebrow">Speaker Pathways</span>
+          <h2 class="oswald">A clear pathway for every stage of growth.</h2>
+          <p>Choose the path that fits where you are now.</p>
         </div>
         <div class="path-grid">
           <article class="path-card academy">
             <span class="tag">New Speakers</span>
-            <h3 class="oswald">How do I get started?</h3>
-            <p>For speakers who need roadmap clarity, fundamentals, feedback, and a structured place to begin.</p>
+            <h3 class="oswald">Start with the Academy.</h3>
+            <p>Build fundamentals, gain clarity, and develop a strong professional foundation.</p>
             <a class="btn btn-primary" href="#cta">Start with the Academy</a>
           </article>
           <article class="path-card">
             <span class="tag">Emerging Speakers</span>
-            <h3 class="oswald">How do I get more bookings?</h3>
-            <p>For speakers building skill mastery, business systems, visibility, and more consistent momentum.</p>
+            <h3 class="oswald">Build momentum through events.</h3>
+            <p>Grow bookings, sharpen positioning, and strengthen the business side of your speaking work.</p>
             <a class="btn btn-secondary" href="#cta">Attend the Next Event</a>
           </article>
           <article class="path-card">
             <span class="tag">Established Speakers</span>
-            <h3 class="oswald">How do I expand my platform?</h3>
-            <p>For experienced speakers who want stronger peer access, revenue growth, scalability, and leadership opportunities.</p>
-            <a class="btn btn-secondary" href="#cta">Explore Leadership</a>
+            <h3 class="oswald">Expand authority and peer access.</h3>
+            <p>Stay sharp through high-level community, collaboration, and leadership opportunities.</p>
+            <a class="btn btn-secondary" href="#cta">Engage with the Chapter</a>
           </article>
         </div>
       </div>
@@ -478,18 +343,9 @@
       <div class="container proof-grid">
         <div class="proof-photo" aria-hidden="true"></div>
         <div class="proof-stack">
-          <div class="mini-proof">
-            <strong>Not a bureau.</strong>
-            <span>Clearer messaging builds trust and sets the right expectation from the first visit.</span>
-          </div>
-          <div class="mini-proof">
-            <strong>Lead with events.</strong>
-            <span>Repeat the core action throughout the page: attend the next event.</span>
-          </div>
-          <div class="mini-proof">
-            <strong>Show proof.</strong>
-            <span>Use member stories, speaker spotlights, and event visuals to make the value tangible.</span>
-          </div>
+          <div class="mini-proof"><strong>Refine your message.</strong><span>Clarify your positioning and how you communicate value.</span></div>
+          <div class="mini-proof"><strong>Strengthen your business.</strong><span>Build the systems, visibility, and confidence that support growth.</span></div>
+          <div class="mini-proof"><strong>Grow in community.</strong><span>Learn alongside professionals serious about the craft and business of speaking.</span></div>
         </div>
       </div>
     </section>
@@ -497,39 +353,36 @@
     <section class="section" id="questions">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Questions Speakers Ask</span>
-          <h2 class="oswald">The copy should answer the audience’s real questions.</h2>
-          <p>
-            This gives the homepage sharper segmentation and helps visitors immediately see where they fit.
-          </p>
+          <span class="eyebrow">Who It’s For</span>
+          <h2 class="oswald">Three categories of speakers. One strong chapter.</h2>
         </div>
         <div class="faq-grid">
           <article class="faq-card">
             <h3>New Speakers</h3>
             <ul>
-              <li>How do I get started speaking professionally?</li>
-              <li>How do I build a talk people actually want?</li>
-              <li>How do I get my first paid opportunity?</li>
+              <li>Get started with clarity and structure</li>
+              <li>Build a strong foundation in professional speaking</li>
+              <li>Develop the confidence to begin</li>
             </ul>
-            <div class="answer">Answer on the site: NSA Academy as the entry pathway.</div>
+            <div class="answer">Best next step: NSA Academy</div>
           </article>
           <article class="faq-card">
             <h3>Emerging Speakers</h3>
             <ul>
-              <li>How do I get more bookings?</li>
-              <li>How do I raise my fee and position my talk better?</li>
-              <li>How do I turn this into a real business?</li>
+              <li>Grow bookings and strengthen positioning</li>
+              <li>Improve business systems and visibility</li>
+              <li>Build momentum through events</li>
             </ul>
-            <div class="answer">Answer on the site: chapter events and speaker community.</div>
+            <div class="answer">Best next step: Attend the next event</div>
           </article>
           <article class="faq-card">
             <h3>Established Speakers</h3>
             <ul>
-              <li>How do I expand my platform and reach?</li>
-              <li>Where do I connect with serious peers?</li>
-              <li>How do I keep growing professionally?</li>
+              <li>Expand authority and peer access</li>
+              <li>Stay sharp through high-level community</li>
+              <li>Step into leadership and collaboration</li>
             </ul>
-            <div class="answer">Answer on the site: peer access, collaboration, and leadership.</div>
+            <div class="answer">Best next step: Engage with the chapter community</div>
           </article>
         </div>
       </div>
@@ -538,11 +391,9 @@
     <section class="cta-band" id="cta">
       <div class="container cta-grid">
         <div>
-          <span class="eyebrow">Final Call to Action</span>
-          <h2 class="oswald">Build the front door to the Southern California speaker community.</h2>
-          <p>
-            A place where visitors immediately feel: this is where my speaking business can grow. Start with the next event and let the experience prove the value.
-          </p>
+          <span class="eyebrow">Attend the Next Event</span>
+          <h2 class="oswald">Join the Southern California speaker community.</h2>
+          <p>See the room, meet the people, and experience how NSA SoCal helps speakers build better businesses.</p>
         </div>
         <div class="cta-panel">
           <form>
