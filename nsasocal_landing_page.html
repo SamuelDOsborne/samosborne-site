@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NSA SoCal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #000;
+      --white: #fff;
+      --gray-1: #f5f5f7;
+      --gray-2: #e8e8ed;
+      --gray-3: #6e6e73;
+      --gray-4: #1d1d1f;
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 48px;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner {
+      width: min(980px, 100%);
+      padding: 0 22px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: .82rem; font-weight: 500; letter-spacing: -.01em;
+      color: rgba(255,255,255,.88);
+    }
+    .nav-links {
+      display: flex; gap: 28px; list-style: none;
+      font-size: .78rem; font-weight: 400; color: rgba(255,255,255,.7);
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      font-size: .78rem; font-weight: 400; color: var(--blue);
+    }
+    .nav-cta:hover { text-decoration: underline; }
+
+    /* ─── SHARED ─── */
+    .section {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 140px 24px 100px;
+      position: relative; overflow: hidden;
+    }
+    .section.light { background: var(--gray-1); color: var(--gray-4); }
+    .section.white { background: var(--white); color: var(--gray-4); }
+
+    .eyebrow {
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 18px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .7s ease forwards;
+    }
+    .section.light .eyebrow,
+    .section.white .eyebrow { color: var(--blue); }
+
+    h1, h2 {
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: .96;
+      text-align: center;
+      max-width: 18ch;
+      opacity: 0; transform: translateY(30px);
+      animation: fadeUp .8s .1s ease forwards;
+    }
+    h1 { font-size: clamp(3.2rem, 8vw, 7rem); }
+    h2 { font-size: clamp(2.4rem, 5.5vw, 5rem); }
+    .section.light h2,
+    .section.white h2 { color: var(--gray-4); }
+
+    .tagline {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 300; letter-spacing: -.01em;
+      color: rgba(255,255,255,.6); text-align: center;
+      max-width: 42ch; margin-top: 20px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .8s .2s ease forwards;
+    }
+    .section.light .tagline,
+    .section.white .tagline { color: var(--gray-3); }
+
+    .cta-row {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      justify-content: center; margin-top: 34px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .8s .3s ease forwards;
+    }
+    .btn-pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 0 22px; border-radius: 999px;
+      font-family: inherit; font-size: .9rem; font-weight: 500;
+      cursor: pointer; border: none; transition: .18s ease; white-space: nowrap;
+    }
+    .btn-pill:hover { transform: scale(1.02); }
+    .btn-fill { background: var(--blue); color: #fff; }
+    .btn-fill:hover { background: var(--blue-hover); }
+    .btn-outline { background: transparent; color: var(--blue); border: 1.5px solid rgba(255,255,255,.24); }
+    .section.light .btn-outline,
+    .section.white .btn-outline { border-color: rgba(0,0,0,.16); color: var(--blue); }
+    .btn-outline:hover { border-color: var(--blue); }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── FLOATING IMAGE ─── */
+    .float-img {
+      position: absolute; border-radius: 18px;
+      overflow: hidden; pointer-events: none;
+      opacity: 0; animation: floatIn 1.4s ease forwards;
+    }
+    .float-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(.78) saturate(1.1);
+    }
+    .section.light .float-img img { filter: brightness(.88) saturate(1.05); }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(40px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* subtle parallax handled in JS */
+    .float-img { will-change: transform; }
+
+    /* ─── HERO ─── */
+    #hero { background: #000; min-height: 100svh; }
+    #hero .float-img.a {
+      width: 340px; height: 440px;
+      top: 14%; left: 4%; animation-delay: .5s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.6);
+    }
+    #hero .float-img.b {
+      width: 260px; height: 340px;
+      bottom: 12%; right: 6%; animation-delay: .7s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5);
+    }
+    #hero .float-img.c {
+      width: 200px; height: 260px;
+      top: 20%; right: 18%; animation-delay: .9s;
+      box-shadow: 0 30px 60px rgba(0,0,0,.5);
+    }
+    #hero h1 { background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,.5)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* ─── LEVELS ─── */
+    #levels { background: #0a0a0a; }
+    #levels .float-img.a {
+      width: 300px; height: 400px;
+      top: 10%; right: 3%; animation-delay: .4s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.7);
+    }
+    #levels .float-img.b {
+      width: 220px; height: 290px;
+      bottom: 14%; left: 5%; animation-delay: .6s;
+      box-shadow: 0 30px 60px rgba(0,0,0,.6);
+    }
+    .levels-list {
+      display: grid; gap: 1px;
+      width: min(680px, 100%);
+      margin-top: 52px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .35s ease forwards;
+    }
+    .level-row {
+      display: flex; align-items: baseline; gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: background .2s;
+    }
+    .level-row:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+    .level-row:hover { padding-left: 8px; }
+    .level-n {
+      font-size: .75rem; font-weight: 600; letter-spacing: .06em;
+      color: var(--blue); min-width: 22px;
+    }
+    .level-info { flex: 1; }
+    .level-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+    .level-id { font-size: .82rem; font-weight: 300; color: rgba(255,255,255,.45); margin-top: 3px; font-style: italic; }
+    .level-arrow { color: rgba(255,255,255,.25); font-size: .9rem; transition: color .2s, transform .2s; }
+    .level-row:hover .level-arrow { color: var(--blue); transform: translateX(4px); }
+
+    /* ─── REFRAME ─── */
+    #reframe { background: var(--gray-1); }
+    #reframe h2 { color: var(--gray-4); }
+    #reframe .float-img.a {
+      width: 280px; height: 380px;
+      top: 12%; left: 4%; animation-delay: .4s;
+      box-shadow: 0 30px 70px rgba(0,0,0,.18);
+    }
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      width: min(620px, 100%); margin-top: 44px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .3s ease forwards;
+    }
+    .col-card {
+      padding: 26px 24px; border-radius: 18px;
+    }
+    .col-card.no { background: rgba(0,0,0,.05); border: 1px solid rgba(0,0,0,.06); }
+    .col-card.yes { background: rgba(0,113,227,.07); border: 1px solid rgba(0,113,227,.14); }
+    .col-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .col-card.no .col-label { color: rgba(0,0,0,.35); }
+    .col-card.yes .col-label { color: var(--blue); }
+    .col-card ul { list-style: none; display: grid; gap: 9px; }
+    .col-card li { font-size: .9rem; font-weight: 400; color: var(--gray-3); }
+    .col-card.yes li { color: var(--gray-4); font-weight: 500; }
+
+    /* ─── ACADEMY ─── */
+    #academy { background: var(--black); }
+    #academy .float-img.a {
+      width: 360px; height: 460px;
+      top: 8%; right: 3%; animation-delay: .5s;
+      box-shadow: 0 50px 100px rgba(0,0,0,.7);
+    }
+    #academy .float-img.b {
+      width: 200px; height: 260px;
+      bottom: 16%; left: 6%; animation-delay: .8s;
+      box-shadow: 0 30px 60px rgba(0,0,0,.6);
+    }
+    .outcomes-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      width: min(600px, 100%); margin-top: 36px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .3s ease forwards;
+    }
+    .outcome-chip {
+      padding: 9px 16px; border-radius: 999px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      font-size: .84rem; font-weight: 400; color: rgba(255,255,255,.8);
+    }
+
+    /* ─── PILLARS ─── */
+    #pillars { background: #050505; }
+    #pillars .float-img.a {
+      width: 240px; height: 320px;
+      top: 12%; right: 5%; animation-delay: .4s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.7);
+    }
+    .pillars-list {
+      display: grid; gap: 0;
+      width: min(640px, 100%); margin-top: 52px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .3s ease forwards;
+    }
+    .pillar-row {
+      display: flex; align-items: center; gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .pillar-row:first-child { border-top: 1px solid rgba(255,255,255,.07); }
+    .p-icon { font-size: 1.1rem; width: 28px; flex-shrink: 0; opacity: .7; }
+    .p-name { font-size: .96rem; font-weight: 500; color: rgba(255,255,255,.88); }
+    .p-desc { font-size: .84rem; font-weight: 300; color: rgba(255,255,255,.38); margin-top: 2px; }
+
+    /* ─── CTA FINAL ─── */
+    #final-cta { background: var(--black); }
+    #final-cta h2 { background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,.42)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #final-cta .float-img.a {
+      width: 320px; height: 420px;
+      top: 10%; left: 4%; animation-delay: .5s;
+      box-shadow: 0 50px 100px rgba(0,0,0,.7);
+    }
+    #final-cta .float-img.b {
+      width: 220px; height: 290px;
+      bottom: 14%; right: 5%; animation-delay: .7s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.6);
+    }
+    .cta-form {
+      display: grid; gap: 10px;
+      width: min(380px, 100%); margin-top: 36px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .35s ease forwards;
+    }
+    .cta-form input, .cta-form select {
+      width: 100%; height: 48px; border-radius: 12px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      padding: 0 16px; font-family: inherit; font-size: .9rem;
+      color: #fff; outline: none; transition: border .18s;
+    }
+    .cta-form input:focus, .cta-form select:focus { border-color: var(--blue); }
+    .cta-form input::placeholder { color: rgba(255,255,255,.3); }
+    .cta-form select option { background: #1d1d1f; }
+    .cta-form .btn-pill { width: 100%; height: 48px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #000; border-top: 1px solid rgba(255,255,255,.08);
+      padding: 28px 24px;
+      font-size: .72rem; color: rgba(255,255,255,.3);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .foot-links { display: flex; gap: 20px; }
+    .foot-links a { color: rgba(255,255,255,.3); transition: color .15s; }
+    .foot-links a:hover { color: rgba(255,255,255,.7); }
+
+    /* ─── SCROLL FADE ─── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      #hero .float-img.a { width: 200px; height: 260px; left: 2%; top: 18%; }
+      #hero .float-img.b { width: 150px; height: 200px; right: 2%; bottom: 18%; }
+      #hero .float-img.c { display: none; }
+      #levels .float-img, #academy .float-img.b,
+      #reframe .float-img, #final-cta .float-img.b,
+      #pillars .float-img { display: none; }
+      #academy .float-img.a { width: 200px; height: 260px; right: 2%; top: 10%; }
+      #final-cta .float-img.a { width: 180px; height: 240px; left: 2%; top: 12%; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* ─── LOGO PLACEMENTS ─── */
+    .nav-logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+      /* white bg logo on dark nav - add subtle bg pill */
+      background: rgba(255,255,255,0.92);
+      border-radius: 6px;
+      padding: 2px 6px;
+    }
+    .hero-logo-wrap {
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .7s .05s ease forwards;
+    }
+    .hero-logo {
+      height: 72px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 8px 14px;
+    }
+    .foot-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .foot-logo {
+      height: 36px;
+      width: auto;
+      background: rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 3px 6px;
+      filter: brightness(0.9);
+    }
+    .foot-brand span {
+      color: rgba(255,255,255,.3);
+      font-size: .72rem;
+    }
+    @media (max-width: 760px) {
+      .hero-logo { height: 54px; }
+      .nav-logo-img { height: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero"><img class="nav-logo-img" src="/images/NSA%20SoCal%20Logo%20transparent%20bg.png" alt="NSA SoCal" /></a>
+      <ul class="nav-links">
+        <li><a href="#levels">Your Level</a></li>
+        <li><a href="#academy">Academy</a></li>
+        <li><a href="#pillars">About</a></li>
+      </ul>
+      <a class="nav-cta" href="#final-cta">Find My Path ›</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="section" id="hero">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=680&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img b">
+      <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=520&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img c">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80&fit=crop" alt="">
+    </div>
+    <div class="hero-logo-wrap">
+      <img class="hero-logo" src="/images/NSA%20SoCal%20Logo%20transparent%20bg.png" alt="NSA SoCal" />
+    </div>
+        <span class="eyebrow">Professional Speaking, Elevated</span>
+    <h1>Become the speaker people choose.</h1>
+    <p class="tagline">A professional development ecosystem designed to move you from emerging voice to industry authority.</p>
+    <div class="cta-row">
+      <a class="btn-pill btn-fill" href="#levels">Find Your Level</a>
+      <a class="btn-pill btn-outline" href="#academy">Explore the Academy</a>
+    </div>
+  </section>
+
+  <!-- 5 LEVELS -->
+  <section class="section" id="levels">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img b">
+      <img src="https://images.unsplash.com/photo-1559223607-a43c990c692c?w=440&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">The Speaker Growth Path</span>
+    <h2 class="reveal">Every speaker is on a path.</h2>
+    <p class="tagline reveal">We make it visible — and accelerate it.</p>
+    <div class="levels-list">
+      <div class="level-row">
+        <span class="level-n">01</span>
+        <div class="level-info">
+          <div class="level-title">The Emerging Speaker</div>
+          <div class="level-id">"I have something to say."</div>
+        </div>
+        <span class="level-arrow">›</span>
+      </div>
+      <div class="level-row">
+        <span class="level-n">02</span>
+        <div class="level-info">
+          <div class="level-title">The Developing Professional</div>
+          <div class="level-id">"I want to get paid to do this."</div>
+        </div>
+        <span class="level-arrow">›</span>
+      </div>
+      <div class="level-row">
+        <span class="level-n">03</span>
+        <div class="level-info">
+          <div class="level-title">The Professional Speaker</div>
+          <div class="level-id">"I create outcomes."</div>
+        </div>
+        <span class="level-arrow">›</span>
+      </div>
+      <div class="level-row">
+        <span class="level-n">04</span>
+        <div class="level-info">
+          <div class="level-title">The Authority / Thought Leader</div>
+          <div class="level-id">"I move industries forward."</div>
+        </div>
+        <span class="level-arrow">›</span>
+      </div>
+      <div class="level-row">
+        <span class="level-n">05</span>
+        <div class="level-info">
+          <div class="level-title">The Legacy Professional</div>
+          <div class="level-id">"I grow the profession."</div>
+        </div>
+        <span class="level-arrow">›</span>
+      </div>
+    </div>
+    <div class="cta-row" style="margin-top:36px;">
+      <a class="btn-pill btn-fill" href="#final-cta">Find My Level</a>
+    </div>
+  </section>
+
+  <!-- REFRAME -->
+  <section class="section light" id="reframe">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=560&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">What We Are</span>
+    <h2 class="reveal">Not a speaker bureau.</h2>
+    <p class="tagline reveal">We don't get you booked. We help you become the speaker people choose.</p>
+    <div class="two-col reveal">
+      <div class="col-card no">
+        <div class="col-label">We don't</div>
+        <ul>
+          <li>Pitch you for gigs</li>
+          <li>Act as your agent</li>
+          <li>Sell your talks</li>
+        </ul>
+      </div>
+      <div class="col-card yes">
+        <div class="col-label">We do</div>
+        <ul>
+          <li>Sharpen your message</li>
+          <li>Strengthen your business</li>
+          <li>Surround you with the right people</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMY -->
+  <section class="section" id="academy">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=720&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img b">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">NSA SoCal Speakers Academy</span>
+    <h2 class="reveal">Where emerging speakers become professionals.</h2>
+    <p class="tagline reveal">A cohort-based experience designed to move you from Level 1 to Level 3 — faster, with clarity and real support.</p>
+    <div class="outcomes-row">
+      <span class="outcome-chip">Signature talk</span>
+      <span class="outcome-chip">Market position</span>
+      <span class="outcome-chip">Business foundation</span>
+      <span class="outcome-chip">Peer accountability</span>
+      <span class="outcome-chip">Expert faculty</span>
+      <span class="outcome-chip">Bi-weekly sessions</span>
+    </div>
+    <div class="cta-row" style="margin-top:36px;">
+      <a class="btn-pill btn-fill" href="#final-cta">Explore the Academy</a>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section" id="pillars">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=480&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">What We're Building</span>
+    <h2 class="reveal">More than a chapter.<br>A standard.</h2>
+    <div class="pillars-list">
+      <div class="pillar-row">
+        <span class="p-icon">🎯</span>
+        <div>
+          <div class="p-name">Meaningful Impact</div>
+          <div class="p-desc">Using our voices to create real change.</div>
+        </div>
+      </div>
+      <div class="pillar-row">
+        <span class="p-icon">📈</span>
+        <div>
+          <div class="p-name">Strategic Growth</div>
+          <div class="p-desc">Growing with intention — personally and professionally.</div>
+        </div>
+      </div>
+      <div class="pillar-row">
+        <span class="p-icon">🌍</span>
+        <div>
+          <div class="p-name">Inclusive Excellence</div>
+          <div class="p-desc">Every voice valued. Every perspective elevates the room.</div>
+        </div>
+      </div>
+      <div class="pillar-row">
+        <span class="p-icon">🤝</span>
+        <div>
+          <div class="p-name">Community Collaboration</div>
+          <div class="p-desc">Give. Receive. Refer. Grow together.</div>
+        </div>
+      </div>
+      <div class="pillar-row">
+        <span class="p-icon">✨</span>
+        <div>
+          <div class="p-name">Playful Professionalism</div>
+          <div class="p-desc">High standards — without losing humanity.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section" id="final-cta">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=640&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img b">
+      <img src="https://images.unsplash.com/photo-1560439514-e960a3ef5019?w=440&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">Start Here</span>
+    <h2 class="reveal">Find your level.<br>Start moving forward.</h2>
+    <p class="tagline reveal">Clarity is the first step. Momentum is what follows.</p>
+    <div class="cta-form">
+      <input type="text" placeholder="Your name">
+      <input type="email" placeholder="Email address">
+      <select>
+        <option value="">Where are you on the journey?</option>
+        <option>Level 1 — Emerging Speaker</option>
+        <option>Level 2 — Developing Professional</option>
+        <option>Level 3 — Professional Speaker</option>
+        <option>Level 4 — Authority / Thought Leader</option>
+        <option>Level 5 — Legacy Professional</option>
+      </select>
+      <button class="btn-pill btn-fill" type="button">Find My Path</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-brand"><img class="foot-logo" src="/images/NSA%20SoCal%20Logo%20transparent%20bg.png" alt="NSA SoCal" /><span>© 2026 NSA SoCal · National Speakers Association · Southern California</span></div>
+    <div class="foot-links">
+      <a href="#">Academy</a>
+      <a href="#">Events</a>
+      <a href="#">Leadership</a>
+      <a href="#">NSA National</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Parallax on float images
+    const floats = document.querySelectorAll('.float-img');
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      floats.forEach(el => {
+        const section = el.closest('.section');
+        const rect = section.getBoundingClientRect();
+        const progress = -rect.top / window.innerHeight;
+        const speed = el.classList.contains('a') ? 0.06 : el.classList.contains('b') ? -0.04 : 0.035;
+        el.style.transform = `translateY(${progress * speed * 200}px)`;
+      });
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
