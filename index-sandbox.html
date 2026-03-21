@@ -33,10 +33,12 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: var(--charcoal);
   color: var(--light);
-  overflow-x: hidden;
-  line-height: 1.47059;            /* Apple body line-height */
+  overflow-x: clip;                /* clip vs hidden: doesn't create scroll container, preserves iOS momentum */
+  line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: auto;
   cursor: none;
 }
 a { text-decoration: none; color: var(--slate); transition: color .2s; }
@@ -88,7 +90,13 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   color: var(--gold);
 }
 .nav-cta:hover { color: var(--white); }
-.mobile-toggle { display: none; background: none; border: none; color: var(--light); font-size: 26px; cursor: pointer; }
+.mobile-toggle {
+  display: none; background: none; border: none;
+  color: #fff; font-size: 28px; cursor: pointer;
+  line-height: 1; padding: 4px 6px; z-index: 1060;
+  position: relative; transition: transform .22s ease;
+}
+.mobile-toggle.is-open { transform: rotate(90deg); }
 
 /* ═══════════════════════════════════
    HERO  — Apple split hero
@@ -461,7 +469,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 ═══════════════════════════════════ */
 @media (max-width: 1100px) {
   .nav-links { display: none; }
-  .mobile-toggle { display: block; }
+  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
   .nav-links.active { position: fixed; top: 0; left: 0; right: 0; background: rgba(26,26,26,.98); flex-direction: column; gap: 0; padding: 20px; padding-top: 70px; display: flex; border-bottom: 1px solid rgba(255,255,255,.07); z-index: 999; }
   .nav-links.active li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
   .nav-links.active a { font-size: 17px; display: block; }
@@ -479,14 +487,43 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 @media (max-width: 768px) {
   .nav-inner { padding: 0 20px; }
   .section { padding: 80px 20px; }
-  .hero { display: block; height: auto; overflow: visible; padding: 0 20px 56px; margin-top: 52px; }
-  .hero-visual { display: none; }
-  .hero-copy { padding: 56px 0 0; }
+  .hero {
+    display: block; height: auto; overflow: visible;
+    padding: 0 0 56px; margin-top: 52px;
+  }
+  .hero-visual {
+    display: block;
+    height: 52svh;
+    width: 100%;
+    overflow: hidden;
+  }
+  .hero-visual img {
+    width: 100%; height: 120%;
+    object-fit: cover; object-position: center 15%;
+    filter: brightness(.45) contrast(1.1) saturate(.8);
+    transform: none; animation: none;
+  }
+  .hero-visual::after {
+    background:
+      linear-gradient(180deg, rgba(26,26,26,.18) 0%, transparent 30%, transparent 50%, var(--charcoal) 100%);
+  }
+  .hero-credential, .hero-stars { left: 20px; }
+  .hero-copy { padding: 32px 20px 0; }
   .hero-h1 { font-size: clamp(2.4rem, 9vw, 3.6rem); opacity: 1; animation: none; }
   .hero-kicker,.hero-rule,.hero-sub,.hero-award,.hero-actions { opacity: 1; animation: none; }
   .form-grid { grid-template-columns: 1fr; }
   .testimonials-section { padding: 56px 20px; }
   footer { padding: 44px 20px 34px; }
+
+  /* Smooth scroll: disable will-change on heavy elements at mobile to reduce paint layers */
+  .hero-visual img,
+  #aboutImg,
+  #stagePhoto {
+    will-change: auto;
+    transform: none !important;   /* kill parallax translateY on mobile */
+  }
+  /* Prevent any fixed-position element from trapping scroll */
+  .cursor { display: none; }      /* hide cursor on touch devices */
 }
 </style>
 </head>
@@ -966,8 +1003,13 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
 
 // MOBILE MENU
 const mt=document.getElementById('menuToggle'),nl=document.getElementById('navLinks');
-mt.addEventListener('click',()=>{nl.classList.toggle('active');mt.textContent=nl.classList.contains('active')?'✕':'☰';});
-nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('active');mt.textContent='☰';}));
+function closeMenu(){nl.classList.remove('active');mt.classList.remove('is-open');mt.innerHTML='&#9776;';}
+mt.addEventListener('click',()=>{
+  const open=nl.classList.toggle('active');
+  mt.classList.toggle('is-open',open);
+  mt.innerHTML=open?'&#x2715;':'&#9776;';
+});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});});
@@ -988,7 +1030,7 @@ document.querySelectorAll('.dropdown-toggle').forEach(btn=>{btn.addEventListener
 (function(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>obs.observe(el));})();
 
 // PARALLAX
-(function(){const hi=document.getElementById('heroImg'),ai=document.getElementById('aboutImg'),si=document.getElementById('stagePhoto');const mob=()=>window.innerWidth<=768;function px(){if(mob()){[hi,ai,si].forEach(el=>el&&(el.style.transform=''));return;}const sy=window.scrollY;if(hi)hi.style.transform=`translateY(${sy*.4}px)`;if(ai){const r=ai.closest('.split-img').getBoundingClientRect();ai.style.transform=`translateY(${(r.top+r.height/2-window.innerHeight/2)*.12}px)`;}if(si){const r=si.parentElement.getBoundingClientRect();si.style.transform=`translateY(${(r.top+r.height/2-window.innerHeight/2)*.1}px)`;}}window.addEventListener('scroll',px,{passive:true});window.addEventListener('resize',px,{passive:true});px();})();
+(function(){const hi=document.getElementById('heroImg'),ai=document.getElementById('aboutImg'),si=document.getElementById('stagePhoto');const mob=()=>window.innerWidth<=768||('ontouchstart' in window);function px(){if(mob()){[hi,ai,si].forEach(el=>el&&(el.style.transform=''));return;}const sy=window.scrollY;if(hi)hi.style.transform=`translateY(${sy*.4}px)`;if(ai){const r=ai.closest('.split-img').getBoundingClientRect();ai.style.transform=`translateY(${(r.top+r.height/2-window.innerHeight/2)*.12}px)`;}if(si){const r=si.parentElement.getBoundingClientRect();si.style.transform=`translateY(${(r.top+r.height/2-window.innerHeight/2)*.1}px)`;}}window.addEventListener('scroll',px,{passive:true});window.addEventListener('resize',px,{passive:true});px();})();
 </script>
 </body>
 </html>
