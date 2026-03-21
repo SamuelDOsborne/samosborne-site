@@ -1,569 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NSA SoCal | Build a Better Speaking Business</title>
-  <meta name="description" content="NSA SoCal is not a speaker bureau. We help speakers build the skills, positioning, systems, and network that create speaking opportunities." />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NSA SoCal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#f5f7fb;
-      --white:#ffffff;
-      --ink:#0d1320;
-      --text:#39465a;
-      --muted:#6b7a91;
-      --line:#dde5ef;
-      --navy:#09172b;
-      --navy-2:#112b4a;
-      --blue:#2557a7;
-      --blue-soft:#eaf1fb;
-      --blue-mist:#dfe8f4;
-      --red:#a63d4a;
-      --shadow:0 25px 80px rgba(10,22,40,.10);
-      --shadow-soft:0 14px 36px rgba(10,22,40,.08);
-      --radius:30px;
-      --max:1240px;
+    :root {
+      --black: #000;
+      --white: #fff;
+      --gray-1: #f5f5f7;
+      --gray-2: #e8e8ed;
+      --gray-3: #6e6e73;
+      --gray-4: #1d1d1f;
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.45;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-    a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
-    .container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.65);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
-    .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:999px;font-size:.95rem;font-weight:800;border:1px solid transparent;transition:.2s ease;cursor:pointer}
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--blue);color:#fff;box-shadow:0 16px 30px rgba(37,87,167,.22)}
-    .btn-secondary{background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-color:rgba(17,43,74,.10);color:var(--navy)}
-    .section{padding:36px 0}
-    .section-lg{padding:56px 0}
-    .card{background:rgba(255,255,255,.8);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow-soft);border-radius:var(--radius)}
-    .headline-xl{margin:0;color:var(--ink);font-size:clamp(3.2rem,8vw,7rem);line-height:.92;letter-spacing:-.08em;font-weight:800}
-    .headline-lg{margin:0;color:var(--ink);font-size:clamp(2.2rem,5vw,4.4rem);line-height:.95;letter-spacing:-.06em;font-weight:800}
-    .headline-md{margin:0;color:var(--ink);font-size:clamp(1.5rem,3vw,2.4rem);line-height:.98;letter-spacing:-.04em;font-weight:800}
-    .sub{margin:0;color:var(--muted);font-size:clamp(1rem,1.8vw,1.25rem);line-height:1.55}
 
-    header{position:sticky;top:0;z-index:40;background:rgba(245,247,251,.72);backdrop-filter:blur(22px);border-bottom:1px solid rgba(221,229,239,.8)}
-    .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand-logo{height:60px;width:auto;display:block}
-    .brand-copy{display:grid;gap:2px}
-    .brand-copy strong{font-size:1rem;color:var(--ink)}
-    .brand-copy span{font-size:.82rem;color:var(--muted)}
-    .nav-links{display:flex;align-items:center;gap:24px;color:var(--navy);font-size:.95rem;font-weight:700}
-    .nav-actions{display:flex;align-items:center;gap:12px}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-    .hero{position:relative;overflow:hidden;padding:54px 0 20px;background:radial-gradient(circle at 80% 8%, rgba(37,87,167,.08), transparent 22%),radial-gradient(circle at 15% 15%, rgba(166,61,74,.05), transparent 18%),linear-gradient(180deg,#f8fbff 0%, #f2f6fb 100%)}
-    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
-    .hero-copy{padding:30px 0}
-    .hero-copy p{max-width:34ch;margin:18px 0 0}
-    .hero-copy .clarifier{margin:20px 0 26px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.78);border:1px solid rgba(221,229,239,.9);color:var(--navy);font-weight:700;max-width:40ch}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-    .stat{padding:18px}
-    .stat strong{display:block;color:var(--ink);font-size:1.4rem;letter-spacing:-.04em}
-    .stat span{display:block;color:var(--muted);font-size:.92rem;margin-top:6px}
-    .hero-visual{position:relative}
-    .stage-card{overflow:hidden;border-radius:38px;background:#dfe8f4;box-shadow:var(--shadow)}
-    .stage-media{min-height:700px;background:linear-gradient(180deg, rgba(6,15,28,.10), rgba(6,15,28,.52)),url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=2200&q=80') center/cover;display:flex;align-items:flex-end;padding:28px}
-    .floating-event{max-width:390px;padding:22px}
-    .floating-event small{display:block;color:var(--red);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
-    .floating-event h3{margin:10px 0 8px;color:var(--ink);font-size:clamp(1.6rem,2.6vw,2.35rem);line-height:1.02;letter-spacing:-.05em}
-    .floating-event p{margin:0 0 14px;color:var(--muted)}
-    .meta{display:flex;flex-wrap:wrap;gap:10px}
-    .meta span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.68);font-size:.86rem;font-weight:700;color:var(--navy)}
-
-    .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .strip .item{padding:22px 20px;text-align:center}
-    .strip strong{display:block;color:var(--ink);font-size:1.02rem}
-    .strip span{display:block;color:var(--muted);font-size:.92rem;margin-top:6px}
-
-    .message-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .message-card{padding:30px}
-    .message-card.left{background:linear-gradient(180deg,#fff 0%, #f9f3f5 100%)}
-    .message-card.right{background:linear-gradient(180deg,#fff 0%, #f3f7fd 100%)}
-    .label{display:inline-block;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
-    .label.red{background:rgba(166,61,74,.10);color:var(--red)}
-    .label.blue{background:rgba(37,87,167,.10);color:var(--navy)}
-    .message-card ul{margin:16px 0 0;padding-left:18px}
-    .message-card li{margin:8px 0}
-
-    .academy-grid,.event-grid,.proof-grid,.cta-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:18px;align-items:stretch}
-    .academy-lead,.academy-side,.event-panel,.proof-stack,.cta-panel{height:100%}
-    .academy-lead{padding:34px}
-    .academy-lead p{max-width:40ch}
-    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
-    .badge-row span{padding:8px 12px;border-radius:999px;background:var(--blue-soft);border:1px solid rgba(37,87,167,.08);font-size:.9rem;font-weight:700;color:var(--navy)}
-    .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
-    .mini{padding:18px;background:var(--blue-soft);border-radius:22px;border:1px solid rgba(37,87,167,.08)}
-    .mini strong{display:block;color:var(--ink);margin-bottom:6px}
-    .academy-side{display:grid;gap:18px}
-    .quote-card,.simple-card{padding:26px}
-    .quote-card blockquote{margin:0;color:var(--ink);font-size:1.05rem;line-height:1.65}
-    .quote-card cite{display:block;margin-top:14px;color:var(--muted);font-style:normal}
-    .simple-card ul{margin:0;padding-left:18px}
-    .simple-card li{margin:8px 0}
-
-    .image-panel{overflow:hidden;position:relative;min-height:700px;border-radius:38px;box-shadow:var(--shadow)}
-    .image-panel.event{background:linear-gradient(180deg, rgba(6,15,28,.14), rgba(6,15,28,.45)),url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=2200&q=80') center/cover}
-    .image-panel.proof{background:linear-gradient(180deg, rgba(6,15,28,.14), rgba(6,15,28,.42)),url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=2200&q=80') center/cover}
-    .overlay-card{position:absolute;left:24px;right:24px;bottom:24px;padding:24px}
-    .overlay-card p{margin:10px 0 0;max-width:34ch}
-
-    .list-stack{display:grid;gap:14px}
-    .list-item{padding:18px 20px;background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.74);backdrop-filter:blur(16px);border-radius:22px}
-    .list-item strong{display:block;color:var(--ink);font-size:1.04rem}
-    .list-item span{display:block;color:var(--muted);margin-top:6px}
-
-    .wins-grid,.path-grid,.faq-grid{display:grid;gap:16px}
-    .wins-grid{grid-template-columns:repeat(3,1fr)}
-    .win-card{padding:24px}
-    .win-card p{margin:10px 0 0}
-    .person{display:flex;align-items:center;gap:12px;margin-top:16px}
-    .avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue-mist),#cfdced);font-weight:800;color:var(--navy)}
-    .person strong{display:block;color:var(--ink)}
-    .person span{display:block;color:var(--muted);font-size:.9rem}
-
-    .path-section{padding:22px 0 36px}
-    .path-wrap{padding:34px;background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 100%);color:#fff;overflow:hidden;position:relative}
-    .path-wrap::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 34%)}
-    .path-wrap > *{position:relative;z-index:1}
-    .path-wrap .headline-lg,.path-wrap .sub{color:#fff}
-    .path-grid{grid-template-columns:repeat(3,1fr);margin-top:24px}
-    .path-card{padding:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:26px;backdrop-filter:blur(14px)}
-    .path-card .tag{display:inline-block;padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.12);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
-    .path-card h3{margin:0;color:#fff;font-size:1.6rem;letter-spacing:-.04em;line-height:1.02}
-    .path-card p{margin:10px 0 18px;color:rgba(255,255,255,.78)}
-    .path-card.academy{outline:2px solid rgba(166,61,74,.48);box-shadow:0 0 0 8px rgba(166,61,74,.08)}
-
-    .faq-grid{grid-template-columns:repeat(3,1fr)}
-    .faq-card{padding:24px}
-    .faq-card ul{margin:12px 0 0;padding-left:18px}
-    .faq-card li{margin:8px 0}
-    .faq-card .answer{margin-top:16px;padding:12px 14px;border-radius:18px;background:var(--blue-soft);color:var(--navy);font-weight:700}
-
-    .immersive{padding:10px 0 40px}
-    .immersive-head{text-align:center;max-width:760px;margin:0 auto 22px}
-    .full-bleed-gallery{display:grid;gap:22px}
-    .gallery-panel{position:relative;min-height:82vh;overflow:hidden;border-radius:42px;box-shadow:var(--shadow);background-size:cover;background-position:center}
-    .panel-a{background-image:linear-gradient(180deg, rgba(7,17,31,.10), rgba(7,17,31,.40)),url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=2400&q=80')}
-    .panel-b{background-image:linear-gradient(180deg, rgba(7,17,31,.08), rgba(7,17,31,.30)),url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=2400&q=80')}
-    .panel-c{background-image:linear-gradient(180deg, rgba(7,17,31,.10), rgba(7,17,31,.42)),url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2400&q=80')}
-    .floating-copy{position:absolute;max-width:380px;padding:28px 30px;background:rgba(255,255,255,.72);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.7);border-radius:28px;box-shadow:0 24px 70px rgba(9,23,43,.16)}
-    .floating-copy.left{left:6%;bottom:10%}
-    .floating-copy.right{right:6%;top:12%}
-    .floating-copy.dark{background:rgba(9,23,43,.66);border-color:rgba(255,255,255,.12);color:#fff}
-    .floating-copy h3{margin:8px 0 8px;color:inherit;font-size:clamp(1.8rem,3vw,3rem);line-height:.95;letter-spacing:-.05em;font-weight:800}
-    .floating-copy p{margin:0;color:inherit;opacity:.88}
-    .mini-label{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.46);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-    .floating-copy.dark .mini-label{background:rgba(255,255,255,.12)}
-
-    .cta-band{padding:26px 0 56px}
-    .cta-wrap{padding:34px;background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 72%, var(--blue) 100%);color:#fff;overflow:hidden;position:relative}
-    .cta-wrap::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 16%, rgba(255,255,255,.08), transparent 24%)}
-    .cta-wrap > *{position:relative;z-index:1}
-    .cta-wrap .headline-lg,.cta-wrap .sub{color:#fff}
-    .cta-grid{margin-top:22px}
-    .cta-panel{padding:24px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px);border-radius:28px}
-    .cta-panel form{display:grid;gap:12px}
-    .cta-panel input,.cta-panel select{width:100%;min-height:52px;border-radius:16px;border:1px solid rgba(255,255,255,.12);padding:0 16px;background:rgba(255,255,255,.94);font:inherit;color:var(--ink)}
-
-    footer{padding:30px 0 48px;background:#0a1320;color:rgba(255,255,255,.76)}
-    .footer-grid{display:grid;grid-template-columns:1.3fr .8fr .8fr .8fr;gap:20px}
-    footer h4{margin:0 0 12px;color:#fff}
-    footer ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
-    .foot-note{margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.92rem;color:rgba(255,255,255,.52)}
-
-    @media (max-width:1100px){
-      .hero-grid,.academy-grid,.event-grid,.proof-grid,.cta-grid,.footer-grid{grid-template-columns:1fr}
-      .hero-stats,.strip,.wins-grid,.path-grid,.faq-grid,.message-grid,.mini-grid{grid-template-columns:repeat(2,1fr)}
-      .stage-media,.image-panel{min-height:460px}
-      .gallery-panel{min-height:58vh}
-      .floating-copy{position:static;max-width:none;margin:22px}
-      .gallery-panel{display:flex;align-items:flex-end}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    @media (max-width:760px){
-      .container{width:min(var(--max),calc(100% - 24px))}
-      .nav{flex-wrap:wrap;padding:12px 0}
-      .nav-links{order:3;width:100%;justify-content:space-between;overflow:auto;padding-bottom:4px}
-      .nav-actions{width:100%;justify-content:space-between}
-      .brand-copy span{display:none}
-      .hero-stats,.strip,.wins-grid,.path-grid,.faq-grid,.message-grid,.mini-grid{grid-template-columns:1fr}
-      .section{padding:24px 0}
-      .section-lg{padding:36px 0}
-      .stage-media,.image-panel{min-height:380px}
-      .gallery-panel{min-height:48vh;border-radius:30px}
-      .floating-copy{padding:22px;border-radius:22px}
-      .path-wrap,.cta-wrap,.academy-lead,.message-card,.event-panel,.quote-card,.simple-card,.win-card,.faq-card{padding:24px}
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 48px;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner {
+      width: min(980px, 100%);
+      padding: 0 22px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: .82rem; font-weight: 500; letter-spacing: -.01em;
+      color: rgba(255,255,255,.88);
+    }
+    .nav-links {
+      display: flex; gap: 28px; list-style: none;
+      font-size: .78rem; font-weight: 400; color: rgba(255,255,255,.7);
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      font-size: .78rem; font-weight: 400; color: var(--blue);
+    }
+    .nav-cta:hover { text-decoration: underline; }
+
+    /* ─── SHARED ─── */
+    .section {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 140px 24px 100px;
+      position: relative; overflow: hidden;
+    }
+    .section.light { background: var(--gray-1); color: var(--gray-4); }
+    .section.white { background: var(--white); color: var(--gray-4); }
+
+    .eyebrow {
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 18px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .7s ease forwards;
+    }
+    .section.light .eyebrow,
+    .section.white .eyebrow { color: var(--blue); }
+
+    h1, h2 {
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: .96;
+      text-align: center;
+      max-width: 18ch;
+      opacity: 0; transform: translateY(30px);
+      animation: fadeUp .8s .1s ease forwards;
+    }
+    h1 { font-size: clamp(3.2rem, 8vw, 7rem); }
+    h2 { font-size: clamp(2.4rem, 5.5vw, 5rem); }
+    .section.light h2,
+    .section.white h2 { color: var(--gray-4); }
+
+    .tagline {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 300; letter-spacing: -.01em;
+      color: rgba(255,255,255,.6); text-align: center;
+      max-width: 42ch; margin-top: 20px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .8s .2s ease forwards;
+    }
+    .section.light .tagline,
+    .section.white .tagline { color: var(--gray-3); }
+
+    .cta-row {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      justify-content: center; margin-top: 34px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .8s .3s ease forwards;
+    }
+    .btn-pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 0 22px; border-radius: 999px;
+      font-family: inherit; font-size: .9rem; font-weight: 500;
+      cursor: pointer; border: none; transition: .18s ease; white-space: nowrap;
+    }
+    .btn-pill:hover { transform: scale(1.02); }
+    .btn-fill { background: var(--blue); color: #fff; }
+    .btn-fill:hover { background: var(--blue-hover); }
+    .btn-outline { background: transparent; color: var(--blue); border: 1.5px solid rgba(255,255,255,.24); }
+    .section.light .btn-outline,
+    .section.white .btn-outline { border-color: rgba(0,0,0,.16); color: var(--blue); }
+    .btn-outline:hover { border-color: var(--blue); }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── FLOATING IMAGE ─── */
+    .float-img {
+      position: absolute; border-radius: 18px;
+      overflow: hidden; pointer-events: none;
+      opacity: 0; animation: floatIn 1.4s ease forwards;
+    }
+    .float-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(.78) saturate(1.1);
+    }
+    .section.light .float-img img { filter: brightness(.88) saturate(1.05); }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(40px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* subtle parallax handled in JS */
+    .float-img { will-change: transform; }
+
+    /* ─── HERO ─── */
+    #hero { background: #000; min-height: 100svh; }
+    #hero .float-img.a {
+      width: 340px; height: 440px;
+      top: 14%; left: 4%; animation-delay: .5s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.6);
+    }
+    #hero .float-img.b {
+      width: 260px; height: 340px;
+      bottom: 12%; right: 6%; animation-delay: .7s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5);
+    }
+    #hero .float-img.c {
+      width: 200px; height: 260px;
+      top: 20%; right: 18%; animation-delay: .9s;
+      box-shadow: 0 30px 60px rgba(0,0,0,.5);
+    }
+    #hero h1 { background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,.5)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* ─── LEVELS ─── */
+    #levels { background: #0a0a0a; }
+    #levels .float-img.a {
+      width: 300px; height: 400px;
+      top: 10%; right: 3%; animation-delay: .4s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.7);
+    }
+    #levels .float-img.b {
+      width: 220px; height: 290px;
+      bottom: 14%; left: 5%; animation-delay: .6s;
+      box-shadow: 0 30px 60px rgba(0,0,0,.6);
+    }
+    .levels-list {
+      display: grid; gap: 1px;
+      width: min(680px, 100%);
+      margin-top: 52px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .35s ease forwards;
+    }
+    .level-row {
+      display: flex; align-items: baseline; gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: background .2s;
+    }
+    .level-row:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+    .level-row:hover { padding-left: 8px; }
+    .level-n {
+      font-size: .75rem; font-weight: 600; letter-spacing: .06em;
+      color: var(--blue); min-width: 22px;
+    }
+    .level-info { flex: 1; }
+    .level-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+    .level-id { font-size: .82rem; font-weight: 300; color: rgba(255,255,255,.45); margin-top: 3px; font-style: italic; }
+    .level-arrow { color: rgba(255,255,255,.25); font-size: .9rem; transition: color .2s, transform .2s; }
+    .level-row:hover .level-arrow { color: var(--blue); transform: translateX(4px); }
+
+    /* ─── REFRAME ─── */
+    #reframe { background: var(--gray-1); }
+    #reframe h2 { color: var(--gray-4); }
+    #reframe .float-img.a {
+      width: 280px; height: 380px;
+      top: 12%; left: 4%; animation-delay: .4s;
+      box-shadow: 0 30px 70px rgba(0,0,0,.18);
+    }
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      width: min(620px, 100%); margin-top: 44px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .3s ease forwards;
+    }
+    .col-card {
+      padding: 26px 24px; border-radius: 18px;
+    }
+    .col-card.no { background: rgba(0,0,0,.05); border: 1px solid rgba(0,0,0,.06); }
+    .col-card.yes { background: rgba(0,113,227,.07); border: 1px solid rgba(0,113,227,.14); }
+    .col-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .col-card.no .col-label { color: rgba(0,0,0,.35); }
+    .col-card.yes .col-label { color: var(--blue); }
+    .col-card ul { list-style: none; display: grid; gap: 9px; }
+    .col-card li { font-size: .9rem; font-weight: 400; color: var(--gray-3); }
+    .col-card.yes li { color: var(--gray-4); font-weight: 500; }
+
+    /* ─── ACADEMY ─── */
+    #academy { background: var(--black); }
+    #academy .float-img.a {
+      width: 360px; height: 460px;
+      top: 8%; right: 3%; animation-delay: .5s;
+      box-shadow: 0 50px 100px rgba(0,0,0,.7);
+    }
+    #academy .float-img.b {
+      width: 200px; height: 260px;
+      bottom: 16%; left: 6%; animation-delay: .8s;
+      box-shadow: 0 30px 60px rgba(0,0,0,.6);
+    }
+    .outcomes-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      width: min(600px, 100%); margin-top: 36px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .3s ease forwards;
+    }
+    .outcome-chip {
+      padding: 9px 16px; border-radius: 999px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      font-size: .84rem; font-weight: 400; color: rgba(255,255,255,.8);
+    }
+
+    /* ─── PILLARS ─── */
+    #pillars { background: #050505; }
+    #pillars .float-img.a {
+      width: 240px; height: 320px;
+      top: 12%; right: 5%; animation-delay: .4s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.7);
+    }
+    .pillars-list {
+      display: grid; gap: 0;
+      width: min(640px, 100%); margin-top: 52px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .3s ease forwards;
+    }
+    .pillar-row {
+      display: flex; align-items: center; gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .pillar-row:first-child { border-top: 1px solid rgba(255,255,255,.07); }
+    .p-icon { font-size: 1.1rem; width: 28px; flex-shrink: 0; opacity: .7; }
+    .p-name { font-size: .96rem; font-weight: 500; color: rgba(255,255,255,.88); }
+    .p-desc { font-size: .84rem; font-weight: 300; color: rgba(255,255,255,.38); margin-top: 2px; }
+
+    /* ─── CTA FINAL ─── */
+    #final-cta { background: var(--black); }
+    #final-cta h2 { background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,.42)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #final-cta .float-img.a {
+      width: 320px; height: 420px;
+      top: 10%; left: 4%; animation-delay: .5s;
+      box-shadow: 0 50px 100px rgba(0,0,0,.7);
+    }
+    #final-cta .float-img.b {
+      width: 220px; height: 290px;
+      bottom: 14%; right: 5%; animation-delay: .7s;
+      box-shadow: 0 40px 80px rgba(0,0,0,.6);
+    }
+    .cta-form {
+      display: grid; gap: 10px;
+      width: min(380px, 100%); margin-top: 36px;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .9s .35s ease forwards;
+    }
+    .cta-form input, .cta-form select {
+      width: 100%; height: 48px; border-radius: 12px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      padding: 0 16px; font-family: inherit; font-size: .9rem;
+      color: #fff; outline: none; transition: border .18s;
+    }
+    .cta-form input:focus, .cta-form select:focus { border-color: var(--blue); }
+    .cta-form input::placeholder { color: rgba(255,255,255,.3); }
+    .cta-form select option { background: #1d1d1f; }
+    .cta-form .btn-pill { width: 100%; height: 48px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #000; border-top: 1px solid rgba(255,255,255,.08);
+      padding: 28px 24px;
+      font-size: .72rem; color: rgba(255,255,255,.3);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .foot-links { display: flex; gap: 20px; }
+    .foot-links a { color: rgba(255,255,255,.3); transition: color .15s; }
+    .foot-links a:hover { color: rgba(255,255,255,.7); }
+
+    /* ─── SCROLL FADE ─── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      #hero .float-img.a { width: 200px; height: 260px; left: 2%; top: 18%; }
+      #hero .float-img.b { width: 150px; height: 200px; right: 2%; bottom: 18%; }
+      #hero .float-img.c { display: none; }
+      #levels .float-img, #academy .float-img.b,
+      #reframe .float-img, #final-cta .float-img.b,
+      #pillars .float-img { display: none; }
+      #academy .float-img.a { width: 200px; height: 260px; right: 2%; top: 10%; }
+      #final-cta .float-img.a { width: 180px; height: 240px; left: 2%; top: 12%; }
+      .two-col { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top">
-        <img src="/images/nsa-so-cal-cropped.png" alt="NSA SoCal" class="brand-logo">
-        <div class="brand-copy">
-          <strong>NSA SoCal</strong>
-          <span>Speaker Business Accelerator</span>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">NSA SoCal</span>
+      <ul class="nav-links">
+        <li><a href="#levels">Your Level</a></li>
+        <li><a href="#academy">Academy</a></li>
+        <li><a href="#pillars">About</a></li>
+      </ul>
+      <a class="nav-cta" href="#final-cta">Find My Path ›</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="section" id="hero">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=680&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img b">
+      <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=520&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img c">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow">Professional Speaking, Elevated</span>
+    <h1>Become the speaker people choose.</h1>
+    <p class="tagline">A professional development ecosystem designed to move you from emerging voice to industry authority.</p>
+    <div class="cta-row">
+      <a class="btn-pill btn-fill" href="#levels">Find Your Level</a>
+      <a class="btn-pill btn-outline" href="#academy">Explore the Academy</a>
+    </div>
+  </section>
+
+  <!-- 5 LEVELS -->
+  <section class="section" id="levels">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img b">
+      <img src="https://images.unsplash.com/photo-1559223607-a43c990c692c?w=440&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">The Speaker Growth Path</span>
+    <h2 class="reveal">Every speaker is on a path.</h2>
+    <p class="tagline reveal">We make it visible — and accelerate it.</p>
+    <div class="levels-list">
+      <div class="level-row">
+        <span class="level-n">01</span>
+        <div class="level-info">
+          <div class="level-title">The Emerging Speaker</div>
+          <div class="level-id">"I have something to say."</div>
         </div>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#event">Next Event</a>
-        <a href="#academy">Academy</a>
-        <a href="#wins">Speaker Wins</a>
-        <a href="#questions">Who It’s For</a>
-        <a href="#footer">About</a>
-      </nav>
-      <div class="nav-actions">
-        <a class="btn btn-secondary" href="/login">Log In</a>
-        <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
+        <span class="level-arrow">›</span>
+      </div>
+      <div class="level-row">
+        <span class="level-n">02</span>
+        <div class="level-info">
+          <div class="level-title">The Developing Professional</div>
+          <div class="level-id">"I want to get paid to do this."</div>
+        </div>
+        <span class="level-arrow">›</span>
+      </div>
+      <div class="level-row">
+        <span class="level-n">03</span>
+        <div class="level-info">
+          <div class="level-title">The Professional Speaker</div>
+          <div class="level-id">"I create outcomes."</div>
+        </div>
+        <span class="level-arrow">›</span>
+      </div>
+      <div class="level-row">
+        <span class="level-n">04</span>
+        <div class="level-info">
+          <div class="level-title">The Authority / Thought Leader</div>
+          <div class="level-id">"I move industries forward."</div>
+        </div>
+        <span class="level-arrow">›</span>
+      </div>
+      <div class="level-row">
+        <span class="level-n">05</span>
+        <div class="level-info">
+          <div class="level-title">The Legacy Professional</div>
+          <div class="level-id">"I grow the profession."</div>
+        </div>
+        <span class="level-arrow">›</span>
       </div>
     </div>
-  </header>
+    <div class="cta-row" style="margin-top:36px;">
+      <a class="btn-pill btn-fill" href="#final-cta">Find My Level</a>
+    </div>
+  </section>
 
-  <main id="top">
-    <section class="hero section-lg">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Attend the Next Event</span>
-          <h1 class="headline-xl">Build a better speaking business.</h1>
-          <p class="sub">Skills, positioning, systems, and community for speakers ready to grow.</p>
-          <div class="clarifier">We are not a speaker bureau. We help you become the speaker people want to book.</div>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
-            <a class="btn btn-secondary" href="#academy">Explore the Academy</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat card"><strong>2 semesters</strong><span>Academy learning with industry experts.</span></div>
-            <div class="stat card"><strong>3 paths</strong><span>New, emerging, established.</span></div>
-            <div class="stat card"><strong>1 room</strong><span>Where growth gets real.</span></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="stage-card">
-            <div class="stage-media">
-              <div class="floating-event card">
-                <small>Featured Event</small>
-                <h3>Turn one talk into more bookings.</h3>
-                <p>Position better. Sell smarter. Grow faster.</p>
-                <div class="meta">
-                  <span>April 18</span>
-                  <span>Irvine, CA</span>
-                  <span>9:00 AM</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container strip">
-        <div class="item card"><strong>Skill mastery</strong><span>Craft and delivery</span></div>
-        <div class="item card"><strong>Business growth</strong><span>Systems and visibility</span></div>
-        <div class="item card"><strong>Professional network</strong><span>Peers and mentors</span></div>
-        <div class="item card"><strong>Clear pathways</strong><span>Academy to leadership</span></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container message-grid">
-        <div class="message-card card left">
-          <span class="label red">Not a Speaker Bureau</span>
-          <h2 class="headline-md">We do not get speakers gigs.</h2>
-          <ul>
-            <li>No bureau model</li>
-            <li>No booking marketplace</li>
-            <li>No representation service</li>
-          </ul>
-        </div>
-        <div class="message-card card right">
-          <span class="label blue">What We Do</span>
-          <h2 class="headline-md">We help speakers build what gets booked.</h2>
-          <ul>
-            <li>Sharpen message</li>
-            <li>Strengthen business systems</li>
-            <li>Grow through community</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="academy">
-      <div class="container academy-grid">
-        <div class="academy-lead card">
-          <span class="eyebrow">NSA SoCal Speakers Academy</span>
-          <h2 class="headline-lg">Become a better speaker. Create a profitable speaking business.</h2>
-          <p class="sub">A cohort-based Academy for signature talks, business clarity, and faster traction.</p>
-          <div class="badge-row">
-            <span>2 Semesters</span>
-            <span>Bi-weekly Virtual</span>
-            <span>Industry Experts</span>
-            <span>Mastermind Cohort</span>
-          </div>
-          <div class="mini-grid">
-            <div class="mini"><strong>Develop</strong>Signature talk, niche, brand, story.</div>
-            <div class="mini"><strong>Clarify</strong>Market position and business model.</div>
-            <div class="mini"><strong>Collaborate</strong>Peer coaching and accountability.</div>
-            <div class="mini"><strong>Accelerate</strong>Real tools from working speakers.</div>
-          </div>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#cta">Explore the Academy</a>
-            <a class="btn btn-secondary" href="mailto:academy@nsasocal.org">Email Questions</a>
-          </div>
-        </div>
-        <div class="academy-side">
-          <div class="quote-card card">
-            <blockquote>“What I learned helped me put together a great keynote and sparked the sample chapter that led to my Harper Collins book deal.”</blockquote>
-            <cite>Chris Voss</cite>
-          </div>
-          <div class="simple-card card">
-            <h3 class="headline-md">Program format</h3>
-            <ul>
-              <li>Full-year or semester enrollment</li>
-              <li>Virtual sessions via Zoom</li>
-              <li>Learning Labs and mastermind support</li>
-              <li>NSA SoCal membership included</li>
-            </ul>
-          </div>
-          <div class="simple-card card">
-            <h3 class="headline-md">Outcomes</h3>
-            <ul>
-              <li>Clearer path forward</li>
-              <li>Stronger business strategy</li>
-              <li>Real community and accountability</li>
-              <li>Tools to grow a speaking business</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="event">
-      <div class="container event-grid">
-        <div class="event-panel card" style="padding:34px;display:flex;flex-direction:column;justify-content:center;">
-          <span class="eyebrow">Next Event</span>
-          <h2 class="headline-lg">Learn the business side of speaking from people doing the work.</h2>
-          <p class="sub">Build your offer, improve your marketability, and connect with serious speakers.</p>
-          <div class="list-stack" style="margin-top:20px;">
-            <div class="list-item"><strong>Build a stronger offer</strong><span>Position with more credibility.</span></div>
-            <div class="list-item"><strong>Understand the systems</strong><span>See what supports consistent bookings.</span></div>
-            <div class="list-item"><strong>Meet the right people</strong><span>Sharpen your business thinking in community.</span></div>
-          </div>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#cta">Attend the Next Event</a>
-            <a class="btn btn-secondary" href="#questions">See the Pathways</a>
-          </div>
-        </div>
-        <div class="image-panel event">
-          <div class="overlay-card card">
-            <span class="eyebrow">Live, In Person</span>
-            <h3 class="headline-md">The next room worth showing up for.</h3>
-            <p class="sub">Newport Beach Marriott · April 18 · 9:00 AM</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="wins">
-      <div class="container">
-        <div style="max-width:700px;margin:0 auto 22px;text-align:center;">
-          <span class="eyebrow">Speaker Wins</span>
-          <h2 class="headline-lg">Visible outcomes. Stronger credibility.</h2>
-          <p class="sub">Real progress stories make the value tangible.</p>
-        </div>
-        <div class="wins-grid">
-          <article class="win-card card">
-            <h3 class="headline-md">Booked 18 corporate keynotes.</h3>
-            <p>Sharper positioning changed the conversation.</p>
-            <div class="person"><div class="avatar">JM</div><div><strong>Jordan M.</strong><span>Leadership keynote speaker</span></div></div>
-          </article>
-          <article class="win-card card">
-            <h3 class="headline-md">Doubled keynote fee.</h3>
-            <p>From broad to bookable.</p>
-            <div class="person"><div class="avatar">AR</div><div><strong>Ashley R.</strong><span>Workplace culture speaker</span></div></div>
-          </article>
-          <article class="win-card card">
-            <h3 class="headline-md">Built a stronger business.</h3>
-            <p>Systems, relationships, long-term growth.</p>
-            <div class="person"><div class="avatar">DT</div><div><strong>Daniel T.</strong><span>Innovation speaker</span></div></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="path-section">
-      <div class="container path-wrap card" style="background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 100%);">
-        <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);">Speaker Pathways</span>
-        <h2 class="headline-lg">A clear path for every stage.</h2>
-        <p class="sub">Choose the path that fits where you are now.</p>
-        <div class="path-grid">
-          <article class="path-card academy">
-            <span class="tag">New Speakers</span>
-            <h3>Start with the Academy.</h3>
-            <p>Build fundamentals and confidence.</p>
-            <a class="btn btn-primary" href="#academy">Start with the Academy</a>
-          </article>
-          <article class="path-card">
-            <span class="tag">Emerging Speakers</span>
-            <h3>Build momentum through events.</h3>
-            <p>Grow bookings and sharpen positioning.</p>
-            <a class="btn btn-secondary" href="#cta">Attend the Next Event</a>
-          </article>
-          <article class="path-card">
-            <span class="tag">Established Speakers</span>
-            <h3>Expand authority and peer access.</h3>
-            <p>Community, collaboration, leadership.</p>
-            <a class="btn btn-secondary" href="#cta">Engage with the Chapter</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container proof-grid">
-        <div class="image-panel proof"></div>
-        <div class="proof-stack">
-          <div class="list-item card"><strong>Refine your message.</strong><span>Clarify your positioning and value.</span></div>
-          <div class="list-item card"><strong>Strengthen your business.</strong><span>Build systems, visibility, and confidence.</span></div>
-          <div class="list-item card"><strong>Grow in community.</strong><span>Learn with professionals serious about the craft.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="questions">
-      <div class="container">
-        <div style="max-width:760px;margin:0 auto 22px;text-align:center;">
-          <span class="eyebrow">Who It’s For</span>
-          <h2 class="headline-lg">Three kinds of speakers. One strong chapter.</h2>
-        </div>
-        <div class="faq-grid">
-          <article class="faq-card card">
-            <h3 class="headline-md">New</h3>
-            <ul>
-              <li>Start with clarity</li>
-              <li>Build a foundation</li>
-              <li>Develop confidence</li>
-            </ul>
-            <div class="answer">Best next step: NSA Academy</div>
-          </article>
-          <article class="faq-card card">
-            <h3 class="headline-md">Emerging</h3>
-            <ul>
-              <li>Grow bookings</li>
-              <li>Improve visibility</li>
-              <li>Build momentum</li>
-            </ul>
-            <div class="answer">Best next step: Attend the next event</div>
-          </article>
-          <article class="faq-card card">
-            <h3 class="headline-md">Established</h3>
-            <ul>
-              <li>Expand authority</li>
-              <li>Stay sharp</li>
-              <li>Lead and collaborate</li>
-            </ul>
-            <div class="answer">Best next step: Engage with the chapter community</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="immersive">
-      <div class="container immersive-head">
-        <span class="eyebrow">Inside the Experience</span>
-        <h2 class="headline-lg">A more immersive visual language.</h2>
-        <p class="sub">Bigger imagery. Less copy. Smoother scrolling.</p>
-      </div>
-      <div class="container full-bleed-gallery">
-        <div class="gallery-panel panel-a">
-          <div class="floating-copy left">
-            <span class="mini-label">Stage Presence</span>
-            <h3>See yourself in the room.</h3>
-            <p>Professional speakers. Real momentum.</p>
-          </div>
-        </div>
-        <div class="gallery-panel panel-b">
-          <div class="floating-copy right">
-            <span class="mini-label">Connection</span>
-            <h3>Learning that moves into opportunity.</h3>
-            <p>Craft, confidence, business strength.</p>
-          </div>
-        </div>
-        <div class="gallery-panel panel-c">
-          <div class="floating-copy left dark">
-            <span class="mini-label">Momentum</span>
-            <h3>Growth feels different in the right room.</h3>
-            <p>Clearer positioning. Stronger network.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-band" id="cta">
-      <div class="container cta-wrap card">
-        <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);">Attend the Next Event</span>
-        <h2 class="headline-lg">Join the Southern California speaker community.</h2>
-        <p class="sub">Meet the people and experience how NSA SoCal helps speakers build better businesses.</p>
-        <div class="cta-grid">
-          <div></div>
-          <div class="cta-panel">
-            <form>
-              <input type="text" placeholder="Your name" aria-label="Your name">
-              <input type="email" placeholder="Email address" aria-label="Email address">
-              <select aria-label="I am most interested in">
-                <option>I’m most interested in...</option>
-                <option>Attending the next event</option>
-                <option>Starting with the Academy</option>
-                <option>Learning about membership</option>
-              </select>
-              <button class="btn btn-primary" type="button">Attend the Next Event</button>
-              <a class="btn btn-secondary" href="#academy">See the Academy</a>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>NSA SoCal</h4>
-        <p>Speaker business accelerator for professionals who want stronger craft, stronger positioning, and stronger business momentum.</p>
-      </div>
-      <div>
-        <h4>Events</h4>
+  <!-- REFRAME -->
+  <section class="section light" id="reframe">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=560&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">What We Are</span>
+    <h2 class="reveal">Not a speaker bureau.</h2>
+    <p class="tagline reveal">We don't get you booked. We help you become the speaker people choose.</p>
+    <div class="two-col reveal">
+      <div class="col-card no">
+        <div class="col-label">We don't</div>
         <ul>
-          <li><a href="#event">Next Event</a></li>
-          <li><a href="#wins">Speaker Wins</a></li>
-          <li><a href="#cta">Register</a></li>
+          <li>Pitch you for gigs</li>
+          <li>Act as your agent</li>
+          <li>Sell your talks</li>
         </ul>
       </div>
-      <div>
-        <h4>Pathways</h4>
+      <div class="col-card yes">
+        <div class="col-label">We do</div>
         <ul>
-          <li><a href="#academy">Academy</a></li>
-          <li><a href="#questions">Emerging Speakers</a></li>
-          <li><a href="#questions">Established Speakers</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>About</h4>
-        <ul>
-          <li><a href="#">Mission</a></li>
-          <li><a href="#">Leadership</a></li>
-          <li><a href="#">Contact</a></li>
+          <li>Sharpen your message</li>
+          <li>Strengthen your business</li>
+          <li>Surround you with the right people</li>
         </ul>
       </div>
     </div>
-    <div class="container foot-note">Professional concept landing page for the NSA SoCal website rebrand.</div>
+  </section>
+
+  <!-- ACADEMY -->
+  <section class="section" id="academy">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=720&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img b">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">NSA SoCal Speakers Academy</span>
+    <h2 class="reveal">Where emerging speakers become professionals.</h2>
+    <p class="tagline reveal">A cohort-based experience designed to move you from Level 1 to Level 3 — faster, with clarity and real support.</p>
+    <div class="outcomes-row">
+      <span class="outcome-chip">Signature talk</span>
+      <span class="outcome-chip">Market position</span>
+      <span class="outcome-chip">Business foundation</span>
+      <span class="outcome-chip">Peer accountability</span>
+      <span class="outcome-chip">Expert faculty</span>
+      <span class="outcome-chip">Bi-weekly sessions</span>
+    </div>
+    <div class="cta-row" style="margin-top:36px;">
+      <a class="btn-pill btn-fill" href="#final-cta">Explore the Academy</a>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section" id="pillars">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=480&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">What We're Building</span>
+    <h2 class="reveal">More than a chapter.<br>A standard.</h2>
+    <div class="pillars-list">
+      <div class="pillar-row">
+        <span class="p-icon">🎯</span>
+        <div>
+          <div class="p-name">Meaningful Impact</div>
+          <div class="p-desc">Using our voices to create real change.</div>
+        </div>
+      </div>
+      <div class="pillar-row">
+        <span class="p-icon">📈</span>
+        <div>
+          <div class="p-name">Strategic Growth</div>
+          <div class="p-desc">Growing with intention — personally and professionally.</div>
+        </div>
+      </div>
+      <div class="pillar-row">
+        <span class="p-icon">🌍</span>
+        <div>
+          <div class="p-name">Inclusive Excellence</div>
+          <div class="p-desc">Every voice valued. Every perspective elevates the room.</div>
+        </div>
+      </div>
+      <div class="pillar-row">
+        <span class="p-icon">🤝</span>
+        <div>
+          <div class="p-name">Community Collaboration</div>
+          <div class="p-desc">Give. Receive. Refer. Grow together.</div>
+        </div>
+      </div>
+      <div class="pillar-row">
+        <span class="p-icon">✨</span>
+        <div>
+          <div class="p-name">Playful Professionalism</div>
+          <div class="p-desc">High standards — without losing humanity.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section" id="final-cta">
+    <div class="float-img a">
+      <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=640&q=80&fit=crop" alt="">
+    </div>
+    <div class="float-img b">
+      <img src="https://images.unsplash.com/photo-1560439514-e960a3ef5019?w=440&q=80&fit=crop" alt="">
+    </div>
+    <span class="eyebrow reveal">Start Here</span>
+    <h2 class="reveal">Find your level.<br>Start moving forward.</h2>
+    <p class="tagline reveal">Clarity is the first step. Momentum is what follows.</p>
+    <div class="cta-form">
+      <input type="text" placeholder="Your name">
+      <input type="email" placeholder="Email address">
+      <select>
+        <option value="">Where are you on the journey?</option>
+        <option>Level 1 — Emerging Speaker</option>
+        <option>Level 2 — Developing Professional</option>
+        <option>Level 3 — Professional Speaker</option>
+        <option>Level 4 — Authority / Thought Leader</option>
+        <option>Level 5 — Legacy Professional</option>
+      </select>
+      <button class="btn-pill btn-fill" type="button">Find My Path</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 NSA SoCal · National Speakers Association · Southern California</span>
+    <div class="foot-links">
+      <a href="#">Academy</a>
+      <a href="#">Events</a>
+      <a href="#">Leadership</a>
+      <a href="#">NSA National</a>
+    </div>
   </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Parallax on float images
+    const floats = document.querySelectorAll('.float-img');
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      floats.forEach(el => {
+        const section = el.closest('.section');
+        const rect = section.getBoundingClientRect();
+        const progress = -rect.top / window.innerHeight;
+        const speed = el.classList.contains('a') ? 0.06 : el.classList.contains('b') ? -0.04 : 0.035;
+        el.style.transform = `translateY(${progress * speed * 200}px)`;
+      });
+    }, { passive: true });
+  </script>
+
 </body>
 </html>
