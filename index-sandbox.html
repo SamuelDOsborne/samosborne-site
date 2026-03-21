@@ -28,12 +28,13 @@
 
 /* Apple uses SF Pro — we approximate with Inter at tight tracking & specific weights */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: var(--charcoal);
   color: var(--light);
   overflow-x: clip;                /* clip vs hidden: doesn't create scroll container, preserves iOS momentum */
+  max-width: 100%;
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -189,6 +190,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
   overflow: hidden; padding: 14px 0; background: var(--charcoal);
+  position: relative; max-width: 100%; width: 100%;
 }
 .marquee-track { display: flex; animation: marquee 32s linear infinite; white-space: nowrap; }
 .marquee-item {
@@ -488,7 +490,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   .nav-inner { padding: 0 20px; }
   .section { padding: 80px 20px; }
   .hero {
-    display: block; height: auto; overflow: visible;
+    display: block; height: auto; overflow: hidden;
     padding: 0 0 56px; margin-top: 52px;
   }
   .hero-visual {
@@ -651,7 +653,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </section>
 
 <!-- STAGE PHOTO -->
-<section class="section section-dark" style="padding:0;"><div style="width:100%;overflow:hidden;line-height:0;"><img id="stagePhoto" src="images/sam-osborne-stage4.jpg" alt="Sam Osborne on stage" style="width:100%;height:auto;display:block;filter:brightness(.72) contrast(1.05);will-change:transform;"></div></section>
+<section class="section section-dark" style="padding:0;max-width:100%;"><div style="width:100%;overflow:hidden;line-height:0;"><img id="stagePhoto" src="images/sam-osborne-stage4.jpg" alt="Sam Osborne on stage" style="width:100%;height:auto;display:block;filter:brightness(.72) contrast(1.05);will-change:transform;"></div></section>
 
 <!-- LOGOS -->
 <section class="section section-dark">
@@ -794,7 +796,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </section>
 
 <!-- FULL-BLEED -->
-<section class="section section-dark" style="padding:0;"><div style="width:100%;overflow:hidden;line-height:0;"><img src="images/sam-osborne-chair-landscape.jpg" alt="Sam Osborne" style="width:100%;height:auto;display:block;"></div></section>
+<section class="section section-dark" style="padding:0;max-width:100%;"><div style="width:100%;overflow:hidden;line-height:0;"><img src="images/sam-osborne-chair-landscape.jpg" alt="Sam Osborne" style="width:100%;height:auto;display:block;"></div></section>
 
 <!-- DELIVERS -->
 <section class="section section-dark" id="delivers">
