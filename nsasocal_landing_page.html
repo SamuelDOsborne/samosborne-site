@@ -68,15 +68,26 @@
     .nav-drop-arrow { font-size: .55rem; opacity: .55; margin-top: 1px; transition: transform .2s; }
     .nav-has-drop:hover .nav-drop-arrow { transform: rotate(180deg); }
     .nav-dropdown {
-      position: absolute; top: calc(100% + 10px); left: 50%;
-      background: rgba(20,20,20,.97);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px; padding: 8px 0;
+      position: absolute; top: 100%; left: 50%;
+      padding-top: 10px; /* pushes panel down, gap covered by pseudo-element */
+      background: transparent;
       min-width: 160px; list-style: none;
       opacity: 0; pointer-events: none;
       transition: opacity .18s ease, transform .18s ease;
       transform: translateX(-50%) translateY(-6px);
+    }
+    /* Inner panel — visually the dropdown box */
+    .nav-dropdown-inner {
+      background: rgba(20,20,20,.97);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; padding: 8px 0;
       backdrop-filter: blur(20px);
+    }
+    /* Bridge: invisible block that fills the gap so hover isn't broken */
+    .nav-has-drop::after {
+      content: ''; display: block;
+      position: absolute; bottom: -10px; left: 0; right: 0;
+      height: 10px;
     }
     .nav-has-drop:hover .nav-dropdown {
       opacity: 1; pointer-events: all;
@@ -105,44 +116,105 @@
     #mobile-menu {
       display: none;
       position: fixed; inset: 0; z-index: 250;
-      background: rgba(0,0,0,.97);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      flex-direction: column; align-items: center; justify-content: center;
+      background: #000;
+      flex-direction: column; align-items: stretch; justify-content: flex-start;
+      overflow-y: auto;
       opacity: 0; pointer-events: none;
-      transition: opacity .28s ease;
+      transition: opacity .3s ease;
     }
     #mobile-menu.open { opacity: 1; pointer-events: all; }
+
+    /* Header bar inside mobile menu */
+    .mobile-menu-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 64px; flex-shrink: 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .mobile-menu-logo {
+      height: 26px; width: auto;
+      background: rgba(255,255,255,.9); border-radius: 5px; padding: 2px 6px;
+    }
     .mobile-menu-close {
-      position: absolute; top: 14px; right: 18px;
-      background: none; border: none;
-      color: #fff; font-size: 32px; line-height: 1;
-      cursor: pointer; padding: 6px 10px;
-      transition: opacity .18s;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      color: #fff; font-size: 20px; line-height: 1;
+      width: 36px; height: 36px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .18s;
     }
-    .mobile-menu-close:hover { opacity: .6; }
-    .mobile-nav-list {
-      list-style: none; display: flex; flex-direction: column;
-      align-items: center; gap: 0; width: 100%;
+    .mobile-menu-close:hover { background: rgba(255,255,255,.16); }
+
+    /* Scrollable body */
+    .mobile-menu-body {
+      flex: 1; padding: 12px 0 40px;
     }
-    .mobile-nav-list li { width: 100%; text-align: center; }
-    .mobile-nav-list > li > a,
-    .mobile-nav-list > li > span {
-      display: block; padding: 16px 24px;
-      font-size: 1.2rem; font-weight: 500; color: rgba(255,255,255,.85);
-      letter-spacing: -.01em;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      transition: color .15s;
+
+    .mobile-nav-list { list-style: none; }
+
+    /* Top-level items */
+    .mobile-nav-list > li > a.mnl-top,
+    .mobile-nav-list > li > button.mnl-top {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; padding: 17px 28px;
+      font-size: 1.05rem; font-weight: 600; letter-spacing: -.02em;
+      color: rgba(255,255,255,.9);
+      border: none; background: none; font-family: inherit;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      cursor: pointer; text-align: left;
+      transition: color .15s, background .15s;
     }
-    .mobile-nav-list > li > a:hover { color: #fff; }
-    .mobile-nav-sub { list-style: none; }
+    .mobile-nav-list > li > a.mnl-top:hover,
+    .mobile-nav-list > li > button.mnl-top:hover {
+      color: #fff; background: rgba(255,255,255,.03);
+    }
+    .mnl-chevron {
+      width: 18px; height: 18px; flex-shrink: 0;
+      border: 1.5px solid rgba(255,255,255,.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .22s, border-color .22s;
+      font-style: normal; font-size: .6rem; color: rgba(255,255,255,.4);
+    }
+    .mnl-open .mnl-chevron {
+      transform: rotate(180deg);
+      border-color: var(--blue); color: var(--blue);
+    }
+
+    /* Sub-item group */
+    .mobile-nav-sub {
+      list-style: none;
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s cubic-bezier(.25,.46,.45,.94);
+      background: rgba(255,255,255,.02);
+    }
+    .mnl-open + .mobile-nav-sub,
+    .mobile-nav-sub.open { max-height: 300px; }
+
     .mobile-nav-sub li a {
-      display: block; padding: 10px 24px;
-      font-size: .92rem; color: rgba(255,255,255,.45);
-      border-bottom: 1px solid rgba(255,255,255,.04);
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 28px 12px 44px;
+      font-size: .9rem; font-weight: 400;
+      color: rgba(255,255,255,.42);
+      border-bottom: 1px solid rgba(255,255,255,.03);
       transition: color .15s;
     }
-    .mobile-nav-sub li a:hover { color: rgba(255,255,255,.8); }
-    .mobile-cta-wrap { margin-top: 28px; }
+    .mobile-nav-sub li a::before {
+      content: '';
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,.2); flex-shrink: 0;
+      transition: background .15s;
+    }
+    .mobile-nav-sub li a:hover { color: rgba(255,255,255,.85); }
+    .mobile-nav-sub li a:hover::before { background: var(--blue); }
+
+    /* CTA area */
+    .mobile-cta-wrap {
+      padding: 28px 24px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+      margin-top: 8px;
+    }
+    .mobile-cta-wrap .btn-pill {
+      width: 100%; justify-content: center;
+      font-size: 1rem; height: 52px;
+    }
 
     @media (max-width: 860px) {
       .nav-links { display: none; }
@@ -358,19 +430,62 @@
     }
     .pillars-list {
       display: grid; gap: 0;
-      width: min(640px, 100%); margin-top: 52px;
+      width: min(720px, 100%); margin-top: 60px;
       opacity: 0; transform: translateY(20px);
       animation: fadeUp .9s .3s ease forwards;
     }
     .pillar-row {
-      display: flex; align-items: center; gap: 18px;
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      display: flex; align-items: center; gap: 28px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: padding-left .22s ease;
     }
-    .pillar-row:first-child { border-top: 1px solid rgba(255,255,255,.07); }
-    .p-icon { font-size: 1.1rem; width: 28px; flex-shrink: 0; opacity: .7; }
-    .p-name { font-size: .96rem; font-weight: 500; color: rgba(255,255,255,.88); }
-    .p-desc { font-size: .84rem; font-weight: 300; color: rgba(255,255,255,.38); margin-top: 2px; }
+    .pillar-row:first-child { border-top: 1px solid rgba(255,255,255,.06); }
+    .pillar-row:hover { padding-left: 6px; }
+    .p-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      transition: border-color .22s, background .22s;
+    }
+    .p-icon::after {
+      content: '';
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,.5);
+      transition: background .22s, transform .22s;
+    }
+    .pillar-row:hover .p-icon {
+      border-color: var(--blue);
+      background: rgba(0,113,227,.08);
+    }
+    .pillar-row:hover .p-icon::after {
+      background: var(--blue);
+      transform: scale(1.2);
+    }
+    .p-num {
+      position: absolute; top: -8px; right: -8px;
+      font-size: .52rem; font-weight: 700; letter-spacing: .06em;
+      color: var(--blue); line-height: 1;
+    }
+    .p-body { flex: 1; }
+    .p-name {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 600; letter-spacing: -.03em;
+      color: rgba(255,255,255,.92); line-height: 1.1;
+    }
+    .p-desc {
+      font-size: clamp(.88rem, 1.4vw, 1rem);
+      font-weight: 300; color: rgba(255,255,255,.35);
+      margin-top: 5px; line-height: 1.5; letter-spacing: -.005em;
+    }
+    .p-arrow {
+      color: rgba(255,255,255,.12); font-size: .9rem;
+      transition: color .22s, transform .22s;
+      flex-shrink: 0;
+    }
+    .pillar-row:hover .p-arrow { color: var(--blue); transform: translateX(4px); }
 
     /* ─── CTA FINAL ─── */
     #final-cta { background: var(--black); }
@@ -604,27 +719,27 @@
         <li><a href="#academy">Academy</a></li>
         <li class="nav-has-drop">
           <span class="nav-drop-toggle">Events <span class="nav-drop-arrow">&#9660;</span></span>
-          <ul class="nav-dropdown">
+          <ul class="nav-dropdown"><div class="nav-dropdown-inner">
             <li><a href="#">Upcoming Events</a></li>
             <li><a href="#">Monthly Meetings</a></li>
             <li><a href="#">Annual Conference</a></li>
-          </ul>
+          </div></ul>
         </li>
         <li class="nav-has-drop">
           <span class="nav-drop-toggle">Membership <span class="nav-drop-arrow">&#9660;</span></span>
-          <ul class="nav-dropdown">
+          <ul class="nav-dropdown"><div class="nav-dropdown-inner">
             <li><a href="#">Join NSA SoCal</a></li>
             <li><a href="#">Member Benefits</a></li>
             <li><a href="#">Renew</a></li>
-          </ul>
+          </div></ul>
         </li>
         <li class="nav-has-drop">
           <span class="nav-drop-toggle">Board <span class="nav-drop-arrow">&#9660;</span></span>
-          <ul class="nav-dropdown">
+          <ul class="nav-dropdown"><div class="nav-dropdown-inner">
             <li><a href="#">Board Members</a></li>
             <li><a href="#">Meeting Minutes</a></li>
             <li><a href="#">Volunteer</a></li>
-          </ul>
+          </div></ul>
         </li>
         <li><a href="#">Member Login</a></li>
         <li><a href="#">Contact</a></li>
@@ -638,39 +753,44 @@
 
   <!-- MOBILE MENU -->
   <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
-    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
-    <ul class="mobile-nav-list">
-      <li><a href="#levels" class="mobile-nav-link">Your Level</a></li>
-      <li><a href="#academy" class="mobile-nav-link">Academy</a></li>
-      <li>
-        <span>Events</span>
-        <ul class="mobile-nav-sub">
-          <li><a href="#" class="mobile-nav-link">Upcoming Events</a></li>
-          <li><a href="#" class="mobile-nav-link">Monthly Meetings</a></li>
-          <li><a href="#" class="mobile-nav-link">Annual Conference</a></li>
-        </ul>
-      </li>
-      <li>
-        <span>Membership</span>
-        <ul class="mobile-nav-sub">
-          <li><a href="#" class="mobile-nav-link">Join NSA SoCal</a></li>
-          <li><a href="#" class="mobile-nav-link">Member Benefits</a></li>
-          <li><a href="#" class="mobile-nav-link">Renew</a></li>
-        </ul>
-      </li>
-      <li>
-        <span>Board</span>
-        <ul class="mobile-nav-sub">
-          <li><a href="#" class="mobile-nav-link">Board Members</a></li>
-          <li><a href="#" class="mobile-nav-link">Meeting Minutes</a></li>
-          <li><a href="#" class="mobile-nav-link">Volunteer</a></li>
-        </ul>
-      </li>
-      <li><a href="#" class="mobile-nav-link">Member Login</a></li>
-      <li><a href="#" class="mobile-nav-link">Contact</a></li>
-    </ul>
-    <div class="mobile-cta-wrap">
-      <a class="btn-pill btn-fill mobile-nav-link" href="#final-cta">Find My Path &#8250;</a>
+    <div class="mobile-menu-header">
+      <img class="mobile-menu-logo" src="/images/NSA%20SoCal%20Logo%20transparent%20bg.png" alt="NSA SoCal">
+      <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-menu-body">
+      <ul class="mobile-nav-list">
+        <li><a href="#levels" class="mnl-top mobile-nav-link">Your Level</a></li>
+        <li><a href="#academy" class="mnl-top mobile-nav-link">Academy</a></li>
+        <li>
+          <button class="mnl-top mnl-toggle" type="button">Events <span class="mnl-chevron">&#9660;</span></button>
+          <ul class="mobile-nav-sub">
+            <li><a href="#" class="mobile-nav-link">Upcoming Events</a></li>
+            <li><a href="#" class="mobile-nav-link">Monthly Meetings</a></li>
+            <li><a href="#" class="mobile-nav-link">Annual Conference</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="mnl-top mnl-toggle" type="button">Membership <span class="mnl-chevron">&#9660;</span></button>
+          <ul class="mobile-nav-sub">
+            <li><a href="#" class="mobile-nav-link">Join NSA SoCal</a></li>
+            <li><a href="#" class="mobile-nav-link">Member Benefits</a></li>
+            <li><a href="#" class="mobile-nav-link">Renew</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="mnl-top mnl-toggle" type="button">Board <span class="mnl-chevron">&#9660;</span></button>
+          <ul class="mobile-nav-sub">
+            <li><a href="#" class="mobile-nav-link">Board Members</a></li>
+            <li><a href="#" class="mobile-nav-link">Meeting Minutes</a></li>
+            <li><a href="#" class="mobile-nav-link">Volunteer</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="mnl-top mobile-nav-link">Member Login</a></li>
+        <li><a href="#" class="mnl-top mobile-nav-link">Contact</a></li>
+      </ul>
+      <div class="mobile-cta-wrap">
+        <a class="btn-pill btn-fill mobile-nav-link" href="#final-cta">Find My Path &#8250;</a>
+      </div>
     </div>
   </div>
 
@@ -814,45 +934,50 @@
   <!-- PILLARS -->
   <section class="section" id="pillars">
     <div class="float-img a">
-      <img src="/images/speaker15.jpg" alt="">
+      <img src="/images/speaker9.jpg" alt="">
     </div>
     <span class="eyebrow reveal">What We're Building</span>
     <h2 class="reveal">More than a chapter.<br>A standard.</h2>
     <div class="pillars-list">
       <div class="pillar-row">
-        <span class="p-icon">🎯</span>
-        <div>
+        <span class="p-icon"><span class="p-num">01</span></span>
+        <div class="p-body">
           <div class="p-name">Meaningful Impact</div>
           <div class="p-desc">Using our voices to create real change.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
       <div class="pillar-row">
-        <span class="p-icon">📈</span>
-        <div>
+        <span class="p-icon"><span class="p-num">02</span></span>
+        <div class="p-body">
           <div class="p-name">Strategic Growth</div>
           <div class="p-desc">Growing with intention — personally and professionally.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
       <div class="pillar-row">
-        <span class="p-icon">🌍</span>
-        <div>
+        <span class="p-icon"><span class="p-num">03</span></span>
+        <div class="p-body">
           <div class="p-name">Inclusive Excellence</div>
           <div class="p-desc">Every voice valued. Every perspective elevates the room.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
       <div class="pillar-row">
-        <span class="p-icon">🤝</span>
-        <div>
+        <span class="p-icon"><span class="p-num">04</span></span>
+        <div class="p-body">
           <div class="p-name">Community Collaboration</div>
           <div class="p-desc">Give. Receive. Refer. Grow together.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
       <div class="pillar-row">
-        <span class="p-icon">✨</span>
-        <div>
+        <span class="p-icon"><span class="p-num">05</span></span>
+        <div class="p-body">
           <div class="p-name">Playful Professionalism</div>
           <div class="p-desc">High standards — without losing humanity.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
     </div>
   </section>
@@ -1082,18 +1207,49 @@
 
   // ── MOBILE MENU ──────────────────────────────────────────────────────────
   (function() {
-    var menu = document.getElementById('mobile-menu');
+    var menu    = document.getElementById('mobile-menu');
     var openBtn = document.getElementById('nav-hamburger-btn');
-    var closeBtn = document.getElementById('mobile-menu-close');
-    function openMenu() { menu.classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeMenu() { menu.classList.remove('open'); document.body.style.overflow = ''; }
-    if (openBtn) openBtn.addEventListener('click', openMenu);
+    var closeBtn= document.getElementById('mobile-menu-close');
+
+    function openMenu() {
+      menu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (openBtn)  openBtn.addEventListener('click', openMenu);
     if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-    // Close on any nav link click
+
+    // Accordion toggles for dropdown groups
+    document.querySelectorAll('.mnl-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var isOpen = this.classList.contains('mnl-open');
+        // Close all others
+        document.querySelectorAll('.mnl-toggle').forEach(function(b) {
+          b.classList.remove('mnl-open');
+          var sub = b.nextElementSibling;
+          if (sub) sub.classList.remove('open');
+        });
+        // Toggle this one
+        if (!isOpen) {
+          this.classList.add('mnl-open');
+          var sub = this.nextElementSibling;
+          if (sub) sub.classList.add('open');
+        }
+      });
+    });
+
+    // Close menu on nav link tap
     document.querySelectorAll('.mobile-nav-link').forEach(function(a) {
       a.addEventListener('click', closeMenu);
     });
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
   })();
 </script>
 </body>
