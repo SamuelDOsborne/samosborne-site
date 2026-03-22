@@ -1050,7 +1050,48 @@
     </div>
   </footer>
 
-  <script>
+  
+
+
+<!-- ═══════════════════════════════════ QUIZ MODAL ═══════════════════════════ -->
+<div id="quiz-overlay" aria-modal="true" role="dialog" aria-label="Speaker Level Finder">
+  <div id="quiz-modal">
+    <button id="quiz-close" aria-label="Close">&times;</button>
+    <div id="quiz-progress-wrap"><div id="quiz-progress-bar"></div></div>
+    <div id="quiz-intro" class="quiz-screen active">
+      <div class="quiz-eyebrow">NSA SoCal &middot; Speaker Level Finder</div>
+      <h2 class="quiz-h">Where are you on the path?</h2>
+      <p class="quiz-sub">7 questions. 2 minutes. A clear picture of where you stand &mdash; and what&rsquo;s next.</p>
+      <button class="quiz-btn-start" id="quiz-start-btn">Start the Assessment &rarr;</button>
+    </div>
+    <div id="quiz-questions"></div>
+    <div id="quiz-result" class="quiz-screen">
+      <div class="quiz-eyebrow">Your Result</div>
+      <div id="result-level-num"></div>
+      <h2 class="quiz-h" id="result-title"></h2>
+      <p class="result-tagline" id="result-tagline"></p>
+      <div class="result-divider"></div>
+      <p class="result-desc" id="result-desc"></p>
+      <p class="result-next" id="result-next"></p>
+      <div id="quiz-capture">
+        <p class="capture-label">Get your full level breakdown + resources sent to your inbox.</p>
+        <div class="capture-row">
+          <input type="text"  id="cap-name"  placeholder="Your name"    autocomplete="name">
+          <input type="email" id="cap-email" placeholder="Email address" autocomplete="email">
+          <button id="cap-submit" type="button">Send My Results</button>
+        </div>
+        <p class="capture-skip"><a href="#" id="cap-skip">Skip &mdash; just show me my result</a></p>
+      </div>
+      <div id="quiz-capture-done" style="display:none;">
+        <p class="capture-done-msg">&#10003; On its way. Check your inbox.</p>
+      </div>
+      <button class="quiz-btn-retake" id="quiz-retake" type="button">Retake the Assessment</button>
+    </div>
+  </div>
+</div>
+<!-- ═══════════════════════════════════ END QUIZ MODAL ═══════════════════════ -->
+
+<script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -1683,45 +1724,5 @@
 })();
 
   </script>
-
-
-<!-- ═══════════════════════════════════ QUIZ MODAL ═══════════════════════════ -->
-<div id="quiz-overlay" aria-modal="true" role="dialog" aria-label="Speaker Level Finder">
-  <div id="quiz-modal">
-    <button id="quiz-close" aria-label="Close">&times;</button>
-    <div id="quiz-progress-wrap"><div id="quiz-progress-bar"></div></div>
-    <div id="quiz-intro" class="quiz-screen active">
-      <div class="quiz-eyebrow">NSA SoCal &middot; Speaker Level Finder</div>
-      <h2 class="quiz-h">Where are you on the path?</h2>
-      <p class="quiz-sub">7 questions. 2 minutes. A clear picture of where you stand &mdash; and what&rsquo;s next.</p>
-      <button class="quiz-btn-start" id="quiz-start-btn">Start the Assessment &rarr;</button>
-    </div>
-    <div id="quiz-questions"></div>
-    <div id="quiz-result" class="quiz-screen">
-      <div class="quiz-eyebrow">Your Result</div>
-      <div id="result-level-num"></div>
-      <h2 class="quiz-h" id="result-title"></h2>
-      <p class="result-tagline" id="result-tagline"></p>
-      <div class="result-divider"></div>
-      <p class="result-desc" id="result-desc"></p>
-      <p class="result-next" id="result-next"></p>
-      <div id="quiz-capture">
-        <p class="capture-label">Get your full level breakdown + resources sent to your inbox.</p>
-        <div class="capture-row">
-          <input type="text"  id="cap-name"  placeholder="Your name"    autocomplete="name">
-          <input type="email" id="cap-email" placeholder="Email address" autocomplete="email">
-          <button id="cap-submit" type="button">Send My Results</button>
-        </div>
-        <p class="capture-skip"><a href="#" id="cap-skip">Skip &mdash; just show me my result</a></p>
-      </div>
-      <div id="quiz-capture-done" style="display:none;">
-        <p class="capture-done-msg">&#10003; On its way. Check your inbox.</p>
-      </div>
-      <button class="quiz-btn-retake" id="quiz-retake" type="button">Retake the Assessment</button>
-    </div>
-  </div>
-</div>
-<!-- ═══════════════════════════════════ END QUIZ MODAL ═══════════════════════ -->
-
 </body>
 </html>
