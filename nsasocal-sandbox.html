@@ -358,19 +358,62 @@
     }
     .pillars-list {
       display: grid; gap: 0;
-      width: min(640px, 100%); margin-top: 52px;
+      width: min(720px, 100%); margin-top: 60px;
       opacity: 0; transform: translateY(20px);
       animation: fadeUp .9s .3s ease forwards;
     }
     .pillar-row {
-      display: flex; align-items: center; gap: 18px;
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      display: flex; align-items: center; gap: 28px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: padding-left .22s ease;
     }
-    .pillar-row:first-child { border-top: 1px solid rgba(255,255,255,.07); }
-    .p-icon { font-size: 1.1rem; width: 28px; flex-shrink: 0; opacity: .7; }
-    .p-name { font-size: .96rem; font-weight: 500; color: rgba(255,255,255,.88); }
-    .p-desc { font-size: .84rem; font-weight: 300; color: rgba(255,255,255,.38); margin-top: 2px; }
+    .pillar-row:first-child { border-top: 1px solid rgba(255,255,255,.06); }
+    .pillar-row:hover { padding-left: 6px; }
+    .p-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      transition: border-color .22s, background .22s;
+    }
+    .p-icon::after {
+      content: '';
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,.5);
+      transition: background .22s, transform .22s;
+    }
+    .pillar-row:hover .p-icon {
+      border-color: var(--blue);
+      background: rgba(0,113,227,.08);
+    }
+    .pillar-row:hover .p-icon::after {
+      background: var(--blue);
+      transform: scale(1.2);
+    }
+    .p-num {
+      position: absolute; top: -8px; right: -8px;
+      font-size: .52rem; font-weight: 700; letter-spacing: .06em;
+      color: var(--blue); line-height: 1;
+    }
+    .p-body { flex: 1; }
+    .p-name {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 600; letter-spacing: -.03em;
+      color: rgba(255,255,255,.92); line-height: 1.1;
+    }
+    .p-desc {
+      font-size: clamp(.88rem, 1.4vw, 1rem);
+      font-weight: 300; color: rgba(255,255,255,.35);
+      margin-top: 5px; line-height: 1.5; letter-spacing: -.005em;
+    }
+    .p-arrow {
+      color: rgba(255,255,255,.12); font-size: .9rem;
+      transition: color .22s, transform .22s;
+      flex-shrink: 0;
+    }
+    .pillar-row:hover .p-arrow { color: var(--blue); transform: translateX(4px); }
 
     /* ─── CTA FINAL ─── */
     #final-cta { background: var(--black); }
@@ -814,45 +857,50 @@
   <!-- PILLARS -->
   <section class="section" id="pillars">
     <div class="float-img a">
-      <img src="/images/speaker15.jpg" alt="">
+      <img src="/images/speaker9.jpg" alt="">
     </div>
     <span class="eyebrow reveal">What We're Building</span>
     <h2 class="reveal">More than a chapter.<br>A standard.</h2>
     <div class="pillars-list">
       <div class="pillar-row">
-        <span class="p-icon">🎯</span>
-        <div>
+        <span class="p-icon"><span class="p-num">01</span></span>
+        <div class="p-body">
           <div class="p-name">Meaningful Impact</div>
           <div class="p-desc">Using our voices to create real change.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
       <div class="pillar-row">
-        <span class="p-icon">📈</span>
-        <div>
+        <span class="p-icon"><span class="p-num">02</span></span>
+        <div class="p-body">
           <div class="p-name">Strategic Growth</div>
           <div class="p-desc">Growing with intention — personally and professionally.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
       <div class="pillar-row">
-        <span class="p-icon">🌍</span>
-        <div>
+        <span class="p-icon"><span class="p-num">03</span></span>
+        <div class="p-body">
           <div class="p-name">Inclusive Excellence</div>
           <div class="p-desc">Every voice valued. Every perspective elevates the room.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
       <div class="pillar-row">
-        <span class="p-icon">🤝</span>
-        <div>
+        <span class="p-icon"><span class="p-num">04</span></span>
+        <div class="p-body">
           <div class="p-name">Community Collaboration</div>
           <div class="p-desc">Give. Receive. Refer. Grow together.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
       <div class="pillar-row">
-        <span class="p-icon">✨</span>
-        <div>
+        <span class="p-icon"><span class="p-num">05</span></span>
+        <div class="p-body">
           <div class="p-name">Playful Professionalism</div>
           <div class="p-desc">High standards — without losing humanity.</div>
         </div>
+        <span class="p-arrow">›</span>
       </div>
     </div>
   </section>
