@@ -727,7 +727,7 @@
     }
 
     /* Question */
-    #ra-questions { transition: opacity .16s ease; }
+    #ra-questions {}
     .ra-q-wrap {}
     .ra-q-dim {
       font-size: .72rem; font-weight: 600; letter-spacing: .1em;
@@ -1720,10 +1720,7 @@
     html += '<button class="ra-btn-next' + nextDisabled + '" type="button">' + nextLabel + '</button>';
     html += '</div></div>';
 
-    qArea.style.opacity = '0';
-    setTimeout(function() {
-      qArea.innerHTML = html;
-      qArea.style.opacity = '1';
+    qArea.innerHTML = html;
 
       qArea.querySelectorAll('.ra-opt').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -1755,7 +1752,6 @@
           renderQuestion(currentQ);
         });
       }
-    }, 160);
   }
 
   function showResult() {
