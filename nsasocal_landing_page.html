@@ -791,13 +791,13 @@
   <!-- HERO -->
   <section class="section" id="hero">
     <div class="float-img a">
-      <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=680&q=80&fit=crop" alt="">
+      <img src="/images/speaker1.jpg" alt="">
     </div>
     <div class="float-img b">
-      <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=520&q=80&fit=crop" alt="">
+      <img src="/images/speaker2.jpg" alt="">
     </div>
     <div class="float-img c">
-      <img src="https://images.unsplash.com/photo-1560523159-4a9692d222f9?w=400&q=80&fit=crop" alt="">
+      <img src="/images/speaker3.jpg" alt="">
     </div>
     <div class="hero-logo-wrap">
       <img class="hero-logo" src="/images/NSA%20SoCal%20Logo%20transparent%20bg.png" alt="NSA SoCal" />
@@ -814,10 +814,10 @@
   <!-- 5 LEVELS -->
   <section class="section" id="levels">
     <div class="float-img a">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&fit=crop" alt="">
+      <img src="/images/speaker4.jpg" alt="">
     </div>
     <div class="float-img b">
-      <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=440&q=80&fit=crop" alt="">
+      <img src="/images/speaker5.jpg" alt="">
     </div>
     <span class="eyebrow reveal">The Speaker Growth Path</span>
     <h2 class="reveal">Every speaker is on a path.</h2>
@@ -872,7 +872,7 @@
   <!-- REFRAME -->
   <section class="section light" id="reframe">
     <div class="float-img a">
-      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=560&q=80&fit=crop" alt="">
+      <img src="/images/speaker6.jpg" alt="">
     </div>
     <span class="eyebrow reveal">What We Are</span>
     <h2 class="reveal">Not a speaker bureau.</h2>
@@ -900,10 +900,10 @@
   <!-- ACADEMY -->
   <section class="section" id="academy">
     <div class="float-img a">
-      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=720&q=80&fit=crop" alt="">
+      <img src="/images/speaker7.jpg" alt="">
     </div>
     <div class="float-img b">
-      <img src="https://images.unsplash.com/photo-1528605248644-8a16b9cdd26b?w=400&q=80&fit=crop" alt="">
+      <img src="/images/speaker8.jpg" alt="">
     </div>
     <span class="eyebrow reveal">NSA SoCal Speakers Academy</span>
     <h2 class="reveal">Where emerging speakers become professionals.</h2>
@@ -924,7 +924,7 @@
   <!-- PILLARS -->
   <section class="section" id="pillars">
     <div class="float-img a">
-      <img src="https://images.unsplash.com/photo-1521737604891-2d8c5a4f4b33?w=480&q=80&fit=crop" alt="">
+      <img src="/images/speaker9.jpg" alt="">
     </div>
     <span class="eyebrow reveal">What We're Building</span>
     <h2 class="reveal">More than a chapter.<br>A standard.</h2>
@@ -1016,10 +1016,10 @@
   <!-- FINAL CTA -->
   <section class="section" id="final-cta">
     <div class="float-img a">
-      <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=640&q=80&fit=crop" alt="">
+      <img src="/images/speaker10.jpg" alt="">
     </div>
     <div class="float-img b">
-      <img src="https://images.unsplash.com/photo-1560439514-e960a3ef5019?w=440&q=80&fit=crop" alt="">
+      <img src="/images/speaker11.jpg" alt="">
     </div>
     <span class="eyebrow reveal">Start Here</span>
     <h2 class="reveal">Find your level.<br>Start moving forward.</h2>
@@ -1050,7 +1050,48 @@
     </div>
   </footer>
 
-  <script>
+  
+
+
+<!-- ═══════════════════════════════════ QUIZ MODAL ═══════════════════════════ -->
+<div id="quiz-overlay" aria-modal="true" role="dialog" aria-label="Speaker Level Finder">
+  <div id="quiz-modal">
+    <button id="quiz-close" aria-label="Close">&times;</button>
+    <div id="quiz-progress-wrap"><div id="quiz-progress-bar"></div></div>
+    <div id="quiz-intro" class="quiz-screen active">
+      <div class="quiz-eyebrow">NSA SoCal &middot; Speaker Level Finder</div>
+      <h2 class="quiz-h">Where are you on the path?</h2>
+      <p class="quiz-sub">7 questions. 2 minutes. A clear picture of where you stand &mdash; and what&rsquo;s next.</p>
+      <button class="quiz-btn-start" id="quiz-start-btn">Start the Assessment &rarr;</button>
+    </div>
+    <div id="quiz-questions"></div>
+    <div id="quiz-result" class="quiz-screen">
+      <div class="quiz-eyebrow">Your Result</div>
+      <div id="result-level-num"></div>
+      <h2 class="quiz-h" id="result-title"></h2>
+      <p class="result-tagline" id="result-tagline"></p>
+      <div class="result-divider"></div>
+      <p class="result-desc" id="result-desc"></p>
+      <p class="result-next" id="result-next"></p>
+      <div id="quiz-capture">
+        <p class="capture-label">Get your full level breakdown + resources sent to your inbox.</p>
+        <div class="capture-row">
+          <input type="text"  id="cap-name"  placeholder="Your name"    autocomplete="name">
+          <input type="email" id="cap-email" placeholder="Email address" autocomplete="email">
+          <button id="cap-submit" type="button">Send My Results</button>
+        </div>
+        <p class="capture-skip"><a href="#" id="cap-skip">Skip &mdash; just show me my result</a></p>
+      </div>
+      <div id="quiz-capture-done" style="display:none;">
+        <p class="capture-done-msg">&#10003; On its way. Check your inbox.</p>
+      </div>
+      <button class="quiz-btn-retake" id="quiz-retake" type="button">Retake the Assessment</button>
+    </div>
+  </div>
+</div>
+<!-- ═══════════════════════════════════ END QUIZ MODAL ═══════════════════════ -->
+
+<script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -1683,45 +1724,5 @@
 })();
 
   </script>
-
-
-<!-- ═══════════════════════════════════ QUIZ MODAL ═══════════════════════════ -->
-<div id="quiz-overlay" aria-modal="true" role="dialog" aria-label="Speaker Level Finder">
-  <div id="quiz-modal">
-    <button id="quiz-close" aria-label="Close">&times;</button>
-    <div id="quiz-progress-wrap"><div id="quiz-progress-bar"></div></div>
-    <div id="quiz-intro" class="quiz-screen active">
-      <div class="quiz-eyebrow">NSA SoCal &middot; Speaker Level Finder</div>
-      <h2 class="quiz-h">Where are you on the path?</h2>
-      <p class="quiz-sub">7 questions. 2 minutes. A clear picture of where you stand &mdash; and what&rsquo;s next.</p>
-      <button class="quiz-btn-start" id="quiz-start-btn">Start the Assessment &rarr;</button>
-    </div>
-    <div id="quiz-questions"></div>
-    <div id="quiz-result" class="quiz-screen">
-      <div class="quiz-eyebrow">Your Result</div>
-      <div id="result-level-num"></div>
-      <h2 class="quiz-h" id="result-title"></h2>
-      <p class="result-tagline" id="result-tagline"></p>
-      <div class="result-divider"></div>
-      <p class="result-desc" id="result-desc"></p>
-      <p class="result-next" id="result-next"></p>
-      <div id="quiz-capture">
-        <p class="capture-label">Get your full level breakdown + resources sent to your inbox.</p>
-        <div class="capture-row">
-          <input type="text"  id="cap-name"  placeholder="Your name"    autocomplete="name">
-          <input type="email" id="cap-email" placeholder="Email address" autocomplete="email">
-          <button id="cap-submit" type="button">Send My Results</button>
-        </div>
-        <p class="capture-skip"><a href="#" id="cap-skip">Skip &mdash; just show me my result</a></p>
-      </div>
-      <div id="quiz-capture-done" style="display:none;">
-        <p class="capture-done-msg">&#10003; On its way. Check your inbox.</p>
-      </div>
-      <button class="quiz-btn-retake" id="quiz-retake" type="button">Retake the Assessment</button>
-    </div>
-  </div>
-</div>
-<!-- ═══════════════════════════════════ END QUIZ MODAL ═══════════════════════ -->
-
 </body>
 </html>
