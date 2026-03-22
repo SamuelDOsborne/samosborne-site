@@ -55,20 +55,27 @@
     .nav-has-drop.open  .nav-chevron { transform: rotate(180deg); opacity: 1; }
 
     .nav-dropdown {
-      position: absolute; top: calc(100% + 14px); left: 50%;
-      transform: translateX(-50%);
+      position: absolute; top: 100%; left: 50%;
+      transform: translateX(-50%) translateY(-4px);
       background: rgba(18,18,18,.96);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 12px;
-      padding: 8px 0; min-width: 160px;
+      /* padding-top creates visual gap without a hover-dead-zone */
+      padding: 16px 0 8px; min-width: 160px;
       list-style: none;
       opacity: 0; pointer-events: none;
-      transform: translateX(-50%) translateY(-6px);
       transition: opacity .2s ease, transform .2s ease;
       z-index: 200;
       box-shadow: 0 20px 48px rgba(0,0,0,.5);
+    }
+    /* Invisible bridge: extends the hoverable area from the trigger down to the panel */
+    .nav-has-drop::after {
+      content: ''; position: absolute;
+      top: 100%; left: -20px; right: -20px;
+      height: 20px; /* covers the gap between trigger and dropdown */
+      background: transparent;
     }
     .nav-has-drop:hover .nav-dropdown,
     .nav-has-drop.open  .nav-dropdown {
@@ -917,7 +924,7 @@
       <img src="/images/speaker2.jpg" alt="">
     </div>
     <div class="float-img c">
-      <img src="/images/speaker3.jpg" alt="">
+      <img src="/images/speaker1.jpg" alt="">
     </div>
     <div class="hero-logo-wrap">
       <img class="hero-logo" src="/images/NSA%20SoCal%20Logo%20transparent%20bg.png" alt="NSA SoCal" />
@@ -940,7 +947,7 @@
       <p class="tagline reveal" style="margin-bottom:44px;">15 questions across 5 dimensions. Get a scored breakdown of exactly where you stand.</p>
 
       <!-- Dimension progress dots -->
-      <div class="ra-dims-row reveal">
+      <div class="ra-dims-row">
         <div class="ra-dim-dot active" id="ra-dot-message">
           <span class="ra-dot-label">Message</span>
         </div>
@@ -980,7 +987,7 @@
   <!-- 5 LEVELS -->
   <section class="section" id="levels">
     <div class="float-img a">
-      <img src="/images/speaker1.jpg" alt="">
+      <img src="/images/speaker3.jpg" alt="">
     </div>
     <div class="float-img b">
       <img src="/images/speaker5.jpg" alt="">
@@ -1654,6 +1661,11 @@
   var dimDots    = document.querySelectorAll('.ra-dim-dot');
 
   // ── INIT ───────────────────────────────────────────────────────────────────
+  // Force-reveal any .reveal elements inside this section immediately,
+  // since it sits near the top of the page and may not scroll past observer threshold
+  document.querySelectorAll('#readiness-section .reveal').forEach(function(el) {
+    el.classList.add('visible');
+  });
   renderQuestion(0);
 
   function setProgress(idx) {
