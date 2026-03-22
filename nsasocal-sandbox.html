@@ -68,15 +68,26 @@
     .nav-drop-arrow { font-size: .55rem; opacity: .55; margin-top: 1px; transition: transform .2s; }
     .nav-has-drop:hover .nav-drop-arrow { transform: rotate(180deg); }
     .nav-dropdown {
-      position: absolute; top: calc(100% + 10px); left: 50%;
-      background: rgba(20,20,20,.97);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px; padding: 8px 0;
+      position: absolute; top: 100%; left: 50%;
+      padding-top: 10px; /* pushes panel down, gap covered by pseudo-element */
+      background: transparent;
       min-width: 160px; list-style: none;
       opacity: 0; pointer-events: none;
       transition: opacity .18s ease, transform .18s ease;
       transform: translateX(-50%) translateY(-6px);
+    }
+    /* Inner panel — visually the dropdown box */
+    .nav-dropdown-inner {
+      background: rgba(20,20,20,.97);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; padding: 8px 0;
       backdrop-filter: blur(20px);
+    }
+    /* Bridge: invisible block that fills the gap so hover isn't broken */
+    .nav-has-drop::after {
+      content: ''; display: block;
+      position: absolute; bottom: -10px; left: 0; right: 0;
+      height: 10px;
     }
     .nav-has-drop:hover .nav-dropdown {
       opacity: 1; pointer-events: all;
@@ -647,27 +658,27 @@
         <li><a href="#academy">Academy</a></li>
         <li class="nav-has-drop">
           <span class="nav-drop-toggle">Events <span class="nav-drop-arrow">&#9660;</span></span>
-          <ul class="nav-dropdown">
+          <ul class="nav-dropdown"><div class="nav-dropdown-inner">
             <li><a href="#">Upcoming Events</a></li>
             <li><a href="#">Monthly Meetings</a></li>
             <li><a href="#">Annual Conference</a></li>
-          </ul>
+          </div></ul>
         </li>
         <li class="nav-has-drop">
           <span class="nav-drop-toggle">Membership <span class="nav-drop-arrow">&#9660;</span></span>
-          <ul class="nav-dropdown">
+          <ul class="nav-dropdown"><div class="nav-dropdown-inner">
             <li><a href="#">Join NSA SoCal</a></li>
             <li><a href="#">Member Benefits</a></li>
             <li><a href="#">Renew</a></li>
-          </ul>
+          </div></ul>
         </li>
         <li class="nav-has-drop">
           <span class="nav-drop-toggle">Board <span class="nav-drop-arrow">&#9660;</span></span>
-          <ul class="nav-dropdown">
+          <ul class="nav-dropdown"><div class="nav-dropdown-inner">
             <li><a href="#">Board Members</a></li>
             <li><a href="#">Meeting Minutes</a></li>
             <li><a href="#">Volunteer</a></li>
-          </ul>
+          </div></ul>
         </li>
         <li><a href="#">Member Login</a></li>
         <li><a href="#">Contact</a></li>
