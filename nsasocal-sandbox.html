@@ -33,108 +33,9 @@
     a { text-decoration: none; color: inherit; }
     img { display: block; }
 
-
-    /* ─── NAV DROPDOWNS ─── */
-    .nav-mobile-toggle {
-      display: none; background: none; border: none;
-      color: #fff; font-size: 22px; cursor: pointer;
-      padding: 4px 6px; line-height: 1;
-      transition: transform .22s ease; z-index: 1060; position: relative;
-    }
-    .nav-mobile-toggle.is-open { transform: rotate(90deg); }
-
-    .nav-has-drop { position: relative; }
-    .nav-drop-trigger {
-      display: flex; align-items: center; gap: 4px; cursor: pointer;
-    }
-    .nav-chevron {
-      font-size: .6rem; line-height: 1; opacity: .5;
-      transition: transform .2s ease; display: inline-block;
-    }
-    .nav-has-drop:hover .nav-chevron,
-    .nav-has-drop.open  .nav-chevron { transform: rotate(180deg); opacity: 1; }
-
-    .nav-dropdown {
-      position: absolute; top: 100%; left: 50%;
-      transform: translateX(-50%) translateY(-4px);
-      background: rgba(18,18,18,.96);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px;
-      /* padding-top creates visual gap without a hover-dead-zone */
-      padding: 16px 0 8px; min-width: 160px;
-      list-style: none;
-      opacity: 0; pointer-events: none;
-      transition: opacity .2s ease, transform .2s ease;
-      z-index: 200;
-      box-shadow: 0 20px 48px rgba(0,0,0,.5);
-    }
-    /* Invisible bridge: extends the hoverable area from the trigger down to the panel */
-    .nav-has-drop::after {
-      content: ''; position: absolute;
-      top: 100%; left: -20px; right: -20px;
-      height: 20px; /* covers the gap between trigger and dropdown */
-      background: transparent;
-    }
-    .nav-has-drop:hover .nav-dropdown,
-    .nav-has-drop.open  .nav-dropdown {
-      opacity: 1; pointer-events: all;
-      transform: translateX(-50%) translateY(0);
-    }
-    .nav-dropdown li a {
-      display: block; padding: 9px 18px;
-      font-size: .78rem; font-weight: 400;
-      color: rgba(255,255,255,.7); white-space: nowrap;
-      transition: color .15s, background .15s;
-    }
-    .nav-dropdown li a:hover {
-      color: #fff; background: rgba(255,255,255,.06);
-    }
-    .nav-dropdown li + li {
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-
-    /* Mobile nav full overlay */
-    @media (max-width: 900px) {
-      .nav-links  { display: none; }
-      .nav-mobile-toggle { display: block; }
-      .nav-cta { font-size: .78rem; }
-
-      .nav-links.active {
-        position: fixed; top: 0; left: 0; right: 0;
-        background: rgba(10,10,10,.98);
-        flex-direction: column; gap: 0;
-        padding: 70px 24px 28px; display: flex;
-        border-bottom: 1px solid rgba(255,255,255,.08);
-        z-index: 999; max-height: 100svh; overflow-y: auto;
-      }
-      .nav-links.active > li {
-        border-bottom: 1px solid rgba(255,255,255,.07);
-      }
-      .nav-links.active > li > a,
-      .nav-links.active .nav-drop-trigger {
-        font-size: 16px; display: flex; padding: 14px 0;
-        justify-content: space-between; align-items: center;
-      }
-      /* Mobile dropdowns — inline expand */
-      .nav-dropdown {
-        position: static; transform: none !important;
-        opacity: 1 !important; pointer-events: all !important;
-        background: rgba(255,255,255,.04);
-        border: none; border-radius: 8px;
-        padding: 4px 0; margin: 0 0 8px 16px;
-        box-shadow: none; min-width: unset;
-        display: none;
-      }
-      .nav-has-drop.open .nav-dropdown { display: block; }
-      .nav-dropdown li a { font-size: 14px; padding: 10px 14px; }
-      .nav-dropdown li + li { border-top-color: rgba(255,255,255,.05); }
-    }
-
     /* ─── NAV ─── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       height: 48px;
       background: rgba(0,0,0,.72);
       backdrop-filter: saturate(180%) blur(20px);
@@ -143,23 +44,112 @@
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
     .nav-inner {
-      width: min(980px, 100%);
+      width: min(1100px, 100%);
       padding: 0 22px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo {
-      font-size: .82rem; font-weight: 500; letter-spacing: -.01em;
-      color: rgba(255,255,255,.88);
-    }
+    .nav-logo { font-size: .82rem; font-weight: 500; letter-spacing: -.01em; color: rgba(255,255,255,.88); }
     .nav-links {
-      display: flex; gap: 28px; list-style: none;
+      display: flex; gap: 22px; list-style: none;
       font-size: .78rem; font-weight: 400; color: rgba(255,255,255,.7);
+      align-items: center;
     }
     .nav-links a:hover { color: #fff; }
-    .nav-cta {
-      font-size: .78rem; font-weight: 400; color: var(--blue);
-    }
+    .nav-cta { font-size: .78rem; font-weight: 400; color: var(--blue); white-space: nowrap; }
     .nav-cta:hover { text-decoration: underline; }
+
+    /* Dropdown */
+    .nav-has-drop { position: relative; }
+    .nav-drop-toggle {
+      display: flex; align-items: center; gap: 3px; cursor: default;
+      color: rgba(255,255,255,.7); font-size: .78rem;
+    }
+    .nav-drop-toggle:hover { color: #fff; }
+    .nav-drop-arrow { font-size: .55rem; opacity: .55; margin-top: 1px; transition: transform .2s; }
+    .nav-has-drop:hover .nav-drop-arrow { transform: rotate(180deg); }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      background: rgba(20,20,20,.97);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; padding: 8px 0;
+      min-width: 160px; list-style: none;
+      opacity: 0; pointer-events: none;
+      transition: opacity .18s ease, transform .18s ease;
+      transform: translateX(-50%) translateY(-6px);
+      backdrop-filter: blur(20px);
+    }
+    .nav-has-drop:hover .nav-dropdown {
+      opacity: 1; pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown li a {
+      display: block; padding: 9px 18px;
+      font-size: .78rem; color: rgba(255,255,255,.65);
+      transition: color .15s, background .15s; white-space: nowrap;
+    }
+    .nav-dropdown li a:hover { color: #fff; background: rgba(255,255,255,.06); }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 32px; height: 32px; cursor: pointer;
+      background: none; border: none; padding: 4px; z-index: 300;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: rgba(255,255,255,.8); border-radius: 2px;
+      transition: all .25s ease;
+    }
+
+    /* Mobile overlay menu */
+    #mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 250;
+      background: rgba(0,0,0,.97);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .28s ease;
+    }
+    #mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu-close {
+      position: absolute; top: 14px; right: 18px;
+      background: none; border: none;
+      color: #fff; font-size: 32px; line-height: 1;
+      cursor: pointer; padding: 6px 10px;
+      transition: opacity .18s;
+    }
+    .mobile-menu-close:hover { opacity: .6; }
+    .mobile-nav-list {
+      list-style: none; display: flex; flex-direction: column;
+      align-items: center; gap: 0; width: 100%;
+    }
+    .mobile-nav-list li { width: 100%; text-align: center; }
+    .mobile-nav-list > li > a,
+    .mobile-nav-list > li > span {
+      display: block; padding: 16px 24px;
+      font-size: 1.2rem; font-weight: 500; color: rgba(255,255,255,.85);
+      letter-spacing: -.01em;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: color .15s;
+    }
+    .mobile-nav-list > li > a:hover { color: #fff; }
+    .mobile-nav-sub { list-style: none; }
+    .mobile-nav-sub li a {
+      display: block; padding: 10px 24px;
+      font-size: .92rem; color: rgba(255,255,255,.45);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      transition: color .15s;
+    }
+    .mobile-nav-sub li a:hover { color: rgba(255,255,255,.8); }
+    .mobile-cta-wrap { margin-top: 28px; }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      #mobile-menu { display: flex; }
+    }
 
     /* ─── SHARED ─── */
     .section {
@@ -248,7 +238,6 @@
       to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* subtle parallax handled in JS */
     .float-img { will-change: transform; }
 
     /* ─── HERO ─── */
@@ -448,77 +437,45 @@
 
     /* ─── LOGO PLACEMENTS ─── */
     .nav-logo-img {
-      height: 28px;
-      width: auto;
-      display: block;
-      /* white bg logo on dark nav - add subtle bg pill */
+      height: 28px; width: auto; display: block;
       background: rgba(255,255,255,0.92);
-      border-radius: 6px;
-      padding: 2px 6px;
+      border-radius: 6px; padding: 2px 6px;
     }
     .hero-logo-wrap {
-      margin-bottom: 24px;
-      opacity: 0;
-      transform: translateY(20px);
+      margin-bottom: 24px; opacity: 0; transform: translateY(20px);
       animation: fadeUp .7s .05s ease forwards;
     }
     .hero-logo {
-      height: 72px;
-      width: auto;
-      display: block;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.9);
-      border-radius: 12px;
-      padding: 8px 14px;
+      height: 72px; width: auto; display: block; margin: 0 auto;
+      background: rgba(255,255,255,0.9); border-radius: 12px; padding: 8px 14px;
     }
-    .foot-brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .foot-brand { display: flex; align-items: center; gap: 14px; }
     .foot-logo {
-      height: 36px;
-      width: auto;
-      background: rgba(255,255,255,0.12);
-      border-radius: 6px;
-      padding: 3px 6px;
-      filter: brightness(0.9);
+      height: 36px; width: auto;
+      background: rgba(255,255,255,0.12); border-radius: 6px;
+      padding: 3px 6px; filter: brightness(0.9);
     }
-    .foot-brand span {
-      color: rgba(255,255,255,.3);
-      font-size: .72rem;
-    }
+    .foot-brand span { color: rgba(255,255,255,.3); font-size: .72rem; }
     @media (max-width: 760px) {
       .hero-logo { height: 54px; }
       .nav-logo-img { height: 22px; }
     }
 
-    /* ═══════════════════════════════════
-       QUIZ MODAL
-    ═══════════════════════════════════ */
+    /* ═══ QUIZ MODAL ═══ */
     #quiz-overlay {
       position: fixed; inset: 0; z-index: 2000;
       background: rgba(0,0,0,.82);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
-      opacity: 0; pointer-events: none;
-      transition: opacity .32s ease;
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity .32s ease;
     }
     #quiz-overlay.open { opacity: 1; pointer-events: all; }
     #quiz-modal {
-      background: #0d0d0d;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 24px;
-      width: min(640px, 100%);
-      max-height: 90svh;
-      overflow-y: auto;
-      padding: 52px 48px 44px;
-      position: relative;
+      background: #0d0d0d; border: 1px solid rgba(255,255,255,.1); border-radius: 24px;
+      width: min(640px, 100%); max-height: 90svh; overflow-y: auto;
+      padding: 52px 48px 44px; position: relative;
       transform: translateY(24px) scale(.98);
-      transition: transform .38s cubic-bezier(.25,.46,.45,.94);
-      scrollbar-width: none;
+      transition: transform .38s cubic-bezier(.25,.46,.45,.94); scrollbar-width: none;
     }
     #quiz-modal::-webkit-scrollbar { display: none; }
     #quiz-overlay.open #quiz-modal { transform: translateY(0) scale(1); }
@@ -529,407 +486,211 @@
       transition: color .18s, transform .18s; padding: 4px 8px;
     }
     #quiz-close:hover { color: #fff; transform: rotate(90deg); }
-    #quiz-progress-wrap {
-      height: 2px; background: rgba(255,255,255,.08);
-      border-radius: 999px; margin-bottom: 36px; overflow: hidden;
-    }
-    #quiz-progress-bar {
-      height: 100%; width: 0%; background: var(--blue);
-      border-radius: 999px; transition: width .4s cubic-bezier(.25,.46,.45,.94);
-    }
+    #quiz-progress-wrap { height: 2px; background: rgba(255,255,255,.08); border-radius: 999px; margin-bottom: 36px; overflow: hidden; }
+    #quiz-progress-bar { height: 100%; width: 0%; background: var(--blue); border-radius: 999px; transition: width .4s cubic-bezier(.25,.46,.45,.94); }
     .quiz-screen { display: none; }
     .quiz-screen.active { display: block; }
-    .quiz-eyebrow {
-      font-size: .72rem; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--blue); margin-bottom: 16px;
-    }
-    .quiz-h {
-      font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700;
-      letter-spacing: -.04em; line-height: 1.05; color: #fff;
-      margin-bottom: 14px; text-align: left; max-width: none;
-      opacity: 1; transform: none; animation: none;
-    }
-    .quiz-sub {
-      font-size: .96rem; font-weight: 300; line-height: 1.65;
-      color: rgba(255,255,255,.5); margin-bottom: 36px;
-    }
-    .quiz-btn-start {
-      display: inline-flex; align-items: center;
-      background: var(--blue); color: #fff; border: none;
-      border-radius: 999px; padding: 14px 28px;
-      font-family: inherit; font-size: .92rem; font-weight: 600;
-      cursor: pointer; transition: background .18s, transform .18s;
-      letter-spacing: -.01em;
-    }
+    .quiz-eyebrow { font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; }
+    .quiz-h { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; color: #fff; margin-bottom: 14px; text-align: left; max-width: none; opacity: 1; transform: none; animation: none; }
+    .quiz-sub { font-size: .96rem; font-weight: 300; line-height: 1.65; color: rgba(255,255,255,.5); margin-bottom: 36px; }
+    .quiz-btn-start { display: inline-flex; align-items: center; background: var(--blue); color: #fff; border: none; border-radius: 999px; padding: 14px 28px; font-family: inherit; font-size: .92rem; font-weight: 600; cursor: pointer; transition: background .18s, transform .18s; letter-spacing: -.01em; }
     .quiz-btn-start:hover { background: var(--blue-hover); transform: translateX(3px); }
     .quiz-q-screen { animation: qFadeIn .3s ease; }
-    @keyframes qFadeIn {
-      from { opacity:0; transform: translateX(14px); }
-      to   { opacity:1; transform: translateX(0); }
-    }
-    .quiz-q-counter {
-      font-size: .72rem; font-weight: 500; letter-spacing: .08em;
-      color: rgba(255,255,255,.28); margin-bottom: 10px; text-transform: uppercase;
-    }
-    .quiz-q-text {
-      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-      font-weight: 600; letter-spacing: -.02em; line-height: 1.3;
-      color: #fff; margin-bottom: 26px;
-    }
+    @keyframes qFadeIn { from { opacity:0; transform: translateX(14px); } to { opacity:1; transform: translateX(0); } }
+    .quiz-q-counter { font-size: .72rem; font-weight: 500; letter-spacing: .08em; color: rgba(255,255,255,.28); margin-bottom: 10px; text-transform: uppercase; }
+    .quiz-q-text { font-size: clamp(1.05rem, 2.5vw, 1.3rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.3; color: #fff; margin-bottom: 26px; }
     .quiz-options { display: grid; gap: 9px; }
-    .quiz-option {
-      display: flex; align-items: flex-start; gap: 14px;
-      padding: 13px 15px; border-radius: 11px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.03);
-      cursor: pointer; transition: all .18s ease;
-      font-family: inherit; color: rgba(255,255,255,.68);
-      font-size: .87rem; line-height: 1.5; text-align: left; width: 100%;
-    }
+    .quiz-option { display: flex; align-items: flex-start; gap: 14px; padding: 13px 15px; border-radius: 11px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); cursor: pointer; transition: all .18s ease; font-family: inherit; color: rgba(255,255,255,.68); font-size: .87rem; line-height: 1.5; text-align: left; width: 100%; }
     .quiz-option:hover { border-color: var(--blue); background: rgba(0,113,227,.08); color: #fff; }
     .quiz-option.selected { border-color: var(--blue); background: rgba(0,113,227,.13); color: #fff; }
-    .quiz-opt-dot {
-      width: 17px; height: 17px; border-radius: 50%;
-      border: 1.5px solid rgba(255,255,255,.25); flex-shrink: 0;
-      margin-top: 1px; transition: all .18s;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .quiz-opt-dot { width: 17px; height: 17px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.25); flex-shrink: 0; margin-top: 1px; transition: all .18s; display: flex; align-items: center; justify-content: center; }
     .quiz-option.selected .quiz-opt-dot { background: var(--blue); border-color: var(--blue); }
-    .quiz-option.selected .quiz-opt-dot::after {
-      content: ''; width: 5px; height: 5px; border-radius: 50%; background: #fff;
-    }
-    .quiz-nav {
-      display: flex; justify-content: space-between; align-items: center; margin-top: 26px;
-    }
-    .quiz-btn-back {
-      background: none; border: none; color: rgba(255,255,255,.32);
-      font-family: inherit; font-size: .84rem; cursor: pointer;
-      padding: 10px 0; transition: color .18s;
-    }
+    .quiz-option.selected .quiz-opt-dot::after { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #fff; }
+    .quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; }
+    .quiz-btn-back { background: none; border: none; color: rgba(255,255,255,.32); font-family: inherit; font-size: .84rem; cursor: pointer; padding: 10px 0; transition: color .18s; }
     .quiz-btn-back:hover { color: rgba(255,255,255,.65); }
-    .quiz-btn-next {
-      background: var(--blue); color: #fff; border: none;
-      border-radius: 999px; padding: 11px 22px;
-      font-family: inherit; font-size: .87rem; font-weight: 600;
-      cursor: pointer; transition: all .18s;
-      opacity: .35; pointer-events: none; letter-spacing: -.01em;
-    }
+    .quiz-btn-next { background: var(--blue); color: #fff; border: none; border-radius: 999px; padding: 11px 22px; font-family: inherit; font-size: .87rem; font-weight: 600; cursor: pointer; transition: all .18s; opacity: .35; pointer-events: none; letter-spacing: -.01em; }
     .quiz-btn-next.enabled { opacity: 1; pointer-events: all; }
     .quiz-btn-next.enabled:hover { background: var(--blue-hover); }
-    #result-level-num {
-      font-size: clamp(2.8rem, 7vw, 4.5rem); font-weight: 700;
-      letter-spacing: -.06em; color: var(--blue); line-height: 1; margin-bottom: 4px;
-    }
-    .result-tagline {
-      font-size: 1rem; font-weight: 300; font-style: italic;
-      color: rgba(255,255,255,.42); margin-bottom: 18px;
-    }
+    #result-level-num { font-size: clamp(2.8rem, 7vw, 4.5rem); font-weight: 700; letter-spacing: -.06em; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+    .result-tagline { font-size: 1rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,.42); margin-bottom: 18px; }
     .result-divider { width: 36px; height: 1px; background: rgba(0,113,227,.5); margin: 18px 0; }
-    .result-desc {
-      font-size: .92rem; font-weight: 300; line-height: 1.68;
-      color: rgba(255,255,255,.62); margin-bottom: 12px;
-    }
-    .result-next {
-      font-size: .86rem; line-height: 1.65; color: rgba(255,255,255,.38);
-      margin-bottom: 28px; padding: 14px 16px; border-radius: 10px;
-      background: rgba(0,113,227,.06); border: 1px solid rgba(0,113,227,.14);
-    }
+    .result-desc { font-size: .92rem; font-weight: 300; line-height: 1.68; color: rgba(255,255,255,.62); margin-bottom: 12px; }
+    .result-next { font-size: .86rem; line-height: 1.65; color: rgba(255,255,255,.38); margin-bottom: 28px; padding: 14px 16px; border-radius: 10px; background: rgba(0,113,227,.06); border: 1px solid rgba(0,113,227,.14); }
     #quiz-capture { margin-top: 6px; }
-    .capture-label {
-      font-size: .84rem; font-weight: 500; letter-spacing: -.005em;
-      color: rgba(255,255,255,.52); margin-bottom: 13px;
-    }
+    .capture-label { font-size: .84rem; font-weight: 500; letter-spacing: -.005em; color: rgba(255,255,255,.52); margin-bottom: 13px; }
     .capture-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 9px; align-items: stretch; }
-    .capture-row input {
-      padding: 10px 13px; border-radius: 8px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.06); color: #fff;
-      font-family: inherit; font-size: .85rem; outline: none; transition: border .18s;
-    }
+    .capture-row input { padding: 10px 13px; border-radius: 8px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.06); color: #fff; font-family: inherit; font-size: .85rem; outline: none; transition: border .18s; }
     .capture-row input:focus { border-color: var(--blue); }
     .capture-row input::placeholder { color: rgba(255,255,255,.24); }
-    #cap-submit {
-      padding: 10px 18px; border-radius: 8px;
-      background: var(--blue); color: #fff; border: none;
-      font-family: inherit; font-size: .84rem; font-weight: 600;
-      cursor: pointer; transition: background .18s; white-space: nowrap;
-    }
+    #cap-submit { padding: 10px 18px; border-radius: 8px; background: var(--blue); color: #fff; border: none; font-family: inherit; font-size: .84rem; font-weight: 600; cursor: pointer; transition: background .18s; white-space: nowrap; }
     #cap-submit:hover { background: var(--blue-hover); }
     .capture-skip { margin-top: 10px; text-align: center; }
     .capture-skip a { font-size: .76rem; color: rgba(255,255,255,.26); transition: color .18s; }
     .capture-skip a:hover { color: rgba(255,255,255,.55); }
-    .capture-done-msg {
-      font-size: .9rem; color: rgba(255,255,255,.55);
-      padding: 14px 0; text-align: center;
-    }
-    .quiz-btn-retake {
-      display: block; width: 100%; margin-top: 22px;
-      background: none; border: 1px solid rgba(255,255,255,.1);
-      color: rgba(255,255,255,.28); font-family: inherit;
-      font-size: .8rem; padding: 10px; border-radius: 8px;
-      cursor: pointer; transition: all .18s;
-    }
+    .capture-done-msg { font-size: .9rem; color: rgba(255,255,255,.55); padding: 14px 0; text-align: center; }
+    .quiz-btn-retake { display: block; width: 100%; margin-top: 22px; background: none; border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.28); font-family: inherit; font-size: .8rem; padding: 10px; border-radius: 8px; cursor: pointer; transition: all .18s; }
     .quiz-btn-retake:hover { border-color: rgba(255,255,255,.25); color: rgba(255,255,255,.55); }
-    @media (max-width: 600px) {
-      #quiz-modal { padding: 44px 22px 36px; }
-      .capture-row { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 600px) { #quiz-modal { padding: 44px 22px 36px; } .capture-row { grid-template-columns: 1fr; } }
 
-    /* ═══════════════════════════════════
-       READINESS ASSESSMENT
-    ═══════════════════════════════════ */
-    .ra-dims-row {
-      display: flex; align-items: center; justify-content: center;
-      gap: 0; margin-bottom: 28px;
-    }
-    .ra-dim-dot {
-      display: flex; flex-direction: column; align-items: center; gap: 7px;
-      cursor: default;
-    }
-    .ra-dim-dot::before {
-      content: '';
-      width: 12px; height: 12px; border-radius: 50%;
-      border: 2px solid rgba(255,255,255,.18);
-      background: transparent;
-      transition: all .3s ease;
-      display: block;
-    }
-    .ra-dim-dot.active::before {
-      border-color: var(--blue); background: var(--blue);
-      box-shadow: 0 0 0 4px rgba(0,113,227,.2);
-    }
-    .ra-dim-dot.done::before {
-      border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.35);
-    }
-    .ra-dot-label {
-      font-size: .62rem; font-weight: 500; letter-spacing: .06em;
-      text-transform: uppercase; color: rgba(255,255,255,.28);
-      white-space: nowrap;
-    }
+    /* ═══ READINESS ASSESSMENT ═══ */
+    .ra-dims-row { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 28px; }
+    .ra-dim-dot { display: flex; flex-direction: column; align-items: center; gap: 7px; cursor: default; }
+    .ra-dim-dot::before { content: ''; width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,.18); background: transparent; transition: all .3s ease; display: block; }
+    .ra-dim-dot.active::before { border-color: var(--blue); background: var(--blue); box-shadow: 0 0 0 4px rgba(0,113,227,.2); }
+    .ra-dim-dot.done::before { border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.35); }
+    .ra-dot-label { font-size: .62rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.28); white-space: nowrap; }
     .ra-dim-dot.active .ra-dot-label { color: var(--blue); }
-    .ra-dim-dot.done  .ra-dot-label  { color: rgba(255,255,255,.5); }
-    .ra-dim-connector {
-      flex: 1; height: 1px; min-width: 20px; max-width: 60px;
-      background: rgba(255,255,255,.1); margin-bottom: 20px;
-    }
-    .ra-progress-wrap {
-      height: 2px; background: rgba(255,255,255,.07);
-      border-radius: 999px; overflow: hidden; margin-bottom: 10px;
-    }
-    #ra-progress-bar {
-      height: 100%; width: 0%; background: var(--blue);
-      border-radius: 999px;
-      transition: width .45s cubic-bezier(.25,.46,.45,.94);
-    }
-    .ra-progress-label {
-      font-size: .72rem; color: rgba(255,255,255,.25);
-      letter-spacing: .04em; text-align: right; margin-bottom: 32px;
-    }
-
-    /* Question */
-    #ra-questions {}
-    .ra-q-wrap {}
-    .ra-q-dim {
-      font-size: .72rem; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--blue); margin-bottom: 10px;
-    }
-    .ra-q-text {
-      font-size: clamp(1rem, 2.2vw, 1.22rem); font-weight: 600;
-      letter-spacing: -.02em; line-height: 1.35; color: #fff; margin-bottom: 22px;
-    }
+    .ra-dim-dot.done .ra-dot-label { color: rgba(255,255,255,.5); }
+    .ra-dim-connector { flex: 1; height: 1px; min-width: 20px; max-width: 60px; background: rgba(255,255,255,.1); margin-bottom: 20px; }
+    .ra-progress-wrap { height: 2px; background: rgba(255,255,255,.07); border-radius: 999px; overflow: hidden; margin-bottom: 10px; }
+    #ra-progress-bar { height: 100%; width: 0%; background: var(--blue); border-radius: 999px; transition: width .45s cubic-bezier(.25,.46,.45,.94); }
+    .ra-progress-label { font-size: .72rem; color: rgba(255,255,255,.25); letter-spacing: .04em; text-align: right; margin-bottom: 32px; }
+    #ra-questions { transition: opacity .16s ease; }
+    .ra-q-dim { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .ra-q-text { font-size: clamp(1rem, 2.2vw, 1.22rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.35; color: #fff; margin-bottom: 22px; }
     .ra-q-opts { display: grid; gap: 8px; }
-    .ra-opt {
-      display: flex; align-items: flex-start; gap: 13px;
-      padding: 12px 15px; border-radius: 11px;
-      border: 1px solid rgba(255,255,255,.09);
-      background: rgba(255,255,255,.025);
-      cursor: pointer; transition: all .16s ease;
-      font-family: inherit; color: rgba(255,255,255,.62);
-      font-size: .87rem; line-height: 1.5; text-align: left; width: 100%;
-    }
+    .ra-opt { display: flex; align-items: flex-start; gap: 13px; padding: 12px 15px; border-radius: 11px; border: 1px solid rgba(255,255,255,.09); background: rgba(255,255,255,.025); cursor: pointer; transition: all .16s ease; font-family: inherit; color: rgba(255,255,255,.62); font-size: .87rem; line-height: 1.5; text-align: left; width: 100%; }
     .ra-opt:hover { border-color: var(--blue); background: rgba(0,113,227,.08); color: #fff; }
     .ra-opt.selected { border-color: var(--blue); background: rgba(0,113,227,.13); color: #fff; }
-    .ra-opt-dot {
-      width: 16px; height: 16px; border-radius: 50%;
-      border: 1.5px solid rgba(255,255,255,.22);
-      flex-shrink: 0; margin-top: 2px; transition: all .16s;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .ra-opt-dot { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.22); flex-shrink: 0; margin-top: 2px; transition: all .16s; display: flex; align-items: center; justify-content: center; }
     .ra-opt.selected .ra-opt-dot { background: var(--blue); border-color: var(--blue); }
-    .ra-opt.selected .ra-opt-dot::after {
-      content:''; width:5px; height:5px; border-radius:50%; background:#fff;
-    }
-    .ra-q-nav {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-top: 22px;
-    }
-    .ra-btn-back {
-      background: none; border: none; color: rgba(255,255,255,.3);
-      font-family: inherit; font-size: .84rem; cursor: pointer;
-      padding: 10px 0; transition: color .16s;
-    }
+    .ra-opt.selected .ra-opt-dot::after { content:''; width:5px; height:5px; border-radius:50%; background:#fff; }
+    .ra-q-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; }
+    .ra-btn-back { background: none; border: none; color: rgba(255,255,255,.3); font-family: inherit; font-size: .84rem; cursor: pointer; padding: 10px 0; transition: color .16s; }
     .ra-btn-back:hover { color: rgba(255,255,255,.65); }
-    .ra-btn-next {
-      background: var(--blue); color: #fff; border: none;
-      border-radius: 999px; padding: 11px 22px;
-      font-family: inherit; font-size: .86rem; font-weight: 600;
-      cursor: pointer; transition: all .16s; letter-spacing: -.01em;
-    }
+    .ra-btn-next { background: var(--blue); color: #fff; border: none; border-radius: 999px; padding: 11px 22px; font-family: inherit; font-size: .86rem; font-weight: 600; cursor: pointer; transition: all .16s; letter-spacing: -.01em; }
     .ra-btn-next.disabled { opacity: .32; pointer-events: none; }
     .ra-btn-next:not(.disabled):hover { background: var(--blue-hover); }
-
-    /* Result */
-    .ra-result-top {
-      display: flex; gap: 32px; align-items: center; margin-bottom: 40px;
-    }
+    .ra-result-top { display: flex; gap: 32px; align-items: center; margin-bottom: 40px; }
     .ra-score-ring-wrap { flex-shrink: 0; }
     .ra-score-ring { width: 120px; height: 120px; }
-    .ra-result-eyebrow {
-      font-size: .72rem; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--blue); margin-bottom: 8px;
-    }
-    .ra-result-title {
-      font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700;
-      letter-spacing: -.04em; color: #fff; margin-bottom: 10px;
-      line-height: 1.05;
-    }
-    .ra-result-sub {
-      font-size: .9rem; line-height: 1.62; color: rgba(255,255,255,.48);
-      font-weight: 300;
-    }
+    .ra-result-eyebrow { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+    .ra-result-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; letter-spacing: -.04em; color: #fff; margin-bottom: 10px; line-height: 1.05; }
+    .ra-result-sub { font-size: .9rem; line-height: 1.62; color: rgba(255,255,255,.48); font-weight: 300; }
     .ra-dim-results { display: grid; gap: 18px; margin-bottom: 36px; }
-    .ra-dim-result {
-      padding: 20px; border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.025);
-    }
-    .ra-dr-header {
-      display: flex; justify-content: space-between; align-items: baseline;
-      margin-bottom: 10px;
-    }
-    .ra-dr-label {
-      font-size: .84rem; font-weight: 600; letter-spacing: -.01em; color: rgba(255,255,255,.8);
-    }
-    .ra-dr-tier {
-      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-    }
-    .ra-dr-bar-wrap {
-      height: 3px; background: rgba(255,255,255,.08); border-radius: 999px;
-      overflow: hidden; margin-bottom: 12px;
-    }
-    .ra-dr-bar {
-      height: 100%; border-radius: 999px; width: 0%;
-      transition: width 1s cubic-bezier(.25,.46,.45,.94);
-    }
-    .ra-dr-advice {
-      font-size: .82rem; line-height: 1.62; color: rgba(255,255,255,.38);
-      font-weight: 300;
-    }
-
-    /* Capture */
+    .ra-dim-result { padding: 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.025); }
+    .ra-dr-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+    .ra-dr-label { font-size: .84rem; font-weight: 600; letter-spacing: -.01em; color: rgba(255,255,255,.8); }
+    .ra-dr-tier { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .ra-dr-bar-wrap { height: 3px; background: rgba(255,255,255,.08); border-radius: 999px; overflow: hidden; margin-bottom: 12px; }
+    .ra-dr-bar { height: 100%; border-radius: 999px; width: 0%; transition: width 1s cubic-bezier(.25,.46,.45,.94); }
+    .ra-dr-advice { font-size: .82rem; line-height: 1.62; color: rgba(255,255,255,.38); font-weight: 300; }
     .ra-capture { margin-top: 8px; }
-    .ra-capture-label {
-      font-size: .84rem; font-weight: 500; color: rgba(255,255,255,.5);
-      margin-bottom: 14px; line-height: 1.55;
-    }
-    .ra-capture-row {
-      display: grid; grid-template-columns: 1fr 1fr auto; gap: 9px; align-items: stretch;
-    }
-    .ra-capture-row input {
-      padding: 10px 13px; border-radius: 8px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.06); color: #fff;
-      font-family: inherit; font-size: .85rem; outline: none; transition: border .18s;
-    }
+    .ra-capture-label { font-size: .84rem; font-weight: 500; color: rgba(255,255,255,.5); margin-bottom: 14px; line-height: 1.55; }
+    .ra-capture-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 9px; align-items: stretch; }
+    .ra-capture-row input { padding: 10px 13px; border-radius: 8px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.06); color: #fff; font-family: inherit; font-size: .85rem; outline: none; transition: border .18s; }
     .ra-capture-row input:focus { border-color: var(--blue); }
     .ra-capture-row input::placeholder { color: rgba(255,255,255,.24); }
-    #ra-cap-submit {
-      padding: 10px 18px; border-radius: 8px;
-      background: var(--blue); color: #fff; border: none;
-      font-family: inherit; font-size: .84rem; font-weight: 600;
-      cursor: pointer; transition: background .18s; white-space: nowrap;
-    }
+    #ra-cap-submit { padding: 10px 18px; border-radius: 8px; background: var(--blue); color: #fff; border: none; font-family: inherit; font-size: .84rem; font-weight: 600; cursor: pointer; transition: background .18s; white-space: nowrap; }
     #ra-cap-submit:hover { background: var(--blue-hover); }
     .ra-capture-skip { margin-top: 10px; text-align: center; }
     .ra-capture-skip a { font-size: .76rem; color: rgba(255,255,255,.24); transition: color .18s; }
     .ra-capture-skip a:hover { color: rgba(255,255,255,.5); }
-    .ra-capture-done-msg {
-      font-size: .9rem; color: rgba(255,255,255,.55); padding: 14px 0; text-align: center;
-    }
-    .ra-btn-retake {
-      display: block; width: 100%; margin-top: 20px;
-      background: none; border: 1px solid rgba(255,255,255,.09);
-      color: rgba(255,255,255,.26); font-family: inherit;
-      font-size: .8rem; padding: 10px; border-radius: 8px;
-      cursor: pointer; transition: all .18s;
-    }
+    .ra-capture-done-msg { font-size: .9rem; color: rgba(255,255,255,.55); padding: 14px 0; text-align: center; }
+    .ra-btn-retake { display: block; width: 100%; margin-top: 20px; background: none; border: 1px solid rgba(255,255,255,.09); color: rgba(255,255,255,.26); font-family: inherit; font-size: .8rem; padding: 10px; border-radius: 8px; cursor: pointer; transition: all .18s; }
     .ra-btn-retake:hover { border-color: rgba(255,255,255,.22); color: rgba(255,255,255,.5); }
-
-    @media (max-width: 600px) {
-      .ra-result-top { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .ra-capture-row { grid-template-columns: 1fr; }
-      .ra-dim-connector { min-width: 10px; }
-    }
+    @media (max-width: 600px) { .ra-result-top { flex-direction: column; align-items: flex-start; gap: 20px; } .ra-capture-row { grid-template-columns: 1fr; } .ra-dim-connector { min-width: 10px; } }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav id="main-nav">
+  <nav>
     <div class="nav-inner">
       <a href="#hero"><img class="nav-logo-img" src="/images/NSA%20SoCal%20Logo%20transparent%20bg.png" alt="NSA SoCal" /></a>
-      <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle menu">&#9776;</button>
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links">
         <li><a href="#levels">Your Level</a></li>
         <li><a href="#academy">Academy</a></li>
-
-        <!-- Events dropdown -->
         <li class="nav-has-drop">
-          <a href="#" class="nav-drop-trigger">Events <span class="nav-chevron">&#8964;</span></a>
+          <span class="nav-drop-toggle">Events <span class="nav-drop-arrow">&#9660;</span></span>
           <ul class="nav-dropdown">
-            <li><a href="#">In-Person</a></li>
-            <li><a href="#">Virtual</a></li>
+            <li><a href="#">Upcoming Events</a></li>
+            <li><a href="#">Monthly Meetings</a></li>
+            <li><a href="#">Annual Conference</a></li>
           </ul>
         </li>
-
-        <!-- Membership dropdown -->
         <li class="nav-has-drop">
-          <a href="#" class="nav-drop-trigger">Membership <span class="nav-chevron">&#8964;</span></a>
+          <span class="nav-drop-toggle">Membership <span class="nav-drop-arrow">&#9660;</span></span>
           <ul class="nav-dropdown">
-            <li><a href="#">Join</a></li>
+            <li><a href="#">Join NSA SoCal</a></li>
+            <li><a href="#">Member Benefits</a></li>
+            <li><a href="#">Renew</a></li>
           </ul>
         </li>
-
-        <!-- Board dropdown -->
         <li class="nav-has-drop">
-          <a href="#" class="nav-drop-trigger">Board <span class="nav-chevron">&#8964;</span></a>
+          <span class="nav-drop-toggle">Board <span class="nav-drop-arrow">&#9660;</span></span>
           <ul class="nav-dropdown">
-            <li><a href="#">Past Presidents</a></li>
+            <li><a href="#">Board Members</a></li>
+            <li><a href="#">Meeting Minutes</a></li>
+            <li><a href="#">Volunteer</a></li>
           </ul>
         </li>
-
         <li><a href="#">Member Login</a></li>
-        <li><a href="#final-cta" class="nav-contact-link">Contact</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
-      <a class="nav-cta" href="#final-cta">Find My Path ›</a>
+      <a class="nav-cta" href="#final-cta">Find My Path &#8250;</a>
+      <button class="nav-hamburger" id="nav-hamburger-btn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+    <ul class="mobile-nav-list">
+      <li><a href="#levels" class="mobile-nav-link">Your Level</a></li>
+      <li><a href="#academy" class="mobile-nav-link">Academy</a></li>
+      <li>
+        <span>Events</span>
+        <ul class="mobile-nav-sub">
+          <li><a href="#" class="mobile-nav-link">Upcoming Events</a></li>
+          <li><a href="#" class="mobile-nav-link">Monthly Meetings</a></li>
+          <li><a href="#" class="mobile-nav-link">Annual Conference</a></li>
+        </ul>
+      </li>
+      <li>
+        <span>Membership</span>
+        <ul class="mobile-nav-sub">
+          <li><a href="#" class="mobile-nav-link">Join NSA SoCal</a></li>
+          <li><a href="#" class="mobile-nav-link">Member Benefits</a></li>
+          <li><a href="#" class="mobile-nav-link">Renew</a></li>
+        </ul>
+      </li>
+      <li>
+        <span>Board</span>
+        <ul class="mobile-nav-sub">
+          <li><a href="#" class="mobile-nav-link">Board Members</a></li>
+          <li><a href="#" class="mobile-nav-link">Meeting Minutes</a></li>
+          <li><a href="#" class="mobile-nav-link">Volunteer</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="mobile-nav-link">Member Login</a></li>
+      <li><a href="#" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-cta-wrap">
+      <a class="btn-pill btn-fill mobile-nav-link" href="#final-cta">Find My Path &#8250;</a>
+    </div>
+  </div>
+
   <!-- HERO -->
   <section class="section" id="hero">
+    <!-- Left: speaker1.jpg -->
     <div class="float-img a">
-      <img src="/images/speaker4.jpg" alt="">
+      <img src="/images/speaker1.jpg" alt="">
     </div>
     <div class="float-img b">
       <img src="/images/speaker2.jpg" alt="">
     </div>
+    <!-- Top right: was speaker3.jpg → now speaker4.jpg (swapped with Levels top right) -->
     <div class="float-img c">
-      <img src="/images/speaker1.jpg" alt="">
+      <img src="/images/speaker3.jpg" alt="">
     </div>
     <div class="hero-logo-wrap">
       <img class="hero-logo" src="/images/NSA%20SoCal%20Logo%20transparent%20bg.png" alt="NSA SoCal" />
     </div>
-        <span class="eyebrow">Professional Speaking, Elevated</span>
+    <span class="eyebrow">Professional Speaking, Elevated</span>
     <h1>Become the speaker people choose.</h1>
     <p class="tagline">A professional development ecosystem designed to move you from emerging voice to industry authority.</p>
     <div class="cta-row">
@@ -938,56 +699,11 @@
     </div>
   </section>
 
-
-  <!-- READINESS ASSESSMENT -->
-  <section class="section" id="readiness-section" style="background:#050505; min-height:auto; padding:100px 24px 80px; overflow:visible; display:block;">
-    <div style="max-width:680px; margin:0 auto; width:100%;">
-      <span class="eyebrow reveal" style="text-align:center; display:block;">Speaking Business Readiness Score</span>
-      <h2 class="reveal" style="text-align:center; margin-bottom:0;">How ready is your speaking business?</h2>
-      <p class="tagline reveal" style="margin-bottom:44px;">15 questions across 5 dimensions. Get a scored breakdown of exactly where you stand.</p>
-
-      <!-- Dimension progress dots -->
-      <div class="ra-dims-row">
-        <div class="ra-dim-dot active" id="ra-dot-message">
-          <span class="ra-dot-label">Message</span>
-        </div>
-        <div class="ra-dim-connector"></div>
-        <div class="ra-dim-dot" id="ra-dot-market">
-          <span class="ra-dot-label">Market</span>
-        </div>
-        <div class="ra-dim-connector"></div>
-        <div class="ra-dim-dot" id="ra-dot-business">
-          <span class="ra-dot-label">Business</span>
-        </div>
-        <div class="ra-dim-connector"></div>
-        <div class="ra-dim-dot" id="ra-dot-delivery">
-          <span class="ra-dot-label">Delivery</span>
-        </div>
-        <div class="ra-dim-connector"></div>
-        <div class="ra-dim-dot" id="ra-dot-network">
-          <span class="ra-dot-label">Network</span>
-        </div>
-      </div>
-
-      <!-- Progress bar -->
-      <div class="ra-progress-wrap">
-        <div id="ra-progress-bar"></div>
-      </div>
-      <div id="ra-progress-label" class="ra-progress-label">Question 1 of 15</div>
-
-      <!-- Question area -->
-      <div id="ra-questions"></div>
-
-      <!-- Result area -->
-      <div id="ra-result" style="display:none;"></div>
-    </div>
-  </section>
-  <!-- END READINESS ASSESSMENT -->
-
   <!-- 5 LEVELS -->
   <section class="section" id="levels">
+    <!-- Top right: was speaker4.jpg → now speaker3.jpg (swapped with Hero top right) -->
     <div class="float-img a">
-      <img src="/images/speaker3.jpg" alt="">
+      <img src="/images/speaker4.jpg" alt="">
     </div>
     <div class="float-img b">
       <img src="/images/speaker5.jpg" alt="">
@@ -1072,8 +788,9 @@
 
   <!-- ACADEMY -->
   <section class="section" id="academy">
+    <!-- Left: speaker7.jpg -->
     <div class="float-img a">
-      <img src="/images/speaker10.jpg" alt="">
+      <img src="/images/speaker7.jpg" alt="">
     </div>
     <div class="float-img b">
       <img src="/images/speaker8.jpg" alt="">
@@ -1140,15 +857,34 @@
     </div>
   </section>
 
+  <!-- READINESS ASSESSMENT -->
+  <section class="section" id="readiness-section" style="background:#050505; min-height:auto; padding:100px 24px;">
+    <div style="max-width:680px; margin:0 auto; width:100%;">
+      <span class="eyebrow reveal" style="text-align:center; display:block;">Speaking Business Readiness Score</span>
+      <h2 class="reveal" style="text-align:center; margin-bottom:0;">How ready is your speaking business?</h2>
+      <p class="tagline reveal" style="margin-bottom:44px;">15 questions across 5 dimensions. Get a scored breakdown of exactly where you stand.</p>
+      <div class="ra-dims-row reveal">
+        <div class="ra-dim-dot active" id="ra-dot-message"><span class="ra-dot-label">Message</span></div>
+        <div class="ra-dim-connector"></div>
+        <div class="ra-dim-dot" id="ra-dot-market"><span class="ra-dot-label">Market</span></div>
+        <div class="ra-dim-connector"></div>
+        <div class="ra-dim-dot" id="ra-dot-business"><span class="ra-dot-label">Business</span></div>
+        <div class="ra-dim-connector"></div>
+        <div class="ra-dim-dot" id="ra-dot-delivery"><span class="ra-dot-label">Delivery</span></div>
+        <div class="ra-dim-connector"></div>
+        <div class="ra-dim-dot" id="ra-dot-network"><span class="ra-dot-label">Network</span></div>
+      </div>
+      <div class="ra-progress-wrap"><div id="ra-progress-bar"></div></div>
+      <div id="ra-progress-label" class="ra-progress-label">Question 1 of 15</div>
+      <div id="ra-questions"></div>
+      <div id="ra-result" style="display:none;"></div>
+    </div>
+  </section>
 
   <!-- FINAL CTA -->
   <section class="section" id="final-cta">
-    <div class="float-img a">
-      <img src="/images/speaker7.jpg" alt="">
-    </div>
-    <div class="float-img b">
-      <img src="/images/speaker11.jpg" alt="">
-    </div>
+    <div class="float-img a"><img src="/images/speaker10.jpg" alt=""></div>
+    <div class="float-img b"><img src="/images/speaker11.jpg" alt=""></div>
     <span class="eyebrow reveal">Start Here</span>
     <h2 class="reveal">Find your level.<br>Start moving forward.</h2>
     <p class="tagline reveal">Clarity is the first step. Momentum is what follows.</p>
@@ -1178,10 +914,7 @@
     </div>
   </footer>
 
-  
-
-
-<!-- ═══════════════════════════════════ QUIZ MODAL ═══════════════════════════ -->
+<!-- ═══ QUIZ MODAL ═══ -->
 <div id="quiz-overlay" aria-modal="true" role="dialog" aria-label="Speaker Level Finder">
   <div id="quiz-modal">
     <button id="quiz-close" aria-label="Close">&times;</button>
@@ -1217,25 +950,16 @@
     </div>
   </div>
 </div>
-<!-- ═══════════════════════════════════ END QUIZ MODAL ═══════════════════════ -->
 
 <script>
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
 
-    // Parallax on float images
     const floats = document.querySelectorAll('.float-img');
     window.addEventListener('scroll', () => {
-      const sy = window.scrollY;
       floats.forEach(el => {
         const section = el.closest('.section');
         const rect = section.getBoundingClientRect();
@@ -1245,672 +969,132 @@
       });
     }, { passive: true });
 
-  // ═══════════════════════════════════ QUIZ ═══════════════════════════════════
   (function() {
     var QUESTIONS = [
-      { q: "How often are you currently speaking?", opts: [
-          [0, "Haven't started yet, or spoken only once or twice"],
-          [1, "A few times a year — open mics, local events, unpaid gigs"],
-          [2, "Monthly or more — some paid, some not"],
-          [3, "Consistently paid, multiple bookings per month"],
-          [4, "Speaking is my primary income, fully booked calendar"] ] },
-      { q: "What does your fee structure look like?", opts: [
-          [0, "I speak for free — exposure, experience, or haven't charged yet"],
-          [1, "I've asked for a fee but often waive it or take low offers"],
-          [2, "I have a number — $500–$2,500 — and usually get it"],
-          [3, "My fee is $2,500–$10,000 and clients expect to pay it"],
-          [4, "My fee is $10,000+ and I turn down work that doesn't fit"] ] },
-      { q: "How would you describe your signature talk?", opts: [
-          [0, "I don't have one yet — still figuring out what I want to say"],
-          [1, "I have ideas and a rough structure but nothing locked in"],
-          [2, "I have a talk that works — delivered it multiple times"],
-          [3, "2–3 polished programs with custom versions by audience"],
-          [4, "My talks are published, licensed, or part of a broader IP portfolio"] ] },
-      { q: "How do clients typically find you?", opts: [
-          [0, "They don't yet — I'm pitching myself and applying for opportunities"],
-          [1, "Mostly referrals from people I know personally"],
-          [2, "A mix of referrals, my website, and occasional outbound effort"],
-          [3, "Referrals, reputation, and speaker bureaus or agents"],
-          [4, "Clients come to me — my platform generates inbound consistently"] ] },
-      { q: "What does your speaking business look like?", opts: [
-          [0, "No business yet — just me and an idea"],
-          [1, "Basic: bio, headshot, maybe a simple website"],
-          [2, "Proper website, one-sheet, video reel, and a contact list"],
-          [3, "Full business: team, systems, contracts, follow-up process"],
-          [4, "A platform: books, courses, consulting — speaking is one pillar"] ] },
-      { q: "How do audiences respond when you speak?", opts: [
-          [0, "Still working on my craft — nervous energy, mixed results"],
-          [1, "Generally positive — people are polite, some are engaged"],
-          [2, "Consistently strong — people approach me after, ask for resources"],
-          [3, "Transformational — organisations book me back, results are measurable"],
-          [4, "Legendary — my talks are quoted, shared, and talked about for years"] ] },
-      { q: "What's your relationship with the speaking profession?", opts: [
-          [0, "Just discovering it — NSA SoCal is new to me"],
-          [1, "Learning — attending events, studying speakers I admire"],
-          [2, "Active — I invest in my development and give back where I can"],
-          [3, "Leader — sit on boards, mentor others, shape standards"],
-          [4, "I AM the profession — building something that outlasts my career"] ] }
+      { q: "How often are you currently speaking?", opts: [[0,"Haven't started yet, or spoken only once or twice"],[1,"A few times a year — open mics, local events, unpaid gigs"],[2,"Monthly or more — some paid, some not"],[3,"Consistently paid, multiple bookings per month"],[4,"Speaking is my primary income, fully booked calendar"]]},
+      { q: "What does your fee structure look like?", opts: [[0,"I speak for free — exposure, experience, or haven't charged yet"],[1,"I've asked for a fee but often waive it or take low offers"],[2,"I have a number — $500–$2,500 — and usually get it"],[3,"My fee is $2,500–$10,000 and clients expect to pay it"],[4,"My fee is $10,000+ and I turn down work that doesn't fit"]]},
+      { q: "How would you describe your signature talk?", opts: [[0,"I don't have one yet — still figuring out what I want to say"],[1,"I have ideas and a rough structure but nothing locked in"],[2,"I have a talk that works — delivered it multiple times"],[3,"2–3 polished programs with custom versions by audience"],[4,"My talks are published, licensed, or part of a broader IP portfolio"]]},
+      { q: "How do clients typically find you?", opts: [[0,"They don't yet — I'm pitching myself and applying for opportunities"],[1,"Mostly referrals from people I know personally"],[2,"A mix of referrals, my website, and occasional outbound effort"],[3,"Referrals, reputation, and speaker bureaus or agents"],[4,"Clients come to me — my platform generates inbound consistently"]]},
+      { q: "What does your speaking business look like?", opts: [[0,"No business yet — just me and an idea"],[1,"Basic: bio, headshot, maybe a simple website"],[2,"Proper website, one-sheet, video reel, and a contact list"],[3,"Full business: team, systems, contracts, follow-up process"],[4,"A platform: books, courses, consulting — speaking is one pillar"]]},
+      { q: "How do audiences respond when you speak?", opts: [[0,"Still working on my craft — nervous energy, mixed results"],[1,"Generally positive — people are polite, some are engaged"],[2,"Consistently strong — people approach me after, ask for resources"],[3,"Transformational — organisations book me back, results are measurable"],[4,"Legendary — my talks are quoted, shared, and talked about for years"]]},
+      { q: "What's your relationship with the speaking profession?", opts: [[0,"Just discovering it — NSA SoCal is new to me"],[1,"Learning — attending events, studying speakers I admire"],[2,"Active — I invest in my development and give back where I can"],[3,"Leader — sit on boards, mentor others, shape standards"],[4,"I AM the profession — building something that outlasts my career"]]}
     ];
-
     var LEVELS = [null,
-      { num:"01", title:"The Emerging Speaker",      tagline:'"I have something to say."',
-        desc:"You have a message and the courage to share it. Now it's time to shape it into something repeatable and powerful.",
-        next:"Your next move is clarifying your core message and getting reps on stage. The NSA SoCal community is built for exactly this moment." },
-      { num:"02", title:"The Developing Professional", tagline:'"I want to get paid to do this."',
-        desc:"You're speaking regularly and building momentum. The gap between where you are and a paid career is smaller than it looks.",
-        next:"Focus on your market position and fee structure. The Speakers Academy is designed to bridge exactly this gap." },
-      { num:"03", title:"The Professional Speaker",   tagline:'"I create outcomes."',
-        desc:"You're getting paid, you're getting results, and clients come back. The work now is scaling without losing the craft.",
-        next:"Your growth edge is systematising your business and expanding your market. NSA SoCal's network opens doors at this level." },
-      { num:"04", title:"The Authority / Thought Leader", tagline:'"I move industries forward."',
-        desc:"Your name carries weight. Speaking is one expression of a broader platform — books, media, consulting, IP.",
-        next:"The leverage play is content multiplication and strategic positioning. NSA SoCal connects you with peers at this level." },
-      { num:"05", title:"The Legacy Professional",   tagline:'"I grow the profession."',
-        desc:"You've built something that outlasts any single keynote. You mentor, you model, and you raise the standard for everyone behind you.",
-        next:"Your contribution to NSA SoCal shapes the profession for the next generation. Leadership and mentorship opportunities await." }
+      { num:"01", title:"The Emerging Speaker", tagline:'"I have something to say."', desc:"You have a message and the courage to share it. Now it's time to shape it into something repeatable and powerful.", next:"Your next move is clarifying your core message and getting reps on stage. The NSA SoCal community is built for exactly this moment." },
+      { num:"02", title:"The Developing Professional", tagline:'"I want to get paid to do this."', desc:"You're speaking regularly and building momentum. The gap between where you are and a paid career is smaller than it looks.", next:"Focus on your market position and fee structure. The Speakers Academy is designed to bridge exactly this gap." },
+      { num:"03", title:"The Professional Speaker", tagline:'"I create outcomes."', desc:"You're getting paid, you're getting results, and clients come back. The work now is scaling without losing the craft.", next:"Your growth edge is systematising your business and expanding your market. NSA SoCal's network opens doors at this level." },
+      { num:"04", title:"The Authority / Thought Leader", tagline:'"I move industries forward."', desc:"Your name carries weight. Speaking is one expression of a broader platform — books, media, consulting, IP.", next:"The leverage play is content multiplication and strategic positioning. NSA SoCal connects you with peers at this level." },
+      { num:"05", title:"The Legacy Professional", tagline:'"I grow the profession."', desc:"You've built something that outlasts any single keynote. You mentor, you model, and you raise the standard for everyone behind you.", next:"Your contribution to NSA SoCal shapes the profession for the next generation. Leadership and mentorship opportunities await." }
     ];
-
-    function scoreToLevel(s) {
-      if (s <= 5)  return 1;
-      if (s <= 11) return 2;
-      if (s <= 17) return 3;
-      if (s <= 23) return 4;
-      return 5;
-    }
-
-    var current = 0;
-    var answers = [];
-    for (var i = 0; i < QUESTIONS.length; i++) answers.push(null);
-
-    var overlay   = document.getElementById('quiz-overlay');
-    var modal     = document.getElementById('quiz-modal');
-    var progBar   = document.getElementById('quiz-progress-bar');
-    var introScr  = document.getElementById('quiz-intro');
-    var questWrap = document.getElementById('quiz-questions');
-    var resultScr = document.getElementById('quiz-result');
-
-    function openQuiz() {
-      current = 0;
-      for (var i = 0; i < answers.length; i++) answers[i] = null;
-      showIntro();
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeQuiz() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function showIntro() {
-      introScr.classList.add('active');
-      questWrap.innerHTML = '';
-      resultScr.classList.remove('active');
-      setProgress(0);
-    }
-    function setProgress(pct) { progBar.style.width = pct + '%'; }
-
-    function renderQuestion(idx) {
-      introScr.classList.remove('active');
-      resultScr.classList.remove('active');
-      setProgress((idx / QUESTIONS.length) * 100);
-      var q = QUESTIONS[idx];
-      var div = document.createElement('div');
-      div.className = 'quiz-screen quiz-q-screen active';
-      var optsHtml = '';
-      for (var oi = 0; oi < q.opts.length; oi++) {
-        var score = q.opts[oi][0], label = q.opts[oi][1];
-        var sel = answers[idx] === score ? ' selected' : '';
-        optsHtml += '<button class="quiz-option' + sel + '" data-score="' + score + '" type="button">' +
-          '<span class="quiz-opt-dot"></span><span>' + label + '</span></button>';
-      }
-      var isLast = idx === QUESTIONS.length - 1;
-      var nextLabel = isLast ? 'See My Result \u2192' : 'Next \u2192';
-      var nextEnabled = answers[idx] !== null ? ' enabled' : '';
-      var backLabel = idx === 0 ? '\u2190 Back to intro' : '\u2190 Back';
-      div.innerHTML =
-        '<div class="quiz-q-counter">Question ' + (idx+1) + ' of ' + QUESTIONS.length + '</div>' +
-        '<div class="quiz-q-text">' + q.q + '</div>' +
-        '<div class="quiz-options">' + optsHtml + '</div>' +
-        '<div class="quiz-nav">' +
-          '<button class="quiz-btn-back" type="button">' + backLabel + '</button>' +
-          '<button class="quiz-btn-next' + nextEnabled + '" type="button">' + nextLabel + '</button>' +
-        '</div>';
-
-      div.querySelectorAll('.quiz-option').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          answers[idx] = +this.dataset.score;
-          div.querySelectorAll('.quiz-option').forEach(function(b){ b.classList.remove('selected'); });
-          this.classList.add('selected');
-          div.querySelector('.quiz-btn-next').classList.add('enabled');
-        });
-      });
-      div.querySelector('.quiz-btn-next').addEventListener('click', function() {
-        if (answers[idx] === null) return;
-        if (idx < QUESTIONS.length - 1) {
-          questWrap.innerHTML = '';
-          renderQuestion(idx + 1);
-          modal.scrollTo({top:0, behavior:'smooth'});
-        } else { showResult(); }
-      });
-      div.querySelector('.quiz-btn-back').addEventListener('click', function() {
-        if (idx === 0) { questWrap.innerHTML = ''; showIntro(); }
-        else { questWrap.innerHTML = ''; renderQuestion(idx - 1); }
-        modal.scrollTo({top:0, behavior:'smooth'});
-      });
+    function scoreToLevel(s) { if (s<=5) return 1; if (s<=11) return 2; if (s<=17) return 3; if (s<=23) return 4; return 5; }
+    var current=0, answers=[];
+    for(var i=0;i<QUESTIONS.length;i++) answers.push(null);
+    var overlay=document.getElementById('quiz-overlay'), modal=document.getElementById('quiz-modal'), progBar=document.getElementById('quiz-progress-bar'), introScr=document.getElementById('quiz-intro'), questWrap=document.getElementById('quiz-questions'), resultScr=document.getElementById('quiz-result');
+    function openQuiz(){current=0;for(var i=0;i<answers.length;i++)answers[i]=null;showIntro();overlay.classList.add('open');document.body.style.overflow='hidden';}
+    function closeQuiz(){overlay.classList.remove('open');document.body.style.overflow='';}
+    function showIntro(){introScr.classList.add('active');questWrap.innerHTML='';resultScr.classList.remove('active');setProgress(0);}
+    function setProgress(pct){progBar.style.width=pct+'%';}
+    function renderQuestion(idx){
+      introScr.classList.remove('active');resultScr.classList.remove('active');setProgress((idx/QUESTIONS.length)*100);
+      var q=QUESTIONS[idx],div=document.createElement('div');div.className='quiz-screen quiz-q-screen active';
+      var optsHtml='';for(var oi=0;oi<q.opts.length;oi++){var score=q.opts[oi][0],label=q.opts[oi][1],sel=answers[idx]===score?' selected':'';optsHtml+='<button class="quiz-option'+sel+'" data-score="'+score+'" type="button"><span class="quiz-opt-dot"></span><span>'+label+'</span></button>';}
+      var isLast=idx===QUESTIONS.length-1,nextLabel=isLast?'See My Result \u2192':'Next \u2192',nextEnabled=answers[idx]!==null?' enabled':'',backLabel=idx===0?'\u2190 Back to intro':'\u2190 Back';
+      div.innerHTML='<div class="quiz-q-counter">Question '+(idx+1)+' of '+QUESTIONS.length+'</div><div class="quiz-q-text">'+q.q+'</div><div class="quiz-options">'+optsHtml+'</div><div class="quiz-nav"><button class="quiz-btn-back" type="button">'+backLabel+'</button><button class="quiz-btn-next'+nextEnabled+'" type="button">'+nextLabel+'</button></div>';
+      div.querySelectorAll('.quiz-option').forEach(function(btn){btn.addEventListener('click',function(){answers[idx]=+this.dataset.score;div.querySelectorAll('.quiz-option').forEach(function(b){b.classList.remove('selected');});this.classList.add('selected');div.querySelector('.quiz-btn-next').classList.add('enabled');});});
+      div.querySelector('.quiz-btn-next').addEventListener('click',function(){if(answers[idx]===null)return;if(idx<QUESTIONS.length-1){questWrap.innerHTML='';renderQuestion(idx+1);modal.scrollTo({top:0,behavior:'smooth'});}else{showResult();}});
+      div.querySelector('.quiz-btn-back').addEventListener('click',function(){if(idx===0){questWrap.innerHTML='';showIntro();}else{questWrap.innerHTML='';renderQuestion(idx-1);}modal.scrollTo({top:0,behavior:'smooth'});});
       questWrap.appendChild(div);
     }
-
-    function showResult() {
-      var total = 0;
-      for (var i = 0; i < answers.length; i++) total += (answers[i] || 0);
-      var lvl = scoreToLevel(total);
-      var L = LEVELS[lvl];
-      questWrap.innerHTML = '';
-      introScr.classList.remove('active');
-      resultScr.classList.add('active');
-      setProgress(100);
-      document.getElementById('result-level-num').textContent = 'Level ' + L.num;
-      document.getElementById('result-title').textContent = L.title;
-      document.getElementById('result-tagline').textContent = L.tagline;
-      document.getElementById('result-desc').textContent = L.desc;
-      document.getElementById('result-next').textContent = L.next;
-      document.getElementById('quiz-capture').style.display = 'block';
-      document.getElementById('quiz-capture-done').style.display = 'none';
-      document.getElementById('cap-name').value = '';
-      document.getElementById('cap-email').value = '';
-      modal.scrollTo({top:0, behavior:'smooth'});
+    function showResult(){
+      var total=0;for(var i=0;i<answers.length;i++)total+=(answers[i]||0);var lvl=scoreToLevel(total),L=LEVELS[lvl];
+      questWrap.innerHTML='';introScr.classList.remove('active');resultScr.classList.add('active');setProgress(100);
+      document.getElementById('result-level-num').textContent='Level '+L.num;document.getElementById('result-title').textContent=L.title;document.getElementById('result-tagline').textContent=L.tagline;document.getElementById('result-desc').textContent=L.desc;document.getElementById('result-next').textContent=L.next;
+      document.getElementById('quiz-capture').style.display='block';document.getElementById('quiz-capture-done').style.display='none';document.getElementById('cap-name').value='';document.getElementById('cap-email').value='';modal.scrollTo({top:0,behavior:'smooth'});
     }
-
-    document.getElementById('cap-submit').addEventListener('click', function() {
-      var email = document.getElementById('cap-email').value.trim();
-      if (!email) { document.getElementById('cap-email').focus(); return; }
-      document.getElementById('quiz-capture').style.display = 'none';
-      document.getElementById('quiz-capture-done').style.display = 'block';
-    });
-    document.getElementById('cap-skip').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('quiz-capture').style.display = 'none';
-    });
-    document.getElementById('quiz-retake').addEventListener('click', function() {
-      for (var i = 0; i < answers.length; i++) answers[i] = null;
-      questWrap.innerHTML = '';
-      showIntro();
-      modal.scrollTo({top:0, behavior:'smooth'});
-    });
-    document.getElementById('quiz-start-btn').addEventListener('click', function() {
-      questWrap.innerHTML = '';
-      renderQuestion(0);
-    });
-    document.getElementById('quiz-close').addEventListener('click', closeQuiz);
-    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeQuiz(); });
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeQuiz(); });
-
-    // Hook all Find Your Level / Find My Level / Find My Path CTAs
-    document.querySelectorAll('a[href]').forEach(function(a) {
-      var txt = a.textContent.toLowerCase();
-      if ((txt.includes('find') && (txt.includes('level') || txt.includes('path'))) ||
-           txt.includes('explore the academy')) {
-        a.addEventListener('click', function(e) { e.preventDefault(); openQuiz(); });
-      }
-    });
-    document.querySelectorAll('a.nav-cta').forEach(function(a) {
-      a.addEventListener('click', function(e) { e.preventDefault(); openQuiz(); });
-    });
-
+    document.getElementById('cap-submit').addEventListener('click',function(){var email=document.getElementById('cap-email').value.trim();if(!email){document.getElementById('cap-email').focus();return;}document.getElementById('quiz-capture').style.display='none';document.getElementById('quiz-capture-done').style.display='block';});
+    document.getElementById('cap-skip').addEventListener('click',function(e){e.preventDefault();document.getElementById('quiz-capture').style.display='none';});
+    document.getElementById('quiz-retake').addEventListener('click',function(){for(var i=0;i<answers.length;i++)answers[i]=null;questWrap.innerHTML='';showIntro();modal.scrollTo({top:0,behavior:'smooth'});});
+    document.getElementById('quiz-start-btn').addEventListener('click',function(){questWrap.innerHTML='';renderQuestion(0);});
+    document.getElementById('quiz-close').addEventListener('click',closeQuiz);
+    overlay.addEventListener('click',function(e){if(e.target===overlay)closeQuiz();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQuiz();});
+    document.querySelectorAll('a[href]').forEach(function(a){var txt=a.textContent.toLowerCase();if((txt.includes('find')&&(txt.includes('level')||txt.includes('path')))||txt.includes('explore the academy')){a.addEventListener('click',function(e){e.preventDefault();openQuiz();});}});
+    document.querySelectorAll('a.nav-cta').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openQuiz();});});
   })();
 
-  // ─── NAV: mobile toggle + dropdowns ─────────────────────────────────────
   (function() {
-    var toggle = document.getElementById('navMobileToggle');
-    var navLinks = document.getElementById('navLinks');
-
-    // Mobile hamburger
-    function closeNav() {
-      navLinks.classList.remove('active');
-      toggle.classList.remove('is-open');
-      toggle.innerHTML = '&#9776;';
+    var DIMS=[{id:'message',label:'Message Clarity',color:'#0071e3'},{id:'market',label:'Market Position',color:'#5e9ef5'},{id:'business',label:'Business Foundation',color:'#3a7bd5'},{id:'delivery',label:'Delivery & Craft',color:'#74b0ff'},{id:'network',label:'Professional Network',color:'#2060c8'}];
+    var QUESTIONS=[
+      {dim:'message',q:'Can you state what you speak about, for whom, and what outcome they get — in one sentence?',opts:[[0,'No — I struggle to explain it concisely'],[1,'Sort of — it changes depending on who I\'m talking to'],[2,'Yes, I have a sentence, but it doesn\'t always land'],[3,'Yes, and people immediately understand and remember it']]},
+      {dim:'message',q:'How distinctive is your core idea from other speakers in your space?',opts:[[0,'I\'m not sure how I\'m different — the topic is similar'],[1,'Somewhat different — I have a unique angle but haven\'t named it'],[2,'Clearly different — I have a named framework or methodology'],[3,'Unmistakably mine — my IP is recognisable and hard to copy']]},
+      {dim:'message',q:'How consistently do you deliver your key message?',opts:[[0,'Each talk is different — I adapt it completely each time'],[1,'I have a rough structure but it shifts a lot'],[2,'I have a repeatable talk with consistent core elements'],[3,'My message is locked — I can deliver it brilliantly on any stage']]},
+      {dim:'market',q:'How clearly defined is your target audience?',opts:[[0,'I\'ll speak to anyone — I haven\'t narrowed it down'],[1,'I have a general sense — "leaders" or "entrepreneurs" broadly'],[2,'A specific industry or role — I know who books me'],[3,'Hyper-specific — I know the exact events, titles and pain points']]},
+      {dim:'market',q:'When event planners find your website or one-sheet, how does your positioning land?',opts:[[0,'I don\'t have these materials yet'],[1,'It exists but it\'s generic — could be many speakers'],[2,'It\'s professional and clear, but not highly differentiated'],[3,'It\'s unmistakably me — planners know immediately if I\'m a fit']]},
+      {dim:'market',q:'Are you known as the go-to speaker for a specific topic or audience?',opts:[[0,'Not yet — I\'m still building awareness'],[1,'In my personal network, yes — outside it, not really'],[2,'In one industry or community, I\'m beginning to be known'],[3,'Yes — when my topic comes up, my name comes up with it']]},
+      {dim:'business',q:'How would you describe your current revenue from speaking?',opts:[[0,'Zero — I haven\'t charged yet or I speak only for free'],[1,'Occasional — a few paid engagements a year, inconsistently'],[2,'Regular — a meaningful portion of my income is from speaking'],[3,'Primary — speaking fees and related revenue are my main income']]},
+      {dim:'business',q:'What systems do you have for booking, follow-up and client management?',opts:[[0,'None — I handle everything ad hoc'],[1,'Basic — email and a spreadsheet, mostly reactive'],[2,'Functional — a process for proposals, contracts and follow-up'],[3,'Systematised — CRM, automated follow-up, clear onboarding process']]},
+      {dim:'business',q:'Beyond the speaking fee, do you have other revenue streams from your expertise?',opts:[[0,'No — the fee is the only income from speaking'],[1,'I\'ve thought about it but nothing is built yet'],[2,'One additional stream — a book, course, or consulting retainer'],[3,'Multiple streams — my speaking is one pillar of a broader platform']]},
+      {dim:'delivery',q:'How would you rate your confidence and composure on stage?',opts:[[0,'I get nervous and it shows — I\'m still building stage comfort'],[1,'Reasonably confident but not consistently — depends on the room'],[2,'Comfortable on most stages — nerves are managed and mostly invisible'],[3,'At home anywhere — I\'m as good on a main stage as in a boardroom']]},
+      {dim:'delivery',q:'Do you have a high-quality video reel that demonstrates your best work?',opts:[[0,'No footage yet — or only low-quality recordings'],[1,'Some clips but not a professional reel'],[2,'A professional reel — it represents me well'],[3,'Multiple reels — main stage, boardroom, virtual — all broadcast quality']]},
+      {dim:'delivery',q:'How do you know your talk is creating the outcomes organisers hired you for?',opts:[[0,'I don\'t — I don\'t have a feedback process'],[1,'I hear positive comments but I don\'t measure it formally'],[2,'I collect evaluations or testimonials after each engagement'],[3,'I track outcomes — surveys, re-bookings and measurable results']]},
+      {dim:'network',q:'How active are you in professional speaking communities (NSA, MPI, industry associations)?',opts:[[0,'Not at all — I\'m not connected to any speaking community'],[1,'I\'m aware of them but haven\'t engaged or invested yet'],[2,'I attend events and am known in at least one community'],[3,'I\'m an active contributor — I give more than I take']]},
+      {dim:'network',q:'What percentage of your bookings come from referrals?',opts:[[0,'None — I find all my own opportunities'],[1,'A small amount — the occasional warm introduction'],[2,'A meaningful portion — referrals are a real pipeline'],[3,'The majority — my network drives most of my bookings']]},
+      {dim:'network',q:'Do you have relationships with other speakers who refer work, co-create, or elevate each other?',opts:[[0,'No — I don\'t really know other speakers'],[1,'A few acquaintances but nothing strategic'],[2,'A small circle of peers I trust and exchange referrals with'],[3,'A strong network — we actively build each other\'s careers']]}
+    ];
+    var TIER_LABELS=['Needs Work','Developing','Strong','Exceptional'],TIER_COLORS=['#ff453a','#ffd60a','#30d158','#0071e3'];
+    function dimTier(s){if(s<=2)return 0;if(s<=5)return 1;if(s<=7)return 2;return 3;}
+    function overallBand(pct){if(pct<40)return{label:'Early Stage',sub:'You\'re building the foundations. The right community and clarity of message will accelerate everything.'};if(pct<60)return{label:'Building Momentum',sub:'You have real traction. A few focused improvements will unlock the next level of bookings and fees.'};if(pct<80)return{label:'Established',sub:'You\'re running a real speaking business. Now it\'s about scale, leverage and long-term positioning.'};return{label:'Authority',sub:'You\'re operating at the top of the profession. The work now is legacy, leverage and leading others.'};}
+    var answers=new Array(QUESTIONS.length).fill(null),currentQ=0;
+    var section=document.getElementById('readiness-section'),qArea=document.getElementById('ra-questions'),resultArea=document.getElementById('ra-result'),progBar=document.getElementById('ra-progress-bar'),progLabel=document.getElementById('ra-progress-label');
+    renderQuestion(0);
+    function setProgress(idx){var pct=(idx/QUESTIONS.length)*100;progBar.style.width=pct+'%';progLabel.textContent='Question '+(idx+1)+' of '+QUESTIONS.length;DIMS.forEach(function(d){var dot=document.getElementById('ra-dot-'+d.id);if(!dot)return;var dimQs=QUESTIONS.filter(function(q){return q.dim===d.id;});var allAnswered=dimQs.every(function(q){return answers[QUESTIONS.indexOf(q)]!==null;});var isActive=QUESTIONS[idx]&&QUESTIONS[idx].dim===d.id;dot.className='ra-dim-dot'+(allAnswered?' done':'')+(isActive?' active':'');});}
+    function renderQuestion(idx){
+      if(idx>=QUESTIONS.length){showResult();return;}setProgress(idx);var q=QUESTIONS[idx],dimInfo=DIMS.find(function(d){return d.id===q.dim;});
+      var html='<div class="ra-q-wrap"><div class="ra-q-dim">'+dimInfo.label+'</div><div class="ra-q-text">'+q.q+'</div><div class="ra-q-opts">';
+      q.opts.forEach(function(opt){var score=opt[0],label=opt[1],sel=answers[idx]===score?' selected':'';html+='<button class="ra-opt'+sel+'" data-score="'+score+'" type="button"><span class="ra-opt-dot"></span><span class="ra-opt-label">'+label+'</span></button>';});
+      html+='</div><div class="ra-q-nav">';if(idx>0){html+='<button class="ra-btn-back" type="button">\u2190 Back</button>';}else{html+='<span></span>';}
+      var nextLabel=idx===QUESTIONS.length-1?'See My Score \u2192':'Next \u2192',nextDisabled=answers[idx]===null?' disabled':'';
+      html+='<button class="ra-btn-next'+nextDisabled+'" type="button">'+nextLabel+'</button></div></div>';
+      qArea.style.opacity='0';
+      setTimeout(function(){
+        qArea.innerHTML=html;qArea.style.opacity='1';
+        qArea.querySelectorAll('.ra-opt').forEach(function(btn){btn.addEventListener('click',function(){answers[idx]=+this.dataset.score;qArea.querySelectorAll('.ra-opt').forEach(function(b){b.classList.remove('selected');});this.classList.add('selected');var nb=qArea.querySelector('.ra-btn-next');if(nb)nb.classList.remove('disabled');setTimeout(function(){var nb2=qArea.querySelector('.ra-btn-next');if(nb2&&!nb2.classList.contains('disabled'))nb2.click();},360);});});
+        var nextBtn=qArea.querySelector('.ra-btn-next');if(nextBtn){nextBtn.addEventListener('click',function(){if(answers[idx]===null)return;currentQ=idx+1;renderQuestion(currentQ);section.scrollIntoView({behavior:'smooth',block:'start'});});}
+        var backBtn=qArea.querySelector('.ra-btn-back');if(backBtn){backBtn.addEventListener('click',function(){currentQ=idx-1;renderQuestion(currentQ);});}
+      },160);
     }
-    toggle.addEventListener('click', function() {
-      var open = navLinks.classList.toggle('active');
-      toggle.classList.toggle('is-open', open);
-      toggle.innerHTML = open ? '&#x2715;' : '&#9776;';
-    });
-    navLinks.querySelectorAll('a:not(.nav-drop-trigger)').forEach(function(a) {
-      a.addEventListener('click', function() {
-        if (window.innerWidth <= 900) closeNav();
-      });
-    });
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('#main-nav')) closeNav();
-    });
-
-    // Desktop hover dropdowns are CSS-only.
-    // Mobile: tap on trigger toggles .open on the <li>
-    document.querySelectorAll('.nav-drop-trigger').forEach(function(trigger) {
-      trigger.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (window.innerWidth > 900) return; // desktop uses CSS hover
-        var li = this.closest('.nav-has-drop');
-        var wasOpen = li.classList.contains('open');
-        // close all
-        document.querySelectorAll('.nav-has-drop').forEach(function(x){ x.classList.remove('open'); });
-        if (!wasOpen) li.classList.add('open');
-      });
-    });
-
-    // Contact link smooth scroll to final-cta
-    document.querySelectorAll('.nav-contact-link').forEach(function(a) {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        var t = document.getElementById('final-cta');
-        if (t) t.scrollIntoView({behavior:'smooth'});
-        if (window.innerWidth <= 900) closeNav();
-      });
-    });
-
-    // Close dropdowns when clicking outside (desktop)
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.nav-has-drop')) {
-        document.querySelectorAll('.nav-has-drop').forEach(function(li){ li.classList.remove('open'); });
-      }
-    });
-  })();
-  // ─── END NAV ──────────────────────────────────────────────────────────────
-
-  })();
-  // ═══════════════════════════════════ END QUIZ ════════════════════════════════
-
-
-  // READINESS ASSESSMENT
-(function() {
-
-  var DIMS = [
-    { id:'message',  label:'Message Clarity',       color:'#0071e3' },
-    { id:'market',   label:'Market Position',        color:'#5e9ef5' },
-    { id:'business', label:'Business Foundation',    color:'#3a7bd5' },
-    { id:'delivery', label:'Delivery & Craft',       color:'#74b0ff' },
-    { id:'network',  label:'Professional Network',   color:'#2060c8' },
-  ];
-
-  var QUESTIONS = [
-    // MESSAGE CLARITY (3)
-    { dim:'message', q:'Can you state what you speak about, for whom, and what outcome they get — in one sentence?', opts:[
-      [0,'No — I struggle to explain it concisely'],
-      [1,'Sort of — it changes depending on who I\'m talking to'],
-      [2,'Yes, I have a sentence, but it doesn\'t always land'],
-      [3,'Yes, and people immediately understand and remember it'],
-    ]},
-    { dim:'message', q:'How distinctive is your core idea from other speakers in your space?', opts:[
-      [0,'I\'m not sure how I\'m different — the topic is similar'],
-      [1,'Somewhat different — I have a unique angle but haven\'t named it'],
-      [2,'Clearly different — I have a named framework or methodology'],
-      [3,'Unmistakably mine — my IP is recognisable and hard to copy'],
-    ]},
-    { dim:'message', q:'How consistently do you deliver your key message?', opts:[
-      [0,'Each talk is different — I adapt it completely each time'],
-      [1,'I have a rough structure but it shifts a lot'],
-      [2,'I have a repeatable talk with consistent core elements'],
-      [3,'My message is locked — I can deliver it brilliantly on any stage'],
-    ]},
-    // MARKET POSITION (3)
-    { dim:'market', q:'How clearly defined is your target audience?', opts:[
-      [0,'I\'ll speak to anyone — I haven\'t narrowed it down'],
-      [1,'I have a general sense — "leaders" or "entrepreneurs" broadly'],
-      [2,'A specific industry or role — I know who books me'],
-      [3,'Hyper-specific — I know the exact events, titles and pain points'],
-    ]},
-    { dim:'market', q:'When event planners find your website or one-sheet, how does your positioning land?', opts:[
-      [0,'I don\'t have these materials yet'],
-      [1,'It exists but it\'s generic — could be many speakers'],
-      [2,'It\'s professional and clear, but not highly differentiated'],
-      [3,'It\'s unmistakably me — planners know immediately if I\'m a fit'],
-    ]},
-    { dim:'market', q:'Are you known as the go-to speaker for a specific topic or audience?', opts:[
-      [0,'Not yet — I\'m still building awareness'],
-      [1,'In my personal network, yes — outside it, not really'],
-      [2,'In one industry or community, I\'m beginning to be known'],
-      [3,'Yes — when my topic comes up, my name comes up with it'],
-    ]},
-    // BUSINESS FOUNDATION (3)
-    { dim:'business', q:'How would you describe your current revenue from speaking?', opts:[
-      [0,'Zero — I haven\'t charged yet or I speak only for free'],
-      [1,'Occasional — a few paid engagements a year, inconsistently'],
-      [2,'Regular — a meaningful portion of my income is from speaking'],
-      [3,'Primary — speaking fees and related revenue are my main income'],
-    ]},
-    { dim:'business', q:'What systems do you have for booking, follow-up and client management?', opts:[
-      [0,'None — I handle everything ad hoc'],
-      [1,'Basic — email and a spreadsheet, mostly reactive'],
-      [2,'Functional — a process for proposals, contracts and follow-up'],
-      [3,'Systematised — CRM, automated follow-up, clear onboarding process'],
-    ]},
-    { dim:'business', q:'Beyond the speaking fee, do you have other revenue streams from your expertise?', opts:[
-      [0,'No — the fee is the only income from speaking'],
-      [1,'I\'ve thought about it but nothing is built yet'],
-      [2,'One additional stream — a book, course, or consulting retainer'],
-      [3,'Multiple streams — my speaking is one pillar of a broader platform'],
-    ]},
-    // DELIVERY & CRAFT (3)
-    { dim:'delivery', q:'How would you rate your confidence and composure on stage?', opts:[
-      [0,'I get nervous and it shows — I\'m still building stage comfort'],
-      [1,'Reasonably confident but not consistently — depends on the room'],
-      [2,'Comfortable on most stages — nerves are managed and mostly invisible'],
-      [3,'At home anywhere — I\'m as good on a main stage as in a boardroom'],
-    ]},
-    { dim:'delivery', q:'Do you have a high-quality video reel that demonstrates your best work?', opts:[
-      [0,'No footage yet — or only low-quality recordings'],
-      [1,'Some clips but not a professional reel'],
-      [2,'A professional reel — it represents me well'],
-      [3,'Multiple reels — main stage, boardroom, virtual — all broadcast quality'],
-    ]},
-    { dim:'delivery', q:'How do you know your talk is creating the outcomes organisers hired you for?', opts:[
-      [0,'I don\'t — I don\'t have a feedback process'],
-      [1,'I hear positive comments but I don\'t measure it formally'],
-      [2,'I collect evaluations or testimonials after each engagement'],
-      [3,'I track outcomes — surveys, re-bookings and measurable results'],
-    ]},
-    // PROFESSIONAL NETWORK (3)
-    { dim:'network', q:'How active are you in professional speaking communities (NSA, MPI, industry associations)?', opts:[
-      [0,'Not at all — I\'m not connected to any speaking community'],
-      [1,'I\'m aware of them but haven\'t engaged or invested yet'],
-      [2,'I attend events and am known in at least one community'],
-      [3,'I\'m an active contributor — I give more than I take'],
-    ]},
-    { dim:'network', q:'What percentage of your bookings come from referrals?', opts:[
-      [0,'None — I find all my own opportunities'],
-      [1,'A small amount — the occasional warm introduction'],
-      [2,'A meaningful portion — referrals are a real pipeline'],
-      [3,'The majority — my network drives most of my bookings'],
-    ]},
-    { dim:'network', q:'Do you have relationships with other speakers who refer work, co-create, or elevate each other?', opts:[
-      [0,'No — I don\'t really know other speakers'],
-      [1,'A few acquaintances but nothing strategic'],
-      [2,'A small circle of peers I trust and exchange referrals with'],
-      [3,'A strong network — we actively build each other\'s careers'],
-    ]},
-  ];
-
-  var TIER_LABELS = ['Needs Work', 'Developing', 'Strong', 'Exceptional'];
-  var TIER_COLORS = ['#ff453a','#ffd60a','#30d158','#0071e3'];
-
-  function dimTier(score) {
-    // max per dim = 9 (3 questions x 3 max)
-    if (score <= 2)  return 0;
-    if (score <= 5)  return 1;
-    if (score <= 7)  return 2;
-    return 3;
-  }
-
-  function overallBand(pct) {
-    if (pct < 40) return {label:'Early Stage',        sub:'You\'re building the foundations. The right community and clarity of message will accelerate everything.'};
-    if (pct < 60) return {label:'Building Momentum',  sub:'You have real traction. A few focused improvements will unlock the next level of bookings and fees.'};
-    if (pct < 80) return {label:'Established',        sub:'You\'re running a real speaking business. Now it\'s about scale, leverage and long-term positioning.'};
-    return           {label:'Authority',              sub:'You\'re operating at the top of the profession. The work now is legacy, leverage and leading others.'};
-  }
-
-  // ── STATE ──────────────────────────────────────────────────────────────────
-  var answers = new Array(QUESTIONS.length).fill(null);
-  var currentQ = 0;
-  var phase = 'questions'; // 'questions' | 'result'
-
-  // ── DOM REFS ───────────────────────────────────────────────────────────────
-  var section    = document.getElementById('readiness-section');
-  var qArea      = document.getElementById('ra-questions');
-  var resultArea = document.getElementById('ra-result');
-  var progBar    = document.getElementById('ra-progress-bar');
-  var progLabel  = document.getElementById('ra-progress-label');
-  var dimDots    = document.querySelectorAll('.ra-dim-dot');
-
-  // ── INIT ───────────────────────────────────────────────────────────────────
-  // Force-reveal any .reveal elements inside this section immediately,
-  // since it sits near the top of the page and may not scroll past observer threshold
-  document.querySelectorAll('#readiness-section .reveal').forEach(function(el) {
-    el.classList.add('visible');
-  });
-  renderQuestion(0);
-
-  function setProgress(idx) {
-    var pct = (idx / QUESTIONS.length) * 100;
-    progBar.style.width = pct + '%';
-    progLabel.textContent = 'Question ' + (idx + 1) + ' of ' + QUESTIONS.length;
-    // Update dimension dots
-    DIMS.forEach(function(d, di) {
-      var dot = document.getElementById('ra-dot-' + d.id);
-      if (!dot) return;
-      var dimQs = QUESTIONS.filter(function(q){ return q.dim === d.id; });
-      var firstIdx = QUESTIONS.findIndex(function(q){ return q.dim === d.id; });
-      var allAnswered = dimQs.every(function(q, qi){
-        return answers[QUESTIONS.indexOf(q)] !== null;
-      });
-      var anyAnswered = dimQs.some(function(q){
-        return answers[QUESTIONS.indexOf(q)] !== null;
-      });
-      var isActive = QUESTIONS[idx] && QUESTIONS[idx].dim === d.id;
-      dot.className = 'ra-dim-dot' +
-        (allAnswered ? ' done' : '') +
-        (isActive ? ' active' : '');
-    });
-  }
-
-  function renderQuestion(idx) {
-    if (idx >= QUESTIONS.length) { showResult(); return; }
-    setProgress(idx);
-    var q = QUESTIONS[idx];
-    var dimInfo = DIMS.find(function(d){ return d.id === q.dim; });
-    var html = '<div class="ra-q-wrap">' +
-      '<div class="ra-q-dim">' + dimInfo.label + '</div>' +
-      '<div class="ra-q-text">' + q.q + '</div>' +
-      '<div class="ra-q-opts">';
-    q.opts.forEach(function(opt) {
-      var score = opt[0], label = opt[1];
-      var sel = answers[idx] === score ? ' selected' : '';
-      html += '<button class="ra-opt' + sel + '" data-score="' + score + '" type="button">' +
-        '<span class="ra-opt-dot"></span>' +
-        '<span class="ra-opt-label">' + label + '</span>' +
-        '</button>';
-    });
-    html += '</div>';
-    html += '<div class="ra-q-nav">';
-    if (idx > 0) {
-      html += '<button class="ra-btn-back" type="button">\u2190 Back</button>';
-    } else {
-      html += '<span></span>';
+    function showResult(){
+      var dimScores={};DIMS.forEach(function(d){dimScores[d.id]=0;});QUESTIONS.forEach(function(q,i){dimScores[q.dim]+=(answers[i]||0);});
+      var maxPerDim=9,totalScore=Object.values(dimScores).reduce(function(a,b){return a+b;},0),maxTotal=maxPerDim*DIMS.length,pct=Math.round((totalScore/maxTotal)*100),band=overallBand(pct);
+      qArea.style.display='none';resultArea.style.display='block';progBar.style.width='100%';progLabel.textContent='Assessment complete';
+      var ringCirc=2*Math.PI*54,ringOffset=ringCirc-(pct/100)*ringCirc;
+      var advice={message:['Start with a one-sentence talk description: who you help, what you help them do, and what changes.','Name your framework. Give your approach a title that only you own.','Lock your talk structure so it\'s repeatable without being robotic.','Your message is a competitive asset. Protect, evolve and extend it.'],market:['Pick one audience and own that niche before you expand.','Audit your website: does it speak directly to one type of buyer?','Get specific about the events and decision-makers who book you.','Your positioning is your moat. Keep sharpening the blade.'],business:['Set your first fee and say it out loud without apologising.','Build a simple CRM — even a spreadsheet — and work it consistently.','Add one revenue stream adjacent to your speaking this year.','You\'re running a platform, not just a speaking career. Think in pillars.'],delivery:['Get on stage as often as possible. Volume builds confidence.','Invest in a professional video reel — it\'s your most important sales tool.','Collect testimonials and evaluations after every engagement.','Your craft is already exceptional. Now leverage it for scale and impact.'],network:['Join NSA SoCal. The room is the resource.','Attend 3 events this quarter and follow up with every conversation.','Build a referral circle with 5 speakers who serve adjacent markets.','Give generously. Your network is your most compounding asset.']};
+      var dimBarsHtml=DIMS.map(function(d){var score=dimScores[d.id],tier=dimTier(score),pctD=Math.round((score/maxPerDim)*100),tLabel=TIER_LABELS[tier],tColor=TIER_COLORS[tier];return'<div class="ra-dim-result"><div class="ra-dr-header"><span class="ra-dr-label">'+d.label+'</span><span class="ra-dr-tier" style="color:'+tColor+'">'+tLabel+'</span></div><div class="ra-dr-bar-wrap"><div class="ra-dr-bar" style="width:'+pctD+'%;background:'+tColor+'"></div></div><p class="ra-dr-advice">'+advice[d.id][tier]+'</p></div>';}).join('');
+      resultArea.innerHTML='<div class="ra-result-top"><div class="ra-score-ring-wrap"><svg class="ra-score-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="8"/><circle cx="60" cy="60" r="54" fill="none" stroke="#0071e3" stroke-width="8" stroke-dasharray="'+ringCirc+'" stroke-dashoffset="'+ringCirc+'" stroke-linecap="round" style="transform:rotate(-90deg);transform-origin:60px 60px;transition:stroke-dashoffset 1.2s cubic-bezier(.25,.46,.45,.94)" id="ra-ring-fill"/><text x="60" y="55" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="Inter,sans-serif">'+pct+'</text><text x="60" y="72" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="10" font-family="Inter,sans-serif">out of 100</text></svg></div><div class="ra-result-band"><div class="ra-result-eyebrow">Your Speaking Business Score</div><h3 class="ra-result-title">'+band.label+'</h3><p class="ra-result-sub">'+band.sub+'</p></div></div><div class="ra-dim-results">'+dimBarsHtml+'</div><div class="ra-capture"><p class="ra-capture-label">Get your full personalised report — dimension breakdown, priority actions and NSA SoCal resources matched to your score.</p><div class="ra-capture-row"><input type="text" id="ra-cap-name" placeholder="Your name" autocomplete="name"><input type="email" id="ra-cap-email" placeholder="Email address" autocomplete="email"><button id="ra-cap-submit" type="button">Send My Report</button></div><p class="ra-capture-skip"><a href="#" id="ra-cap-skip">Skip for now</a></p></div><div id="ra-capture-done" style="display:none"><p class="ra-capture-done-msg">&#10003; Report on its way. Check your inbox.</p></div><button class="ra-btn-retake" id="ra-retake" type="button">Retake the Assessment</button>';
+      requestAnimationFrame(function(){requestAnimationFrame(function(){var ring=document.getElementById('ra-ring-fill');if(ring)ring.style.strokeDashoffset=ringOffset;});});
+      setTimeout(function(){resultArea.querySelectorAll('.ra-dr-bar').forEach(function(b){var w=b.style.width;b.style.width='0';setTimeout(function(){b.style.width=w;},100);});},400);
+      document.getElementById('ra-cap-submit').addEventListener('click',function(){var email=document.getElementById('ra-cap-email').value.trim();if(!email){document.getElementById('ra-cap-email').focus();return;}document.querySelector('.ra-capture').style.display='none';document.getElementById('ra-capture-done').style.display='block';});
+      document.getElementById('ra-cap-skip').addEventListener('click',function(e){e.preventDefault();document.querySelector('.ra-capture').style.display='none';});
+      document.getElementById('ra-retake').addEventListener('click',function(){answers.fill(null);currentQ=0;qArea.innerHTML='';qArea.style.display='block';resultArea.style.display='none';renderQuestion(0);section.scrollIntoView({behavior:'smooth',block:'start'});});
+      section.scrollIntoView({behavior:'smooth',block:'start'});
     }
-    var nextLabel = idx === QUESTIONS.length - 1 ? 'See My Score \u2192' : 'Next \u2192';
-    var nextDisabled = answers[idx] === null ? ' disabled' : '';
-    html += '<button class="ra-btn-next' + nextDisabled + '" type="button">' + nextLabel + '</button>';
-    html += '</div></div>';
+  })();
 
-    qArea.innerHTML = html;
-
-      qArea.querySelectorAll('.ra-opt').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          answers[idx] = +this.dataset.score;
-          qArea.querySelectorAll('.ra-opt').forEach(function(b){ b.classList.remove('selected'); });
-          this.classList.add('selected');
-          var nb = qArea.querySelector('.ra-btn-next');
-          if (nb) nb.classList.remove('disabled');
-          // Brief pause then auto-advance for UX snappiness
-          setTimeout(function() {
-            var nb2 = qArea.querySelector('.ra-btn-next');
-            if (nb2 && !nb2.classList.contains('disabled')) nb2.click();
-          }, 360);
-        });
-      });
-
-      var nextBtn = qArea.querySelector('.ra-btn-next');
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function() {
-          if (answers[idx] === null) return;
-          currentQ = idx + 1;
-          renderQuestion(currentQ);
-        });
-      }
-      var backBtn = qArea.querySelector('.ra-btn-back');
-      if (backBtn) {
-        backBtn.addEventListener('click', function() {
-          currentQ = idx - 1;
-          renderQuestion(currentQ);
-        });
-      }
-  }
-
-  function showResult() {
-    // Calculate scores per dimension
-    var dimScores = {};
-    DIMS.forEach(function(d) { dimScores[d.id] = 0; });
-    QUESTIONS.forEach(function(q, i) {
-      dimScores[q.dim] += (answers[i] || 0);
+  // ── MOBILE MENU ──────────────────────────────────────────────────────────
+  (function() {
+    var menu = document.getElementById('mobile-menu');
+    var openBtn = document.getElementById('nav-hamburger-btn');
+    var closeBtn = document.getElementById('mobile-menu-close');
+    function openMenu() { menu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { menu.classList.remove('open'); document.body.style.overflow = ''; }
+    if (openBtn) openBtn.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    // Close on any nav link click
+    document.querySelectorAll('.mobile-nav-link').forEach(function(a) {
+      a.addEventListener('click', closeMenu);
     });
-
-    // Max per dim = 3 questions * 3 = 9
-    var maxPerDim = 9;
-    var totalScore = Object.values(dimScores).reduce(function(a,b){return a+b;}, 0);
-    var maxTotal   = maxPerDim * DIMS.length;
-    var pct        = Math.round((totalScore / maxTotal) * 100);
-    var band       = overallBand(pct);
-
-    qArea.style.display = 'none';
-    resultArea.style.display = 'block';
-    progBar.style.width = '100%';
-    progLabel.textContent = 'Assessment complete';
-
-    // Overall score ring
-    var ringCirc = 2 * Math.PI * 54; // r=54
-    var ringOffset = ringCirc - (pct / 100) * ringCirc;
-
-    // Build dimension bars HTML
-    var dimBarsHtml = DIMS.map(function(d) {
-      var score = dimScores[d.id];
-      var tier  = dimTier(score);
-      var pctD  = Math.round((score / maxPerDim) * 100);
-      var tLabel = TIER_LABELS[tier];
-      var tColor = TIER_COLORS[tier];
-
-      // Per-dim advice
-      var advice = {
-        message: [
-          'Start with a one-sentence talk description: who you help, what you help them do, and what changes.',
-          'Name your framework. Give your approach a title that only you own.',
-          'Lock your talk structure so it\'s repeatable without being robotic.',
-          'Your message is a competitive asset. Protect, evolve and extend it.'
-        ],
-        market: [
-          'Pick one audience and own that niche before you expand.',
-          'Audit your website: does it speak directly to one type of buyer?',
-          'Get specific about the events and decision-makers who book you.',
-          'Your positioning is your moat. Keep sharpening the blade.'
-        ],
-        business: [
-          'Set your first fee and say it out loud without apologising.',
-          'Build a simple CRM — even a spreadsheet — and work it consistently.',
-          'Add one revenue stream adjacent to your speaking this year.',
-          'You\'re running a platform, not just a speaking career. Think in pillars.'
-        ],
-        delivery: [
-          'Get on stage as often as possible. Volume builds confidence.',
-          'Invest in a professional video reel — it\'s your most important sales tool.',
-          'Collect testimonials and evaluations after every engagement.',
-          'Your craft is already exceptional. Now leverage it for scale and impact.'
-        ],
-        network: [
-          'Join NSA SoCal. The room is the resource.',
-          'Attend 3 events this quarter and follow up with every conversation.',
-          'Build a referral circle with 5 speakers who serve adjacent markets.',
-          'Give generously. Your network is your most compounding asset.'
-        ]
-      };
-
-      return '<div class="ra-dim-result">' +
-        '<div class="ra-dr-header">' +
-          '<span class="ra-dr-label">' + d.label + '</span>' +
-          '<span class="ra-dr-tier" style="color:' + tColor + '">' + tLabel + '</span>' +
-        '</div>' +
-        '<div class="ra-dr-bar-wrap">' +
-          '<div class="ra-dr-bar" style="width:' + pctD + '%;background:' + tColor + '"></div>' +
-        '</div>' +
-        '<p class="ra-dr-advice">' + advice[d.id][tier] + '</p>' +
-        '</div>';
-    }).join('');
-
-    resultArea.innerHTML =
-      '<div class="ra-result-top">' +
-        '<div class="ra-score-ring-wrap">' +
-          '<svg class="ra-score-ring" viewBox="0 0 120 120">' +
-            '<circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="8"/>' +
-            '<circle cx="60" cy="60" r="54" fill="none" stroke="#0071e3" stroke-width="8"' +
-              ' stroke-dasharray="' + ringCirc + '"' +
-              ' stroke-dashoffset="' + ringCirc + '"' +
-              ' stroke-linecap="round"' +
-              ' style="transform:rotate(-90deg);transform-origin:60px 60px;transition:stroke-dashoffset 1.2s cubic-bezier(.25,.46,.45,.94)"' +
-              ' id="ra-ring-fill"/>' +
-            '<text x="60" y="55" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="Inter,sans-serif">' + pct + '</text>' +
-            '<text x="60" y="72" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="10" font-family="Inter,sans-serif">out of 100</text>' +
-          '</svg>' +
-        '</div>' +
-        '<div class="ra-result-band">' +
-          '<div class="ra-result-eyebrow">Your Speaking Business Score</div>' +
-          '<h3 class="ra-result-title">' + band.label + '</h3>' +
-          '<p class="ra-result-sub">' + band.sub + '</p>' +
-        '</div>' +
-      '</div>' +
-      '<div class="ra-dim-results">' + dimBarsHtml + '</div>' +
-      '<div class="ra-capture">' +
-        '<p class="ra-capture-label">Get your full personalised report — dimension breakdown, priority actions and NSA SoCal resources matched to your score.</p>' +
-        '<div class="ra-capture-row">' +
-          '<input type="text"  id="ra-cap-name"  placeholder="Your name"     autocomplete="name">' +
-          '<input type="email" id="ra-cap-email" placeholder="Email address"  autocomplete="email">' +
-          '<button id="ra-cap-submit" type="button">Send My Report</button>' +
-        '</div>' +
-        '<p class="ra-capture-skip"><a href="#" id="ra-cap-skip">Skip for now</a></p>' +
-      '</div>' +
-      '<div id="ra-capture-done" style="display:none">' +
-        '<p class="ra-capture-done-msg">&#10003; Report on its way. Check your inbox.</p>' +
-      '</div>' +
-      '<button class="ra-btn-retake" id="ra-retake" type="button">Retake the Assessment</button>';
-
-    // Animate ring after paint
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        var ring = document.getElementById('ra-ring-fill');
-        if (ring) ring.style.strokeDashoffset = ringOffset;
-      });
-    });
-
-    // Animate bars
-    setTimeout(function() {
-      resultArea.querySelectorAll('.ra-dr-bar').forEach(function(b) {
-        var w = b.style.width;
-        b.style.width = '0';
-        setTimeout(function(){ b.style.width = w; }, 100);
-      });
-    }, 400);
-
-    // Capture submit
-    document.getElementById('ra-cap-submit').addEventListener('click', function() {
-      var email = document.getElementById('ra-cap-email').value.trim();
-      if (!email) { document.getElementById('ra-cap-email').focus(); return; }
-      document.querySelector('.ra-capture').style.display = 'none';
-      document.getElementById('ra-capture-done').style.display = 'block';
-    });
-    document.getElementById('ra-cap-skip').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector('.ra-capture').style.display = 'none';
-    });
-    document.getElementById('ra-retake').addEventListener('click', function() {
-      answers.fill(null);
-      currentQ = 0;
-      qArea.innerHTML = '';
-      qArea.style.display = 'block';
-      resultArea.style.display = 'none';
-      renderQuestion(0);
-      section.scrollIntoView({behavior:'smooth', block:'start'});
-    });
-
-    section.scrollIntoView({behavior:'smooth', block:'start'});
-  }
-
-})();
-
-  </script>
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+  })();
+</script>
 </body>
 </html>
