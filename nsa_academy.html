@@ -175,7 +175,25 @@
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
 
     /* ─── FOR WHO ─── */
-    #for-who { background: #0a0a0a; min-height: auto; padding: 100px 24px; }
+    #for-who { background: #0a0a0a; min-height: auto; padding: 100px 24px; position: relative; overflow: hidden; }
+    #for-who .float-img.a { width: 220px; height: 290px; top: 8%; right: 2%; animation-delay: .4s; box-shadow: 0 30px 60px rgba(0,0,0,.7); }
+
+    /* ─── QUOTE float ─── */
+    #quote { position: relative; }
+    #quote .float-img.a { width: 180px; height: 240px; top: 10%; left: 2%; animation-delay: .3s; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
+
+    /* ─── FORMAT float ─── */
+    #format { position: relative; }
+    #format .float-img.a { width: 200px; height: 270px; top: 8%; right: 2%; animation-delay: .4s; box-shadow: 0 20px 50px rgba(0,0,0,.15); }
+    #format .float-img img { filter: brightness(.82) saturate(1.05); }
+
+    /* ─── SCHEDULE float ─── */
+    #schedule { position: relative; }
+    #schedule .float-img.a { width: 220px; height: 290px; top: 8%; left: 2%; animation-delay: .4s; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
+
+    /* ─── TESTIMONIALS float ─── */
+    #testimonials { position: relative; }
+    #testimonials .float-img.a { width: 200px; height: 260px; top: 8%; right: 2%; animation-delay: .4s; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
     .for-who-inner { max-width: 760px; margin: 0 auto; width: 100%; }
     .for-who-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
@@ -200,6 +218,7 @@
     /* ─── WHAT YOU GET ─── */
     #what-you-get { background: var(--black); }
     #what-you-get .float-img.a { width: 300px; height: 400px; top: 10%; right: 3%; animation-delay: .4s; box-shadow: 0 40px 80px rgba(0,0,0,.7); }
+    #what-you-get .float-img.b { width: 200px; height: 260px; bottom: 12%; left: 4%; animation-delay: .6s; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
     .outcomes-list {
       display: grid; gap: 0; width: min(680px, 100%); margin-top: 52px;
     }
@@ -334,6 +353,8 @@
       #hero .float-img.c { display: none; }
       #what-you-get .float-img { display: none; }
       #final-cta .float-img { display: none; }
+      #for-who .float-img, #quote .float-img, #format .float-img,
+      #schedule .float-img, #testimonials .float-img { display: none; }
       .for-who-grid { grid-template-columns: 1fr; }
       .format-grid { grid-template-columns: 1fr; }
       .semester-grid { grid-template-columns: 1fr; }
@@ -387,6 +408,7 @@
 
   <!-- FOR WHO -->
   <section class="section" id="for-who" style="min-height:auto; padding:100px 24px;">
+    <div class="float-img a"><img src="/images/academy7.jpg" alt=""></div>
     <div class="for-who-inner">
       <span class="eyebrow reveal" style="display:block; text-align:center;">Is This For You?</span>
       <h2 class="reveal" style="margin:0 auto 0; text-align:center;">You're closer than you think.</h2>
@@ -423,6 +445,7 @@
   <!-- WHAT YOU GET -->
   <section class="section" id="what-you-get">
     <div class="float-img a"><img src="/images/academy4.jpg" alt=""></div>
+    <div class="float-img b"><img src="/images/academy8.jpg" alt=""></div>
     <span class="eyebrow reveal">What You Get</span>
     <h2 class="reveal">Everything you need.<br>Nothing you don't.</h2>
     <p class="tagline reveal">Two semesters of intensive masterminds with the speakers who've already built what you're building.</p>
@@ -483,6 +506,7 @@
 
   <!-- QUOTE -->
   <section class="section" id="quote" style="min-height:auto; padding:100px 24px;">
+    <div class="float-img a"><img src="/images/academy9.jpg" alt=""></div>
     <div class="quote-inner reveal">
       <div class="quote-mark">&ldquo;</div>
       <p class="quote-text">What I learned not only taught me how to put together a great keynote — it gave me the ideas for the sample chapter that got me my book deal with Harper Collins.</p>
@@ -495,6 +519,7 @@
 
   <!-- FORMAT -->
   <section class="section light" id="format" style="min-height:auto; padding:100px 24px;">
+    <div class="float-img a"><img src="/images/academy10.jpg" alt=""></div>
     <div class="format-inner">
       <span class="eyebrow reveal" style="display:block; text-align:center;">How It Works</span>
       <h2 class="reveal" style="margin:0 auto; text-align:center; color:var(--gray-4);">Built for working professionals.</h2>
@@ -526,6 +551,7 @@
 
   <!-- SCHEDULE -->
   <section class="section" id="schedule" style="min-height:auto; padding:100px 24px;">
+    <div class="float-img a"><img src="/images/academy11.jpg" alt=""></div>
     <div class="schedule-inner">
       <span class="eyebrow reveal" style="display:block; text-align:center;">2025–2026 Schedule</span>
       <h2 class="reveal" style="margin:0 auto; text-align:center;">Two semesters.<br>One transformation.</h2>
@@ -576,6 +602,7 @@
 
   <!-- TESTIMONIALS -->
   <section class="section" id="testimonials" style="min-height:auto; padding:100px 24px;">
+    <div class="float-img a"><img src="/images/academy6.jpg" alt=""></div>
     <div class="testimonials-inner">
       <span class="eyebrow reveal" style="display:block; text-align:center;">What Members Say</span>
       <h2 class="reveal" style="margin:0 auto; text-align:center;">Real results.<br>Real speakers.</h2>
