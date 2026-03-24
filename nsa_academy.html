@@ -346,6 +346,33 @@
     .foot-logo { height: 36px; width: auto; background: rgba(255,255,255,0.12); border-radius: 6px; padding: 3px 6px; filter: brightness(0.9); }
     .foot-brand span { color: rgba(255,255,255,.3); font-size: .72rem; }
 
+    /* ─── VIDEO ENDORSEMENTS ─── */
+    #endorsements { background: #0a0a0a; min-height: auto; padding: 100px 24px; }
+    .endorsements-inner { max-width: 780px; margin: 0 auto; width: 100%; }
+    .video-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin-top: 48px;
+    }
+    .video-card {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      transition: border-color .22s;
+    }
+    .video-card:hover { border-color: rgba(0,113,227,.35); }
+    .video-wrap {
+      position: relative; padding-bottom: 56.25%; height: 0;
+      overflow: hidden;
+    }
+    .video-wrap iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    @media (max-width: 640px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 760px) {
       #hero .float-img.a { width: 190px; height: 250px; left: 2%; top: 18%; }
@@ -363,6 +390,7 @@
       .nav-logo-img { height: 22px; }
     }
   </style>
+  <script src="https://player.vimeo.com/api/player.js"></script>
 </head>
 <body>
 
@@ -374,6 +402,7 @@
         <li><a href="#for-who">Is This For Me?</a></li>
         <li><a href="#what-you-get">What You Get</a></li>
         <li><a href="#format">Format</a></li>
+        <li><a href="#endorsements">Endorsements</a></li>
         <li><a href="#schedule">Schedule</a></li>
         <li><a href="/">← Main Site</a></li>
       </ul>
@@ -625,6 +654,37 @@
           <div style="font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin-bottom:14px;">The Real Value</div>
           <p class="testi-quote" style="font-style:normal; color:rgba(255,255,255,.7);">"The choices you make for the investment of your time, talent and treasure create your future. The Speakers Academy provides the road map to that future."</p>
           <div class="testi-attr">NSA SoCal Academy Directors</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO ENDORSEMENTS -->
+  <section class="section" id="endorsements">
+    <div class="endorsements-inner">
+      <span class="eyebrow reveal" style="display:block; text-align:center;">Hear It From Them</span>
+      <h2 class="reveal" style="margin:0 auto; text-align:center;">Past intake.<br>In their own words.</h2>
+      <p style="font-size:clamp(1rem,1.8vw,1.2rem); font-weight:300; line-height:1.7; color:rgba(255,255,255,.45); max-width:48ch; margin:18px auto 0; text-align:center;" class="reveal">Academy members share what the experience meant for their speaking career.</p>
+      <div class="video-grid reveal">
+        <div class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://player.vimeo.com/video/856210266?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="NSA SoCal Academy Endorsement 1"></iframe>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://player.vimeo.com/video/856210443?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="NSA SoCal Academy Endorsement 2"></iframe>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://player.vimeo.com/video/856210555?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="NSA SoCal Academy Endorsement 3"></iframe>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-wrap">
+            <iframe src="https://player.vimeo.com/video/856210714?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" title="NSA SoCal Academy Endorsement 4"></iframe>
+          </div>
         </div>
       </div>
     </div>
