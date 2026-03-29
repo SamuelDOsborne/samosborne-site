@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Sam Osborne | The Demartini Method for High-Stakes Leadership</title>
-<meta name="description" content="Sam Osborne applies the Demartini Method to high-stakes leadership — equipping executives and teams to dissolve reactivity, dissolve resentment, and lead with precision when the pressure is highest."/>
+<meta name="description" content="Sam Osborne applies the Demartini Method to high-stakes leadership — equipping executives and teams to dissolve reactivity, dissolve resentment, and lead with clarity when the pressure is highest."/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,14 +26,13 @@
   --off:      #f0ede8;
 }
 
-/* Apple uses SF Pro — we approximate with Inter at tight tracking & specific weights */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: var(--charcoal);
   color: var(--light);
-  overflow-x: clip;                /* clip vs hidden: doesn't create scroll container, preserves iOS momentum */
+  overflow-x: clip;
   max-width: 100%;
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
@@ -54,7 +53,7 @@ img { display: block; max-width: 100%; }
 .cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(240,237,232,.32); border-radius: 50%; position: absolute; transform: translate(-50%,-50%); transition: width .24s ease, height .24s ease, border-color .24s ease; }
 
 /* ═══════════════════════════════════
-   NAV  — Apple nav bar style
+   NAV
 ═══════════════════════════════════ */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 1050;
@@ -70,11 +69,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   max-width: 1400px; margin: 0 auto; padding: 0 40px;
   height: 100%; display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo {
-  font-size: 17px; font-weight: 600;
-  letter-spacing: -.022em;          /* Apple nav tightness */
-  color: var(--off);
-}
+.nav-logo { font-size: 17px; font-weight: 600; letter-spacing: -.022em; color: var(--off); }
 .nav-links { display: flex; gap: 30px; list-style: none; }
 .nav-links a {
   color: rgba(245,245,247,.78); font-size: 13px; font-weight: 400;
@@ -86,10 +81,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   content: ""; position: absolute; left: 0; right: 0; bottom: 2px;
   height: 2px; background: var(--gold); border-radius: 999px;
 }
-.nav-cta {
-  font-size: 13px; font-weight: 500; letter-spacing: -.01em;
-  color: var(--gold);
-}
+.nav-cta { font-size: 13px; font-weight: 500; letter-spacing: -.01em; color: var(--gold); }
 .nav-cta:hover { color: var(--white); }
 .mobile-toggle {
   display: none; background: none; border: none;
@@ -100,7 +92,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .mobile-toggle.is-open { transform: rotate(90deg); }
 
 /* ═══════════════════════════════════
-   HERO  — Apple split hero
+   HERO
 ═══════════════════════════════════ */
 .hero {
   height: 100vh; position: relative; overflow: hidden;
@@ -124,27 +116,19 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
   color: rgba(240,237,232,.38);
 }
-.hero-stars {
-  position: absolute; bottom: 36px; left: 36px; z-index: 2;
-  font-size: 13px; letter-spacing: 3px; color: var(--gold);
-}
+.hero-stars { position: absolute; bottom: 36px; left: 36px; z-index: 2; font-size: 13px; letter-spacing: 3px; color: var(--gold); }
 .hero-copy {
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 0 72px 80px 52px; position: relative; z-index: 2;
 }
-
-/* Apple-style hero kicker — tiny caps */
 .hero-kicker {
   font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 16px;
   opacity: 0; animation: riseIn .7s .3s ease forwards;
 }
-/* Apple hero headline — heavy, ultra-tight tracking */
 .hero-h1 {
   font-size: clamp(2.8rem, 5.2vw, 5.8rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -.04em;          /* tight like SF Pro Display */
+  font-weight: 700; line-height: 1.05; letter-spacing: -.04em;
   color: var(--white);
   opacity: 0; animation: riseIn .9s .46s ease forwards;
 }
@@ -169,7 +153,6 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 @keyframes riseIn { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
 @keyframes scrollPulse { 0%,100% { opacity:.4; } 50% { opacity:1; } }
 
-/* Buttons */
 .btn-primary {
   display: inline-block; background: var(--slate); color: var(--white);
   padding: 13px 28px; border-radius: 980px; font-size: 14px; font-weight: 600;
@@ -210,14 +193,12 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .section-light { background: var(--warm); color: var(--ink); }
 .section-light p { color: var(--muted); }
 
-/* Apple-style eyebrow — tiny, spaced, muted */
 .eyebrow {
   font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 14px; display: block;
 }
 .section-light .eyebrow { color: var(--slate); }
 
-/* Apple headline scale: big, heavy, -.04em tracking */
 .t-hero  { font-size: clamp(3rem, 7vw, 7rem);   font-weight: 700; line-height: 1.04; letter-spacing: -.04em; }
 .t-xl    { font-size: clamp(2.4rem, 5vw, 5rem);  font-weight: 700; line-height: 1.05; letter-spacing: -.035em; }
 .t-lg    { font-size: clamp(1.8rem, 3.5vw, 3.4rem); font-weight: 700; line-height: 1.07; letter-spacing: -.03em; }
@@ -229,7 +210,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .section-light .t-body { color: rgba(29,29,31,.62); }
 
 /* ═══════════════════════════════════
-   INTRO STATEMENT  — Apple "drop quote"
+   INTRO
 ═══════════════════════════════════ */
 .intro-wrap { text-align: center; padding: 80px 40px 60px; background: var(--warm); }
 .intro-statement {
@@ -260,7 +241,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .kn-rule { width: 24px; height: 1px; background: rgba(212,165,116,.38); margin-bottom: 16px; }
 
 /* ═══════════════════════════════════
-   DETAILS  — same JS, Apple-styled
+   DETAILS
 ═══════════════════════════════════ */
 .details {
   border: 1px solid rgba(0,0,0,.08); border-radius: 13px;
@@ -355,7 +336,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .dot.active { background: var(--gold); }
 
 /* ═══════════════════════════════════
-   PROOF — editorial sticky
+   PROOF
 ═══════════════════════════════════ */
 .proof-wrap { display: grid; grid-template-columns: 200px 1fr; gap: 80px; align-items: start; border-top: 1px solid rgba(255,255,255,.06); padding: 120px 80px; }
 .proof-sticky { position: sticky; top: 80px; }
@@ -489,26 +470,15 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 @media (max-width: 768px) {
   .nav-inner { padding: 0 20px; }
   .section { padding: 80px 20px; }
-  .hero {
-    display: block; height: auto; overflow: hidden;
-    padding: 0 0 56px; margin-top: 52px;
-  }
-  .hero-visual {
-    display: block;
-    height: 52svh;
-    width: 100%;
-    overflow: hidden;
-  }
+  .hero { display: block; height: auto; overflow: hidden; padding: 0 0 56px; margin-top: 52px; }
+  .hero-visual { display: block; height: 52svh; width: 100%; overflow: hidden; }
   .hero-visual img {
     width: 100%; height: 120%;
     object-fit: cover; object-position: center 15%;
     filter: brightness(.84375) contrast(1.1) saturate(.8);
     transform: none; animation: none;
   }
-  .hero-visual::after {
-    background:
-      linear-gradient(180deg, rgba(26,26,26,.18) 0%, transparent 30%, transparent 50%, var(--charcoal) 100%);
-  }
+  .hero-visual::after { background: linear-gradient(180deg, rgba(26,26,26,.18) 0%, transparent 30%, transparent 50%, var(--charcoal) 100%); }
   .hero-credential, .hero-stars { left: 20px; }
   .hero-copy { padding: 32px 20px 0; }
   .hero-h1 { font-size: clamp(2.4rem, 9vw, 3.6rem); opacity: 1; animation: none; }
@@ -516,16 +486,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   .form-grid { grid-template-columns: 1fr; }
   .testimonials-section { padding: 56px 20px; }
   footer { padding: 44px 20px 34px; }
-
-  /* Smooth scroll: disable will-change on heavy elements at mobile to reduce paint layers */
-  .hero-visual img,
-  #aboutImg,
-  #stagePhoto {
-    will-change: auto;
-    transform: none !important;   /* kill parallax translateY on mobile */
-  }
-  /* Prevent any fixed-position element from trapping scroll */
-  .cursor { display: none; }      /* hide cursor on touch devices */
+  .hero-visual img, #aboutImg, #stagePhoto { will-change: auto; transform: none !important; }
+  .cursor { display: none; }
 }
 </style>
 </head>
@@ -560,7 +522,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <span class="hero-kicker">Sam Osborne · Demartini Method</span>
     <h1 class="hero-h1">One framework.<br><span>Every conflict.</span></h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub">Corporate keynote speaker applying the Demartini Method to high-stakes leadership — equipping executives and teams to lead with precision when the pressure is highest.</p>
+    <p class="hero-sub">Corporate keynote speaker applying the Demartini Method to high-stakes leadership — equipping executives and teams to read the room with accuracy and lead without reactivity when the pressure is highest.</p>
     <p class="hero-award">Rated Best of Conference · CAI National Law Seminar 2026 · 4.7/5 · 39 evaluations</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Book a Keynote</a>
@@ -582,14 +544,14 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <span class="marquee-item">Perceptual Balance <span class="mdot"></span></span>
     <span class="marquee-item">Values Hierarchy <span class="mdot"></span></span>
     <span class="marquee-item">Live Demonstrations <span class="mdot"></span></span>
-    <span class="marquee-item">Precision is the Competitive Advantage <span class="mdot"></span></span>
+    <span class="marquee-item">Perception is the Competitive Advantage <span class="mdot"></span></span>
     <span class="marquee-item">Demartini Method <span class="mdot"></span></span>
     <span class="marquee-item">Conflict Transformation <span class="mdot"></span></span>
     <span class="marquee-item">High-Stakes Leadership <span class="mdot"></span></span>
     <span class="marquee-item">Perceptual Balance <span class="mdot"></span></span>
     <span class="marquee-item">Values Hierarchy <span class="mdot"></span></span>
     <span class="marquee-item">Live Demonstrations <span class="mdot"></span></span>
-    <span class="marquee-item">Precision is the Competitive Advantage <span class="mdot"></span></span>
+    <span class="marquee-item">Perception is the Competitive Advantage <span class="mdot"></span></span>
   </div>
 </div>
 
@@ -617,8 +579,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <div class="kn-title">The Conflict Advantage</div>
         <div class="kn-sub">Own the Trigger. Own the Room.</div>
         <div class="kn-rule"></div>
-        <details class="details"><summary><span>The Premise</span><span class="chev">▼</span></summary><div class="details-body"><p>Specific people trigger reactivity that erodes your composure. The charge is not the problem — it's data. Precision perception transforms it into a leadership instrument. The people who trigger you most are showing you where your perception is imbalanced — not where your authority is weak.</p></div></details>
-        <details class="details"><summary><span>The Three Perceptual Shifts</span><span class="chev">▼</span></summary><div class="details-body"><ul><li><strong>The Charge Is the Clue</strong> — What triggers you reveals what you haven't balanced in your perception.</li><li><strong>Precision Is the Process</strong> — The Demartini Method applies systematic questioning to dissolve the imbalance. Methodical, repeatable, permanent.</li><li><strong>Conflict Becomes Command</strong> — When the charge dissolves, conflict becomes something your leadership moves through cleanly.</li></ul></div></details>
+        <details class="details"><summary><span>The Premise</span><span class="chev">▼</span></summary><div class="details-body"><p>Specific people trigger reactivity that erodes your composure. The charge is not the problem — it's data. Accurate perception transforms it into a leadership instrument. The people who trigger you most are showing you where your perception is imbalanced — not where your authority is weak.</p></div></details>
+        <details class="details"><summary><span>The Three Perceptual Shifts</span><span class="chev">▼</span></summary><div class="details-body"><ul><li><strong>The Charge Is the Clue</strong> — What triggers you reveals what you haven't balanced in your perception.</li><li><strong>Perception Is the Process</strong> — The Demartini Method applies systematic questioning to dissolve the imbalance. Methodical, repeatable, permanent.</li><li><strong>Conflict Becomes Command</strong> — When the charge dissolves, conflict becomes something your leadership moves through cleanly.</li></ul></div></details>
       </div>
 
       <div class="kn-card">
@@ -715,15 +677,17 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       </div>
       <div class="reveal reveal-right">
         <span class="eyebrow">About Sam Osborne</span>
-        <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Precision is the competitive advantage.</h2>
+        <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Perception is the competitive advantage.</h2>
         <div class="split-rule"></div>
-        <p class="t-body" style="max-width:38ch;">Most leadership development teaches you to manage the reaction. Sam teaches something different: the charge itself is data — and when you read it with precision, conflict stops being a threat and becomes the most accurate diagnostic tool you have.</p>
-        <p class="about-tagline" style="margin-top:20px;">Not motivation. Perceptual precision.</p>
+        <p class="t-body" style="max-width:38ch;">Most leadership development teaches you to manage the reaction. Sam teaches something different: the charge itself is data — and when you read it with accuracy, conflict stops being a threat and becomes the most precise diagnostic tool you have.</p>
+        <p class="about-tagline" style="margin-top:20px;">Not motivation. Perceptual accuracy.</p>
         <details class="details" style="margin-top:18px; background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1);">
           <summary><span>Read more</span><span class="chev">▼</span></summary>
           <div class="details-body">
             <p>Leadership breakdown is rarely a competence problem. It is almost always a perception problem — and perception is systematic, not fixed.</p>
-            <p style="margin-top:10px;">His conviction: the leaders who will define the next decade are not the most resilient — they are the most precise. Precision in perception. Precision in values. Precision under pressure.</p>
+            <p style="margin-top:10px;">After recovering from near blindness, Sam Osborne learned that mastery requires seeing both sides of every challenge. That insight led him to the work of Dr. John Demartini — and to applying that same level of accuracy to conflict that a surgeon applies to diagnosis.</p>
+            <p style="margin-top:10px;">The result is professional development that transcends daily life — not just how leaders perform, but how they see, respond, and lead under pressure.</p>
+            <p style="margin-top:10px;">His conviction: perception is the competitive advantage.</p>
           </div>
         </details>
       </div>
@@ -862,7 +826,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 <section class="section section-light" id="fees">
   <div class="section-content">
     <h2 class="reveal t-xl" style="color:var(--ink); text-align:center; margin-bottom:10px;">Speaking Fees</h2>
-    <p class="reveal" style="text-align:center; max-width:52ch; margin:0 auto 0;" class="t-body-dark">Investment in systematic transformation through the Demartini Method.</p>
+    <p class="reveal" style="text-align:center; max-width:52ch; margin:0 auto 0;" class="t-body-dark">Your team leaves with a method, not a mood — and the perceptual mechanics to use it the moment they're back in the room.</p>
     <div class="fees-grid reveal-stagger">
       <div class="fee-card">
         <h3>Keynote Investment</h3>
@@ -915,7 +879,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 <section class="section section-dark" style="padding:80px 40px;text-align:center;">
   <div class="section-content reveal">
     <p style="font-size:clamp(1.4rem,3.2vw,3rem);font-weight:700;letter-spacing:-.04em;line-height:1.06;max-width:18ch;margin:0 auto 18px;color:var(--off);">The charge your team is managing right now is not a people problem.</p>
-    <p class="t-body" style="max-width:44ch;margin:0 auto 36px;">It's a perceptual imbalance. And it has a systematic solution.</p>
+    <p class="t-body" style="max-width:44ch;margin:0 auto 36px;">It's a perceptual imbalance. And it has a name.</p>
     <a href="#contact" class="btn-primary" style="font-size:15px;padding:15px 40px;">Book a Keynote</a>
   </div>
 </section>
@@ -975,7 +939,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 <!-- FOOTER -->
 <footer>
   <div class="footer-content">
-    <div class="footer-bio"><p>Sam Osborne is a Demartini Method Facilitator and corporate keynote speaker. He applies the Method to the four charges that most reliably undermine leadership: outward resentment, outward infatuation, inward infatuation, and inward resentment. Each keynote includes a live demonstration. Each program delivers a framework that works on Monday morning.</p></div>
+    <div class="footer-bio"><p>Sam Osborne is a Demartini Method Facilitator and corporate keynote speaker. He applies the Method to the four charges that most reliably undermine leadership: outward resentment, outward infatuation, inward infatuation, and inward resentment. Each keynote includes a live demonstration. Each program delivers a framework that works on Monday morning. His conviction: perception is the competitive advantage.</p></div>
     <div class="social-links">
       <a href="https://www.youtube.com/c/SelfWorthSamImposterPhenomenonExpert/" target="_blank"><img src="images/youtube.png" alt="YouTube"></a>
       <a href="https://www.linkedin.com/in/sam-osborne-usa/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
