@@ -146,6 +146,27 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   opacity: 0; animation: riseIn .9s .46s ease forwards;
 }
 .hero-h1 span { color: rgba(245,245,247,.45); font-weight: 300; }
+
+.hero-advantage {
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,.95);
+  margin-top: 14px;
+  opacity: 0;
+  animation: riseIn .7s .5s ease forwards;
+}
+
+.hero-signature {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: rgba(240,237,232,.4);
+  margin-top: 6px;
+  opacity: 0;
+  animation: riseIn .7s .6s ease forwards;
+}
+
 .hero-rule { width: 36px; height: 1px; background: rgba(212,165,116,.5); margin: 22px 0; opacity: 0; animation: riseIn .7s .6s ease forwards; }
 .hero-sub {
   font-size: clamp(.98rem, 1.45vw, 1.12rem); font-weight: 300;
@@ -537,7 +558,9 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <span class="hero-proof-text">Rated Best of Conference</span>
       <span class="hero-proof-stars">★★★★★</span>
     </div>
-    <h1 class="hero-h1">Conflict Transformation for Leaders<br><span>Own the Trigger. Own the Room.</span></h1>
+    <h1 class="hero-h1">Conflict Transformation for Leaders</h1>
+    <p class="hero-advantage">Get the Conflict Advantage.</p>
+    <p class="hero-signature">Own the Trigger. Own the Room.</p>
 
     <div class="hero-rule"></div>
 
