@@ -97,25 +97,39 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   position: relative; overflow: hidden;
 }
 .hero-visual { position: relative; overflow: hidden; }
-.hero-visual img {
+.hero-slide {
+  position: absolute; inset: 0; opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide img {
   width: 100%; height: 115%; object-fit: cover; object-position: center 20%;
-  filter: brightness(.85) contrast(1.1) saturate(.75);
-  transform: scale(1.05); animation: slowZoom 22s ease-in-out forwards;
+  filter: brightness(.82) contrast(1.1) saturate(.72);
+  transform: scale(1.06); animation: slowZoom 22s ease-in-out forwards;
   will-change: transform;
 }
-@keyframes slowZoom { from { transform: scale(1.05); } to { transform: scale(1.00); } }
+@keyframes slowZoom { from { transform: scale(1.06); } to { transform: scale(1.00); } }
 .hero-visual::after {
-  content: ''; position: absolute; inset: 0;
+  content: ''; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(90deg, transparent 55%, var(--charcoal) 100%),
               linear-gradient(180deg, rgba(26,26,26,.15) 0%, transparent 36%, transparent 64%, rgba(26,26,26,.82) 100%);
 }
-.hero-credential {
-  position: absolute; bottom: 58px; left: 36px; z-index: 2;
-  font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
-  color: rgba(240,237,232,.38);
+.hero-slide-dots {
+  position: absolute; bottom: 28px; left: 36px; z-index: 3;
+  display: flex; gap: 7px; align-items: center;
+}
+.hero-slide-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(240,237,232,.28); transition: background .4s, transform .4s; cursor: pointer;
+}
+.hero-slide-dot.active { background: var(--gold); transform: scale(1.3); }
+.hero-slide-caption {
+  position: absolute; bottom: 60px; left: 36px; z-index: 3;
+  font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(240,237,232,.32); transition: opacity .6s;
 }
 .hero-route-badge {
-  position: absolute; top: 36px; left: 36px; z-index: 2;
+  position: absolute; top: 36px; left: 36px; z-index: 3;
   background: rgba(26,26,26,.65); border: 1px solid rgba(212,165,116,.3);
   border-radius: 999px; padding: 6px 14px;
   font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
@@ -227,8 +241,69 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 }
 
 /* ═══════════════════════════════════
-   ROUTE MAP
+   LANDSCAPE PHOTO BREAKS
 ═══════════════════════════════════ */
+.photo-break { width: 100%; overflow: hidden; line-height: 0; position: relative; }
+.photo-break img {
+  width: 100%; height: auto; display: block;
+  filter: brightness(.78) contrast(1.08) saturate(.72);
+}
+.photo-break-tall { height: 520px; overflow: hidden; }
+.photo-break-tall img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+.photo-break-caption {
+  position: absolute; bottom: 20px; left: 32px;
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(240,237,232,.3);
+}
+.photo-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.photo-grid-2 img { width: 100%; height: 380px; object-fit: cover; filter: brightness(.78) contrast(1.08) saturate(.72); }
+
+/* ═══════════════════════════════════
+   GUIDE SECTION
+═══════════════════════════════════ */
+.guide-section { background: var(--charcoal); padding: 100px 40px; }
+.guide-inner { max-width: 1100px; margin: 0 auto; }
+.guide-split { display: grid; grid-template-columns: 420px 1fr; gap: 80px; align-items: start; }
+.guide-img-stack { position: relative; }
+.guide-img-main {
+  width: 100%; aspect-ratio: 4/5; overflow: hidden; border-radius: 4px;
+}
+.guide-img-main img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  filter: brightness(.9) contrast(1.08) saturate(.78);
+  transition: transform 6s ease;
+}
+.guide-img-main:hover img { transform: scale(1.04); }
+.guide-img-inset {
+  position: absolute; bottom: -28px; right: -28px;
+  width: 48%; aspect-ratio: 1; overflow: hidden; border-radius: 4px;
+  border: 3px solid var(--charcoal);
+}
+.guide-img-inset img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(.88) contrast(1.06) saturate(.75);
+}
+.guide-copy { padding-top: 8px; }
+.guide-rule { width: 36px; height: 1px; background: rgba(212,165,116,.45); margin: 24px 0; }
+.guide-body { font-size: clamp(.92rem,1.3vw,1.05rem); font-weight: 300; line-height: 1.72; letter-spacing: -.005em; color: rgba(240,237,232,.55); margin-bottom: 16px; }
+.guide-credentials { display: grid; gap: 0; margin-top: 32px; border: 1px solid rgba(255,255,255,.07); border-radius: 14px; overflow: hidden; }
+.guide-cred-row { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start; padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.guide-cred-row:last-child { border-bottom: none; }
+.guide-cred-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); opacity: .65; margin-top: 6px; }
+.guide-cred-text { font-size: 13px; line-height: 1.65; color: rgba(240,237,232,.52); letter-spacing: -.005em; }
+.guide-cred-text strong { color: rgba(240,237,232,.82); font-weight: 500; }
+
+@media (max-width: 1100px) {
+  .guide-split { grid-template-columns: 1fr; gap: 48px; }
+  .guide-img-stack { max-width: 480px; }
+  .photo-grid-2 img { height: 260px; }
+}
+@media (max-width: 768px) {
+  .guide-img-inset { right: -12px; bottom: -12px; }
+  .photo-break-tall { height: 320px; }
+  .photo-grid-2 { grid-template-columns: 1fr; }
+  .photo-grid-2 img { height: 240px; }
+}
 .route-container {
   background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
   border-radius: 20px; overflow: hidden; padding: 40px 32px;
@@ -498,10 +573,23 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 
 <!-- HERO -->
 <section class="hero" id="top-hero">
-  <div class="hero-visual">
-    <img src="images/hidden-camino-hero.jpg" alt="The Camino del Norte coastal path, northern Spain">
+  <div class="hero-visual" id="heroVisual">
+    <div class="hero-slide active" id="slide0">
+      <img src="images/camino-norte-coast-1.jpg" alt="The Camino del Norte coastal path above the Bay of Biscay">
+    </div>
+    <div class="hero-slide" id="slide1">
+      <img src="images/camino-norte-cliffs-2.jpg" alt="Coastal cliffs and green hills of the Camino del Norte">
+    </div>
+    <div class="hero-slide" id="slide2">
+      <img src="images/camino-norte-path-3.jpg" alt="Pilgrim path winding through Basque Country landscape">
+    </div>
     <div class="hero-route-badge">Camino del Norte · Spain</div>
-    <span class="hero-credential">Annual departure · 8 places only</span>
+    <div class="hero-slide-caption" id="slideCaption">Coastal path above the Bay of Biscay</div>
+    <div class="hero-slide-dots">
+      <div class="hero-slide-dot active" onclick="goSlide(0)"></div>
+      <div class="hero-slide-dot" onclick="goSlide(1)"></div>
+      <div class="hero-slide-dot" onclick="goSlide(2)"></div>
+    </div>
   </div>
   <div class="hero-copy">
     <span class="hero-kicker">The Hidden Camino · Sam Osborne</span>
@@ -555,6 +643,12 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <p style="font-size:1rem; font-weight:300; letter-spacing:-.01em; color:var(--muted); max-width:48ch; margin:0 auto 32px; line-height:1.68;">Physical exhaustion lowers psychological defences. The landscape does half the facilitation. By the time you arrive each evening, something has already shifted — before the work formally begins.</p>
     <a href="#invest" class="btn-primary" style="border:1.5px solid rgba(0,0,0,.1);">Express Your Interest</a>
   </div>
+</div>
+
+<!-- PHOTO BREAK 1: Twin landscape -->
+<div class="photo-grid-2">
+  <img src="images/camino-norte-landscape-a.jpg" alt="Green coastal hills of northern Spain">
+  <img src="images/camino-norte-landscape-b.jpg" alt="Atlantic coastline from the Camino del Norte">
 </div>
 
 <!-- ROUTE MAP -->
@@ -720,6 +814,74 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     </div>
   </div>
 </section>
+
+<!-- PHOTO BREAK 2: Full-bleed landscape -->
+<div class="photo-break photo-break-tall" style="position:relative;">
+  <img src="images/camino-norte-evening.jpg" alt="Late afternoon light on the Camino del Norte">
+  <div class="photo-break-caption">Camino del Norte · Basque Country, Spain</div>
+</div>
+
+<!-- SAM AS GUIDE -->
+<section class="guide-section" id="guide">
+  <div class="guide-inner">
+    <div class="reveal" style="margin-bottom:52px;">
+      <span class="eyebrow">Your Guide</span>
+      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Sam Osborne.</h2>
+    </div>
+    <div class="guide-split">
+      <div class="guide-img-stack reveal reveal-left">
+        <div class="guide-img-main">
+          <img src="images/sam-osborne-corporate-keynote-speaker.jpg" alt="Sam Osborne — Demartini Method Facilitator">
+        </div>
+        <div class="guide-img-inset">
+          <img src="images/sam-osborne-stage4.jpg" alt="Sam Osborne facilitating on stage">
+        </div>
+      </div>
+      <div class="guide-copy reveal reveal-right">
+        <span class="eyebrow">Narrative</span>
+        <p class="guide-body">Sam was pulled in two directions as a kid. One was outward — toward space, toward what governs it, what holds it together. The other was inward — toward the patterns of human perception, emotion, and behaviour. He didn't know then that those were the same question.</p>
+        <p class="guide-body">Before the keynote stage, he was a school teacher, a professional beatboxer, a DJ, a living statue performer. He has held the attention of every kind of audience, under every kind of condition. He knows what it means to be physically present in something uncomfortable and find the order inside it.</p>
+        <p class="guide-body">He discovered the Demartini Method in 2014. Over the decade that followed, he attended the Breakthrough Experience multiple times — including April 2026. He has studied under John Demartini and is pursuing Master Facilitator designation. The Hidden Camino is the place where his deepest intellectual and physical interests converge: the hidden order of the psyche, revealed through the hidden order of an ancient road.</p>
+        <div class="guide-rule"></div>
+        <p class="guide-body" style="color:rgba(240,237,232,.38); font-size:.88rem; margin-bottom:20px;">He will walk every kilometre with you. He will facilitate every evening. He will not ask you to go anywhere he has not been.</p>
+        <div class="guide-credentials">
+          <div class="guide-cred-row">
+            <div class="guide-cred-dot"></div>
+            <div class="guide-cred-text"><strong>Demartini Method Facilitator</strong> — pursuing Master Facilitator designation, Demartini Institute</div>
+          </div>
+          <div class="guide-cred-row">
+            <div class="guide-cred-dot"></div>
+            <div class="guide-cred-text"><strong>Breakthrough Experience</strong> — attended three times, most recently April 2026 with Dr John Demartini</div>
+          </div>
+          <div class="guide-cred-row">
+            <div class="guide-cred-dot"></div>
+            <div class="guide-cred-text"><strong>Best of Conference</strong> — CAI National Law Seminar 2026, 4.7/5 across 39 evaluations</div>
+          </div>
+          <div class="guide-cred-row">
+            <div class="guide-cred-dot"></div>
+            <div class="guide-cred-text"><strong>NSA SoCal</strong> — Director of Marketing, National Speakers Association Southern California chapter</div>
+          </div>
+          <div class="guide-cred-row">
+            <div class="guide-cred-dot"></div>
+            <div class="guide-cred-text"><strong>Academic formation</strong> — Double major Philosophy &amp; English, Murdoch University; Graduate Diploma of Education</div>
+          </div>
+          <div class="guide-cred-row">
+            <div class="guide-cred-dot"></div>
+            <div class="guide-cred-text"><strong>Intellectual lineage</strong> — Over a decade of study across Demartini Method, Anthroposophy, Jungian depth psychology, hermetic tradition, and initiatory practice — rendered as a unified forty-year inquiry into perception and transformation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BREAK 3: Single full-width -->
+<div class="photo-break" style="position:relative;">
+  <div class="photo-break-tall">
+    <img src="images/camino-norte-sunrise.jpg" alt="Sunrise over the Camino del Norte coastal path">
+    <div class="photo-break-caption">Irún to Pasai Donibane · Day 2</div>
+  </div>
+</div>
 
 <!-- DAY BY DAY -->
 <section class="section section-dark" id="structure">
@@ -1047,13 +1209,39 @@ function toggleFaq(btn) {
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => obs.observe(el));
 })();
 
-// PARALLAX (hero image only, desktop)
+// HERO SLIDESHOW
+const slideCaptions = [
+  'Coastal path above the Bay of Biscay',
+  'Sea cliffs of the Basque Coast',
+  'Pilgrim path through Basque Country'
+];
+let currentSlide = 0;
+let slideTimer;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-slide-dot');
+const caption = document.getElementById('slideCaption');
+
+function goSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  if (caption) caption.textContent = slideCaptions[currentSlide];
+  clearInterval(slideTimer);
+  slideTimer = setInterval(() => goSlide(currentSlide + 1), 6000);
+}
+slideTimer = setInterval(() => goSlide(currentSlide + 1), 6000);
+
+// PARALLAX (desktop only, excluded on mobile)
 (function() {
-  const hi = document.querySelector('.hero-visual img');
   const mob = () => window.innerWidth <= 768;
   function px() {
-    if (mob() || !hi) return;
-    hi.style.transform = 'translateY(' + (window.scrollY * .3) + 'px)';
+    if (mob()) return;
+    const sy = window.scrollY;
+    document.querySelectorAll('.hero-slide img').forEach(img => {
+      img.style.transform = 'translateY(' + (sy * .28) + 'px)';
+    });
   }
   window.addEventListener('scroll', px, { passive: true });
   window.addEventListener('resize', px, { passive: true });
