@@ -448,7 +448,7 @@
     <div class="container nav-inner">
       <a class="nav-brand" href="#top">Sam Osborne</a>
       <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="#speaking">Speaking</a>
         <a href="#fit">Who It’s For</a>
         <a href="#method">The Method</a>
@@ -724,5 +724,29 @@
       <div><a href="mailto:sam@samosborne.net">sam@samosborne.net</a></div>
     </div>
   </footer>
+
+  <script>
+const mt = document.getElementById('menuToggle');
+const nl = document.getElementById('navLinks');
+
+if (mt && nl) {
+  function closeMenu() {
+    nl.classList.remove('active');
+    mt.classList.remove('is-open');
+    mt.innerHTML = '&#9776;';
+  }
+
+  mt.addEventListener('click', () => {
+    const open = nl.classList.toggle('active');
+    mt.classList.toggle('is-open', open);
+    mt.innerHTML = open ? '&#x2715;' : '&#9776;';
+  });
+
+  nl.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+}
+</script>
+  
 </body>
 </html>
