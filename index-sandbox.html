@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -904,8 +905,8 @@
       try {
         const res = await fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
+          headers: { 'Accept': 'application/json' },
+          body: new URLSearchParams(payload)
         });
 
         if (res.ok) {
