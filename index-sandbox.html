@@ -119,11 +119,33 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      position: relative;
     }
     .nav-brand { font-weight: 700; letter-spacing: -.02em; }
-    .nav-links { display: flex; gap: 24px; color: var(--muted); font-size: 14px; }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
     .nav-links a:hover, .nav-cta:hover { color: var(--gold); }
-    .nav-cta { color: var(--gold); font-size: 14px; font-weight: 600; }
+    .nav-cta {
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255,255,255,.2);
+      color: white;
+      font-size: 20px;
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      line-height: 1;
+    }
 
     .hero {
       display: grid;
@@ -436,9 +458,37 @@
       .grid-2,
       .grid-3,
       .grid-4 { grid-template-columns: 1fr; }
+
       .hero-copy { padding: 46px 0 60px; }
       .hero-image { min-height: 420px; }
-      .nav-links { display: none; }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 56px;
+        left: 0;
+        width: 100%;
+        background: rgba(26,26,26,.96);
+        backdrop-filter: blur(18px);
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+        display: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+      }
+
       .form-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -448,7 +498,7 @@
     <div class="container nav-inner">
       <a class="nav-brand" href="#top">Sam Osborne</a>
       <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="#speaking">Speaking</a>
         <a href="#fit">Who It’s For</a>
         <a href="#method">The Method</a>
@@ -724,5 +774,24 @@
       <div><a href="mailto:sam@samosborne.net">sam@samosborne.net</a></div>
     </div>
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('active');
+        menuToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          menuToggle.innerHTML = '&#9776;';
+        });
+      });
+    }
+  </script>
 </body>
 </html>
