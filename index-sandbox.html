@@ -93,6 +93,9 @@
       letter-spacing: -.01em;
       transition: .22s ease;
       border: 1px solid transparent;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
     }
     .btn-primary {
       background: var(--slate);
@@ -102,6 +105,7 @@
     .btn-secondary {
       color: var(--text);
       border-color: rgba(255,255,255,.16);
+      background: transparent;
     }
     .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
 
@@ -399,6 +403,8 @@
       font-size: .98rem;
     }
     .contact-list strong { color: var(--text); }
+
+    /* ── Form ── */
     form {
       border-radius: 24px;
       padding: 30px;
@@ -428,7 +434,33 @@
       color: white;
       padding: 0 14px;
       font: inherit;
+      transition: border-color .18s ease, box-shadow .18s ease;
     }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,165,116,.18);
+    }
+    input.error, select.error, textarea.error {
+      border-color: #e05a5a;
+    }
+
+    /* Date input — style the calendar icon gold */
+    input[type="date"] {
+      appearance: none;
+      -webkit-appearance: none;
+      color-scheme: dark;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1) sepia(1) saturate(2) hue-rotate(10deg) brightness(1.1);
+      cursor: pointer;
+      opacity: 0.72;
+      transition: opacity .15s;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator:hover {
+      opacity: 1;
+    }
+
     textarea { min-height: 140px; padding: 14px; resize: vertical; }
     input::placeholder, textarea::placeholder { color: rgba(245,245,247,.28); }
     select option { color: #111; }
@@ -436,6 +468,28 @@
       margin-top: 14px;
       color: var(--muted-2);
       font-size: .92rem;
+    }
+
+    /* Success / error toast */
+    .form-toast {
+      display: none;
+      margin-top: 16px;
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: .96rem;
+      font-weight: 500;
+    }
+    .form-toast.success {
+      display: block;
+      background: rgba(76,175,100,.15);
+      border: 1px solid rgba(76,175,100,.4);
+      color: #7de89a;
+    }
+    .form-toast.fail {
+      display: block;
+      background: rgba(224,90,90,.12);
+      border: 1px solid rgba(224,90,90,.36);
+      color: #f09090;
     }
 
     footer {
@@ -462,9 +516,7 @@
       .hero-copy { padding: 46px 0 60px; }
       .hero-image { min-height: 420px; }
 
-      .mobile-toggle {
-        display: block;
-      }
+      .mobile-toggle { display: block; }
 
       .nav-links {
         position: absolute;
@@ -479,15 +531,8 @@
         display: none;
         border-bottom: 1px solid var(--line);
       }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        width: 100%;
-      }
+      .nav-links.active { display: flex; }
+      .nav-links a { display: block; width: 100%; }
 
       .form-grid { grid-template-columns: 1fr; }
     }
@@ -500,7 +545,7 @@
       <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
       <div class="nav-links" id="navLinks">
         <a href="#speaking">Speaking</a>
-        <a href="#fit">Who It’s For</a>
+        <a href="#fit">Who It's For</a>
         <a href="#method">The Method</a>
         <a href="#proof">Proof</a>
         <a href="https://samosborne.net/leadership-advisory">Advisory</a>
@@ -684,15 +729,15 @@
       <h2>Real leaders. Real transformation.</h2>
       <div class="quote-stack">
         <div class="quote">
-          <blockquote>“This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure.”</blockquote>
+          <blockquote>"This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure."</blockquote>
           <cite>Augustus Shaw IV, Esq., CCAL — President, College of Community Association Lawyers</cite>
         </div>
         <div class="quote">
-          <blockquote>“One of the best sessions I’ve attended at any conference. Practical tools that immediately changed how I approach conflict.”</blockquote>
+          <blockquote>"One of the best sessions I've attended at any conference. Practical tools that immediately changed how I approach conflict."</blockquote>
           <cite>Dawn Roscoe, AMS, PCAM — VP of Operations, Professional Properties Management</cite>
         </div>
         <div class="quote">
-          <blockquote>“I highly recommend Sam for conferences or leadership events serving professionals who operate in stressful, conflict-rich environments.”</blockquote>
+          <blockquote>"I highly recommend Sam for conferences or leadership events serving professionals who operate in stressful, conflict-rich environments."</blockquote>
           <cite>Brian Butler — President, FirstService Residential Illinois</cite>
         </div>
       </div>
@@ -704,7 +749,7 @@
       <div class="contact-wrap">
         <div class="contact-panel">
           <span class="eyebrow">Booking</span>
-          <h2>Let’s see if this is a fit for your upcoming meeting.</h2>
+          <h2>Let's see if this is a fit for your upcoming meeting.</h2>
           <p>Best suited to conferences, association meetings, leadership events, executive retreats, and professional audiences operating under real pressure.</p>
           <div class="contact-list">
             <div><strong>Best for:</strong> Conferences, association meetings, leadership events, executive retreats, and high-stakes professional audiences</div>
@@ -714,15 +759,15 @@
           <p class="micro">For keynote bookings: <a href="mailto:sam@samosborne.net">sam@samosborne.net</a></p>
         </div>
 
-        <form>
+        <form id="inquiryForm" novalidate>
           <div class="form-grid">
             <div>
-              <label for="name">Your Name</label>
-              <input id="name" type="text" placeholder="First and last name" />
+              <label for="name">Your Name <span style="color:#e05a5a">*</span></label>
+              <input id="name" type="text" placeholder="First and last name" required />
             </div>
             <div>
-              <label for="email">Email Address</label>
-              <input id="email" type="email" placeholder="you@company.com" />
+              <label for="email">Email Address <span style="color:#e05a5a">*</span></label>
+              <input id="email" type="email" placeholder="you@company.com" required />
             </div>
             <div>
               <label for="title">Your Title / Role</label>
@@ -735,6 +780,7 @@
             <div>
               <label for="event-type">Event Type</label>
               <select id="event-type">
+                <option value="">Select event type…</option>
                 <option>Conference keynote</option>
                 <option>Association meeting</option>
                 <option>Leadership retreat</option>
@@ -744,7 +790,7 @@
             </div>
             <div>
               <label for="date">Preferred Event Date</label>
-              <input id="date" type="text" placeholder="MM/DD/YYYY" />
+              <input id="date" type="date" />
             </div>
             <div>
               <label for="location">Event Location</label>
@@ -760,9 +806,10 @@
             </div>
           </div>
           <div class="btn-row">
-            <button class="btn-primary" type="submit">Send Event Inquiry</button>
+            <button class="btn-primary" type="submit" id="submitBtn">Send Event Inquiry</button>
           </div>
-          <p class="form-note">Share the essentials and we’ll confirm fit, availability, and next steps.</p>
+          <p class="form-note">Share the essentials and we'll confirm fit, availability, and next steps.</p>
+          <div id="formToast" class="form-toast"></div>
         </form>
       </div>
     </div>
@@ -776,6 +823,7 @@
   </footer>
 
   <script>
+    /* ── Mobile nav ── */
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -784,7 +832,6 @@
         const isOpen = navLinks.classList.toggle('active');
         menuToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
       });
-
       navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
@@ -792,6 +839,80 @@
         });
       });
     }
+
+    /* ── Form submission ── */
+    const form = document.getElementById('inquiryForm');
+    const toast = document.getElementById('formToast');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showToast(type, msg) {
+      toast.className = 'form-toast ' + type;
+      toast.textContent = msg;
+      toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function clearErrors() {
+      form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+    }
+
+    function validate() {
+      let valid = true;
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+
+      if (!name.value.trim()) {
+        name.classList.add('error');
+        valid = false;
+      }
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        email.classList.add('error');
+        valid = false;
+      }
+      return valid;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      clearErrors();
+      toast.className = 'form-toast'; // hide
+
+      if (!validate()) {
+        showToast('fail', 'Please fill in your name and a valid email address before sending.');
+        return;
+      }
+
+      /* Build the mailto body */
+      const get = id => document.getElementById(id).value.trim();
+      const dateVal = get('date');
+      const formattedDate = dateVal
+        ? new Date(dateVal + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        : 'Not specified';
+
+      const subject = encodeURIComponent('Speaking Inquiry — ' + (get('org') || get('name')));
+      const body = encodeURIComponent(
+        'Name: ' + get('name') + '\n' +
+        'Email: ' + get('email') + '\n' +
+        'Title: ' + (get('title') || 'Not provided') + '\n' +
+        'Organization: ' + (get('org') || 'Not provided') + '\n' +
+        'Event Type: ' + (get('event-type') || 'Not specified') + '\n' +
+        'Preferred Date: ' + formattedDate + '\n' +
+        'Location: ' + (get('location') || 'Not provided') + '\n' +
+        'Audience Size: ' + (get('audience') || 'Not provided') + '\n\n' +
+        'Additional Details:\n' + (get('details') || 'None provided')
+      );
+
+      /* Open mailto */
+      window.location.href = 'mailto:sam@samosborne.net?subject=' + subject + '&body=' + body;
+
+      /* Show confirmation */
+      showToast('success', '✓ Your email client should open now with the inquiry pre-filled. If nothing opened, please email sam@samosborne.net directly.');
+    });
+
+    /* Clear error highlight on input */
+    ['name', 'email'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => el.classList.remove('error'));
+    });
   </script>
 </body>
 </html>
