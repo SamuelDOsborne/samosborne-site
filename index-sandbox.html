@@ -264,23 +264,18 @@
       border: 1px solid var(--line);
       color: var(--text);
       box-shadow: none;
+      position: relative;
+      overflow: hidden;
     }
     .card p { margin-top: 10px; color: rgba(29,29,31,.68); }
     .card.dark p { color: var(--muted); }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      min-height: 28px;
-      padding: 0 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(212,165,116,.4);
-      background: rgba(212,165,116,.1);
-      color: var(--gold);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-weight: 700;
-      margin-bottom: 14px;
+    .card img.keynote-art {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      background: #0d0d0d;
     }
     .card ul {
       margin: 14px 0 0;
@@ -289,6 +284,36 @@
     }
     .card.dark ul { color: var(--muted); }
     .card li { margin-bottom: 9px; }
+
+    .method-echo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .14;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(212,165,116,.32) 0%, rgba(212,165,116,.14) 14%, rgba(212,165,116,0) 36%),
+        linear-gradient(90deg, rgba(212,165,116,0) 0%, rgba(212,165,116,.24) 50%, rgba(212,165,116,0) 100%);
+      filter: blur(1px);
+    }
+    .method-echo::before,
+    .method-echo::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 44%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212,165,116,0), rgba(212,165,116,.55));
+      transform: translateY(-50%);
+    }
+    .method-echo::before { left: 4%; }
+    .method-echo::after {
+      right: 4%;
+      transform: translateY(-50%) scaleX(-1);
+    }
+    .method-card-content {
+      position: relative;
+      z-index: 1;
+    }
 
     .quote-stack { display: grid; gap: 16px; margin-top: 34px; }
     .quote {
@@ -494,22 +519,22 @@
       <p class="lede-dark" style="margin-top:16px;">Each keynote addresses a different source of reactivity—so audiences can recognize the pattern, dissolve the charge, and lead with more clarity in real time.</p>
       <div class="grid-4" style="margin-top:36px;">
         <article class="card">
-          <span class="pill">Others · Resentment</span>
+          <img class="keynote-art" src="images/conflict-advantage-icon.jpg" alt="Conflict Advantage visual" />
           <h3>The Conflict Advantage</h3>
           <p>For leaders triggered by people, politics, and pressure. A keynote on dissolving emotional charge so composure returns and authority becomes usable again.</p>
         </article>
         <article class="card">
-          <span class="pill">Others · Admirationn</span>
+          <img class="keynote-art" src="images/admiration-trap-icon.jpg" alt="Admiration Trap visual" />
           <h3>The Admiration Trap</h3>
           <p>For leaders who quietly hand away authority to stronger personalities, status, expertise, or perceived power in the room.</p>
         </article>
         <article class="card">
-          <span class="pill">Self · Pride</span>
+          <img class="keynote-art" src="images/defended-self-icon.jpg" alt="Defended Self visual" />
           <h3>The Defended Self</h3>
-          <p>For leaders whose strengths also create blind spots. A keynote on dissolving defensiveness and recovering a more accurate view of self.</p>
+          <p>For leaders whose strengths harden into blind spots. A keynote on dissolving defensiveness and recovering a more accurate view of self.</p>
         </article>
         <article class="card">
-          <span class="pill">Self · Shamet</span>
+          <img class="keynote-art" src="images/disowned-self-icon.jpg" alt="Disowned Self visual" />
           <h3>The Disowned Self</h3>
           <p>For leaders whose self-judgment quietly shapes how they judge, manage, and constrain the people around them.</p>
         </article>
@@ -555,16 +580,25 @@
         <p class="lede" style="margin-top:16px;">The Demartini Method gives audiences a precise process for balancing perception, dissolving emotional charge, and recovering clear thought in conflict.</p>
         <div class="grid-3" style="margin-top:26px;">
           <article class="card dark">
-            <h3>Perceptual Balance</h3>
-            <p>When leaders see only cost or only benefit, perception distorts. Balance restores composure.</p>
+            <div class="method-echo"></div>
+            <div class="method-card-content">
+              <h3>Perceptual Balance</h3>
+              <p>When leaders see only cost or only benefit, perception distorts. Balance restores composure.</p>
+            </div>
           </article>
           <article class="card dark">
-            <h3>Values Hierarchy</h3>
-            <p>Conflict becomes more workable when leaders understand what they and others are actually trying to protect.</p>
+            <div class="method-echo"></div>
+            <div class="method-card-content">
+              <h3>Values Hierarchy</h3>
+              <p>Conflict becomes more workable when leaders understand what they and others are actually trying to protect.</p>
+            </div>
           </article>
           <article class="card dark">
-            <h3>Projection &amp; Injection</h3>
-            <p>What triggers people in others often reflects what has not yet been owned, balanced, or understood in themselves.</p>
+            <div class="method-echo"></div>
+            <div class="method-card-content">
+              <h3>Projection &amp; Injection</h3>
+              <p>What triggers people in others often reflects what has not yet been owned, balanced, or understood in themselves.</p>
+            </div>
           </article>
         </div>
       </div>
