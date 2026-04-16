@@ -452,7 +452,7 @@
       color-scheme: dark;
     }
     input[type="date"]::-webkit-calendar-picker-indicator {
-      filter: invert(1) sepia(1) saturate(2) hue-rotate(10deg) brightness(1.1);
+      filter: invert(1);
       cursor: pointer;
       opacity: 0.72;
       transition: opacity .15s;
@@ -840,7 +840,9 @@
       });
     }
 
-    /* ── Form submission ── */
+    /* ── Form submission via Formspree ── */
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqdebvj';
+
     const form = document.getElementById('inquiryForm');
     const toast = document.getElementById('formToast');
     const submitBtn = document.getElementById('submitBtn');
@@ -859,56 +861,69 @@
       let valid = true;
       const name = document.getElementById('name');
       const email = document.getElementById('email');
-
-      if (!name.value.trim()) {
-        name.classList.add('error');
-        valid = false;
-      }
+      if (!name.value.trim()) { name.classList.add('error'); valid = false; }
       if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-        email.classList.add('error');
-        valid = false;
+        email.classList.add('error'); valid = false;
       }
       return valid;
     }
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
       clearErrors();
-      toast.className = 'form-toast'; // hide
+      toast.className = 'form-toast';
 
       if (!validate()) {
         showToast('fail', 'Please fill in your name and a valid email address before sending.');
         return;
       }
 
-      /* Build the mailto body */
       const get = id => document.getElementById(id).value.trim();
       const dateVal = get('date');
       const formattedDate = dateVal
         ? new Date(dateVal + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
         : 'Not specified';
 
-      const subject = encodeURIComponent('Speaking Inquiry — ' + (get('org') || get('name')));
-      const body = encodeURIComponent(
-        'Name: ' + get('name') + '\n' +
-        'Email: ' + get('email') + '\n' +
-        'Title: ' + (get('title') || 'Not provided') + '\n' +
-        'Organization: ' + (get('org') || 'Not provided') + '\n' +
-        'Event Type: ' + (get('event-type') || 'Not specified') + '\n' +
-        'Preferred Date: ' + formattedDate + '\n' +
-        'Location: ' + (get('location') || 'Not provided') + '\n' +
-        'Audience Size: ' + (get('audience') || 'Not provided') + '\n\n' +
-        'Additional Details:\n' + (get('details') || 'None provided')
-      );
+      const payload = {
+        _subject: 'Speaking Inquiry — ' + (get('org') || get('name')),
+        _replyto: get('email'),
+        Name: get('name'),
+        Email: get('email'),
+        'Title / Role': get('title') || 'Not provided',
+        Organization: get('org') || 'Not provided',
+        'Event Type': get('event-type') || 'Not specified',
+        'Preferred Date': formattedDate,
+        Location: get('location') || 'Not provided',
+        'Audience Size': get('audience') || 'Not provided',
+        'Additional Details': get('details') || 'None provided'
+      };
 
-      /* Open mailto */
-      window.location.href = 'mailto:sam@samosborne.net?subject=' + subject + '&body=' + body;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
 
-      /* Show confirmation */
-      showToast('success', '✓ Your email client should open now with the inquiry pre-filled. If nothing opened, please email sam@samosborne.net directly.');
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          showToast('success', '✓ Inquiry sent. You\'ll hear back within two business days.');
+          form.reset();
+        } else {
+          const data = await res.json();
+          const msg = data?.errors?.map(e => e.message).join(', ') || 'Something went wrong.';
+          showToast('fail', 'Could not send: ' + msg + '. Please email sam@samosborne.net directly.');
+        }
+      } catch (err) {
+        showToast('fail', 'Network error. Please email sam@samosborne.net directly.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Event Inquiry';
+      }
     });
 
-    /* Clear error highlight on input */
     ['name', 'email'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.addEventListener('input', () => el.classList.remove('error'));
