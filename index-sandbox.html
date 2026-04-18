@@ -462,6 +462,59 @@
       text-transform: uppercase;
     }
 
+
+    /* ── Advisory Teaser ── */
+    .advisory-teaser {
+      background: var(--bg);
+    }
+    .advisory-photo-full {
+      position: relative;
+      width: 100%;
+      height: 85vh;
+      overflow: hidden;
+      background: #111;
+    }
+    .advisory-photo-full img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+      filter: grayscale(8%) contrast(1.04);
+    }
+    .advisory-photo-full::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background: linear-gradient(to bottom, rgba(26,26,26,0), rgba(26,26,26,1));
+      pointer-events: none;
+    }
+    .advisory-copy-below {
+      padding: 64px 0 88px;
+    }
+    .advisory-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 54px;
+      align-items: start;
+    }
+    .advisory-body .eyebrow { margin-bottom: 18px; }
+    .advisory-body h2 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+    .advisory-body p {
+      font-size: clamp(1rem, 1.4vw, 1.12rem);
+      line-height: 1.72;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .advisory-body p:last-of-type { margin-bottom: 0; }
+
     .contact-wrap {
       display: grid;
       grid-template-columns: .95fr 1.05fr;
@@ -665,7 +718,7 @@
     <div class="container">
       <span class="eyebrow">The Method</span>
       <h2>One framework.<br>Every conflict.</h2>
-      <p class="lede-dark">A repeatable method for dissolving emotional triggers at their source. Not a motivational experience that fades by Monday morning.</p>
+      <p class="lede-dark">A repeatable method for dissolving emotional triggers at their source. Not motivation. A method.</p>
       <div class="positioning-box">
         <p>For leaders in high-stakes, high-conflict environments, Sam Osborne delivers a repeatable method for dissolving emotional triggers at their source—so they can think clearly, stay composed, and lead without reactivity.</p>
       </div>
@@ -816,6 +869,31 @@
           <h3>Professional Credibility</h3>
           <p>Built for discerning audiences who expect substance, rigor, and something they can still use after the applause is over.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Advisory Teaser ── -->
+  <section class="advisory-teaser" id="advisory-teaser">
+    <div class="advisory-photo-full">
+      <img src="images/sam-osborne-vest.jpg" alt="Sam Osborne — Leadership Advisory" />
+    </div>
+    <div class="advisory-copy-below">
+      <div class="container">
+        <div class="advisory-body">
+          <div>
+            <span class="eyebrow">Leadership Advisory</span>
+            <h2>The keynote changes the room.<br>The advisory changes the relationships.</h2>
+          </div>
+          <div>
+            <p>For leaders who want the same transformation — applied privately, person by person, to the relationships carrying the most charge in their leadership environment.</p>
+            <p>Private Demartini Method facilitation. Sequential 1:1 sessions. Not coaching. Facilitation.</p>
+            <div class="btn-row" style="margin-top: 32px;">
+              <a class="btn-primary" href="https://samosborne.net/leadership-advisory">Explore the Advisory &rarr;</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
