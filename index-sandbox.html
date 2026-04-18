@@ -384,54 +384,58 @@
 
     /* ── About Sam section ── */
     .about-section {
-      padding: 88px 0;
       background: var(--bg);
     }
-    .about-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .about-photo {
+    .about-photo-full {
       position: relative;
-      border-radius: 20px;
+      width: 100%;
+      height: 85vh;
       overflow: hidden;
       background: #111;
-      min-height: 680px;
     }
-    .about-photo img {
+    .about-photo-full img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 18%;
       display: block;
       filter: grayscale(8%) contrast(1.04);
     }
-    .about-photo::after {
+    .about-photo-full::after {
       content: "";
       position: absolute;
-      inset: 0;
-      border-radius: 20px;
-      border: 1px solid rgba(212,165,116,.18);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background: linear-gradient(to bottom, rgba(26,26,26,0), rgba(26,26,26,1));
       pointer-events: none;
     }
-    .about-copy { }
-    .about-copy .eyebrow { margin-bottom: 18px; }
-    .about-copy h2 {
+    .about-copy-below {
+      padding: 64px 0 88px;
+    }
+    .about-copy-below .eyebrow { margin-bottom: 18px; }
+    .about-copy-below h2 {
       font-size: clamp(1.8rem, 3.5vw, 3rem);
-      margin-bottom: 28px;
+      margin-bottom: 36px;
       letter-spacing: -.04em;
       line-height: 1.08;
+      max-width: 22ch;
     }
-    .about-copy p {
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 54px;
+      align-items: start;
+    }
+    .about-copy-below p {
       font-size: clamp(1rem, 1.4vw, 1.12rem);
       line-height: 1.72;
       color: var(--muted);
       margin-bottom: 20px;
     }
-    .about-copy p:last-of-type { margin-bottom: 0; }
-    .about-copy p strong {
+    .about-copy-below p:last-of-type { margin-bottom: 0; }
+    .about-copy-below p strong {
       color: var(--text);
       font-weight: 600;
     }
@@ -673,25 +677,29 @@
 
   <!-- ── About Sam ── -->
   <section class="about-section" id="about">
-    <div class="container">
-      <div class="about-inner">
-        <div class="about-photo">
-          <img src="images/sam-osborne-chair-landscape.jpg" alt="Sam Osborne" />
-        </div>
-        <div class="about-copy">
-          <span class="eyebrow">About Sam</span>
-          <h2>A Demartini Method Facilitator. A keynote speaker. A very unusual career path.</h2>
-          <p>Sam Osborne has been a school teacher, human beatbox entertainer, events DJ, living statue, and kitchen tiler. A piece of metal once lodged itself in his retina. He recovered. His eyesight recovered&hellip; mostly. His relationship with perception did not — it transformed.</p>
-          <p>He spent years trying to understand why. Then he found the Demartini Method — and the transformation became teachable. He's been speaking about it ever since.</p>
-          <p>When the trigger owns you, the room does too. Sam works with attorneys, executives, and association professionals who operate in high-conflict environments — people who are sharp, capable, and occasionally one difficult colleague away from saying something they can't take back.</p>
-          <div class="about-rule"></div>
-          <p><strong>Six books.</strong> A double major in Philosophy and English. Based in Los Angeles. And yes — he will connect it back to Carl Jung.</p>
-          <div class="about-tags">
-            <span class="about-tag">Demartini Method Facilitator</span>
-            <span class="about-tag">Six Books</span>
-            <span class="about-tag">Philosophy &amp; English</span>
-            <span class="about-tag">NSA SoCal Board Member</span>
-            <span class="about-tag">Based in Los Angeles</span>
+    <div class="about-photo-full">
+      <img src="images/sam-osborne-chair-landscape.jpg" alt="Sam Osborne" />
+    </div>
+    <div class="about-copy-below">
+      <div class="container">
+        <span class="eyebrow">About Sam</span>
+        <h2>A Demartini Method Facilitator. A keynote speaker. A very unusual career path.</h2>
+        <div class="about-body">
+          <div>
+            <p>Sam Osborne has been a school teacher, human beatbox entertainer, events DJ, living statue, and kitchen tiler. A piece of metal once lodged itself in his retina. He recovered. His eyesight recovered&hellip; mostly. His relationship with perception did not — it transformed.</p>
+            <p>He spent years trying to understand why. Then he found the Demartini Method — and the transformation became teachable. He's been speaking about it ever since.</p>
+          </div>
+          <div>
+            <p>When the trigger owns you, the room does too. Sam works with attorneys, executives, and association professionals who operate in high-conflict environments — people who are sharp, capable, and occasionally one difficult colleague away from saying something they can't take back.</p>
+            <div class="about-rule"></div>
+            <p><strong>Six books.</strong> A double major in Philosophy and English. Based in Los Angeles. And yes — he will connect it back to Carl Jung.</p>
+            <div class="about-tags">
+              <span class="about-tag">Demartini Method Facilitator</span>
+              <span class="about-tag">Six Books</span>
+              <span class="about-tag">Philosophy &amp; English</span>
+              <span class="about-tag">National Speakers Association SoCal</span>
+              <span class="about-tag">Based in Los Angeles</span>
+            </div>
           </div>
         </div>
       </div>
