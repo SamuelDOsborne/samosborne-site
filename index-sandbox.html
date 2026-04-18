@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -383,6 +382,81 @@
       font-size: .93rem;
     }
 
+    /* ── About Sam section ── */
+    .about-section {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-photo {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111;
+    }
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(8%) contrast(1.04);
+    }
+    .about-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(212,165,116,.18);
+      pointer-events: none;
+    }
+    .about-copy { }
+    .about-copy .eyebrow { margin-bottom: 18px; }
+    .about-copy h2 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      margin-bottom: 28px;
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+    .about-copy p {
+      font-size: clamp(1rem, 1.4vw, 1.12rem);
+      line-height: 1.72;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .about-copy p:last-of-type { margin-bottom: 0; }
+    .about-copy p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .about-rule {
+      width: 36px;
+      height: 1px;
+      background: rgba(212,165,116,.5);
+      margin: 28px 0;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .about-tag {
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,165,116,.28);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
     .contact-wrap {
       display: grid;
       grid-template-columns: .95fr 1.05fr;
@@ -405,7 +479,6 @@
     }
     .contact-list strong { color: var(--text); }
 
-    /* ── Form ── */
     form {
       border-radius: 24px;
       padding: 30px;
@@ -442,11 +515,7 @@
       border-color: var(--gold);
       box-shadow: 0 0 0 3px rgba(212,165,116,.18);
     }
-    input.error, select.error, textarea.error {
-      border-color: #e05a5a;
-    }
-
-    /* Date input — style the calendar icon gold */
+    input.error, select.error, textarea.error { border-color: #e05a5a; }
     input[type="date"] {
       appearance: none;
       -webkit-appearance: none;
@@ -457,27 +526,13 @@
       padding-right: 42px;
     }
     input[type="date"]::-webkit-calendar-picker-indicator {
-      opacity: 0;
-      cursor: pointer;
-      position: absolute;
-      right: 0;
-      width: 42px;
-      height: 100%;
+      opacity: 0; cursor: pointer; position: absolute; right: 0; width: 42px; height: 100%;
     }
-    input[type="date"]::-webkit-inner-spin-button {
-      display: none;
-    }
-
+    input[type="date"]::-webkit-inner-spin-button { display: none; }
     textarea { min-height: 140px; padding: 14px; resize: vertical; }
     input::placeholder, textarea::placeholder { color: rgba(245,245,247,.28); }
     select option { color: #111; }
-    .form-note {
-      margin-top: 14px;
-      color: var(--muted-2);
-      font-size: .92rem;
-    }
-
-    /* Success / error toast */
+    .form-note { margin-top: 14px; color: var(--muted-2); font-size: .92rem; }
     .form-toast {
       display: none;
       margin-top: 16px;
@@ -518,17 +573,16 @@
       .contact-wrap,
       .grid-2,
       .grid-3,
-      .grid-4 { grid-template-columns: 1fr; }
+      .grid-4,
+      .about-inner { grid-template-columns: 1fr; }
 
+      .about-photo { max-height: 420px; }
       .hero-copy { padding: 46px 0 60px; }
       .hero-image { min-height: 420px; }
-
       .mobile-toggle { display: block; }
-
       .nav-links {
         position: absolute;
-        top: 56px;
-        left: 0;
+        top: 56px; left: 0;
         width: 100%;
         background: rgba(26,26,26,.96);
         backdrop-filter: blur(18px);
@@ -540,7 +594,6 @@
       }
       .nav-links.active { display: flex; }
       .nav-links a { display: block; width: 100%; }
-
       .form-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -554,6 +607,7 @@
         <a href="#speaking">Speaking</a>
         <a href="#fit">Who It's For</a>
         <a href="#method">The Method</a>
+        <a href="#about">About</a>
         <a href="#proof">Proof</a>
         <a href="https://samosborne.net/leadership-advisory">Advisory</a>
       </div>
@@ -612,6 +666,32 @@
       </div>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn-primary" href="#contact">Book a Keynote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About Sam ── -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-photo">
+          <img src="images/sam-osborne-chair-landscape.jpg" alt="Sam Osborne" />
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">About Sam</span>
+          <h2>The person behind the method.</h2>
+          <p>Sam Osborne has been a school teacher, human beatbox entertainer, events DJ, living statue, and kitchen tiler. A piece of metal once lodged itself in his retina. He recovered. His eyesight recovered&hellip; mostly. His relationship with perception did not — it transformed.</p>
+          <p>He spent years trying to understand why. Then he found the Demartini Method — and the transformation became teachable. He's been speaking about it ever since.</p>
+          <div class="about-rule"></div>
+          <p><strong>Six books.</strong> A double major in Philosophy and English. Based in Los Angeles. And yes — he will connect it back to Carl Jung.</p>
+          <div class="about-tags">
+            <span class="about-tag">Demartini Method Facilitator</span>
+            <span class="about-tag">Six Books</span>
+            <span class="about-tag">Philosophy &amp; English</span>
+            <span class="about-tag">NSA SoCal Board Member</span>
+            <span class="about-tag">Based in Los Angeles</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -830,10 +910,8 @@
   </footer>
 
   <script>
-    /* ── Mobile nav ── */
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
-
     if (menuToggle && navLinks) {
       menuToggle.addEventListener('click', () => {
         const isOpen = navLinks.classList.toggle('active');
@@ -847,9 +925,7 @@
       });
     }
 
-    /* ── Form submission via Formspree ── */
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqdebvj';
-
     const form = document.getElementById('inquiryForm');
     const toast = document.getElementById('formToast');
     const submitBtn = document.getElementById('submitBtn');
@@ -859,11 +935,9 @@
       toast.textContent = msg;
       toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
-
     function clearErrors() {
       form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
     }
-
     function validate() {
       let valid = true;
       const name = document.getElementById('name');
@@ -879,18 +953,15 @@
       e.preventDefault();
       clearErrors();
       toast.className = 'form-toast';
-
       if (!validate()) {
         showToast('fail', 'Please fill in your name and a valid email address before sending.');
         return;
       }
-
       const get = id => document.getElementById(id).value.trim();
       const dateVal = get('date');
       const formattedDate = dateVal
         ? new Date(dateVal + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
         : 'Not specified';
-
       const payload = {
         _subject: 'Speaking Inquiry — ' + (get('org') || get('name')),
         _replyto: get('email'),
@@ -904,17 +975,14 @@
         'Audience Size': get('audience') || 'Not provided',
         'Additional Details': get('details') || 'None provided'
       };
-
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
-
       try {
         const res = await fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: new URLSearchParams(payload)
         });
-
         if (res.ok) {
           showToast('success', '✓ Inquiry sent. You\'ll hear back within two business days.');
           form.reset();
