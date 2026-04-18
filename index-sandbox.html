@@ -632,9 +632,21 @@
       .grid-2,
       .grid-3,
       .grid-4,
-      .about-inner { grid-template-columns: 1fr; }
+      .about-inner,
+      .about-body,
+      .advisory-body { grid-template-columns: 1fr; }
 
       .about-photo { max-height: 420px; }
+      .about-photo-full,
+      .advisory-photo-full { height: 60vh; }
+      .about-copy-below,
+      .advisory-copy-below { padding: 40px 0 60px; }
+      .about-copy-below h2,
+      .advisory-body h2 { font-size: clamp(1.6rem, 6vw, 2.4rem); margin-bottom: 24px; }
+      .about-body { gap: 0; }
+      .about-rule { margin: 20px 0; }
+      .advisory-body { gap: 24px; }
+
       .hero-copy { padding: 46px 0 60px; }
       .hero-image { min-height: 420px; }
       .mobile-toggle { display: block; }
@@ -918,7 +930,7 @@
       <div class="contact-wrap">
         <div class="contact-panel">
           <span class="eyebrow">Booking</span>
-          <h2>Let's see if this is a fit for your upcoming meeting.</h2>
+          <h2>Enquire About Your Event Date.</h2>
           <p>Best suited to conferences, association meetings, leadership events, executive retreats, and professional audiences operating under real pressure.</p>
           <div class="contact-list">
             <div><strong>Best for:</strong> Conferences, association meetings, leadership events, executive retreats, and high-stakes professional audiences</div>
