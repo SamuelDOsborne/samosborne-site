@@ -303,6 +303,16 @@
       margin-bottom: 18px;
       background: #0d0d0d;
     }
+    .card .formats {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0,0,0,.08);
+      font-size: .82rem;
+      color: var(--slate);
+      font-weight: 600;
+      letter-spacing: .02em;
+      font-style: italic;
+    }
     .card ul {
       margin: 14px 0 0;
       padding-left: 18px;
@@ -536,6 +546,35 @@
       font-size: .98rem;
     }
     .contact-list strong { color: var(--text); }
+    .investment-tiers {
+      margin-top: 8px;
+      display: grid;
+      gap: 8px;
+      padding-left: 0;
+      list-style: none;
+    }
+    .investment-tiers li {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      font-size: .94rem;
+      color: var(--muted);
+    }
+    .investment-tiers li strong {
+      color: var(--gold);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+      font-size: .78rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .investment-tiers li .price {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1.02rem;
+    }
 
     form {
       border-radius: 24px;
@@ -674,7 +713,7 @@
       <a class="nav-brand" href="#top">Sam Osborne</a>
       <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
       <div class="nav-links" id="navLinks">
-        <a href="#speaking">Speaking</a>
+        <a href="#speaking">Programs</a>
         <a href="#fit">Who It's For</a>
         <a href="#method">The Method</a>
         <a href="#about">About</a>
@@ -735,7 +774,7 @@
         <p>For leaders in high-stakes, high-conflict environments, Sam Osborne delivers a repeatable method for dissolving emotional triggers at their source—so they can think clearly, stay composed, and lead without reactivity.</p>
       </div>
       <div class="btn-row" style="justify-content:center;">
-        <a class="btn-primary" href="#contact">Book a Keynote</a>
+        <a class="btn-primary" href="#contact">Book a Program</a>
       </div>
     </div>
   </section>
@@ -767,29 +806,33 @@
 
   <section class="section section-light" id="speaking">
     <div class="container">
-      <span class="eyebrow">Signature Keynotes</span>
+      <span class="eyebrow">Signature Programs</span>
       <h2>Programs designed for real pressure.</h2>
-      <p class="lede-dark" style="margin-top:16px;">Each keynote addresses a different source of reactivity—so audiences can recognize the pattern, dissolve the charge, and lead with more clarity in real time.</p>
+      <p class="lede-dark" style="margin-top:16px;">Each program addresses a different source of reactivity—so audiences can recognize the pattern, dissolve the charge, and lead with more clarity in real time. Available as keynote, breakout, half-day workshop, or multi-session intensive.</p>
       <div class="grid-4" style="margin-top:36px;">
         <article class="card">
           <img class="keynote-art" src="images/conflict-advantage-icon.jpg" alt="Conflict Advantage visual" />
           <h3>The Conflict Advantage</h3>
-          <p>For leaders triggered by people, politics, and pressure. A keynote on dissolving emotional charge so composure returns and authority becomes usable again.</p>
+          <p>For leaders triggered by people, politics, and pressure. A program on dissolving emotional charge so composure returns and authority becomes usable again.</p>
+          <div class="formats">Available as keynote, breakout, or half-day workshop with live demonstration.</div>
         </article>
         <article class="card">
           <img class="keynote-art" src="images/admiration-trap-icon.jpg" alt="Admiration Trap visual" />
           <h3>The Admiration Trap</h3>
           <p>For leaders who quietly hand away authority to stronger personalities, status, expertise, or perceived power in the room.</p>
+          <div class="formats">Available as keynote, breakout, or half-day workshop with live demonstration.</div>
         </article>
         <article class="card">
           <img class="keynote-art" src="images/defended-self-icon.jpg" alt="Defended Self visual" />
           <h3>The Defended Self</h3>
-          <p>For leaders whose strengths harden into blind spots. A keynote on dissolving defensiveness and recovering a more accurate view of self.</p>
+          <p>For leaders whose strengths harden into blind spots. A program on dissolving defensiveness and recovering a more accurate view of self.</p>
+          <div class="formats">Available as keynote, breakout, or half-day workshop with live demonstration.</div>
         </article>
         <article class="card">
           <img class="keynote-art" src="images/disowned-self-icon.jpg" alt="Disowned Self visual" />
           <h3>The Disowned Self</h3>
           <p>For leaders whose self-judgment quietly shapes how they judge, manage, and constrain the people around them.</p>
+          <div class="formats">Available as keynote, breakout, or half-day workshop with live demonstration.</div>
         </article>
       </div>
     </div>
@@ -805,7 +848,7 @@
             <li>Operate under pressure in legal, healthcare, financial, government, or other regulated environments.</li>
             <li>Need more than inspiration. They need a method they can apply on Monday morning.</li>
             <li>Can see conflict, tension, and reactivity affecting leadership quality, decision-making, and team performance.</li>
-            <li>Want a keynote that sharpens clarity, steadies composure, and improves how people respond under pressure.</li>
+            <li>Want a program that sharpens clarity, steadies composure, and improves how people respond under pressure.</li>
             <li>Value a speaker who can translate an inner process into a structured, credible, professional framework.</li>
           </ul>
         </article>
@@ -860,12 +903,12 @@
 
   <section class="section section-light">
     <div class="container">
-      <span class="eyebrow">Why This Keynote</span>
+      <span class="eyebrow">Why Buyers Say Yes</span>
       <h2>Why buyers say yes.</h2>
       <div class="grid-3" style="margin-top:32px;">
         <article class="card">
           <h3>Clear Business Relevance</h3>
-          <p>Emotional reactivity distorts judgment, leadership, and communication under pressure. This keynote addresses that directly.</p>
+          <p>Emotional reactivity distorts judgment, leadership, and communication under pressure. These programs address that directly.</p>
         </article>
         <article class="card">
           <h3>Immediate Application</h3>
@@ -933,11 +976,18 @@
           <h2>Enquire About Your Event Date.</h2>
           <p>Best suited to conferences, association meetings, leadership events, executive retreats, and professional audiences operating under real pressure.</p>
           <div class="contact-list">
-            <div><strong>Best for:</strong> Conferences, association meetings, leadership events, executive retreats, and high-stakes professional audiences</div>
-            <div><strong>Typical keynote investment:</strong> $5,000–$7,500 depending on scope and customization</div>
-            <div><strong>Response window:</strong> Within two business days</div>
+            <div><strong>Best for:</strong> Conferences, association meetings, leadership events, executive retreats, and high-stakes professional audiences operating under real pressure.</div>
+            <div><strong>Program formats:</strong> Keynote, breakout, half-day workshop with live demonstration, executive retreat module, or multi-session leadership intensive.</div>
+            <div><strong>Investment:</strong>
+              <ul class="investment-tiers">
+                <li><strong>Keynote</strong><span class="price">From $20,000</span></li>
+                <li><strong>Half-day workshop with live Demartini Method demonstration</strong><span class="price">From $40,000</span></li>
+                <li><strong>Multi-session intensives &amp; executive retreats</strong><span class="price">From $75,000</span></li>
+              </ul>
+            </div>
+            <div><strong>Response window:</strong> Within two business days.</div>
           </div>
-          <p class="micro">For keynote bookings: <a href="mailto:sam@samosborne.net">sam@samosborne.net</a></p>
+          <p class="micro">For program bookings: <a href="mailto:sam@samosborne.net">sam@samosborne.net</a></p>
         </div>
 
         <form id="inquiryForm" novalidate>
@@ -959,13 +1009,14 @@
               <input id="org" type="text" placeholder="Company or association name" />
             </div>
             <div>
-              <label for="event-type">Event Type</label>
+              <label for="event-type">Program Format</label>
               <select id="event-type">
-                <option value="">Select event type…</option>
+                <option value="">Select program format…</option>
                 <option>Conference keynote</option>
-                <option>Association meeting</option>
-                <option>Leadership retreat</option>
-                <option>Executive session</option>
+                <option>Breakout session</option>
+                <option>Half-day workshop</option>
+                <option>Executive retreat</option>
+                <option>Multi-session leadership program</option>
                 <option>Other</option>
               </select>
             </div>
@@ -1063,7 +1114,7 @@
         Email: get('email'),
         'Title / Role': get('title') || 'Not provided',
         Organization: get('org') || 'Not provided',
-        'Event Type': get('event-type') || 'Not specified',
+        'Program Format': get('event-type') || 'Not specified',
         'Preferred Date': formattedDate,
         Location: get('location') || 'Not provided',
         'Audience Size': get('audience') || 'Not provided',
