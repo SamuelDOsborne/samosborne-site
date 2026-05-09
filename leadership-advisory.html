@@ -265,37 +265,57 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .section-light .highlight-box p { color: var(--ink); }
 
 .pricing-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 60px;
-  max-width: 960px; margin-left: auto; margin-right: auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px;
+  max-width: 1200px; margin-left: auto; margin-right: auto;
 }
 .pricing-card {
   background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
-  border-radius: 22px; padding: 48px 40px; text-align: center;
+  border-radius: 22px; padding: 44px 34px; text-align: center;
   transition: background .3s ease, transform .3s ease, border-color .3s ease;
+  position: relative;
+  display: flex; flex-direction: column;
 }
 .pricing-card:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.2); transform: translateY(-8px); }
+.pricing-card.featured {
+  background: rgba(212,165,116,.06);
+  border-color: rgba(212,165,116,.32);
+}
+.pricing-card.featured:hover { background: rgba(212,165,116,.10); border-color: rgba(212,165,116,.5); }
+.pricing-flag {
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: var(--charcoal);
+  font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 999px;
+}
 .pricing-label {
   font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 14px; display: block;
 }
 .pricing-title {
-  font-size: clamp(1.4rem, 2.5vw, 2.2rem); font-weight: 700; letter-spacing: -.03em;
+  font-size: clamp(1.2rem, 2.1vw, 1.85rem); font-weight: 700; letter-spacing: -.03em;
   color: var(--off); margin-bottom: 12px;
 }
 .pricing-amount {
-  font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 700; letter-spacing: -.04em;
   color: var(--white); line-height: 1; margin-bottom: 6px;
 }
-.pricing-detail { font-size: .84rem; color: rgba(240,237,232,.36); margin-bottom: 36px; }
-.pricing-features { list-style: none; text-align: left; margin-bottom: 36px; }
+.pricing-amount .from {
+  display: inline-block;
+  font-size: .42em; font-weight: 500; letter-spacing: -.01em;
+  color: rgba(240,237,232,.5); margin-right: 6px; vertical-align: middle;
+  text-transform: uppercase;
+}
+.pricing-detail { font-size: .82rem; color: rgba(240,237,232,.36); margin-bottom: 32px; }
+.pricing-features { list-style: none; text-align: left; margin-bottom: 32px; flex: 1; }
 .pricing-features li {
-  font-size: .88rem; color: rgba(240,237,232,.68);
-  padding-left: 24px; position: relative; margin-bottom: 12px; line-height: 1.6;
+  font-size: .86rem; color: rgba(240,237,232,.68);
+  padding-left: 22px; position: relative; margin-bottom: 11px; line-height: 1.6;
 }
 .pricing-features li::before {
   content: '✓'; position: absolute; left: 0;
   color: var(--slate); font-weight: 700; font-size: 12px; top: 1px;
 }
+.pricing-card.featured .pricing-features li::before { color: var(--gold); }
 
 .details {
   border: 1px solid rgba(255,255,255,.1); border-radius: 13px;
@@ -568,40 +588,61 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <div class="section-content">
     <div class="reveal" style="text-align:center;">
       <span class="eyebrow">Investment</span>
-      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Two engagement options.</h2>
-      <p class="t-body" style="max-width:44ch; margin:16px auto 0; text-align:center;">Sequential private facilitations for the relationships carrying the most charge in your leadership environment.</p>
+      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Three engagement options.</h2>
+      <p class="t-body" style="max-width:48ch; margin:16px auto 0; text-align:center;">Sequential private facilitations for the relationships carrying the most charge in your leadership environment. Each option is sized to a different scope of leadership ecosystem.</p>
     </div>
     <div class="pricing-grid reveal-stagger">
+
       <div class="pricing-card">
         <span class="pricing-label">Foundation</span>
         <div class="pricing-title">8 Sessions</div>
-        <div class="pricing-amount">$10,000</div>
-        <p class="pricing-detail">One hour per session</p>
+        <div class="pricing-amount"><span class="from">From</span>$28,000</div>
+        <p class="pricing-detail">One hour per session · Completed within 4 months</p>
         <ul class="pricing-features">
           <li>8 private Demartini Method facilitations</li>
-          <li>Each session focuses on a different charged relationship</li>
-          <li>Structured perceptual balance across your highest-priority leadership dynamics</li>
+          <li>One charged relationship per session</li>
+          <li>Focused on your highest-priority leadership dynamics</li>
           <li>Conducted via video conference</li>
-          <li>Completed within 4 months</li>
+          <li>Direct access between sessions for context and continuity</li>
         </ul>
         <a href="#contact" class="btn-primary">Schedule Consultation</a>
       </div>
-      <div class="pricing-card">
+
+      <div class="pricing-card featured">
+        <span class="pricing-flag">Most Selected</span>
         <span class="pricing-label">Comprehensive</span>
         <div class="pricing-title">16 Sessions</div>
-        <div class="pricing-amount">$18,000</div>
-        <p class="pricing-detail">One hour per session</p>
+        <div class="pricing-amount"><span class="from">From</span>$52,000</div>
+        <p class="pricing-detail">One hour per session · Completed within 8 months</p>
         <ul class="pricing-features">
           <li>16 private Demartini Method facilitations</li>
           <li>Deeper transformation across your leadership ecosystem</li>
-          <li>Board, executive team, investors, key reports, and external stakeholders</li>
+          <li>Board, executive team, investors, key reports, external stakeholders</li>
           <li>Conducted via video conference</li>
-          <li>Completed within 8 months</li>
+          <li>Direct access between sessions for context and continuity</li>
+          <li>Better per-session value for committed engagements</li>
         </ul>
         <a href="#contact" class="btn-primary">Schedule Consultation</a>
       </div>
+
+      <div class="pricing-card">
+        <span class="pricing-label">Strategic</span>
+        <div class="pricing-title">Executive Partner</div>
+        <div class="pricing-amount"><span class="from">From</span>$90,000</div>
+        <p class="pricing-detail">12-month engagement · Scope defined in consultation</p>
+        <ul class="pricing-features">
+          <li>Year-long private facilitation partnership</li>
+          <li>Full leadership ecosystem coverage</li>
+          <li>Priority scheduling and direct access</li>
+          <li>Designed for CEOs, founders, and senior partners operating in high-charge environments</li>
+          <li>Includes onsite or in-person sessions where relevant</li>
+          <li>Limited availability</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Schedule Consultation</a>
+      </div>
+
     </div>
-    <p class="reveal" style="text-align:center; margin-top:44px; font-size:.84rem; color:rgba(240,237,232,.36); max-width:56ch; margin-left:auto; margin-right:auto;">Payment plans available. All engagements begin with a consultation call to confirm fit, context, and timing.</p>
+    <p class="reveal" style="text-align:center; margin-top:44px; font-size:.84rem; color:rgba(240,237,232,.36); max-width:60ch; margin-left:auto; margin-right:auto;">Every engagement begins with a private consultation to confirm fit, context, and timing. Custom scopes are available where the standard options do not match the situation.</p>
   </div>
 </section>
 
@@ -613,7 +654,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     </div>
     <div style="max-width:820px; margin:0 auto;" class="reveal">
       <details class="details"><summary><span>How is this different from executive coaching?</span><span class="chev">▼</span></summary><div class="details-body"><p>Executive coaching usually develops skills, habits, or strategy. This work dissolves the emotional charge distorting how you perceive specific people. You are not learning techniques to manage difficult relationships. You are transforming the way those relationships are held in perception.</p></div></details>
-      <details class="details"><summary><span>What if I need more than 8 or 16 sessions?</span><span class="chev">▼</span></summary><div class="details-body"><p>Most leaders find that 8–16 facilitations address the relationships carrying the most charge. If more are required, extension options can be discussed. The aim is not ongoing dependency. The aim is clean transformation.</p></div></details>
+      <details class="details"><summary><span>What if I need more than 8 or 16 sessions?</span><span class="chev">▼</span></summary><div class="details-body"><p>Most leaders find that 8–16 facilitations address the relationships carrying the most charge. For leaders whose ecosystem is broader or whose role demands ongoing partnership, the Strategic engagement extends the work across a full year. The aim is not ongoing dependency. The aim is clean transformation, scoped to your reality.</p></div></details>
       <details class="details"><summary><span>How quickly will I see results?</span><span class="chev">▼</span></summary><div class="details-body"><p>The shift happens during the session itself. You will usually feel the relationship change immediately. The real proof comes the next time you encounter that person and notice the charge is no longer running the interaction.</p></div></details>
       <details class="details"><summary><span>What happens during a session?</span><span class="chev">▼</span></summary><div class="details-body"><p>Each session is a structured facilitation. You identify the person and the trait carrying charge. I guide you through precise questions that reveal where that same trait appears in your own form. As perception balances, the emotional charge around that person collapses.</p></div></details>
       <details class="details"><summary><span>Is this appropriate for organizational teams?</span><span class="chev">▼</span></summary><div class="details-body"><p>This advisory is designed for individual leaders. Team, board, or organizational applications require a different engagement structure. Reach out if you want to discuss that separately.</p></div></details>
@@ -648,6 +689,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
             <option value="">Select an option…</option>
             <option>Foundation (8 Sessions)</option>
             <option>Comprehensive (16 Sessions)</option>
+            <option>Strategic (12-month Executive Partner)</option>
             <option>Not sure yet</option>
           </select>
         </div>
@@ -711,6 +753,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <div class="radio-group">
           <label><input type="radio" name="investment" value="Foundation (8 sessions)"> Foundation (8 sessions)</label>
           <label><input type="radio" name="investment" value="Comprehensive (16 sessions)"> Comprehensive (16 sessions)</label>
+          <label><input type="radio" name="investment" value="Strategic (12-month)"> Strategic (12-month)</label>
           <label><input type="radio" name="investment" value="To be discussed"> To be discussed</label>
         </div>
       </div>
@@ -762,5 +805,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 
 (function(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>obs.observe(el));})();
 </script>
+
 </body>
 </html>
