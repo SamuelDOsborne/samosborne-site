@@ -393,50 +393,50 @@
     }
 
     /* ── Workshop video section ── */
-.workshop-video {
-  background: var(--bg);
-}
-.workshop-video .container {
-  max-width: min(1100px, calc(100% - 40px));
-}
-.workshop-video-header {
-  text-align: center;
-  margin-bottom: 44px;
-}
-.workshop-video-header h2 {
-  max-width: 18ch;
-  margin: 0 auto;
-}
-.workshop-video-header p {
-  max-width: 52ch;
-  margin: 18px auto 0;
-}
-.video-frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #0a0a0a;
-  border: 1px solid rgba(212,165,116,.18);
-  box-shadow:
-    0 24px 80px rgba(0,0,0,.55),
-    0 0 0 1px rgba(255,255,255,.02) inset;
-}
-.video-frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.video-caption {
-  margin-top: 18px;
-  text-align: center;
-  color: var(--muted-2);
-  font-size: .92rem;
-  letter-spacing: .02em;
-}
+    .workshop-video {
+      background: var(--bg);
+    }
+    .workshop-video .container {
+      max-width: min(1100px, calc(100% - 40px));
+    }
+    .workshop-video-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .workshop-video-header h2 {
+      max-width: 18ch;
+      margin: 0 auto;
+    }
+    .workshop-video-header p {
+      max-width: 52ch;
+      margin: 18px auto 0;
+    }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #0a0a0a;
+      border: 1px solid rgba(212,165,116,.18);
+      box-shadow:
+        0 24px 80px rgba(0,0,0,.55),
+        0 0 0 1px rgba(255,255,255,.02) inset;
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-caption {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted-2);
+      font-size: .92rem;
+      letter-spacing: .02em;
+    }
 
     /* ── About Sam section ── */
     .about-section {
@@ -762,6 +762,7 @@
         <a href="#speaking">Programs</a>
         <a href="#fit">Who It's For</a>
         <a href="#method">The Method</a>
+        <a href="#workshop-video">Watch</a>
         <a href="#about">About</a>
         <a href="#proof">Proof</a>
         <a href="https://samosborne.net/leadership-advisory">Advisory</a>
@@ -810,6 +811,27 @@
       <span>Perception is the Competitive Advantage</span>
     </div>
   </div>
+
+  <!-- ── Workshop video ── -->
+  <section class="section workshop-video" id="workshop-video">
+    <div class="container">
+      <div class="workshop-video-header">
+        <span class="eyebrow">In the Room</span>
+        <h2>The same method. A different room.</h2>
+        <p class="lede" style="margin-left:auto; margin-right:auto;">A workshop excerpt on dissolving the fear of public speaking — the same Demartini Method framework that anchors the conflict programs, applied live with a small group. Watch how the framework lands when someone sits inside it.</p>
+      </div>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/-MEZ-MBDmYQ?rel=0&modestbranding=1"
+          title="Sam Osborne — Workshop excerpt: Confident Public Speaking"
+          loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p class="video-caption">Workshop format · Full keynote demo reel releasing September 2026</p>
+    </div>
+  </section>
 
   <section class="section section-light intro">
     <div class="container">
