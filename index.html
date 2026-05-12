@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -244,6 +243,141 @@
       font-weight: 600;
     }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── Endorsement (replaces workshop video) ── */
+    .endorsement {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .endorsement::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(212,165,116,.08) 0%, transparent 42%),
+        radial-gradient(circle at 82% 80%, rgba(74,94,127,.10) 0%, transparent 46%);
+      pointer-events: none;
+    }
+    .endorsement .container {
+      position: relative;
+      z-index: 1;
+      max-width: min(1080px, calc(100% - 40px));
+    }
+    .endorsement-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .endorsement-header h2 {
+      max-width: 18ch;
+      margin: 0 auto;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+    .endorsement-card {
+      position: relative;
+      padding: clamp(40px, 6vw, 72px) clamp(28px, 5vw, 64px);
+      border-radius: 22px;
+      border: 1px solid rgba(212,165,116,.22);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.035) 0%, rgba(255,255,255,.015) 100%);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.4),
+        0 0 0 1px rgba(212,165,116,.04) inset;
+    }
+    .credential-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(212,165,116,.18);
+    }
+    .credential-seal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(212,165,116,.5);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      font-family: 'Inter', serif;
+    }
+    .credential-label {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-weight: 600;
+    }
+    .endorsement-quote {
+      margin: 0 0 36px 0;
+      font-size: clamp(1.35rem, 2.6vw, 2.05rem);
+      line-height: 1.32;
+      letter-spacing: -.025em;
+      color: rgba(245,245,247,.94);
+      font-weight: 500;
+      text-align: center;
+      max-width: 28ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .endorsement-quote::before {
+      content: "\201C";
+      display: block;
+      font-size: 4rem;
+      line-height: .6;
+      color: var(--gold);
+      opacity: .55;
+      margin-bottom: 18px;
+      font-family: Georgia, serif;
+    }
+    .endorsement-attribution {
+      text-align: center;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .endorsement-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.01em;
+      margin-bottom: 4px;
+    }
+    .endorsement-title {
+      color: var(--gold);
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .endorsement-meta {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px dashed rgba(255,255,255,.08);
+      display: flex;
+      justify-content: center;
+      gap: clamp(20px, 4vw, 48px);
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .endorsement-meta-item {
+      color: var(--muted-2);
+      font-size: .82rem;
+      letter-spacing: .04em;
+    }
+    .endorsement-meta-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-bottom: 4px;
+    }
 
     .intro {
       padding: 74px 0 58px;
@@ -499,52 +633,6 @@
     }
     .companion-card .formats {
       font-size: .78rem;
-    }
-
-    /* ── Workshop video section ── */
-    .workshop-video {
-      background: var(--bg);
-    }
-    .workshop-video .container {
-      max-width: min(1100px, calc(100% - 40px));
-    }
-    .workshop-video-header {
-      text-align: center;
-      margin-bottom: 44px;
-    }
-    .workshop-video-header h2 {
-      max-width: 18ch;
-      margin: 0 auto;
-    }
-    .workshop-video-header p {
-      max-width: 52ch;
-      margin: 18px auto 0;
-    }
-    .video-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #0a0a0a;
-      border: 1px solid rgba(212,165,116,.18);
-      box-shadow:
-        0 24px 80px rgba(0,0,0,.55),
-        0 0 0 1px rgba(255,255,255,.02) inset;
-    }
-    .video-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .video-caption {
-      margin-top: 18px;
-      text-align: center;
-      color: var(--muted-2);
-      font-size: .92rem;
-      letter-spacing: .02em;
     }
 
     /* ── About Sam section ── */
@@ -863,6 +951,9 @@
       .nav-links.active { display: flex; }
       .nav-links a { display: block; width: 100%; }
       .form-grid { grid-template-columns: 1fr; }
+
+      .endorsement-quote { max-width: 100%; }
+      .endorsement-quote::before { font-size: 3rem; }
     }
   </style>
 </head>
@@ -875,7 +966,7 @@
         <a href="#speaking">Programs</a>
         <a href="#fit">Who It's For</a>
         <a href="#method">The Method</a>
-        <a href="#workshop-video">Watch</a>
+        <a href="#endorsement">Endorsement</a>
         <a href="#about">About</a>
         <a href="#proof">Proof</a>
         <a href="https://samosborne.net/leadership-advisory">Advisory</a>
@@ -925,24 +1016,44 @@
     </div>
   </div>
 
-  <!-- ── Workshop video ── -->
-  <section class="section workshop-video" id="workshop-video">
+  <!-- ── Endorsement (replaces workshop video) ── -->
+  <section class="section endorsement" id="endorsement">
     <div class="container">
-      <div class="workshop-video-header">
-        <span class="eyebrow">In the Room</span>
-        <h2>The same method. A different room.</h2>
-        <p class="lede" style="margin-left:auto; margin-right:auto;">A workshop excerpt on dissolving the fear of public speaking: the same Demartini Method framework that anchors the conflict programs, applied live with a small group. Watch how the framework lands when someone sits inside it.</p>
+      <div class="endorsement-header">
+        <span class="eyebrow">Endorsement</span>
+        <h2>From the President of the College of Community Association Lawyers.</h2>
       </div>
-      <div class="video-frame">
-        <iframe
-          src="https://www.youtube.com/watch?v=JzHaPiSwWg8"
-          title="Sam Osborne, workshop excerpt: Confident Public Speaking"
-          loading="lazy"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+      <div class="endorsement-card">
+        <div class="credential-mark">
+          <div class="credential-seal">CCAL</div>
+          <div class="credential-label">Institutional Endorsement</div>
+        </div>
+
+        <blockquote class="endorsement-quote">
+          This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure.
+        </blockquote>
+
+        <div class="endorsement-attribution">
+          <div class="endorsement-name">Augustus Shaw IV, Esq., CCAL</div>
+          <div class="endorsement-title">President · College of Community Association Lawyers</div>
+        </div>
+
+        <div class="endorsement-meta">
+          <div class="endorsement-meta-item">
+            <strong>4.7 / 5</strong>
+            Overall Rating
+          </div>
+          <div class="endorsement-meta-item">
+            <strong>39</strong>
+            Evaluations
+          </div>
+          <div class="endorsement-meta-item">
+            <strong>Best of Conference</strong>
+            CAI National Law Seminar 2026
+          </div>
+        </div>
       </div>
-      <p class="video-caption">Workshop format · Full keynote demo reel releasing September 2026</p>
     </div>
   </section>
 
@@ -1149,13 +1260,9 @@
 
   <section class="section" id="proof">
     <div class="container">
-      <span class="eyebrow">Proof</span>
-      <h2>Real leaders. Real transformation.</h2>
+      <span class="eyebrow">From the Room</span>
+      <h2>What leaders say.</h2>
       <div class="quote-stack">
-        <div class="quote">
-          <blockquote>"This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure."</blockquote>
-          <cite>Augustus Shaw IV, Esq., CCAL, President, College of Community Association Lawyers</cite>
-        </div>
         <div class="quote">
           <blockquote>"One of the best sessions I've attended at any conference. Practical tools that immediately changed how I approach conflict."</blockquote>
           <cite>Dawn Roscoe, AMS, PCAM, VP of Operations, Professional Properties Management</cite>
