@@ -40,119 +40,139 @@
 
     .container { width: min(1280px, calc(100% - 48px)); margin: 0 auto; }
 
-    /* ── Page header ── */
-    .page-header {
-      padding: 64px 0 56px;
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(26,26,26,.82);
       border-bottom: 1px solid var(--line);
-      position: relative;
-      overflow: hidden;
     }
-    .page-header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 12% 30%, rgba(212,165,116,.08) 0%, transparent 42%),
-        radial-gradient(circle at 88% 70%, rgba(74,94,127,.10) 0%, transparent 46%);
-      pointer-events: none;
-    }
-    .page-header .container { position: relative; z-index: 1; }
-
-    .header-grid {
-      display: grid;
-      grid-template-columns: minmax(200px, 240px) 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .photo-placeholder {
-      position: relative;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      background:
-        linear-gradient(135deg, rgba(212,165,116,.06) 0%, rgba(74,94,127,.10) 100%);
-      border: 1px solid var(--line-gold);
+    .nav-inner {
+      min-height: 56px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: var(--muted-2);
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,.4), inset 0 0 0 1px rgba(212,165,116,.06);
+      justify-content: space-between;
+      gap: 20px;
     }
-    .photo-placeholder::after {
-      content: "";
+    .nav-brand { font-weight: 700; letter-spacing: -.02em; font-size: 1rem; }
+    .nav-back {
+      color: var(--muted);
+      font-size: 13px;
+      transition: color .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-back:hover { color: var(--gold); }
+    .nav-cta {
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .nav-cta:hover { opacity: .8; }
+
+    /* ── HERO with full-width image ── */
+    .hero {
+      position: relative;
+      height: 72vh;
+      min-height: 540px;
+      max-height: 760px;
+      overflow: hidden;
+      background: #0d0d0d;
+    }
+    .hero-image {
       position: absolute;
       inset: 0;
-      border-radius: 50%;
+      background: url('images/sam-osborne-audience.jpeg') center 30% / cover no-repeat;
+      filter: grayscale(4%) contrast(1.04);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
       background:
-        repeating-linear-gradient(45deg, transparent 0, transparent 14px, rgba(212,165,116,.04) 14px, rgba(212,165,116,.04) 15px);
-      pointer-events: none;
+        linear-gradient(180deg, rgba(26,26,26,.3) 0%, rgba(26,26,26,.55) 55%, rgba(26,26,26,.96) 100%),
+        linear-gradient(90deg, rgba(26,26,26,.62) 0%, rgba(26,26,26,.2) 50%, rgba(26,26,26,.4) 100%);
     }
-    .photo-icon {
-      font-size: 38px;
-      color: var(--gold);
-      opacity: .55;
-      margin-bottom: 8px;
-      font-weight: 300;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 64px;
     }
-    .photo-label {
-      font-size: 9px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-      font-weight: 600;
-      text-align: center;
-      padding: 0 16px;
-      line-height: 1.5;
+    .hero-inner {
+      max-width: 760px;
     }
-
-    .header-eyebrow {
+    .hero-eyebrow {
       display: inline-block;
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: .18em;
       font-size: 11px;
       font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .header-title {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.06;
-      letter-spacing: -.035em;
-      font-weight: 800;
       margin-bottom: 18px;
+      padding: 6px 14px;
+      background: rgba(26,26,26,.6);
+      border: 1px solid var(--line-gold);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+      line-height: 1.04;
+      letter-spacing: -.04em;
+      font-weight: 800;
+      margin-bottom: 22px;
       max-width: 22ch;
+      color: var(--text);
+      text-shadow: 0 2px 30px rgba(0,0,0,.4);
     }
-    .header-sub {
-      font-size: clamp(1rem, 1.3vw, 1.12rem);
-      color: var(--muted);
-      max-width: 60ch;
-      line-height: 1.62;
+    .hero-sub {
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      color: rgba(245,245,247,.88);
+      max-width: 58ch;
+      line-height: 1.6;
+      text-shadow: 0 1px 12px rgba(0,0,0,.4);
     }
-    .header-meta {
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px dashed rgba(255,255,255,.08);
+
+    /* ── Credibility bar ── */
+    .credibility-bar {
+      background: rgba(0,0,0,.32);
+      border-top: 1px solid var(--line-gold);
+      border-bottom: 1px solid var(--line);
+      padding: 26px 0;
+    }
+    .credibility-grid {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       gap: 36px;
       flex-wrap: wrap;
     }
-    .header-meta-item {
+    .credibility-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
       font-size: .82rem;
       color: var(--muted-2);
       letter-spacing: .04em;
     }
-    .header-meta-item strong {
-      display: block;
+    .credibility-item strong {
       color: var(--gold);
-      font-size: 1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: -.01em;
-      margin-bottom: 4px;
+    }
+    .credibility-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--line);
     }
 
-    /* ── Programs grid ── */
+    /* ── Programs section ── */
     .programs-section {
       padding: 72px 0 64px;
     }
@@ -171,7 +191,7 @@
       margin-bottom: 14px;
     }
     .programs-intro h2 {
-      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
       line-height: 1.12;
       letter-spacing: -.025em;
       font-weight: 700;
@@ -180,6 +200,86 @@
     .programs-intro p {
       color: var(--muted);
       font-size: 1.02rem;
+    }
+
+    /* ── Signature keynote card (full width) ── */
+    .signature-card {
+      position: relative;
+      padding: 48px 44px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(212,165,116,.06) 0%, rgba(212,165,116,.02) 100%);
+      border: 1px solid rgba(212,165,116,.34);
+      box-shadow: 0 30px 80px rgba(0,0,0,.35), inset 0 0 0 1px rgba(212,165,116,.06);
+      margin-bottom: 32px;
+    }
+    .signature-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      padding: 7px 16px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #1a1a1a;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .signature-grid h3 {
+      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .signature-grid .program-body {
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .signature-grid .program-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── Companion grid (workshop + intensive) ── */
+    .companion-header {
+      margin-top: 48px;
+      margin-bottom: 28px;
+      padding-top: 48px;
+      border-top: 1px solid var(--line);
+    }
+    .companion-header .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .companion-header h2 {
+      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      font-weight: 700;
+      margin-bottom: 12px;
+      max-width: 30ch;
+    }
+    .companion-header p {
+      color: var(--muted);
+      font-size: .98rem;
+      max-width: 60ch;
     }
 
     .programs-grid {
@@ -236,9 +336,6 @@
       font-size: 1rem;
       line-height: 1.7;
       margin-bottom: 14px;
-    }
-    .program-body + .program-body {
-      margin-top: 0;
     }
     .program-body strong {
       color: var(--text);
@@ -322,7 +419,23 @@
     .footer-cta p {
       color: var(--muted);
       font-size: .98rem;
+      margin-bottom: 22px;
     }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      background: var(--slate);
+      color: white;
+      transition: .22s ease;
+      font-size: .98rem;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+
     .footer-contact {
       text-align: right;
       font-size: .92rem;
@@ -362,10 +475,12 @@
     }
 
     @media (max-width: 960px) {
-      .header-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
-      .photo-placeholder { max-width: 220px; margin: 0 auto; }
-      .header-title { margin-left: auto; margin-right: auto; }
-      .header-meta { justify-content: center; }
+      .hero { height: 60vh; min-height: 460px; }
+      .hero-content { padding-bottom: 40px; }
+      .credibility-grid { gap: 18px; }
+      .credibility-divider { display: none; }
+      .signature-grid { grid-template-columns: 1fr; gap: 32px; }
+      .signature-card { padding: 36px 28px; }
       .programs-grid { grid-template-columns: 1fr; }
       .program-card { padding: 36px 28px; }
       .spec-row { grid-template-columns: 110px 1fr; gap: 14px; }
@@ -375,60 +490,72 @@
 
     @media print {
       body { background: white; color: var(--ink); }
-      .page-header, .programs-section, .footer-band { padding: 24px 0; }
-      .program-card {
+      nav { display: none; }
+      .hero { height: 280px; min-height: 280px; }
+      .hero-overlay { background: linear-gradient(180deg, rgba(26,26,26,.4) 0%, rgba(26,26,26,.92) 100%); }
+      .programs-section, .footer-band { padding: 24px 0; }
+      .signature-card, .program-card {
         background: white;
         border: 1px solid #ddd;
         box-shadow: none;
         color: var(--ink);
         page-break-inside: avoid;
       }
-      .program-body, .spec-value { color: #444; }
-      .program-title, .header-title { color: var(--ink); }
-      .photo-placeholder { box-shadow: none; }
+      .signature-grid h3, .program-title { color: var(--ink); }
+      .program-body, .spec-value, .signature-grid .program-body { color: #444; }
       .footer-band { background: white; }
       .programs-grid { gap: 18px; }
+      .credibility-bar { background: white; border-color: #ddd; }
+      .credibility-item, .credibility-item strong { color: var(--ink); }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── HEADER ── -->
-  <header class="page-header">
-    <div class="container">
-      <div class="header-grid">
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="container nav-inner">
+      <a class="nav-back" href="/">&larr; Back to Sam Osborne</a>
+      <a class="nav-cta" href="#contact-cta">Check Availability</a>
+    </div>
+  </nav>
 
-        <!-- Profile photo placeholder -->
-        <div class="photo-placeholder" role="img" aria-label="Profile photo placeholder">
-          <div class="photo-icon">◐</div>
-          <div class="photo-label">Sam Osborne<br>Profile Photo</div>
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-inner">
+          <span class="hero-eyebrow">Program Formats · Meeting Planner Brief</span>
+          <h1 class="hero-title">Three formats. Built for high-stakes professional audiences.</h1>
+          <p class="hero-sub">From the main-stage keynote to multi-session intensives, each format is anchored by the Demartini Method and built around what audiences actually do with what they learn.</p>
         </div>
-
-        <!-- Header copy -->
-        <div>
-          <span class="header-eyebrow">Program Formats · Meeting Planner Brief</span>
-          <h1 class="header-title">Two formats. Built for high-stakes professional audiences.</h1>
-          <p class="header-sub">Beyond the keynote, two extended formats deepen the work and earn their slot on the agenda. Both are anchored by the Demartini Method and built around what audiences actually do with what they learn.</p>
-
-          <div class="header-meta">
-            <div class="header-meta-item">
-              <strong>4.7 / 5</strong>
-              CAI National Law Seminar 2026
-            </div>
-            <div class="header-meta-item">
-              <strong>Best of Conference</strong>
-              39 evaluations
-            </div>
-            <div class="header-meta-item">
-              <strong>CCAL Endorsed</strong>
-              College of Community Association Lawyers
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
-  </header>
+  </section>
+
+  <!-- ── CREDIBILITY BAR ── -->
+  <div class="credibility-bar">
+    <div class="container">
+      <div class="credibility-grid">
+        <div class="credibility-item">
+          <strong>4.7 / 5</strong>
+          <span>CAI National Law Seminar 2026</span>
+        </div>
+        <div class="credibility-divider"></div>
+        <div class="credibility-item">
+          <strong>Best of Conference</strong>
+          <span>39 evaluations</span>
+        </div>
+        <div class="credibility-divider"></div>
+        <div class="credibility-item">
+          <strong>CCAL Endorsed</strong>
+          <span>College of Community Association Lawyers</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ── PROGRAMS ── -->
   <section class="programs-section">
@@ -436,8 +563,55 @@
 
       <div class="programs-intro">
         <span class="eyebrow">The Formats</span>
-        <h2>Where the keynote opens the door, these formats walk the room through it.</h2>
+        <h2>One signature keynote. Two extended formats.</h2>
         <p>Each format is designed to be defended in a budget conversation: clear deliverables, defined audience capacity, and an outcome that survives Monday morning.</p>
+      </div>
+
+      <!-- ── SIGNATURE KEYNOTE ── -->
+      <article class="signature-card">
+        <span class="signature-flag">★ Signature Keynote</span>
+        <div class="signature-grid">
+          <div>
+            <h3>The Conflict Advantage</h3>
+            <p class="program-body">For leaders triggered by people, politics, and pressure. A keynote on dissolving emotional charge so composure returns and authority becomes usable again. Built for the main stage, the opening session, the moment where reactivity is the unspoken cost in the room.</p>
+            <p class="program-body">Audiences leave with new language for what was triggering them, a clear view of why it was triggering them, and an introduction to the perceptual balance process they can keep working with long after the conference closes. The signature talk that earned <strong>Best of Conference at CAI National Law Seminar 2026</strong>.</p>
+          </div>
+          <div>
+            <div class="program-specs">
+              <div class="spec-row">
+                <div class="spec-label">Duration</div>
+                <div class="spec-value">45–75 minutes</div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-label">Ideal For</div>
+                <div class="spec-value">Conference keynotes, opening or closing general sessions, leadership summits, association annual meetings.</div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-label">Audience</div>
+                <div class="spec-value">No upper limit · Designed for main-stage scale</div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-label">Includes</div>
+                <div class="spec-value">Full keynote · Pre-event planning call · Custom audience tailoring</div>
+              </div>
+              <div class="spec-row">
+                <div class="spec-label">Investment</div>
+                <div class="spec-value"><strong>From $20,000</strong></div>
+              </div>
+            </div>
+            <div class="program-outcome">
+              <strong>Outcome</strong>
+              The room leaves with a framework, not just a feeling.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── COMPANION HEADER ── -->
+      <div class="companion-header">
+        <span class="eyebrow">Extended Formats</span>
+        <h2>For audiences that need the method, not just the framework.</h2>
+        <p>The keynote opens the door. These formats walk the room through it — with live facilitation, guided application, and time enough for the work to actually land.</p>
       </div>
 
       <div class="programs-grid">
@@ -452,7 +626,7 @@
 
           <p class="program-body">A three-to-four hour working session built around a live Demartini Method demonstration with a volunteer from the room. Attendees don't just hear the framework — they watch an emotional charge actually dissolve in real time, on a real conflict from a real leader's life. That demonstration is the engine of the workshop.</p>
 
-          <p class="program-body">Around it, Sam teaches the perceptual balance process step by step, walks the room through paired application on their own current triggers, and equips each attendee with a worksheet they can use the following Monday morning.</p>
+          <p class="program-body">Around it, Sam teaches the perceptual balance process step by step, walks the room through guided partner work on their own current triggers, and equips each attendee with a worksheet they can use the following Monday morning.</p>
 
           <div class="program-divider"></div>
 
@@ -471,7 +645,7 @@
             </div>
             <div class="spec-row">
               <div class="spec-label">Includes</div>
-              <div class="spec-value">Live demonstration · Step-by-step teaching · Paired application · Take-home worksheet</div>
+              <div class="spec-value">Live demonstration · Step-by-step teaching · Guided partner work · Take-home worksheet</div>
             </div>
             <div class="spec-row">
               <div class="spec-label">Investment</div>
@@ -495,7 +669,7 @@
 
           <p class="program-body">A multi-session program designed for leadership teams, executive cohorts, and association boards that need depth rather than exposure. Built across two to four sessions over one to three days, the intensive moves a defined group through all four pillars: <strong>The Conflict Advantage, The Admiration Trap, The Defended Self,</strong> and <strong>The Disowned Self</strong>.</p>
 
-          <p class="program-body">Each session pairs a teaching block with live facilitation, structured paired work, and integration time so the framework lands in the actual relationships people lead.</p>
+          <p class="program-body">Each session pairs a teaching block with live facilitation, structured partner work, and integration time so the framework lands in the actual relationships people lead.</p>
 
           <div class="program-divider"></div>
 
@@ -514,7 +688,7 @@
             </div>
             <div class="spec-row">
               <div class="spec-label">Includes</div>
-              <div class="spec-value">All four pillars · Live facilitation · Structured paired work · Integration time · Pre-program design with planner</div>
+              <div class="spec-value">All four pillars · Live facilitation · Structured partner work · Integration time · Pre-program design with planner</div>
             </div>
             <div class="spec-row">
               <div class="spec-label">Investment</div>
@@ -533,12 +707,13 @@
   </section>
 
   <!-- ── FOOTER BAND ── -->
-  <footer class="footer-band">
+  <footer class="footer-band" id="contact-cta">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-cta">
           <h3>Discuss fit for your event.</h3>
           <p>Sam works directly with meeting planners to map the program to specific pressure points, audience composition, and the larger arc of the meeting. Response within two business days.</p>
+          <a class="btn-primary" href="/#contact">Check Availability &rarr;</a>
         </div>
         <div class="footer-contact">
           <div class="gold">Sam Osborne</div>
