@@ -85,7 +85,7 @@
     .hero-image {
       position: absolute;
       inset: 0;
-      background: url('images/sam-osborne-audience.jpeg') center 30% / cover no-repeat;
+      background: url('images/sam-osborne-audience.jpeg') center 70% / cover no-repeat;
       filter: grayscale(4%) contrast(1.04);
     }
     .hero-overlay {
@@ -202,15 +202,37 @@
       font-size: 1.02rem;
     }
 
-    /* ── Signature keynote card (full width) ── */
+    /* ── Signature keynote card (image + body, matches home page) ── */
     .signature-card {
       position: relative;
-      padding: 48px 44px;
       border-radius: 22px;
       background: linear-gradient(180deg, rgba(212,165,116,.06) 0%, rgba(212,165,116,.02) 100%);
       border: 1px solid rgba(212,165,116,.34);
       box-shadow: 0 30px 80px rgba(0,0,0,.35), inset 0 0 0 1px rgba(212,165,116,.06);
       margin-bottom: 32px;
+      overflow: hidden;
+    }
+    .signature-card-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1.6fr;
+      align-items: stretch;
+    }
+    .signature-card-image {
+      position: relative;
+      min-height: 460px;
+      background: #0d0d0d;
+    }
+    .signature-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .signature-card-body {
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .signature-flag {
       display: inline-flex;
@@ -227,27 +249,49 @@
       letter-spacing: .14em;
       text-transform: uppercase;
     }
-    .signature-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-    .signature-grid h3 {
+    .signature-card-body h3 {
       font-size: clamp(1.7rem, 2.8vw, 2.4rem);
       line-height: 1.08;
       letter-spacing: -.035em;
       font-weight: 800;
       color: var(--text);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
-    .signature-grid .program-body {
+    .signature-card-body .program-body {
       color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.7;
+      font-size: 1rem;
+      line-height: 1.65;
       margin-bottom: 14px;
     }
-    .signature-grid .program-body strong {
+    .signature-card-body .program-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .signature-specs {
+      margin-top: 20px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(212,165,116,.18);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 24px;
+    }
+    .signature-spec {
+      font-size: .82rem;
+    }
+    .signature-spec .spec-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .68rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .signature-spec .spec-value {
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .signature-spec .spec-value strong {
       color: var(--text);
       font-weight: 600;
     }
@@ -479,8 +523,10 @@
       .hero-content { padding-bottom: 40px; }
       .credibility-grid { gap: 18px; }
       .credibility-divider { display: none; }
-      .signature-grid { grid-template-columns: 1fr; gap: 32px; }
-      .signature-card { padding: 36px 28px; }
+      .signature-card-inner { grid-template-columns: 1fr; }
+      .signature-card-image { min-height: 260px; }
+      .signature-card-body { padding: 36px 28px; }
+      .signature-specs { grid-template-columns: 1fr; gap: 14px; }
       .programs-grid { grid-template-columns: 1fr; }
       .program-card { padding: 36px 28px; }
       .spec-row { grid-template-columns: 110px 1fr; gap: 14px; }
@@ -501,8 +547,8 @@
         color: var(--ink);
         page-break-inside: avoid;
       }
-      .signature-grid h3, .program-title { color: var(--ink); }
-      .program-body, .spec-value, .signature-grid .program-body { color: #444; }
+      .signature-card-body h3, .program-title { color: var(--ink); }
+      .program-body, .spec-value, .signature-card-body .program-body, .signature-spec .spec-value { color: #444; }
       .footer-band { background: white; }
       .programs-grid { gap: 18px; }
       .credibility-bar { background: white; border-color: #ddd; }
@@ -569,39 +615,33 @@
 
       <!-- ── SIGNATURE KEYNOTE ── -->
       <article class="signature-card">
-        <span class="signature-flag">★ Signature Keynote</span>
-        <div class="signature-grid">
-          <div>
+        <div class="signature-card-inner">
+          <div class="signature-card-image">
+            <img src="images/conflict-advantage-icon.jpg" alt="The Conflict Advantage" />
+          </div>
+          <div class="signature-card-body">
+            <span class="signature-flag">★ Signature Keynote</span>
             <h3>The Conflict Advantage</h3>
             <p class="program-body">For leaders triggered by people, politics, and pressure. A keynote on dissolving emotional charge so composure returns and authority becomes usable again. Built for the main stage, the opening session, the moment where reactivity is the unspoken cost in the room.</p>
             <p class="program-body">Audiences leave with new language for what was triggering them, a clear view of why it was triggering them, and an introduction to the perceptual balance process they can keep working with long after the conference closes. The signature talk that earned <strong>Best of Conference at CAI National Law Seminar 2026</strong>.</p>
-          </div>
-          <div>
-            <div class="program-specs">
-              <div class="spec-row">
-                <div class="spec-label">Duration</div>
-                <div class="spec-value">45–75 minutes</div>
+
+            <div class="signature-specs">
+              <div class="signature-spec">
+                <span class="spec-label">Duration</span>
+                <span class="spec-value">45–75 minutes</span>
               </div>
-              <div class="spec-row">
-                <div class="spec-label">Ideal For</div>
-                <div class="spec-value">Conference keynotes, opening or closing general sessions, leadership summits, association annual meetings.</div>
+              <div class="signature-spec">
+                <span class="spec-label">Audience</span>
+                <span class="spec-value">Main-stage scale · no upper limit</span>
               </div>
-              <div class="spec-row">
-                <div class="spec-label">Audience</div>
-                <div class="spec-value">No upper limit · Designed for main-stage scale</div>
+              <div class="signature-spec">
+                <span class="spec-label">Ideal For</span>
+                <span class="spec-value">Conference keynotes, general sessions, leadership summits, annual meetings</span>
               </div>
-              <div class="spec-row">
-                <div class="spec-label">Includes</div>
-                <div class="spec-value">Full keynote · Pre-event planning call · Custom audience tailoring</div>
+              <div class="signature-spec">
+                <span class="spec-label">Investment</span>
+                <span class="spec-value"><strong>From $20,000</strong></span>
               </div>
-              <div class="spec-row">
-                <div class="spec-label">Investment</div>
-                <div class="spec-value"><strong>From $20,000</strong></div>
-              </div>
-            </div>
-            <div class="program-outcome">
-              <strong>Outcome</strong>
-              The room leaves with a framework, not just a feeling.
             </div>
           </div>
         </div>
