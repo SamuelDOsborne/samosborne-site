@@ -265,6 +265,70 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 }
 .section-light .highlight-box p { color: var(--ink); }
 
+/* ═══════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════ */
+.testimonial-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px;
+}
+.testimonial-card {
+  position: relative;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 18px;
+  padding: 40px 32px 32px;
+  display: flex; flex-direction: column;
+  transition: background .3s ease, border-color .3s ease, transform .3s ease;
+}
+.testimonial-card:hover {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.2);
+  transform: translateY(-6px);
+}
+.testimonial-card.featured {
+  background: rgba(212,165,116,.06);
+  border-color: rgba(212,165,116,.32);
+}
+.testimonial-card.featured:hover {
+  background: rgba(212,165,116,.10);
+  border-color: rgba(212,165,116,.5);
+}
+.testimonial-tag {
+  position: absolute; top: -10px; left: 28px;
+  background: var(--gold); color: var(--charcoal);
+  font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 999px;
+}
+.testimonial-mark {
+  font-family: 'Inter', serif;
+  font-size: 3.6rem; font-weight: 700; line-height: .6;
+  color: rgba(212,165,116,.32);
+  margin-bottom: 8px;
+  user-select: none;
+}
+.testimonial-quote {
+  font-size: clamp(.92rem, 1.15vw, .98rem);
+  font-weight: 300; line-height: 1.68; letter-spacing: -.005em;
+  color: rgba(240,237,232,.78);
+  font-style: italic;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.testimonial-rule {
+  width: 28px; height: 1px;
+  background: rgba(212,165,116,.42);
+  margin-bottom: 16px;
+}
+.testimonial-attr { margin-top: auto; }
+.testimonial-name {
+  font-size: .92rem; font-weight: 600; letter-spacing: -.01em;
+  color: var(--off); margin-bottom: 4px;
+}
+.testimonial-role {
+  font-size: .76rem; font-weight: 400; letter-spacing: -.005em;
+  color: rgba(240,237,232,.42); line-height: 1.5;
+}
+
 .pricing-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px;
   max-width: 1200px; margin-left: auto; margin-right: auto;
@@ -461,6 +525,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   .two-col { grid-template-columns: 1fr; gap: 44px; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 560px; }
   .method-cards { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
   .founders-card { grid-template-columns: 1fr; gap: 24px; padding: 32px 26px; }
   .founders-pricing { text-align: left; align-items: flex-start; }
 }
@@ -470,6 +535,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   .hero { padding: 100px 20px 60px; overflow: hidden; }
   .problem-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: 36px 26px 28px; }
+  .testimonial-mark { font-size: 3rem; }
   footer { padding: 44px 20px 34px; }
   .cursor { display: none; }
 }
@@ -487,6 +554,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <li><a href="index.html#speaking">Speaking</a></li>
       <li><a href="index.html#method">The Method</a></li>
       <li><a href="#advisory">Advisory</a></li>
+      <li><a href="#endorsements">Endorsements</a></li>
       <li><a href="#investment">Investment</a></li>
     </ul>
     <a class="nav-cta" href="#contact">Schedule Consultation ›</a>
@@ -650,6 +718,59 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════════════
+     ENDORSEMENTS — NEW SECTION
+     ═══════════════════════════════════════════════ -->
+<section class="section section-dark" id="endorsements">
+  <div class="section-content">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow">Endorsements</span>
+      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">What the work delivers.</h2>
+      <p class="t-body" style="max-width:54ch; margin:16px auto 0; text-align:center;">Three perspectives from people who have done the work directly. A client. A peer. A leadership professional in the field.</p>
+    </div>
+
+    <div class="testimonial-grid reveal-stagger">
+
+      <article class="testimonial-card">
+        <span class="testimonial-tag">Relationship Charge</span>
+        <div class="testimonial-mark">&ldquo;</div>
+        <blockquote class="testimonial-quote">A relationship with a specific person was causing me significant heartache. A single session with Sam brought me to a place of balance and peace &mdash; both with the person and with the situation. Many weeks later, those feelings have endured. The progress is leaps and bounds beyond what therapy or coaching could do. Sam&rsquo;s work is transformative.</blockquote>
+        <div class="testimonial-rule"></div>
+        <div class="testimonial-attr">
+          <div class="testimonial-name">Corrine Westphal</div>
+          <div class="testimonial-role">Editor &middot; France</div>
+        </div>
+      </article>
+
+      <article class="testimonial-card featured">
+        <span class="testimonial-tag">Peer Authority</span>
+        <div class="testimonial-mark">&ldquo;</div>
+        <blockquote class="testimonial-quote">After fifty years of working &mdash; forty-five of them running my own businesses &mdash; and study across spirituality, economics, ethics, and ecology, I still had days when self-doubt arrived without warning. One session with Sam cleared more of that than anything I had previously experienced. My highest recommendation.</blockquote>
+        <div class="testimonial-rule"></div>
+        <div class="testimonial-attr">
+          <div class="testimonial-name">Graham Harvey, CSP</div>
+          <div class="testimonial-role">Hall of Fame, Professional Speakers Australia &middot; Winner, Nevin Award</div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <span class="testimonial-tag">Professional Peer</span>
+        <div class="testimonial-mark">&ldquo;</div>
+        <blockquote class="testimonial-quote">I went in unsure exactly what was causing the issue. By the end of the session, I felt calm, clear, and had a much better understanding of what had been going on and what to do next. Sam helped me cut through the noise to see my perceptions clearly and reach a place of energetic freedom.</blockquote>
+        <div class="testimonial-rule"></div>
+        <div class="testimonial-attr">
+          <div class="testimonial-name">Liz Murray</div>
+          <div class="testimonial-role">Leadership Coach &middot; Australia</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     END ENDORSEMENTS
+     ═══════════════════════════════════════════════ -->
 
 <section class="section section-dark" id="investment">
   <div class="section-content">
@@ -861,6 +982,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <a href="index.html#speaking">Speaking</a>
       <a href="index.html#method">The Method</a>
       <a href="#advisory">Advisory</a>
+      <a href="#endorsements">Endorsements</a>
       <a href="#contact">Contact</a>
     </div>
     <p class="copyright">© 2026 Sam Osborne · Demartini Method Facilitator · Based in Burbank, California · samosborne.net</p>
@@ -872,7 +994,7 @@ const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cu
 let mx=0,my=0,rx=0,ry=0;
 window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 (function a(){if(dot&&ring){dot.style.left=mx+'px';dot.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';}requestAnimationFrame(a);})();
-document.querySelectorAll('a,button,.problem-card,.pricing-card,.method-card').forEach(el=>{
+document.querySelectorAll('a,button,.problem-card,.pricing-card,.method-card,.testimonial-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{if(ring){ring.style.width='50px';ring.style.height='50px';ring.style.borderColor='rgba(212,165,116,.55)';}});
   el.addEventListener('mouseleave',()=>{if(ring){ring.style.width='34px';ring.style.height='34px';ring.style.borderColor='rgba(240,237,232,.32)';}});
 });
