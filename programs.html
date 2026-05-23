@@ -56,7 +56,6 @@
       justify-content: space-between;
       gap: 20px;
     }
-    .nav-brand { font-weight: 700; letter-spacing: -.02em; font-size: 1rem; }
     .nav-back {
       color: var(--muted);
       font-size: 13px;
@@ -73,7 +72,7 @@
     }
     .nav-cta:hover { opacity: .8; }
 
-    /* ── HERO with full-width image ── */
+    /* ── HERO ── */
     .hero {
       position: relative;
       height: 72vh;
@@ -103,9 +102,7 @@
       align-items: flex-end;
       padding-bottom: 64px;
     }
-    .hero-inner {
-      max-width: 760px;
-    }
+    .hero-inner { max-width: 760px; }
     .hero-eyebrow {
       display: inline-block;
       color: var(--gold);
@@ -173,9 +170,7 @@
     }
 
     /* ── Programs section ── */
-    .programs-section {
-      padding: 72px 0 64px;
-    }
+    .programs-section { padding: 72px 0 64px; }
 
     .programs-intro {
       max-width: 64ch;
@@ -202,37 +197,64 @@
       font-size: 1.02rem;
     }
 
-    /* ── Signature keynote card (image + body, matches home page) ── */
-    .signature-card {
+    /* ── Program cards (unified two-column structure) ── */
+    .program-card {
       position: relative;
       border-radius: 22px;
-      background: linear-gradient(180deg, rgba(212,165,116,.06) 0%, rgba(212,165,116,.02) 100%);
-      border: 1px solid rgba(212,165,116,.34);
-      box-shadow: 0 30px 80px rgba(0,0,0,.35), inset 0 0 0 1px rgba(212,165,116,.06);
-      margin-bottom: 32px;
+      border: 1px solid var(--line-gold);
+      box-shadow: 0 30px 80px rgba(0,0,0,.35), inset 0 0 0 1px rgba(212,165,116,.04);
+      margin-bottom: 28px;
       overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.035) 0%, rgba(255,255,255,.015) 100%);
     }
-    .signature-card-inner {
+    .program-card.signature {
+      border-color: rgba(212,165,116,.34);
+      background: linear-gradient(180deg, rgba(212,165,116,.06) 0%, rgba(212,165,116,.02) 100%);
+    }
+    .program-card-inner {
       display: grid;
-      grid-template-columns: 1.1fr 1.6fr;
+      grid-template-columns: 1fr 1.6fr;
       align-items: stretch;
     }
-    .signature-card-image {
+    .program-card-image {
       position: relative;
       min-height: 460px;
       background: #0d0d0d;
     }
-    .signature-card-image img {
+    .program-card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .signature-card-body {
+    .program-card-body {
       padding: 48px 44px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    .program-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      padding: 6px 14px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      background: rgba(212,165,116,.12);
+      border: 1px solid rgba(212,165,116,.28);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .program-flag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
     }
     .signature-flag {
       display: inline-flex;
@@ -249,36 +271,43 @@
       letter-spacing: .14em;
       text-transform: uppercase;
     }
-    .signature-card-body h3 {
-      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
-      line-height: 1.08;
-      letter-spacing: -.035em;
+
+    .program-title {
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      line-height: 1.1;
+      letter-spacing: -.03em;
       font-weight: 800;
       color: var(--text);
       margin-bottom: 18px;
     }
-    .signature-card-body .program-body {
+    .program-card.signature .program-title {
+      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+      letter-spacing: -.035em;
+    }
+
+    .program-body {
       color: var(--muted);
       font-size: 1rem;
       line-height: 1.65;
       margin-bottom: 14px;
     }
-    .signature-card-body .program-body strong {
+    .program-body strong {
       color: var(--text);
       font-weight: 600;
     }
-    .signature-specs {
-      margin-top: 20px;
+
+    .card-specs {
+      margin-top: 22px;
       padding-top: 22px;
       border-top: 1px solid rgba(212,165,116,.18);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px 24px;
+      gap: 16px 24px;
     }
-    .signature-spec {
+    .card-spec {
       font-size: .82rem;
     }
-    .signature-spec .spec-label {
+    .card-spec .spec-label {
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: .1em;
@@ -287,16 +316,36 @@
       display: block;
       margin-bottom: 4px;
     }
-    .signature-spec .spec-value {
+    .card-spec .spec-value {
       color: var(--muted);
       line-height: 1.45;
     }
-    .signature-spec .spec-value strong {
+    .card-spec .spec-value strong {
       color: var(--text);
       font-weight: 600;
     }
 
-    /* ── Companion grid (workshop + intensive) ── */
+    .program-outcome {
+      margin-top: 22px;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: rgba(74,94,127,.12);
+      border-left: 2px solid var(--gold);
+      font-size: .9rem;
+      color: rgba(245,245,247,.86);
+      line-height: 1.55;
+    }
+    .program-outcome strong {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .68rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* ── Companion section header ── */
     .companion-header {
       margin-top: 48px;
       margin-bottom: 28px;
@@ -324,120 +373,6 @@
       color: var(--muted);
       font-size: .98rem;
       max-width: 60ch;
-    }
-
-    .programs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .program-card {
-      position: relative;
-      padding: 44px 40px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,.035) 0%, rgba(255,255,255,.015) 100%);
-      border: 1px solid var(--line-gold);
-      box-shadow: 0 30px 80px rgba(0,0,0,.35), inset 0 0 0 1px rgba(212,165,116,.04);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .program-flag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      align-self: flex-start;
-      padding: 6px 14px;
-      margin-bottom: 22px;
-      border-radius: 999px;
-      background: rgba(212,165,116,.12);
-      border: 1px solid rgba(212,165,116,.28);
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    .program-flag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    .program-title {
-      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-      line-height: 1.1;
-      letter-spacing: -.03em;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-
-    .program-body {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-    .program-body strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .program-divider {
-      width: 36px;
-      height: 1px;
-      background: rgba(212,165,116,.5);
-      margin: 28px 0 24px;
-    }
-
-    .program-specs {
-      display: grid;
-      gap: 14px;
-    }
-    .spec-row {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 18px;
-      font-size: .88rem;
-      align-items: baseline;
-    }
-    .spec-label {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-size: .7rem;
-      font-weight: 700;
-    }
-    .spec-value {
-      color: var(--muted);
-      line-height: 1.55;
-    }
-    .spec-value strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .program-outcome {
-      margin-top: 28px;
-      padding: 18px 20px;
-      border-radius: 12px;
-      background: rgba(74,94,127,.12);
-      border-left: 2px solid var(--gold);
-      font-size: .92rem;
-      color: rgba(245,245,247,.86);
-      line-height: 1.55;
-    }
-    .program-outcome strong {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-size: .68rem;
-      font-weight: 700;
-      display: block;
-      margin-bottom: 6px;
     }
 
     /* ── Footer band ── */
@@ -496,9 +431,7 @@
       border-bottom: 1px solid rgba(212,165,116,.4);
       transition: border-color .2s ease;
     }
-    .footer-contact a:hover {
-      border-color: var(--gold);
-    }
+    .footer-contact a:hover { border-color: var(--gold); }
 
     .signature-line {
       margin-top: 32px;
@@ -523,13 +456,10 @@
       .hero-content { padding-bottom: 40px; }
       .credibility-grid { gap: 18px; }
       .credibility-divider { display: none; }
-      .signature-card-inner { grid-template-columns: 1fr; }
-      .signature-card-image { min-height: 260px; }
-      .signature-card-body { padding: 36px 28px; }
-      .signature-specs { grid-template-columns: 1fr; gap: 14px; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .program-card { padding: 36px 28px; }
-      .spec-row { grid-template-columns: 110px 1fr; gap: 14px; }
+      .program-card-inner { grid-template-columns: 1fr; }
+      .program-card-image { min-height: 240px; }
+      .program-card-body { padding: 36px 28px; }
+      .card-specs { grid-template-columns: 1fr; gap: 14px; }
       .footer-grid { grid-template-columns: 1fr; text-align: center; }
       .footer-contact { text-align: center; }
     }
@@ -540,17 +470,16 @@
       .hero { height: 280px; min-height: 280px; }
       .hero-overlay { background: linear-gradient(180deg, rgba(26,26,26,.4) 0%, rgba(26,26,26,.92) 100%); }
       .programs-section, .footer-band { padding: 24px 0; }
-      .signature-card, .program-card {
+      .program-card {
         background: white;
         border: 1px solid #ddd;
         box-shadow: none;
         color: var(--ink);
         page-break-inside: avoid;
       }
-      .signature-card-body h3, .program-title { color: var(--ink); }
-      .program-body, .spec-value, .signature-card-body .program-body, .signature-spec .spec-value { color: #444; }
+      .program-title { color: var(--ink); }
+      .program-body, .card-spec .spec-value { color: #444; }
       .footer-band { background: white; }
-      .programs-grid { gap: 18px; }
       .credibility-bar { background: white; border-color: #ddd; }
       .credibility-item, .credibility-item strong { color: var(--ink); }
     }
@@ -614,31 +543,31 @@
       </div>
 
       <!-- ── SIGNATURE KEYNOTE ── -->
-      <article class="signature-card">
-        <div class="signature-card-inner">
-          <div class="signature-card-image">
+      <article class="program-card signature">
+        <div class="program-card-inner">
+          <div class="program-card-image">
             <img src="images/conflict-advantage-icon.jpg" alt="The Conflict Advantage" />
           </div>
-          <div class="signature-card-body">
+          <div class="program-card-body">
             <span class="signature-flag">★ Signature Keynote</span>
-            <h3>The Conflict Advantage</h3>
+            <h3 class="program-title">The Conflict Advantage</h3>
             <p class="program-body">For leaders triggered by people, politics, and pressure. A keynote on dissolving emotional charge so composure returns and authority becomes usable again. Built for the main stage, the opening session, the moment where reactivity is the unspoken cost in the room.</p>
             <p class="program-body">Audiences leave with new language for what was triggering them, a clear view of why it was triggering them, and an introduction to the perceptual balance process they can keep working with long after the conference closes. The signature talk that earned <strong>Best of Conference at CAI National Law Seminar 2026</strong>.</p>
 
-            <div class="signature-specs">
-              <div class="signature-spec">
+            <div class="card-specs">
+              <div class="card-spec">
                 <span class="spec-label">Duration</span>
                 <span class="spec-value">45–75 minutes</span>
               </div>
-              <div class="signature-spec">
+              <div class="card-spec">
                 <span class="spec-label">Audience</span>
                 <span class="spec-value">Main-stage scale · no upper limit</span>
               </div>
-              <div class="signature-spec">
+              <div class="card-spec">
                 <span class="spec-label">Ideal For</span>
                 <span class="spec-value">Conference keynotes, general sessions, leadership summits, annual meetings</span>
               </div>
-              <div class="signature-spec">
+              <div class="card-spec">
                 <span class="spec-label">Investment</span>
                 <span class="spec-value"><strong>From $20,000</strong></span>
               </div>
@@ -654,95 +583,90 @@
         <p>The keynote opens the door. These formats walk the room through it — with live facilitation, guided application, and time enough for the work to actually land.</p>
       </div>
 
-      <div class="programs-grid">
+      <!-- ── HALF-DAY WORKSHOP ── -->
+      <article class="program-card">
+        <div class="program-card-inner">
+          <div class="program-card-image">
+            <img src="images/half-day-workshop-icon.jpg" alt="Half-Day Workshop with Live Demartini Method Demonstration" />
+          </div>
+          <div class="program-card-body">
+            <span class="program-flag">
+              <span class="program-flag-dot"></span>
+              Half-Day Workshop
+            </span>
+            <h3 class="program-title">Workshop with Live Demartini Method Demonstration</h3>
+            <p class="program-body">A three-to-four hour working session built around a live Demartini Method demonstration with a volunteer from the room. Attendees don't just hear the framework — they watch an emotional charge actually dissolve in real time, on a real conflict from a real leader's life. That demonstration is the engine of the workshop.</p>
+            <p class="program-body">Around it, Sam teaches the perceptual balance process step by step, walks the room through guided partner work on their own current triggers, and equips each attendee with a worksheet they can use the following Monday morning.</p>
 
-        <!-- ── HALF-DAY WORKSHOP ── -->
-        <article class="program-card">
-          <span class="program-flag">
-            <span class="program-flag-dot"></span>
-            Half-Day Workshop
-          </span>
-          <h3 class="program-title">Workshop with Live Demartini Method Demonstration</h3>
-
-          <p class="program-body">A three-to-four hour working session built around a live Demartini Method demonstration with a volunteer from the room. Attendees don't just hear the framework — they watch an emotional charge actually dissolve in real time, on a real conflict from a real leader's life. That demonstration is the engine of the workshop.</p>
-
-          <p class="program-body">Around it, Sam teaches the perceptual balance process step by step, walks the room through guided partner work on their own current triggers, and equips each attendee with a worksheet they can use the following Monday morning.</p>
-
-          <div class="program-divider"></div>
-
-          <div class="program-specs">
-            <div class="spec-row">
-              <div class="spec-label">Duration</div>
-              <div class="spec-value">3–4 hours</div>
+            <div class="card-specs">
+              <div class="card-spec">
+                <span class="spec-label">Duration</span>
+                <span class="spec-value">3–4 hours</span>
+              </div>
+              <div class="card-spec">
+                <span class="spec-label">Audience</span>
+                <span class="spec-value"><strong>150</strong> full participation · <strong>300</strong> demo-and-teach</span>
+              </div>
+              <div class="card-spec">
+                <span class="spec-label">Ideal For</span>
+                <span class="spec-value">Pre-conference intensive, retreat anchor session, half-day deep-dive following the keynote</span>
+              </div>
+              <div class="card-spec">
+                <span class="spec-label">Investment</span>
+                <span class="spec-value"><strong>From $40,000</strong></span>
+              </div>
             </div>
-            <div class="spec-row">
-              <div class="spec-label">Ideal For</div>
-              <div class="spec-value">Pre-conference intensive, leadership retreat anchor session, or half-day deep-dive following the signature keynote.</div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-label">Audience</div>
-              <div class="spec-value"><strong>150</strong> for full participation · <strong>300</strong> for demonstration-and-teach format</div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-label">Includes</div>
-              <div class="spec-value">Live demonstration · Step-by-step teaching · Guided partner work · Take-home worksheet</div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-label">Investment</div>
-              <div class="spec-value"><strong>From $40,000</strong></div>
+
+            <div class="program-outcome">
+              <strong>Outcome</strong>
+              Attendees leave with a repeatable method, not a memory of a good talk.
             </div>
           </div>
+        </div>
+      </article>
 
-          <div class="program-outcome">
-            <strong>Outcome</strong>
-            Attendees leave with a repeatable method, not a memory of a good talk.
+      <!-- ── MULTI-SESSION INTENSIVE ── -->
+      <article class="program-card">
+        <div class="program-card-inner">
+          <div class="program-card-image">
+            <img src="images/executive-retreat-icon.jpg" alt="Executive Retreats and Multi-Session Leadership Intensives" />
           </div>
-        </article>
+          <div class="program-card-body">
+            <span class="program-flag">
+              <span class="program-flag-dot"></span>
+              Multi-Session Intensive
+            </span>
+            <h3 class="program-title">Executive Retreats &amp; Leadership Intensives</h3>
+            <p class="program-body">A multi-session program designed for leadership teams, executive cohorts, and association boards that need depth rather than exposure. Built across two to four sessions over one to three days, the intensive moves a defined group through all four pillars: <strong>The Conflict Advantage, The Admiration Trap, The Defended Self,</strong> and <strong>The Disowned Self</strong>.</p>
+            <p class="program-body">Each session pairs a teaching block with live facilitation, structured partner work, and integration time so the framework lands in the actual relationships people lead.</p>
 
-        <!-- ── MULTI-SESSION INTENSIVE ── -->
-        <article class="program-card">
-          <span class="program-flag">
-            <span class="program-flag-dot"></span>
-            Multi-Session Intensive
-          </span>
-          <h3 class="program-title">Executive Retreats &amp; Leadership Intensives</h3>
-
-          <p class="program-body">A multi-session program designed for leadership teams, executive cohorts, and association boards that need depth rather than exposure. Built across two to four sessions over one to three days, the intensive moves a defined group through all four pillars: <strong>The Conflict Advantage, The Admiration Trap, The Defended Self,</strong> and <strong>The Disowned Self</strong>.</p>
-
-          <p class="program-body">Each session pairs a teaching block with live facilitation, structured partner work, and integration time so the framework lands in the actual relationships people lead.</p>
-
-          <div class="program-divider"></div>
-
-          <div class="program-specs">
-            <div class="spec-row">
-              <div class="spec-label">Duration</div>
-              <div class="spec-value">2–4 sessions over 1–3 days</div>
+            <div class="card-specs">
+              <div class="card-spec">
+                <span class="spec-label">Duration</span>
+                <span class="spec-value">2–4 sessions over 1–3 days</span>
+              </div>
+              <div class="card-spec">
+                <span class="spec-label">Audience</span>
+                <span class="spec-value"><strong>12–40</strong> for full immersion</span>
+              </div>
+              <div class="card-spec">
+                <span class="spec-label">Ideal For</span>
+                <span class="spec-value">Executive offsites, partner retreats, board development weekends, leadership cohorts</span>
+              </div>
+              <div class="card-spec">
+                <span class="spec-label">Investment</span>
+                <span class="spec-value"><strong>From $75,000</strong></span>
+              </div>
             </div>
-            <div class="spec-row">
-              <div class="spec-label">Ideal For</div>
-              <div class="spec-value">Executive offsites, partner retreats, board development weekends, and high-stakes leadership cohorts where the same people will keep working together long after the program ends.</div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-label">Audience</div>
-              <div class="spec-value"><strong>12–40</strong> for full immersion</div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-label">Includes</div>
-              <div class="spec-value">All four pillars · Live facilitation · Structured partner work · Integration time · Pre-program design with planner</div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-label">Investment</div>
-              <div class="spec-value"><strong>From $75,000</strong></div>
+
+            <div class="program-outcome">
+              <strong>Outcome</strong>
+              A measurably calmer, clearer, more honest leadership culture.
             </div>
           </div>
+        </div>
+      </article>
 
-          <div class="program-outcome">
-            <strong>Outcome</strong>
-            A measurably calmer, clearer, more honest leadership culture.
-          </div>
-        </article>
-
-      </div>
     </div>
   </section>
 
