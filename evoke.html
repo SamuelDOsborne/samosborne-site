@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evoke Impact | A Studio of Authored Works by Mark Khoder</title>
+  <meta name="description" content="Evoke Impact — a studio of original, authored works across forms, disciplines, and ways of seeing. Books, essays, and notes from the living mind of Mark Khoder." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #1a1a1a;
+      --bg-2: #232323;
+      --text: #f5f5f7;
+      --muted: rgba(245,245,247,.66);
+      --muted-2: rgba(245,245,247,.42);
+      --gold: #d4a574;
+      --slate: #4a5e7f;
+      --warm: #f5f3f0;
+      --ink: #1d1d1f;
+      --line: rgba(255,255,255,.08);
+      --line-dark: rgba(0,0,0,.08);
+      --card: rgba(255,255,255,.04);
+      --radius: 22px;
+      --shadow: 0 18px 60px rgba(0,0,0,.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1200px, calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 88px 0; }
+    .section-light { background: var(--warm); color: var(--ink); }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .section-light .eyebrow { color: var(--slate); }
+
+    h1,h2,h3,p { margin: 0; }
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5.4rem);
+      line-height: 1.04;
+      letter-spacing: -.05em;
+      font-weight: 800;
+    }
+    h2 {
+      font-size: clamp(2rem, 4.8vw, 4.2rem);
+      line-height: 1.06;
+      letter-spacing: -.04em;
+      font-weight: 800;
+    }
+    h3 {
+      font-size: 1.15rem;
+      line-height: 1.12;
+      letter-spacing: -.02em;
+      font-weight: 700;
+    }
+    .lede {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: var(--muted);
+      max-width: 42ch;
+    }
+    .lede-dark {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: rgba(29,29,31,.68);
+      max-width: 56ch;
+    }
+
+    .btn-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; align-items: center; }
+    .btn-primary, .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      transition: .22s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .btn-primary { background: var(--slate); color: #fff; }
+    .btn-primary:hover { transform: translateY(-1px); background: var(--gold); }
+    .btn-secondary {
+      color: var(--text);
+      border-color: rgba(255,255,255,.16);
+      background: transparent;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .section-light .btn-secondary { color: var(--ink); border-color: rgba(0,0,0,.18); }
+    .section-light .btn-secondary:hover { color: var(--slate); border-color: var(--slate); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(26,26,26,.82);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+    }
+    .nav-brand {
+      font-weight: 800;
+      letter-spacing: -.03em;
+      font-size: 1.05rem;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      align-items: center;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { color: var(--gold); font-size: 14px; font-weight: 600; }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      font-size: 20px;
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      min-height: calc(100vh - 60px);
+      align-items: stretch;
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 84px 0;
+    }
+    .hero-copy .inner { width: min(620px, calc(100% - 40px)); margin: 0 auto; }
+    .hero-kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      margin-top: 26px;
+      max-width: 36ch;
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .hero-sub strong { color: var(--text); font-weight: 600; }
+    .hero-rule { width: 40px; height: 1px; background: rgba(212,165,116,.54); margin: 26px 0 0; }
+    .hero-image {
+      position: relative;
+      min-height: 520px;
+      background: var(--bg-2);
+      overflow: hidden;
+    }
+    .hero-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      filter: grayscale(6%) contrast(1.03);
+    }
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(26,26,26,.92) 0%, rgba(26,26,26,0) 42%),
+        linear-gradient(180deg, rgba(26,26,26,.08) 0%, rgba(26,26,26,.46) 100%);
+      pointer-events: none;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 14px 0;
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 34px;
+      min-width: 200%;
+      animation: marquee 32s linear infinite;
+      color: rgba(245,245,247,.32);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 600;
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── BOOKS / FEATURED WORK ── */
+    .books-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .books-header h2 { margin-bottom: 8px; }
+    .books-header .subtitle { color: rgba(29,29,31,.58); font-size: 1.05rem; }
+    .books-right { display: flex; align-items: center; gap: 16px; }
+    .books-line { width: 64px; height: 1px; background: rgba(0,0,0,.18); }
+    .books-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--slate);
+    }
+
+    .featured-card {
+      margin-top: 40px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.86) 100%);
+      border: 1px solid rgba(212,165,116,.32);
+      box-shadow: 0 24px 70px rgba(0,0,0,.12), 0 0 0 1px rgba(212,165,116,.06) inset;
+      overflow: hidden;
+    }
+    .featured-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      align-items: stretch;
+    }
+    .featured-image { position: relative; min-height: 420px; background: #0d0d0d; }
+    .featured-image img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-body {
+      padding: 52px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: var(--ink);
+    }
+    .featured-flag {
+      display: inline-block; align-self: flex-start;
+      padding: 6px 14px; margin-bottom: 20px;
+      border-radius: 999px; background: var(--gold); color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .featured-body h3 {
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1.06; letter-spacing: -.035em; font-weight: 800;
+      color: var(--ink); margin-bottom: 16px;
+    }
+    .featured-body p {
+      font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+      line-height: 1.6; color: rgba(29,29,31,.66); max-width: 46ch; margin: 0 0 8px;
+    }
+
+    /* ── THE FIELD ── */
+    .field-heading { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .field-heading h2 { margin-bottom: 16px; }
+    .field-heading p { color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.15rem); }
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .field-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+    .field-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease, filter .4s ease;
+      filter: grayscale(12%) brightness(.92);
+    }
+    .field-card::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(26,26,26,0) 55%, rgba(26,26,26,.55) 100%);
+      opacity: 0; transition: opacity .4s ease;
+    }
+    .field-card:hover img { transform: scale(1.05); filter: grayscale(0%) brightness(1); }
+    .field-card:hover::after { opacity: 1; }
+    .field-btn-wrap { display: flex; justify-content: center; margin-top: 44px; }
+
+    /* ── SUBSCRIBE ── */
+    .subscribe { position: relative; overflow: hidden; }
+    .subscribe::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(212,165,116,.08) 0%, transparent 42%),
+        radial-gradient(circle at 82% 80%, rgba(74,94,127,.10) 0%, transparent 46%);
+      pointer-events: none;
+    }
+    .subscribe .container { position: relative; z-index: 1; }
+    .subscribe-inner { max-width: 620px; margin: 0 auto; text-align: center; }
+    .subscribe-inner h2 { margin: 6px auto 18px; max-width: 14ch; }
+    .subscribe-desc { color: var(--muted); max-width: 44ch; margin: 0 auto 14px; }
+    .subscribe-signal {
+      color: var(--gold); font-size: 12px; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; margin-bottom: 30px;
+    }
+    .evoke-form {
+      display: flex; gap: 10px; max-width: 480px; margin: 0 auto;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .evoke-email {
+      flex: 1 1 260px;
+      min-height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: #fff;
+      padding: 0 22px;
+      font: inherit;
+      transition: border-color .18s ease, box-shadow .18s ease;
+    }
+    .evoke-email::placeholder { color: rgba(245,245,247,.3); }
+    .evoke-email:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,165,116,.18);
+    }
+    .evoke-btn {
+      min-height: 52px; padding: 0 30px;
+      border-radius: 999px; border: 1px solid transparent;
+      background: var(--slate); color: #fff;
+      font-weight: 700; letter-spacing: .04em; cursor: pointer;
+      font-family: inherit; transition: .22s ease;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .evoke-btn:hover { background: var(--gold); transform: translateY(-1px); }
+    .evoke-spinner {
+      width: 15px; height: 15px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.4); border-top-color: #fff;
+      display: none; animation: spin .7s linear infinite;
+    }
+    .is-loading .evoke-spinner { display: inline-block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .evoke-feedback {
+      margin-top: 18px; font-size: .95rem; min-height: 1.2em;
+      opacity: 0; transition: opacity .3s ease;
+    }
+    .evoke-feedback.show { opacity: 1; }
+    .evoke-feedback.ok { color: #7de89a; }
+    .evoke-feedback.err { color: #f09090; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 56px 0 48px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-brand { font-weight: 800; font-size: 1.3rem; letter-spacing: -.03em; margin-bottom: 14px; }
+    .footer-brand span { color: var(--gold); }
+    .footer-text { color: var(--muted); font-size: 1rem; line-height: 1.6; max-width: 36ch; }
+    .copyright { color: var(--muted-2); font-size: .9rem; margin-top: 26px; }
+    .footer-right-wrap {
+      display: flex; flex-direction: column; gap: 26px; align-items: flex-end;
+    }
+    .footer-nav { display: flex; gap: 24px; color: var(--muted); font-size: 14px; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-social { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .footer-social a {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--line); color: var(--muted);
+      transition: .22s ease; font-size: 15px;
+    }
+    .footer-social a:hover {
+      color: var(--gold); border-color: rgba(212,165,116,.5);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .featured-inner,
+      .footer-grid { grid-template-columns: 1fr; }
+      .field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-copy { padding: 56px 0; order: 2; }
+      .hero-image { min-height: 360px; order: 1; }
+      .featured-image { min-height: 280px; }
+      .featured-body { padding: 36px 28px; }
+      .mobile-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        top: 60px; left: 0; width: 100%;
+        background: rgba(26,26,26,.97);
+        backdrop-filter: blur(18px);
+        flex-direction: column; gap: 18px;
+        padding: 22px; display: none;
+        border-bottom: 1px solid var(--line);
+        align-items: flex-start;
+      }
+      .nav-links.active { display: flex; }
+      .footer-right-wrap { align-items: flex-start; }
+      .footer-social, .footer-nav { justify-content: flex-start; }
+    }
+    @media (max-width: 520px) {
+      .field-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="container nav-inner">
+      <a class="nav-brand" href="#top">Evoke <span>Impact</span></a>
+      <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#work-section">Work</a>
+        <a href="#field-section">The Field</a>
+        <a class="nav-cta" href="#newsletter_section">Receive The Signal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <div class="inner">
+        <div class="hero-kicker">The Studio</div>
+        <h1>Original works<br>across forms,<br>disciplines, and<br>ways of seeing.</h1>
+        <p class="hero-sub">A studio of authored works by <strong>Mark Khoder.</strong></p>
+        <div class="hero-rule"></div>
+        <div class="btn-row">
+          <a class="btn-primary" href="#work-section">Explore Works</a>
+          <a class="btn-secondary" href="#field-section">Enter The Field</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://evokeimpact.com/images/mark-png.png" alt="Mark Khoder" />
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Original Works</span>
+      <span>The Field</span>
+      <span>The Path Within</span>
+      <span>A Living Mind</span>
+      <span>Authored Works</span>
+      <span>Timeless Works</span>
+      <span>Ordered In Full Sovereignty</span>
+      <span>Original Works</span>
+      <span>The Field</span>
+      <span>The Path Within</span>
+      <span>A Living Mind</span>
+      <span>Authored Works</span>
+      <span>Timeless Works</span>
+      <span>Ordered In Full Sovereignty</span>
+    </div>
+  </div>
+
+  <!-- ── BOOKS / FEATURED WORK ── -->
+  <section class="section section-light" id="work-section">
+    <div class="container">
+      <div class="books-header">
+        <div>
+          <span class="eyebrow">Works</span>
+          <h2>Books</h2>
+          <p class="subtitle">Work you return to.</p>
+        </div>
+        <div class="books-right">
+          <span class="books-line"></span>
+          <span class="books-label">Works</span>
+        </div>
+      </div>
+
+      <article class="featured-card">
+        <div class="featured-inner">
+          <div class="featured-image">
+            <img src="https://evokeimpact.com/images/left-img.png" alt="The Path Within" />
+          </div>
+          <div class="featured-body">
+            <span class="featured-flag">Featured Work</span>
+            <h3>The Path Within</h3>
+            <p>A living work about coming back to yourself — authored, unhurried, and built to be returned to rather than consumed.</p>
+            <div class="btn-row">
+              <a class="btn-primary" href="#newsletter_section">Register Your Interest</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── THE FIELD ── -->
+  <section class="section" id="field-section">
+    <div class="container">
+      <div class="field-heading">
+        <span class="eyebrow">The Field</span>
+        <h2>The Field</h2>
+        <p>Recent thoughts, studies, and notes from the living mind.</p>
+      </div>
+
+      <div class="field-grid">
+        <div class="field-card"><img src="https://evokeimpact.com/images/fst-field.png" alt="" /></div>
+        <div class="field-card"><img src="https://evokeimpact.com/images/2nd-field.png" alt="" /></div>
+        <div class="field-card"><img src="https://evokeimpact.com/images/3rd-field.png" alt="" /></div>
+        <div class="field-card"><img src="https://evokeimpact.com/images/4th-field.png" alt="" /></div>
+        <div class="field-card"><img src="https://evokeimpact.com/images/5th-field.png" alt="" /></div>
+        <div class="field-card"><img src="https://evokeimpact.com/images/6th-field.png" alt="" /></div>
+        <div class="field-card"><img src="https://evokeimpact.com/images/7th-field.png" alt="" /></div>
+        <div class="field-card"><img src="https://evokeimpact.com/images/8th-field.png" alt="" /></div>
+      </div>
+
+      <div class="field-btn-wrap">
+        <a class="btn-secondary" href="#field-section">See the Field &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SUBSCRIBE ── -->
+  <section class="section subscribe" id="newsletter_section">
+    <div class="container">
+      <div class="subscribe-inner">
+        <span class="eyebrow">Subscribe</span>
+        <h2>Join the field.<br>Not the feed.</h2>
+        <p class="subscribe-desc">Occasional notes from the work, sent when there is something worth sharing.</p>
+        <div class="subscribe-signal">Receive The Signal</div>
+
+        <form id="evoke-subscribe-form" class="evoke-form" method="post" action="" novalidate>
+          <input type="hidden" name="email_subscribe" value="1">
+          <input
+            id="evoke-email-input"
+            type="email"
+            name="email"
+            class="evoke-email"
+            placeholder="name@youremail.com"
+            autocomplete="email"
+            required
+          >
+          <button type="submit" class="evoke-btn">
+            <span class="evoke-btn-label">CONNECT</span>
+            <span class="evoke-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <div id="evoke-feedback" class="evoke-feedback" role="alert" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-left">
+        <div class="footer-brand">Evoke <span>Impact</span></div>
+        <p class="footer-text">A living mind of timeless works, ordered in full sovereignty.</p>
+        <p class="copyright">© Evoke Impact. All rights reserved.</p>
+      </div>
+      <div class="footer-right-wrap">
+        <div class="footer-nav">
+          <a href="#work-section">Work</a>
+          <a href="#field-section">The Field</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/evokeimpact/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/evokeimpact/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://x.com/evoke_impact" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.linkedin.com/company/evoke-impact" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@evokeimpact" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@evokeimpact" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="mail-link" aria-label="Send email"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Mobile nav ── */
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('active');
+        menuToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          menuToggle.innerHTML = '&#9776;';
+        });
+      });
+    }
+
+    /* ── Email obfuscation (footer) ── */
+    const mailLink = document.querySelector('.mail-link');
+    if (mailLink) {
+      mailLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const u = 'mk';
+        const d = 'markkhoder.com';
+        window.location.href = 'mailto:' + u + '@' + d;
+      });
+    }
+
+    /* ── Subscribe form ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      'use strict';
+      var form     = document.getElementById('evoke-subscribe-form');
+      var input    = document.getElementById('evoke-email-input');
+      var feedback = document.getElementById('evoke-feedback');
+      if (!form || !input || !feedback) return;
+
+      var ENDPOINT = 'https://evokeimpact.com/subscribe-handler.php';
+
+      function setFeedback(msg, type) {
+        feedback.textContent = msg;
+        feedback.className = 'evoke-feedback';
+        void feedback.offsetWidth; // restart transition
+        feedback.className = 'evoke-feedback show ' + type;
+      }
+      function clearFeedback() {
+        feedback.className = 'evoke-feedback';
+        feedback.textContent = '';
+      }
+      function setLoading(on) {
+        form.classList[on ? 'add' : 'remove']('is-loading');
+      }
+      function validEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var email = input.value.trim();
+        if (!email) { setFeedback('Please enter your email address.', 'err'); input.focus(); return; }
+        if (!validEmail(email)) { setFeedback('Please enter a valid email address.', 'err'); input.focus(); return; }
+
+        clearFeedback();
+        setLoading(true);
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'email=' + encodeURIComponent(email)
+        })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (d) {
+          setLoading(false);
+          setFeedback(d.message || 'Request completed.', d.success ? 'ok' : 'err');
+          if (d.success) form.reset();
+        })
+        .catch(function (err) {
+          setLoading(false);
+          setFeedback('Something went wrong — please try again.', 'err');
+          console.error('[Evoke subscribe]', err);
+        });
+      });
+
+      input.addEventListener('input', clearFeedback);
+    });
+  </script>
+</body>
+</html>
