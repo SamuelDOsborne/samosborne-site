@@ -1152,12 +1152,17 @@
   <!-- END BLOCK: endorsement -->
 
 
-  <!-- ============================================================
-       BLOCK: method-intro
-       Light-background section establishing the core positioning
-       statement: one repeatable framework, not a motivational talk.
-       ============================================================ -->
-  <section class="section section-light intro">
+<!-- ============================================================
+     BLOCK: method-intro
+     Light-background section establishing the core positioning
+     statement: one repeatable framework, not a motivational talk.
+     Now includes full-bleed panel photo with fade-to-warm blend.
+     ============================================================ -->
+<section class="section section-light intro" style="padding-top: 0;">
+  <div class="method-intro-photo">
+    <img src="images/sam-panel.png" alt="Sam Osborne leading a panel discussion overlooking the Los Angeles skyline" />
+  </div>
+  <div style="padding-top: 74px; padding-bottom: 58px;">
     <div class="container">
       <span class="eyebrow">The Method</span>
       <h2>One framework.<br>Every conflict.</h2>
@@ -1169,8 +1174,36 @@
         <a class="btn-primary" href="#contact">Book a Program</a>
       </div>
     </div>
-  </section>
-  <!-- END BLOCK: method-intro -->
+  </div>
+</section>
+
+<style>
+  .method-intro-photo {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+  }
+  .method-intro-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    filter: saturate(0.88) brightness(1.04);
+  }
+  .method-intro-photo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55%;
+    background: linear-gradient(to bottom, rgba(245,243,240,0), rgba(245,243,240,1));
+    pointer-events: none;
+  }
+</style>
+<!-- END BLOCK: method-intro -->
 
 
   <!-- ============================================================
