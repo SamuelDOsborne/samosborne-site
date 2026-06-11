@@ -1340,17 +1340,19 @@
   <!-- END BLOCK: who-its-for -->
 
 
-  <!-- ============================================================
-       BLOCK: method-detail
-       Dark-background split layout: stage photo (left) + framework
-       explainer with three dark mini-cards covering Perceptual
-       Balance, Values Hierarchy, and Projection & Injection (right).
-       ============================================================ -->
-  <section class="section" id="method">
-    <div class="container split">
-      <div class="split-image">
-        <img src="images/sam-osborne-stage4.jpg" alt="Sam Osborne on stage" />
-      </div>
+<!-- ============================================================
+     BLOCK: method-detail
+     Dark-background section. Full-bleed stage photo fades into
+     the framework explainer with three dark mini-cards.
+     ============================================================ -->
+<section class="section" id="method" style="padding-top: 0;">
+
+  <div class="method-photo-full">
+    <img src="images/sam-osborne-stage4.jpg" alt="Sam Osborne on stage" />
+  </div>
+
+  <div class="container" style="padding-top: 72px;">
+    <div class="split">
       <div>
         <span class="eyebrow">The Method</span>
         <h2>A repeatable framework. Not a motivational talk.</h2>
@@ -1380,10 +1382,38 @@
         </div>
       </div>
     </div>
-  </section>
-  <!-- END BLOCK: method-detail -->
+  </div>
+</section>
 
+<style>
+  .method-photo-full {
+    position: relative;
+    width: 100%;
+    height: 580px;
+    overflow: hidden;
+  }
+  .method-photo-full img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    filter: brightness(0.85) saturate(0.9);
+  }
+  .method-photo-full::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, rgba(26,26,26,0), rgba(26,26,26,1));
+    pointer-events: none;
+  }
+</style>
+<!-- END BLOCK: method-detail -->
 
+     
   <!-- ============================================================
        BLOCK: why-buyers-say-yes
        Light-background three-column card grid covering the three
