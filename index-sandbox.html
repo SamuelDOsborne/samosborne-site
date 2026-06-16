@@ -120,7 +120,7 @@
       gap: 20px;
       position: relative;
     }
-    .nav-brand { font-weight: 700; letter-spacing: -.02em; }
+    .nav-brand { font-weight: 800; letter-spacing: .02em; font-size: 1.1rem; color: var(--gold); }
     .nav-links { display: flex; gap: 24px; color: var(--muted); font-size: 14px; }
     .nav-links a:hover, .nav-cta:hover { color: var(--gold); }
     .nav-cta { color: var(--gold); font-size: 14px; font-weight: 600; }
@@ -165,13 +165,21 @@
       padding: 84px 0 72px;
     }
     .hero-copy .inner { width: min(640px, calc(100% - 40px)); margin: 0 auto; }
-    .hero-kicker {
+    .hero-name {
       color: var(--gold);
+      font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .hero-kicker {
+      color: rgba(212,165,116,.72);
       text-transform: uppercase;
       letter-spacing: .14em;
-      font-size: 11px;
-      font-weight: 700;
-      margin-bottom: 14px;
+      font-size: clamp(.75rem, 1vw, .95rem);
+      font-weight: 600;
+      margin-bottom: 16px;
     }
     .proof-line {
       margin-bottom: 16px;
@@ -771,7 +779,8 @@
     </div>
     <div class="hero-copy">
       <div class="inner">
-        <div class="hero-kicker">Conflict and Leadership Speaker · Demartini Method Facilitator</div>
+        <div class="hero-name">Sam Osborne</div>
+        <div class="hero-kicker">Conflict and Leadership Speaker</div>
         <div class="proof-line">Rated Best of Conference <span class="stars">★★★★★</span></div>
         <h1>When the trigger owns you, the room does too.</h1>
         <div class="hero-rule"></div>
