@@ -860,40 +860,58 @@
 }
 
 /* Scrim travels WITH the text — legibility no longer depends on where the pupil crops */
+/* Soft center glow instead of a visible rectangle */
 .eye-story {
   text-align: center;
-  max-width: 640px;
-  padding: 56px 44px;
-  background: radial-gradient(ellipse 120% 100% at center,
-    rgba(0,0,0,.76) 0%, rgba(0,0,0,.52) 58%, rgba(0,0,0,0) 88%);
+  max-width: 620px;
+  padding: 60px 40px;
+  background: radial-gradient(ellipse 85% 78% at center,
+    rgba(0,0,0,.72) 0%, rgba(0,0,0,.42) 46%, rgba(0,0,0,0) 76%);
 }
 
+/* Heavy Inter + tight tracking — matches the hero H1 */
 .eye-line {
-  margin: 0 auto 12px;
-  max-width: 17ch;          /* keeps lines inside the dark core; wraps naturally */
-  font-size: clamp(1.3rem, 2.6vw, 2.1rem);
-  font-weight: 600;
-  color: rgba(245,245,247,.94);
-  letter-spacing: -.02em;
-  line-height: 1.32;
+  margin: 0 auto 14px;
+  max-width: 22ch;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: #f5f5f7;
+  letter-spacing: -.04em;
+  line-height: 1.08;
 }
 .eye-line--pause {
   margin-top: 30px;
-  color: rgba(245,245,247,.85);   /* lifted from .72 — the pause is quiet, not faint */
   font-weight: 400;
   font-style: italic;
+  letter-spacing: -.02em;
+  color: rgba(245,245,247,.7);
 }
 .eye-line--turn {
-  font-family: "Fraunces", Georgia, serif;  /* delete this line to stay on Inter */
+  /* Inter now, not Fraunces — same weight/tracking as the hero, in gold */
   max-width: 20ch;
   margin: 0 auto 40px;
   color: var(--gold);
-  font-weight: 600;
-  font-size: clamp(1.7rem, 3.4vw, 2.8rem);
-  line-height: 1.18;
-  letter-spacing: -.015em;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
 }
 .eye-tag {
+  margin: 0;
+  font-size: clamp(.72rem, 1vw, .9rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;            /* matches the hero kicker */
+  color: rgba(212,165,116,.72);
+}
+
+@media (max-width: 680px) {
+  .eye-break { height: 90vh; }
+  .eye-story { padding: 40px 24px; }
+  .eye-line { font-size: clamp(1.2rem, 5vw, 1.7rem); }
+  .eye-line--turn { font-size: clamp(1.45rem, 5.8vw, 2.1rem); }
+}
+    .eye-tag {
   margin: 0;
   font-size: clamp(.72rem, 1vw, .9rem);
   font-weight: 700;
