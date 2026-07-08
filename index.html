@@ -247,13 +247,35 @@
     .endorsement .container {
       position: relative;
       z-index: 1;
-      max-width: min(1080px, calc(100% - 40px));
     }
-    .endorsement-header { text-align: center; margin-bottom: 48px; }
+    .endorsement-header { text-align: center; margin-bottom: 20px; max-width: min(1080px, 100%); margin-left: auto; margin-right: auto; }
     .endorsement-header h2 { max-width: 18ch; margin: 0 auto; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+
+    /* NEW: side-by-side layout for photo + endorsement card */
+    .endorsement-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 36px;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .endorsement-photo {
+      border-radius: 22px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 480px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.4);
+    }
+    .endorsement-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
     .endorsement-card {
       position: relative;
-      padding: clamp(40px, 6vw, 72px) clamp(28px, 5vw, 64px);
+      padding: clamp(32px, 4vw, 56px) clamp(24px, 4vw, 48px);
       border-radius: 22px;
       border: 1px solid rgba(212,165,116,.22);
       background: linear-gradient(180deg, rgba(255,255,255,.035) 0%, rgba(255,255,255,.015) 100%);
@@ -290,13 +312,13 @@
     }
     .endorsement-quote {
       margin: 0 0 36px 0;
-      font-size: clamp(1.35rem, 2.6vw, 2.05rem);
+      font-size: clamp(1.25rem, 2.2vw, 1.85rem);
       line-height: 1.32;
       letter-spacing: -.025em;
       color: rgba(245,245,247,.94);
       font-weight: 500;
       text-align: center;
-      max-width: 28ch;
+      max-width: 30ch;
       margin-left: auto;
       margin-right: auto;
     }
@@ -719,7 +741,9 @@
       .grid-4,
       .signature-card-inner,
       .about-body,
-      .advisory-body { grid-template-columns: 1fr; }
+      .advisory-body,
+      .endorsement-layout { grid-template-columns: 1fr; }
+      .endorsement-photo { min-height: 320px; }
       .signature-card-image { min-height: 280px; }
       .signature-card-body { padding: 32px 26px; }
       .about-photo-full, .advisory-photo-full { height: 60vh; }
@@ -960,43 +984,47 @@
     </div>
   </section>
 
-  <!-- ENDORSEMENT -->
-  <section class="section endorsement" id="endorsement" style="padding-top: 0;">
-    <div class="method-photo-full">
-      <img src="images/sam-osborne-stage3.png" alt="Sam Osborne on stage addressing a full conference room" style="object-position: center 30%;" />
-    </div>
-    <div class="container" style="padding-top: 72px;">
+  <!-- ENDORSEMENT — image left, testimony right -->
+  <section class="section endorsement" id="endorsement">
+    <div class="container">
       <div class="endorsement-header">
         <span class="eyebrow">Endorsement</span>
         <h2>From the President of the College of Community Association Lawyers.</h2>
       </div>
-      <div class="endorsement-card">
-        <div class="credential-mark">
-          <div class="credential-seal">CCAL</div>
-          <div class="credential-label">Institutional Endorsement</div>
+
+      <div class="endorsement-layout">
+        <div class="endorsement-photo">
+          <img src="images/sam-osborne-stage3.png" alt="Sam Osborne on stage addressing a full conference room" />
         </div>
-        <blockquote class="endorsement-quote">
-          This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure.
-        </blockquote>
-        <div class="endorsement-attribution">
-          <div class="endorsement-name">Augustus Shaw IV, Esq., CCAL</div>
-          <div class="endorsement-title">President · College of Community Association Lawyers</div>
+
+        <div class="endorsement-card">
+          <div class="credential-mark">
+            <div class="credential-seal">CCAL</div>
+            <div class="credential-label">Institutional Endorsement</div>
+          </div>
+          <blockquote class="endorsement-quote">
+            This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure.
+          </blockquote>
+          <div class="endorsement-attribution">
+            <div class="endorsement-name">Augustus Shaw IV, Esq., CCAL</div>
+            <div class="endorsement-title">President · College of Community Association Lawyers</div>
+          </div>
+          <div class="endorsement-meta">
+            <div class="endorsement-meta-item">
+              <strong>4.7 / 5</strong>
+              Overall Rating
+            </div>
+            <div class="endorsement-meta-item">
+              <strong>39</strong>
+              Evaluations
+            </div>
+            <div class="endorsement-meta-item">
+              <strong>Best of Conference</strong>
+              CAI National Law Seminar 2026
+            </div>
+          </div>
+          <p class="endorsement-friday">Friday morning slot.</p>
         </div>
-        <div class="endorsement-meta">
-          <div class="endorsement-meta-item">
-            <strong>4.7 / 5</strong>
-            Overall Rating
-          </div>
-          <div class="endorsement-meta-item">
-            <strong>39</strong>
-            Evaluations
-          </div>
-          <div class="endorsement-meta-item">
-            <strong>Best of Conference</strong>
-            CAI National Law Seminar 2026
-          </div>
-        </div>
-        <p class="endorsement-friday">Friday morning slot.</p>
       </div>
     </div>
   </section>
