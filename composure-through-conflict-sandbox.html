@@ -160,6 +160,17 @@
             color: var(--gold-light);
         }
         
+        .hero-kicker {
+            font-size: clamp(28px, 5.4vw, 54px);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            line-height: 1.2;
+            max-width: 900px;
+            margin: 0 auto 24px;
+        }
+        
         .hero-subtitle {
             font-size: clamp(16px, 2vw, 20px);
             color: rgba(245, 245, 247, 0.75);
@@ -167,6 +178,59 @@
             margin: 0 auto 48px;
             font-weight: 400;
             line-height: 1.6;
+        }
+        
+        .demo-reel-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background: rgba(212, 165, 116, 0.08);
+            border: 1px dashed rgba(212, 165, 116, 0.4);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            padding: 40px;
+            margin: 0 auto;
+        }
+        
+        .demo-reel-placeholder .play-icon {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            border-radius: 50%;
+            background: rgba(212, 165, 116, 0.15);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .demo-reel-placeholder .play-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--gold-light);
+            margin-left: 4px;
+        }
+        
+        .demo-reel-placeholder .demo-reel-text {
+            text-align: center;
+        }
+        
+        .demo-reel-placeholder .demo-reel-title {
+            font-size: clamp(16px, 2.4vw, 22px);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+        
+        .demo-reel-placeholder .demo-reel-sub {
+            font-size: clamp(13px, 1.8vw, 16px);
+            color: rgba(245, 245, 247, 0.6);
+            margin-top: 8px;
         }
         
         .hero-speakers {
@@ -864,7 +928,17 @@
         <div class="hero-content">
             <div class="hero-badge">★★★★★ Best of Conference · CAI Law Seminar 2026</div>
             <h1 class="hero-title">Composure <em>Through</em> Conflict</h1>
+            <p class="hero-kicker">Stop Taking Things So Personally</p>
             <p class="hero-subtitle">A repeatable method for legal professionals who need composure under pressure — delivered by two practitioners who use it in the field.</p>
+            <div class="demo-reel-placeholder">
+                <div class="play-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <div class="demo-reel-text">
+                    <div class="demo-reel-title">Demo Reel — Coming Soon</div>
+                    <div class="demo-reel-sub">Watch Sam &amp; David in action. Footage in production.</div>
+                </div>
+            </div>
             <div class="hero-speakers">
                 <span>David J. Graf, Esq., CCAL</span>
                 <span style="color: var(--gold-light); font-weight: 600;">+</span>
