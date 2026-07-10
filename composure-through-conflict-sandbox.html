@@ -609,7 +609,7 @@
         /* FEES */
         .fees-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
             margin-top: 60px;
         }
@@ -942,16 +942,16 @@
     <!-- SPEAKERS -->
     <section class="section" id="speakers">
         <div class="section-label">The Duo</div>
-        <h2 class="section-title">Two Practitioners. One Methodology.</h2>
+        <h2 class="section-title">Your Speakers</h2>
         <div class="speakers-grid">
             <div class="speaker-card">
-                <div class="speaker-image-wrap">DG</div>
+                <img src="images/dave-graf-speaker.jpg" alt="David J. Graf, Esq., CCAL" class="speaker-image-wrap" style="width: 200px; height: 200px; border-radius: 12px; border: 2px solid var(--gold); object-fit: cover;" />
                 <div class="speaker-role">Attorney · CCAL Fellow · Colorado</div>
                 <h3 class="speaker-name">David J. Graf</h3>
                 <p class="speaker-bio">Partner at Moeller Graf, P.C. in Englewood, Colorado, and CCAL Fellow. David brings the lived reality of adversarial legal environments — the cost of taking conflict personally. His delivery is candid, self-aware, and real. He puts words to feelings professionals experience but rarely name. Attendees recognize themselves in his stories and leave with different eyes.</p>
             </div>
             <div class="speaker-card">
-                <div class="speaker-image-wrap">SO</div>
+                <img src="images/sam-osborne-speaker-square-tile.jpg" alt="Sam Osborne — Demartini Method Facilitator" class="speaker-image-wrap" style="width: 200px; height: 200px; border-radius: 12px; border: 2px solid var(--gold); object-fit: cover;" />
                 <div class="speaker-role">Demartini Method Facilitator · Los Angeles</div>
                 <h3 class="speaker-name">Sam Osborne</h3>
                 <p class="speaker-bio">A metal shard nearly took his sight — and transformed his relationship with perception. After twenty years studying mastery and the role of perception in it, he now works with attorneys and leaders who need composure under pressure. He delivers live demonstrations of perceptual transformation. Audiences witness it working in real time.</p>
@@ -1090,6 +1090,20 @@
                     <li>Executive leadership team sessions</li>
                     <li>Board retreat facilitation</li>
                     <li>Virtual programs available at same fee structure</li>
+                </ul>
+            </div>
+            <div class="fee-card">
+                <h3 class="fee-title">Travel & Accommodations</h3>
+                <div class="fee-price">Billed Separately</div>
+                <p class="fee-detail">Standard travel arrangements for seamless event execution. Actual costs vary by location and distance.</p>
+                <button class="fee-toggle" onclick="toggleFee(this)">
+                    <span>What's Included</span><span class="fee-toggle-icon">▼</span>
+                </button>
+                <ul class="fee-list">
+                    <li>Round-trip airfare for both speakers (economy for under 3 hours, business class for 3+ hours)</li>
+                    <li>Hotel accommodation (night before event and night of event)</li>
+                    <li>Ground transportation (airport, hotel, venue)</li>
+                    <li>Standard AV coordination (wireless mics, presentation screen)</li>
                 </ul>
             </div>
         </div>
