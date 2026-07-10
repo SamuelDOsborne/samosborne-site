@@ -13,8 +13,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --white: #FFFFFF;
             --black: #000000;
+            --charcoal: #1A1A1A;
+            --white: #FFFFFF;
             --gray-50: #F9FAFB;
             --gray-100: #F3F4F6;
             --gray-900: #111827;
@@ -25,10 +26,11 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background: var(--white);
-            color: var(--gray-900);
+            background: var(--charcoal);
+            color: rgba(245, 245, 247, 0.87);
             line-height: 1.6;
             letter-spacing: -0.01em;
+            overflow-x: hidden;
         }
         
         /* NAV */
@@ -36,11 +38,18 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(26, 26, 26, 0.75);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             padding: 16px 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background: rgba(26, 26, 26, 0.95);
+            padding: 12px 0;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
         }
         
         .nav-inner {
@@ -53,20 +62,22 @@
         }
         
         .nav-logo {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             letter-spacing: -0.02em;
+            color: white;
+            text-decoration: none;
         }
         
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 32px;
             list-style: none;
         }
         
         .nav-links a {
-            font-size: 15px;
-            color: var(--gray-900);
+            font-size: 14px;
+            color: rgba(245, 245, 247, 0.75);
             text-decoration: none;
             transition: color 0.2s;
             font-weight: 500;
@@ -77,17 +88,20 @@
         }
         
         .nav-cta {
-            background: var(--gray-900);
-            color: white !important;
+            background: rgba(212, 165, 116, 0.2);
+            color: var(--gold) !important;
             padding: 10px 24px;
             border-radius: 999px;
             font-size: 14px !important;
+            border: 1px solid var(--gold);
             transition: all 0.2s;
+            cursor: pointer;
         }
         
         .nav-cta:hover {
-            background: var(--gold) !important;
-            color: var(--black) !important;
+            background: var(--gold);
+            color: var(--charcoal) !important;
+            border-color: var(--gold);
         }
         
         @media (max-width: 768px) {
@@ -98,49 +112,36 @@
         /* HERO */
         .hero {
             padding-top: 60px;
-            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
         }
         
         .hero-banner {
             width: 100%;
-            height: 520px;
-            background: linear-gradient(135deg, var(--gray-900) 0%, #1f3a5f 100%);
+            height: auto;
+            display: block;
+        }
+        
+        .hero-content {
+            width: 100%;
+            padding: 80px 40px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(212, 165, 116, 0.15) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .hero-banner-content {
-            position: relative;
-            z-index: 1;
-            padding: 60px 40px;
         }
         
         .hero-badge {
             display: inline-block;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
             color: var(--gold-light);
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             text-transform: uppercase;
-            background: rgba(212, 165, 116, 0.15);
-            padding: 8px 16px;
+            background: rgba(212, 165, 116, 0.12);
+            padding: 8px 20px;
+            border: 1px solid rgba(212, 165, 116, 0.3);
             border-radius: 999px;
         }
         
@@ -160,8 +161,8 @@
         }
         
         .hero-subtitle {
-            font-size: clamp(17px, 2vw, 20px);
-            color: rgba(255, 255, 255, 0.85);
+            font-size: clamp(16px, 2vw, 20px);
+            color: rgba(245, 245, 247, 0.75);
             max-width: 700px;
             margin: 0 auto 48px;
             font-weight: 400;
@@ -172,10 +173,10 @@
             display: flex;
             gap: 28px;
             justify-content: center;
-            margin-top: 32px;
+            margin: 32px 0 0;
             flex-wrap: wrap;
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 14px;
+            color: rgba(245, 245, 247, 0.6);
+            font-size: 13px;
         }
         
         .hero-cta-group {
@@ -199,8 +200,8 @@
         }
         
         .btn-primary {
-            background: white;
-            color: var(--gray-900);
+            background: var(--gold);
+            color: var(--charcoal);
         }
         
         .btn-primary:hover {
@@ -209,13 +210,14 @@
         }
         
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
+            background: transparent;
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--gold);
+            background: rgba(212, 165, 116, 0.1);
         }
         
         .hero-proof {
@@ -225,14 +227,13 @@
             max-width: 700px;
             margin: 60px auto 0;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 16px;
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 116, 0.15);
         }
         
         .proof-item {
             text-align: center;
-            color: white;
         }
         
         .proof-number {
@@ -243,7 +244,7 @@
         
         .proof-label {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(245, 245, 247, 0.6);
             margin-top: 8px;
             font-weight: 600;
             text-transform: uppercase;
@@ -251,9 +252,8 @@
         }
         
         @media (max-width: 768px) {
-            .hero-proof { gap: 20px; padding: 30px; }
-            .hero-banner { height: auto; padding: 40px 20px; }
-            .hero-banner-content { padding: 40px 20px; }
+            .hero-content { padding: 60px 20px; }
+            .hero-proof { gap: 20px; padding: 30px; grid-template-columns: 1fr; }
             .hero-cta-group { flex-direction: column; }
             .btn { width: 100%; }
         }
@@ -266,7 +266,7 @@
         }
         
         .section-label {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -280,22 +280,30 @@
             letter-spacing: -0.02em;
             margin-bottom: 32px;
             line-height: 1.15;
-            color: var(--gray-900);
+            color: white;
         }
         
         .section-text {
-            font-size: 17px;
-            color: var(--gray-900);
+            font-size: 16px;
+            color: rgba(245, 245, 247, 0.75);
             line-height: 1.7;
             max-width: 680px;
         }
         
-        /* WHAT */
-        .what-section {
-            padding: 120px 40px;
-            background: var(--white);
+        .section-light {
+            background: var(--gray-50);
+            color: var(--gray-900);
         }
         
+        .section-light .section-title {
+            color: var(--gray-900);
+        }
+        
+        .section-light .section-label {
+            color: var(--gray-900);
+        }
+        
+        /* WHAT */
         .what-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -306,9 +314,9 @@
         
         .what-block {
             padding: 44px;
-            background: var(--gray-50);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.06);
         }
         
         .what-block h3 {
@@ -316,13 +324,13 @@
             font-weight: 700;
             margin-bottom: 20px;
             line-height: 1.2;
-            color: var(--gray-900);
+            color: white;
         }
         
         .what-block p {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.7;
-            color: var(--gray-900);
+            color: rgba(245, 245, 247, 0.75);
         }
         
         @media (max-width: 768px) {
@@ -330,57 +338,47 @@
         }
         
         /* OUTCOMES */
-        .outcomes-section {
-            padding: 100px 40px;
-            background: var(--gray-50);
-        }
-        
         .outcomes-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 24px;
             margin-top: 60px;
         }
         
         .outcome-card {
-            background: white;
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 32px;
             border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s;
         }
         
         .outcome-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
             border-color: rgba(212, 165, 116, 0.3);
+            background: rgba(255, 255, 255, 0.06);
         }
         
         .outcome-card h4 {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
         }
         
         .outcome-card p {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.6;
-            color: var(--gray-900);
+            color: rgba(245, 245, 247, 0.75);
         }
         
         @media (max-width: 768px) {
             .outcomes-grid { grid-template-columns: 1fr; }
-            .outcomes-section { padding: 60px 20px; }
         }
         
         /* SPEAKERS */
-        .speakers-section {
-            padding: 100px 40px;
-        }
-        
         .speakers-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -394,11 +392,11 @@
         }
         
         .speaker-image-wrap {
-            width: 220px;
-            height: 220px;
+            width: 200px;
+            height: 200px;
             border-radius: 12px;
             margin: 0 auto 32px;
-            background: var(--gray-100);
+            background: linear-gradient(135deg, rgba(74, 94, 127, 0.55), rgba(26, 26, 26, 0.85));
             border: 2px solid var(--gold);
             overflow: hidden;
             display: flex;
@@ -407,10 +405,11 @@
             font-size: 48px;
             font-weight: 700;
             color: var(--gold);
+            flex-shrink: 0;
         }
         
         .speaker-role {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -422,27 +421,21 @@
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 24px;
-            color: var(--gray-900);
+            color: white;
         }
         
         .speaker-bio {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.7;
-            color: var(--gray-900);
+            color: rgba(245, 245, 247, 0.75);
             text-align: left;
         }
         
         @media (max-width: 768px) {
             .speakers-grid { grid-template-columns: 1fr; gap: 40px; }
-            .speakers-section { padding: 60px 20px; }
         }
         
         /* TESTIMONIALS */
-        .testimonials-section {
-            padding: 100px 40px;
-            background: var(--gray-50);
-        }
-        
         .carousel-container {
             max-width: 900px;
             margin: 60px auto 0;
@@ -450,15 +443,15 @@
         
         .carousel-track {
             position: relative;
-            min-height: 280px;
+            min-height: 240px;
         }
         
         .testimonial-slide {
             display: none;
-            background: white;
-            padding: 44px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 40px;
             border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         
         .testimonial-slide.active {
@@ -466,21 +459,21 @@
         }
         
         .testimonial-quote {
-            font-size: 18px;
+            font-size: 17px;
             font-style: italic;
             line-height: 1.7;
-            color: var(--gray-900);
+            color: rgba(245, 245, 247, 0.9);
             margin-bottom: 24px;
         }
         
         .testimonial-author {
             font-weight: 700;
-            font-size: 15px;
-            color: var(--gray-900);
+            font-size: 14px;
+            color: white;
         }
         
         .testimonial-title {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--gold);
             font-weight: 600;
             margin-top: 4px;
@@ -495,11 +488,11 @@
         }
         
         .carousel-btn {
-            background: var(--gray-900);
+            background: rgba(255, 255, 255, 0.08);
             color: white;
             width: 48px;
             height: 48px;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 50%;
             font-size: 20px;
             cursor: pointer;
@@ -510,8 +503,8 @@
         }
         
         .carousel-btn:hover {
-            background: var(--gold);
-            color: var(--black);
+            background: rgba(212, 165, 116, 0.2);
+            border-color: var(--gold);
         }
         
         .carousel-dots {
@@ -523,7 +516,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             cursor: pointer;
             border: none;
             transition: all 0.25s;
@@ -535,15 +528,10 @@
         }
         
         @media (max-width: 768px) {
-            .testimonials-section { padding: 60px 20px; }
             .testimonial-slide { padding: 32px 24px; }
         }
         
         /* RESULTS */
-        .results-section {
-            padding: 100px 40px;
-        }
-        
         .results-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -552,11 +540,11 @@
         }
         
         .result-card {
-            background: var(--gray-50);
+            background: rgba(255, 255, 255, 0.04);
             padding: 48px 32px;
             border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.06);
         }
         
         .result-number {
@@ -568,22 +556,16 @@
         }
         
         .result-label {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--gray-900);
+            color: rgba(245, 245, 247, 0.75);
         }
         
         @media (max-width: 768px) {
             .results-grid { grid-template-columns: 1fr; }
-            .results-section { padding: 60px 20px; }
         }
         
         /* PROGRAM DETAILS */
-        .program-section {
-            padding: 100px 40px;
-            background: var(--gray-50);
-        }
-        
         .program-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -596,7 +578,7 @@
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 24px;
-            color: var(--gray-900);
+            color: white;
         }
         
         .program-block ul {
@@ -604,9 +586,9 @@
         }
         
         .program-block li {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.8;
-            color: var(--gray-900);
+            color: rgba(245, 245, 247, 0.75);
             padding-left: 28px;
             position: relative;
             margin-bottom: 16px;
@@ -622,14 +604,9 @@
         
         @media (max-width: 768px) {
             .program-grid { grid-template-columns: 1fr; gap: 40px; }
-            .program-section { padding: 60px 20px; }
         }
         
         /* FEES */
-        .fees-section {
-            padding: 100px 40px;
-        }
-        
         .fees-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -638,22 +615,22 @@
         }
         
         .fee-card {
-            background: var(--gray-50);
-            padding: 44px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 40px;
             border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s;
         }
         
         .fee-card:hover {
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
             border-color: rgba(212, 165, 116, 0.3);
+            background: rgba(255, 255, 255, 0.06);
         }
         
         .fee-title {
             font-size: 18px;
             font-weight: 700;
-            color: var(--gray-900);
+            color: white;
             margin-bottom: 16px;
         }
         
@@ -665,22 +642,70 @@
         }
         
         .fee-detail {
-            font-size: 14px;
-            color: var(--gray-900);
+            font-size: 13px;
+            color: rgba(245, 245, 247, 0.65);
             line-height: 1.6;
+        }
+        
+        .fee-toggle {
+            width: 100%;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 14px 16px;
+            color: rgba(245, 245, 247, 0.85);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            transition: all 0.3s;
+            margin-top: 16px;
+            margin-bottom: 0;
+        }
+        
+        .fee-toggle:hover {
+            border-color: var(--gold);
+            background: rgba(212, 165, 116, 0.08);
+        }
+        
+        .fee-toggle-icon {
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+        
+        .fee-list {
+            display: none;
+            list-style: none;
+            padding: 16px 0 0;
+            margin: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .fee-list li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 10px;
+            color: rgba(245, 245, 247, 0.7);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .fee-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
         }
         
         @media (max-width: 768px) {
             .fees-grid { grid-template-columns: 1fr; }
-            .fees-section { padding: 60px 20px; }
         }
         
         /* FORM */
-        .contact-section {
-            padding: 100px 40px;
-            background: var(--gray-50);
-        }
-        
         .form-container {
             max-width: 600px;
             margin: 60px auto 0;
@@ -690,6 +715,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            margin-bottom: 20px;
         }
         
         .form-group {
@@ -702,23 +728,25 @@
         
         .form-label {
             display: block;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--gray-900);
+            letter-spacing: 0.06em;
+            color: rgba(245, 245, 247, 0.85);
         }
         
         .form-input,
         .form-select,
         .form-textarea {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid rgba(0, 0, 0, 0.12);
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 8px;
-            font-size: 15px;
+            font-size: 14px;
             font-family: inherit;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
             transition: all 0.2s;
         }
         
@@ -727,7 +755,12 @@
         .form-textarea:focus {
             outline: none;
             border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .form-select option {
+            background: var(--charcoal);
+            color: white;
         }
         
         .form-textarea {
@@ -738,8 +771,8 @@
         .form-submit {
             width: 100%;
             padding: 14px 32px;
-            background: var(--gray-900);
-            color: white;
+            background: var(--gold);
+            color: var(--charcoal);
             border: none;
             border-radius: 999px;
             font-weight: 700;
@@ -750,12 +783,11 @@
         }
         
         .form-submit:hover {
-            background: var(--gold);
-            color: var(--black);
+            background: var(--gold-light);
+            transform: translateY(-1px);
         }
         
         @media (max-width: 768px) {
-            .contact-section { padding: 60px 20px; }
             .form-grid-2 { grid-template-columns: 1fr; }
             .form-container { padding: 0 20px; }
         }
@@ -763,19 +795,19 @@
         /* FOOTER */
         footer {
             padding: 60px 40px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             text-align: center;
         }
         
         .footer-names {
             font-size: 16px;
             font-weight: 600;
-            color: var(--gray-900);
+            color: white;
             margin-bottom: 8px;
         }
         
         .footer-tagline {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--gold);
             margin-bottom: 24px;
         }
@@ -789,8 +821,8 @@
         }
         
         .footer-links a {
-            font-size: 13px;
-            color: var(--gray-900);
+            font-size: 12px;
+            color: rgba(245, 245, 247, 0.6);
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -800,9 +832,8 @@
         }
         
         .footer-copy {
-            font-size: 12px;
-            color: var(--gray-900);
-            opacity: 0.6;
+            font-size: 11px;
+            color: rgba(245, 245, 247, 0.4);
         }
         
         @media (max-width: 768px) {
@@ -812,9 +843,9 @@
 </head>
 <body>
     <!-- NAV -->
-    <nav>
+    <nav id="nav">
         <div class="nav-inner">
-            <div class="nav-logo">Composure Through Conflict</div>
+            <a href="#top" class="nav-logo">Composure Through Conflict</a>
             <ul class="nav-links">
                 <li><a href="#what">The Session</a></li>
                 <li><a href="#speakers">Speakers</a></li>
@@ -826,45 +857,44 @@
         </div>
     </nav>
 
-    <!-- HERO BANNER -->
-    <section class="hero">
-        <div class="hero-banner">
-            <div class="hero-banner-content">
-                <div class="hero-badge">★★★★★ Best of Conference · CAI Law Seminar 2026</div>
-                <h1 class="hero-title">Composure <em>Through</em> Conflict</h1>
-                <p class="hero-subtitle">A repeatable method for legal professionals, executives, and high-conflict leaders to dissolve emotional charge under pressure — delivered by two practitioners who use it in the field.</p>
-                <div class="hero-speakers">
-                    <span>David J. Graf, Esq., CCAL (Attorney)</span>
-                    <span style="color: var(--gold-light); font-weight: 600;">+</span>
-                    <span>Sam Osborne (Demartini Method Facilitator)</span>
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <img src="images/sam_dave_hero_banner.png" alt="Sam Osborne and David Graf — Composure Through Conflict" class="hero-banner" />
+        
+        <div class="hero-content">
+            <div class="hero-badge">★★★★★ Best of Conference · CAI Law Seminar 2026</div>
+            <h1 class="hero-title">Composure <em>Through</em> Conflict</h1>
+            <p class="hero-subtitle">A repeatable method for legal professionals, executives, and high-conflict leaders to dissolve emotional charge under pressure — delivered by two practitioners who use it in the field.</p>
+            <div class="hero-speakers">
+                <span>David J. Graf, Esq., CCAL</span>
+                <span style="color: var(--gold-light); font-weight: 600;">+</span>
+                <span>Sam Osborne</span>
+            </div>
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn btn-primary">Request This Program</a>
+                <a href="#what" class="btn btn-secondary">See What's Included</a>
+            </div>
+            <div class="hero-proof">
+                <div class="proof-item">
+                    <div class="proof-number">4.7</div>
+                    <div class="proof-label">Overall Rating</div>
                 </div>
-                <div class="hero-cta-group">
-                    <a href="#contact" class="btn btn-primary">Request This Program</a>
-                    <a href="#what" class="btn btn-secondary">See What's Included</a>
+                <div class="proof-item">
+                    <div class="proof-number">95%</div>
+                    <div class="proof-label">Presentation Skills</div>
                 </div>
-                <div class="hero-proof">
-                    <div class="proof-item">
-                        <div class="proof-number">4.7</div>
-                        <div class="proof-label">Overall Rating</div>
-                    </div>
-                    <div class="proof-item">
-                        <div class="proof-number">95%</div>
-                        <div class="proof-label">Presentation Skills</div>
-                    </div>
-                    <div class="proof-item">
-                        <div class="proof-number">39</div>
-                        <div class="proof-label">Evaluations</div>
-                    </div>
+                <div class="proof-item">
+                    <div class="proof-number">39</div>
+                    <div class="proof-label">Evaluations</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- WHAT -->
-    <section class="what-section" id="what">
-        <p class="section-label">The Session</p>
+    <section class="section" id="what">
+        <div class="section-label">The Session</div>
         <h2 class="section-title">What This Program Addresses</h2>
-        
         <div class="what-grid">
             <div class="what-block">
                 <h3>The Problem</h3>
@@ -878,45 +908,41 @@
     </section>
 
     <!-- OUTCOMES -->
-    <section class="outcomes-section">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-            <p class="section-label">Monday Morning Behaviors</p>
-            <h2 class="section-title">What Leaders Handle Differently</h2>
-            
-            <div class="outcomes-grid">
-                <div class="outcome-card">
-                    <h4>Identify Triggers</h4>
-                    <p>Why specific people and situations produce charge — and trace it to its source</p>
-                </div>
-                <div class="outcome-card">
-                    <h4>Apply In Real-Time</h4>
-                    <p>A self-governance process mid-conversation, even in high-stakes moments</p>
-                </div>
-                <div class="outcome-card">
-                    <h4>Reframe Conflict</h4>
-                    <p>As data rather than threat — changing the decisions that follow</p>
-                </div>
-                <div class="outcome-card">
-                    <h4>Communicate Precisely</h4>
-                    <p>Under pressure, reducing ambiguity and reactive escalation</p>
-                </div>
-                <div class="outcome-card">
-                    <h4>Lead With Composure</h4>
-                    <p>In destabilizing environments, without suppressing or performing</p>
-                </div>
-                <div class="outcome-card">
-                    <h4>Return Independently</h4>
-                    <p>To the process on their own — they leave with method, not just feeling</p>
-                </div>
+    <section class="section">
+        <div class="section-label">Monday Morning Behaviors</div>
+        <h2 class="section-title">What Leaders Handle Differently</h2>
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <h4>Identify Triggers</h4>
+                <p>Why specific people and situations produce charge — and trace it to its source</p>
+            </div>
+            <div class="outcome-card">
+                <h4>Apply In Real-Time</h4>
+                <p>A self-governance process mid-conversation, even in high-stakes moments</p>
+            </div>
+            <div class="outcome-card">
+                <h4>Reframe Conflict</h4>
+                <p>As data rather than threat — changing the decisions that follow</p>
+            </div>
+            <div class="outcome-card">
+                <h4>Communicate Precisely</h4>
+                <p>Under pressure, reducing ambiguity and reactive escalation</p>
+            </div>
+            <div class="outcome-card">
+                <h4>Lead With Composure</h4>
+                <p>In destabilizing environments, without suppressing or performing</p>
+            </div>
+            <div class="outcome-card">
+                <h4>Return Independently</h4>
+                <p>To the process on their own — they leave with method, not just feeling</p>
             </div>
         </div>
     </section>
 
     <!-- SPEAKERS -->
-    <section class="speakers-section" id="speakers">
-        <p class="section-label">The Duo</p>
+    <section class="section" id="speakers">
+        <div class="section-label">The Duo</div>
         <h2 class="section-title">Two Practitioners. One Methodology.</h2>
-        
         <div class="speakers-grid">
             <div class="speaker-card">
                 <div class="speaker-image-wrap">DG</div>
@@ -928,65 +954,61 @@
                 <div class="speaker-image-wrap">SO</div>
                 <div class="speaker-role">Demartini Method Facilitator · Los Angeles</div>
                 <h3 class="speaker-name">Sam Osborne</h3>
-                <p class="speaker-bio">A metal shard nearly took his sight — and transformed his relationship with perception. After twenty years studying mastery and the role of perception in it, he now works with attorneys and leaders who need composure under pressure. He delivers live demonstrations of perceptual transformation. Audiences don't just hear the methodology — they witness it rewiring conflict in real time.</p>
+                <p class="speaker-bio">A metal shard nearly took his sight — and transformed his relationship with perception. After twenty years studying mastery and the role of perception in it, he now works with attorneys and leaders who need composure under pressure. He delivers live demonstrations of perceptual transformation. Audiences witness it working in real time.</p>
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="testimonials-section">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-            <p class="section-label">From the Audience</p>
-            <h2 class="section-title">What Leaders Said</h2>
-            
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="testimonial-slide active">
-                        <p class="testimonial-quote">"This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts. I highly recommend this seminar!"</p>
-                        <div class="testimonial-author">Augustus Shaw IV, Esq., CCAL</div>
-                        <div class="testimonial-title">President, College of Community Association Lawyers</div>
-                    </div>
-                    <div class="testimonial-slide">
-                        <p class="testimonial-quote">"One of the best sessions I've attended at any conference. Sam and Dave delivered practical tools that immediately changed how I approach conflict—both professionally and personally."</p>
-                        <div class="testimonial-author">Dawn Roscoe, AMS, PCAM</div>
-                        <div class="testimonial-title">VP of Operations, Professional Properties Management</div>
-                    </div>
-                    <div class="testimonial-slide">
-                        <p class="testimonial-quote">"The session reinforced emotional discipline during difficult conversations. Clear tools to separate facts from reactions. Supporting staying grounded, professional, and effective when conflict arises."</p>
-                        <div class="testimonial-author">Michael Tillotson, CMCA®, AMS®</div>
-                        <div class="testimonial-title">VP of Community Management, HOALiving/CAM</div>
-                    </div>
-                    <div class="testimonial-slide">
-                        <p class="testimonial-quote">"Totally engaging. Different. Funny. Challenging. Best session I attended this conference. And on a Friday morning! Bravo, gentlemen."</p>
-                        <div class="testimonial-author">Conference Attendee</div>
-                        <div class="testimonial-title">CAI Law Seminar 2026</div>
-                    </div>
-                    <div class="testimonial-slide">
-                        <p class="testimonial-quote">"Sam was outstanding and provided a refreshing perspective. He gave common sense and practical solutions. I wish I had learned this years ago!"</p>
-                        <div class="testimonial-author">Legal Professional</div>
-                        <div class="testimonial-title">CAI Law Seminar 2026</div>
-                    </div>
+    <section class="section">
+        <div class="section-label">From the Audience</div>
+        <h2 class="section-title">What Leaders Said</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-quote">"This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts. I highly recommend this seminar!"</p>
+                    <div class="testimonial-author">Augustus Shaw IV, Esq., CCAL</div>
+                    <div class="testimonial-title">President, College of Community Association Lawyers</div>
                 </div>
-                <div class="carousel-controls">
-                    <button class="carousel-btn" id="prevBtn">‹</button>
-                    <div class="carousel-dots">
-                        <button class="dot active" data-index="0"></button>
-                        <button class="dot" data-index="1"></button>
-                        <button class="dot" data-index="2"></button>
-                        <button class="dot" data-index="3"></button>
-                        <button class="dot" data-index="4"></button>
-                    </div>
-                    <button class="carousel-btn" id="nextBtn">›</button>
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"One of the best sessions I've attended at any conference. Sam and Dave delivered practical tools that immediately changed how I approach conflict—both professionally and personally."</p>
+                    <div class="testimonial-author">Dawn Roscoe, AMS, PCAM</div>
+                    <div class="testimonial-title">VP of Operations, Professional Properties Management</div>
                 </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"The session reinforced emotional discipline during difficult conversations. Clear tools to separate facts from reactions. Supporting staying grounded, professional, and effective when conflict arises."</p>
+                    <div class="testimonial-author">Michael Tillotson, CMCA®, AMS®</div>
+                    <div class="testimonial-title">VP of Community Management, HOALiving/CAM</div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"Totally engaging. Different. Funny. Challenging. Best session I attended this conference. And on a Friday morning! Bravo, gentlemen."</p>
+                    <div class="testimonial-author">Conference Attendee</div>
+                    <div class="testimonial-title">CAI Law Seminar 2026</div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"Sam was outstanding and provided a refreshing perspective. He gave common sense and practical solutions. I wish I had learned this years ago!"</p>
+                    <div class="testimonial-author">Legal Professional</div>
+                    <div class="testimonial-title">CAI Law Seminar 2026</div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">‹</button>
+                <div class="carousel-dots">
+                    <button class="dot active" data-index="0"></button>
+                    <button class="dot" data-index="1"></button>
+                    <button class="dot" data-index="2"></button>
+                    <button class="dot" data-index="3"></button>
+                    <button class="dot" data-index="4"></button>
+                </div>
+                <button class="carousel-btn" id="nextBtn">›</button>
             </div>
         </div>
     </section>
 
     <!-- RESULTS -->
-    <section class="results-section" id="results">
-        <p class="section-label">Evaluation Data</p>
+    <section class="section" id="results">
+        <div class="section-label">Evaluation Data</div>
         <h2 class="section-title">By the Numbers</h2>
-        
         <div class="results-grid">
             <div class="result-card">
                 <div class="result-number">4.7</div>
@@ -1003,158 +1025,161 @@
         </div>
     </section>
 
-    <!-- PROGRAM DETAILS -->
-    <section class="program-section" id="program">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-            <p class="section-label">Program Customization</p>
-            <h2 class="section-title">Flexible Delivery Formats</h2>
-            
-            <div class="program-grid">
-                <div class="program-block">
-                    <h3>Standard Formats</h3>
-                    <ul>
-                        <li>60-minute keynote program</li>
-                        <li>90-minute keynote with extended Q&A</li>
-                        <li>Half-day workshop (4 hours)</li>
-                        <li>Full-day retreat (8 hours)</li>
-                        <li>Multi-session conference programming</li>
-                        <li>Virtual delivery available at same fee</li>
-                    </ul>
-                </div>
-                <div class="program-block">
-                    <h3>All Formats Include</h3>
-                    <ul>
-                        <li>Pre-event consultation with organizers</li>
-                        <li>Customization to your industry and audience</li>
-                        <li>Live Demartini Method demonstration</li>
-                        <li>Audience volunteer for real-time methodology</li>
-                        <li>Extended Q&A with both presenters</li>
-                        <li>Perceptual balance framework handouts</li>
-                        <li>Post-event support and referrals</li>
-                    </ul>
-                </div>
+    <!-- PROGRAM -->
+    <section class="section" id="program">
+        <div class="section-label">Program Customization</div>
+        <h2 class="section-title">Flexible Delivery Formats</h2>
+        <div class="program-grid">
+            <div class="program-block">
+                <h3>Standard Formats</h3>
+                <ul>
+                    <li>60-minute keynote program</li>
+                    <li>90-minute keynote with extended Q&A</li>
+                    <li>Half-day workshop (4 hours)</li>
+                    <li>Full-day retreat (8 hours)</li>
+                    <li>Multi-session conference programming</li>
+                    <li>Virtual delivery available at same fee</li>
+                </ul>
+            </div>
+            <div class="program-block">
+                <h3>All Formats Include</h3>
+                <ul>
+                    <li>Pre-event consultation with organizers</li>
+                    <li>Customization to your industry and audience</li>
+                    <li>Live Demartini Method demonstration</li>
+                    <li>Audience volunteer for real-time methodology</li>
+                    <li>Extended Q&A with both presenters</li>
+                    <li>Perceptual balance framework handouts</li>
+                    <li>Post-event support and referrals</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- FEES -->
-    <section class="fees-section" id="fees">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-            <p class="section-label">Speaking Investment</p>
-            <h2 class="section-title">Transparent Pricing</h2>
-            
-            <div class="fees-grid">
-                <div class="fee-card">
-                    <h3 class="fee-title">Duo Program</h3>
-                    <div class="fee-price">$15,000</div>
-                    <p class="fee-detail">60–90 minute keynote delivery with both speakers, customization, live demonstration, Q&A, and handouts.</p>
-                </div>
-                <div class="fee-card">
-                    <h3 class="fee-title">Multi-Day Programs</h3>
-                    <div class="fee-price">$22,000+</div>
-                    <p class="fee-detail">Half-day workshops, full-day retreats, and multi-session conference programming. Custom pricing based on scope.</p>
-                </div>
-                <div class="fee-card">
-                    <h3 class="fee-title">Travel & Logistics</h3>
-                    <div class="fee-price">Billed at Cost</div>
-                    <p class="fee-detail">Airfare (business class for 3+ hours), hotel (night before & night of), ground transportation, and AV coordination.</p>
-                </div>
-                <div class="fee-card">
-                    <h3 class="fee-title">Virtual Programs</h3>
-                    <div class="fee-price">$13,000</div>
-                    <p class="fee-detail">Same content and methodology delivered online. Fully interactive with live breakout capabilities.</p>
-                </div>
+    <section class="section" id="fees">
+        <div class="section-label">Speaking Investment</div>
+        <h2 class="section-title">Transparent Pricing</h2>
+        <div class="fees-grid">
+            <div class="fee-card">
+                <h3 class="fee-title">Duo Program</h3>
+                <div class="fee-price">$15,000</div>
+                <p class="fee-detail">60–90 minute keynote delivery with both speakers, customization, live demonstration, Q&A, and handouts.</p>
+                <button class="fee-toggle" onclick="toggleFee(this)">
+                    <span>What's Included</span><span class="fee-toggle-icon">▼</span>
+                </button>
+                <ul class="fee-list">
+                    <li>Pre-event consultation to align program with organizational challenges</li>
+                    <li>Customization of framework to your industry and audience</li>
+                    <li>Live Demartini Method demonstration with audience volunteer</li>
+                    <li>Post-program Q&A session</li>
+                    <li>Perceptual balance framework handouts for attendees</li>
+                    <li>Full coordination between both speakers for seamless delivery</li>
+                </ul>
+            </div>
+            <div class="fee-card">
+                <h3 class="fee-title">Multi-Day Programs</h3>
+                <div class="fee-price">$22,000+</div>
+                <p class="fee-detail">Half-day workshops, full-day retreats, and multi-session conference programming. Custom pricing based on scope.</p>
+                <button class="fee-toggle" onclick="toggleFee(this)">
+                    <span>What's Included</span><span class="fee-toggle-icon">▼</span>
+                </button>
+                <ul class="fee-list">
+                    <li>Opening program + breakout session combinations</li>
+                    <li>Multi-day conference programming</li>
+                    <li>Executive leadership team sessions</li>
+                    <li>Board retreat facilitation</li>
+                    <li>Virtual programs available at same fee structure</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
-            <p class="section-label" style="text-align: center;">Let's Talk</p>
-            <h2 class="section-title" style="text-align: center;">Request This Program</h2>
-            
-            <form class="form-container" method="POST" action="https://formspree.io/f/xaqdebvj">
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label class="form-label">Name *</label>
-                        <input class="form-input" type="text" name="name" required placeholder="First and Last Name">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Email *</label>
-                        <input class="form-input" type="email" name="email" required placeholder="you@company.com">
-                    </div>
-                </div>
-                
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label class="form-label">Title / Role</label>
-                        <input class="form-input" type="text" name="title" placeholder="Event Director, Meeting Planner, etc.">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Phone</label>
-                        <input class="form-input" type="tel" name="phone" placeholder="(555) 000-0000">
-                    </div>
-                </div>
-                
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label class="form-label">Organization *</label>
-                        <input class="form-input" type="text" name="organization" required placeholder="Company or Association Name">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Event Type *</label>
-                        <select class="form-select" name="event_type" required>
-                            <option value="">Select...</option>
-                            <option>Law Conference</option>
-                            <option>Corporate Event</option>
-                            <option>Executive Retreat</option>
-                            <option>Association Meeting</option>
-                            <option>Leadership Summit</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label class="form-label">Preferred Date *</label>
-                        <input class="form-input" type="date" name="event_date" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Audience Size *</label>
-                        <select class="form-select" name="audience_size" required>
-                            <option value="">Select...</option>
-                            <option>50–100</option>
-                            <option>100–250</option>
-                            <option>250–500</option>
-                            <option>500+</option>
-                        </select>
-                    </div>
-                </div>
-                
+    <section class="section" id="contact">
+        <div class="section-label" style="text-align: center;">Let's Talk</div>
+        <h2 class="section-title" style="text-align: center;">Request This Program</h2>
+        
+        <form class="form-container" method="POST" action="https://formspree.io/f/xaqdebvj">
+            <div class="form-grid-2">
                 <div class="form-group">
-                    <label class="form-label">Program Format</label>
-                    <select class="form-select" name="format">
-                        <option value="">Select format...</option>
-                        <option>60-minute keynote</option>
-                        <option>90-minute keynote + Q&A</option>
-                        <option>Half-day workshop</option>
-                        <option>Full-day retreat</option>
-                        <option>Multi-session series</option>
-                        <option>Virtual program</option>
-                        <option>To be discussed</option>
+                    <label class="form-label">Name *</label>
+                    <input class="form-input" type="text" name="name" required placeholder="First and Last Name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email *</label>
+                    <input class="form-input" type="email" name="email" required placeholder="you@company.com">
+                </div>
+            </div>
+            
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label class="form-label">Title / Role</label>
+                    <input class="form-input" type="text" name="title" placeholder="Event Director, Meeting Planner, etc.">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input class="form-input" type="tel" name="phone" placeholder="(555) 000-0000">
+                </div>
+            </div>
+            
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label class="form-label">Organization *</label>
+                    <input class="form-input" type="text" name="organization" required placeholder="Company or Association Name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Type *</label>
+                    <select class="form-select" name="event_type" required>
+                        <option value="">Select...</option>
+                        <option>Law Conference</option>
+                        <option>Corporate Event</option>
+                        <option>Executive Retreat</option>
+                        <option>Association Meeting</option>
+                        <option>Leadership Summit</option>
+                        <option>Other</option>
                     </select>
                 </div>
-                
+            </div>
+            
+            <div class="form-grid-2">
                 <div class="form-group">
-                    <label class="form-label">Tell Us About Your Event</label>
-                    <textarea class="form-textarea" name="message" placeholder="What are your goals? What challenges is your audience facing?"></textarea>
+                    <label class="form-label">Preferred Date *</label>
+                    <input class="form-input" type="date" name="event_date" required>
                 </div>
-                
-                <button type="submit" class="form-submit">Send Request</button>
-            </form>
-        </div>
+                <div class="form-group">
+                    <label class="form-label">Audience Size *</label>
+                    <select class="form-select" name="audience_size" required>
+                        <option value="">Select...</option>
+                        <option>50–100</option>
+                        <option>100–250</option>
+                        <option>250–500</option>
+                        <option>500+</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Program Format</label>
+                <select class="form-select" name="format">
+                    <option value="">Select format...</option>
+                    <option>60-minute keynote</option>
+                    <option>90-minute keynote + Q&A</option>
+                    <option>Half-day workshop</option>
+                    <option>Full-day retreat</option>
+                    <option>Multi-session series</option>
+                    <option>Virtual program</option>
+                    <option>To be discussed</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Tell Us About Your Event</label>
+                <textarea class="form-textarea" name="message" placeholder="What are your goals? What challenges is your audience facing?"></textarea>
+            </div>
+            
+            <button type="submit" class="form-submit">Send Request</button>
+        </form>
     </section>
 
     <!-- FOOTER -->
@@ -1173,6 +1198,10 @@
     </footer>
 
     <script>
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', e => {
@@ -1183,7 +1212,7 @@
                 }
             });
         });
-        
+
         // Carousel
         (function() {
             const slides = document.querySelectorAll('.testimonial-slide');
@@ -1202,6 +1231,16 @@
             nextBtn.addEventListener('click', () => show(current + 1));
             dots.forEach(d => d.addEventListener('click', () => show(parseInt(d.getAttribute('data-index')))));
         })();
+
+        // Fee toggle
+        function toggleFee(btn) {
+            const icon = btn.querySelector('.fee-toggle-icon');
+            const list = btn.nextElementSibling;
+            if (!list) return;
+            const open = list.style.display === 'block';
+            list.style.display = open ? 'none' : 'block';
+            icon.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
     </script>
 </body>
 </html>
