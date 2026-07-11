@@ -104,9 +104,77 @@
             border-color: var(--gold);
         }
         
+        /* MOBILE NAV TOGGLE (hamburger / X) */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            padding: 10px;
+            margin: -10px -10px -10px 0;
+            z-index: 1001;
+        }
+        
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            margin: 5px auto;
+            transition: transform 0.3s ease, opacity 0.2s ease;
+        }
+        
+        .nav-toggle.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        
+        .nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .nav-toggle.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        
         @media (max-width: 768px) {
-            .nav-links { display: none; }
             .nav-inner { padding: 0 20px; }
+            
+            .nav-toggle { display: block; }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(26, 26, 26, 0.98);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 8px 20px 24px;
+            }
+            
+            .nav-links.open { display: flex; }
+            
+            .nav-links li { width: 100%; }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px 4px;
+                font-size: 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+            
+            .nav-links li:last-child a.nav-cta {
+                margin-top: 18px;
+                text-align: center;
+                border-bottom: 1px solid var(--gold);
+                padding: 12px 24px;
+            }
         }
         
         /* HERO */
@@ -273,14 +341,36 @@
             .demo-reel-placeholder { padding: 40px 24px; }
         }
         
+        .hero-presented-by {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin: 8px 0 10px;
+        }
+        
         .hero-speakers {
             display: flex;
-            gap: 28px;
-            justify-content: center;
-            margin: 32px 0 0;
+            gap: 14px;
+            align-items: baseline;
+            margin: 0;
             flex-wrap: wrap;
+            color: var(--white);
+            font-size: clamp(17px, 2.2vw, 21px);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero-speakers .plus {
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+        
+        .hero-speakers .cred {
+            font-size: 0.72em;
+            font-weight: 500;
             color: rgba(245, 245, 247, 0.6);
-            font-size: 13px;
         }
         
         .hero-cta-group {
@@ -949,7 +1039,12 @@
     <nav id="nav">
         <div class="nav-inner">
             <a href="#top" class="nav-logo">Composure Through Conflict</a>
-            <ul class="nav-links">
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#what">The Session</a></li>
                 <li><a href="#speakers">Speakers</a></li>
                 <li><a href="#results">Results</a></li>
@@ -968,17 +1063,18 @@
                 <h1 class="hero-title">Composure <em>Through</em> Conflict</h1>
                 <p class="hero-kicker">Stop Taking Things So Personally</p>
                 <p class="hero-subtitle">A repeatable method for legal professionals who need composure under pressure — delivered by two practitioners who use it in the field.</p>
+                <div class="hero-presented-by">Presented By</div>
                 <div class="hero-speakers">
-                    <span>David J. Graf, Esq., CCAL</span>
-                    <span style="color: var(--gold-light); font-weight: 600;">+</span>
                     <span>Sam Osborne</span>
+                    <span class="plus">+</span>
+                    <span>David J. Graf <span class="cred">Esq., CCAL</span></span>
                 </div>
                 <div class="hero-cta-group">
                     <a href="#contact" class="btn btn-primary">Request This Program</a>
                     <a href="#what" class="btn btn-secondary">See What's Included</a>
                 </div>
             </div>
-            <img src="images/sam_dave_hero_photo.png" alt="Sam Osborne and David Graf" class="hero-photo" />
+            <img src="images/sam%20dave%20hero%20sec.png" alt="Sam Osborne and David Graf" class="hero-photo" />
         </div>
         <div class="hero-proof-wrap">
             <div class="hero-proof">
@@ -1358,6 +1454,29 @@
         // Nav scroll effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+        // Mobile menu toggle (hamburger ↔ X)
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        function closeMobileMenu() {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open menu');
+        }
+        
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        });
+        
+        // Close mobile menu when a link is tapped
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(link => {
