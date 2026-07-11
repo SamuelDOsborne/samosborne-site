@@ -328,6 +328,16 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   font-size: .76rem; font-weight: 400; letter-spacing: -.005em;
   color: rgba(240,237,232,.42); line-height: 1.5;
 }
+.testimonial-disclosure {
+  font-size: .68rem; font-weight: 400; letter-spacing: -.005em;
+  color: rgba(240,237,232,.30); line-height: 1.5; margin-top: 8px;
+}
+.endorsement-disclaimer {
+  text-align: center; margin-top: 32px;
+  font-size: .78rem; line-height: 1.6;
+  color: rgba(240,237,232,.38);
+  max-width: 64ch; margin-left: auto; margin-right: auto;
+}
 
 .pricing-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px;
@@ -473,6 +483,10 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
 .form-group label { display: block; font-weight: 600; font-size: 12px; letter-spacing: -.005em; margin-bottom: 7px; color: var(--white); }
+.form-group .field-note {
+  display: block; font-weight: 400; font-size: 11px; letter-spacing: -.005em;
+  color: rgba(240,237,232,.45); margin: -3px 0 8px; line-height: 1.5;
+}
 .form-group input, .form-group select, .form-group textarea {
   width: 100%; padding: 11px 13px;
   border: 1px solid rgba(255,255,255,.11); border-radius: 6px;
@@ -499,6 +513,10 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 .footer-links a { color: rgba(240,237,232,.44); font-size: 12px; letter-spacing: -.005em; transition: color .2s; }
 .footer-links a:hover { color: var(--gold); }
 .copyright { color: rgba(240,237,232,.28); font-size: 12px; letter-spacing: -.005em; }
+.footer-disclaimer {
+  color: rgba(240,237,232,.24); font-size: 11px; letter-spacing: -.005em;
+  line-height: 1.6; max-width: 78ch; margin: 14px auto 0;
+}
 
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .72s cubic-bezier(.25,.46,.45,.94), transform .72s cubic-bezier(.25,.46,.45,.94); will-change: opacity, transform; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -566,7 +584,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <h1>You saw the transformation.<br>Now we apply it. Person by person.</h1>
   <div class="hero-rule"></div>
   <p class="hero-sub">Private Demartini Method facilitation for attorneys whose emotional charge around specific people — opposing counsel, clients, partners — is costing them judgment, composure, and command of the room.</p>
-  <p class="hero-tagline">Sequential 1:1 sessions. Systematic transformation. Not coaching. Facilitation.</p>
+  <p class="hero-tagline">Private, structured facilitation. One relationship at a time.</p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Schedule Consultation</a>
   </div>
@@ -578,14 +596,14 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <span class="marquee-item">Private Facilitation <span class="mdot"></span></span>
     <span class="marquee-item">Perceptual Balance <span class="mdot"></span></span>
     <span class="marquee-item">For Legal Professionals <span class="mdot"></span></span>
-    <span class="marquee-item">Emotional Charge Dissolved <span class="mdot"></span></span>
+    <span class="marquee-item">Perception Rebalanced <span class="mdot"></span></span>
     <span class="marquee-item">Sequential 1:1 Sessions <span class="mdot"></span></span>
     <span class="marquee-item">Composure Restored <span class="mdot"></span></span>
     <span class="marquee-item">Demartini Method <span class="mdot"></span></span>
     <span class="marquee-item">Private Facilitation <span class="mdot"></span></span>
     <span class="marquee-item">Perceptual Balance <span class="mdot"></span></span>
     <span class="marquee-item">For Legal Professionals <span class="mdot"></span></span>
-    <span class="marquee-item">Emotional Charge Dissolved <span class="mdot"></span></span>
+    <span class="marquee-item">Perception Rebalanced <span class="mdot"></span></span>
     <span class="marquee-item">Sequential 1:1 Sessions <span class="mdot"></span></span>
     <span class="marquee-item">Composure Restored <span class="mdot"></span></span>
   </div>
@@ -601,7 +619,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <div class="section-content reveal" style="text-align:center;">
     <span class="eyebrow">Why This Work Exists</span>
     <h2 class="t-xl" style="color:var(--off); margin-top:10px; text-align:center;">Most problems in legal practice are not legal first. They are perceptual.</h2>
-    <p class="t-body" style="max-width:52ch; margin:16px auto 0; text-align:center;">You do not lose composure because the stakes are high. You lose it because specific people distort how you see, interpret, and respond. This work exists to remove that distortion.</p>
+    <p class="t-body" style="max-width:52ch; margin:16px auto 0; text-align:center;">You do not lose composure because the stakes are high. You lose it because specific people distort how you see, interpret, and respond. This work exists to address that distortion.</p>
   </div>
 </section>
 
@@ -645,24 +663,24 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <div class="section-content">
     <div class="reveal" style="text-align:center; margin-bottom:60px;">
       <span class="eyebrow">What the Advisory Delivers</span>
-      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Systematic transformation. Person by person.</h2>
+      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Structured work. Person by person.</h2>
     </div>
     <div class="two-col reveal">
       <div>
         <h3>Sequential Facilitation</h3>
         <p>Each session applies the Demartini Method to a different charged relationship in your practice. One session for opposing counsel. One for the client who won't take counsel. One for the partner whose presence changes your posture the moment they enter the room.</p>
         <p>This is not generic professional development. It is precision work applied to the relationships where emotional charge is quietly distorting judgment, advocacy, and authority.</p>
-        <p>You do not learn coping strategies. You remove the distortion itself.</p>
+        <p>You do not learn coping strategies. You work directly on the perception itself.</p>
       </div>
       <div>
         <h3>The Shift Inside Each Session</h3>
         <ul class="process-list">
           <li>Identify the specific person and the trait carrying emotional charge</li>
-          <li>Reveal where that same trait appears in your own form</li>
-          <li>Dissolve projection through reflective awareness</li>
+          <li>Examine where that same trait appears in your own form</li>
+          <li>Work through projection using reflective awareness</li>
           <li>Balance perception by seeing both sides clearly</li>
-          <li>Collapse the charge at the source</li>
-          <li>Return to the relationship with more composure and accuracy</li>
+          <li>Address the charge at its source</li>
+          <li>Return to the relationship with greater composure and accuracy</li>
         </ul>
       </div>
     </div>
@@ -670,7 +688,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div class="method-cards reveal-stagger">
       <div class="method-card">
         <h3>Perceptual Balance</h3>
-        <p>Each session collapses distortion by restoring a more accurate view of the person across the table.</p>
+        <p>Each session works to restore a more balanced, accurate view of the person across the table.</p>
       </div>
       <div class="method-card">
         <h3>Projection Revealed</h3>
@@ -678,12 +696,12 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       </div>
       <div class="method-card">
         <h3>Authority Returned</h3>
-        <p>When the charge dissolves, so does the invisible loss of power it has been creating in the relationship.</p>
+        <p>As the charge diminishes, so does the invisible loss of power it can create in the relationship.</p>
       </div>
     </div>
 
     <div class="highlight-box reveal">
-      <p><strong style="color:var(--off);">This is not therapy. This is not coaching.</strong> This is structured facilitation using the Demartini Method to dissolve the perceptual imbalances creating emotional reactivity. When perception recenters, composure returns with it.</p>
+      <p><strong style="color:var(--off);">What this is — and is not.</strong> The Demartini Method is a structured perceptual-reframing facilitation: a systematic sequence of written and guided questions designed to bring balance to how you perceive a specific person. It is educational and developmental in nature. It does not diagnose, treat, or provide therapy for any medical, psychological, or mental health condition, and it is not a substitute for care from a licensed mental health professional. If you are dealing with a mental health condition, please work with a qualified provider.</p>
     </div>
   </div>
 </section>
@@ -714,7 +732,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       </div>
     </div>
     <div class="highlight-box reveal">
-      <p style="color:var(--ink);"><strong>If you watched the live demonstration and immediately thought of a client, opposing counsel, partner, judge, or board member,</strong> this advisory is where that same transformation gets applied to your actual practice.</p>
+      <p style="color:var(--ink);"><strong>If you watched the live demonstration and immediately thought of a client, opposing counsel, partner, judge, or board member,</strong> this advisory is where that same work gets applied to your actual practice.</p>
     </div>
   </div>
 </section>
@@ -740,6 +758,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <div class="testimonial-attr">
           <div class="testimonial-name">Corrine Westphal</div>
           <div class="testimonial-role">Editor &middot; France</div>
+          <!-- TODO (Sam): edit to reflect the true relationship — e.g. "Paying client" / "Received a complimentary session" / "No compensation provided for this endorsement" -->
+          <div class="testimonial-disclosure">[Disclosure: state whether client paid, received a complimentary session, or has any business relationship with Sam Osborne]</div>
         </div>
       </article>
 
@@ -751,6 +771,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <div class="testimonial-attr">
           <div class="testimonial-name">Graham Harvey, CSP</div>
           <div class="testimonial-role">Hall of Fame, Professional Speakers Australia &middot; Winner, Nevin Award</div>
+          <!-- TODO (Sam): edit to reflect the true relationship -->
+          <div class="testimonial-disclosure">[Disclosure: state whether client paid, received a complimentary session, or has any business relationship with Sam Osborne]</div>
         </div>
       </article>
 
@@ -762,10 +784,14 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <div class="testimonial-attr">
           <div class="testimonial-name">Liz Murray</div>
           <div class="testimonial-role">Leadership Coach &middot; Australia</div>
+          <!-- TODO (Sam): edit to reflect the true relationship -->
+          <div class="testimonial-disclosure">[Disclosure: state whether client paid, received a complimentary session, or has any business relationship with Sam Osborne]</div>
         </div>
       </article>
 
     </div>
+
+    <p class="endorsement-disclaimer reveal">Endorsements reflect the individual experiences of the people quoted. Results vary from person to person, and no particular outcome is promised or guaranteed. The Demartini Method is not therapy, counseling, or mental health treatment, and these statements should not be read as comparisons to, or substitutes for, licensed care.</p>
   </div>
 </section>
 <!-- ═══════════════════════════════════════════════
@@ -777,7 +803,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div class="reveal" style="text-align:center;">
       <span class="eyebrow">Investment</span>
       <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Four engagement options.</h2>
-      <p class="t-body" style="max-width:48ch; margin:16px auto 0; text-align:center;">Sequential private facilitations for the relationships carrying the most charge in your practice. Each option is sized to a different scope of professional ecosystem.</p>
+      <p class="t-body" style="max-width:48ch; margin:16px auto 0; text-align:center;">Private facilitations for the relationships carrying the most charge in your practice. Each option is sized to a different scope of professional ecosystem.</p>
     </div>
     <div class="pricing-grid reveal-stagger">
 
@@ -804,7 +830,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <p class="pricing-detail">One hour per session · Completed within 8 months</p>
         <ul class="pricing-features">
           <li>16 private Demartini Method facilitations</li>
-          <li>Deeper transformation across your professional ecosystem</li>
+          <li>Deeper work across your professional ecosystem</li>
           <li>Opposing counsel, clients, partners, the bench, boards, key staff</li>
           <li>Conducted via video conference</li>
           <li>Direct access between sessions for context and continuity</li>
@@ -842,7 +868,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
           <li>Full ecosystem coverage</li>
           <li>Priority scheduling</li>
           <li>In-person where relevant</li>
-          <li>Strict confidentiality protocols</li>
+          <li>Confidentiality protocols per engagement agreement</li>
         </ul>
       </div>
       <div class="founders-pricing">
@@ -851,7 +877,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       </div>
     </article>
 
-    <p class="reveal" style="text-align:center; margin-top:44px; font-size:.84rem; color:rgba(240,237,232,.36); max-width:60ch; margin-left:auto; margin-right:auto;">Every engagement begins with a private consultation to confirm fit, context, and timing. Custom scopes are available where the standard options do not match the situation.</p>
+    <p class="reveal" style="text-align:center; margin-top:44px; font-size:.84rem; color:rgba(240,237,232,.36); max-width:64ch; margin-left:auto; margin-right:auto;">Every engagement — including The Partner&#x2019;s Year — begins with a private consultation to confirm fit, context, and timing, and is governed by a written engagement agreement covering payment terms, scheduling, rescheduling, cancellation, and refunds, provided before any commitment. Custom scopes are available where the standard options do not match the situation. See our <a href="terms.html">Terms of Engagement</a>.</p>
   </div>
 </section>
 
@@ -862,13 +888,14 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <h2 class="t-xl" style="color:var(--ink); margin-top:10px;">What to expect.</h2>
     </div>
     <div style="max-width:820px; margin:0 auto;" class="reveal">
-      <details class="details"><summary><span>How is this different from executive coaching?</span><span class="chev">▼</span></summary><div class="details-body"><p>Executive coaching usually develops skills, habits, or strategy. This work dissolves the emotional charge distorting how you perceive specific people. You are not learning techniques to manage difficult relationships. You are transforming the way those relationships are held in perception.</p></div></details>
-      <details class="details"><summary><span>What if I need more than 8 or 16 sessions?</span><span class="chev">▼</span></summary><div class="details-body"><p>Most attorneys find that 8–16 facilitations address the relationships carrying the most charge. For those whose ecosystem is broader or whose role demands ongoing partnership, the Strategic engagement extends the work across a full year. The aim is not ongoing dependency. The aim is clean transformation, scoped to your reality.</p></div></details>
-      <details class="details"><summary><span>How quickly will I see results?</span><span class="chev">▼</span></summary><div class="details-body"><p>The shift happens during the session itself. You will usually feel the relationship change immediately. The real proof comes the next time you walk into that courtroom, deposition, or partner meeting and notice the charge is no longer running the interaction.</p></div></details>
-      <details class="details"><summary><span>What happens during a session?</span><span class="chev">▼</span></summary><div class="details-body"><p>Each session is a structured facilitation. You identify the person and the trait carrying charge. I guide you through precise questions that reveal where that same trait appears in your own form. As perception balances, the emotional charge around that person collapses.</p></div></details>
-      <details class="details"><summary><span>How is confidentiality handled?</span><span class="chev">▼</span></summary><div class="details-body"><p>Sessions are private and treated as strictly confidential, and you stay in control of what you share. The work does not require case specifics, privileged material, or client identities — the method operates on your perception of the person, not the facts of the matter.</p></div></details>
+      <details class="details"><summary><span>How is this different from executive coaching?</span><span class="chev">▼</span></summary><div class="details-body"><p>Executive coaching usually develops skills, habits, or strategy. This work addresses the emotional charge distorting how you perceive specific people. You are not learning techniques to manage difficult relationships — you are working on how those relationships are held in perception.</p></div></details>
+      <details class="details"><summary><span>Is this therapy or mental health treatment?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. The Demartini Method is a structured, educational facilitation process, not psychotherapy or counseling. It does not diagnose or treat any medical, psychological, or mental health condition, and it is not a substitute for care from a licensed mental health professional. If you are dealing with a mental health condition, please work with a qualified provider — this work can sit alongside that care, not replace it.</p></div></details>
+      <details class="details"><summary><span>What if I need more than 8 or 16 sessions?</span><span class="chev">▼</span></summary><div class="details-body"><p>Most attorneys find that 8–16 facilitations address the relationships carrying the most charge. Where the ecosystem is broader, the Strategic engagement extends the work across a full year. The aim is not ongoing dependency — it is focused work, scoped to your reality.</p></div></details>
+      <details class="details"><summary><span>How quickly will I see results?</span><span class="chev">▼</span></summary><div class="details-body"><p>Many clients report a noticeable shift in how they hold the relationship during or shortly after a session. Individual experiences vary, and no specific result or timeframe is guaranteed. The practical test is how the relationship feels the next time you walk into that courtroom, deposition, or partner meeting.</p></div></details>
+      <details class="details"><summary><span>What happens during a session?</span><span class="chev">▼</span></summary><div class="details-body"><p>Each session is a structured facilitation. You identify the person and the trait carrying charge, and I guide you through a precise sequence of questions designed to reveal where that same trait appears in your own form and to bring your perception of that person into balance.</p></div></details>
+      <details class="details"><summary><span>How is confidentiality handled?</span><span class="chev">▼</span></summary><div class="details-body"><p>Sessions are private, and your information is kept confidential under the terms of our written engagement agreement. To be clear for a legal audience: this is not a legally privileged relationship. Communications with a facilitator are not protected by attorney&ndash;client, therapist&ndash;patient, or any similar privilege, and are not shielded from subpoena or discovery. For that reason, the work is deliberately structured so you never need to share case specifics, privileged material, or client identities &mdash; the method operates on your perception of the person, not the facts of the matter.</p></div></details>
       <details class="details"><summary><span>Is this appropriate for firms or practice groups?</span><span class="chev">▼</span></summary><div class="details-body"><p>This advisory is designed for individual attorneys and legal professionals. Firm-wide, practice group, or bar association applications require a different engagement structure. Reach out if you want to discuss that separately.</p></div></details>
-      <details class="details"><summary><span>Do I need to have attended one of your keynotes?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. Many advisory clients first encountered the work during a keynote, but the engagement is open to any attorney or legal professional dealing with charge toward specific people that is undermining their authority or clarity.</p></div></details>
+      <details class="details"><summary><span>Do I need to have attended one of your keynotes?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. Many advisory clients first encountered the work during a keynote, but the engagement is open to any attorney or legal professional dealing with charge toward specific people.</p></div></details>
     </div>
   </div>
 </section>
@@ -956,8 +983,10 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
           <option value="">Select…</option><option>Yes</option><option>No</option><option>Not sure</option>
         </select>
       </div>
-      <div class="form-group" style="margin-bottom:20px;"><label>What's the situation? (High-level) *</label>
-        <textarea name="situation" required rows="5" placeholder="Who is carrying the charge? What is the recurring pattern? Keep it high-level — no case details or privileged information needed."></textarea>
+      <div class="form-group" style="margin-bottom:20px;">
+        <label>What's the situation? (High-level) *</label>
+        <span class="field-note">Please do not include privileged, confidential client, or case-identifying information. A general description of the relationship and pattern is all that&rsquo;s needed &mdash; and communications through this form are not legally privileged.</span>
+        <textarea name="situation" required rows="5" placeholder="Who is carrying the charge? What is the recurring pattern? Keep it high-level."></textarea>
       </div>
       <div class="form-group" style="margin-bottom:24px;">
         <label>Investment Range</label>
@@ -970,7 +999,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         </div>
       </div>
       <button type="submit" class="form-submit">Request Consultation</button>
-      <p style="text-align:center; color:rgba(240,237,232,.36); font-size:11px; letter-spacing:-.005em;">* Required fields. We'll respond within 2 business days to confirm fit and scheduling.</p>
+      <p style="text-align:center; color:rgba(240,237,232,.36); font-size:11px; letter-spacing:-.005em;">* Required fields. We'll respond within 2 business days to confirm fit and scheduling. By submitting this form you agree to our <a href="privacy.html">Privacy Policy</a>; your details are used only to respond to your inquiry.</p>
+      <!-- Hidden routing label for Formspree submissions; contains no user data. -->
       <input type="hidden" name="form_type" value="Legal Leadership Advisory Consultation">
     </form>
   </div>
@@ -985,8 +1015,12 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <a href="#advisory">Advisory</a>
       <a href="#endorsements">Endorsements</a>
       <a href="#contact">Contact</a>
+      <!-- TODO (Sam): create privacy.html and terms.html before publishing these links -->
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Engagement</a>
     </div>
     <p class="copyright">© 2026 Sam Osborne · Demartini Method Facilitator · Based in Burbank, California · samosborne.net</p>
+    <p class="footer-disclaimer">The Demartini Method facilitation described on this page is an educational and developmental service. It is not psychotherapy, counseling, medical care, legal advice, or mental health treatment, and it does not create an attorney&ndash;client, therapist&ndash;patient, or other legally privileged relationship. Individual results vary and are not guaranteed.</p>
   </div>
 </footer>
 
