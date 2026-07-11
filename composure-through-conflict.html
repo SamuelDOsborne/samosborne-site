@@ -341,14 +341,36 @@
             .demo-reel-placeholder { padding: 40px 24px; }
         }
         
+        .hero-presented-by {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin: 8px 0 10px;
+        }
+        
         .hero-speakers {
             display: flex;
-            gap: 28px;
-            justify-content: center;
-            margin: 32px 0 0;
+            gap: 14px;
+            align-items: baseline;
+            margin: 0;
             flex-wrap: wrap;
+            color: var(--white);
+            font-size: clamp(17px, 2.2vw, 21px);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero-speakers .plus {
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+        
+        .hero-speakers .cred {
+            font-size: 0.72em;
+            font-weight: 500;
             color: rgba(245, 245, 247, 0.6);
-            font-size: 13px;
         }
         
         .hero-cta-group {
@@ -1041,10 +1063,11 @@
                 <h1 class="hero-title">Composure <em>Through</em> Conflict</h1>
                 <p class="hero-kicker">Stop Taking Things So Personally</p>
                 <p class="hero-subtitle">A repeatable method for legal professionals who need composure under pressure — delivered by two practitioners who use it in the field.</p>
+                <div class="hero-presented-by">Presented By</div>
                 <div class="hero-speakers">
-                    <span>David J. Graf, Esq., CCAL</span>
-                    <span style="color: var(--gold-light); font-weight: 600;">+</span>
                     <span>Sam Osborne</span>
+                    <span class="plus">+</span>
+                    <span>David J. Graf <span class="cred">Esq., CCAL</span></span>
                 </div>
                 <div class="hero-cta-group">
                     <a href="#contact" class="btn btn-primary">Request This Program</a>
