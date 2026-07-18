@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -658,6 +657,52 @@
     }
     .investment-tiers li .price { color: var(--text); font-weight: 600; font-size: 1.02rem; }
 
+    /* Travel & Accommodations */
+    .travel-block { margin-top: 8px; }
+    .travel-label {
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      letter-spacing: -.01em; margin-bottom: 10px;
+    }
+    .travel-heading {
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800;
+      color: var(--gold); letter-spacing: -.03em; line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    .travel-desc {
+      color: var(--muted); font-size: .96rem; line-height: 1.6;
+      margin: 0 0 18px; max-width: 46ch;
+    }
+    .travel-details {
+      border: 1px solid var(--line); border-radius: 12px;
+      background: rgba(255,255,255,.04); overflow: hidden;
+    }
+    .travel-details summary {
+      list-style: none; cursor: pointer; display: flex;
+      align-items: center; justify-content: space-between; gap: 12px;
+      padding: 16px 18px; font-weight: 700; color: var(--text);
+      font-size: 1rem; transition: color .18s ease;
+    }
+    .travel-details summary::-webkit-details-marker { display: none; }
+    .travel-details summary:hover { color: var(--gold); }
+    .travel-chevron {
+      color: var(--muted); font-size: .7rem;
+      transition: transform .22s ease, color .18s ease;
+    }
+    .travel-details[open] .travel-chevron { transform: rotate(180deg); color: var(--gold); }
+    .travel-included {
+      list-style: none; margin: 0; padding: 4px 18px 18px;
+      display: grid; gap: 14px;
+    }
+    .travel-included li {
+      position: relative; padding-left: 30px; color: var(--muted);
+      font-size: .95rem; line-height: 1.55;
+    }
+    .travel-included li::before {
+      content: "\2713"; position: absolute; left: 0; top: 0;
+      color: var(--gold); font-weight: 700;
+    }
+    .travel-included li strong { color: var(--text); font-weight: 600; }
+
     /* Form */
     form { border-radius: 24px; padding: 30px; border: 1px solid var(--line); background: rgba(255,255,255,.04); }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -1188,7 +1233,7 @@
     <div class="about-copy-below">
       <div class="container">
         <span class="eyebrow">About Sam</span>
-        <h2>Sam Osborne has spent 20 years studying one question: what is mastery and what role does perception play in it?</h2>
+        <h2>Sam Osborne has spent 30 years studying one question: how far and and how deeply can we see?</h2>
         <div class="about-body">
           <div>
             <p>A piece of metal once tore through Sam Osborne's left eye and pierced his retina. His eyesight recovered. His relationship with perception did not. It transformed permanently — and that transformation became the framework he teaches today.</p>
@@ -1411,9 +1456,28 @@
                 <li><strong>Multi-session intensives &amp; executive retreats</strong><span class="price">From $45,000</span></li>
               </ul>
             </div>
+
+            <!-- TRAVEL & ACCOMMODATIONS -->
+            <div class="travel-block">
+              <div class="travel-label">Travel &amp; Accommodations</div>
+              <div class="travel-heading">Billed Separately</div>
+              <p class="travel-desc">Standard travel arrangements for seamless program execution. Actual costs vary by location and distance.</p>
+              <details class="travel-details" open>
+                <summary>
+                  <span>What's Included</span>
+                  <span class="travel-chevron" aria-hidden="true">&#9662;</span>
+                </summary>
+                <ul class="travel-included">
+                  <li>Round-trip airfare (business class, domestic and international)</li>
+                  <li><strong>USA events:</strong> one night hotel accommodation (night of event)</li>
+                  <li><strong>International events:</strong> two nights hotel accommodation (night before and night of event)</li>
+                </ul>
+              </details>
+            </div>
+
             <div><strong>Response window:</strong> Within two business days.</div>
           </div>
-          <p class="micro">For program bookings: <a href="/cdn-cgi/l/email-protection#f281939fb281939f9d81909d809c97dc9c9786"><span class="__cf_email__" data-cfemail="0271636f4271636f6d71606d706c672c6c6776">[email&#160;protected]</span></a> · 818.934.5140</p>
+          <p class="micro">For program bookings: <a href="mailto:sam@samosborne.net">sam@samosborne.net</a> · 818.934.5140</p>
         </div>
 
         <form id="inquiryForm" novalidate>
@@ -1477,11 +1541,11 @@
   <footer>
     <div class="container footer-inner">
       <div>Sam Osborne · Conflict &amp; Composure Speaker for the Legal Profession · Demartini Method Facilitator · Burbank, California</div>
-      <div><a href="/cdn-cgi/l/email-protection#b3c0d2def3c0d2dedcc0d1dcc1ddd69dddd6c7"><span class="__cf_email__" data-cfemail="fb889a96bb889a969488999489959ed5959e8f">[email&#160;protected]</span></a></div>
+      <div><a href="mailto:sam@samosborne.net">sam@samosborne.net</a></div>
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     if (menuToggle && navLinks) {
@@ -1576,7 +1640,5 @@
       if (el) el.addEventListener('input', () => el.classList.remove('error'));
     });
   </script>
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
