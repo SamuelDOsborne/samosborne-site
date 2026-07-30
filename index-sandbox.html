@@ -659,18 +659,20 @@
 
     /* Travel & Accommodations */
     .travel-block { margin-top: 8px; }
+    .travel-summary-head { display: flex; flex-direction: column; }
     .travel-label {
       font-size: 1rem; font-weight: 700; color: var(--text);
-      letter-spacing: -.01em; margin-bottom: 10px;
+      letter-spacing: -.01em; margin-bottom: 6px;
     }
     .travel-heading {
       font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800;
       color: var(--gold); letter-spacing: -.03em; line-height: 1.05;
-      margin-bottom: 14px;
+      margin-bottom: 0;
     }
+    .travel-body { padding: 4px 18px 18px; }
     .travel-desc {
       color: var(--muted); font-size: .96rem; line-height: 1.6;
-      margin: 0 0 18px; max-width: 46ch;
+      margin: 0 0 16px; max-width: 46ch;
     }
     .travel-details {
       border: 1px solid var(--line); border-radius: 12px;
@@ -678,19 +680,19 @@
     }
     .travel-details summary {
       list-style: none; cursor: pointer; display: flex;
-      align-items: center; justify-content: space-between; gap: 12px;
-      padding: 16px 18px; font-weight: 700; color: var(--text);
+      align-items: center; justify-content: space-between; gap: 16px;
+      padding: 18px 18px; font-weight: 700; color: var(--text);
       font-size: 1rem; transition: color .18s ease;
     }
     .travel-details summary::-webkit-details-marker { display: none; }
-    .travel-details summary:hover { color: var(--gold); }
+    .travel-details summary:hover .travel-heading { color: #e6bd8f; }
     .travel-chevron {
-      color: var(--muted); font-size: .7rem;
+      color: var(--muted); font-size: .8rem; flex-shrink: 0;
       transition: transform .22s ease, color .18s ease;
     }
     .travel-details[open] .travel-chevron { transform: rotate(180deg); color: var(--gold); }
     .travel-included {
-      list-style: none; margin: 0; padding: 4px 18px 18px;
+      list-style: none; margin: 0; padding: 0;
       display: grid; gap: 14px;
     }
     .travel-included li {
@@ -1461,19 +1463,22 @@
 
             <!-- TRAVEL & ACCOMMODATIONS -->
             <div class="travel-block">
-              <div class="travel-label">Travel &amp; Accommodations</div>
-              <div class="travel-heading">Billed Separately</div>
-              <p class="travel-desc">Standard travel arrangements for seamless program execution. Actual costs vary by location and distance.</p>
-              <details class="travel-details" open>
+              <details class="travel-details">
                 <summary>
-                  <span>What's Included</span>
+                  <span class="travel-summary-head">
+                    <span class="travel-label">Travel &amp; Accommodations</span>
+                    <span class="travel-heading">Billed Separately</span>
+                  </span>
                   <span class="travel-chevron" aria-hidden="true">&#9662;</span>
                 </summary>
-                <ul class="travel-included">
-                  <li>Round-trip airfare (business class, domestic and international)</li>
-                  <li><strong>USA events:</strong> one night hotel accommodation (night of event)</li>
-                  <li><strong>International events:</strong> two nights hotel accommodation (night before and night of event)</li>
-                </ul>
+                <div class="travel-body">
+                  <p class="travel-desc">Standard travel arrangements for seamless program execution. Actual costs vary by location and distance.</p>
+                  <ul class="travel-included">
+                    <li>Round-trip airfare (business class, domestic and international)</li>
+                    <li><strong>USA events:</strong> one night hotel accommodation (night of event)</li>
+                    <li><strong>International events:</strong> two nights hotel accommodation (night before and night of event)</li>
+                  </ul>
+                </div>
               </details>
             </div>
 
