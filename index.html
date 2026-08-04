@@ -148,7 +148,7 @@
       background:
         linear-gradient(90deg, rgba(26,26,26,0) 54%, rgba(26,26,26,.96) 100%),
         linear-gradient(180deg, rgba(26,26,26,.12) 0%, rgba(26,26,26,.54) 100%),
-      url('images/sam-osborne-stage4.jpg') center 20%/cover no-repeat;
+        url('images/sam-osborne-hero-banner.jpg') center 15%/cover no-repeat;
     }
     .hero-proof-badge {
       position: absolute;
@@ -659,20 +659,18 @@
 
     /* Travel & Accommodations */
     .travel-block { margin-top: 8px; }
-    .travel-summary-head { display: flex; flex-direction: column; }
     .travel-label {
       font-size: 1rem; font-weight: 700; color: var(--text);
-      letter-spacing: -.01em; margin-bottom: 6px;
+      letter-spacing: -.01em; margin-bottom: 10px;
     }
     .travel-heading {
       font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800;
       color: var(--gold); letter-spacing: -.03em; line-height: 1.05;
-      margin-bottom: 0;
+      margin-bottom: 14px;
     }
-    .travel-body { padding: 4px 18px 18px; }
     .travel-desc {
       color: var(--muted); font-size: .96rem; line-height: 1.6;
-      margin: 0 0 16px; max-width: 46ch;
+      margin: 0 0 18px; max-width: 46ch;
     }
     .travel-details {
       border: 1px solid var(--line); border-radius: 12px;
@@ -680,19 +678,19 @@
     }
     .travel-details summary {
       list-style: none; cursor: pointer; display: flex;
-      align-items: center; justify-content: space-between; gap: 16px;
-      padding: 18px 18px; font-weight: 700; color: var(--text);
+      align-items: center; justify-content: space-between; gap: 12px;
+      padding: 16px 18px; font-weight: 700; color: var(--text);
       font-size: 1rem; transition: color .18s ease;
     }
     .travel-details summary::-webkit-details-marker { display: none; }
-    .travel-details summary:hover .travel-heading { color: #e6bd8f; }
+    .travel-details summary:hover { color: var(--gold); }
     .travel-chevron {
-      color: var(--muted); font-size: .8rem; flex-shrink: 0;
+      color: var(--muted); font-size: .7rem;
       transition: transform .22s ease, color .18s ease;
     }
     .travel-details[open] .travel-chevron { transform: rotate(180deg); color: var(--gold); }
     .travel-included {
-      list-style: none; margin: 0; padding: 0;
+      list-style: none; margin: 0; padding: 4px 18px 18px;
       display: grid; gap: 14px;
     }
     .travel-included li {
@@ -755,7 +753,7 @@
       overflow: hidden;
     }
     .method-photo-full { height: clamp(440px, 60vh, 720px); }
-    .method-intro-photo { height: clamp(560px, 74vh, 860px); }
+    .method-intro-photo { height: 520px; }
     .method-photo-full img, .method-intro-photo img {
       width: 100%; height: 100%;
       object-fit: cover;
@@ -775,8 +773,8 @@
       content: "";
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 42%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+      height: 55%;
+      background: linear-gradient(to bottom, rgba(245,243,240,0), rgba(245,243,240,1));
       pointer-events: none;
     }
 
@@ -854,7 +852,7 @@
       <div class="inner">
         <div class="hero-name">Sam Osborne</div>
         <div class="hero-kicker">Conflict &amp; Composure Speaker for the Legal Profession</div>
-        <div class="proof-line">Best of Conference-Rated Session<span class="stars">★★★★★</span></div>
+        <div class="proof-line">Co-presented the Best of Conference-Rated Session<span class="stars">★★★★★</span></div>
         <div style="color: var(--gold); text-transform: uppercase; letter-spacing: .14em; font-size: clamp(.8rem, 1.1vw, .95rem); font-weight: 700; margin-bottom: 10px;">A repeatable method to</div>
         <h1>Stay composed when people get under your skin.</h1>
 
@@ -1088,8 +1086,8 @@
     <div class="container">
       <div class="tcarousel-head">
         <span class="eyebrow">What People Are Saying</span>
-        <h2>Reviews.</h2>
-        <p>Attorneys, executive leaders, and the event hosts who've booked Sam on what it's like to put him in front of a room: engaging on stage, prepared behind the scenes, and consistently recommended.</p>
+        <h2>Endorsed by the rooms — and the people who fill them.</h2>
+        <p>Attorneys, executive leaders, and the event hosts who've booked Sam — on what it's like to put him in front of a room: engaging on stage, prepared behind the scenes, and consistently recommended.</p>
       </div>
     </div>
 
@@ -1165,7 +1163,7 @@
   <!-- METHOD INTRO -->
   <section class="section section-light intro" style="padding-top: 0;">
     <div class="method-intro-photo">
-      <img src="images/sam-osborne-hero-banner.jpg" alt="Sam Osborne speaking at a podium" />
+      <img src="images/sam-osborne-board-member.jpg" alt="Sam Osborne leading a panel discussion overlooking the Los Angeles skyline" />
     </div>
     <div style="padding-top: 74px; padding-bottom: 58px;">
       <div class="container">
@@ -1403,7 +1401,7 @@
   <!-- ADVISORY TEASER -->
   <section class="advisory-teaser" id="advisory-teaser">
     <div class="advisory-photo-full">
-      <img src="images/sam-osborne-board-member.jpg" alt="Sam Osborne, Leadership Advisory" />
+      <img src="images/sam-osborne-vest.jpg" alt="Sam Osborne, Leadership Advisory" />
     </div>
     <div class="advisory-copy-below">
       <div class="container">
@@ -1463,22 +1461,19 @@
 
             <!-- TRAVEL & ACCOMMODATIONS -->
             <div class="travel-block">
-              <details class="travel-details">
+              <div class="travel-label">Travel &amp; Accommodations</div>
+              <div class="travel-heading">Billed Separately</div>
+              <p class="travel-desc">Standard travel arrangements for seamless program execution. Actual costs vary by location and distance.</p>
+              <details class="travel-details" open>
                 <summary>
-                  <span class="travel-summary-head">
-                    <span class="travel-label">Travel &amp; Accommodations</span>
-                    <span class="travel-heading">Billed Separately</span>
-                  </span>
+                  <span>What's Included</span>
                   <span class="travel-chevron" aria-hidden="true">&#9662;</span>
                 </summary>
-                <div class="travel-body">
-                  <p class="travel-desc">Standard travel arrangements for seamless program execution. Actual costs vary by location and distance.</p>
-                  <ul class="travel-included">
-                    <li>Round-trip airfare (business class, domestic and international)</li>
-                    <li><strong>USA events:</strong> one night hotel accommodation (night of event)</li>
-                    <li><strong>International events:</strong> two nights hotel accommodation (night before and night of event)</li>
-                  </ul>
-                </div>
+                <ul class="travel-included">
+                  <li>Round-trip airfare (business class, domestic and international)</li>
+                  <li><strong>USA events:</strong> one night hotel accommodation (night of event)</li>
+                  <li><strong>International events:</strong> two nights hotel accommodation (night before and night of event)</li>
+                </ul>
               </details>
             </div>
 
