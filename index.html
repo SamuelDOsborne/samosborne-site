@@ -1010,154 +1010,35 @@
   </section>
 
 
-  <!-- ═══════════════ VOICES / TESTIMONIAL CAROUSEL ═══════════════ -->
-  <!-- Its own section — sits after the demo reel, leaving the reel frame free for the video. -->
-  <style>
-    .tcarousel-section{ background:var(--bg); position:relative; overflow:hidden; }
-    .tcarousel-section::before{
-      content:""; position:absolute; inset:0; pointer-events:none;
-      background:
-        radial-gradient(circle at 15% 25%, rgba(212,165,116,.07) 0%, transparent 42%),
-        radial-gradient(circle at 85% 75%, rgba(74,94,127,.09) 0%, transparent 46%);
-    }
-    .tcarousel-section .container{ position:relative; z-index:1; }
-    .tcarousel-head{ max-width:640px; margin-bottom:44px; }
-    .tcarousel-head h2{ font-size:clamp(1.7rem,3vw,2.6rem); }
-    .tcarousel-head p{ margin:16px 0 0; color:var(--muted); max-width:56ch;
-      font-size:clamp(1rem,1.4vw,1.12rem); line-height:1.6; }
-
-    .tcarousel-viewport{
-      position:relative; width:100vw; left:50%; margin-left:-50vw;
-      overflow:hidden;
-      -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
-              mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
-    }
-    .tcarousel-track{
-      display:flex; gap:20px; width:max-content;
-      padding:8px 10px;
-      animation:tcarousel-scroll 60s linear infinite;
-    }
-    .tcarousel-viewport:hover .tcarousel-track{ animation-play-state:paused; }
-    @keyframes tcarousel-scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-
-    .tcard{
-      flex:0 0 auto; width:380px;
-      display:flex; flex-direction:column;
-      padding:32px 30px 28px;
-      border-radius:22px;
-      background:var(--card);
-      border:1px solid var(--line);
-      box-shadow:0 18px 60px rgba(0,0,0,.16);
-      position:relative; overflow:hidden;
-    }
-    .tcard::after{
-      content:""; position:absolute; inset:0; pointer-events:none; opacity:.10;
-      background:radial-gradient(circle at 50% 0%, rgba(212,165,116,.5) 0%, transparent 55%);
-    }
-    .tcard-mark{
-      font-family:Georgia,serif; font-size:3rem; line-height:.5;
-      color:var(--gold); opacity:.5; margin-bottom:18px;
-    }
-    .tcard-quote{
-      position:relative; z-index:1; margin:0 0 22px;
-      font-size:1.06rem; line-height:1.5; letter-spacing:-.015em;
-      color:rgba(245,245,247,.92); font-weight:500;
-    }
-    .tcard-foot{
-      margin-top:auto; padding-top:18px; border-top:1px solid rgba(255,255,255,.07);
-      position:relative; z-index:1;
-    }
-    .tcard-name{ font-size:.98rem; font-weight:700; color:var(--text); letter-spacing:-.01em; }
-    .tcard-title{ margin-top:4px; font-size:.82rem; color:var(--gold);
-      font-weight:600; letter-spacing:.02em; line-height:1.4; }
-
-    @media (max-width:680px){
-      .tcard{ width:300px; padding:26px 24px 24px; }
-      .tcard-quote{ font-size:.98rem; }
-      .tcarousel-track{ animation-duration:48s; }
-    }
-    @media (prefers-reduced-motion:reduce){
-      .tcarousel-track{ animation:none; }
-      .tcarousel-viewport{ overflow-x:auto; }
-    }
-  </style>
-
-  <section class="section tcarousel-section" id="voices">
+  <!-- TESTIMONIALS -->
+  <section class="section" id="proof">
     <div class="container">
-      <div class="tcarousel-head">
-        <span class="eyebrow">What People Are Saying</span>
-        <h2>Endorsed by the rooms — and the people who fill them.</h2>
-        <p>Attorneys, executive leaders, and the event hosts who've booked Sam — on what it's like to put him in front of a room: engaging on stage, prepared behind the scenes, and consistently recommended.</p>
-      </div>
-    </div>
-
-    <div class="tcarousel-viewport">
-      <div class="tcarousel-track" id="tcarouselTrack">
-        <article class="tcard">
-          <div class="tcard-mark">&ldquo;</div>
-          <p class="tcard-quote">I highly recommend Sam for conferences or leadership events serving professionals who operate in stressful, conflict-rich environments.</p>
-          <div class="tcard-foot">
-            <div class="tcard-name">Brian Butler</div>
-            <div class="tcard-title">President · FirstService Residential Illinois</div>
-          </div>
-        </article>
-
-        <article class="tcard">
-          <div class="tcard-mark">&ldquo;</div>
-          <p class="tcard-quote">He presented to a standing-room-only room of professionals — engaging, interactive, grounded in research, and immediately applicable.</p>
-          <div class="tcard-foot">
-            <div class="tcard-name">Leah K. Burton, Esq., CCAL</div>
-            <div class="tcard-title">Board Certified HOA &amp; Condominium Attorney · Texas</div>
-          </div>
-        </article>
-
-        <article class="tcard">
-          <div class="tcard-mark">&ldquo;</div>
-          <p class="tcard-quote">A thoughtful host who supported us with real preparation — capable, engaging, and professional. No hesitation recommending him.</p>
-          <div class="tcard-foot">
-            <div class="tcard-name">Jacob Miceli</div>
-            <div class="tcard-title">Director of Strategy &amp; CFO · Rise Facilities</div>
-          </div>
-        </article>
-
-        <article class="tcard">
-          <div class="tcard-mark">&ldquo;</div>
-          <p class="tcard-quote">This transformational experience has forever changed how I practice law. I highly recommend this seminar.</p>
-          <div class="tcard-foot">
-            <div class="tcard-name">Augustus Shaw IV, Esq., CCAL</div>
-            <div class="tcard-title">President · College of Community Association Lawyers</div>
-          </div>
-        </article>
-
-        <article class="tcard">
-          <div class="tcard-mark">&ldquo;</div>
-          <p class="tcard-quote">No hesitation recommending his insights and engaging workshop style to others.</p>
-          <div class="tcard-foot">
-            <div class="tcard-name">Thomas Gibbons</div>
-            <div class="tcard-title">Property Law Specialist</div>
-          </div>
-        </article>
-
-        <article class="tcard">
-          <div class="tcard-mark">&ldquo;</div>
-          <p class="tcard-quote">An engaging speaker — I really enjoyed his presentation!</p>
-          <div class="tcard-foot">
-            <div class="tcard-name">Kevin Hirzel</div>
-            <div class="tcard-title">Community Association Attorney</div>
-          </div>
-        </article>
+      <span class="eyebrow">From the Room</span>
+      <h2>What leaders say.</h2>
+      <div class="quote-stack">
+        <div class="quote">
+          <blockquote>"There are very few people who can do what he does — he can talk to salespeople, advisors, account managers, CFOs. Of all the speakers at this conference, Sam was the most powerful."</blockquote>
+          <cite>Trisha Graham · Director of Account Management, Morningstar Retirement</cite>
+        </div>
+        <div class="quote">
+          <blockquote>"I now have a tool to understand why I'm triggered — and to eliminate that trigger in the meeting, flip it around, and make it a positive as I go forward in my career."</blockquote>
+          <cite>Adam Sokolic · Chief Operating Officer, Bluespring Wealth Partners</cite>
+        </div>
+        <div class="quote">
+          <blockquote>"The concepts Sam shared with a full room of high-achieving professionals were captivating and potentially life-changing. I would highly recommend having Sam share his expertise at your next event."</blockquote>
+          <cite>Amy N. Mullen, CFP&reg; · President, Money Quotient</cite>
+        </div>
+        <div class="quote">
+          <blockquote>"If you want a speaker who brings energy, personal storytelling, and brings the audience along on a journey, Sam brings a room together in a way no other speaker can."</blockquote>
+          <cite>Sharon Gottula · Co-Founder, Idea Decanter</cite>
+        </div>
+        <div class="quote">
+          <blockquote>"One of the best sessions I've attended at any conference. Practical tools that immediately changed how I approach conflict."</blockquote>
+          <cite>Dawn Roscoe, AMS, PCAM · VP of Operations, Professional Properties Management</cite>
+        </div>
       </div>
     </div>
   </section>
-
-  <script>
-    /* Clones the card set once so the -50% keyframe loops seamlessly. */
-    (function(){
-      var track = document.getElementById('tcarouselTrack');
-      if(track){ track.innerHTML += track.innerHTML; }
-    })();
-  </script>
-  <!-- ═══════════════ END VOICES ═══════════════ -->
 
 
   <!-- METHOD INTRO -->
@@ -1422,23 +1303,199 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section" id="proof">
+  <!-- ═══════════════ VOICES / TESTIMONIAL CAROUSEL ═══════════════ -->
+  <!-- Testimonial carousel — scrolling wall of named endorsements. -->
+  <style>
+    .tcarousel-section{ background:var(--bg); position:relative; overflow:hidden; }
+    .tcarousel-section::before{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 25%, rgba(212,165,116,.07) 0%, transparent 42%),
+        radial-gradient(circle at 85% 75%, rgba(74,94,127,.09) 0%, transparent 46%);
+    }
+    .tcarousel-section .container{ position:relative; z-index:1; }
+    .tcarousel-head{ max-width:640px; margin-bottom:44px; }
+    .tcarousel-head h2{ font-size:clamp(1.7rem,3vw,2.6rem); }
+    .tcarousel-head p{ margin:16px 0 0; color:var(--muted); max-width:56ch;
+      font-size:clamp(1rem,1.4vw,1.12rem); line-height:1.6; }
+
+    .tcarousel-viewport{
+      position:relative; width:100vw; left:50%; margin-left:-50vw;
+      overflow:hidden;
+      -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+              mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+    }
+    .tcarousel-track{
+      display:flex; gap:20px; width:max-content;
+      padding:8px 10px;
+      animation:tcarousel-scroll 60s linear infinite;
+    }
+    .tcarousel-viewport:hover .tcarousel-track{ animation-play-state:paused; }
+    @keyframes tcarousel-scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+    .tcard{
+      flex:0 0 auto; width:380px;
+      display:flex; flex-direction:column;
+      padding:32px 30px 28px;
+      border-radius:22px;
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:0 18px 60px rgba(0,0,0,.16);
+      position:relative; overflow:hidden;
+    }
+    .tcard::after{
+      content:""; position:absolute; inset:0; pointer-events:none; opacity:.10;
+      background:radial-gradient(circle at 50% 0%, rgba(212,165,116,.5) 0%, transparent 55%);
+    }
+    .tcard-mark{
+      font-family:Georgia,serif; font-size:3rem; line-height:.5;
+      color:var(--gold); opacity:.5; margin-bottom:18px;
+    }
+    .tcard-quote{
+      position:relative; z-index:1; margin:0 0 22px;
+      font-size:1.06rem; line-height:1.5; letter-spacing:-.015em;
+      color:rgba(245,245,247,.92); font-weight:500;
+    }
+    .tcard-foot{
+      margin-top:auto; padding-top:18px; border-top:1px solid rgba(255,255,255,.07);
+      position:relative; z-index:1;
+    }
+    .tcard-name{ font-size:.98rem; font-weight:700; color:var(--text); letter-spacing:-.01em; }
+    .tcard-title{ margin-top:4px; font-size:.82rem; color:var(--gold);
+      font-weight:600; letter-spacing:.02em; line-height:1.4; }
+
+    @media (max-width:680px){
+      .tcard{ width:300px; padding:26px 24px 24px; }
+      .tcard-quote{ font-size:.98rem; }
+      .tcarousel-track{ animation-duration:48s; }
+    }
+    @media (prefers-reduced-motion:reduce){
+      .tcarousel-track{ animation:none; }
+      .tcarousel-viewport{ overflow-x:auto; }
+    }
+  </style>
+
+  <section class="section tcarousel-section" id="voices">
     <div class="container">
-      <span class="eyebrow">From the Room</span>
-      <h2>What leaders say.</h2>
-      <div class="quote-stack">
-        <div class="quote">
-          <blockquote>"One of the best sessions I've attended at any conference. Practical tools that immediately changed how I approach conflict."</blockquote>
-          <cite>Dawn Roscoe, AMS, PCAM · VP of Operations, Professional Properties Management</cite>
-        </div>
-        <div class="quote">
-          <blockquote>"I highly recommend Sam for conferences or leadership events serving professionals who operate in stressful, conflict-rich environments."</blockquote>
-          <cite>Brian Butler · President, FirstService Residential Illinois</cite>
-        </div>
+      <div class="tcarousel-head">
+        <span class="eyebrow">What People Are Saying</span>
+        <h2>Endorsed by the rooms — and the people who fill them.</h2>
+        <p>Attorneys, financial advisors, executive leaders, and the event hosts who've booked Sam — on what it's like to put him in front of a room: engaging on stage, prepared behind the scenes, and consistently recommended.</p>
+      </div>
+    </div>
+
+    <div class="tcarousel-viewport">
+      <div class="tcarousel-track" id="tcarouselTrack">
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">Sam didn't just give a great presentation — he changed the way I think. I walked away with practical tools I began applying the very same day.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Ekat Sheliga</div>
+            <div class="tcard-title">Advisor Engagement &amp; Partnerships</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">This transformational experience has forever changed how I practice law. I highly recommend this seminar.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Augustus Shaw IV, Esq., CCAL</div>
+            <div class="tcard-title">President · College of Community Association Lawyers</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">A lot of speakers give a lot of information. Sam shifted the way people think in a fundamental way. I've seen a lot of speakers — it was really awesome.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Anne Bonney, CSP</div>
+            <div class="tcard-title">Change &amp; Emotional Intelligence Keynote Speaker</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">I highly recommend Sam for conferences or leadership events serving professionals who operate in stressful, conflict-rich environments.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Brian Butler</div>
+            <div class="tcard-title">President · FirstService Residential Illinois</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">Sam was such a great asset to the SWAY conference. His message took the entire room out of their comfort zone to get to the heart of the matter.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Theresa Conti, QKA, APR, ERPA, CPFA</div>
+            <div class="tcard-title">Speaker/Coach for Women in Financial Services</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">He presented to a standing-room-only room of professionals — engaging, interactive, grounded in research, and immediately applicable.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Leah K. Burton, Esq., CCAL</div>
+            <div class="tcard-title">Board Certified HOA &amp; Condominium Attorney · Texas</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">Without a doubt the most engaging and thought-provoking session at SWAY.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Adrian Kidd</div>
+            <div class="tcard-title">Host · Emotionally Invested Podcast</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">A thoughtful host who supported us with real preparation — capable, engaging, and professional. No hesitation recommending him.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Jacob Miceli</div>
+            <div class="tcard-title">Director of Strategy &amp; CFO · Rise Facilities</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">He had me the minute he opened his mouth. You go to these conferences and half the time you're on your phone — he had my attention the entire time.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Gabriella Mengstab</div>
+            <div class="tcard-title">Founder · Kinderwell</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">He kept the room engaged from start to finish. Great speakers don't just deliver a message — they get people to think and reflect long after. Sam created that.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Garrett Fields</div>
+            <div class="tcard-title">Sales &amp; Marketing Specialist</div>
+          </div>
+        </article>
+
+        <article class="tcard">
+          <div class="tcard-mark">&ldquo;</div>
+          <p class="tcard-quote">One word comes to mind: transformational. The longer it went on, the more it helped me reframe how I think about a difficult person in my life.</p>
+          <div class="tcard-foot">
+            <div class="tcard-name">Kevin Husted</div>
+            <div class="tcard-title">President · Advisor Health Benefits Group</div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+
+  <script>
+    /* Clones the card set once so the -50% keyframe loops seamlessly. */
+    (function(){
+      var track = document.getElementById('tcarouselTrack');
+      if(track){ track.innerHTML += track.innerHTML; }
+    })();
+  </script>
+  <!-- ═══════════════ END VOICES ═══════════════ -->
 
   <!-- CONTACT -->
   <section class="section" id="contact">
