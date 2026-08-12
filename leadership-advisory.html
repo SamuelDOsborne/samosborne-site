@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sam Osborne | Legal Leadership Advisory | Demartini Method Private Facilitation</title>
-  <meta name="description" content="Private Demartini Method facilitation for attorneys and legal professionals whose reactivity toward specific people — opposing counsel, clients, partners — undermines judgment, composure, and command of the room."/>
-  <meta property="og:title" content="Sam Osborne | Legal Leadership Advisory"/>
-  <meta property="og:description" content="Private Demartini Method facilitation for attorneys who want the same transformation they saw on stage: applied to the relationships shaping their practice."/>
+  <title>Sam Osborne | Leadership Advisory | Demartini Method Private Facilitation</title>
+  <meta name="description" content="Private Demartini Method facilitation for attorneys, advisors, executives, and firm leaders whose reactivity toward specific people — opposing counsel, clients, partners, rivals, boards — undermines judgment, composure, and command of the room."/>
+  <meta property="og:title" content="Sam Osborne | Leadership Advisory"/>
+  <meta property="og:description" content="Private Demartini Method facilitation for high-stakes professionals who want the same transformation they saw on stage: applied to the relationships shaping their work."/>
   <meta property="og:url" content="https://samosborne.net/advisory"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
@@ -74,6 +74,9 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   letter-spacing: -.01em; transition: color .2s; position: relative; padding-bottom: 8px;
 }
 .nav-links a:hover { color: var(--white); }
+.nav-right { display: flex; align-items: center; gap: 22px; }
+.nav-phone { font-size: 13px; font-weight: 600; letter-spacing: -.01em; color: #fff; white-space: nowrap; transition: color .2s; }
+.nav-phone:hover { color: var(--gold); }
 .nav-cta { font-size: 13px; font-weight: 500; letter-spacing: -.01em; color: var(--gold); }
 .nav-cta:hover { color: var(--white); }
 .mobile-toggle {
@@ -125,16 +128,22 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .hero-sub {
   font-size: clamp(1rem, 2vw, 1.32rem); font-weight: 300;
   line-height: 1.55; letter-spacing: -.01em;
-  color: rgba(240,237,232,.62); max-width: 42ch; margin: 0 auto 14px;
+  color: rgba(240,237,232,.62); max-width: 46ch; margin: 0 auto 14px;
   opacity: 0; animation: riseIn .9s .72s ease forwards;
 }
 .hero-tagline {
   font-size: clamp(.9rem, 1.4vw, 1.08rem); font-weight: 300;
-  color: rgba(240,237,232,.36); max-width: 42ch; margin: 0 auto 44px;
+  color: rgba(240,237,232,.36); max-width: 42ch; margin: 0 auto 20px;
   opacity: 0; animation: riseIn .8s .86s ease forwards;
 }
-.hero-actions {
+.hero-credential {
+  font-size: 12px; font-weight: 500; letter-spacing: .02em;
+  color: rgba(212,165,116,.74); max-width: 52ch; margin: 0 auto 40px;
+  line-height: 1.6;
   opacity: 0; animation: riseIn .8s .98s ease forwards;
+}
+.hero-actions {
+  opacity: 0; animation: riseIn .8s 1.08s ease forwards;
 }
 @keyframes riseIn { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
 
@@ -144,6 +153,21 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   letter-spacing: -.01em; border: 1.5px solid rgba(255,255,255,.1); transition: all .22s ease;
 }
 .btn-primary:hover { background: var(--gold); color: var(--white); transform: translateY(-1px); }
+
+/* Credential / method-origin clarification */
+.method-credential {
+  font-size: clamp(1rem, 1.5vw, 1.18rem); font-weight: 300; line-height: 1.7;
+  color: rgba(240,237,232,.74); max-width: 62ch; margin: 0 auto;
+}
+.method-credential strong { color: var(--gold); font-weight: 600; }
+.credential-row {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 16px 30px;
+  margin-top: 34px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,.08);
+}
+.credential-row span {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(240,237,232,.52); line-height: 1.5;
+}
 
 .marquee-band {
   border-top: 1px solid rgba(255,255,255,.06);
@@ -327,10 +351,6 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .testimonial-role {
   font-size: .76rem; font-weight: 400; letter-spacing: -.005em;
   color: rgba(240,237,232,.42); line-height: 1.5;
-}
-.testimonial-disclosure {
-  font-size: .68rem; font-weight: 400; letter-spacing: -.005em;
-  color: rgba(240,237,232,.30); line-height: 1.5; margin-top: 8px;
 }
 .endorsement-disclaimer {
   text-align: center; margin-top: 32px;
@@ -549,6 +569,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 }
 @media (max-width: 768px) {
   .nav-inner { padding: 0 20px; }
+  .nav-phone { display: none; }
   .section { padding: 80px 20px; }
   .hero { padding: 100px 20px 60px; overflow: hidden; }
   .problem-grid { grid-template-columns: 1fr; }
@@ -575,16 +596,20 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <li><a href="#endorsements">Endorsements</a></li>
       <li><a href="#investment">Investment</a></li>
     </ul>
-    <a class="nav-cta" href="#contact">Schedule Consultation ›</a>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+18189345140">+1 818 934 5140</a>
+      <a class="nav-cta" href="#contact">Schedule Consultation ›</a>
+    </div>
   </div>
 </nav>
 
 <section class="hero" id="advisory">
-  <span class="hero-kicker">Legal Leadership Advisory · Demartini Method</span>
+  <span class="hero-kicker">Leadership Advisory · Demartini Method</span>
   <h1>You saw the transformation.<br>Now we apply it. Person by person.</h1>
   <div class="hero-rule"></div>
-  <p class="hero-sub">Private Demartini Method facilitation for attorneys whose emotional charge around specific people — opposing counsel, clients, partners — is costing them judgment, composure, and command of the room.</p>
+  <p class="hero-sub">Private Demartini Method facilitation for attorneys, advisors, and executives whose emotional charge around specific people — opposing counsel, a client, a partner, a rival, a board member — is costing them judgment, composure, and command of the room.</p>
   <p class="hero-tagline">Private, structured facilitation. One relationship at a time.</p>
+  <p class="hero-credential">Facilitated by Sam Osborne — a trained Demartini Method Facilitator, working directly in the method he demonstrates on stage.</p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Schedule Consultation</a>
   </div>
@@ -595,14 +620,14 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <span class="marquee-item">Demartini Method <span class="mdot"></span></span>
     <span class="marquee-item">Private Facilitation <span class="mdot"></span></span>
     <span class="marquee-item">Perceptual Balance <span class="mdot"></span></span>
-    <span class="marquee-item">For Legal Professionals <span class="mdot"></span></span>
+    <span class="marquee-item">For High-Stakes Professionals <span class="mdot"></span></span>
     <span class="marquee-item">Perception Rebalanced <span class="mdot"></span></span>
     <span class="marquee-item">Sequential 1:1 Sessions <span class="mdot"></span></span>
     <span class="marquee-item">Composure Restored <span class="mdot"></span></span>
     <span class="marquee-item">Demartini Method <span class="mdot"></span></span>
     <span class="marquee-item">Private Facilitation <span class="mdot"></span></span>
     <span class="marquee-item">Perceptual Balance <span class="mdot"></span></span>
-    <span class="marquee-item">For Legal Professionals <span class="mdot"></span></span>
+    <span class="marquee-item">For High-Stakes Professionals <span class="mdot"></span></span>
     <span class="marquee-item">Perception Rebalanced <span class="mdot"></span></span>
     <span class="marquee-item">Sequential 1:1 Sessions <span class="mdot"></span></span>
     <span class="marquee-item">Composure Restored <span class="mdot"></span></span>
@@ -615,10 +640,23 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   </div>
 </section>
 
+<!-- METHOD ORIGIN / CREDENTIAL CLARIFICATION — preempts "is this his, or a licensed script?" -->
+<section class="section section-dark" style="padding:0 40px 90px;">
+  <div class="section-content reveal" style="text-align:center;">
+    <span class="eyebrow">The Method — And Who Delivers It</span>
+    <p class="method-credential">The Demartini Method was developed by Dr. John Demartini. Sam Osborne is a <strong>trained Demartini Method Facilitator</strong> — this is not a licensed script read secondhand, but practiced work he delivers directly, backed by thirty years studying perception in his own right and five years demonstrating it live in front of attorneys, advisors, executives, and boards.</p>
+    <div class="credential-row">
+      <span>Best of Conference · CAI National Law Seminar 2026</span>
+      <span>Endorsed by the President · College of Community Association Lawyers</span>
+      <span>President-Elect · National Speakers Association, Southern California</span>
+    </div>
+  </div>
+</section>
+
 <section class="section section-dark">
   <div class="section-content reveal" style="text-align:center;">
     <span class="eyebrow">Why This Work Exists</span>
-    <h2 class="t-xl" style="color:var(--off); margin-top:10px; text-align:center;">Most problems in legal practice are not legal first. They are perceptual.</h2>
+    <h2 class="t-xl" style="color:var(--off); margin-top:10px; text-align:center;">Most problems in high-stakes work are not strategic first. They are perceptual.</h2>
     <p class="t-body" style="max-width:52ch; margin:16px auto 0; text-align:center;">You do not lose composure because the stakes are high. You lose it because specific people distort how you see, interpret, and respond. This work exists to address that distortion.</p>
   </div>
 </section>
@@ -628,32 +666,32 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div class="reveal" style="text-align:center;">
       <span class="eyebrow">The Problem This Solves</span>
       <h2 class="t-xl" style="color:var(--ink); margin-top:10px; text-align:center;">Specific people are costing you composure.</h2>
-      <p style="max-width:52ch; margin:16px auto 0; font-size:clamp(.96rem,1.5vw,1.15rem); font-weight:300; line-height:1.65; color:var(--muted);">Not in theory. In depositions. In negotiations. In how much authority you can actually access when the room turns hostile.</p>
+      <p style="max-width:52ch; margin:16px auto 0; font-size:clamp(.96rem,1.5vw,1.15rem); font-weight:300; line-height:1.65; color:var(--muted);">Not in theory. In depositions, negotiations, and boardrooms. In how much authority you can actually access when the room turns hostile.</p>
     </div>
     <div class="problem-grid reveal-stagger">
       <div class="problem-card">
-        <h3>Opposing Counsel</h3>
-        <p>Their provocation is deliberate — and it works. You leave the deposition still arguing with them in your head, and your strategy narrows to a reaction.</p>
+        <h3>The Adversary</h3>
+        <p>Opposing counsel, the counterparty, the negotiator across the table. Their provocation is deliberate — and it works. You leave still arguing with them in your head, and your strategy narrows to a reaction.</p>
       </div>
       <div class="problem-card">
         <h3>The Client</h3>
-        <p>They ignore your counsel, then hold you responsible for the outcome. Resentment creeps into the file, and your judgment stops being clean.</p>
+        <p>They ignore your counsel, then hold you responsible for the outcome. Resentment creeps into the relationship, and your judgment stops being clean.</p>
       </div>
       <div class="problem-card">
-        <h3>The Senior Partner</h3>
+        <h3>The Boss or Senior Partner</h3>
         <p>Their scrutiny changes your posture. You over-prepare, second-guess, and start performing competence instead of exercising it.</p>
       </div>
       <div class="problem-card">
-        <h3>The Judge</h3>
-        <p>One hard ruling years ago and you still brace in their courtroom. That bracing reads as hesitation — and clients and juries can feel it.</p>
+        <h3>The Board</h3>
+        <p>Every meeting becomes a firing squad. One member's hostility triggers your defensiveness before the agenda even starts — and the whole room reads it.</p>
       </div>
       <div class="problem-card">
-        <h3>The Associate</h3>
+        <h3>The Rival</h3>
+        <p>A peer competing for the same ground — the promotion, the account, the mandate. Their presence pulls you off your own game and into theirs.</p>
+      </div>
+      <div class="problem-card">
+        <h3>The Direct Report</h3>
         <p>Their resistance pulls you toward micromanagement, avoidance, or frustration. Delegation becomes distorted by charge, and the work suffers for it.</p>
-      </div>
-      <div class="problem-card">
-        <h3>The Board President</h3>
-        <p>Every meeting becomes a firing squad. Their hostility triggers your defensiveness before the agenda even starts — and the whole room reads it.</p>
       </div>
     </div>
   </div>
@@ -668,7 +706,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div class="two-col reveal">
       <div>
         <h3>Sequential Facilitation</h3>
-        <p>Each session applies the Demartini Method to a different charged relationship in your practice. One session for opposing counsel. One for the client who won't take counsel. One for the partner whose presence changes your posture the moment they enter the room.</p>
+        <p>Each session applies the Demartini Method to a different charged relationship in your work. One session for the adversary across the table. One for the client who won't take counsel. One for the partner, boss, or board member whose presence changes your posture the moment they enter the room.</p>
         <p>This is not generic professional development. It is precision work applied to the relationships where emotional charge is quietly distorting judgment, advocacy, and authority.</p>
         <p>You do not learn coping strategies. You work directly on the perception itself.</p>
       </div>
@@ -714,8 +752,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <div class="section-content">
     <div class="reveal" style="text-align:center;">
       <span class="eyebrow">Who This Is For</span>
-      <h2 class="t-xl" style="color:var(--ink); margin-top:10px;">Attorneys in high-stakes practice.</h2>
-      <p style="max-width:52ch; margin:16px auto 0; font-size:clamp(.96rem,1.5vw,1.15rem); font-weight:300; line-height:1.65; color:var(--muted);">Where specific people distort perception, disrupt composure, or quietly erode the authority your practice depends on.</p>
+      <h2 class="t-xl" style="color:var(--ink); margin-top:10px;">Professionals in high-stakes practice.</h2>
+      <p style="max-width:54ch; margin:16px auto 0; font-size:clamp(.96rem,1.5vw,1.15rem); font-weight:300; line-height:1.65; color:var(--muted);">Where specific people distort perception, disrupt composure, or quietly erode the authority your work depends on.</p>
     </div>
     <div class="problem-grid reveal-stagger">
       <div class="problem-card">
@@ -723,16 +761,16 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Depositions, cross-examination, hostile negotiations: arenas where visible reactivity is exploited the moment it appears, and where a clean read of the other side is the whole advantage.</p></div></details>
       </div>
       <div class="problem-card">
-        <h3>Firm Partners &amp; Practice Leaders</h3>
-        <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Partner friction, compensation dynamics, succession pressure, associate management: relationships inside the firm where charge quietly erodes influence long before it erupts.</p></div></details>
+        <h3>Advisors &amp; Client-Facing Professionals</h3>
+        <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Financial advisors, consultants, and senior client-facing experts: the client who won't take counsel, the prospect who tests your composure, the relationship that follows you home. A clean read keeps advice objective and authority intact.</p></div></details>
       </div>
       <div class="problem-card">
-        <h3>In-House &amp; Association Counsel</h3>
-        <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Boards, executives, regulators, and community stakeholders: high-friction relationships that don't end when the meeting does, and whose charge follows you into the next one.</p></div></details>
+        <h3>Executives, Partners &amp; Firm Leaders</h3>
+        <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Managing partners, general counsel, CFOs, founders, and practice leaders: partner friction, board dynamics, rivals, succession pressure, and the people you manage — relationships where charge quietly erodes influence long before it erupts.</p></div></details>
       </div>
     </div>
     <div class="highlight-box reveal">
-      <p style="color:var(--ink);"><strong>If you watched the live demonstration and immediately thought of a client, opposing counsel, partner, judge, or board member,</strong> this advisory is where that same work gets applied to your actual practice.</p>
+      <p style="color:var(--ink);"><strong>If you watched the live demonstration and immediately thought of a client, an adversary, a partner, a rival, or a board member,</strong> this advisory is where that same work gets applied to your actual practice.</p>
     </div>
   </div>
 </section>
@@ -745,47 +783,41 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div class="reveal" style="text-align:center;">
       <span class="eyebrow">Endorsements</span>
       <h2 class="t-xl" style="color:var(--off); margin-top:10px;">What the work delivers.</h2>
-      <p class="t-body" style="max-width:54ch; margin:16px auto 0; text-align:center;">Three perspectives from people who have done the work directly. A client. A peer. A leadership professional in the field.</p>
+      <p class="t-body" style="max-width:60ch; margin:16px auto 0; text-align:center;">Three professionals on the moment the method worked on them — a president, a former PIMCO EVP, and a COO. The same work the advisory applies privately, one relationship at a time.</p>
     </div>
 
     <div class="testimonial-grid reveal-stagger">
 
       <article class="testimonial-card">
-        <span class="testimonial-tag">Relationship Charge</span>
+        <span class="testimonial-tag">A Difficult Person</span>
         <div class="testimonial-mark">&ldquo;</div>
-        <blockquote class="testimonial-quote">A relationship with a specific person was causing me significant heartache. A single session with Sam brought me to a place of balance and peace &mdash; both with the person and with the situation. Many weeks later, those feelings have endured. The progress is leaps and bounds beyond what therapy or coaching could do. Sam&rsquo;s work is transformative.</blockquote>
+        <blockquote class="testimonial-quote">One word comes to mind: transformational. The longer it went on, the more it helped me reframe how I think about that one difficult person &mdash; and how they perceive me. I walked out feeling lighter.</blockquote>
         <div class="testimonial-rule"></div>
         <div class="testimonial-attr">
-          <div class="testimonial-name">Corrine Westphal</div>
-          <div class="testimonial-role">Editor &middot; France</div>
-          <!-- TODO (Sam): edit to reflect the true relationship — e.g. "Paying client" / "Received a complimentary session" / "No compensation provided for this endorsement" -->
-          <div class="testimonial-disclosure">[Disclosure: state whether client paid, received a complimentary session, or has any business relationship with Sam Osborne]</div>
+          <div class="testimonial-name">Kevin Husted</div>
+          <div class="testimonial-role">President &middot; Advisor Health Benefits Group</div>
         </div>
       </article>
 
       <article class="testimonial-card featured">
-        <span class="testimonial-tag">Peer Authority</span>
+        <span class="testimonial-tag">Composure Under Pressure</span>
         <div class="testimonial-mark">&ldquo;</div>
-        <blockquote class="testimonial-quote">After fifty years of working &mdash; forty-five of them running my own businesses &mdash; and study across spirituality, economics, ethics, and ecology, I still had days when self-doubt arrived without warning. One session with Sam cleared more of that than anything I had previously experienced. My highest recommendation.</blockquote>
+        <blockquote class="testimonial-quote">Within seconds, Sam illustrated what happens when we let someone get under our skin &mdash; and the power of an equilibrated mind: staying calm, rational, and centered despite stress or strong emotions.</blockquote>
         <div class="testimonial-rule"></div>
         <div class="testimonial-attr">
-          <div class="testimonial-name">Graham Harvey, CSP</div>
-          <div class="testimonial-role">Hall of Fame, Professional Speakers Australia &middot; Winner, Nevin Award</div>
-          <!-- TODO (Sam): edit to reflect the true relationship -->
-          <div class="testimonial-disclosure">[Disclosure: state whether client paid, received a complimentary session, or has any business relationship with Sam Osborne]</div>
+          <div class="testimonial-name">Christine Long</div>
+          <div class="testimonial-role">Strategic Marketing Leader &middot; Former EVP, PIMCO</div>
         </div>
       </article>
 
       <article class="testimonial-card">
-        <span class="testimonial-tag">Professional Peer</span>
+        <span class="testimonial-tag">The Trigger, Dissolved</span>
         <div class="testimonial-mark">&ldquo;</div>
-        <blockquote class="testimonial-quote">I went in unsure exactly what was causing the issue. By the end of the session, I felt calm, clear, and had a much better understanding of what had been going on and what to do next. Sam helped me cut through the noise to see my perceptions clearly and reach a place of energetic freedom.</blockquote>
+        <blockquote class="testimonial-quote">I now have a tool to understand why I&rsquo;m triggered &mdash; and to eliminate that trigger in the meeting, flip it around, and make it a positive as I go forward in my career.</blockquote>
         <div class="testimonial-rule"></div>
         <div class="testimonial-attr">
-          <div class="testimonial-name">Liz Murray</div>
-          <div class="testimonial-role">Leadership Coach &middot; Australia</div>
-          <!-- TODO (Sam): edit to reflect the true relationship -->
-          <div class="testimonial-disclosure">[Disclosure: state whether client paid, received a complimentary session, or has any business relationship with Sam Osborne]</div>
+          <div class="testimonial-name">Adam Sokolic</div>
+          <div class="testimonial-role">Chief Operating Officer &middot; Bluespring Wealth Partners</div>
         </div>
       </article>
 
@@ -803,7 +835,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div class="reveal" style="text-align:center;">
       <span class="eyebrow">Investment</span>
       <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Four engagement options.</h2>
-      <p class="t-body" style="max-width:48ch; margin:16px auto 0; text-align:center;">Private facilitations for the relationships carrying the most charge in your practice. Each option is sized to a different scope of professional ecosystem.</p>
+      <p class="t-body" style="max-width:48ch; margin:16px auto 0; text-align:center;">Private facilitations for the relationships carrying the most charge in your work. Each option is sized to a different scope of professional ecosystem.</p>
     </div>
     <div class="pricing-grid reveal-stagger">
 
@@ -815,7 +847,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <ul class="pricing-features">
           <li>8 private Demartini Method facilitations</li>
           <li>One charged relationship per session</li>
-          <li>Focused on your highest-priority practice dynamics</li>
+          <li>Focused on your highest-priority professional dynamics</li>
           <li>Conducted via video conference</li>
           <li>Direct access between sessions for context and continuity</li>
         </ul>
@@ -831,7 +863,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <ul class="pricing-features">
           <li>16 private Demartini Method facilitations</li>
           <li>Deeper work across your professional ecosystem</li>
-          <li>Opposing counsel, clients, partners, the bench, boards, key staff</li>
+          <li>Adversaries, clients, partners, boards, rivals, key staff</li>
           <li>Conducted via video conference</li>
           <li>Direct access between sessions for context and continuity</li>
           <li>Better per-session value for committed engagements</li>
@@ -846,9 +878,9 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <p class="pricing-detail">12-month engagement · Scope defined in consultation</p>
         <ul class="pricing-features">
           <li>Year-long private facilitation partnership</li>
-          <li>Full practice ecosystem coverage</li>
+          <li>Full professional ecosystem coverage</li>
           <li>Priority scheduling and direct access</li>
-          <li>Designed for managing partners, general counsel, and firm leaders operating in high-charge environments</li>
+          <li>Designed for managing partners, general counsel, CFOs, and firm or business leaders operating in high-charge environments</li>
           <li>Includes onsite or in-person sessions where relevant</li>
           <li>Limited availability</li>
         </ul>
@@ -860,9 +892,9 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <article class="founders-card">
       <span class="founders-flag">By Invitation</span>
       <div class="founders-body">
-        <span class="founders-label">The Partner&#x2019;s Year</span>
+        <span class="founders-label">The Leader&#x2019;s Year</span>
         <div class="founders-title">A 12-Month Private Partnership</div>
-        <p class="founders-detail">For managing partners, name partners, and general counsel navigating a defining year: succession, merger, leadership transition, a bet-the-firm matter, or the moment where the relationships at the top will determine what the next decade of the practice looks like. Sequential private facilitation across the full professional ecosystem, with priority scheduling, in-person sessions where relevant, and the depth that only a year of structured work can provide.</p>
+        <p class="founders-detail">For managing partners, name partners, general counsel, founders, and senior executives navigating a defining year: succession, merger, leadership transition, a bet-the-company matter, or the moment where the relationships at the top will determine what the next decade of the practice or business looks like. Sequential private facilitation across the full professional ecosystem, with priority scheduling, in-person sessions where relevant, and the depth that only a year of structured work can provide.</p>
         <ul class="founders-features">
           <li>Year-long structured engagement</li>
           <li>Full ecosystem coverage</li>
@@ -877,7 +909,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       </div>
     </article>
 
-    <p class="reveal" style="text-align:center; margin-top:44px; font-size:.84rem; color:rgba(240,237,232,.36); max-width:64ch; margin-left:auto; margin-right:auto;">Every engagement — including The Partner&#x2019;s Year — begins with a private consultation to confirm fit, context, and timing, and is governed by a written engagement agreement covering payment terms, scheduling, rescheduling, cancellation, and refunds, provided before any commitment. Custom scopes are available where the standard options do not match the situation. See our <a href="terms.html">Terms of Engagement</a>.</p>
+    <p class="reveal" style="text-align:center; margin-top:44px; font-size:.84rem; color:rgba(240,237,232,.36); max-width:64ch; margin-left:auto; margin-right:auto;">Every engagement — including The Leader&#x2019;s Year — begins with a private consultation to confirm fit, context, and timing, and is governed by a written engagement agreement covering payment terms, scheduling, rescheduling, cancellation, and refunds, provided before any commitment. Custom scopes are available where the standard options do not match the situation. See our <a href="terms.html">Terms of Engagement</a>.</p>
   </div>
 </section>
 
@@ -890,12 +922,12 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div style="max-width:820px; margin:0 auto;" class="reveal">
       <details class="details"><summary><span>How is this different from executive coaching?</span><span class="chev">▼</span></summary><div class="details-body"><p>Executive coaching usually develops skills, habits, or strategy. This work addresses the emotional charge distorting how you perceive specific people. You are not learning techniques to manage difficult relationships — you are working on how those relationships are held in perception.</p></div></details>
       <details class="details"><summary><span>Is this therapy or mental health treatment?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. The Demartini Method is a structured, educational facilitation process, not psychotherapy or counseling. It does not diagnose or treat any medical, psychological, or mental health condition, and it is not a substitute for care from a licensed mental health professional. If you are dealing with a mental health condition, please work with a qualified provider — this work can sit alongside that care, not replace it.</p></div></details>
-      <details class="details"><summary><span>What if I need more than 8 or 16 sessions?</span><span class="chev">▼</span></summary><div class="details-body"><p>Most attorneys find that 8–16 facilitations address the relationships carrying the most charge. Where the ecosystem is broader, the Strategic engagement extends the work across a full year. The aim is not ongoing dependency — it is focused work, scoped to your reality.</p></div></details>
-      <details class="details"><summary><span>How quickly will I see results?</span><span class="chev">▼</span></summary><div class="details-body"><p>Many clients report a noticeable shift in how they hold the relationship during or shortly after a session. Individual experiences vary, and no specific result or timeframe is guaranteed. The practical test is how the relationship feels the next time you walk into that courtroom, deposition, or partner meeting.</p></div></details>
+      <details class="details"><summary><span>What if I need more than 8 or 16 sessions?</span><span class="chev">▼</span></summary><div class="details-body"><p>Most clients find that 8–16 facilitations address the relationships carrying the most charge. Where the ecosystem is broader, the Strategic engagement extends the work across a full year. The aim is not ongoing dependency — it is focused work, scoped to your reality.</p></div></details>
+      <details class="details"><summary><span>How quickly will I see results?</span><span class="chev">▼</span></summary><div class="details-body"><p>Many clients report a noticeable shift in how they hold the relationship during or shortly after a session. Individual experiences vary, and no specific result or timeframe is guaranteed. The practical test is how the relationship feels the next time you walk into that courtroom, deposition, negotiation, or boardroom.</p></div></details>
       <details class="details"><summary><span>What happens during a session?</span><span class="chev">▼</span></summary><div class="details-body"><p>Each session is a structured facilitation. You identify the person and the trait carrying charge, and I guide you through a precise sequence of questions designed to reveal where that same trait appears in your own form and to bring your perception of that person into balance.</p></div></details>
-      <details class="details"><summary><span>How is confidentiality handled?</span><span class="chev">▼</span></summary><div class="details-body"><p>Sessions are private, and your information is kept confidential under the terms of our written engagement agreement. To be clear for a legal audience: this is not a legally privileged relationship. Communications with a facilitator are not protected by attorney&ndash;client, therapist&ndash;patient, or any similar privilege, and are not shielded from subpoena or discovery. For that reason, the work is deliberately structured so you never need to share case specifics, privileged material, or client identities &mdash; the method operates on your perception of the person, not the facts of the matter.</p></div></details>
-      <details class="details"><summary><span>Is this appropriate for firms or practice groups?</span><span class="chev">▼</span></summary><div class="details-body"><p>This advisory is designed for individual attorneys and legal professionals. Firm-wide, practice group, or bar association applications require a different engagement structure. Reach out if you want to discuss that separately.</p></div></details>
-      <details class="details"><summary><span>Do I need to have attended one of your keynotes?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. Many advisory clients first encountered the work during a keynote, but the engagement is open to any attorney or legal professional dealing with charge toward specific people.</p></div></details>
+      <details class="details"><summary><span>How is confidentiality handled?</span><span class="chev">▼</span></summary><div class="details-body"><p>Sessions are private, and your information is kept confidential under the terms of our written engagement agreement. To be clear, particularly for a legal audience: this is not a legally privileged relationship. Communications with a facilitator are not protected by attorney&ndash;client, therapist&ndash;patient, or any similar privilege, and are not shielded from subpoena or discovery. For that reason, the work is deliberately structured so you never need to share case specifics, privileged material, confidential business information, or client identities &mdash; the method operates on your perception of the person, not the facts of the matter.</p></div></details>
+      <details class="details"><summary><span>Is this appropriate for firms or teams?</span><span class="chev">▼</span></summary><div class="details-body"><p>This advisory is designed for individual professionals. Firm-wide, practice group, team, or association applications require a different engagement structure. Reach out if you want to discuss that separately.</p></div></details>
+      <details class="details"><summary><span>Do I need to have attended one of your keynotes?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. Many advisory clients first encountered the work during a keynote, but the engagement is open to any professional dealing with charge toward specific people.</p></div></details>
     </div>
   </div>
 </section>
@@ -905,20 +937,20 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div class="reveal" style="text-align:center; margin-bottom:44px;">
       <span class="eyebrow">Start Here</span>
       <h2 class="t-xl" style="color:var(--white); margin-top:10px;">Schedule Your Consultation.</h2>
-      <p class="t-body" style="max-width:44ch; margin:16px auto 0; text-align:center;">If a specific person is carrying more weight in your practice than they should, share a few details below and we’ll confirm fit and next steps within two business days.</p>
+      <p class="t-body" style="max-width:44ch; margin:16px auto 0; text-align:center;">If a specific person is carrying more weight in your work than they should, share a few details below and we’ll confirm fit and next steps within two business days.</p>
     </div>
     <form id="consultation-form" method="POST" action="https://formspree.io/f/xaqdebvj" style="max-width:700px; margin:0 auto;">
       <div class="form-grid">
         <div class="form-group"><label>Your Name *</label><input type="text" name="name" required placeholder="First and Last Name"></div>
-        <div class="form-group"><label>Email Address *</label><input type="email" name="email" required placeholder="you@firm.com"></div>
+        <div class="form-group"><label>Email Address *</label><input type="email" name="email" required placeholder="you@company.com"></div>
       </div>
       <div class="form-grid">
         <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="(555) 000-0000"></div>
-        <div class="form-group"><label>Your Title / Role</label><input type="text" name="title" placeholder="e.g., Partner, Litigator, General Counsel"></div>
+        <div class="form-group"><label>Your Title / Role</label><input type="text" name="title" placeholder="e.g., Partner, Advisor, Executive, General Counsel, CFO"></div>
       </div>
       <div class="form-grid">
-        <div class="form-group"><label>Firm / Organisation *</label><input type="text" name="organization" required placeholder="Firm or Organisation Name"></div>
-        <div class="form-group"><label>Firm Website</label><input type="url" name="website" placeholder="https://firm.com"></div>
+        <div class="form-group"><label>Firm / Company / Organisation *</label><input type="text" name="organization" required placeholder="Firm, company, or organisation name"></div>
+        <div class="form-group"><label>Website</label><input type="url" name="website" placeholder="https://company.com"></div>
       </div>
       <div class="form-grid">
         <div class="form-group"><label>Engagement Option *</label>
@@ -927,7 +959,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
             <option>Foundation (8 Sessions)</option>
             <option>Comprehensive (16 Sessions)</option>
             <option>Strategic (12-month Executive Partner)</option>
-            <option>The Partner&#x2019;s Year (By Invitation)</option>
+            <option>The Leader&#x2019;s Year (By Invitation)</option>
             <option>Not sure yet</option>
           </select>
         </div>
@@ -946,12 +978,13 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <div class="form-group"><label>Primary Context *</label>
           <select name="primary_context" required>
             <option value="">Select context…</option>
-            <option>Opposing Counsel</option>
+            <option>Opposing Counsel / Adversary</option>
             <option>Client / Client Board</option>
-            <option>Partner / Firm Leadership</option>
-            <option>Judge / The Bench</option>
-            <option>Associates / Staff</option>
-            <option>Regulators / Compliance</option>
+            <option>Partner / Boss / Firm Leadership</option>
+            <option>Board / Board President</option>
+            <option>Rival / Peer</option>
+            <option>Direct Reports / Staff</option>
+            <option>Judge / Regulator</option>
             <option>Other</option>
           </select>
         </div>
@@ -994,14 +1027,13 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
           <label><input type="radio" name="investment" value="Foundation (8 sessions)"> Foundation (8 sessions)</label>
           <label><input type="radio" name="investment" value="Comprehensive (16 sessions)"> Comprehensive (16 sessions)</label>
           <label><input type="radio" name="investment" value="Strategic (12-month)"> Strategic (12-month)</label>
-          <label><input type="radio" name="investment" value="The Partner&#x2019;s Year"> The Partner&#x2019;s Year</label>
+          <label><input type="radio" name="investment" value="The Leader&#x2019;s Year"> The Leader&#x2019;s Year</label>
           <label><input type="radio" name="investment" value="To be discussed"> To be discussed</label>
         </div>
       </div>
       <button type="submit" class="form-submit">Request Consultation</button>
       <p style="text-align:center; color:rgba(240,237,232,.36); font-size:11px; letter-spacing:-.005em;">* Required fields. We'll respond within 2 business days to confirm fit and scheduling. By submitting this form you agree to our <a href="privacy.html">Privacy Policy</a>; your details are used only to respond to your inquiry.</p>
-      <!-- Hidden routing label for Formspree submissions; contains no user data. -->
-      <input type="hidden" name="form_type" value="Legal Leadership Advisory Consultation">
+      <input type="hidden" name="form_type" value="Leadership Advisory Consultation">
     </form>
   </div>
 </section>
@@ -1015,7 +1047,6 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <a href="#advisory">Advisory</a>
       <a href="#endorsements">Endorsements</a>
       <a href="#contact">Contact</a>
-      <!-- TODO (Sam): create privacy.html and terms.html before publishing these links -->
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Engagement</a>
     </div>
