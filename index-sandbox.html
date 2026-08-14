@@ -142,7 +142,8 @@
     /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
+      grid-template-columns: 1fr 1.05fr;
+      align-items: center;
       min-height: calc(100vh - 56px);
     }
     .hero-image {
@@ -156,8 +157,39 @@
     .hero-copy {
       display: flex;
       flex-direction: column;
-      justify-content: end;
+      justify-content: center;
       padding: 84px 0 72px;
+    }
+    /* Hero show reel */
+    .hero-reel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 40px 40px 0;
+    }
+    .hero-reel-inner { width: min(620px, 100%); }
+    .hero-reel-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(212,165,116,.22);
+      box-shadow: 0 30px 80px rgba(0,0,0,.4), 0 0 0 1px rgba(212,165,116,.04) inset;
+      background: #0d0d0d;
+    }
+    .hero-reel-frame iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: 0;
+    }
+    .hero-reel-label {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 11px;
+      font-weight: 700;
     }
     .hero-copy .inner { width: min(640px, calc(100% - 40px)); margin: 0 auto; }
     .hero-name {
@@ -830,8 +862,11 @@
       .about-body { gap: 0; }
       .about-rule { margin: 20px 0; }
       .advisory-body { gap: 24px; }
-      .hero-copy { padding: 46px 0 60px; }
+      .hero { align-items: stretch; }
+      .hero-copy { padding: 46px 0 24px; }
       .hero-image { min-height: 420px; }
+      .hero-reel { padding: 0 0 56px; }
+      .hero-reel-inner { width: min(620px, calc(100% - 40px)); margin: 0 auto; }
       .mobile-toggle { display: block; }
       .nav-links {
         position: absolute;
@@ -879,7 +914,7 @@
         <a href="https://samosborne.net/leadership-advisory">Advisory</a>
       </div>
       <div class="nav-right">
-        <a class="nav-phone" href="tel:+18189345140">+1 818 934 5140</a>
+        <a class="nav-phone" href="tel:+12134232868‬">+1 (213) 423-2868‬</a>
         <a class="nav-cta" href="#contact">Check Availability</a>
       </div>
     </div>
@@ -887,7 +922,6 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image"></div>
     <div class="hero-copy">
       <div class="inner">
         <div class="hero-name">Sam Osborne</div>
@@ -896,11 +930,25 @@
         <div style="color: var(--gold); text-transform: uppercase; letter-spacing: .14em; font-size: clamp(.8rem, 1.1vw, .95rem); font-weight: 700; margin-bottom: 10px;">A repeatable method to</div>
         <h1>Stay composed when people get under your skin.</h1>
 
-        <p style="font-size: clamp(1.3rem, 2.2vw, 1.75rem); font-weight: 700; color: var(--text); letter-spacing: -.02em; line-height: 1.3; margin-top: 14px; max-width: 32ch;">For attorneys, advisors, executives &amp; sales teams — from the boardroom to the sales kickoff.</p>
+        <p style="font-size: clamp(1.3rem, 2.2vw, 1.75rem); font-weight: 700; color: var(--text); letter-spacing: -.02em; line-height: 1.3; margin-top: 14px; max-width: 32ch;">For attorneys, advisors, executives &amp; sales teams. From the boardroom to the sales kickoff.</p>
         <div class="btn-row">
           <a class="btn-primary" href="#contact">Check Availability</a>
           <a class="btn-secondary" href="#speaking">See the Programs</a>
         </div>
+      </div>
+    </div>
+    <div class="hero-reel">
+      <div class="hero-reel-inner">
+        <div class="hero-reel-frame">
+          <iframe
+            src="https://www.youtube.com/embed/eCeJBzUTER4"
+            title="Sam Osborne — Speaker Reel"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <div class="hero-reel-label">Watch Sam's show reel</div>
       </div>
     </div>
   </section>
@@ -1028,29 +1076,6 @@
 
   </style>
   <!-- END EYE BREAK -->
-
-
-<!-- DEMO REEL -->
-  <section class="section reel-section" id="reel" style="background: var(--bg);">
-    <div class="container">
-      <div style="text-align:center; margin-bottom:40px;">
-        <span class="eyebrow">Watch</span>
-        <h2 style="font-size:clamp(1.7rem,3vw,2.6rem); margin:0 auto; max-width:20ch;">Watch Sam's show reel.</h2>
-      </div>
-      <div class="reel-frame" style="position: relative; width: 100%; max-width: 960px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: 22px; overflow: hidden; border: 1px solid rgba(212,165,116,.22); box-shadow: 0 30px 80px rgba(0,0,0,.4), 0 0 0 1px rgba(212,165,116,.04) inset; background: #0d0d0d;">
-
-        <iframe
-          src="https://www.youtube.com/embed/eCeJBzUTER4"
-          title="Sam Osborne — Speaker Reel"
-          style="position:absolute; inset:0; width:100%; height:100%; border:0;"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-          loading="lazy"></iframe>
-
-      </div>
-    </div>
-  </section>
 
 
   <!-- TESTIMONIALS -->
@@ -1601,7 +1626,7 @@
 
             <div><strong>Response window:</strong> Within two business days.</div>
           </div>
-          <p class="micro">For program bookings: <a href="mailto:sam@samosborne.net">sam@samosborne.net</a> · 818.934.5140</p>
+          <p class="micro">For program bookings: <a href="mailto:sam@samosborne.net">sam@samosborne.net</a> · +1 (213) 423-2868‬</p>
         </div>
 
         <form id="inquiryForm" novalidate>
