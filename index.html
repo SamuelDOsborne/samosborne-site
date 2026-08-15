@@ -932,18 +932,37 @@
       color: var(--gold);
       transition: .2s ease;
     }
-    .vidtest-frame::after {
-      content: "Coming soon";
-      position: absolute;
-      bottom: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 10px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--muted-2);
+    .vidtest-frame { cursor: pointer; }
+    .vidtest-thumb {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
     }
+    .vidtest-frame::after {
+      content: "";
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.44) 100%);
+      opacity: .55; transition: opacity .2s ease;
+    }
+    .vidtest-frame:hover::after,
+    .vidtest-frame:focus-visible::after { opacity: .26; }
+    .vidtest-play { position: relative; z-index: 2; }
+    .vidtest-frame:hover .vidtest-play,
+    .vidtest-frame:focus-visible .vidtest-play {
+      background: var(--gold); color: #141414; transform: scale(1.06);
+    }
+    .vidtest-frame:focus-visible { outline: none; }
+    .vidtest-frame:focus-visible::before {
+      content: ""; position: absolute; inset: 0; z-index: 3;
+      box-shadow: 0 0 0 2px var(--gold) inset;
+    }
+    .vidtest-frame iframe {
+      position: absolute; inset: 0; z-index: 4;
+      width: 100%; height: 100%; border: 0;
+    }
+    .vidtest-frame.is-playing .vidtest-play,
+    .vidtest-frame.is-playing .vidtest-thumb,
+    .vidtest-frame.is-playing::after { display: none; }
     .vidtest-body { padding: 20px 22px 24px; }
     .vidtest-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
     .vidtest-title { margin-top: 4px; font-size: .82rem; color: var(--gold); font-weight: 600; letter-spacing: .02em; line-height: 1.4; }
@@ -970,7 +989,7 @@
         <a href="https://samosborne.net/leadership-advisory">Advisory</a>
       </div>
       <div class="nav-right">
-        <a class="nav-phone" href="tel:+12134232868‬">+1 (213) 423-2868‬</a>
+        <a class="nav-phone" href="tel:+12134232868">+1 (213) 423-2868</a>
         <a class="nav-cta" href="#contact">Check Availability</a>
       </div>
     </div>
@@ -1017,41 +1036,69 @@
       </div>
       <div class="vidtest-grid">
         <article class="vidtest-card">
-          <div class="vidtest-frame">
+          <div class="vidtest-frame" data-video="uUVd_0SbpU4" role="button" tabindex="0" aria-label="Play video testimonial from Amy N. Mullen, CFP-R">
+            <img class="vidtest-thumb" src="https://i.ytimg.com/vi/uUVd_0SbpU4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/uUVd_0SbpU4/hqdefault.jpg';" alt="" loading="lazy" />
             <span class="vidtest-play" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </span>
           </div>
           <div class="vidtest-body">
-            <div class="vidtest-name">Video testimonial</div>
-            <div class="vidtest-title">Name · Role, Organization</div>
+            <div class="vidtest-name">Amy N. Mullen, CFP&reg;</div>
+            <div class="vidtest-title">President, Money Quotient</div>
           </div>
         </article>
         <article class="vidtest-card">
-          <div class="vidtest-frame">
+          <div class="vidtest-frame" data-video="a2YvpXPE1hY" role="button" tabindex="0" aria-label="Play video testimonial from Kevin Husted">
+            <img class="vidtest-thumb" src="https://i.ytimg.com/vi/a2YvpXPE1hY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/a2YvpXPE1hY/hqdefault.jpg';" alt="" loading="lazy" />
             <span class="vidtest-play" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </span>
           </div>
           <div class="vidtest-body">
-            <div class="vidtest-name">Video testimonial</div>
-            <div class="vidtest-title">Name · Role, Organization</div>
+            <div class="vidtest-name">Kevin Husted</div>
+            <div class="vidtest-title">President, Advisor Health Benefits Group</div>
           </div>
         </article>
         <article class="vidtest-card">
-          <div class="vidtest-frame">
+          <div class="vidtest-frame" data-video="sMDxFwAPI7w" role="button" tabindex="0" aria-label="Play video testimonial from Adam Sokolic">
+            <img class="vidtest-thumb" src="https://i.ytimg.com/vi/sMDxFwAPI7w/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/sMDxFwAPI7w/hqdefault.jpg';" alt="" loading="lazy" />
             <span class="vidtest-play" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </span>
           </div>
           <div class="vidtest-body">
-            <div class="vidtest-name">Video testimonial</div>
-            <div class="vidtest-title">Name · Role, Organization</div>
+            <div class="vidtest-name">Adam Sokolic</div>
+            <div class="vidtest-title">Chief Operating Officer, Bluespring Wealth Partners</div>
           </div>
         </article>
       </div>
     </div>
   </section>
+
+  <script>
+    /* Video testimonials — click/keyboard to load the YouTube player (facade = fast page, no third-party load until play). */
+    (function () {
+      document.querySelectorAll('.vidtest-frame[data-video]').forEach(function (frame) {
+        function play() {
+          if (frame.classList.contains('is-playing')) return;
+          var id = frame.getAttribute('data-video');
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+          iframe.title = 'Video testimonial';
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframe.setAttribute('allowfullscreen', '');
+          frame.appendChild(iframe);
+          frame.classList.add('is-playing');
+          frame.removeAttribute('role');
+          frame.removeAttribute('tabindex');
+        }
+        frame.addEventListener('click', play);
+        frame.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+        });
+      });
+    })();
+  </script>
 
   <!-- MARQUEE -->
   <div class="marquee">
@@ -1726,7 +1773,7 @@
 
             <div><strong>Response window:</strong> Within two business days.</div>
           </div>
-          <p class="micro">For program bookings: <a href="mailto:sam@samosborne.net">sam@samosborne.net</a> · +1 (213) 423-2868‬</p>
+          <p class="micro">For program bookings: <a href="mailto:sam@samosborne.net">sam@samosborne.net</a> · +1 (213) 423-2868</p>
         </div>
 
         <form id="inquiryForm" novalidate>
