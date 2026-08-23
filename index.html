@@ -526,19 +526,61 @@
     }
     .method-card-content { position: relative; z-index: 1; }
 
-    /* Quotes */
-    .quote-stack { display: grid; gap: 16px; margin-top: 34px; }
-    .quote { border-top: 1px solid var(--line); padding-top: 24px; }
-    .quote:first-child { border-top: none; padding-top: 0; }
-    .quote blockquote {
-      margin: 0;
-      font-size: clamp(1.05rem, 1.75vw, 1.32rem);
-      line-height: 1.5;
-      color: rgba(245,245,247,.88);
-      font-style: italic;
-      letter-spacing: -.015em;
+    /* Quotes — skimmable static grid */
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 40px;
     }
-    .quote cite { display: block; margin-top: 10px; color: var(--muted-2); font-style: normal; font-size: .95rem; }
+    .quote-card {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 28px 26px;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 60px rgba(0,0,0,.16);
+    }
+    .quote-card.is-legal { border-color: rgba(212,165,116,.34); }
+    .quote-card-tag {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: rgba(212,165,116,.14);
+      border: 1px solid rgba(212,165,116,.32);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .quote-card blockquote {
+      margin: 0 0 22px;
+      font-size: 1.04rem;
+      line-height: 1.52;
+      letter-spacing: -.015em;
+      color: rgba(245,245,247,.92);
+      font-weight: 500;
+      font-style: italic;
+    }
+    .quote-card cite {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      font-style: normal;
+      display: block;
+    }
+    .quote-card .qc-name { color: var(--text); font-weight: 700; font-size: .96rem; letter-spacing: -.01em; }
+    .quote-card .qc-title { margin-top: 3px; color: var(--muted-2); font-size: .85rem; line-height: 1.4; }
+    @media (max-width: 980px) {
+      .quote-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 620px) {
+      .quote-grid { grid-template-columns: 1fr; }
+    }
 
     /* Signature keynote card */
     .signature-card {
@@ -901,8 +943,6 @@
       .nav-links.active { display: flex; }
       .nav-links a { display: block; width: 100%; }
       .form-grid { grid-template-columns: 1fr; }
-      .endorsement-quote { max-width: 100%; }
-      .endorsement-quote::before { font-size: 3rem; }
       .credibility-bar .container { flex-direction: column; gap: 28px; }
       .principles { padding: 64px 0; }
       .principle { padding: 22px 0; }
@@ -998,7 +1038,6 @@
       <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
-        <a href="#endorsement">Endorsement</a>
         <a href="#voices">Voices</a>
         <a href="#speaking">Programs</a>
         <a href="#fit">Who It's For</a>
@@ -1248,27 +1287,74 @@
     <div class="container">
       <span class="eyebrow">From the Room</span>
       <h2>What leaders say.</h2>
-      <div class="quote-stack">
-        <div class="quote">
+
+      <div class="quote-grid">
+        <article class="quote-card is-legal">
+          <span class="quote-card-tag">Legal &middot; CCAL</span>
+          <blockquote>"This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure."</blockquote>
+          <cite>
+            <span class="qc-name">Augustus Shaw IV, Esq., CCAL</span>
+            <span class="qc-title">President, College of Community Association Lawyers</span>
+          </cite>
+        </article>
+        <article class="quote-card">
+          <blockquote>"Sam's live demonstration had the entire room on edge — within seconds he illustrated exactly what happens when we allow someone to get under our skin, and the power of leveling the playing field to reach an equilibrated mind. If you're looking for a breakthrough speaker who delivers impact and tangible results in the room, hire Sam Osborne."</blockquote>
+          <cite>
+            <span class="qc-name">Christine Long</span>
+            <span class="qc-title">Strategic Marketing Leader · Former EVP, PIMCO</span>
+          </cite>
+        </article>
+        <article class="quote-card is-legal">
+          <span class="quote-card-tag">Legal &middot; CCAL</span>
+          <blockquote>"He presented to a standing-room-only room of professionals — engaging, interactive, grounded in research, and immediately applicable."</blockquote>
+          <cite>
+            <span class="qc-name">Leah K. Burton, Esq., CCAL</span>
+            <span class="qc-title">Board Certified HOA &amp; Condominium Attorney, Texas</span>
+          </cite>
+        </article>
+        <article class="quote-card is-legal">
+          <span class="quote-card-tag">Legal Industry</span>
+          <blockquote>"I highly recommend Sam for conferences or leadership events serving professionals who operate in stressful, conflict-rich environments."</blockquote>
+          <cite>
+            <span class="qc-name">Brian Butler</span>
+            <span class="qc-title">President, FirstService Residential Illinois</span>
+          </cite>
+        </article>
+        <article class="quote-card">
           <blockquote>"There are very few people who can do what he does — he can talk to salespeople, advisors, account managers, CFOs. He'd be incredible for a sales conference. Of all the speakers here, Sam was the most powerful."</blockquote>
-          <cite>Trisha Graham · Director of Account Management, Morningstar Retirement</cite>
-        </div>
-        <div class="quote">
+          <cite>
+            <span class="qc-name">Trisha Graham</span>
+            <span class="qc-title">Director of Account Management, Morningstar Retirement</span>
+          </cite>
+        </article>
+        <article class="quote-card">
           <blockquote>"I now have a tool to understand why I'm triggered — and to eliminate that trigger in the meeting, flip it around, and make it a positive as I go forward in my career."</blockquote>
-          <cite>Adam Sokolic · Chief Operating Officer, Bluespring Wealth Partners</cite>
-        </div>
-        <div class="quote">
+          <cite>
+            <span class="qc-name">Adam Sokolic</span>
+            <span class="qc-title">Chief Operating Officer, Bluespring Wealth Partners</span>
+          </cite>
+        </article>
+        <article class="quote-card">
           <blockquote>"The concepts Sam shared with a full room of high-achieving professionals were captivating and potentially life-changing. I would highly recommend having Sam share his expertise at your next event."</blockquote>
-          <cite>Amy N. Mullen, CFP&reg; · President, Money Quotient</cite>
-        </div>
-        <div class="quote">
+          <cite>
+            <span class="qc-name">Amy N. Mullen, CFP&reg;</span>
+            <span class="qc-title">President, Money Quotient</span>
+          </cite>
+        </article>
+        <article class="quote-card">
           <blockquote>"If you want a speaker who brings energy, personal storytelling, and brings the audience along on a journey, Sam brings a room together in a way no other speaker can."</blockquote>
-          <cite>Sharon Gottula · Co-Founder, Idea Decanter</cite>
-        </div>
-        <div class="quote">
+          <cite>
+            <span class="qc-name">Sharon Gottula</span>
+            <span class="qc-title">Co-Founder, Idea Decanter</span>
+          </cite>
+        </article>
+        <article class="quote-card">
           <blockquote>"One of the best sessions I've attended at any conference. Practical tools that immediately changed how I approach conflict."</blockquote>
-          <cite>Dawn Roscoe, AMS, PCAM · VP of Operations, Professional Properties Management</cite>
-        </div>
+          <cite>
+            <span class="qc-name">Dawn Roscoe, AMS, PCAM</span>
+            <span class="qc-title">VP of Operations, Professional Properties Management</span>
+          </cite>
+        </article>
       </div>
     </div>
   </section>
@@ -1289,51 +1375,6 @@
         </div>
         <div class="btn-row" style="justify-content:center;">
           <a class="btn-primary" href="#contact">Book a Program</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ENDORSEMENT — image left, testimony right -->
-  <section class="section endorsement" id="endorsement">
-    <div class="container">
-      <div class="endorsement-header">
-        <span class="eyebrow">Endorsement</span>
-        <h2>From the President of the College of Community Association Lawyers.</h2>
-      </div>
-
-      <div class="endorsement-layout">
-        <div class="endorsement-photo">
-          <img src="images/sam-osborne-stage3.png" alt="Sam Osborne on stage addressing a full conference room" />
-        </div>
-
-        <div class="endorsement-card">
-          <div class="credential-mark">
-            <div class="credential-seal">CCAL</div>
-            <div class="credential-label">Institutional Endorsement</div>
-          </div>
-          <blockquote class="endorsement-quote">
-            This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure.
-          </blockquote>
-          <div class="endorsement-attribution">
-            <div class="endorsement-name">Augustus Shaw IV, Esq., CCAL</div>
-            <div class="endorsement-title">President · College of Community Association Lawyers</div>
-          </div>
-          <div class="endorsement-meta">
-            <div class="endorsement-meta-item">
-              <strong>4.7 / 5</strong>
-              Overall Rating
-            </div>
-            <div class="endorsement-meta-item">
-              <strong>39</strong>
-              Evaluations
-            </div>
-            <div class="endorsement-meta-item">
-              <strong>Best of Conference</strong>
-              CAI National Law Seminar 2026
-            </div>
-          </div>
-          <p class="endorsement-friday">Friday morning slot.</p>
         </div>
       </div>
     </div>
