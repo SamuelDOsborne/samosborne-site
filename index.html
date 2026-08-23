@@ -543,6 +543,7 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.16);
     }
     .quote-card.is-legal { border-color: rgba(212,165,116,.34); }
+    .quote-card.is-financial { border-color: rgba(74,94,127,.42); }
     .quote-card-tag {
       display: inline-flex;
       align-self: flex-start;
@@ -556,6 +557,11 @@
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
+    }
+    .quote-card-tag.tag-financial {
+      background: rgba(74,94,127,.18);
+      border: 1px solid rgba(74,94,127,.4);
+      color: #9db2d4;
     }
     .quote-card blockquote {
       margin: 0 0 22px;
@@ -1087,8 +1093,8 @@
   <section class="section vidtest" id="video-proof">
     <div class="container">
       <div class="vidtest-head">
-        <span class="eyebrow">On Camera</span>
-        <h2>Hear it from the room.</h2>
+        <span class="eyebrow">From the Room</span>
+        <h2>What leaders say.</h2>
         <p>Short video reflections from professionals who have seen Sam speak.</p>
       </div>
       <div class="vidtest-grid">
@@ -1285,12 +1291,12 @@
   <!-- TESTIMONIALS -->
   <section class="section" id="proof">
     <div class="container">
-      <span class="eyebrow">From the Room</span>
-      <h2>What leaders say.</h2>
+      <span class="eyebrow">On Camera</span>
+      <h2>Hear it from the room.</h2>
 
       <div class="quote-grid">
         <article class="quote-card is-legal">
-          <span class="quote-card-tag">Legal &middot; CCAL</span>
+          <span class="quote-card-tag">Legal Industry</span>
           <blockquote>"This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts to aid in maintaining calm and composure."</blockquote>
           <cite>
             <span class="qc-name">Augustus Shaw IV, Esq., CCAL</span>
