@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -224,6 +223,18 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%; border: 0;
     }
+
+    /* Corporate networks (finance, legal, government) frequently block YouTube
+       embeds. This gives those visitors a route to the reel instead of a blank
+       frame and a silent bounce. Deliberately quiet - most people never need it. */
+    .reel-fallback {
+      margin: 10px 0 0; text-align: center;
+      font-size: .8rem; line-height: 1.5; color: var(--muted-2);
+    }
+    .reel-fallback a {
+      color: var(--muted); text-decoration: underline; text-underline-offset: 2px;
+    }
+    .reel-fallback a:hover { color: var(--gold); }
     .hero-reel-label {
       margin-top: 16px;
       text-align: center;
@@ -1158,6 +1169,7 @@
             allowfullscreen
             loading="lazy"></iframe>
         </div>
+        <p class="reel-fallback">Video not loading? Some corporate networks block YouTube &mdash; <a href="https://drive.google.com/file/d/1VCtn5fvsXfO_2RkOuyCpTpc1EnTY8hJB/view?usp=sharing" target="_blank" rel="noopener">watch the reel here instead</a>.</p>
       </div>
     </div>
   </section>
@@ -1629,7 +1641,7 @@
             <span class="signature-flag">Signature Program</span>
             <h3>The Conflict Advantage</h3>
             <p class="signature-tagline">When the trigger owns you, the room does too.</p>
-            <p>For leaders who are being run by people, office politics, and pressure. Not techniques for holding it together &mdash; a process for dissolving the charge, so composure returns and authority becomes usable again. Built for audiences operating under real adversarial conditions, and <strong>every format includes a live demonstration &mdash; the keynote included</strong>.</p>
+            <p>For leaders who are being run by people, politics, and pressure. Not techniques for holding it together &mdash; a process for dissolving the charge, so composure returns and authority becomes usable again. Built for audiences operating under real adversarial conditions, and <strong>every format includes a live demonstration &mdash; the keynote included</strong>.</p>
             <div class="signature-formats">Available as keynote, breakout, sales-kickoff session, half-day workshop, or multi-session leadership intensive. Live Demartini Method demonstration in every format.</div>
             <div class="btn-row" style="margin-top:24px;">
               <a class="btn-primary" href="#contact">Check Availability</a>
