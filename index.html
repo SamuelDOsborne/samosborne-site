@@ -183,7 +183,7 @@
     /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1.05fr;
+      grid-template-columns: 1fr 1.28fr;
       align-items: center;
       min-height: calc(100vh - 56px);
     }
@@ -208,7 +208,10 @@
       justify-content: center;
       padding: 40px 40px 40px 0;
     }
-    .hero-reel-inner { width: min(620px, 100%); }
+    /* No fixed cap: the reel fills its column. It had been pinned at 620px
+       inside a 738px column, wasting 16% of the space given to the thing
+       actually being sold. */
+    .hero-reel-inner { width: 100%; max-width: 820px; }
     .hero-reel-frame {
       position: relative;
       width: 100%;
