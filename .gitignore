@@ -1,0 +1,3 @@
+
+# Video is served off-repo: Cloudflare Pages caps files at 25 MiB
+images/*.mp4
