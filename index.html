@@ -44,6 +44,26 @@
       --shadow: 0 18px 60px rgba(0,0,0,.16);
     }
 
+    /* Custom cursor, matched to the advisory page so both pages feel like one site.
+       Enabled only once JS confirms a fine pointer, so a script failure can never
+       leave a visitor with no cursor at all. */
+    body.has-custom-cursor { cursor: none; }
+    .cursor { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; display: none; }
+    body.has-custom-cursor .cursor { display: block; }
+    .cursor-dot {
+      width: 5px; height: 5px; background: var(--text); border-radius: 50%;
+      position: absolute; transform: translate(-50%,-50%);
+    }
+    .cursor-ring {
+      width: 34px; height: 34px; border: 1px solid rgba(245,245,247,.32);
+      border-radius: 50%; position: absolute; transform: translate(-50%,-50%);
+      transition: width .24s ease, height .24s ease, border-color .24s ease;
+    }
+    @media (max-width: 768px) {
+      body.has-custom-cursor { cursor: auto; }
+      body.has-custom-cursor .cursor { display: none; }
+    }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -59,6 +79,11 @@
     a { color: inherit; text-decoration: none; }
     .container { width: min(1200px, calc(100% - 40px)); margin: 0 auto; }
     .section { padding: 88px 0; }
+
+    /* Sticky nav is 56px tall and overlays the page, so anchor jumps must
+       clear it - without this every in-page link lands 56px too high and the
+       featured pricing card's raised flag pill is sliced off under the nav. */
+    section[id], [id="top"] { scroll-margin-top: 76px; }
     .section-light { background: var(--warm); color: var(--ink); }
     .eyebrow {
       display: inline-block;
@@ -1081,6 +1106,8 @@
   </style>
 </head>
 <body>
+
+<div class="cursor" aria-hidden="true"><div class="cursor-dot"></div><div class="cursor-ring"></div></div>
 
   <!-- NAV -->
   <nav>
@@ -2164,5 +2191,32 @@
   </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1}' crossorigin="anonymous"></script>
 <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a31f6267a8e5ef1c',t:'MTc4Nzg3ODg4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1}' crossorigin="anonymous"></script>
+
+<script>
+/* Custom cursor - fine-pointer devices only, and only once JS is running.
+   Hover targets are this page's own classes (.card / .ptier / .vidtest-frame),
+   not the advisory page's. Respects prefers-reduced-motion by dropping the
+   trailing lag while keeping the cursor itself. */
+(function(){
+  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if(!fine) return;
+  document.body.classList.add('has-custom-cursor');
+  var dot = document.querySelector('.cursor-dot'), ring = document.querySelector('.cursor-ring');
+  if(!dot || !ring) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mx=0, my=0, rx=0, ry=0;
+  window.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; }, {passive:true});
+  (function loop(){
+    dot.style.left = mx+'px'; dot.style.top = my+'px';
+    if(reduce){ rx = mx; ry = my; } else { rx += (mx-rx)*.12; ry += (my-ry)*.12; }
+    ring.style.left = rx+'px'; ring.style.top = ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button,summary,.card,.ptier,.vidtest-frame').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ ring.style.width='50px'; ring.style.height='50px'; ring.style.borderColor='rgba(212,165,116,.55)'; });
+    el.addEventListener('mouseleave', function(){ ring.style.width='34px'; ring.style.height='34px'; ring.style.borderColor='rgba(245,245,247,.32)'; });
+  });
+})();
+</script>
 </body>
 </html>
