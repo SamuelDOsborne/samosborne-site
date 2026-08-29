@@ -526,6 +526,24 @@
     }
     .method-card-content { position: relative; z-index: 1; }
 
+    /* Method mechanism cards. auto-fit collapses 3 -> 2 -> 1 with no breakpoint;
+       min(260px,100%) stops the track overflowing on narrow phones. */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .method-grid .card { padding: 36px; }
+    .method-grid h3 { font-size: 1.35rem; }
+    .method-grid p { margin-top: 14px; font-size: 1.05rem; line-height: 1.65; }
+    @media (max-width: 620px) {
+      .method-grid { gap: 16px; margin-top: 28px; }
+      .method-grid .card { padding: 26px 22px; }
+      .method-grid h3 { font-size: 1.2rem; }
+      .method-grid p { font-size: 1rem; margin-top: 10px; }
+    }
+
     /* Quotes — skimmable static grid */
     .quote-grid {
       display: grid;
@@ -1536,12 +1554,12 @@
     <div class="about-copy-below">
       <div class="container">
         <span class="eyebrow">About Sam</span>
-        <h2>The injury was the beginning. The 18 years after it are the method.</h2>
+        <h2>The injury was 2008. The method came six years later.</h2>
         <div class="about-body">
           <div>
             <p>Once the metal was out and his eyesight came back, Sam Osborne was left holding a question he couldn't put down: if perception can be damaged and repaired, what else is it quietly doing that nobody notices?</p>
 
-            <p>He had asked a version of it before. He failed English his freshman year &mdash; then read a book about how the mind works and never really stopped. A double major in Philosophy and English followed, then three decades chasing what mastery actually is and what role perception plays in it. For the last five years, that pursuit has been on stage.</p>
+            <p>He had asked a version of it before. He failed English his freshman year &mdash; then read a book about how the mind works and never really stopped. A double major in Philosophy and English followed, then years spent chasing what mastery actually is and what role perception plays in it. In 2014 he found the framework that organised the whole question &mdash; by accident, on a friend&rsquo;s bookshelf. For the last five years, that pursuit has been on stage.</p>
 
             <p>What he teaches now isn't a stress technique. It's what he found: <strong>the size of a reaction is a reliable measure of what a person can't yet see.</strong> Balance the seeing, and the reaction doesn't need managing. There's nothing left to manage.</p>
 
@@ -1655,26 +1673,26 @@
       <span class="eyebrow">The Method</span>
       <h2>A repeatable framework.<br>Not a motivational talk.</h2>
       <p class="lede" style="margin-top:16px; max-width: 60ch;">Three mechanisms, applied in sequence, give a room a precise process for balancing perception, dissolving emotional charge, and recovering clear thought under pressure. It's built to change how people operate &mdash; not how they feel for an hour. Sam is a trained Demartini Method Facilitator.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px;">
-        <article class="card dark" style="padding: 36px;">
+      <div class="method-grid">
+        <article class="card dark">
           <div class="method-echo"></div>
           <div class="method-card-content">
-            <h3 style="font-size: 1.35rem;">Perceptual Balance</h3>
-            <p style="margin-top: 14px; font-size: 1.05rem; line-height: 1.65;">See only the cost, or only the benefit, and perception distorts. Balance both and the charge has nowhere left to live. This is why it isn't suppression.</p>
+            <h3>Perceptual Balance</h3>
+            <p>See only the cost, or only the benefit, and perception distorts. Balance both and the charge has nowhere left to live. This is why it isn't suppression.</p>
           </div>
         </article>
-        <article class="card dark" style="padding: 36px;">
+        <article class="card dark">
           <div class="method-echo"></div>
           <div class="method-card-content">
-            <h3 style="font-size: 1.35rem;">Values Hierarchy</h3>
-            <p style="margin-top: 14px; font-size: 1.05rem; line-height: 1.65;">A remark only lands if it hits something you were protecting. Know what you and the other person are defending, and the conflict becomes workable.</p>
+            <h3>Values Hierarchy</h3>
+            <p>A remark only lands if it hits something you were protecting. Know what you and the other person are defending, and the conflict becomes workable.</p>
           </div>
         </article>
-        <article class="card dark" style="padding: 36px;">
+        <article class="card dark">
           <div class="method-echo"></div>
           <div class="method-card-content">
-            <h3 style="font-size: 1.35rem;">Projection &amp; Injection</h3>
-            <p style="margin-top: 14px; font-size: 1.05rem; line-height: 1.65;">What triggers you in someone else is usually pointing at something you haven't yet owned or balanced in yourself. The reaction is the read.</p>
+            <h3>Projection &amp; Injection</h3>
+            <p>What triggers you in someone else is usually pointing at something you haven't yet owned or balanced in yourself. The reaction is the read.</p>
           </div>
         </article>
       </div>
