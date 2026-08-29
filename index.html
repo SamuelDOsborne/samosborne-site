@@ -1161,15 +1161,17 @@
     <div class="hero-reel">
       <div class="hero-reel-inner">
         <div class="hero-reel-frame">
+          <!-- Cloudflare Stream. Served from a Cloudflare CDN domain rather than
+               youtube.com, which corporate filters categorise as Streaming Media
+               and routinely block. Adaptive bitrate, no suggested-video takeover. -->
           <iframe
-            src="https://www.youtube.com/embed/DSDfJx5HIR8?si=ofhm-gYtiW8mRPzZ"
+            src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/iframe"
             title="Sam Osborne — Speaker Reel"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
             allowfullscreen
             loading="lazy"></iframe>
         </div>
-        <p class="reel-fallback">Video not loading? Some corporate networks block YouTube &mdash; <a href="https://drive.google.com/file/d/1VCtn5fvsXfO_2RkOuyCpTpc1EnTY8hJB/view?usp=sharing" target="_blank" rel="noopener">watch the reel here instead</a>.</p>
+        <p class="reel-fallback">Video not loading on your network? <a href="https://drive.google.com/file/d/1VCtn5fvsXfO_2RkOuyCpTpc1EnTY8hJB/view?usp=sharing" target="_blank" rel="noopener">watch the reel here instead</a>.</p>
       </div>
     </div>
   </section>
