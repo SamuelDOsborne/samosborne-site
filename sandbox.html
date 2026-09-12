@@ -95,6 +95,7 @@
       letter-spacing: -.04em;
       font-weight: 800;
     }
+    .h1-short { display: none; }
     h2 {
       font-size: clamp(2rem, 4.8vw, 4.5rem);
       line-height: 1.05;
@@ -1010,8 +1011,8 @@
         min-height: 0;
         z-index: 0;
         background:
-          linear-gradient(180deg, rgba(26,26,26,.05) 0%, rgba(26,26,26,.4) 48%, rgba(26,26,26,.95) 86%),
-          url('images/sam-osborne-hero-banner.jpg') center 15%/cover no-repeat;
+          linear-gradient(180deg, rgba(26,26,26,.1) 0%, rgba(26,26,26,.55) 28%, rgba(26,26,26,.97) 55%),
+          url('images/sam-osborne-hero-banner.jpg') 22% 22%/cover no-repeat;
       }
       .hero-copy {
         position: relative;
@@ -1026,6 +1027,8 @@
       }
       .hero-reel { padding: 0 0 56px; }
       .hero-reel-inner { width: min(620px, calc(100% - 40px)); margin: 0 auto; }
+      .h1-full { display: none; }
+      .h1-short { display: inline; }
       .mobile-toggle { display: block; }
       .nav-links {
         position: absolute;
@@ -1160,7 +1163,7 @@
       <div class="inner">
         <span class="eyebrow" style="margin-bottom:10px; font-size: clamp(1rem, 1.4vw, 1.3rem); letter-spacing: .08em;">Sam Osborne</span>
         <div class="hero-kicker">Conflict &amp; Composure Speaker for High-Stakes Professionals</div>
-        <h1>A Real Trigger, Dissolved On Stage &mdash; Using a Proven Method, In Front of Your Audience.</h1>
+        <h1><span class="h1-full">A Real Trigger, Dissolved On Stage &mdash; Using a Proven Method, In Front of Your Audience.</span><span class="h1-short">A Real Trigger, Dissolved On Stage.</span></h1>
 
         <p style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">A volunteer names someone who genuinely gets under their skin. Sam dissolves the trigger live, using a trained facilitation method &mdash; showing your audience exactly how to stay composed under pressure, not just hearing about it.</p>
         <div class="btn-row">
