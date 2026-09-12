@@ -43,9 +43,6 @@
       --shadow: 0 18px 60px rgba(0,0,0,.16);
     }
 
-    /* Custom cursor, matched to the advisory page so both pages feel like one site.
-       Enabled only once JS confirms a fine pointer, so a script failure can never
-       leave a visitor with no cursor at all. */
     body.has-custom-cursor { cursor: none; }
     .cursor { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; display: none; }
     body.has-custom-cursor .cursor { display: block; }
@@ -79,9 +76,6 @@
     .container { width: min(1200px, calc(100% - 40px)); margin: 0 auto; }
     .section { padding: 88px 0; }
 
-    /* Sticky nav is 56px tall and overlays the page, so anchor jumps must
-       clear it - without this every in-page link lands 56px too high and the
-       featured pricing card's raised flag pill is sliced off under the nav. */
     section[id], [id="top"] { scroll-margin-top: 76px; }
     .section-light { background: var(--warm); color: var(--ink); }
     .eyebrow {
@@ -144,7 +138,6 @@
     .btn-secondary { color: var(--text); border-color: rgba(255,255,255,.16); background: transparent; }
     .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* Nav */
     nav {
       position: sticky;
       top: 0;
@@ -180,7 +173,6 @@
       line-height: 1;
     }
 
-    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: 1.28fr 1fr;
@@ -202,16 +194,12 @@
       justify-content: center;
       padding: 84px 0 72px;
     }
-    /* Hero show reel */
     .hero-reel {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px 40px 40px 0;
     }
-    /* No fixed cap: the reel fills its column. It had been pinned at 620px
-       inside a 738px column, wasting 16% of the space given to the thing
-       actually being sold. */
     .hero-reel-inner { width: 100%; max-width: 820px; }
     .hero-reel-frame {
       position: relative;
@@ -228,9 +216,6 @@
       width: 100%; height: 100%; border: 0;
     }
 
-    /* Corporate networks (finance, legal, government) frequently block YouTube
-       embeds. This gives those visitors a route to the reel instead of a blank
-       frame and a silent bounce. Deliberately quiet - most people never need it. */
     .reel-fallback {
       margin: 10px 0 0; text-align: center;
       font-size: .8rem; line-height: 1.5; color: var(--muted-2);
@@ -283,7 +268,6 @@
       line-height: 1.6;
     }
 
-    /* Show reel section, below the hero */
     .reel-section {
       background: var(--bg);
       border-bottom: 1px solid var(--line);
@@ -291,7 +275,6 @@
     }
     .reel-section .hero-reel-inner { max-width: 900px; margin: 0 auto; }
 
-    /* Marquee */
     .marquee {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -312,7 +295,6 @@
     }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* Endorsement */
     .endorsement {
       background: var(--bg);
       position: relative;
@@ -445,7 +427,6 @@
       letter-spacing: .02em;
     }
 
-    /* Method intro */
     .intro { padding: 74px 0 58px; text-align: center; }
     .intro h2 { max-width: 10ch; margin: 0 auto 22px; }
     .intro p { max-width: 44ch; margin: 0 auto; }
@@ -468,7 +449,6 @@
       margin: 0 auto;
     }
 
-    /* Principles band */
     .principles {
       background: var(--bg-2);
       border-top: 1px solid var(--line);
@@ -507,7 +487,6 @@
 
     .principle em { white-space: nowrap; }
 
-    /* Grids & cards */
     .grid-2, .grid-3, .grid-4 { display: grid; gap: 16px; }
     .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -565,8 +544,6 @@
     }
     .method-card-content { position: relative; z-index: 1; }
 
-    /* Method mechanism cards. auto-fit collapses 3 -> 2 -> 1 with no breakpoint;
-       min(260px,100%) stops the track overflowing on narrow phones. */
     .method-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
@@ -583,7 +560,6 @@
       .method-grid p { font-size: 1rem; margin-top: 10px; }
     }
 
-    /* Quotes — skimmable static grid */
     .quote-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -645,7 +621,6 @@
       .quote-grid { grid-template-columns: 1fr; }
     }
 
-    /* Signature keynote card */
     .signature-card {
       margin-top: 36px;
       border-radius: 24px;
@@ -710,7 +685,6 @@
       letter-spacing: .01em;
     }
 
-    /* Companion programs */
     .companion-header { margin-top: 64px; padding-top: 44px; border-top: 1px solid rgba(0,0,0,.08); }
     .companion-header .eyebrow { margin-bottom: 12px; }
     .companion-heading { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.1; letter-spacing: -.025em; font-weight: 700; color: var(--ink); margin: 0; }
@@ -721,7 +695,6 @@
     .companion-card p { font-size: .92rem; line-height: 1.55; }
     .companion-card .formats { font-size: .78rem; }
 
-    /* About */
     .about-section { background: var(--bg); }
     .about-photo-full { position: relative; width: 100%; height: 85vh; overflow: hidden; background: #111; }
     .about-photo-full img {
@@ -770,7 +743,6 @@
       text-transform: uppercase;
     }
 
-    /* Credibility bar */
     .credibility-bar {
       background: var(--bg-2);
       border-top: 1px solid var(--line);
@@ -793,7 +765,6 @@
       margin: 0;
     }
 
-    /* Travel & Accommodations */
     .travel-details {
       border: 1px solid var(--line); border-radius: 12px;
       background: rgba(255,255,255,.04); overflow: hidden;
@@ -825,7 +796,6 @@
     }
     .travel-included li strong { color: var(--text); font-weight: 600; }
 
-    /* Form */
     form { border-radius: 24px; padding: 30px; border: 1px solid var(--line); background: rgba(255,255,255,.04); }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .full { grid-column: 1 / -1; }
@@ -864,11 +834,9 @@
     .form-toast.success { display: block; background: rgba(76,175,100,.15); border: 1px solid rgba(76,175,100,.4); color: #7de89a; }
     .form-toast.fail { display: block; background: rgba(224,90,90,.12); border: 1px solid rgba(224,90,90,.36); color: #f09090; }
 
-    /* Footer */
     footer { border-top: 1px solid var(--line); padding: 34px 0 44px; color: var(--muted-2); font-size: .95rem; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 
-    /* Photo utilities */
     .method-photo-full, .method-intro-photo {
       position: relative;
       width: 100%;
@@ -895,7 +863,6 @@
       content: none;
     }
 
-    /* ── NEW: The Demonstration ───────────────────────────── */
     .demo-section {
       background: var(--bg-2);
       border-top: 1px solid var(--line);
@@ -993,7 +960,6 @@
       .demo-layout { grid-template-columns: 1fr; }
     }
 
-    /* Responsive */
     @media (max-width: 980px) {
       .hero,
       .grid-2,
@@ -1043,7 +1009,6 @@
       .nav-cta { font-size: 12px; }
     }
 
-    /* Video testimonials */
     .vidtest { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .vidtest-head { max-width: 640px; margin-bottom: 40px; }
     .vidtest-head h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
@@ -1152,9 +1117,9 @@
       <div class="inner">
         <span class="eyebrow" style="margin-bottom:8px;">Sam Osborne</span>
         <div class="hero-kicker">Conflict &amp; Composure Speaker for High-Stakes Professionals</div>
-        <h1>The Keynote Where a Real Conflict Gets Resolved &mdash; Live, On Stage.</h1>
+        <h1>A Live Conflict, Resolved On Stage &mdash; Using a Proven Method, In Front of Your Audience.</h1>
 
-        <p style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">A volunteer names someone who gets under their skin, and the room watches it get resolved in real time.</p>
+        <p style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">A volunteer names a real workplace conflict. Sam works through it live, using a trained facilitation method &mdash; showing your audience exactly how to stay composed under pressure, not just hearing about it.</p>
         <div class="btn-row">
           <a class="btn-primary" href="#contact">Check Availability</a>
           <a class="btn-secondary" href="#demonstration">See What Happens in the Room</a>
@@ -1168,9 +1133,6 @@
     <div class="container">
       <div class="hero-reel-inner">
         <div class="hero-reel-frame">
-          <!-- Cloudflare Stream. Served from a Cloudflare CDN domain rather than
-               youtube.com, which corporate filters categorise as Streaming Media
-               and routinely block. Adaptive bitrate, no suggested-video takeover. -->
           <iframe
             src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/iframe?poster=https%3A%2F%2Fcustomer-lilcuopn7rwe61gd.cloudflarestream.com%2F5fbe6dc81b04702d48532c37cac6b9f7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D4.5s%26height%3D720"
             title="Sam Osborne — Speaker Reel"
@@ -1336,8 +1298,6 @@
   </section>
 
   <!-- ═══════════════ CLIENT LOGO STRIP ═══════════════ -->
-  <!-- PLACEHOLDER: drop three logo files into images/ and swap the <span> for an <img>.
-       Recommended: transparent PNG or SVG, white/light mono version, ~200px wide. -->
   <style>
     .logostrip { background: var(--bg); border-top: 1px solid var(--line); padding: 54px 0; }
     .logostrip-label {
@@ -1368,15 +1328,12 @@
       <div class="logostrip-label">Trusted by</div>
       <div class="logostrip-row">
         <div class="logostrip-item">
-          <!-- <img src="images/logo-client-1.png" alt="Client name" /> -->
           <span class="logostrip-ph">Logo 1</span>
         </div>
         <div class="logostrip-item">
-          <!-- <img src="images/logo-client-2.png" alt="Client name" /> -->
           <span class="logostrip-ph">Logo 2</span>
         </div>
         <div class="logostrip-item">
-          <!-- <img src="images/logo-client-3.png" alt="Client name" /> -->
           <span class="logostrip-ph">Logo 3</span>
         </div>
       </div>
@@ -1551,7 +1508,6 @@
   </section>
 
   <script>
-    /* Video testimonials — click/keyboard to load the YouTube player (facade = fast page, no third-party load until play). */
     (function () {
       document.querySelectorAll('.vidtest-frame[data-video]').forEach(function (frame) {
         function play() {
@@ -1824,7 +1780,6 @@
             <li>Audience fit, evaluations, and referenceable clients</li>
             <li>Speaker bio, headshot, and AV requirements</li>
           </ul>
-          <!-- Canva one-sheet (2-page). Shared view-only. -->
           <a class="btn-primary" href="https://canva.link/713avtrap4kht3g" target="_blank" rel="noopener">Download the One-Sheet (PDF)</a>
           <p class="kit-meta">No form. No email required.</p>
         </div>
@@ -1863,7 +1818,6 @@
 
   <!-- CONTACT -->
   <style>
-    /* ── Booking: stacked bands ─────────────────────────── */
     .booking-head { text-align: center; max-width: 640px; margin: 0 auto 14px; }
     .booking-head p { color: var(--muted); margin-top: 14px; font-size: clamp(1rem,1.4vw,1.12rem); line-height: 1.6; }
     .booking-bestfor {
@@ -2203,10 +2157,6 @@
 <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a31f6267a8e5ef1c',t:'MTc4Nzg3ODg4Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1}' crossorigin="anonymous"></script>
 
 <script>
-/* Custom cursor - fine-pointer devices only, and only once JS is running.
-   Hover targets are this page's own classes (.card / .ptier / .vidtest-frame),
-   not the advisory page's. Respects prefers-reduced-motion by dropping the
-   trailing lag while keeping the cursor itself. */
 (function(){
   var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if(!fine) return;
