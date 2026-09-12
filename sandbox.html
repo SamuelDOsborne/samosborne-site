@@ -175,7 +175,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
+      grid-template-columns: 0.85fr 1fr;
       align-items: center;
       min-height: calc(100vh - 56px);
     }
@@ -183,11 +183,10 @@
       position: relative;
       align-self: stretch;
       min-height: 520px;
-      filter: grayscale(8%) brightness(.62) contrast(1.08) saturate(.9);
       background:
-        linear-gradient(90deg, rgba(26,26,26,.18) 42%, rgba(26,26,26,.97) 100%),
-        linear-gradient(180deg, rgba(26,26,26,.28) 0%, rgba(26,26,26,.6) 100%),
-        url('images/sam-osborne-chair-landscape.jpg') center 30%/cover no-repeat;
+        linear-gradient(90deg, rgba(26,26,26,0) 54%, rgba(26,26,26,.96) 100%),
+        linear-gradient(180deg, rgba(26,26,26,.12) 0%, rgba(26,26,26,.54) 100%),
+        url('images/sam-osborne-hero-banner.jpg') center 15%/cover no-repeat;
     }
     .hero-copy {
       display: flex;
@@ -306,6 +305,13 @@
       font-weight: 600;
     }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes heroTextIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-copy { animation: none !important; opacity: 1 !important; transform: none !important; }
+    }
 
     .endorsement {
       background: var(--bg);
@@ -973,7 +979,6 @@
     }
 
     @media (max-width: 980px) {
-      .hero,
       .grid-2,
       .grid-3,
       .grid-4,
@@ -990,9 +995,35 @@
       .about-body { gap: 0; }
       .about-rule { margin: 20px 0; }
       .advisory-body { gap: 24px; }
-      .hero { align-items: stretch; }
-      .hero-copy { padding: 46px 0 24px; }
-      .hero-image { min-height: 420px; }
+
+      /* Hero: overlay the copy on the photo instead of stacking below it,
+         so the headline and CTA are visible without scrolling past the
+         image first. Text fades in shortly after load so the photo reads
+         first, then the offer. */
+      .hero {
+        display: block;
+        position: relative;
+      }
+      .hero-image {
+        position: absolute;
+        inset: 0;
+        min-height: 0;
+        z-index: 0;
+        background:
+          linear-gradient(180deg, rgba(26,26,26,.05) 0%, rgba(26,26,26,.4) 48%, rgba(26,26,26,.95) 86%),
+          url('images/sam-osborne-hero-banner.jpg') center 15%/cover no-repeat;
+      }
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+        min-height: calc(100vh - 56px);
+        display: flex;
+        align-items: flex-end;
+        padding: 0 0 36px;
+        opacity: 0;
+        animation: heroTextIn .7s ease forwards;
+        animation-delay: 1s;
+      }
       .hero-reel { padding: 0 0 56px; }
       .hero-reel-inner { width: min(620px, calc(100% - 40px)); margin: 0 auto; }
       .mobile-toggle { display: block; }
@@ -1563,7 +1594,7 @@
   <!-- ABOUT -->
   <section class="about-section" id="about">
     <div class="about-photo-full">
-      <img src="images/sam-osborne-hero-banner.jpg" alt="Sam Osborne" />
+      <img src="images/sam-osborne-chair-landscape.jpg" alt="Sam Osborne" />
     </div>
     <div class="about-copy-below">
       <div class="container">
