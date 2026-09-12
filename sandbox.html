@@ -1020,8 +1020,8 @@
         z-index: 2;
         min-height: calc(100vh - 56px);
         display: flex;
-        align-items: flex-end;
-        padding: 0 0 36px;
+        justify-content: flex-end;
+        padding: 0 0 56px;
         opacity: 0;
         animation: heroTextIn .7s ease forwards;
         animation-delay: 1s;
@@ -1031,6 +1031,7 @@
       .h1-short { display: none; }
       .kicker-break { display: inline; }
       .hero-sub-copy { display: none; }
+      .hero-check-btn { display: none; }
       .mobile-toggle { display: block; }
       .nav-links {
         position: absolute;
@@ -1169,7 +1170,7 @@
 
         <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">A volunteer names someone who genuinely gets under their skin. Sam dissolves the trigger live, using a trained facilitation method &mdash; showing your audience exactly how to stay composed under pressure, not just hearing about it.</p>
         <div class="btn-row">
-          <a class="btn-primary" href="#contact">Check Availability</a>
+          <a class="btn-primary hero-check-btn" href="#contact">Check Availability</a>
           <a class="btn-secondary" href="#reel" style="border-color: rgba(212,165,116,.55); color: var(--gold);">Watch Showreel</a>
         </div>
       </div>
