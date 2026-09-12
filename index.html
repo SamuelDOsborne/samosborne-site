@@ -225,20 +225,31 @@
     }
     .reel-fallback a:hover { color: var(--gold); }
     .hero-reel-label {
-      margin-top: 16px;
+      margin-bottom: 22px;
       text-align: center;
       color: var(--gold);
       text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: 11px;
-      font-weight: 700;
+      letter-spacing: .2em;
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+    .hero-reel-label::before,
+    .hero-reel-label::after {
+      content: "";
+      height: 1px;
+      width: 36px;
+      background: rgba(212,165,116,.45);
     }
     .hero-copy .inner { width: min(640px, calc(100% - 40px)); margin: 0 auto; }
     .hero-kicker {
       color: rgba(212,165,116,.88);
       text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: clamp(.75rem, 1vw, .95rem);
+      letter-spacing: .13em;
+      font-size: clamp(.9rem, 1.3vw, 1.15rem);
       font-weight: 600;
       margin-bottom: 16px;
     }
@@ -1115,23 +1126,24 @@
     <div class="hero-image" role="img" aria-label="Sam Osborne on stage"></div>
     <div class="hero-copy">
       <div class="inner">
-        <span class="eyebrow" style="margin-bottom:8px;">Sam Osborne</span>
+        <span class="eyebrow" style="margin-bottom:10px; font-size: clamp(1rem, 1.4vw, 1.3rem); letter-spacing: .08em;">Sam Osborne</span>
         <div class="hero-kicker">Conflict &amp; Composure Speaker for High-Stakes Professionals</div>
         <h1>A Live Conflict, Resolved On Stage &mdash; Using a Proven Method, In Front of Your Audience.</h1>
 
         <p style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">A volunteer names a real workplace conflict. Sam works through it live, using a trained facilitation method &mdash; showing your audience exactly how to stay composed under pressure, not just hearing about it.</p>
         <div class="btn-row">
           <a class="btn-primary" href="#contact">Check Availability</a>
-          <a class="btn-secondary" href="#demonstration">See What Happens in the Room</a>
+          <a class="btn-secondary" href="#reel">Watch Showreel</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SHOW REEL — below the hero -->
-  <section class="reel-section">
+  <section class="reel-section" id="reel">
     <div class="container">
       <div class="hero-reel-inner">
+        <p class="hero-reel-label">Watch the Reel</p>
         <div class="hero-reel-frame">
           <iframe
             src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/iframe?poster=https%3A%2F%2Fcustomer-lilcuopn7rwe61gd.cloudflarestream.com%2F5fbe6dc81b04702d48532c37cac6b9f7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D4.5s%26height%3D720"
@@ -1142,7 +1154,6 @@
         </div>
         <p class="reel-fallback">Video not loading on your network? <a href="https://drive.google.com/file/d/1VCtn5fvsXfO_2RkOuyCpTpc1EnTY8hJB/view?usp=sharing" target="_blank" rel="noopener">watch the reel here instead</a>.</p>
       </div>
-      <p class="hero-reel-label">Watch the Reel</p>
     </div>
   </section>
 
