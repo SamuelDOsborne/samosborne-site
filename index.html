@@ -96,6 +96,7 @@
       font-weight: 800;
     }
     .h1-short { display: none; }
+    .kicker-break { display: none; }
     h2 {
       font-size: clamp(2rem, 4.8vw, 4.5rem);
       line-height: 1.05;
@@ -1011,7 +1012,7 @@
         min-height: 0;
         z-index: 0;
         background:
-          linear-gradient(180deg, rgba(26,26,26,.1) 0%, rgba(26,26,26,.55) 28%, rgba(26,26,26,.97) 55%),
+          linear-gradient(180deg, rgba(26,26,26,.16) 0%, rgba(26,26,26,.5) 25%, rgba(26,26,26,.9) 52%),
           url('images/sam-osborne-hero-banner.jpg') 22% 22%/cover no-repeat;
       }
       .hero-copy {
@@ -1019,16 +1020,18 @@
         z-index: 2;
         min-height: calc(100vh - 56px);
         display: flex;
-        align-items: flex-end;
-        padding: 0 0 36px;
+        justify-content: flex-end;
+        padding: 0 0 96px;
         opacity: 0;
         animation: heroTextIn .7s ease forwards;
         animation-delay: 1s;
       }
       .hero-reel { padding: 0 0 56px; }
       .hero-reel-inner { width: min(620px, calc(100% - 40px)); margin: 0 auto; }
-      .h1-full { display: none; }
-      .h1-short { display: inline; }
+      .h1-short { display: none; }
+      .kicker-break { display: inline; }
+      .hero-sub-copy { display: none; }
+      .hero-check-btn { display: none; }
       .mobile-toggle { display: block; }
       .nav-links {
         position: absolute;
@@ -1162,12 +1165,12 @@
     <div class="hero-copy">
       <div class="inner">
         <span class="eyebrow" style="margin-bottom:10px; font-size: clamp(1rem, 1.4vw, 1.3rem); letter-spacing: .08em;">Sam Osborne</span>
-        <div class="hero-kicker">Conflict &amp; Composure Speaker for High-Stakes Professionals</div>
+        <div class="hero-kicker">Conflict &amp; Composure Speaker<br class="kicker-break">for High-Stakes Professionals</div>
         <h1><span class="h1-full">A Real Trigger, Dissolved On Stage &mdash; Using a Proven Method, In Front of Your Audience.</span><span class="h1-short">A Real Trigger, Dissolved On Stage.</span></h1>
 
-        <p style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">A volunteer names someone who genuinely gets under their skin. Sam dissolves the trigger live, using a trained facilitation method &mdash; showing your audience exactly how to stay composed under pressure, not just hearing about it.</p>
+        <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">A volunteer names someone who genuinely gets under their skin. Sam dissolves the trigger live, using a trained facilitation method &mdash; showing your audience exactly how to stay composed under pressure, not just hearing about it.</p>
         <div class="btn-row">
-          <a class="btn-primary" href="#contact">Check Availability</a>
+          <a class="btn-primary hero-check-btn" href="#contact">Check Availability</a>
           <a class="btn-secondary" href="#reel" style="border-color: rgba(212,165,116,.55); color: var(--gold);">Watch Showreel</a>
         </div>
       </div>
