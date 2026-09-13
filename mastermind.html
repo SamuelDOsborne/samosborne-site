@@ -170,21 +170,10 @@
     line-height:1.6;
   }
 
-  .hero-costpay{
-    display:grid; grid-template-columns:1fr 1fr; gap:18px;
-    max-width:700px; margin:36px auto 0; text-align:left;
+  .cp-label{
+    font-family:var(--inscript); font-size:12px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent);
   }
-  @media (max-width:640px){ .hero-costpay{ grid-template-columns:1fr; } }
-  .hero-costpay .cp-card{
-    background:var(--glass); border:1px solid var(--glass-border); border-radius:4px;
-    padding:20px 22px; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-  }
-  .hero-costpay .cp-label{
-    font-family:var(--inscript); font-size:11px; font-weight:400; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--accent); margin-bottom:8px; display:block;
-  }
-  .hero-costpay .cp-card:nth-child(2) .cp-label{ color:var(--cool-light); }
-  .hero-costpay p{ font-size:15px; font-weight:400; line-height:1.5; color:var(--ink-dim); }
   .inline-cta{ margin-top:38px; display:flex; justify-content:center; position:relative; z-index:2; }
 
   .marquee{ overflow:hidden; background:#000; padding:18px 0; white-space:nowrap; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); }
@@ -367,7 +356,7 @@
         Sam Osborne
         <span class="nav-tag">Mastermind Cohort</span>
       </div>
-      <a class="cta-link" href="#book">Book a private call</a>
+      <a class="cta-link" href="#book">Schedule a Call</a>
     </div>
   </nav>
 
@@ -381,21 +370,32 @@
     <div class="shape shape-cool shape-plus" style="top:70%; right:14%; animation-delay:2.2s;">☽</div>
     <div class="hero-inner">
       <div class="eyebrow reveal">A Private Mastermind Cohort</div>
-      <h1 class="reveal">A private mastermind for developing <span class="grad-text">new ideas about reality</span> for the modern-day alchemist and philosopher.</h1>
+      <h1 class="reveal">A private mastermind for <span class="grad-text">expanding your thinking capacity</span> — for professionals who think across disciplines.</h1>
       <p class="sub reveal">For people building a coherent way of seeing reality — not collecting more to know, but forging one idea that holds.</p>
-      <p class="sub reveal" style="margin-top:16px; font-size:15px;">A trained Demartini Method Facilitator · Incoming President, NSA Southern California.</p>
-      <div class="hero-costpay reveal">
-        <div class="cp-card">
-          <span class="cp-label">The Cost</span>
-          <p>A stuck decision, an ambiguous relationship, a project you keep almost starting — none of it feels urgent, so it just runs. A year later, that's what it actually cost you.</p>
-        </div>
-        <div class="cp-card">
-          <span class="cp-label">The Payoff</span>
-          <p>It doesn't arrive as an answer you argue your way to. It arrives as a quiet click — the stuck thing suddenly obvious, the way a shape resolves once you stop staring at the gaps.</p>
-        </div>
-      </div>
+    </div>
+  </section>
+
+  <section class="s-alt copy">
+    <div class="wrap-narrow">
+      <p class="body-lg reveal" style="font-size:17px;">A trained Demartini Method Facilitator · Incoming President, NSA Southern California.</p>
+    </div>
+  </section>
+
+  <section class="s-bg copy">
+    <div class="wrap-narrow">
+      <span class="cp-label reveal" style="display:block; margin-bottom:16px;">The Cost</span>
+      <h2 class="reveal">A stuck decision, an ambiguous relationship, a project you keep almost starting.</h2>
+      <p class="body-lg reveal">None of it feels urgent, so it just runs. A year later, that's what it actually cost you.</p>
+    </div>
+  </section>
+
+  <section class="s-alt copy">
+    <div class="wrap-narrow">
+      <span class="cp-label reveal" style="display:block; margin-bottom:16px; color:var(--cool-light);">The Payoff</span>
+      <h2 class="reveal">It doesn't arrive as an answer you argue your way to.</h2>
+      <p class="body-lg reveal">It arrives as a quiet click — the stuck thing suddenly obvious, the way a shape resolves once you stop staring at the gaps.</p>
       <div class="inline-cta reveal">
-        <a class="btn btn-primary" href="#book">Book a private information call</a>
+        <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
       </div>
     </div>
   </section>
@@ -413,14 +413,14 @@
     </div>
   </div>
 
-  <section class="s-alt copy angle-down">
+  <section class="s-bg copy angle-down">
     <div class="wrap-narrow">
       <h2 class="reveal">You've already tried harder. That was never the missing move.</h2>
       <p class="body-lg reveal">Discipline, advice, more analysis — the tools that built everything else you've achieved have no purchase here. They're built to make one side win an argument that was never meant to be won that way.</p>
     </div>
   </section>
 
-  <section class="s-bg statement angle-up">
+  <section class="s-alt statement angle-up">
     <svg class="unity-bg" viewBox="0 0 100 100">
       <path class="u-warm" d="M50,0A50,50 0 0,1 50,100A25,25 0 0,1 50,50A25,25 0 0,0 50,0Z"/>
       <path class="u-cool" d="M50,100A50,50 0 0,1 50,0A25,25 0 0,1 50,50A25,25 0 0,0 50,100Z"/>
@@ -433,7 +433,7 @@
     </div>
   </section>
 
-  <section class="s-alt copy">
+  <section class="s-bg copy">
     <div class="wrap-narrow">
       <h2 class="reveal">Why me.</h2>
       <p class="body-lg reveal">This isn't a problem I solved because I hit the wall myself. It's a pull I've had for most of my life — toward understanding how the conscious and unconscious mind actually work together, and finding a way of thinking most people are never taught.</p>
@@ -451,11 +451,11 @@
       </div>
     </div>
     <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="#book">Book a private information call</a>
+      <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
     </div>
   </section>
 
-  <section class="s-bg copy">
+  <section class="s-alt copy">
     <div class="wrap-narrow">
       <h2 class="reveal">Why it doesn't resolve on its own.</h2>
       <p class="body-lg reveal">The problem isn't one your conscious effort created — so it won't be one your conscious effort solves alone.</p>
@@ -476,7 +476,7 @@
     </div>
   </section>
 
-  <section class="s-alt copy">
+  <section class="s-bg copy">
     <div class="shape shape-ring" style="width:90px; height:90px; top:8%; right:6%; animation-delay:1s;"></div>
     <div class="shape shape-cool shape-line" style="width:100px; bottom:10%; left:6%; animation-delay:0.3s;"></div>
     <div class="wrap-narrow">
@@ -501,7 +501,7 @@
     </div>
   </section>
 
-  <section class="s-bg copy">
+  <section class="s-alt copy">
     <div class="wrap-narrow">
       <h2 class="reveal">What actually changes.</h2>
       <p class="body-lg reveal">A working capability, not a certificate — one you keep using long after the cohort ends.</p>
@@ -535,11 +535,11 @@
       </div>
     </details>
     <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="#book">Book a private information call</a>
+      <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
     </div>
   </section>
 
-  <section class="s-alt copy" id="pricing">
+  <section class="s-bg copy" id="pricing">
     <div class="wrap-narrow">
       <h2 class="reveal">The founding cohort.</h2>
       <p class="body-lg reveal">One price. One format. Everything that's included, stated plainly.</p>
@@ -556,7 +556,7 @@
           <li>A small cohort — 6 to 10 people</li>
           <li>Direct access to Sam between sessions</li>
         </ul>
-        <a class="btn btn-primary price-btn" href="#book">Book a private information call</a>
+        <a class="btn btn-primary price-btn" href="#book">Schedule Your Private Call</a>
         <details class="disclosure">
           <summary>How payment and the process work</summary>
           <div class="disclosure-body">
@@ -568,7 +568,7 @@
     </div>
   </section>
 
-  <section class="s-bg copy">
+  <section class="s-alt copy">
     <div class="wrap-narrow">
       <h2 class="reveal">Questions worth asking before you book a call.</h2>
     </div>
@@ -603,18 +603,18 @@
       </details>
     </div>
     <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="#book">Book a private information call</a>
+      <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
     </div>
   </section>
 
-  <section class="s-alt cta-section angle-up" id="book">
+  <section class="s-bg cta-section angle-up" id="book">
     <div class="orb orb-1"></div>
     <div class="shape shape-ring" style="width:100px; height:100px; top:12%; left:8%; animation-delay:0.6s;"></div>
     <div class="shape shape-cool shape-plus" style="top:75%; right:12%; animation-delay:1.4s;">☽</div>
     <h2 class="reveal">If this is landing somewhere real.</h2>
     <p class="body-lg reveal">For the founding cohort, a conversation comes first — not a purchase. I'd rather talk than sell you on a page.</p>
     <div class="btn-row reveal">
-      <a class="btn btn-primary magnetic" href="mailto:sam@samosborne.net?subject=Mastermind%20-%20let%27s%20talk">Book a private information call</a>
+      <a class="btn btn-primary magnetic" href="mailto:sam@samosborne.net?subject=Mastermind%20-%20let%27s%20talk">Schedule Your Private Call</a>
       <a class="btn btn-secondary" href="mailto:sam@samosborne.net">Not ready yet — email me ›</a>
     </div>
   </section>
