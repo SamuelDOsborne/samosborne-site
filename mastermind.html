@@ -255,6 +255,37 @@
   }
   .price-schedule strong{ color:var(--accent); }
 
+  .disclosure{
+    max-width:600px;
+    margin:20px auto 0;
+    text-align:left;
+  }
+  .disclosure summary{
+    cursor:pointer;
+    list-style:none;
+    font-size:15px;
+    font-weight:600;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .disclosure summary::-webkit-details-marker{ display:none; }
+  .disclosure summary::after{
+    content:"⌄";
+    font-size:16px;
+    transition:transform 0.2s ease;
+  }
+  .disclosure[open] summary::after{ transform:rotate(180deg); }
+  .disclosure .disclosure-body{
+    padding-top:14px;
+    font-size:15px;
+    line-height:1.6;
+    color:var(--gray-600);
+  }
+  .disclosure .disclosure-body p{ max-width:none; margin-bottom:12px; font-size:15px; }
+  .disclosure .disclosure-body p:last-child{ margin-bottom:0; }
+
   footer{
     padding:32px 22px 48px;
     text-align:center;
@@ -300,8 +331,14 @@
   <section class="tint copy">
     <div class="wrap-narrow">
       <h2 class="reveal">Why me.</h2>
-      <p class="body-lg reveal">Years ago, an eye injury took my vision in one eye and, for a while, my ability to trust what I was seeing at all. What came back wasn't new. It was what had been there the whole time, underneath a version of myself I'd been polishing for other people's approval. That's the same shape of problem this program addresses — just usually without the injury forcing the issue.</p>
-      <p class="body-lg reveal">I'm a trained Demartini Method Facilitator and a professional speaker on conflict and composure, working with attorneys, advisors, and executives — including a Best of Conference honor at the CAI National Law Seminar, co-presented with attorney David Graf, and the incoming presidency of the National Speakers Association's Southern California chapter. This program is where that work meets the depth-psychology and dream-analysis practice I've spent years developing privately — brought forward for the first time, deliberately, with a small group.</p>
+      <p class="body-lg reveal">An eye injury years ago forced a version of this same reckoning on me before I had a name for it — what came back wasn't new, just what had been there all along.</p>
+      <details class="disclosure reveal">
+        <summary>Read more about my background</summary>
+        <div class="disclosure-body">
+          <p>The injury took my vision in one eye and, for a while, my ability to trust what I was seeing at all. What came back wasn't new. It was what had been there the whole time, underneath a version of myself I'd been polishing for other people's approval. That's the same shape of problem this program addresses — just usually without the injury forcing the issue.</p>
+          <p>I'm a trained Demartini Method Facilitator and a professional speaker on conflict and composure, working with attorneys, advisors, and executives — including a Best of Conference honor at the CAI National Law Seminar, co-presented with attorney David Graf, and the incoming presidency of the National Speakers Association's Southern California chapter. This program is where that work meets the depth-psychology and dream-analysis practice I've spent years developing privately — brought forward for the first time, deliberately, with a small group.</p>
+        </div>
+      </details>
     </div>
     <div class="about-photo reveal">
       <img src="images/sam-osborne-vest.jpg" alt="Portrait of Sam Osborne.">
@@ -320,7 +357,7 @@
       </div>
       <div class="card reveal">
         <h3>What this isn't</h3>
-        <p>Not therapy. Not generic executive coaching. Specific work, guided by frameworks I've spent years developing — including my training as a Demartini Method Facilitator.</p>
+        <p>Not therapy, and I'm not a licensed psychotherapist or mental health provider. Not generic executive coaching either. Specific work, guided by frameworks I've spent years developing — including my training as a Demartini Method Facilitator.</p>
       </div>
       <div class="card reveal">
         <h3>How it runs</h3>
@@ -374,8 +411,13 @@
         <li>Direct access to Sam between sessions</li>
       </ul>
       <a class="btn btn-primary price-btn" href="#book">Book a conversation to apply</a>
-      <p class="price-note">A short call first — to make sure this is the right room for you. If it is, payment is by direct bank transfer, arranged on that call.</p>
-      <p class="price-note">First cohort, priced accordingly. No bonuses, no stacked "value" — this is what it costs and what you get. First session, no questions, money back. Spots are held once payment clears; the cohort closes once it's full.</p>
+      <details class="disclosure">
+        <summary>How payment and the process work</summary>
+        <div class="disclosure-body">
+          <p>A short call first — to make sure this is the right room for you. If it is, payment is by direct bank transfer, arranged on that call.</p>
+          <p>First cohort, priced accordingly. No bonuses, no stacked "value" — this is what it costs and what you get. First session, no questions, money back. Spots are held once payment clears; the cohort closes once it's full.</p>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -389,7 +431,8 @@
   </section>
 
   <footer>
-    Sam Osborne &nbsp;·&nbsp; samosborne.net
+    <p>Sam Osborne &nbsp;·&nbsp; samosborne.net</p>
+    <p style="margin-top:8px;">If you're in crisis or need clinical support, please reach out to a licensed mental health professional.</p>
   </footer>
 
 <script>
