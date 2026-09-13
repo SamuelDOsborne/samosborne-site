@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Built the Life. Why Doesn't It Feel Like Anything?</title>
+<style>
+  :root{
+    --white: #ffffff;
+    --black: #000000;
+    --near-black: #1d1d1f;
+    --gray-900: #1d1d1f;
+    --gray-600: #6e6e73;
+    --gray-300: #d2d2d7;
+    --gray-100: #f5f5f7;
+    --accent: #0071e3;
+    --sans: -apple-system, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--sans);
+    color:var(--gray-900);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{ max-width:980px; margin:0 auto; padding:0 22px; }
+  .wrap-narrow{ max-width:692px; margin:0 auto; padding:0 22px; }
+
+  /* Nav */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+  nav .wrap{
+    height:44px;
+    display:flex; align-items:center; justify-content:space-between;
+    max-width:1024px;
+  }
+  nav .brand{ font-size:14px; font-weight:600; letter-spacing:-0.01em; }
+  nav .cta-link{ font-size:12px; color:var(--accent); }
+
+  /* Sections */
+  section{ text-align:center; }
+  .light{ background:var(--white); color:var(--gray-900); }
+  .tint{ background:var(--gray-100); color:var(--gray-900); }
+  .dark{ background:var(--black); color:var(--white); }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* Hero */
+  .hero{ padding:120px 22px 96px; }
+  .eyebrow{
+    font-size:19px; font-weight:600; color:var(--gray-600);
+    margin-bottom:8px;
+  }
+  h1{
+    font-size:clamp(40px, 7vw, 72px);
+    font-weight:600;
+    letter-spacing:-0.015em;
+    line-height:1.05;
+    max-width:900px;
+    margin:0 auto 24px;
+  }
+  .hero p.sub{
+    font-size:clamp(19px, 2.6vw, 24px);
+    font-weight:400;
+    color:var(--gray-600);
+    max-width:640px;
+    margin:0 auto;
+    line-height:1.4;
+  }
+
+  /* Section headings */
+  h2{
+    font-size:clamp(32px, 5vw, 48px);
+    font-weight:600;
+    letter-spacing:-0.015em;
+    line-height:1.08;
+    max-width:760px;
+    margin:0 auto 20px;
+  }
+  .body-lg{
+    font-size:21px;
+    line-height:1.5;
+    color:var(--gray-600);
+    max-width:600px;
+    margin:0 auto 16px;
+  }
+  .dark .body-lg{ color:#a1a1a6; }
+  section.copy{ padding:100px 22px; }
+
+  /* Feature list (Apple "spec" cards) */
+  .grid3{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:28px;
+    max-width:920px;
+    margin:56px auto 0;
+    text-align:left;
+  }
+  @media (max-width: 780px){ .grid3{ grid-template-columns:1fr; } }
+  .card{
+    background:var(--white);
+    border-radius:18px;
+    padding:32px 28px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.04);
+    border:1px solid var(--gray-300);
+  }
+  .card h3{
+    font-size:20px; font-weight:600; letter-spacing:-0.01em;
+    margin-bottom:10px;
+  }
+  .card p{ font-size:15px; line-height:1.5; color:var(--gray-600); }
+
+  /* Big statement */
+  .statement{ padding:140px 22px; }
+  .statement p{
+    font-size:clamp(28px, 4.4vw, 44px);
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.18;
+    max-width:780px;
+    margin:0 auto;
+  }
+  .statement .accent{ color:var(--gray-600); }
+  .dark .statement .accent{ color:#6e6e73; }
+
+  /* Who it's for */
+  .who-list{
+    max-width:640px;
+    margin:48px auto 0;
+    text-align:left;
+    border-top:1px solid var(--gray-300);
+  }
+  .who-item{
+    display:grid;
+    grid-template-columns: 32px 1fr;
+    gap:16px;
+    padding:28px 0;
+    border-bottom:1px solid var(--gray-300);
+  }
+  .who-item .num{ font-size:15px; color:var(--gray-600); padding-top:2px; }
+  .who-item h4{ font-size:19px; font-weight:600; margin-bottom:6px; letter-spacing:-0.005em; }
+  .who-item p{ font-size:16px; color:var(--gray-600); line-height:1.5; }
+
+  /* CTA */
+  .cta-section{ padding:130px 22px 150px; }
+  .cta-section h2{ margin-bottom:16px; }
+  .cta-section .body-lg{ margin-bottom:40px; }
+  .btn-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    border-radius:980px;
+    font-size:17px;
+    font-weight:400;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-primary{ background:var(--accent); color:#fff; }
+  .btn-primary:hover{ background:#0077ed; }
+  .btn-secondary{ color:var(--accent); padding:13px 8px; }
+  .btn-secondary:hover{ text-decoration:underline; }
+  .dark .btn-secondary{ color:#2997ff; }
+
+  footer{
+    padding:32px 22px 48px;
+    text-align:center;
+    font-size:12px;
+    color:var(--gray-600);
+    border-top:1px solid var(--gray-300);
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <div class="brand">Sam Osborne</div>
+      <a class="cta-link" href="#book">Book a conversation ›</a>
+    </div>
+  </nav>
+
+  <section class="light hero">
+    <div class="eyebrow reveal">A private mastermind</div>
+    <h1 class="reveal">You built the life.<br>Why doesn't it feel<br>like anything?</h1>
+    <p class="sub reveal">For high performers who've hit every marker that was supposed to matter — and can't explain, even to themselves, why it isn't landing.</p>
+  </section>
+
+  <section class="tint copy">
+    <div class="wrap-narrow">
+      <h2 class="reveal">Nothing's on fire.<br>That's the problem.</h2>
+      <p class="body-lg reveal">You're not burned out in the obvious way. The business is working. The title is real. People ask how you did it, and you have a good answer.</p>
+      <p class="body-lg reveal">But something's gone quiet that used to be loud. A restlessness with no clear object. Nights where sleep doesn't rest you. A sense that you're performing a life rather than living one.</p>
+    </div>
+  </section>
+
+  <section class="dark statement">
+    <div class="wrap-narrow reveal">
+      <p>This isn't a mental health crisis. <span class="accent">It's not a marriage that's failing or a business that's struggling. It's quieter than any of those — which is exactly why it never gets addressed.</span></p>
+    </div>
+  </section>
+
+  <section class="light copy">
+    <div class="wrap-narrow">
+      <h2 class="reveal">Why it doesn't resolve<br>on its own.</h2>
+      <p class="body-lg reveal">Everything that got you here — discipline, achievement, solving problems by working harder at them — has no purchase on this one. It isn't a problem your conscious effort created, and it won't be one your conscious effort solves.</p>
+    </div>
+    <div class="grid3">
+      <div class="card reveal">
+        <h3>What this is</h3>
+        <p>A small, private group working directly with me over several weeks to find what that quiet signal is pointing toward — and what to do once you know.</p>
+      </div>
+      <div class="card reveal">
+        <h3>What this isn't</h3>
+        <p>Not therapy. Not generic executive coaching. Specific work, guided by frameworks I've spent years developing — including my training as a Demartini Method Facilitator.</p>
+      </div>
+      <div class="card reveal">
+        <h3>How it runs</h3>
+        <p>A handful of people at exactly this point. Direct access. No audience, no performance — just the work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint copy">
+    <div class="wrap-narrow">
+      <h2 class="reveal">Who this is for.</h2>
+    </div>
+    <div class="who-list">
+      <div class="who-item reveal">
+        <div class="num">01</div>
+        <div>
+          <h4>You've already won</h4>
+          <p>By every external measure that used to matter, you're done — and it hasn't done what you thought it would.</p>
+        </div>
+      </div>
+      <div class="who-item reveal">
+        <div class="num">02</div>
+        <div>
+          <h4>You're done pretending otherwise</h4>
+          <p>Not to your team, not to your spouse, not to yourself.</p>
+        </div>
+      </div>
+      <div class="who-item reveal">
+        <div class="num">03</div>
+        <div>
+          <h4>You're willing to look underneath it</h4>
+          <p>Even if you don't yet have language for what's down there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark cta-section" id="book">
+    <h2 class="reveal">If this is landing<br>somewhere real.</h2>
+    <p class="body-lg reveal">I'd rather talk than sell you on a page.</p>
+    <div class="btn-row reveal">
+      <a class="btn btn-primary" href="mailto:sam@samosborne.net">Book a conversation</a>
+      <a class="btn btn-secondary" href="mailto:sam@samosborne.net">Email me directly ›</a>
+    </div>
+  </section>
+
+  <footer>
+    Sam Osborne &nbsp;·&nbsp; samosborne.net
+  </footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
