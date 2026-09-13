@@ -458,6 +458,49 @@
     position:relative;
     z-index:1;
   }
+
+  /* Wave dividers */
+  .wave{
+    position:relative;
+    display:block;
+    width:100%;
+    line-height:0;
+    z-index:2;
+  }
+  .wave svg{ display:block; width:100%; height:60px; }
+  @media (max-width:600px){ .wave svg{ height:36px; } }
+
+  /* Abstract floating shapes */
+  .shape{
+    position:absolute;
+    pointer-events:none;
+    z-index:0;
+    animation:drift 9s ease-in-out infinite;
+  }
+  .shape-ring{
+    border:1.5px solid rgba(184,118,63,0.35);
+    border-radius:50%;
+  }
+  .shape-ring.thin{ border-color:rgba(184,118,63,0.2); }
+  .shape-dark .shape-ring{ border-color:rgba(230,176,107,0.28); }
+  .shape-line{
+    height:1.5px;
+    background:linear-gradient(90deg, transparent, rgba(184,118,63,0.4), transparent);
+  }
+  .shape-dark .shape-line{ background:linear-gradient(90deg, transparent, rgba(230,176,107,0.35), transparent); }
+  .shape-plus{
+    color:rgba(184,118,63,0.4);
+    font-size:22px;
+    font-weight:300;
+  }
+  .shape-dark .shape-plus{ color:rgba(230,176,107,0.4); }
+  @keyframes drift{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-16px) rotate(4deg); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .shape{ animation:none; }
+  }
 </style>
 </head>
 <body>
@@ -472,17 +515,25 @@
   <section class="light hero">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
+    <div class="shape shape-ring" style="width:110px; height:110px; top:14%; left:8%; animation-delay:0s;"></div>
+    <div class="shape shape-ring thin" style="width:60px; height:60px; top:66%; left:12%; animation-delay:1.5s;"></div>
+    <div class="shape shape-line" style="width:90px; top:24%; right:10%; animation-delay:0.8s;"></div>
+    <div class="shape shape-plus" style="top:70%; right:14%; animation-delay:2.2s;">+</div>
     <div class="eyebrow reveal">For those who already sense it</div>
     <h1 class="reveal">You're not stuck.<br>You're choosing<br><span class="grad-text">a side.</span></h1>
     <p class="sub reveal">For people with decent, hard-won achievements who are stuck somewhere real — in work, in a relationship, in a decision — and are curious about a genuinely different way to move, not another way to try harder.</p>
     <p class="sub reveal" style="margin-top:16px; font-size:15px;">A trained Demartini Method Facilitator working with attorneys, advisors, and executives — co-presenter, Best of Conference honor at the CAI National Law Seminar; incoming president, NSA Southern California.</p>
   </section>
 
-  <figure class="hero-photo reveal">
+  <figure class="hero-photo reveal" style="margin-top:-1px;">
     <div class="photo-frame">
       <img src="images/sam-panel.png" alt="Sam Osborne speaking on a panel to a room of executives in a Hollywood penthouse overlooking the city.">
     </div>
   </figure>
+
+  <div class="wave" style="margin-top:-6px;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="#14110d"/></svg>
+  </div>
 
   <div class="marquee">
     <div class="marquee-track">
@@ -491,9 +542,13 @@
     </div>
   </div>
 
+  <div class="wave" style="margin-top:-1px; transform:scaleY(-1);">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C360,-10 1080,70 1440,30 L1440,60 L0,60 Z" fill="#f4f0ea"/></svg>
+  </div>
+
   <section class="tint copy">
     <div class="wrap-narrow">
-      <h2 class="reveal">You've already tried harder.<br>That was never the missing move.</h2>
+      <h2 class="reveal">You've already tried harder. That was never the missing move.</h2>
       <p class="body-lg reveal">Something in your work, a decision, or a relationship hasn't moved — not from lack of trying. You've thought it through, gotten advice, applied more discipline. The same tools that built everything else you've achieved.</p>
       <p class="body-lg reveal">They're not failing you. They're just built to make one side win an argument that was never meant to be won that way.</p>
     </div>
@@ -501,6 +556,8 @@
 
   <section class="dark statement">
     <div class="orb orb-1"></div>
+    <div class="shape shape-dark shape-ring thin" style="width:140px; height:140px; top:10%; right:8%; animation-delay:0.4s;"></div>
+    <div class="shape shape-dark shape-line" style="width:120px; bottom:16%; left:8%; animation-delay:1.8s;"></div>
     <div class="wrap-narrow reveal">
       <p>This isn't a mindset problem, and more effort won't fix it. <span class="accent">It moves when both sides of the tension get heard — not when one of them wins.</span></p>
     </div>
@@ -547,6 +604,8 @@
   </section>
 
   <section class="tint copy">
+    <div class="shape shape-ring" style="width:90px; height:90px; top:8%; right:6%; animation-delay:1s;"></div>
+    <div class="shape shape-line" style="width:100px; bottom:10%; left:6%; animation-delay:0.3s;"></div>
     <div class="wrap-narrow">
       <h2 class="reveal">Who this is for.</h2>
     </div>
@@ -598,8 +657,14 @@
     </div>
   </section>
 
+  <div class="wave" style="margin-top:-1px;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C480,80 960,-20 1440,30 L1440,60 L0,60 Z" fill="#14110d"/></svg>
+  </div>
+
   <section class="dark cta-section" id="book">
     <div class="orb orb-1"></div>
+    <div class="shape shape-dark shape-ring" style="width:100px; height:100px; top:12%; left:8%; animation-delay:0.6s;"></div>
+    <div class="shape shape-dark shape-plus" style="top:75%; right:12%; animation-delay:1.4s;">+</div>
     <h2 class="reveal">If this is landing<br>somewhere real.</h2>
     <p class="body-lg reveal">For the founding cohort, a conversation comes first — not a purchase. I'd rather talk than sell you on a page.</p>
     <div class="btn-row reveal">
