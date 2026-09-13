@@ -186,16 +186,20 @@
       align-self: stretch;
       min-height: 520px;
       background:
-        linear-gradient(90deg, rgba(26,26,26,0) 54%, rgba(26,26,26,.96) 100%),
-        linear-gradient(180deg, rgba(26,26,26,.12) 0%, rgba(26,26,26,.54) 100%),
-        url('images/sam-osborne-hero-banner.jpg') center 15%/cover no-repeat;
+        linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%),
+        url('images/sam-osborne-chair-landscape.jpg') center center/cover no-repeat;
     }
     .hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 84px 0 72px;
+      background: var(--warm);
+      color: var(--ink);
     }
+    .hero-copy h1 { color: var(--ink); }
+    .hero-copy .eyebrow { color: var(--slate); }
     .hero-reel {
       display: flex;
       align-items: center;
@@ -248,7 +252,7 @@
     }
     .hero-copy .inner { width: min(700px, calc(100% - 40px)); margin: 0 auto; }
     .hero-kicker {
-      color: rgba(212,165,116,.88);
+      color: var(--slate);
       text-transform: uppercase;
       letter-spacing: .13em;
       font-size: clamp(.9rem, 1.3vw, 1.15rem);
@@ -1012,8 +1016,8 @@
         min-height: 0;
         z-index: 0;
         background:
-          linear-gradient(180deg, rgba(26,26,26,.16) 0%, rgba(26,26,26,.5) 25%, rgba(26,26,26,.9) 52%),
-          url('images/sam-osborne-hero-banner.jpg') 22% 22%/cover no-repeat;
+          linear-gradient(180deg, rgba(245,243,240,.08) 0%, rgba(245,243,240,.55) 45%, rgba(245,243,240,.97) 78%),
+          url('images/headshot.jpg') center 15%/cover no-repeat;
       }
       .hero-copy {
         position: relative;
@@ -1025,6 +1029,7 @@
         opacity: 0;
         animation: heroTextIn .7s ease forwards;
         animation-delay: 1s;
+        background: transparent;
       }
       .hero-reel { padding: 0 0 56px; }
       .hero-reel-inner { width: min(620px, calc(100% - 40px)); margin: 0 auto; }
@@ -1161,14 +1166,14 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne on stage"></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, seated portrait"></div>
     <div class="hero-copy">
       <div class="inner">
         <span class="eyebrow" style="margin-bottom:10px; font-size: clamp(1rem, 1.4vw, 1.3rem); letter-spacing: .08em;">Sam Osborne</span>
         <div class="hero-kicker">Conflict &amp; Composure Speaker<br class="kicker-break">for High-Stakes Professionals</div>
         <h1><span class="h1-full">The Wrong Reaction in the Boardroom Can Cost You the Deal.</span></h1>
 
-        <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Watch a real trigger dissolved live on stage, using a proven method, in front of your audience.</p>
+        <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Watch a real trigger dissolved live on stage, using a proven method, in front of your audience.</p>
         <div class="btn-row">
           <a class="btn-primary hero-check-btn" href="#contact">Check Availability</a>
           <a class="btn-secondary" href="#reel" style="border-color: rgba(212,165,116,.55); color: var(--gold);">Watch Showreel</a>
@@ -2228,5 +2233,6 @@
 })();
 </script>
 <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3937af6df08503f',t:'MTc4OTA5NjIzNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
