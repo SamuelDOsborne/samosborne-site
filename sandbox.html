@@ -178,7 +178,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 0.85fr 1fr;
+      grid-template-columns: 1fr 0.85fr;
       align-items: center;
       min-height: calc(100vh - 56px);
     }
@@ -186,8 +186,9 @@
       position: relative;
       align-self: stretch;
       min-height: 520px;
+      order: 2;
       background:
-        linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%),
+        linear-gradient(270deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%),
         linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%),
         url('images/sam-osborne-chair-landscape.jpg') center center/cover no-repeat;
     }
@@ -199,6 +200,7 @@
       background: var(--warm);
       color: var(--ink);
       align-self: stretch;
+      order: 1;
     }
     .hero-copy h1 { color: var(--ink); }
     .hero-copy .eyebrow { color: var(--slate); }
@@ -1017,9 +1019,8 @@
         inset: 0;
         min-height: 0;
         z-index: 0;
-        background:
-          linear-gradient(180deg, rgba(245,243,240,.08) 0%, rgba(245,243,240,.55) 45%, rgba(245,243,240,.97) 78%),
-          url('images/sam-osborne-chair-landscape.jpg') center center/cover no-repeat;
+        order: initial;
+        background: url('images/sam-osborne-chair-landscape.jpg') center center/cover no-repeat;
       }
       .hero-copy {
         position: relative;
@@ -1178,7 +1179,7 @@
         <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Watch a real trigger dissolved live on stage, using a proven method, in front of your audience.</p>
         <div class="btn-row">
           <a class="btn-primary hero-check-btn" href="#contact">Check Availability</a>
-          <a class="btn-secondary" href="#reel" style="border-color: rgba(212,165,116,.55); color: var(--gold);">Watch Showreel</a>
+          <a class="btn-secondary" href="#reel" style="border-color: var(--slate); color: var(--slate);">Watch Showreel</a>
         </div>
       </div>
     </div>
