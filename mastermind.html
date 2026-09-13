@@ -6,14 +6,15 @@
 <title>You Built the Life. Why Doesn't It Feel Like Anything?</title>
 <style>
   :root{
-    --white: #ffffff;
-    --black: #000000;
-    --near-black: #1d1d1f;
-    --gray-900: #1d1d1f;
-    --gray-600: #6e6e73;
-    --gray-300: #d2d2d7;
-    --gray-100: #f5f5f7;
-    --accent: #0071e3;
+    --white: #faf8f5;
+    --black: #17140f;
+    --near-black: #211d17;
+    --gray-900: #211d17;
+    --gray-600: #756d61;
+    --gray-300: #ddd5c8;
+    --gray-100: #f2ede4;
+    --accent: #b8763f;
+    --accent-light: #d99a5f;
     --sans: -apple-system, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -62,7 +63,7 @@
   /* Hero */
   .hero{ padding:120px 22px 96px; }
   .eyebrow{
-    font-size:19px; font-weight:600; color:var(--gray-600);
+    font-size:19px; font-weight:600; color:var(--accent);
     margin-bottom:8px;
   }
   h1{
@@ -99,6 +100,36 @@
     margin:0 auto 16px;
   }
   .dark .body-lg{ color:#a1a1a6; }
+  .hero-photo{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 22px 100px;
+  }
+  .hero-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:18px;
+  }
+  .hero-photo figcaption{
+    margin-top:14px;
+    font-size:14px;
+    color:var(--gray-600);
+    text-align:center;
+  }
+
+  .about-photo{
+    max-width:340px;
+    margin:48px auto 0;
+    padding:0 22px;
+  }
+  .about-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:16px;
+  }
+
   section.copy{ padding:100px 22px; }
 
   /* Feature list (Apple "spec" cards) */
@@ -169,10 +200,59 @@
     transition:background 0.2s ease, transform 0.2s ease;
   }
   .btn-primary{ background:var(--accent); color:#fff; }
-  .btn-primary:hover{ background:#0077ed; }
+  .btn-primary:hover{ background:var(--accent-light); }
   .btn-secondary{ color:var(--accent); padding:13px 8px; }
   .btn-secondary:hover{ text-decoration:underline; }
-  .dark .btn-secondary{ color:#2997ff; }
+  .dark .btn-secondary{ color:var(--accent-light); }
+
+  .price-card{
+    max-width:420px;
+    margin:56px auto 0;
+    padding:44px 40px;
+    background:var(--white);
+    border:1px solid var(--gray-300);
+    border-radius:22px;
+    text-align:center;
+  }
+  .price-amount{
+    font-size:56px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+  }
+  .price-sub{
+    font-size:15px;
+    color:var(--gray-600);
+    margin-top:6px;
+    margin-bottom:32px;
+  }
+  .price-includes{
+    list-style:none;
+    text-align:left;
+    border-top:1px solid var(--gray-300);
+    margin-bottom:32px;
+  }
+  .price-includes li{
+    padding:16px 0;
+    border-bottom:1px solid var(--gray-300);
+    font-size:15px;
+    color:var(--gray-900);
+    padding-left:26px;
+    position:relative;
+  }
+  .price-includes li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-weight:600;
+  }
+  .price-btn{ width:100%; }
+  .price-note{
+    font-size:12px;
+    color:var(--gray-600);
+    margin-top:20px;
+    line-height:1.5;
+  }
 
   footer{
     padding:32px 22px 48px;
@@ -198,6 +278,11 @@
     <p class="sub reveal">For high performers who've hit every marker that was supposed to matter — and can't explain, even to themselves, why it isn't landing.</p>
   </section>
 
+  <figure class="hero-photo reveal">
+    <img src="images/sam-panel.png" alt="Sam Osborne speaking on a panel to a room of executives in a Hollywood penthouse overlooking the city.">
+    <figcaption>A rooftop in Hollywood. A room full of people who've arrived.</figcaption>
+  </figure>
+
   <section class="tint copy">
     <div class="wrap-narrow">
       <h2 class="reveal">Nothing's on fire.<br>That's the problem.</h2>
@@ -209,6 +294,17 @@
   <section class="dark statement">
     <div class="wrap-narrow reveal">
       <p>This isn't a mental health crisis. <span class="accent">It's not a marriage that's failing or a business that's struggling. It's quieter than any of those — which is exactly why it never gets addressed.</span></p>
+    </div>
+  </section>
+
+  <section class="tint copy">
+    <div class="wrap-narrow">
+      <h2 class="reveal">Why me.</h2>
+      <p class="body-lg reveal">Years ago, an eye injury took my vision in one eye and, for a while, my ability to trust what I was seeing at all. What came back wasn't new. It was what had been there the whole time, underneath a version of myself I'd been polishing for other people's approval. That's the same shape of problem this program addresses — just usually without the injury forcing the issue.</p>
+      <p class="body-lg reveal">I'm a trained Demartini Method Facilitator and a professional speaker on conflict and composure, working with attorneys, advisors, and executives. This program is where that work meets the depth-psychology and dream-analysis practice I've spent years developing privately — brought forward for the first time, deliberately, with a small group.</p>
+    </div>
+    <div class="about-photo reveal">
+      <img src="images/sam-osborne-vest.jpg" alt="Portrait of Sam Osborne.">
     </div>
   </section>
 
@@ -228,7 +324,7 @@
       </div>
       <div class="card reveal">
         <h3>How it runs</h3>
-        <p>A handful of people at exactly this point. Direct access. No audience, no performance — just the work.</p>
+        <p>A handful of people at exactly this point. Direct access. No audience, no performance — just the work. What's said in the group stays in the group — no exceptions.</p>
       </div>
     </div>
   </section>
@@ -259,6 +355,25 @@
           <p>Even if you don't yet have language for what's down there.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="light copy" id="pricing">
+    <div class="wrap-narrow">
+      <h2 class="reveal">The founding cohort.</h2>
+      <p class="body-lg reveal">One price. One format. Everything that's included, stated plainly.</p>
+    </div>
+    <div class="price-card reveal">
+      <div class="price-amount">$997</div>
+      <div class="price-sub">Full 10-week program, one payment</div>
+      <ul class="price-includes">
+        <li>10 weekly group sessions, 90 minutes, live</li>
+        <li>One private 1:1 session with Sam during the program</li>
+        <li>A small cohort — 6 to 10 people</li>
+        <li>Direct access to Sam between sessions</li>
+      </ul>
+      <a class="btn btn-primary price-btn" href="#book">Reserve your spot</a>
+      <p class="price-note">First cohort, priced accordingly. No bonuses, no stacked "value" — this is what it costs and what you get. Spots are held on a first-paid basis; the cohort closes once it's full.</p>
     </div>
   </section>
 
