@@ -26,28 +26,26 @@
     --grad: linear-gradient(120deg, #8a4f24 0%, #c9873f 45%, #e6b06b 100%);
     --sans: 'Inter', -apple-system, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
+  html{ scroll-behavior:smooth; overflow-x:hidden; max-width:100vw; }
   *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ scroll-behavior:smooth; }
   body{
     font-family:var(--sans);
     color:var(--gray-900);
-    background:var(--white);
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    max-width:100vw;
     position:relative;
+    /* Grain baked into the scrolling background itself — never fixed, so it can't jitter against mobile browser chrome */
+    background-color:var(--white);
+    background-image:
+      radial-gradient(ellipse 900px 600px at 15% 0%, rgba(230,176,107,0.16), transparent 60%),
+      radial-gradient(ellipse 800px 700px at 100% 30%, rgba(138,79,36,0.10), transparent 55%),
+      radial-gradient(ellipse 700px 600px at 10% 80%, rgba(230,176,107,0.10), transparent 55%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat:no-repeat, no-repeat, no-repeat, repeat;
+    background-attachment:scroll;
   }
   a{ color:inherit; text-decoration:none; }
-
-  /* Grain texture overlay */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:2;
-    pointer-events:none;
-    opacity:0.035;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
 
   .wrap{ max-width:980px; margin:0 auto; padding:0 22px; }
   .wrap-narrow{ max-width:692px; margin:0 auto; padding:0 22px; }
@@ -79,8 +77,8 @@
   }
 
   /* Sections */
-  section{ text-align:center; position:relative; z-index:1; }
-  .light{ background:var(--white); color:var(--gray-900); }
+  section{ text-align:center; position:relative; z-index:1; overflow:hidden; }
+  .light{ background:transparent; color:var(--gray-900); }
   .tint{ background:var(--surface); color:var(--gray-900); }
   .dark{ background:var(--black); color:var(--white); }
 
@@ -91,18 +89,24 @@
   }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
-  /* Ambient glow orbs */
+  /* Ambient glow orbs — clipped to their section, capped so they never force horizontal scroll */
   .orb{
     position:absolute;
     border-radius:50%;
-    filter:blur(90px);
-    opacity:0.35;
+    filter:blur(70px);
+    opacity:0.3;
     z-index:0;
     pointer-events:none;
+    max-width:60vw;
+    max-height:60vw;
   }
-  .hero{ padding:100px 22px 80px; overflow:visible; }
-  .hero .orb-1{ width:520px; height:520px; top:-160px; left:50%; transform:translateX(-70%); background:radial-gradient(circle, #e6b06b 0%, transparent 70%); }
-  .hero .orb-2{ width:420px; height:420px; top:60px; left:60%; background:radial-gradient(circle, #8a4f24 0%, transparent 70%); opacity:0.18; }
+  .hero{ padding:100px 22px 80px; }
+  .hero .orb-1{ width:min(520px, 60vw); height:min(520px, 60vw); top:-160px; left:50%; transform:translateX(-70%); background:radial-gradient(circle, #e6b06b 0%, transparent 70%); }
+  .hero .orb-2{ width:min(420px, 55vw); height:min(420px, 55vw); top:60px; left:60%; background:radial-gradient(circle, #8a4f24 0%, transparent 70%); opacity:0.16; }
+
+  @media (max-width:600px){
+    .orb{ filter:blur(45px); opacity:0.22; }
+  }
 
   .eyebrow{
     display:inline-block;
@@ -115,17 +119,26 @@
   }
   h1{
     font-size:clamp(42px, 7.4vw, 82px);
-    font-weight:800;
-    letter-spacing:-0.03em;
-    line-height:1.02;
+    font-weight:900;
+    letter-spacing:-0.035em;
+    line-height:1.0;
     max-width:920px;
     margin:0 auto 26px;
   }
   h1 .grad-text{
     background:var(--grad);
+    background-size:200% auto;
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
+    animation:shimmer 5s ease-in-out infinite;
+  }
+  @keyframes shimmer{
+    0%,100%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    h1 .grad-text{ animation:none; }
   }
   .hero p.sub{
     font-size:clamp(18px, 2.4vw, 22px);
@@ -134,6 +147,37 @@
     max-width:620px;
     margin:0 auto;
     line-height:1.5;
+  }
+
+  /* Marquee strip */
+  .marquee{
+    overflow:hidden;
+    background:var(--black);
+    padding:16px 0;
+    white-space:nowrap;
+  }
+  .marquee-track{
+    display:inline-flex;
+    animation:marquee 22s linear infinite;
+  }
+  .marquee-track span{
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#a89f92;
+    padding:0 28px;
+    display:inline-flex;
+    align-items:center;
+    gap:28px;
+  }
+  .marquee-track span::after{ content:"◆"; color:var(--accent-light); font-size:8px; }
+  @keyframes marquee{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation:none; }
   }
 
   h2{
@@ -160,25 +204,31 @@
     position:relative;
     z-index:1;
   }
-  .hero-photo img{
+  .photo-frame{
+    position:relative;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 30px 80px -20px rgba(20,17,13,0.25);
+  }
+  .photo-frame img{
     width:100%;
     height:auto;
     display:block;
-    border-radius:28px;
-    box-shadow:0 30px 80px -20px rgba(20,17,13,0.25);
+    filter:grayscale(0.35) contrast(1.05) brightness(0.97);
+  }
+  .photo-frame::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(160deg, rgba(138,79,36,0.35), rgba(20,17,13,0.05) 55%, rgba(230,176,107,0.2));
+    mix-blend-mode:multiply;
+    pointer-events:none;
   }
 
   .about-photo{
     max-width:1100px;
     margin:56px auto 0;
     padding:0 22px;
-  }
-  .about-photo img{
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:28px;
-    box-shadow:0 30px 80px -20px rgba(20,17,13,0.2);
   }
 
   section.copy{ padding:110px 22px; }
@@ -202,6 +252,9 @@
     border:1px solid var(--glass-border);
     transition:transform 0.3s ease, box-shadow 0.3s ease;
   }
+  @media (max-width:600px){
+    .card, .who-card, .price-card{ backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+  }
   .card:hover{
     transform:translateY(-6px);
     box-shadow:0 20px 50px -12px rgba(20,17,13,0.16);
@@ -212,8 +265,8 @@
   }
   .card p{ font-size:15px; line-height:1.55; color:var(--gray-600); }
 
-  .statement{ padding:150px 22px; position:relative; overflow:hidden; }
-  .statement .orb-1{ width:600px; height:600px; top:50%; left:50%; transform:translate(-50%,-50%); background:radial-gradient(circle, #8a4f24 0%, transparent 70%); opacity:0.25; }
+  .statement{ padding:150px 22px; }
+  .statement .orb-1{ width:min(600px,70vw); height:min(600px,70vw); top:50%; left:50%; transform:translate(-50%,-50%); background:radial-gradient(circle, #8a4f24 0%, transparent 70%); opacity:0.22; }
   .statement p{
     font-size:clamp(28px, 4.6vw, 46px);
     font-weight:700;
@@ -266,8 +319,8 @@
   }
   .who-card p{ font-size:15.5px; color:var(--gray-600); line-height:1.55; position:relative; z-index:1; max-width:420px; }
 
-  .cta-section{ padding:140px 22px 160px; position:relative; overflow:hidden; }
-  .cta-section .orb-1{ width:500px; height:500px; top:-100px; left:50%; transform:translateX(-50%); background:radial-gradient(circle, #e6b06b 0%, transparent 70%); opacity:0.15; }
+  .cta-section{ padding:140px 22px 160px; }
+  .cta-section .orb-1{ width:min(500px,65vw); height:min(500px,65vw); top:-100px; left:50%; transform:translateX(-50%); background:radial-gradient(circle, #e6b06b 0%, transparent 70%); opacity:0.14; }
   .cta-section h2{ margin-bottom:16px; }
   .cta-section .body-lg{ margin-bottom:40px; }
   .btn-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
@@ -289,9 +342,29 @@
   .btn-secondary:hover{ text-decoration:underline; }
   .dark .btn-secondary{ color:var(--accent-light); }
 
-  .price-card{
+  .price-card-wrap{
+    position:relative;
     max-width:440px;
     margin:56px auto 0;
+  }
+  .price-card-wrap::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:34px;
+    background:conic-gradient(from 0deg, #e6b06b, #8a4f24, #e6b06b, #c9873f, #e6b06b);
+    filter:blur(14px);
+    opacity:0.55;
+    animation:spin 8s linear infinite;
+    z-index:0;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .price-card-wrap::before{ animation:none; }
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .price-card{
+    position:relative;
+    z-index:1;
     padding:48px 40px;
     background:var(--glass);
     backdrop-filter:blur(20px);
@@ -384,7 +457,6 @@
     border-top:1px solid var(--gray-300);
     position:relative;
     z-index:1;
-    background:var(--white);
   }
 </style>
 </head>
@@ -407,8 +479,17 @@
   </section>
 
   <figure class="hero-photo reveal">
-    <img src="images/sam-panel.png" alt="Sam Osborne speaking on a panel to a room of executives in a Hollywood penthouse overlooking the city.">
+    <div class="photo-frame">
+      <img src="images/sam-panel.png" alt="Sam Osborne speaking on a panel to a room of executives in a Hollywood penthouse overlooking the city.">
+    </div>
   </figure>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Integration</span><span>Clarity</span><span>Movement</span><span>Insight</span><span>The Third Option</span>
+      <span>Integration</span><span>Clarity</span><span>Movement</span><span>Insight</span><span>The Third Option</span>
+    </div>
+  </div>
 
   <section class="tint copy">
     <div class="wrap-narrow">
@@ -438,7 +519,9 @@
       </details>
     </div>
     <div class="about-photo reveal">
-      <img src="images/sam-osborne-vest.jpg" alt="Portrait of Sam Osborne.">
+      <div class="photo-frame">
+        <img src="images/sam-osborne-vest.jpg" alt="Portrait of Sam Osborne.">
+      </div>
     </div>
   </section>
 
@@ -493,23 +576,25 @@
       <p class="price-schedule reveal"><strong>Starts Saturday, January 9, 2027</strong> · Saturdays, 8:00am PST · 10 weeks</p>
       <p class="price-schedule reveal" style="color:var(--gray-600); font-size:14px; margin-top:8px;">Deliberately small — 6 to 10 people, by design, not a marketing number.</p>
     </div>
-    <div class="price-card reveal">
-      <div class="price-amount">$997</div>
-      <div class="price-sub">Full 10-week program, one payment</div>
-      <ul class="price-includes">
-        <li>10 weekly group sessions, 90 minutes, live</li>
-        <li>One private 1:1 session with Sam during the program</li>
-        <li>A small cohort — 6 to 10 people</li>
-        <li>Direct access to Sam between sessions</li>
-      </ul>
-      <a class="btn btn-primary price-btn" href="#book">Book a conversation to apply</a>
-      <details class="disclosure">
-        <summary>How payment and the process work</summary>
-        <div class="disclosure-body">
-          <p>A short call first — to make sure this is the right room for you. If it is, payment is by direct bank transfer, arranged on that call.</p>
-          <p>First cohort, priced accordingly. No bonuses, no stacked "value" — this is what it costs and what you get. First session, no questions, money back. Spots are held once payment clears; the cohort closes once it's full.</p>
-        </div>
-      </details>
+    <div class="price-card-wrap reveal">
+      <div class="price-card">
+        <div class="price-amount">$997</div>
+        <div class="price-sub">Full 10-week program, one payment</div>
+        <ul class="price-includes">
+          <li>10 weekly group sessions, 90 minutes, live</li>
+          <li>One private 1:1 session with Sam during the program</li>
+          <li>A small cohort — 6 to 10 people</li>
+          <li>Direct access to Sam between sessions</li>
+        </ul>
+        <a class="btn btn-primary price-btn" href="#book">Book a conversation to apply</a>
+        <details class="disclosure">
+          <summary>How payment and the process work</summary>
+          <div class="disclosure-body">
+            <p>A short call first — to make sure this is the right room for you. If it is, payment is by direct bank transfer, arranged on that call.</p>
+            <p>First cohort, priced accordingly. No bonuses, no stacked "value" — this is what it costs and what you get. First session, no questions, money back. Spots are held once payment clears; the cohort closes once it's full.</p>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
