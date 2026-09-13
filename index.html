@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f3f0" />
   <title>Sam Osborne | Conflict &amp; Composure Speaker | Live Demonstrations for High-Stakes Professionals</title>
   <meta name="description" content="Sam Osborne doesn't talk about composure — he dissolves a real conflict on stage, live, with a volunteer from your audience. Included in every format, keynote through intensive. For attorneys, advisors, executives, sales teams, and CFOs. 95% of attendees rated his delivery excellent across 39 evaluations, in the Friday morning slot at the 2026 CAI National Law Seminar." />
 
@@ -145,8 +146,8 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px) saturate(180%);
-      background: rgba(26,26,26,.82);
-      border-bottom: 1px solid var(--line);
+      background: rgba(245,243,240,.85);
+      border-bottom: 1px solid rgba(0,0,0,.08);
     }
     .nav-inner {
       min-height: 56px;
@@ -157,17 +158,17 @@
       position: relative;
     }
     .nav-brand { font-weight: 800; letter-spacing: .02em; font-size: 1.1rem; color: var(--gold); }
-    .nav-links { display: flex; gap: 24px; color: var(--muted); font-size: 14px; }
+    .nav-links { display: flex; gap: 24px; color: rgba(29,29,31,.72); font-size: 14px; }
     .nav-links a:hover, .nav-cta:hover { color: var(--gold); }
     .nav-right { display: flex; align-items: center; gap: 18px; }
-    .nav-phone { color: #ffffff; font-size: 14px; font-weight: 600; white-space: nowrap; transition: color .18s ease; }
+    .nav-phone { color: #1d1d1f; font-size: 14px; font-weight: 600; white-space: nowrap; transition: color .18s ease; }
     .nav-phone:hover { color: var(--gold); }
     .nav-cta { color: var(--gold); font-size: 14px; font-weight: 600; }
     .mobile-toggle {
       display: none;
       background: none;
-      border: 1px solid rgba(255,255,255,.2);
-      color: white;
+      border: 1px solid rgba(0,0,0,.2);
+      color: #1d1d1f;
       font-size: 20px;
       border-radius: 8px;
       padding: 6px 10px;
@@ -177,7 +178,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 0.85fr 1fr;
+      grid-template-columns: 1fr 0.85fr;
       align-items: center;
       min-height: calc(100vh - 56px);
     }
@@ -185,17 +186,24 @@
       position: relative;
       align-self: stretch;
       min-height: 520px;
+      order: 2;
       background:
-        linear-gradient(90deg, rgba(26,26,26,0) 54%, rgba(26,26,26,.96) 100%),
-        linear-gradient(180deg, rgba(26,26,26,.12) 0%, rgba(26,26,26,.54) 100%),
-        url('images/sam-osborne-hero-banner.jpg') center 15%/cover no-repeat;
+        linear-gradient(270deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%),
+        url('images/sam-osborne-chair-hero.jpg') center center/cover no-repeat;
     }
     .hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 84px 0 72px;
+      background: var(--warm);
+      color: var(--ink);
+      align-self: stretch;
+      order: 1;
     }
+    .hero-copy h1 { color: var(--ink); }
+    .hero-copy .eyebrow { color: var(--slate); }
     .hero-reel {
       display: flex;
       align-items: center;
@@ -248,7 +256,7 @@
     }
     .hero-copy .inner { width: min(700px, calc(100% - 40px)); margin: 0 auto; }
     .hero-kicker {
-      color: rgba(212,165,116,.88);
+      color: var(--slate);
       text-transform: uppercase;
       letter-spacing: .13em;
       font-size: clamp(.9rem, 1.3vw, 1.15rem);
@@ -998,52 +1006,46 @@
       .about-rule { margin: 20px 0; }
       .advisory-body { gap: 24px; }
 
-      /* Hero: overlay the copy on the photo instead of stacking below it,
-         so the headline and CTA are visible without scrolling past the
-         image first. Text fades in shortly after load so the photo reads
-         first, then the offer. */
+      /* Hero: stacked, not overlaid — photo on top, copy in its own
+         solid panel below. Matches the About/Method sections elsewhere
+         on the site, and avoids overlaying text on the photo (illegible
+         against the suit once the fade gradient was removed). */
       .hero {
         display: block;
-        position: relative;
       }
       .hero-image {
-        position: absolute;
-        inset: 0;
-        min-height: 0;
-        z-index: 0;
-        background:
-          linear-gradient(180deg, rgba(26,26,26,.16) 0%, rgba(26,26,26,.5) 25%, rgba(26,26,26,.9) 52%),
-          url('images/sam-osborne-hero-banner.jpg') 22% 22%/cover no-repeat;
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        min-height: 380px;
+        background: url('images/sam-osborne-chair-hero.jpg') center 12%/cover no-repeat;
       }
       .hero-copy {
         position: relative;
-        z-index: 2;
-        min-height: calc(100vh - 56px);
-        display: flex;
-        justify-content: flex-end;
-        padding: 0 0 96px;
-        opacity: 0;
-        animation: heroTextIn .7s ease forwards;
-        animation-delay: 1s;
+        min-height: 0;
+        display: block;
+        padding: 40px 0 56px;
+        background: var(--warm);
+        opacity: 1;
+        animation: none;
       }
       .hero-reel { padding: 0 0 56px; }
       .hero-reel-inner { width: min(620px, calc(100% - 40px)); margin: 0 auto; }
       .h1-short { display: none; }
       .kicker-break { display: inline; }
-      .hero-sub-copy { display: none; }
       .hero-check-btn { display: none; }
       .mobile-toggle { display: block; }
       .nav-links {
         position: absolute;
         top: 56px; left: 0;
         width: 100%;
-        background: rgba(26,26,26,.96);
+        background: rgba(245,243,240,.97);
         backdrop-filter: blur(18px);
         flex-direction: column;
         gap: 18px;
         padding: 20px;
         display: none;
-        border-bottom: 1px solid var(--line);
+        border-bottom: 1px solid rgba(0,0,0,.08);
       }
       .nav-links.active { display: flex; }
       .nav-links a { display: block; width: 100%; }
@@ -1161,17 +1163,17 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne on stage"></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, seated portrait"></div>
     <div class="hero-copy">
       <div class="inner">
         <span class="eyebrow" style="margin-bottom:10px; font-size: clamp(1rem, 1.4vw, 1.3rem); letter-spacing: .08em;">Sam Osborne</span>
         <div class="hero-kicker">Conflict &amp; Composure Speaker<br class="kicker-break">for High-Stakes Professionals</div>
         <h1><span class="h1-full">The Wrong Reaction in the Boardroom Can Cost You the Deal.</span></h1>
 
-        <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(245,245,247,.82); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Watch a real trigger dissolved live on stage, using a proven method, in front of your audience.</p>
+        <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Watch a real trigger dissolved live on stage, using a proven method, in front of your audience.</p>
         <div class="btn-row">
           <a class="btn-primary hero-check-btn" href="#contact">Check Availability</a>
-          <a class="btn-secondary" href="#reel" style="border-color: rgba(212,165,116,.55); color: var(--gold);">Watch Showreel</a>
+          <a class="btn-secondary" href="#reel" style="border-color: var(--slate); color: var(--slate);">Watch Showreel</a>
         </div>
       </div>
     </div>
@@ -2228,5 +2230,6 @@
 })();
 </script>
 <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3937af6df08503f',t:'MTc4OTA5NjIzNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
