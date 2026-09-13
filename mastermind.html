@@ -69,6 +69,12 @@
     box-shadow:0 8px 30px rgba(0,0,0,0.4);
   }
   nav .brand{ font-size:14px; font-weight:700; letter-spacing:-0.01em; color:var(--ink); display:flex; align-items:center; gap:9px; }
+  nav .nav-tag{
+    font-size:11px; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;
+    color:var(--ink-dim); border:1px solid var(--glass-border); border-radius:999px;
+    padding:4px 10px; margin-left:4px;
+  }
+  @media (max-width:480px){ nav .nav-tag{ display:none; } }
   nav .cta-link{ font-size:13px; font-weight:600; color:#111; background:var(--grad); padding:8px 16px; border-radius:999px; }
 
   section{ text-align:center; position:relative; z-index:1; overflow:hidden; }
@@ -302,6 +308,7 @@
           <path class="u-cool" d="M50,100A50,50 0 0,1 50,0A25,25 0 0,1 50,50A25,25 0 0,0 50,100Z"/>
         </svg>
         Sam Osborne
+        <span class="nav-tag">Mastermind Cohort</span>
       </div>
       <a class="cta-link" href="#book">Book a conversation</a>
     </div>
@@ -316,7 +323,8 @@
     <div class="shape shape-line" style="width:90px; top:26%; right:10%; animation-delay:0.8s;"></div>
     <div class="shape shape-cool shape-plus" style="top:70%; right:14%; animation-delay:2.2s;">+</div>
     <div class="hero-inner">
-      <div class="eyebrow reveal">For minds that refuse to specialize</div>
+      <div class="eyebrow reveal">A Private Mastermind Cohort</div>
+      <p class="reveal" style="font-size:13px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:24px;">For minds that refuse to specialize</p>
       <h1 class="reveal">Philosophy. Psychology.<br>Physics.<br><span class="grad-text">One idea, holding all three.</span></h1>
       <p class="sub reveal">For people who think across disciplines rather than inside one — and want a single, coherent idea about how reality actually works, not another silo of expertise.</p>
       <p class="sub reveal" style="margin-top:16px; font-size:15px;">A trained Demartini Method Facilitator working with attorneys, advisors, and executives — co-presenter, Best of Conference honor at the CAI National Law Seminar; incoming president, NSA Southern California.</p>
