@@ -3,19 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You Built the Life. Why Doesn't It Feel Like Anything?</title>
+<title>You're Not Stuck. You're Choosing a Side.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --white: #faf8f5;
-    --black: #17140f;
-    --near-black: #211d17;
+    --surface: #f4f0ea;
+    --glass: rgba(255,255,255,0.55);
+    --glass-border: rgba(255,255,255,0.7);
+    --black: #14110d;
+    --near-black: #1c1812;
     --gray-900: #211d17;
     --gray-600: #756d61;
+    --gray-400: #9b9184;
     --gray-300: #ddd5c8;
     --gray-100: #f2ede4;
     --accent: #b8763f;
-    --accent-light: #d99a5f;
-    --sans: -apple-system, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --accent-light: #e0a869;
+    --accent-deep: #8a4f24;
+    --grad: linear-gradient(120deg, #8a4f24 0%, #c9873f 45%, #e6b06b 100%);
+    --sans: 'Inter', -apple-system, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
   html{ scroll-behavior:smooth; }
@@ -25,30 +34,54 @@
     background:var(--white);
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    position:relative;
   }
   a{ color:inherit; text-decoration:none; }
+
+  /* Grain texture overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+    opacity:0.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 
   .wrap{ max-width:980px; margin:0 auto; padding:0 22px; }
   .wrap-narrow{ max-width:692px; margin:0 auto; padding:0 22px; }
 
+  /* Floating pill nav */
   nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(255,255,255,0.8);
+    position:sticky; top:16px; z-index:50;
+    display:flex; justify-content:center;
+  }
+  nav .nav-inner{
+    max-width:680px;
+    width:calc(100% - 32px);
+    height:52px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 22px;
+    background:var(--glass);
     backdrop-filter:saturate(180%) blur(20px);
     -webkit-backdrop-filter:saturate(180%) blur(20px);
-    border-bottom:1px solid rgba(0,0,0,0.06);
+    border:1px solid var(--glass-border);
+    border-radius:999px;
+    box-shadow:0 8px 30px rgba(20,17,13,0.06);
   }
-  nav .wrap{
-    height:44px;
-    display:flex; align-items:center; justify-content:space-between;
-    max-width:1024px;
+  nav .brand{ font-size:14px; font-weight:700; letter-spacing:-0.01em; }
+  nav .cta-link{
+    font-size:13px; font-weight:600; color:#fff;
+    background:var(--grad);
+    padding:8px 16px;
+    border-radius:999px;
   }
-  nav .brand{ font-size:14px; font-weight:600; letter-spacing:-0.01em; }
-  nav .cta-link{ font-size:12px; color:var(--accent); }
 
-  section{ text-align:center; }
+  /* Sections */
+  section{ text-align:center; position:relative; z-index:1; }
   .light{ background:var(--white); color:var(--gray-900); }
-  .tint{ background:var(--gray-100); color:var(--gray-900); }
+  .tint{ background:var(--surface); color:var(--gray-900); }
   .dark{ background:var(--black); color:var(--white); }
 
   .reveal{
@@ -58,60 +91,81 @@
   }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
-  .hero{ padding:120px 22px 96px; }
+  /* Ambient glow orbs */
+  .orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.35;
+    z-index:0;
+    pointer-events:none;
+  }
+  .hero{ padding:100px 22px 80px; overflow:visible; }
+  .hero .orb-1{ width:520px; height:520px; top:-160px; left:50%; transform:translateX(-70%); background:radial-gradient(circle, #e6b06b 0%, transparent 70%); }
+  .hero .orb-2{ width:420px; height:420px; top:60px; left:60%; background:radial-gradient(circle, #8a4f24 0%, transparent 70%); opacity:0.18; }
+
   .eyebrow{
-    font-size:19px; font-weight:600; color:var(--accent);
-    margin-bottom:8px;
+    display:inline-block;
+    font-size:13px; font-weight:700; letter-spacing:0.02em;
+    color:var(--accent-deep);
+    background:linear-gradient(120deg, rgba(230,176,107,0.25), rgba(184,118,63,0.15));
+    padding:7px 16px;
+    border-radius:999px;
+    margin-bottom:22px;
   }
   h1{
-    font-size:clamp(40px, 7vw, 72px);
-    font-weight:600;
-    letter-spacing:-0.015em;
-    line-height:1.05;
-    max-width:900px;
-    margin:0 auto 24px;
+    font-size:clamp(42px, 7.4vw, 82px);
+    font-weight:800;
+    letter-spacing:-0.03em;
+    line-height:1.02;
+    max-width:920px;
+    margin:0 auto 26px;
+  }
+  h1 .grad-text{
+    background:var(--grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
   }
   .hero p.sub{
-    font-size:clamp(19px, 2.6vw, 24px);
+    font-size:clamp(18px, 2.4vw, 22px);
     font-weight:400;
     color:var(--gray-600);
-    max-width:640px;
+    max-width:620px;
     margin:0 auto;
-    line-height:1.4;
+    line-height:1.5;
   }
 
   h2{
-    font-size:clamp(32px, 5vw, 48px);
-    font-weight:600;
-    letter-spacing:-0.015em;
-    line-height:1.08;
+    font-size:clamp(32px, 5.2vw, 50px);
+    font-weight:800;
+    letter-spacing:-0.025em;
+    line-height:1.06;
     max-width:760px;
     margin:0 auto 20px;
   }
   .body-lg{
-    font-size:21px;
-    line-height:1.5;
+    font-size:20px;
+    line-height:1.55;
     color:var(--gray-600);
     max-width:600px;
     margin:0 auto 16px;
   }
-  .dark .body-lg{ color:#a1a1a6; }
+  .dark .body-lg{ color:#a89f92; }
+
   .hero-photo{
     max-width:1100px;
     margin:0 auto;
     padding:0 22px 100px;
+    position:relative;
+    z-index:1;
   }
   .hero-photo img{
     width:100%;
     height:auto;
     display:block;
-    border-radius:18px;
-  }
-  .hero-photo figcaption{
-    margin-top:14px;
-    font-size:14px;
-    color:var(--gray-600);
-    text-align:center;
+    border-radius:28px;
+    box-shadow:0 30px 80px -20px rgba(20,17,13,0.25);
   }
 
   .about-photo{
@@ -123,93 +177,138 @@
     width:100%;
     height:auto;
     display:block;
-    border-radius:18px;
+    border-radius:28px;
+    box-shadow:0 30px 80px -20px rgba(20,17,13,0.2);
   }
 
-  section.copy{ padding:100px 22px; }
+  section.copy{ padding:110px 22px; }
 
   .grid3{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
-    gap:28px;
-    max-width:920px;
+    gap:22px;
+    max-width:960px;
     margin:56px auto 0;
     text-align:left;
   }
   @media (max-width: 780px){ .grid3{ grid-template-columns:1fr; } }
   .card{
-    background:var(--white);
-    border-radius:18px;
-    padding:32px 28px;
-    box-shadow:0 1px 0 rgba(0,0,0,0.04);
-    border:1px solid var(--gray-300);
+    background:var(--glass);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-radius:26px;
+    padding:34px 30px;
+    box-shadow:0 12px 40px -12px rgba(20,17,13,0.1);
+    border:1px solid var(--glass-border);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 50px -12px rgba(20,17,13,0.16);
   }
   .card h3{
-    font-size:20px; font-weight:600; letter-spacing:-0.01em;
+    font-size:19px; font-weight:700; letter-spacing:-0.01em;
     margin-bottom:10px;
   }
-  .card p{ font-size:15px; line-height:1.5; color:var(--gray-600); }
+  .card p{ font-size:15px; line-height:1.55; color:var(--gray-600); }
 
-  .statement{ padding:140px 22px; }
+  .statement{ padding:150px 22px; position:relative; overflow:hidden; }
+  .statement .orb-1{ width:600px; height:600px; top:50%; left:50%; transform:translate(-50%,-50%); background:radial-gradient(circle, #8a4f24 0%, transparent 70%); opacity:0.25; }
   .statement p{
-    font-size:clamp(28px, 4.4vw, 44px);
-    font-weight:600;
-    letter-spacing:-0.01em;
-    line-height:1.18;
+    font-size:clamp(28px, 4.6vw, 46px);
+    font-weight:700;
+    letter-spacing:-0.02em;
+    line-height:1.2;
     max-width:780px;
     margin:0 auto;
+    position:relative;
   }
   .statement .accent{ color:var(--gray-600); }
-  .dark .statement .accent{ color:#6e6e73; }
+  .dark .statement .accent{ color:#8b8378; }
 
-  .who-list{
-    max-width:640px;
+  /* Bento "who this is for" */
+  .who-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: auto auto;
+    gap:20px;
+    max-width:920px;
     margin:48px auto 0;
     text-align:left;
-    border-top:1px solid var(--gray-300);
   }
-  .who-item{
-    display:grid;
-    grid-template-columns: 32px 1fr;
-    gap:16px;
-    padding:28px 0;
-    border-bottom:1px solid var(--gray-300);
+  @media (max-width: 780px){ .who-grid{ grid-template-columns:1fr; } }
+  .who-card{
+    background:var(--glass);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--glass-border);
+    border-radius:26px;
+    padding:32px 30px;
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.3s ease;
   }
-  .who-item .num{ font-size:15px; color:var(--gray-600); padding-top:2px; }
-  .who-item h4{ font-size:19px; font-weight:600; margin-bottom:6px; letter-spacing:-0.005em; }
-  .who-item p{ font-size:16px; color:var(--gray-600); line-height:1.5; }
+  .who-card:hover{ transform:translateY(-4px); }
+  .who-card.span-2{ grid-column:1 / -1; }
+  .who-card .bignum{
+    position:absolute;
+    top:-6px; right:14px;
+    font-size:92px;
+    font-weight:900;
+    color:transparent;
+    -webkit-text-stroke:1.5px rgba(184,118,63,0.18);
+    line-height:1;
+    z-index:0;
+  }
+  .who-card h4{
+    font-size:20px; font-weight:700; margin-bottom:8px; letter-spacing:-0.01em;
+    position:relative; z-index:1;
+  }
+  .who-card p{ font-size:15.5px; color:var(--gray-600); line-height:1.55; position:relative; z-index:1; max-width:420px; }
 
-  .cta-section{ padding:130px 22px 150px; }
+  .cta-section{ padding:140px 22px 160px; position:relative; overflow:hidden; }
+  .cta-section .orb-1{ width:500px; height:500px; top:-100px; left:50%; transform:translateX(-50%); background:radial-gradient(circle, #e6b06b 0%, transparent 70%); opacity:0.15; }
   .cta-section h2{ margin-bottom:16px; }
   .cta-section .body-lg{ margin-bottom:40px; }
-  .btn-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
   .btn{
     display:inline-block;
-    padding:13px 26px;
-    border-radius:980px;
-    font-size:17px;
-    font-weight:400;
-    transition:background 0.2s ease, transform 0.2s ease;
+    padding:15px 30px;
+    border-radius:999px;
+    font-size:16px;
+    font-weight:600;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .btn-primary{ background:var(--accent); color:#fff; }
-  .btn-primary:hover{ background:var(--accent-light); }
-  .btn-secondary{ color:var(--accent); padding:13px 8px; }
+  .btn-primary{
+    background:var(--grad);
+    color:#fff;
+    box-shadow:0 12px 30px -8px rgba(138,79,36,0.5);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 36px -8px rgba(138,79,36,0.6); }
+  .btn-secondary{ color:var(--accent); padding:15px 10px; }
   .btn-secondary:hover{ text-decoration:underline; }
   .dark .btn-secondary{ color:var(--accent-light); }
 
   .price-card{
-    max-width:420px;
+    max-width:440px;
     margin:56px auto 0;
-    padding:44px 40px;
-    background:var(--white);
-    border:1px solid var(--gray-300);
-    border-radius:22px;
+    padding:48px 40px;
+    background:var(--glass);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid var(--glass-border);
+    border-radius:32px;
     text-align:center;
+    box-shadow:0 20px 60px -20px rgba(20,17,13,0.15);
   }
   .price-amount{
-    font-size:56px;
-    font-weight:600;
+    font-size:60px;
+    font-weight:800;
     letter-spacing:-0.02em;
+    background:var(--grad);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
   }
   .price-sub{
     font-size:15px;
@@ -236,24 +335,15 @@
     position:absolute;
     left:0;
     color:var(--accent);
-    font-weight:600;
+    font-weight:700;
   }
   .price-btn{ width:100%; }
-  .price-note{
-    font-size:12px;
-    color:var(--gray-600);
-    margin-top:20px;
-    line-height:1.5;
-  }
-  .price-note + .price-note{
-    margin-top:12px;
-  }
   .price-schedule{
     font-size:16px;
     color:var(--gray-900);
     margin:0 auto 0;
   }
-  .price-schedule strong{ color:var(--accent); }
+  .price-schedule strong{ color:var(--accent-deep); }
 
   .disclosure{
     max-width:600px;
@@ -287,26 +377,31 @@
   .disclosure .disclosure-body p:last-child{ margin-bottom:0; }
 
   footer{
-    padding:32px 22px 48px;
+    padding:36px 22px 52px;
     text-align:center;
     font-size:12px;
     color:var(--gray-600);
     border-top:1px solid var(--gray-300);
+    position:relative;
+    z-index:1;
+    background:var(--white);
   }
 </style>
 </head>
 <body>
 
   <nav>
-    <div class="wrap">
+    <div class="nav-inner">
       <div class="brand">Sam Osborne</div>
-      <a class="cta-link" href="#book">Book a conversation ›</a>
+      <a class="cta-link" href="#book">Book a conversation</a>
     </div>
   </nav>
 
   <section class="light hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
     <div class="eyebrow reveal">For those who already sense it</div>
-    <h1 class="reveal">You're not stuck.<br>You're choosing<br>a side.</h1>
+    <h1 class="reveal">You're not stuck.<br>You're choosing<br><span class="grad-text">a side.</span></h1>
     <p class="sub reveal">For people with decent, hard-won achievements who are stuck somewhere real — in work, in a relationship, in a decision — and are curious about a genuinely different way to move, not another way to try harder.</p>
     <p class="sub reveal" style="margin-top:16px; font-size:15px;">A trained Demartini Method Facilitator working with attorneys, advisors, and executives — co-presenter, Best of Conference honor at the CAI National Law Seminar; incoming president, NSA Southern California.</p>
   </section>
@@ -324,6 +419,7 @@
   </section>
 
   <section class="dark statement">
+    <div class="orb orb-1"></div>
     <div class="wrap-narrow reveal">
       <p>This isn't a mindset problem, and more effort won't fix it. <span class="accent">It moves when both sides of the tension get heard — not when one of them wins.</span></p>
     </div>
@@ -371,27 +467,21 @@
     <div class="wrap-narrow">
       <h2 class="reveal">Who this is for.</h2>
     </div>
-    <div class="who-list">
-      <div class="who-item reveal">
-        <div class="num">01</div>
-        <div>
-          <h4>You've already tried the obvious moves</h4>
-          <p>More discipline, more analysis, more advice from smart people — and the thing is still stuck.</p>
-        </div>
+    <div class="who-grid">
+      <div class="who-card span-2 reveal">
+        <div class="bignum">01</div>
+        <h4>You've already tried the obvious moves</h4>
+        <p>More discipline, more analysis, more advice from smart people — and the thing is still stuck.</p>
       </div>
-      <div class="who-item reveal">
-        <div class="num">02</div>
-        <div>
-          <h4>You want a different way through</h4>
-          <p>Not sympathy for being stuck, and not another framework for trying harder at the same approach.</p>
-        </div>
+      <div class="who-card reveal">
+        <div class="bignum">02</div>
+        <h4>You want a different way through</h4>
+        <p>Not sympathy for being stuck, and not another framework for trying harder at the same approach.</p>
       </div>
-      <div class="who-item reveal">
-        <div class="num">03</div>
-        <div>
-          <h4>You're curious enough to try something unfamiliar</h4>
-          <p>Even if it means taking dreams, imagination, and the parts of your mind you don't control on purpose seriously.</p>
-        </div>
+      <div class="who-card reveal">
+        <div class="bignum">03</div>
+        <h4>You're curious enough to try something unfamiliar</h4>
+        <p>Even if it means taking dreams, imagination, and the parts of your mind you don't control on purpose seriously.</p>
       </div>
     </div>
   </section>
@@ -424,6 +514,7 @@
   </section>
 
   <section class="dark cta-section" id="book">
+    <div class="orb orb-1"></div>
     <h2 class="reveal">If this is landing<br>somewhere real.</h2>
     <p class="body-lg reveal">For the founding cohort, a conversation comes first — not a purchase. I'd rather talk than sell you on a page.</p>
     <div class="btn-row reveal">
