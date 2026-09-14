@@ -3,774 +3,556 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You're Not Stuck. You're Choosing a Side.</title>
+<title>Sam Osborne's Mastermind — Founding Cohort</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #05070c;
-    --bg-alt: #0a0e16;
-    --bg-alt2: #0d121c;
-    --ink: #f7f9fc;
-    --ink-dim: #c2c9da;
-    --ink-faint: #8891a5;
-    --glass: rgba(255,255,255,0.035);
-    --glass-border: rgba(255,255,255,0.08);
-    --accent: #2f6fff;
-    --accent-deep: #123b9e;
-    --cool: #7b8494;
-    --cool-light: #b8c0cc;
-    --grad: linear-gradient(115deg, #7aa9ff 0%, #2f6fff 45%, #123b9e 100%);
-    --grad-cool: linear-gradient(115deg, #e4e8ee 0%, #7b8494 100%);
-    --grad-unity: linear-gradient(100deg, #7aa9ff 0%, #2f6fff 22%, #123b9e 42%, #5a6478 58%, #7b8494 78%, #d6dbe2 100%);
-    --serif: 'Montserrat', -apple-system, sans-serif;
-    --inscript: 'Space Mono', 'Courier New', monospace;
-    --sans: 'Inter', -apple-system, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --mx: 50%;
-    --my: 50%;
+    --accent:#5B4FE9;
+    --accent-dark:#4438C7;
+    --coral:#FF6B4A;
+    --coral-dark:#E85A3A;
+    --bg:#FFFFFF;
+    --bg-soft:#F6F6FC;
+    --bg-soft2:#FFF4F1;
+    --text:#181828;
+    --text-muted:#5B5B72;
+    --border:#E9E9F3;
+    --success:#1CA34F;
+    --success-bg:#E9F8EF;
+    --star:#FFB020;
+    --ph-bg:#FFF8E8;
+    --ph-border:#E8B84B;
+    --ph-text:#8A6412;
+    --radius:16px;
+    --radius-sm:10px;
+    --shadow:0 10px 30px -8px rgba(24,24,40,0.12);
   }
-  html{ scroll-behavior:smooth; overflow-x:hidden; max-width:100vw; background:var(--bg); }
-  *{ box-sizing:border-box; margin:0; padding:0; }
+  *{ box-sizing:border-box; }
   body{
-    font-family:var(--sans);
-    font-weight:400;
-    color:var(--ink);
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-    max-width:100vw;
-    position:relative;
-    background-color:var(--bg);
-    background-image:
-      radial-gradient(ellipse 1000px 700px at 15% 10%, rgba(47,111,255,0.16), transparent 60%),
-      radial-gradient(ellipse 900px 700px at 90% 60%, rgba(90,140,255,0.10), transparent 58%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Ccircle cx='71.2' cy='33.2' r='1.05' fill='%23bcd0ff' fill-opacity='0.25'/%3E%3Ccircle cx='117.9' cy='80.5' r='0.46' fill='%23bcd0ff' fill-opacity='0.5'/%3E%3Ccircle cx='8.2' cy='95.4' r='0.47' fill='%23bcd0ff' fill-opacity='0.26'/%3E%3Ccircle cx='93.4' cy='181.9' r='0.52' fill='%23bcd0ff' fill-opacity='0.35'/%3E%3Ccircle cx='138.0' cy='208.5' r='0.98' fill='%23bcd0ff' fill-opacity='0.45'/%3E%3Ccircle cx='214.8' cy='10.2' r='1.26' fill='%23bcd0ff' fill-opacity='0.38'/%3E%3Ccircle cx='31.7' cy='25.9' r='0.71' fill='%23bcd0ff' fill-opacity='0.68'/%3E%3Ccircle cx='39.8' cy='128.0' r='1.04' fill='%23bcd0ff' fill-opacity='0.42'/%3E%3Ccircle cx='120.5' cy='13.8' r='0.46' fill='%23bcd0ff' fill-opacity='0.32'/%3E%3Ccircle cx='149.7' cy='94.1' r='0.71' fill='%23bcd0ff' fill-opacity='0.55'/%3E%3Ccircle cx='99.7' cy='65.9' r='1.19' fill='%23bcd0ff' fill-opacity='0.6'/%3E%3Ccircle cx='53.7' cy='126.4' r='0.93' fill='%23bcd0ff' fill-opacity='0.72'/%3E%3Ccircle cx='160.5' cy='63.3' r='1.38' fill='%23bcd0ff' fill-opacity='0.28'/%3E%3Ccircle cx='92.0' cy='166.6' r='0.55' fill='%23bcd0ff' fill-opacity='0.48'/%3E%3Ccircle cx='8.6' cy='147.0' r='1.16' fill='%23bcd0ff' fill-opacity='0.52'/%3E%3Ccircle cx='192.6' cy='69.0' r='1.1' fill='%23bcd0ff' fill-opacity='0.55'/%3E%3Ccircle cx='127.6' cy='100.4' r='1.24' fill='%23bcd0ff' fill-opacity='0.75'/%3E%3Ccircle cx='104.3' cy='146.1' r='0.46' fill='%23bcd0ff' fill-opacity='0.6'/%3E%3Ccircle cx='142.4' cy='218.5' r='1.22' fill='%23bcd0ff' fill-opacity='0.36'/%3E%3Ccircle cx='84.9' cy='147.1' r='0.42' fill='%23bcd0ff' fill-opacity='0.46'/%3E%3Ccircle cx='37.0' cy='25.8' r='0.46' fill='%23bcd0ff' fill-opacity='0.65'/%3E%3Ccircle cx='28.5' cy='54.5' r='0.79' fill='%23bcd0ff' fill-opacity='0.72'/%3E%3C/svg%3E");
-    background-repeat:no-repeat, no-repeat, repeat;
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Inter',-apple-system,sans-serif; line-height:1.65;
   }
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:1;
-    pointer-events:none;
-    opacity:0.05;
-    background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.6) 0px, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 3px);
+  h1,h2,h3,h4{ font-family:'Poppins',sans-serif; margin:0; color:var(--text); }
+  a{ text-decoration:none; color:inherit; }
+  img{ max-width:100%; display:block; }
+  .container{ max-width:1120px; margin:0 auto; padding:0 24px; }
+  .container-narrow{ max-width:760px; margin:0 auto; padding:0 24px; }
+
+  /* Announcement bar */
+  .announce{
+    background:var(--text); color:#fff; text-align:center; font-size:13.5px; font-weight:600;
+    padding:10px 16px; letter-spacing:0.01em;
   }
-  a{ color:inherit; text-decoration:none; }
+  .announce span{ color:#FFD37A; }
 
-  .spotlight{
-    position:fixed;
-    inset:0;
-    z-index:3;
-    pointer-events:none;
-    background:radial-gradient(500px circle at var(--mx) var(--my), rgba(47,111,255,0.16), transparent 45%);
+  /* Nav */
+  nav{
+    position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
   }
-
-  .wrap{ max-width:980px; margin:0 auto; padding:0 22px; }
-  .wrap-narrow{ max-width:692px; margin:0 auto; padding:0 22px; position:relative; z-index:2; }
-
-  nav{ position:sticky; top:16px; z-index:50; display:flex; justify-content:center; }
-  nav .nav-inner{
-    max-width:680px; width:calc(100% - 32px); height:52px;
+  .nav-inner{
+    max-width:1120px; margin:0 auto; padding:16px 24px;
     display:flex; align-items:center; justify-content:space-between;
-    padding:0 22px;
-    background:rgba(10,14,22,0.6);
-    backdrop-filter:saturate(180%) blur(20px);
-    -webkit-backdrop-filter:saturate(180%) blur(20px);
-    border:1px solid var(--glass-border);
-    border-radius:6px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.4);
   }
-  nav .brand{ font-family:var(--serif); font-size:14px; font-weight:400; letter-spacing:0.01em; color:var(--ink); display:flex; align-items:center; gap:9px; }
-  nav .nav-tag{
-    font-family:var(--inscript); font-size:10px; font-weight:400; letter-spacing:0.06em;
-    color:var(--ink-dim); border:1px dashed var(--glass-border); border-radius:1px;
-    padding:5px 11px; margin-left:4px;
-  }
-  @media (max-width:480px){ nav .nav-tag{ display:none; } }
-  nav .cta-link{ font-family:var(--serif); font-size:13px; font-weight:500; letter-spacing:-0.005em; color:#fff; background:var(--grad); padding:8px 16px; border-radius:2px; }
-
-  section{ text-align:center; position:relative; z-index:1; overflow:hidden; }
-  .s-bg{ background:var(--bg); }
-  .s-alt{ background:var(--bg-alt); }
-  .s-alt2{ background:var(--bg-alt2); }
-
-  .angle-down{ clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%); margin-bottom:-3.5vw; }
-  .angle-up{ clip-path: polygon(0 4vw, 100% 0, 100% 100%, 0 100%); margin-top:-3.5vw; }
-
-  .reveal{
-    opacity:0; transform:translateY(24px);
-    transition:opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
-  }
-  .reveal.in{ opacity:1; transform:translateY(0); }
-
-  .orb{ position:absolute; border-radius:50%; filter:blur(80px); opacity:0.35; z-index:0; pointer-events:none; max-width:70vw; max-height:70vw; }
-  @media (max-width:600px){ .orb{ filter:blur(48px); opacity:0.24; } }
-
-  .shape{ position:absolute; pointer-events:none; z-index:0; animation:drift 9s ease-in-out infinite; }
-  .shape-ring{ border:1.5px solid rgba(47,111,255,0.4); border-radius:50%; }
-  .shape-ring.thin{ border-color:rgba(47,111,255,0.22); }
-  .shape-line{ height:1.5px; background:linear-gradient(90deg, transparent, rgba(47,111,255,0.55), transparent); }
-  .shape-plus{ color:rgba(47,111,255,0.5); font-size:22px; font-weight:300; }
-  .shape-cool.shape-ring{ border-color:rgba(184,192,204,0.35); }
-  .shape-cool.shape-ring.thin{ border-color:rgba(184,192,204,0.2); }
-  .shape-cool.shape-line{ background:linear-gradient(90deg, transparent, rgba(214,219,226,0.45), transparent); }
-  .shape-cool.shape-plus{ color:rgba(184,192,204,0.45); }
-  @keyframes drift{ 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-16px) rotate(4deg); } }
-  @media (prefers-reduced-motion: reduce){ .shape{ animation:none; } }
-
-  .bg-word{
-    position:absolute;
-    top:50%; left:50%;
-    transform:translate(-50%,-52%) rotate(-6deg);
-    font-family:var(--serif);
-    font-size:clamp(90px, 18vw, 240px);
-    font-weight:300;
-    letter-spacing:0.02em;
-    color:transparent;
-    -webkit-text-stroke:1px rgba(47,111,255,0.22);
-    white-space:nowrap;
-    z-index:0;
-    pointer-events:none;
-    user-select:none;
-  }
-
-  .hero{ padding:120px 22px 100px; }
-  .hero-inner{ position:relative; z-index:2; }
-  .eyebrow{
-    display:inline-block; font-family:var(--inscript); font-size:11px; font-weight:400; letter-spacing:0.06em;
-    color:var(--accent);
-    background:rgba(47,111,255,0.07);
-    padding:7px 14px;
-    border-radius:1px;
-    margin-bottom:26px;
-    border:1px dashed rgba(47,111,255,0.5);
-  }
-  .eyebrow::before{ content:"◈ "; }
-  h1{
-    font-family:var(--serif);
-    font-size:clamp(30px, 4.6vw, 52px);
-    font-weight:400;
-    letter-spacing:-0.005em;
-    line-height:1.25;
-    max-width:820px;
-    margin:0 auto 28px;
-    color:var(--ink);
-  }
-  h1 .grad-text{
-    background:var(--grad-unity);
-    background-size:220% auto;
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-    animation:shimmer 5s ease-in-out infinite;
-    position:relative;
-    display:inline-block;
-  }
-  @keyframes shimmer{ 0%,100%{ background-position:0% 50%; } 50%{ background-position:100% 50%; } }
-  @media (prefers-reduced-motion: reduce){ h1 .grad-text{ animation:none; } }
-
-  .hero p.sub{
-    font-size:clamp(17px, 2.2vw, 21px);
-    font-weight:400;
-    color:var(--ink-dim);
-    max-width:620px;
-    margin:0 auto;
-    line-height:1.6;
-  }
-
-  .cp-label{
-    font-family:var(--inscript); font-size:12px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--accent);
-  }
-  .inline-cta{ margin-top:38px; display:flex; justify-content:center; position:relative; z-index:2; }
-  .microcopy{ font-family:var(--inscript); font-size:12px; color:var(--ink-faint); margin-top:14px; letter-spacing:0.02em; position:relative; z-index:2; }
-
-  .marquee{ overflow:hidden; background:#000; padding:18px 0; white-space:nowrap; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); }
-  .marquee-track{ display:inline-flex; animation:marquee 22s linear infinite; }
-  .marquee-track span{
-    font-family:var(--inscript); font-size:12px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--ink-faint); padding:0 28px; display:inline-flex; align-items:center; gap:28px;
-  }
-  .marquee-track span::after{ content:"☉"; color:var(--accent); font-size:12px; }
-  .marquee-track span:nth-child(even)::after{ content:"☽"; color:var(--cool-light); }
-  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; } }
-
-  h2{
-    font-family:var(--serif);
-    font-size:clamp(30px, 4.6vw, 48px);
-    font-weight:300;
-    letter-spacing:-0.005em;
-    line-height:1.22;
-    max-width:820px;
-    margin:0 auto 20px;
-    color:var(--ink);
-  }
-  .body-lg{ font-size:19px; font-weight:400; line-height:1.6; color:var(--ink-dim); max-width:600px; margin:0 auto 16px; }
-
-  .hero-photo{ max-width:1100px; margin:0 auto; padding:0 22px 100px; position:relative; z-index:1; }
-  .photo-frame{ position:relative; border-radius:6px; overflow:hidden; box-shadow:0 40px 100px -20px rgba(0,0,0,0.6); }
-  .photo-frame img{ width:100%; height:auto; display:block; }
-
-  .about-photo{ max-width:1100px; margin:56px auto 0; padding:0 22px; position:relative; z-index:2; }
-
-  section.copy{ padding:120px 22px; }
-
-  .grid3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; max-width:960px; margin:56px auto 0; text-align:left; position:relative; z-index:2; }
-  @media (max-width: 780px){ .grid3{ grid-template-columns:1fr; } }
-  .card{
-    background:var(--glass); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-    border-radius:4px; padding:32px 28px;
-    border:1px solid var(--glass-border);
-    position:relative;
-    transition:transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  .card::before, .card::after{
-    content:""; position:absolute; width:14px; height:14px; border:1px solid var(--accent); opacity:0.5;
-  }
-  .card::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
-  .card::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
-  @media (max-width:600px){ .card, .who-card, .price-card{ backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); } }
-  .card:hover{ transform:translateY(-6px); border-color:rgba(47,111,255,0.45); box-shadow:0 20px 50px -16px rgba(18,59,158,0.3); }
-  .card h3{ font-family:var(--inscript); font-size:14px; font-weight:400; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:12px; color:var(--ink); }
-  .card p{ font-size:15px; font-weight:400; line-height:1.55; color:var(--ink-dim); }
-
-  .statement{ padding:160px 22px; }
-  .statement .orb-1{ width:min(600px,70vw); height:min(600px,70vw); top:50%; left:50%; transform:translate(-50%,-50%); background:radial-gradient(circle, #2f6fff 0%, transparent 70%); opacity:0.2; }
-  .statement p{
-    font-family:var(--serif);
-    font-size:clamp(26px, 4.4vw, 46px); font-weight:300; letter-spacing:-0.01em; line-height:1.28;
-    max-width:800px; margin:0 auto; position:relative; z-index:2; color:var(--ink);
-  }
-  .statement .accent{ color:var(--ink-dim); }
-
-  .who-grid{ display:grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: auto auto; gap:18px; max-width:920px; margin:48px auto 0; text-align:left; position:relative; z-index:2; }
-  @media (max-width: 780px){ .who-grid{ grid-template-columns:1fr; } }
-  .who-card{
-    background:var(--glass); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-    border:1px solid var(--glass-border); border-radius:4px; padding:32px 28px;
-    position:relative; overflow:hidden; transition:transform 0.3s ease, border-color 0.3s ease;
-  }
-  .who-card:hover{ transform:translateY(-4px); border-color:rgba(47,111,255,0.4); }
-  .who-card.span-2{ grid-column:1 / -1; }
-  .who-card .bignum{
-    position:absolute; top:-6px; right:14px; font-family:var(--serif); font-size:96px; font-weight:200; color:transparent;
-    -webkit-text-stroke:1px rgba(77,124,240,0.16); line-height:1; z-index:0;
-  }
-  .who-card h4{ font-family:var(--inscript); font-size:15px; font-weight:400; margin-bottom:10px; letter-spacing:0.02em; position:relative; z-index:1; color:var(--ink); }
-  .who-card p{ font-size:15px; font-weight:400; color:var(--ink-dim); line-height:1.55; position:relative; z-index:1; max-width:420px; }
-
-  .cta-section{ padding:150px 22px 170px; }
-  .cta-section .orb-1{ width:min(500px,65vw); height:min(500px,65vw); top:-100px; left:50%; transform:translateX(-50%); background:radial-gradient(circle, #7aa9ff 0%, transparent 70%); opacity:0.18; }
-  .cta-section h2{ margin-bottom:16px; }
-  .cta-section .body-lg{ margin-bottom:40px; }
-  .btn-row{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; z-index:2; }
+  .nav-brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:16px; font-family:'Poppins',sans-serif; }
+  .nav-dot{ width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--coral)); flex-shrink:0; }
+  .nav-links{ display:flex; gap:28px; font-size:14.5px; font-weight:600; color:var(--text-muted); }
+  @media (max-width:800px){ .nav-links{ display:none; } }
   .btn{
-    display:inline-block; padding:15px 30px; border-radius:2px; font-family:var(--serif); font-size:15px; font-weight:500; letter-spacing:-0.005em;
-    transition:transform 0.15s ease, box-shadow 0.25s ease; will-change:transform;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-family:'Poppins',sans-serif; font-weight:600; font-size:15px;
+    border-radius:999px; padding:14px 28px; cursor:pointer; border:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .btn-primary{ background:var(--grad); color:#fff; box-shadow:0 14px 34px -10px rgba(18,59,158,0.5); }
-  .btn-primary:hover{ box-shadow:0 18px 40px -10px rgba(18,59,158,0.6); }
-  .btn-secondary{ color:var(--accent); padding:15px 10px; }
-  .btn-secondary:hover{ text-decoration:underline; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--coral); color:#fff; box-shadow:0 10px 24px -6px rgba(255,107,74,0.55); }
+  .btn-primary:hover{ box-shadow:0 14px 30px -6px rgba(255,107,74,0.65); }
+  .btn-sm{ padding:10px 20px; font-size:14px; }
+  .btn-outline{ background:#fff; color:var(--accent); border:2px solid var(--accent); }
+  .btn-block{ width:100%; }
 
-  .price-card-wrap{ position:relative; max-width:440px; margin:56px auto 0; z-index:2; padding:1px; border-radius:6px; background:var(--grad-unity); }
-  .price-card{
-    position:relative; z-index:1; padding:48px 40px;
-    background:rgba(10,14,22,0.9); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-    border:1px solid var(--glass-border); border-radius:5px; text-align:center;
+  section{ padding:88px 0; }
+  .bg-soft{ background:var(--bg-soft); }
+  .bg-soft2{ background:var(--bg-soft2); }
+  .bg-accent{ background:linear-gradient(135deg,var(--accent),#8B7CF6); color:#fff; }
+  .bg-dark{ background:var(--text); color:#fff; }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px; font-family:'Poppins',sans-serif; font-weight:700;
+    font-size:13px; letter-spacing:0.04em; text-transform:uppercase; color:var(--accent);
+    background:#EFEBFF; padding:7px 16px; border-radius:999px; margin-bottom:20px;
   }
-  .price-amount{ font-family:var(--serif); font-size:58px; font-weight:300; letter-spacing:-0.01em; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .price-sub{ font-size:14px; font-weight:400; color:var(--ink-dim); margin-top:6px; margin-bottom:32px; }
-  .price-includes{ list-style:none; text-align:left; border-top:1px solid var(--glass-border); margin-bottom:32px; }
-  .price-includes li{ padding:16px 0; border-bottom:1px solid var(--glass-border); font-size:14px; font-weight:400; color:var(--ink); padding-left:26px; position:relative; }
-  .price-includes li::before{ content:"+"; position:absolute; left:0; color:var(--accent); font-weight:400; }
-  .price-btn{ width:100%; }
-  .price-schedule{ font-family:var(--inscript); font-size:13px; font-weight:400; color:var(--ink); margin:0 auto 0; position:relative; z-index:2; letter-spacing:0.02em; }
-  .price-schedule strong{ color:var(--accent); font-weight:700; }
-  .scarcity-banner{
-    display:inline-block; margin:18px auto 0; font-family:var(--inscript); font-size:13px; letter-spacing:0.03em;
-    color:var(--accent); background:rgba(47,111,255,0.08); border:1px dashed rgba(47,111,255,0.5);
-    padding:9px 18px; border-radius:2px; position:relative; z-index:2;
+  .eyebrow.coral{ color:var(--coral-dark); background:#FFEDE7; }
+
+  /* Hero */
+  .hero{ padding:70px 0 90px; }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; }
+  @media (max-width:900px){ .hero-grid{ grid-template-columns:1fr; } }
+  .hero h1{ font-size:clamp(34px,4.5vw,54px); line-height:1.18; font-weight:800; margin-bottom:22px; }
+  .hero h1 .hl{ color:var(--accent); }
+  .hero .sub{ font-size:18px; color:var(--text-muted); margin-bottom:28px; max-width:520px; }
+  .check-list{ list-style:none; margin:0 0 32px; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .check-list li{ display:flex; gap:10px; align-items:flex-start; font-size:15px; color:var(--text); font-weight:500; }
+  .check-list .ck{ flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--success-bg); color:var(--success); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; margin-top:1px; }
+  .hero-cta-row{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .microcopy{ font-size:13.5px; color:var(--text-muted); margin-top:12px; }
+
+  .hero-photo-wrap{ position:relative; }
+  .blob{ position:absolute; width:110%; height:110%; top:-5%; left:-5%; background:linear-gradient(135deg,#EFEBFF,#FFEDE7); border-radius:42% 58% 63% 37% / 41% 44% 56% 59%; z-index:0; }
+  .photo-placeholder{
+    position:relative; z-index:1; aspect-ratio:4/5; border-radius:24px; overflow:hidden;
+    background:repeating-linear-gradient(45deg,#EDEDF7,#EDEDF7 14px,#F8F8FD 14px,#F8F8FD 28px);
+    border:2px dashed var(--ph-border); display:flex; align-items:center; justify-content:center;
+    text-align:center; color:var(--ph-text); font-weight:600; font-size:14px; padding:24px;
+    box-shadow:var(--shadow);
   }
 
-  .trust-bar{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:22px auto 0; position:relative; z-index:2; }
-  .trust-chip{
-    font-family:var(--inscript); font-size:11px; letter-spacing:0.03em; color:var(--ink-dim);
-    border:1px solid var(--glass-border); background:var(--glass); padding:7px 13px; border-radius:2px;
-  }
+  /* Logos / as-featured strip */
+  .strip{ padding:32px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .strip-label{ text-align:center; font-size:12.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); margin-bottom:18px; }
+  .strip-row{ display:flex; justify-content:center; gap:36px; flex-wrap:wrap; opacity:0.75; }
+  .strip-chip{ font-family:'Poppins',sans-serif; font-weight:700; font-size:14px; color:var(--text-muted); }
 
+  h2.section-title{ font-size:clamp(28px,3.6vw,40px); font-weight:800; text-align:center; margin-bottom:16px; line-height:1.2; }
+  .section-sub{ text-align:center; font-size:17px; color:var(--text-muted); max-width:600px; margin:0 auto 48px; }
+
+  /* Problem cards */
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:820px){ .grid3{ grid-template-columns:1fr; } }
+  .p-card{ background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:32px 28px; box-shadow:var(--shadow); }
+  .p-card .icon{ width:52px; height:52px; border-radius:14px; background:#EFEBFF; display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:18px; }
+  .p-card h3{ font-size:19px; font-weight:700; margin-bottom:10px; }
+  .p-card p{ color:var(--text-muted); font-size:15px; margin:0; }
+
+  /* Statement / payoff */
+  .statement{ text-align:center; }
+  .statement p{ font-family:'Poppins',sans-serif; font-size:clamp(22px,3vw,32px); font-weight:600; max-width:820px; margin:0 auto; line-height:1.4; }
+  .statement .dim{ opacity:0.75; font-weight:400; }
+
+  /* Compare table (is for / isn't for) */
+  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  @media (max-width:760px){ .compare-grid{ grid-template-columns:1fr; } }
+  .compare-card{ border-radius:var(--radius); padding:32px; }
+  .compare-yes{ background:var(--success-bg); border:1.5px solid #b7e6c8; }
+  .compare-no{ background:#FFF1F0; border:1.5px solid #f5c6c2; }
+  .compare-card h3{ font-size:18px; margin-bottom:18px; }
+  .compare-card ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  .compare-card li{ display:flex; gap:10px; font-size:15px; }
+  .compare-yes .mark{ color:var(--success); font-weight:800; }
+  .compare-no .mark{ color:#D8433A; font-weight:800; }
+
+  /* What you get */
+  .get-card{ background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:24px 28px; display:flex; gap:16px; align-items:flex-start; box-shadow:var(--shadow); }
+  .get-num{ flex-shrink:0; width:38px; height:38px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-family:'Poppins',sans-serif; }
+  .get-list{ display:flex; flex-direction:column; gap:16px; max-width:680px; margin:0 auto; }
+
+  /* About coach */
+  .about-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px; align-items:center; }
+  @media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-photo{ aspect-ratio:1/1; border-radius:24px; }
+  .cred-list{ list-style:none; margin:20px 0 28px; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .cred-list li{ display:flex; gap:10px; font-size:15px; }
+
+  /* Placeholder box (generic) */
   .placeholder-box{
-    max-width:640px; margin:28px auto 0; text-align:left; position:relative; z-index:2;
-    border:1.5px dashed rgba(47,111,255,0.55); background:rgba(47,111,255,0.06);
-    border-radius:6px; padding:20px 22px; font-size:14px; color:var(--ink-dim); line-height:1.6;
+    border:2px dashed var(--ph-border); background:var(--ph-bg); border-radius:var(--radius);
+    padding:22px 26px; color:var(--ph-text); font-size:14px; max-width:680px; margin:24px auto 0;
+    text-align:left;
   }
-  .placeholder-box .ph-tag{
-    display:inline-block; font-family:var(--inscript); font-size:11px; font-weight:700; letter-spacing:0.05em;
-    color:var(--bg); background:var(--accent); padding:3px 9px; border-radius:3px; margin-bottom:10px;
+  .placeholder-box .tag{
+    display:inline-block; font-family:'Poppins',sans-serif; font-weight:700; font-size:11.5px; letter-spacing:0.03em;
+    text-transform:uppercase; background:var(--ph-border); color:#fff; padding:4px 10px; border-radius:6px; margin-bottom:10px;
   }
-  .placeholder-box p{ margin:0; max-width:none; font-size:14px; color:var(--ink-dim); }
+  .placeholder-box p{ margin:0; }
 
-  .capture-form{ max-width:420px; margin:0 auto; display:flex; gap:8px; position:relative; z-index:2; flex-wrap:wrap; justify-content:center; }
-  .capture-form input[type="email"]{
-    flex:1; min-width:200px; background:var(--glass); border:1px solid var(--glass-border); border-radius:2px;
-    padding:12px 14px; color:var(--ink); font-family:var(--sans); font-size:14px;
-  }
-  .capture-form input[type="email"]::placeholder{ color:var(--ink-faint); }
-  .capture-form button{
-    background:var(--grad); color:#fff; border:none; padding:12px 20px; border-radius:2px;
-    font-family:var(--serif); font-size:14px; font-weight:500; cursor:pointer;
-  }
+  /* Testimonials */
+  .t-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:900px){ .t-grid{ grid-template-columns:1fr; } }
+  .t-card{ background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); }
+  .stars{ color:var(--star); font-size:14px; margin-bottom:12px; letter-spacing:2px; }
+  .t-quote{ font-size:14.5px; color:var(--text-muted); margin-bottom:16px; min-height:60px; }
+  .t-person{ display:flex; align-items:center; gap:10px; }
+  .t-avatar{ width:40px; height:40px; border-radius:50%; background:repeating-linear-gradient(45deg,#EDEDF7,#EDEDF7 6px,#F8F8FD 6px,#F8F8FD 12px); border:1.5px dashed var(--ph-border); flex-shrink:0; }
+  .t-name{ font-weight:700; font-size:13.5px; }
+  .t-role{ font-size:12px; color:var(--text-muted); }
 
-  .disclosure{ max-width:600px; margin:20px auto 0; text-align:left; position:relative; z-index:2; }
-  .disclosure summary{ cursor:pointer; list-style:none; font-size:14px; font-weight:400; color:var(--accent); display:flex; align-items:center; gap:6px; }
-  .disclosure summary::-webkit-details-marker{ display:none; }
-  .disclosure summary::after{ content:"⌄"; font-size:16px; transition:transform 0.2s ease; }
-  .disclosure[open] summary::after{ transform:rotate(180deg); }
-  .disclosure .disclosure-body{ padding-top:14px; font-size:14px; font-weight:400; line-height:1.6; color:var(--ink-dim); }
-  .disclosure .disclosure-body p{ max-width:none; margin-bottom:12px; font-size:14px; font-weight:400; }
-  .disclosure .disclosure-body p:last-child{ margin-bottom:0; }
+  /* Pricing */
+  .price-wrap{ max-width:460px; margin:0 auto; }
+  .price-card{ background:#fff; border:2px solid var(--accent); border-radius:20px; padding:44px 38px; text-align:center; box-shadow:0 20px 50px -12px rgba(91,79,233,0.25); position:relative; }
+  .price-badge{ position:absolute; top:-16px; left:50%; transform:translateX(-50%); background:var(--coral); color:#fff; font-family:'Poppins',sans-serif; font-weight:700; font-size:12.5px; padding:7px 18px; border-radius:999px; white-space:nowrap; }
+  .price-amount{ font-family:'Poppins',sans-serif; font-size:56px; font-weight:800; color:var(--accent); margin-top:14px; }
+  .price-period{ font-size:14px; color:var(--text-muted); margin-bottom:28px; }
+  .price-includes{ list-style:none; text-align:left; margin:0 0 30px; padding:0; display:flex; flex-direction:column; gap:14px; }
+  .price-includes li{ display:flex; gap:10px; font-size:15px; }
+  .guarantee{ margin-top:18px; font-size:13px; color:var(--text-muted); display:flex; align-items:center; justify-content:center; gap:6px; }
 
-  footer{ padding:36px 22px 52px; text-align:center; font-family:var(--inscript); font-size:11px; font-weight:400; letter-spacing:0.02em; color:var(--ink-faint); border-top:1px solid var(--glass-border); position:relative; z-index:2; }
-
-  .unity-mark{ display:inline-block; flex-shrink:0; }
-  .unity-mark .u-warm{ fill:url(#u-grad-warm); }
-  .unity-mark .u-cool{ fill:url(#u-grad-cool); }
-  .unity-bg{
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    width:min(680px, 90vw); height:min(680px, 90vw);
-    opacity:0.12; z-index:0; pointer-events:none;
-  }
-
-  .echo-word{
-    position:relative;
-    display:inline-block;
-  }
-  .echo-word::after{
-    content:attr(data-echo);
-    position:absolute;
-    left:0; top:0;
-    color:var(--accent);
-    opacity:0.18;
-    transform:translate(6px, 6px);
-    filter:blur(1.5px);
-    z-index:-1;
-  }
-
-  .nebula{
-    position:absolute; border-radius:50%; filter:blur(120px); z-index:0; pointer-events:none;
-    max-width:75vw; max-height:75vw;
-  }
-  @media (max-width:600px){ .nebula{ filter:blur(60px); } }
-
-  .outcomes-list{ max-width:720px; margin:44px auto 0; text-align:left; position:relative; z-index:2; }
-  .outcome-row{
-    display:grid; grid-template-columns:28px 1fr; gap:16px;
-    padding:22px 0; border-top:1px solid var(--glass-border);
-  }
-  .outcome-row:last-child{ border-bottom:1px solid var(--glass-border); }
-  .outcome-row .o-mark{ font-family:var(--inscript); font-size:13px; color:var(--accent); padding-top:2px; }
-  .outcome-row p{ font-size:16px; font-weight:400; line-height:1.6; color:var(--ink); max-width:600px; }
-
-  .faq-list{ max-width:720px; margin:44px auto 0; text-align:left; position:relative; z-index:2; }
-  .faq-item{ border-top:1px solid var(--glass-border); }
-  .faq-item:last-child{ border-bottom:1px solid var(--glass-border); }
-  .faq-item summary{
-    cursor:pointer; list-style:none; padding:22px 4px;
-    display:flex; justify-content:space-between; align-items:center; gap:16px;
-    font-size:16px; font-weight:400; color:var(--ink);
-  }
+  /* FAQ */
+  .faq-item{ border-bottom:1px solid var(--border); }
+  .faq-item summary{ cursor:pointer; list-style:none; padding:20px 4px; display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:16px; }
   .faq-item summary::-webkit-details-marker{ display:none; }
-  .faq-item summary::after{
-    content:"+"; font-family:var(--inscript); font-size:18px; color:var(--accent);
-    flex-shrink:0; transition:transform 0.25s ease;
+  .faq-item summary::after{ content:"+"; color:var(--accent); font-size:22px; font-weight:400; }
+  .faq-item[open] summary::after{ content:"–"; }
+  .faq-item .faq-body{ padding:0 4px 22px; color:var(--text-muted); font-size:15px; max-width:640px; }
+
+  /* Capture form */
+  .capture-form{ display:flex; gap:10px; max-width:440px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
+  .capture-form input[type="email"]{
+    flex:1; min-width:220px; padding:14px 16px; border-radius:999px; border:1.5px solid var(--border);
+    font-size:14.5px; font-family:'Inter',sans-serif;
   }
-  .faq-item[open] summary::after{ transform:rotate(45deg); }
-  .faq-item .faq-body{ padding:0 4px 22px; font-size:15px; font-weight:400; line-height:1.6; color:var(--ink-dim); max-width:640px; }
+
+  footer{ background:var(--text); color:#B8B8CC; padding:48px 0 32px; text-align:center; font-size:13.5px; }
+  footer .crisis{ margin-top:10px; opacity:0.7; font-size:12.5px; }
+
+  /* Sticky mobile CTA bar */
+  .sticky-cta{
+    position:fixed; bottom:0; left:0; right:0; z-index:200;
+    background:#fff; border-top:1px solid var(--border); box-shadow:0 -8px 24px rgba(0,0,0,0.08);
+    padding:12px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .sticky-cta .txt{ font-size:13.5px; font-weight:600; }
+  .sticky-cta .txt span{ display:block; font-size:11.5px; color:var(--text-muted); font-weight:500; }
+  @media (min-width:640px){ .sticky-cta{ display:none; } }
+  body{ padding-bottom:76px; }
+  @media (min-width:640px){ body{ padding-bottom:0; } }
 </style>
 </head>
 <body>
 
-  <svg width="0" height="0" style="position:absolute">
-    <defs>
-      <linearGradient id="u-grad-warm" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#7aa9ff"/>
-        <stop offset="100%" stop-color="#123b9e"/>
-      </linearGradient>
-      <linearGradient id="u-grad-cool" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#e4e8ee"/>
-        <stop offset="100%" stop-color="#7b8494"/>
-      </linearGradient>
-    </defs>
-  </svg>
+<div class="announce">🌙 Founding Cohort — <span>Only 6 to 10 Seats</span> · Starts Saturday, January 9, 2027</div>
 
-  <div class="spotlight"></div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="nav-dot"></span> Sam Osborne</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#what-you-get">What You Get</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn btn-primary btn-sm" href="#book">Book Your Call</a>
+  </div>
+</nav>
 
-  <nav>
-    <div class="nav-inner">
-      <div class="brand">
-        <svg class="unity-mark" width="18" height="18" viewBox="0 0 100 100">
-          <path class="u-warm" d="M50,0A50,50 0 0,1 50,100A25,25 0 0,1 50,50A25,25 0 0,0 50,0Z"/>
-          <path class="u-cool" d="M50,100A50,50 0 0,1 50,0A25,25 0 0,1 50,50A25,25 0 0,0 50,100Z"/>
-        </svg>
-        Sam Osborne
-        <span class="nav-tag">mastermind cohort</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Founding Cohort · Mastermind</span>
+      <h1>You're not stuck. <span class="hl">You're choosing a side.</span></h1>
+      <p class="sub">A 10-week mastermind for anyone tired of almost starting — the decision, the relationship, the version of you that's been waiting on the other side of one real choice.</p>
+      <ul class="check-list">
+        <li><span class="ck">✓</span> Small, private group — 6 to 10 people, live</li>
+        <li><span class="ck">✓</span> One private 1:1 session with Sam included</li>
+        <li><span class="ck">✓</span> Trained Demartini Method Facilitator</li>
+      </ul>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="#book">Schedule Your Private Call →</a>
       </div>
-      <a class="cta-link" href="#book">Schedule a Call</a>
+      <p class="microcopy">15 minutes. No pitch. Just to see if this is the room for you.</p>
     </div>
-  </nav>
-
-  <section class="s-bg hero">
-    <div class="bg-word">CONIUNCTIO</div>
-    <div class="orb" style="width:min(680px,68vw); height:min(680px,68vw); top:-220px; left:38%; transform:translateX(-60%); background:radial-gradient(circle, #7aa9ff 0%, transparent 68%); opacity:0.42;"></div>
-    <div class="orb" style="width:min(560px,60vw); height:min(560px,60vw); top:0px; left:66%; background:radial-gradient(circle, #123b9e 0%, transparent 68%); opacity:0.35;"></div>
-    <div class="shape shape-ring" style="width:110px; height:110px; top:16%; left:8%; animation-delay:0s;"></div>
-    <div class="shape shape-cool shape-ring thin" style="width:60px; height:60px; top:68%; left:12%; animation-delay:1.5s;"></div>
-    <div class="shape shape-line" style="width:90px; top:26%; right:10%; animation-delay:0.8s;"></div>
-    <div class="shape shape-cool shape-plus" style="top:70%; right:14%; animation-delay:2.2s;">☽</div>
-    <div class="hero-inner">
-      <div class="eyebrow reveal">so / mastermind — 001 · founding cohort, 6–10 seats</div>
-      <h1 class="reveal"><span class="grad-text">You're not stuck.</span> You're choosing a side.</h1>
-      <p class="sub reveal">This is for anyone who's tired of almost starting — the relationship you haven't ended, the move you haven't made, the version of you that's been waiting on the other side of one decision. Built to end the stuck thing you've been quietly living with for a year.</p>
-      <div class="trust-bar reveal">
-        <span class="trust-chip">Trained Demartini Method Facilitator</span>
-        <span class="trust-chip">Years doing this work privately, one person at a time</span>
-        <span class="trust-chip">National Speakers Association, Southern California</span>
-      </div>
-      <div class="inline-cta reveal">
-        <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
-      </div>
-      <p class="microcopy reveal">15 minutes. No pitch. Just to see if this is the room for you.</p>
-    </div>
-  </section>
-
-
-  <section class="s-bg copy">
-    <div class="wrap-narrow">
-      <span class="cp-label reveal" style="display:block; margin-bottom:16px;">The Cost</span>
-      <h2 class="reveal">A stuck decision, an ambiguous relationship, a life you keep almost starting.</h2>
-      <p class="body-lg reveal">None of it feels urgent. So it just runs — quietly steering your days while you tell yourself you'll deal with it later. A year from today, you'll know exactly what letting it run actually cost you. The only real question is whether you find that out on your own terms, or in the rearview mirror.</p>
-    </div>
-  </section>
-
-  <section class="s-alt copy">
-    <div class="wrap-narrow">
-      <span class="cp-label reveal" style="display:block; margin-bottom:16px; color:var(--cool-light);">The Payoff</span>
-      <h2 class="reveal">It doesn't arrive as an answer you argue your way to.</h2>
-      <p class="body-lg reveal">It arrives as a felt shift — the kind where something in your whole body finally exhales, because the stuck thing just became obvious. Not a mindset trick. A shape resolving, once you stop staring at the gaps.</p>
-      <div class="inline-cta reveal">
-        <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
-      </div>
-      <p class="microcopy reveal">The founding cohort is capped at 10 people. When it's full, it's full.</p>
-    </div>
-  </section>
-
-  <section class="s-bg copy">
-    <div class="nebula" style="width:60vw; height:60vw; top:-10%; left:-10%; background:radial-gradient(circle, #7aa9ff 0%, transparent 70%); opacity:0.18;"></div>
-    <div class="nebula" style="width:55vw; height:55vw; bottom:-15%; right:-10%; background:radial-gradient(circle, #123b9e 0%, transparent 70%); opacity:0.16;"></div>
-    <div class="wrap-narrow">
-      <h2 class="reveal">The pace of the room.</h2>
-      <p class="body-lg reveal">This isn't fast, and it isn't meant to be. The rhythm is deep and rolling rather than urgent — each idea given room to <span class="echo-word" data-echo="echo">echo</span> before the next one arrives.</p>
-      <p class="body-lg reveal">That slower pace does the actual work. Not adrenaline, not more pressure — the same spacious, repetitive-yet-evolving attention that lets mental clutter settle, wave by wave, into something clear enough to finally use.</p>
-    </div>
-  </section>
-
-  <figure class="hero-photo reveal">
-    <div class="photo-frame">
-      <img src="images/sam-panel.png" alt="Sam Osborne speaking on a panel to a room of executives in a Hollywood penthouse overlooking the city.">
-    </div>
-  </figure>
-
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>Integration</span><span>Clarity</span><span>Movement</span><span>Insight</span><span>The Third Option</span>
-      <span>Integration</span><span>Clarity</span><span>Movement</span><span>Insight</span><span>The Third Option</span>
+    <div class="hero-photo-wrap">
+      <div class="blob"></div>
+      <div class="photo-placeholder">[ Add a warm, direct-to-camera photo of Sam here — replace this box ]</div>
     </div>
   </div>
+</section>
 
-  <section class="s-alt copy angle-down">
-    <div class="wrap-narrow">
-      <h2 class="reveal">You've already tried harder. That was never the missing move.</h2>
-      <p class="body-lg reveal">Discipline, advice, more analysis — the tools that built everything else you've achieved have no purchase here. They're built to make one side win an argument that was never meant to be won that way.</p>
+<div class="strip">
+  <div class="container">
+    <p class="strip-label">As Recognized By</p>
+    <div class="strip-row">
+      <span class="strip-chip">National Speakers Association</span>
+      <span class="strip-chip">CAI National Law Seminar</span>
+      <span class="strip-chip">Demartini Institute</span>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section class="s-bg statement angle-up">
-    <svg class="unity-bg" viewBox="0 0 100 100">
-      <path class="u-warm" d="M50,0A50,50 0 0,1 50,100A25,25 0 0,1 50,50A25,25 0 0,0 50,0Z"/>
-      <path class="u-cool" d="M50,100A50,50 0 0,1 50,0A25,25 0 0,1 50,50A25,25 0 0,0 50,100Z"/>
-    </svg>
-    <div class="orb orb-1"></div>
-    <div class="shape shape-ring thin" style="width:140px; height:140px; top:12%; right:8%; animation-delay:0.4s;"></div>
-    <div class="shape shape-cool shape-line" style="width:120px; bottom:18%; left:8%; animation-delay:1.8s;"></div>
-    <div class="wrap-narrow reveal">
-      <p>This isn't a mindset problem, and more effort won't fix it. <span class="accent">It moves when both sides of the tension get heard — not when one of them wins.</span></p>
-    </div>
-  </section>
-
-  <section class="s-alt copy">
-    <div class="wrap-narrow">
-      <h2 class="reveal">Why me.</h2>
-      <p class="body-lg reveal">This isn't a problem I solved because I hit the wall myself. It's a pull I've had for most of my life — toward understanding how the conscious and unconscious mind actually work together, and finding a way of thinking most people are never taught.</p>
-      <details class="disclosure reveal">
-        <summary>Read more about my background</summary>
-        <div class="disclosure-body">
-          <p>An eye injury years ago is part of that story — it forced a real, physical version of "what I thought I was seeing wasn't the whole picture" on me before I had language for it. It's not the origin of this work, but it's the moment I couldn't ignore the question anymore.</p>
-          <p>I'm a trained Demartini Method Facilitator and a professional speaker on conflict and composure, working with attorneys, advisors, and executives — including a Best of Conference honor at the CAI National Law Seminar, co-presented with attorney David Graf, and the incoming presidency of the National Speakers Association's Southern California chapter. This program is where that work meets the depth-psychology and dream-analysis practice I've spent years developing privately — brought forward for the first time, deliberately, with a small group.</p>
-        </div>
-      </details>
-    </div>
-    <div class="about-photo reveal">
-      <div class="photo-frame">
-        <img src="images/sam-osborne-vest.jpg" alt="Portrait of Sam Osborne.">
+<!-- PROBLEM -->
+<section class="bg-soft">
+  <div class="container">
+    <span class="eyebrow" style="display:block;width:fit-content;margin:0 auto 20px;">The Cost Of Waiting</span>
+    <h2 class="section-title">Sound familiar?</h2>
+    <p class="section-sub">None of it feels urgent. So it just runs — quietly steering your days while you tell yourself you'll deal with it later.</p>
+    <div class="grid3">
+      <div class="p-card">
+        <div class="icon">🔒</div>
+        <h3>A decision you keep circling</h3>
+        <p>You've thought it through a hundred times. It's still not moving.</p>
+      </div>
+      <div class="p-card">
+        <div class="icon">🤝</div>
+        <h3>A relationship gone ambiguous</h3>
+        <p>Not broken enough to end, not clear enough to invest in fully.</p>
+      </div>
+      <div class="p-card">
+        <div class="icon">📁</div>
+        <h3>The project you keep almost starting</h3>
+        <p>You know it matters. You still haven't opened the file.</p>
       </div>
     </div>
-    <div class="placeholder-box reveal">
-      <span class="ph-tag">Add — 60 seconds of you on camera</span>
-      <p>Nothing outperforms this. Drop the embed here.</p>
-    </div>
-    <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section class="s-alt copy">
-    <div class="wrap-narrow">
-      <span class="cp-label reveal" style="display:block; margin-bottom:16px;">Proof, Not Theory</span>
-      <h2 class="reveal">One of these has already happened.</h2>
-      <p class="body-lg reveal">A concrete before/after does more work than another paragraph about tension resolving.</p>
+<!-- PAYOFF / STATEMENT -->
+<section class="bg-accent statement">
+  <div class="container-narrow">
+    <p>It doesn't arrive as an answer you argue your way to.<br><span class="dim">It arrives as a felt shift — the stuck thing suddenly obvious, the way a shape resolves once you stop staring at the gaps.</span></p>
+    <div style="margin-top:36px;">
+      <a class="btn" style="background:#fff;color:var(--accent);" href="#book">Schedule Your Private Call →</a>
     </div>
-    <div class="placeholder-box reveal">
-      <span class="ph-tag">Add — one real, anonymized case</span>
+  </div>
+</section>
+
+<!-- WHY IT WORKS -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Why this doesn't resolve on its own</h2>
+    <p class="section-sub">The problem isn't one your conscious effort created — so it won't be one your conscious effort solves alone.</p>
+    <div class="grid3">
+      <div class="p-card">
+        <div class="icon">🧭</div>
+        <h3>What this is</h3>
+        <p>A small, private group working directly with me to find the third option you haven't let yourself see yet — and what to do once you have.</p>
+      </div>
+      <div class="p-card">
+        <div class="icon">🚫</div>
+        <h3>What this isn't</h3>
+        <p>Not therapy, and I'm not a licensed psychotherapist or mental health provider. Not generic executive coaching either.</p>
+      </div>
+      <div class="p-card">
+        <div class="icon">🔐</div>
+        <h3>How it runs</h3>
+        <p>A handful of people at exactly this point. Direct access. What's said in the group stays in the group — no exceptions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO FOR / NOT FOR -->
+<section class="bg-soft">
+  <div class="container-narrow">
+    <h2 class="section-title">Is this you?</h2>
+  </div>
+  <div class="container">
+    <div class="compare-grid">
+      <div class="compare-card compare-yes">
+        <h3>This is for you if —</h3>
+        <ul>
+          <li><span class="mark">✓</span> You've already tried the obvious moves — discipline, analysis, advice — and the thing is still stuck.</li>
+          <li><span class="mark">✓</span> You want a different way through, not more sympathy for being stuck.</li>
+          <li><span class="mark">✓</span> You're curious enough to take dreams and instinct seriously as data, not noise.</li>
+        </ul>
+      </div>
+      <div class="compare-card compare-no">
+        <h3>This is not for you if —</h3>
+        <ul>
+          <li><span class="mark">✕</span> You're looking for therapy or a substitute for clinical care.</li>
+          <li><span class="mark">✕</span> You want to be told you're right and the other side is wrong.</li>
+          <li><span class="mark">✕</span> You want a certificate to hang on the wall, not a capability you'll actually use.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section id="what-you-get">
+  <div class="container">
+    <h2 class="section-title">What actually changes</h2>
+    <p class="section-sub">A working capability, not a certificate — one you keep using long after the cohort ends.</p>
+    <div class="get-list">
+      <div class="get-card"><div class="get-num">1</div><p>A repeatable method for moving a genuinely stuck decision — not just insight once.</p></div>
+      <div class="get-card"><div class="get-num">2</div><p>The ability to read your own dreams and instincts as usable data, not noise.</p></div>
+      <div class="get-card"><div class="get-num">3</div><p>A name for the real tension underneath a problem you've circled for months.</p></div>
+      <div class="get-card"><div class="get-num">4</div><p>The early architecture of your own synthesis — ideas you can defend and teach.</p></div>
+      <div class="get-card"><div class="get-num">5</div><p>A small group of peers who took the same idea seriously, past week ten.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a class="btn btn-primary" href="#book">Claim Your Seat →</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO PLACEHOLDER -->
+<section class="bg-soft">
+  <div class="container-narrow" style="text-align:center;">
+    <h2 class="section-title">See how it works</h2>
+    <div class="placeholder-box" style="margin:24px auto 0;">
+      <span class="tag">Add — 60 seconds of you on camera</span>
+      <p>Nothing on this page will outperform a short video of you talking directly to the viewer. Drop the embed here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="photo-placeholder about-photo">[ Add Sam's headshot ]</div>
+    <div>
+      <span class="eyebrow coral">Why Me</span>
+      <h2 style="font-size:30px;font-weight:800;margin-bottom:16px;">This isn't a problem I solved because I hit the wall myself.</h2>
+      <p style="color:var(--text-muted);font-size:16px;margin-bottom:8px;">It's a pull I've had for most of my life — toward understanding how the conscious and unconscious mind actually work together, and finding a way of thinking most people are never taught.</p>
+      <ul class="cred-list">
+        <li><span class="mark" style="color:var(--success);font-weight:800;">✓</span> Trained Demartini Method Facilitator</li>
+        <li><span class="mark" style="color:var(--success);font-weight:800;">✓</span> Incoming President, National Speakers Association, Southern California</li>
+        <li><span class="mark" style="color:var(--success);font-weight:800;">✓</span> Years of private facilitation work, now open to a small group for the first time</li>
+      </ul>
+      <a class="btn btn-outline" href="#book">Schedule Your Private Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF PLACEHOLDER -->
+<section class="bg-soft">
+  <div class="container-narrow" style="text-align:center;">
+    <span class="eyebrow">Proof, Not Theory</span>
+    <h2 class="section-title">One of these has already happened.</h2>
+    <div class="placeholder-box" style="margin:0 auto;">
+      <span class="tag">Add — one real, anonymized case</span>
       <p>The stuck decision going in. What surfaced. The move that came out. "A managing partner who'd sat on a partnership decision for eight months" — no name needed, just enough specificity to feel real.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="s-bg copy">
-    <div class="wrap-narrow">
-      <h2 class="reveal">Why it doesn't resolve on its own.</h2>
-      <p class="body-lg reveal">The problem isn't one your conscious effort created — so it won't be one your conscious effort solves alone.</p>
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <h2 class="section-title">What people are saying</h2>
+    <p class="section-sub">This is the founding cohort — these are placeholders until real ones exist.</p>
+    <div class="t-grid">
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">[PLACEHOLDER — add a real quote once you have one. Don't leave a fabricated quote here.]</p>
+        <div class="t-person"><div class="t-avatar"></div><div><div class="t-name">[Name]</div><div class="t-role">[Role / context]</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">[PLACEHOLDER — same as above.]</p>
+        <div class="t-person"><div class="t-avatar"></div><div><div class="t-name">[Name]</div><div class="t-role">[Role / context]</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">[PLACEHOLDER — same as above.]</p>
+        <div class="t-person"><div class="t-avatar"></div><div><div class="t-name">[Name]</div><div class="t-role">[Role / context]</div></div></div>
+      </div>
     </div>
-    <div class="grid3">
-      <div class="card reveal">
-        <h3>What this is</h3>
-        <p>A small, private group working directly with me over several weeks to find the third option you haven't let yourself see yet — and what to do once you have.</p>
-      </div>
-      <div class="card reveal">
-        <h3>What this isn't</h3>
-        <p>Not therapy, and I'm not a licensed psychotherapist or mental health provider. Not generic executive coaching either. Specific work, guided by frameworks I've spent years developing — including my training as a Demartini Method Facilitator.</p>
-      </div>
-      <div class="card reveal">
-        <h3>How it runs</h3>
-        <p>A handful of people at exactly this point. Direct access. No audience, no performance — just the work. What's said in the group stays in the group — no exceptions.</p>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section class="s-alt copy">
-    <div class="shape shape-ring" style="width:90px; height:90px; top:8%; right:6%; animation-delay:1s;"></div>
-    <div class="shape shape-cool shape-line" style="width:100px; bottom:10%; left:6%; animation-delay:0.3s;"></div>
-    <div class="wrap-narrow">
-      <h2 class="reveal">Who this is for.</h2>
+<!-- PRICING -->
+<section class="bg-soft" id="pricing">
+  <div class="container-narrow" style="text-align:center;">
+    <span class="eyebrow coral">The Founding Cohort</span>
+    <h2 class="section-title">One price. Everything included.</h2>
+    <p class="section-sub">Starts Saturday, January 9, 2027 · Saturdays, 8:00am PST · 10 weeks. Deliberately small — 6 to 10 people, by design, not a marketing number.</p>
+  </div>
+  <div class="price-wrap">
+    <div class="price-card">
+      <div class="price-badge">Founding Price — Never This Low Again</div>
+      <div class="price-amount">$997</div>
+      <div class="price-period">Full 10-week program, one payment</div>
+      <ul class="price-includes">
+        <li><span style="color:var(--success);font-weight:800;">✓</span> 10 weekly group sessions, 90 minutes, live</li>
+        <li><span style="color:var(--success);font-weight:800;">✓</span> One private 1:1 session with Sam</li>
+        <li><span style="color:var(--success);font-weight:800;">✓</span> A small cohort — 6 to 10 people</li>
+        <li><span style="color:var(--success);font-weight:800;">✓</span> Direct access to Sam between sessions</li>
+      </ul>
+      <a class="btn btn-primary btn-block" href="#book">Schedule Your Private Call →</a>
+      <div class="guarantee">🛡️ First session, no questions, money back</div>
     </div>
-    <div class="who-grid">
-      <div class="who-card span-2 reveal">
-        <div class="bignum">01</div>
-        <h4>You've already tried the obvious moves</h4>
-        <p>More discipline, more analysis, more advice from smart people — and the thing is still stuck.</p>
-      </div>
-      <div class="who-card reveal">
-        <div class="bignum">02</div>
-        <h4>You want a different way through</h4>
-        <p>Not sympathy for being stuck, and not another framework for trying harder at the same approach.</p>
-      </div>
-      <div class="who-card reveal">
-        <div class="bignum">03</div>
-        <h4>You're curious enough to try something unfamiliar</h4>
-        <p>Even if it means taking dreams, imagination, and the parts of your mind you don't control on purpose seriously.</p>
-      </div>
+    <div class="placeholder-box">
+      <span class="tag">Add — real deadline</span>
+      <p>Private calls for the founding cohort are being scheduled through <strong>[DATE]</strong> — after that, the seats go to whoever already talked to me.</p>
     </div>
-  </section>
+    <div class="placeholder-box">
+      <span class="tag">Add — real price anchor</span>
+      <p>A single private session with me normally runs <strong>$X</strong>. This is ten weeks, one private session included, and a small group — for less than half that.</p>
+    </div>
+  </div>
+</section>
 
-  <section class="s-bg copy">
-    <div class="wrap-narrow">
-      <h2 class="reveal">What actually changes.</h2>
-      <p class="body-lg reveal">A working capability, not a certificate — one you keep using long after the cohort ends.</p>
+<!-- RECIPROCITY -->
+<section>
+  <div class="container-narrow" style="text-align:center;">
+    <span class="eyebrow">Before You Book</span>
+    <h2 class="section-title">Take the method for a test drive.</h2>
+    <p class="section-sub">One page. The same lens I use to find a third option — try it on your own stuck decision before you ever pay me anything.</p>
+    <form class="capture-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="email" name="email" placeholder="you@email.com" required>
+      <button class="btn btn-primary" type="submit">Send it to me</button>
+    </form>
+    <div class="placeholder-box" style="margin-top:24px;">
+      <span class="tag">Add — the real one-pager</span>
+      <p>One page someone could actually use, whether or not they ever book a call. Wire this form's action to a Formspree endpoint that autoresponds with it.</p>
     </div>
-    <div class="outcomes-list">
-      <div class="outcome-row reveal">
-        <div class="o-mark">01</div>
-        <p>A repeatable method for moving a genuinely stuck decision — not just insight once.</p>
-      </div>
-      <div class="outcome-row reveal">
-        <div class="o-mark">02</div>
-        <p>The ability to read your own dreams and instincts as usable data, not noise.</p>
-      </div>
-      <div class="outcome-row reveal">
-        <div class="o-mark">03</div>
-        <p>A name for the real tension underneath a problem you've circled for months.</p>
-      </div>
-      <div class="outcome-row reveal">
-        <div class="o-mark">04</div>
-        <p>The early architecture of your own synthesis — ideas you can defend and teach.</p>
-      </div>
-      <div class="outcome-row reveal">
-        <div class="o-mark">05</div>
-        <p>A small group of peers who took the same idea seriously, past week ten.</p>
-      </div>
-    </div>
-    <details class="disclosure" style="max-width:720px; margin:24px auto 0;">
-      <summary>What this looks like in practice</summary>
-      <div class="disclosure-body">
-        <p>Not a certificate, and not a worldview to recite back. A working capability you keep using long after the cohort ends — the same way a facilitation method or a piece of software becomes something you just reach for, rather than something you remember learning.</p>
-      </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-soft" id="faq">
+  <div class="container-narrow">
+    <h2 class="section-title">Questions worth asking before you book a call</h2>
+    <details class="faq-item" open>
+      <summary>Is this therapy?</summary>
+      <div class="faq-body">No. I'm not a licensed psychotherapist or mental health provider, and this isn't a substitute for clinical care. It's specific work on a real problem, guided by frameworks I've spent years developing — including my training as a Demartini Method Facilitator.</div>
     </details>
-    <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="#book">Claim Your Seat in the Founding Cohort</a>
-    </div>
-  </section>
+    <details class="faq-item">
+      <summary>Do I need to already know Jung, alchemy, or the Demartini Method?</summary>
+      <div class="faq-body">No prior study required. Bring the stuck problem, not a reading list.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What actually happens in a session?</summary>
+      <div class="faq-body">Ninety minutes, live, with a small group. Each session works a real, current problem someone in the room brought — using dream material, values work, and direct facilitation to find the third option.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What if I miss a week?</summary>
+      <div class="faq-body">Say so ahead of time where you can. A single missed session isn't a problem, and I'll help you catch the thread.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Is what I share kept private?</summary>
+      <div class="faq-body">What's said in the group stays in the group — no exceptions.</div>
+    </details>
+    <details class="faq-item" open>
+      <summary>What if it's not the right fit after the first session?</summary>
+      <div class="faq-body">First session, no questions, money back. The short call before you commit exists specifically to make this unlikely, but the option stays open regardless.</div>
+    </details>
+    <details class="faq-item" open>
+      <summary>Why is it priced this low for what's included?</summary>
+      <div class="faq-body">This is the first cohort, priced accordingly. No bonuses, no stacked "value" — just the honest cost of a small group, direct access, and a program I'm running for the first time in this form.</div>
+    </details>
+  </div>
+</section>
 
-  <section class="s-bg copy">
-    <div class="wrap-narrow">
-      <span class="cp-label reveal" style="display:block; margin-bottom:16px;">Before You Book</span>
-      <h2 class="reveal">Take the method for a test drive.</h2>
-      <p class="body-lg reveal">One page. The same lens I use to find a third option, written so you can try it on your own stuck decision before you ever pay me anything.</p>
-      <div class="capture-form reveal" style="margin-top:28px;">
-        <input type="email" name="email" placeholder="you@email.com" required>
-        <button type="submit">Send me the field note</button>
-      </div>
-      <div class="placeholder-box reveal" style="margin-top:20px;">
-        <span class="ph-tag">Add — the real one-pager</span>
-        <p>One page someone could actually use, whether or not they ever book a call. Wire this form's action to a Formspree endpoint that autoresponds with it.</p>
-      </div>
-    </div>
-  </section>
+<!-- FINAL CTA -->
+<section class="bg-dark" id="book" style="text-align:center;">
+  <div class="container-narrow">
+    <h2 class="section-title" style="color:#fff;">If this is landing somewhere real.</h2>
+    <p class="section-sub" style="color:#B8B8CC;">For the founding cohort, a conversation comes first — not a purchase. I'd rather talk than sell you on a page.</p>
+    <p style="color:#FFD37A;font-weight:600;margin-bottom:28px;">Six to ten seats. Ten weeks. One conversation to find out if you're one of them.</p>
 
-  <section class="s-alt copy" id="pricing">
-    <div class="wrap-narrow">
-      <h2 class="reveal">The founding cohort.</h2>
-      <p class="body-lg reveal">One price. One format. Everything that's included, stated plainly.</p>
-      <p class="price-schedule reveal"><strong>Starts Saturday, January 9, 2027</strong> · Saturdays, 8:00am PST · 10 weeks</p>
-      <p class="price-schedule reveal" style="color:var(--ink-dim); font-size:14px; margin-top:8px;">Deliberately small — 6 to 10 people, by design, not a marketing number.</p>
-      <div class="scarcity-banner reveal">Six to ten seats. Not sixty. This is the only cohort that will ever run at this price.</div>
-      <p class="price-schedule reveal" style="color:var(--accent); margin-top:14px;">[PLACEHOLDER — real deadline] Private calls for the founding cohort are being scheduled through <strong>[DATE]</strong> — after that, the six-to-ten seats go to whoever already talked to me.</p>
-    </div>
-    <div class="price-card-wrap reveal">
-      <div class="price-card">
-        <div class="price-amount">$997</div>
-        <div class="price-sub">Full 10-week program, one payment</div>
-        <ul class="price-includes">
-          <li>10 weekly group sessions, 90 minutes, live</li>
-          <li>One private 1:1 session with Sam during the program</li>
-          <li>A small cohort — 6 to 10 people</li>
-          <li>Direct access to Sam between sessions</li>
-        </ul>
-        <a class="btn btn-primary price-btn" href="#book">Schedule Your Private Call</a>
-        <p class="microcopy" style="margin-top:14px;">[PLACEHOLDER — real price anchor] A single private session with me normally runs <strong>$X</strong>. This is ten weeks, one private session included, and a small group — for less than half that.</p>
-        <details class="disclosure">
-          <summary>How payment and the process work</summary>
-          <div class="disclosure-body">
-            <p>A short call first — to make sure this is the right room for you. If it is, payment is by direct bank transfer, arranged on that call.</p>
-            <p>First cohort, priced accordingly. No bonuses, no stacked "value" — this is what it costs and what you get. First session, no questions, money back. Spots are held once payment clears; the cohort closes once it's full.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="s-bg copy">
-    <div class="wrap-narrow">
-      <h2 class="reveal">Questions worth asking before you book a call.</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item reveal">
-        <summary>Is this therapy?</summary>
-        <div class="faq-body">No. I'm not a licensed psychotherapist or mental health provider, and this isn't a substitute for clinical care. It's specific work on a real problem, guided by frameworks I've spent years developing — including my training as a Demartini Method Facilitator.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Do I need to already know Jung, alchemy, or the Demartini Method?</summary>
-        <div class="faq-body">No prior study required. Bring the stuck problem, not a reading list. Anything you need from those frameworks gets introduced as it becomes useful, not as homework beforehand.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>What actually happens in a session?</summary>
-        <div class="faq-body">Ninety minutes, live, with a small group. Each session works a real, current problem someone in the room brought — using dream material, values work, and direct facilitation to find the third option, not just talk about the concept of one.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>What if I miss a week?</summary>
-        <div class="faq-body">Say so ahead of time where you can. This is a small, live cohort rather than a recorded course, so continuity matters more than in a typical program — but a single missed session isn't a problem, and I'll help you catch the thread.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Is what I share kept private?</summary>
-        <div class="faq-body">What's said in the group stays in the group — no exceptions. That's a condition of the room, not a suggestion.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>What if it's not the right fit after the first session?</summary>
-        <div class="faq-body">First session, no questions, money back. The short call before you commit exists specifically to make this unlikely, but the option stays open regardless.</div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Why is it priced this low for what's included?</summary>
-        <div class="faq-body">This is the first cohort, priced accordingly. No bonuses, no stacked "value" — just the honest cost of a small group, direct access, and a program I'm running for the first time in this form.</div>
-      </details>
-    </div>
-    <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
-    </div>
-  </section>
-
-  <section class="s-alt cta-section angle-up" id="book">
-    <div class="orb orb-1"></div>
-    <div class="shape shape-ring" style="width:100px; height:100px; top:12%; left:8%; animation-delay:0.6s;"></div>
-    <div class="shape shape-cool shape-plus" style="top:75%; right:12%; animation-delay:1.4s;">☽</div>
-    <h2 class="reveal">If this is landing somewhere real.</h2>
-    <p class="body-lg reveal">For the founding cohort, a conversation comes first — not a purchase. I'd rather talk than sell you on a page.</p>
-    <p class="microcopy reveal" style="margin-bottom:28px;">Six to ten seats. Ten weeks. One conversation to find out if you're one of them.</p>
-
-    <div class="placeholder-box reveal" style="margin-bottom:24px;">
-      <span class="ph-tag">Add — one-click scheduler</span>
+    <div class="placeholder-box" style="margin:0 auto 28px; background:#232338; border-color:#4438C7; color:#C7C2F5;">
+      <span class="tag" style="background:var(--accent);">Add — one-click scheduler</span>
       <p>Every button on the page lands here. Right now it opens an email instead of booking a time — swap this box for a Calendly / Cal.com embed and remove that friction at the exact moment someone's ready to say yes.</p>
     </div>
 
-    <div class="btn-row reveal">
-      <a class="btn btn-primary magnetic" href="/cdn-cgi/l/email-protection#186b7975586b7975776b7a776a767d36767d6c276b6d7a727d7b6c2555796b6c7d6a7571767c3d2a28353d2a28747d6c3d2a2f6b3d2a286c797473">Schedule Your Private Call</a>
-      <a class="btn btn-secondary" href="/cdn-cgi/l/email-protection#4734262a0734262a2834252835292269292233">Not ready yet — email me ›</a>
-    </div>
+    <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#186b7975586b7975776b7a776a767d36767d6c276b6d7a727d7b6c2555796b6c7d6a7571767c3d2a28353d2a28747d6c3d2a2f6b3d2a286c797473">Schedule Your Private Call →</a>
+    <p style="margin-top:16px;"><a href="/cdn-cgi/l/email-protection#4734262a0734262a2834252835292269292233" style="color:#B8B8CC;text-decoration:underline;">Not ready yet — email me ›</a></p>
+  </div>
+</section>
 
-    <div class="reveal" style="margin-top:56px;">
-      <p class="microcopy" style="margin-bottom:16px;">Not ready for a call? Leave your email — when the next cohort opens, you'll hear about it first.</p>
-      <form class="capture-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="email" name="email" placeholder="you@email.com" required>
-        <button type="submit">Keep me posted</button>
-      </form>
-      <p class="microcopy" style="margin-top:10px; opacity:0.7;">[Placeholder — swap YOUR_FORM_ID for a real Formspree endpoint, same pattern as the main site]</p>
-    </div>
-  </section>
+<footer>
+  <p>Sam Osborne · samosborne.net</p>
+  <p class="crisis">If you're in crisis or need clinical support, please reach out to a licensed mental health professional.</p>
+</footer>
 
-  <footer>
-    <p>Sam Osborne &nbsp;·&nbsp; samosborne.net</p>
-    <p style="margin-top:8px;">If you're in crisis or need clinical support, please reach out to a licensed mental health professional.</p>
-  </footer>
+<div class="sticky-cta">
+  <div class="txt">Founding Cohort<span>6–10 seats · $997</span></div>
+  <a class="btn btn-primary btn-sm" href="#book">Book Your Call</a>
+</div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  window.addEventListener('mousemove', (e) => {
-    document.documentElement.style.setProperty('--mx', e.clientX + 'px');
-    document.documentElement.style.setProperty('--my', e.clientY + 'px');
-  }, { passive: true });
-
-  document.querySelectorAll('.magnetic').forEach((btn) => {
-    btn.addEventListener('mousemove', (e) => {
-      const r = btn.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top - r.height / 2;
-      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.3}px)`;
-    });
-    btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
-  });
-</script>
-
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3ac4153ee6907e8',t:'MTc4OTM1NjAxOQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
