@@ -1,787 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sam Osborne | The Conflict Advantage Mastermind | Group Facilitation for High-Stakes Professionals</title>
-  <meta name="description" content="A cohort of attorneys, advisors, and executives working the Demartini Method together — one charged relationship a month, in a small cross-industry group, guided by Sam Osborne."/>
-  <meta property="og:title" content="Sam Osborne | The Conflict Advantage Mastermind"/>
-  <meta property="og:description" content="You're not the only one still arguing with someone in your head. Group facilitation for high-stakes professionals — one relationship a month, together."/>
-  <meta property="og:url" content="https://samosborne.net/mastermind"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Ordered Field | A Study Group on Dreams, the Transcendent Function &amp; Consciousness</title>
+<meta name="description" content="A small, invitation-based study circle on Jung's transcendent function, dream work, and consciousness — facilitated by Dr. Sam Osborne. Monthly sessions, held as a living practice, not a lecture."/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --charcoal: #1A1A1A;
-  --white:    #FFFFFF;
-  --gold:     #D4A574;
-  --slate:    #4A5E7F;
-  --warm:     #F5F3F0;
-  --ink:      #1d1d1f;
-  --muted:    #6e6e73;
-  --light:    #f5f5f7;
-  --off:      #f0ede8;
+:root{
+  --primary:#825846;       /* wdtPrimaryColor */
+  --secondary:#000000;     /* wdtSecondaryColor */
+  --tertiary:#f2ebe1;      /* wdtTertiaryColor */
+  --bodybg:#e4d8c9;        /* wdtBodyBGColor */
+  --bodytxt:#464340;       /* wdtBodyTxtColor */
+  --white:#ffffff;
+  --line:rgba(70,67,64,.14);
+  --primary-rgb:130,88,70;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Jost', sans-serif; font-weight:400; font-size:17px; line-height:1.7;
+  background:var(--bodybg); color:var(--bodytxt); overflow-x:hidden;
+}
+h1,h2,h3,h4,h5{font-family:'Marcellus', serif; font-weight:400; color:var(--secondary); line-height:1.18; letter-spacing:.002em;}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+/* ===== Nav ===== */
+header{position:sticky; top:0; z-index:500; background:rgba(242,235,225,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+.nav-row{display:flex; align-items:center; justify-content:space-between; padding:20px 0;}
+.logo{font-family:'Marcellus', serif; font-size:22px; color:var(--secondary); letter-spacing:.01em;}
+.logo span{color:var(--primary);}
+.nav-links{display:flex; gap:34px; list-style:none;}
+.nav-links a{font-size:14px; letter-spacing:.01em; color:var(--bodytxt); position:relative; padding-bottom:4px;}
+.nav-links a:hover{color:var(--primary);}
+.nav-cta{background:var(--primary); color:var(--white) !important; padding:11px 26px; border-radius:4px; font-size:13px; letter-spacing:.03em; text-transform:uppercase; font-weight:500;}
+.nav-cta:hover{background:var(--secondary);}
+.burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+.burger span{width:22px; height:2px; background:var(--secondary); display:block;}
+@media(max-width:920px){
+  .nav-links{position:fixed; inset:64px 0 auto 0; background:var(--tertiary); flex-direction:column; padding:24px 32px; gap:0; display:none; border-bottom:1px solid var(--line);}
+  .nav-links.open{display:flex;}
+  .nav-links li{border-bottom:1px solid var(--line); width:100%;}
+  .nav-links a{display:block; padding:14px 0;}
+  .nav-cta{display:none;}
+  .burger{display:flex;}
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: var(--charcoal);
-  color: var(--light);
-  overflow-x: clip;
-  max-width: 100%;
-  line-height: 1.47059;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+/* ===== Hero ===== */
+.hero{padding:96px 0 80px; position:relative; overflow:hidden;}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;}
+.eyebrow{display:inline-block; font-size:13px; letter-spacing:.04em; color:var(--primary); font-style:italic; margin-bottom:18px;}
+.hero h1{font-size:clamp(2.3rem,4.4vw,3.6rem); max-width:14ch; margin-bottom:22px;}
+.hero h1 em{color:var(--primary); font-style:normal;}
+.hero p.lead{font-size:18px; font-weight:300; color:var(--bodytxt); max-width:46ch; margin-bottom:16px;}
+.hero p.sub{font-size:14px; font-weight:300; color:rgba(70,67,64,.66); max-width:44ch; margin-bottom:34px;}
+.btn{display:inline-block; background:var(--primary); color:var(--white); padding:16px 34px; border-radius:4px; font-size:14px; letter-spacing:.03em; text-transform:uppercase; font-weight:500; transition:background .2s ease, transform .2s ease;}
+.btn:hover{background:var(--secondary); transform:translateY(-2px);}
+.btn-outline{display:inline-block; border:1px solid var(--secondary); color:var(--secondary); padding:15px 30px; border-radius:4px; font-size:14px; letter-spacing:.03em; margin-left:14px;}
+.btn-outline:hover{background:var(--secondary); color:var(--white);}
+.hero-actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
+
+.hero-art{position:relative; aspect-ratio:1/1.08; border-radius:6px; background:
+  radial-gradient(circle at 30% 26%, rgba(255,255,255,.5), transparent 46%),
+  linear-gradient(150deg, var(--tertiary) 0%, #d8c6ab 60%, var(--primary) 130%);
+  overflow:hidden; border:1px solid var(--line);}
+.hero-art svg{position:absolute; inset:0; width:100%; height:100%;}
+.hero-stat{position:absolute; left:24px; bottom:24px; background:var(--white); border-radius:6px; padding:18px 22px; box-shadow:0 18px 40px rgba(0,0,0,.12); max-width:220px;}
+.hero-stat b{font-family:'Marcellus',serif; font-size:26px; color:var(--primary); display:block;}
+.hero-stat span{font-size:12px; color:var(--bodytxt); letter-spacing:.01em;}
+
+/* ===== Marquee ===== */
+.marquee{background:var(--secondary); overflow:hidden; padding:15px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.marquee-track{display:flex; width:max-content; animation:mq 32s linear infinite; white-space:nowrap;}
+.marquee-item{color:rgba(255,255,255,.7); font-family:'Marcellus',serif; font-size:15px; padding:0 30px; display:flex; align-items:center; gap:30px;}
+.marquee-item i{width:5px; height:5px; border-radius:50%; background:var(--primary); display:inline-block;}
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ===== Sections ===== */
+.section{padding:100px 0;}
+.section-cream{background:var(--tertiary);}
+.section-tan{background:var(--bodybg);}
+.head-center{text-align:center; max-width:680px; margin:0 auto 56px;}
+.head-center .kicker{color:var(--primary); font-style:italic; font-size:14px; margin-bottom:12px; display:block;}
+.head-center h2{font-size:clamp(1.9rem,3.4vw,2.7rem);}
+.head-center p{font-size:16px; font-weight:300; color:rgba(70,67,64,.72); margin-top:16px;}
+
+.statement{font-family:'Marcellus',serif; font-size:clamp(1.4rem,2.6vw,2rem); line-height:1.5; max-width:34ch; margin:0 auto; text-align:center; color:var(--secondary);}
+
+/* icon box grid */
+.icon-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:8px;}
+.icon-card{background:var(--white); border-radius:6px; padding:38px 30px; border:1px solid var(--line); transition:transform .25s ease, box-shadow .25s ease;}
+.icon-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,.08);}
+.icon-circle{width:52px; height:52px; border-radius:50%; background:var(--tertiary); display:flex; align-items:center; justify-content:center; margin-bottom:20px;}
+.icon-circle svg{width:24px; height:24px; stroke:var(--primary); fill:none; stroke-width:1.6;}
+.icon-card h3{font-size:19px; margin-bottom:10px;}
+.icon-card p{font-size:14.5px; font-weight:300; color:rgba(70,67,64,.72); line-height:1.65;}
+
+/* curriculum */
+.curriculum{max-width:800px; margin:48px auto 0; list-style:none; counter-reset:mod;}
+.curriculum li{display:grid; grid-template-columns:60px 1fr; gap:22px; padding:22px 0; border-bottom:1px solid var(--line); counter-increment:mod;}
+.curriculum li:last-child{border-bottom:none;}
+.curriculum li::before{
+  content:counter(mod,decimal-leading-zero); font-family:'Marcellus',serif; font-size:26px; color:var(--primary);
+  align-self:start; line-height:1;
 }
-a { text-decoration: none; color: var(--slate); transition: color .2s; }
-a:hover { color: var(--gold); }
-a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 3px; }
-img { display: block; max-width: 100%; }
+.curriculum h4{font-size:18px; margin-bottom:6px;}
+.curriculum p{font-size:14.5px; font-weight:300; color:rgba(70,67,64,.7);}
 
-nav {
-  position: fixed; top: 0; width: 100%; z-index: 1050;
-  height: 52px;
-  background: rgba(26,26,26,.72);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  transition: background .3s ease;
-}
-nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255,255,.1); }
-.nav-inner {
-  max-width: 1400px; margin: 0 auto; padding: 0 40px;
-  height: 100%; display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo { font-size: 17px; font-weight: 600; letter-spacing: -.022em; color: var(--off); }
-.nav-links { display: flex; gap: 30px; list-style: none; }
-.nav-links a { color: rgba(245,245,247,.78); font-size: 13px; font-weight: 400; letter-spacing: -.01em; transition: color .2s; }
-.nav-links a:hover { color: var(--white); }
-.nav-right { display: flex; align-items: center; gap: 22px; }
-.nav-phone { font-size: 13px; font-weight: 600; letter-spacing: -.01em; color: #fff; white-space: nowrap; transition: color .2s; }
-.nav-phone:hover { color: var(--gold); }
-.nav-cta { font-size: 13px; font-weight: 500; letter-spacing: -.01em; color: var(--gold); }
-.nav-cta:hover { color: var(--white); }
-.mobile-toggle { display: none; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; line-height: 1; padding: 4px 6px; z-index: 1060; position: relative; transition: transform .22s ease; }
-.mobile-toggle.is-open { transform: rotate(90deg); }
+/* two col */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+.two-col h3{font-size:24px; margin-bottom:16px;}
+.two-col p{font-size:15px; font-weight:300; color:rgba(70,67,64,.75); margin-bottom:16px;}
 
-.hero {
-  min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-  padding: 140px 40px 100px;
-  background:
-    radial-gradient(circle at 50% 36%, rgba(212,165,116,.22) 0%, rgba(212,165,116,.08) 14%, rgba(212,165,116,0) 38%),
-    linear-gradient(180deg, rgba(26,26,26,.35) 0%, rgba(26,26,26,.55) 55%, rgba(26,26,26,.85) 100%),
-    url('/images/sam-osborne-hero-banner.jpg') center 25% / cover no-repeat,
-    var(--charcoal);
-  position: relative; overflow: hidden;
-}
-.hero::before, .hero::after {
-  content: ""; position: absolute; top: 50%; width: 28%; height: 1px;
-  background: linear-gradient(90deg, rgba(212,165,116,0), rgba(212,165,116,.42)); transform: translateY(-50%); pointer-events: none;
-}
-.hero::before { left: 4%; }
-.hero::after { right: 4%; transform: translateY(-50%) scaleX(-1); }
-.hero-kicker { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; opacity: 0; animation: riseIn .7s .3s ease forwards; }
-.hero h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); font-weight: 700; line-height: 1.06; letter-spacing: -.04em; color: var(--white); max-width: 20ch; margin: 0 auto 24px; opacity: 0; animation: riseIn .9s .46s ease forwards; }
-.hero-rule { width: 36px; height: 1px; background: rgba(212,165,116,.5); margin: 0 auto 24px; opacity: 0; animation: riseIn .7s .6s ease forwards; }
-.hero-sub { font-size: clamp(1rem, 2vw, 1.32rem); font-weight: 300; line-height: 1.55; letter-spacing: -.01em; color: rgba(240,237,232,.62); max-width: 48ch; margin: 0 auto 14px; opacity: 0; animation: riseIn .9s .72s ease forwards; }
-.hero-tagline { font-size: clamp(.9rem, 1.4vw, 1.08rem); font-weight: 300; color: rgba(240,237,232,.36); max-width: 46ch; margin: 0 auto 20px; opacity: 0; animation: riseIn .8s .86s ease forwards; }
-.hero-credential { font-size: 12px; font-weight: 500; letter-spacing: .02em; color: rgba(212,165,116,.74); max-width: 54ch; margin: 0 auto 40px; line-height: 1.6; opacity: 0; animation: riseIn .8s .98s ease forwards; }
-.hero-actions { opacity: 0; animation: riseIn .8s 1.08s ease forwards; }
-@keyframes riseIn { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+/* objections */
+.obj-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:8px;}
+.obj-card{background:var(--white); border-left:3px solid var(--primary); border-radius:4px; padding:32px 30px;}
+.obj-card h4{font-size:18px; margin-bottom:12px; font-style:italic;}
+.obj-card p{font-size:14.5px; font-weight:300; color:rgba(70,67,64,.75); line-height:1.7;}
+.obj-card p + p{margin-top:10px;}
 
-.btn-primary { display: inline-block; background: var(--gold); color: #1A1A1A; padding: 14px 32px; border-radius: 980px; font-size: 15px; font-weight: 600; letter-spacing: -.01em; border: 1.5px solid rgba(255,255,255,.1); transition: all .22s ease; }
-.btn-primary:hover { background: #E8C497; color: var(--white); transform: translateY(-1px); }
+/* testimonials */
+.testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:12px;}
+.testi-card{background:var(--white); border-radius:6px; padding:36px 30px; border:1px solid var(--line);}
+.testi-mark{font-family:'Marcellus',serif; font-size:46px; color:var(--primary); opacity:.35; line-height:.5; margin-bottom:10px; display:block;}
+.testi-quote{font-style:italic; font-size:15px; line-height:1.7; color:var(--bodytxt); margin-bottom:20px;}
+.testi-name{font-weight:600; font-size:14px; color:var(--secondary);}
+.testi-role{font-size:12.5px; color:rgba(70,67,64,.6);}
+.testi-note{text-align:center; font-size:12.5px; color:rgba(70,67,64,.5); max-width:60ch; margin:36px auto 0; line-height:1.6;}
 
-.method-credential { font-size: clamp(1rem, 1.5vw, 1.18rem); font-weight: 300; line-height: 1.7; color: rgba(240,237,232,.74); max-width: 64ch; margin: 0 auto; }
-.method-credential strong { color: var(--gold); font-weight: 600; }
-.credential-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px 30px; margin-top: 34px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,.08); }
-.credential-row span { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(240,237,232,.52); line-height: 1.5; }
+/* pricing */
+.toggle-row{display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:44px;}
+.toggle-row span{font-size:14px; font-weight:500;}
+.switch{position:relative; width:52px; height:28px; background:var(--secondary); border-radius:999px; cursor:pointer; flex-shrink:0;}
+.switch::after{content:""; position:absolute; top:3px; left:3px; width:22px; height:22px; background:var(--white); border-radius:50%; transition:transform .25s ease;}
+.switch.annual::after{transform:translateX(24px);}
+.save-tag{background:var(--primary); color:var(--white); font-size:10.5px; padding:3px 9px; border-radius:999px; letter-spacing:.02em;}
 
-.marquee-band { border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); overflow: hidden; padding: 14px 0; background: var(--charcoal); position: relative; max-width: 100%; width: 100%; }
-.marquee-track { display: flex; animation: marquee 36s linear infinite; white-space: nowrap; }
-.marquee-item { display: flex; align-items: center; gap: 44px; padding: 0 44px; font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: rgba(240,237,232,.22); flex-shrink: 0; }
-.mdot { width: 3px; height: 3px; border-radius: 50%; background: rgba(212,165,116,.32); }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.price-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+.price-card{background:var(--white); border:1px solid var(--line); border-radius:8px; padding:42px 32px; text-align:center; position:relative; transition:transform .25s ease, box-shadow .25s ease;}
+.price-card:hover{transform:translateY(-6px); box-shadow:0 24px 48px rgba(0,0,0,.1);}
+.price-card.featured{border-color:var(--primary); background:var(--tertiary);}
+.price-flag{position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--primary); color:var(--white); font-size:10.5px; padding:5px 14px; border-radius:999px; letter-spacing:.03em; text-transform:uppercase;}
+.price-label{font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--primary); margin-bottom:10px; display:block;}
+.price-title{font-size:22px; margin-bottom:14px;}
+.price-amount{font-family:'Marcellus',serif; font-size:2.6rem; color:var(--secondary); line-height:1;}
+.price-amount span{font-size:15px; font-family:'Jost',sans-serif; color:rgba(70,67,64,.55);}
+.price-detail{font-size:12.5px; color:rgba(70,67,64,.5); margin:10px 0 26px;}
+.price-features{list-style:none; text-align:left; margin-bottom:28px;}
+.price-features li{font-size:14px; font-weight:300; padding-left:22px; position:relative; margin-bottom:10px; color:rgba(70,67,64,.8);}
+.price-features li::before{content:"—"; position:absolute; left:0; color:var(--primary);}
+.annual-only{display:none;}
+.pricing.annual .monthly-only{display:none;}
+.pricing.annual .annual-only{display:block;}
 
-.section { padding: 120px 40px; position: relative; }
-.section-content { max-width: 1200px; margin: 0 auto; }
-.section-dark { background: var(--charcoal); }
-.section-light { background: var(--warm); color: var(--ink); }
-.section-light p { color: var(--muted); }
-.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; text-align: center; }
-.section-light .eyebrow { color: var(--slate); }
-.t-xl { font-size: clamp(2.4rem, 5vw, 5rem); font-weight: 700; line-height: 1.05; letter-spacing: -.035em; }
-.t-body { font-size: clamp(.92rem, 1.3vw, 1.05rem); font-weight: 300; line-height: 1.68; letter-spacing: -.005em; color: rgba(240,237,232,.52); }
-.section-light .t-body { color: rgba(29,29,31,.62); }
+.founding{margin-top:20px; background:var(--secondary); color:var(--tertiary); border-radius:8px; padding:40px 42px; display:grid; grid-template-columns:1fr auto; gap:30px; align-items:center;}
+.founding .lbl{color:var(--primary); font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; display:block; margin-bottom:10px;}
+.founding h3{color:var(--tertiary); font-size:22px; margin-bottom:10px;}
+.founding p{font-size:14px; font-weight:300; color:rgba(242,235,225,.72); max-width:56ch;}
+.founding-price{text-align:right;}
+.founding-price b{font-family:'Marcellus',serif; font-size:2rem; color:var(--white); display:block; margin-bottom:14px;}
+@media(max-width:860px){.founding{grid-template-columns:1fr; text-align:left;} .founding-price{text-align:left;}}
 
-.intro-statement { font-size: clamp(1.4rem, 2.8vw, 2.8rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.07; color: var(--off); max-width: 26ch; margin: 0 auto; text-align: center; }
+/* faq */
+.faq{max-width:800px; margin:0 auto;}
+details{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:18px 22px; margin-bottom:12px;}
+summary{cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; font-weight:500; font-size:15px;}
+summary::-webkit-details-marker{display:none;}
+summary .chev{transition:transform .2s ease; color:var(--primary); font-size:13px;}
+details[open] summary .chev{transform:rotate(180deg);}
+details p{font-size:14.5px; font-weight:300; color:rgba(70,67,64,.75); margin-top:14px; padding-top:14px; border-top:1px solid var(--line); line-height:1.7;}
 
-.problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 48px; }
-.problem-card { background: rgba(255,255,255,.88); border: 1px solid rgba(0,0,0,.07); border-radius: 18px; padding: 32px 28px; box-shadow: 0 14px 44px rgba(0,0,0,.09); transition: transform .3s ease, box-shadow .3s ease; }
-.problem-card:hover { transform: translateY(-6px); box-shadow: 0 22px 60px rgba(0,0,0,.14); }
-.problem-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -.025em; color: var(--ink); margin-bottom: 10px; }
-.problem-card p { font-size: .88rem; line-height: 1.65; color: var(--muted); }
-.section-dark .problem-card { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.09); box-shadow: none; }
-.section-dark .problem-card h3 { color: var(--gold); }
-.section-dark .problem-card p { color: rgba(240,237,232,.58); }
-.section-dark .problem-card:hover { background: rgba(255,255,255,.07); }
+/* form */
+.form-card{max-width:760px; margin:0 auto; background:var(--white); border-radius:8px; padding:48px; border:1px solid var(--line);}
+.f-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
+.f-group label{display:block; font-size:12.5px; font-weight:600; letter-spacing:.01em; margin-bottom:7px; color:var(--secondary);}
+.f-note{display:block; font-size:11.5px; font-weight:300; color:rgba(70,67,64,.55); margin:-3px 0 8px;}
+.f-group input, .f-group select, .f-group textarea{width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:5px; background:var(--tertiary); font-family:inherit; font-size:14px; color:var(--secondary);}
+.f-group input:focus, .f-group select:focus, .f-group textarea:focus{outline:none; border-color:var(--primary);}
+.f-submit{width:100%; background:var(--primary); color:var(--white); border:none; padding:16px; border-radius:5px; font-size:14px; letter-spacing:.03em; text-transform:uppercase; font-weight:500; cursor:pointer; margin-bottom:12px;}
+.f-submit:hover{background:var(--secondary);}
+.f-fine{text-align:center; font-size:11.5px; color:rgba(70,67,64,.5);}
 
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
-.two-col h3 { font-size: clamp(1.3rem, 2.2vw, 1.9rem); font-weight: 700; letter-spacing: -.03em; color: var(--gold); margin-bottom: 20px; }
-.two-col p { font-size: .96rem; line-height: 1.68; color: rgba(240,237,232,.58); margin-bottom: 20px; }
+/* footer */
+footer{background:var(--secondary); color:rgba(242,235,225,.6); padding:64px 0 30px;}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; margin-bottom:50px;}
+footer h5{color:var(--tertiary); font-size:16px; margin-bottom:18px;}
+footer .logo{color:var(--tertiary);}
+footer .logo span{color:var(--primary);}
+footer p{font-size:13.5px; font-weight:300; line-height:1.75; max-width:38ch;}
+footer ul{list-style:none;}
+footer li{margin-bottom:10px; font-size:13.5px;}
+footer li a:hover{color:var(--primary);}
+.foot-bottom{border-top:1px solid rgba(242,235,225,.12); padding-top:26px; text-align:center;}
+.foot-bottom .copyright{font-size:12.5px;}
+.foot-disclaimer{font-size:11px; line-height:1.7; max-width:78ch; margin:14px auto 0; color:rgba(242,235,225,.32);}
 
-.curriculum-list { list-style: none; margin-top: 10px; counter-reset: month; }
-.curriculum-list li { font-size: .96rem; line-height: 1.5; color: rgba(240,237,232,.7); padding-left: 44px; position: relative; margin-bottom: 16px; counter-increment: month; }
-.curriculum-list li::before {
-  content: counter(month); position: absolute; left: 0; top: -2px;
-  width: 26px; height: 26px; border: 1.5px solid var(--gold); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 700; color: var(--gold);
-}
-.curriculum-list li strong { color: var(--off); font-weight: 600; display: block; margin-bottom: 2px; }
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.visible{opacity:1; transform:none;}
 
-.shift-metric { margin-top: 28px; padding: 24px 26px; border: 1px solid rgba(212,165,116,.28); border-radius: 16px; background: rgba(212,165,116,.05); }
-.shift-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(240,237,232,.42); margin-bottom: 16px; display: block; }
-.shift-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-weight: 700; letter-spacing: -.03em; line-height: 1; }
-.shift-before { font-size: clamp(.95rem, 1.5vw, 1.14rem); color: rgba(240,237,232,.4); }
-.shift-arrow { font-size: 1.05rem; color: rgba(212,165,116,.6); }
-.shift-after { font-size: clamp(1.3rem, 2.2vw, 1.8rem); color: var(--gold); }
-.shift-metric > p { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); font-size: .86rem; line-height: 1.62; color: rgba(240,237,232,.55); }
-
-.method-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px; }
-.method-card { position: relative; overflow: hidden; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 34px 28px; }
-.method-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .14; background: radial-gradient(circle at 50% 50%, rgba(212,165,116,.32) 0%, rgba(212,165,116,.14) 14%, rgba(212,165,116,0) 36%), linear-gradient(90deg, rgba(212,165,116,0) 0%, rgba(212,165,116,.24) 50%, rgba(212,165,116,0) 100%); }
-.method-card::after { content: ""; position: absolute; left: 8%; right: 8%; top: 50%; height: 1px; background: linear-gradient(90deg, rgba(212,165,116,0), rgba(212,165,116,.42), rgba(212,165,116,0)); opacity: .34; }
-.method-card > * { position: relative; z-index: 1; }
-.method-card h3 { color: var(--off); margin-bottom: 10px; font-size: 1.05rem; }
-.method-card p { color: rgba(240,237,232,.58); font-size: .88rem; line-height: 1.65; }
-
-.highlight-box { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 40px; margin-top: 60px; }
-.highlight-box p { font-size: clamp(.92rem, 1.4vw, 1.1rem); line-height: 1.68; color: rgba(240,237,232,.72); text-align: center; }
-.section-light .highlight-box { background: rgba(0,0,0,.03); border-color: rgba(0,0,0,.08); }
-.section-light .highlight-box p { color: var(--ink); }
-
-.objection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; }
-.objection-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-left: 2px solid rgba(212,165,116,.5); border-radius: 18px; padding: 34px 30px; }
-.objection-q { font-size: clamp(1.02rem, 1.6vw, 1.2rem); font-weight: 700; letter-spacing: -.025em; line-height: 1.32; color: var(--off); margin-bottom: 14px; }
-.objection-card p { font-size: .93rem; line-height: 1.7; color: rgba(240,237,232,.6); }
-.objection-card p + p { margin-top: 12px; }
-.objection-card strong { color: rgba(240,237,232,.9); font-weight: 600; }
-
-.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px; }
-.testimonial-card { position: relative; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 40px 32px 32px; display: flex; flex-direction: column; transition: background .3s ease, border-color .3s ease, transform .3s ease; }
-.testimonial-card:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.2); transform: translateY(-6px); }
-.testimonial-card.featured { background: rgba(212,165,116,.06); border-color: rgba(212,165,116,.32); }
-.testimonial-card.featured:hover { background: rgba(212,165,116,.10); border-color: rgba(212,165,116,.5); }
-.testimonial-tag { position: absolute; top: -10px; left: 28px; background: var(--gold); color: var(--charcoal); font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
-.testimonial-mark { font-family: 'Inter', serif; font-size: 3.6rem; font-weight: 700; line-height: .6; color: rgba(212,165,116,.32); margin-bottom: 8px; user-select: none; }
-.testimonial-quote { font-size: clamp(.92rem, 1.15vw, .98rem); font-weight: 300; line-height: 1.68; letter-spacing: -.005em; color: rgba(240,237,232,.78); font-style: italic; margin-bottom: 24px; flex: 1; }
-.testimonial-rule { width: 28px; height: 1px; background: rgba(212,165,116,.42); margin-bottom: 16px; }
-.testimonial-attr { margin-top: auto; }
-.testimonial-name { font-size: .92rem; font-weight: 600; letter-spacing: -.01em; color: var(--off); margin-bottom: 4px; }
-.testimonial-role { font-size: .76rem; font-weight: 400; letter-spacing: -.005em; color: rgba(240,237,232,.42); line-height: 1.5; }
-.endorsement-disclaimer { text-align: center; margin-top: 32px; font-size: .78rem; line-height: 1.6; color: rgba(240,237,232,.38); max-width: 64ch; margin-left: auto; margin-right: auto; }
-
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px; max-width: 1200px; margin-left: auto; margin-right: auto; }
-.pricing-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 22px; padding: 44px 34px; text-align: center; transition: background .3s ease, transform .3s ease, border-color .3s ease; position: relative; display: flex; flex-direction: column; }
-.pricing-card:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.2); transform: translateY(-8px); }
-.pricing-card.featured { background: rgba(212,165,116,.06); border-color: rgba(212,165,116,.32); }
-.pricing-card.featured:hover { background: rgba(212,165,116,.10); border-color: rgba(212,165,116,.5); }
-.pricing-flag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--charcoal); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
-.pricing-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }
-.pricing-title { font-size: clamp(1.2rem, 2.1vw, 1.85rem); font-weight: 700; letter-spacing: -.03em; color: var(--off); margin-bottom: 12px; }
-.pricing-amount { font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 700; letter-spacing: -.04em; color: var(--white); line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
-.pricing-amount .from { display: inline-block; font-size: .42em; font-weight: 500; letter-spacing: -.01em; color: rgba(240,237,232,.5); margin-right: 6px; vertical-align: middle; text-transform: uppercase; }
-.pricing-detail { font-size: .82rem; color: rgba(240,237,232,.36); margin-bottom: 32px; }
-.pricing-features { list-style: none; text-align: left; margin-bottom: 32px; flex: 1; }
-.pricing-features li { font-size: .86rem; color: rgba(240,237,232,.68); padding-left: 22px; position: relative; margin-bottom: 11px; line-height: 1.6; }
-.pricing-features li::before { content: '✓'; position: absolute; left: 0; color: var(--slate); font-weight: 700; font-size: 12px; top: 1px; }
-.pricing-card.featured .pricing-features li::before { color: var(--gold); }
-
-.founders-card { margin-top: 16px; border-radius: 22px; background: linear-gradient(180deg, rgba(212,165,116,.08) 0%, rgba(212,165,116,.03) 100%); border: 1px solid rgba(212,165,116,.38); padding: 40px 44px; display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center; position: relative; transition: background .3s ease, border-color .3s ease; }
-.founders-card:hover { background: linear-gradient(180deg, rgba(212,165,116,.12) 0%, rgba(212,165,116,.05) 100%); border-color: rgba(212,165,116,.55); }
-.founders-flag { position: absolute; top: -10px; left: 44px; background: var(--gold); color: var(--charcoal); font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; }
-.founders-body { text-align: left; }
-.founders-label { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
-.founders-title { font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 700; letter-spacing: -.03em; color: var(--off); margin-bottom: 8px; }
-.founders-detail { font-size: clamp(.92rem, 1.2vw, 1.02rem); font-weight: 300; color: rgba(240,237,232,.62); line-height: 1.6; max-width: 60ch; margin-bottom: 18px; }
-.founders-features { list-style: none; display: flex; flex-wrap: wrap; gap: 0 24px; font-size: .82rem; color: rgba(240,237,232,.55); }
-.founders-features li { position: relative; padding-left: 14px; }
-.founders-features li::before { content: "·"; position: absolute; left: 0; top: -1px; color: var(--gold); font-weight: 700; }
-.founders-pricing { text-align: right; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
-.founders-amount { font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 700; letter-spacing: -.03em; color: var(--white); line-height: 1; font-variant-numeric: tabular-nums; }
-.founders-amount .from { display: block; font-size: .42em; font-weight: 500; letter-spacing: -.01em; color: rgba(240,237,232,.5); margin-bottom: 2px; text-transform: uppercase; }
-.founders-card .btn-primary { white-space: nowrap; }
-
-.details { border: 1px solid rgba(255,255,255,.1); border-radius: 13px; padding: 12px 14px; margin-top: 12px; background: rgba(255,255,255,.04); }
-.section-light .details { border-color: rgba(0,0,0,.08); background: rgba(255,255,255,.6); }
-.details > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; font-weight: 600; letter-spacing: -.01em; color: rgba(240,237,232,.72); }
-.section-light .details > summary { color: var(--ink); }
-.details > summary::-webkit-details-marker { display: none; }
-.details > summary .chev { display: inline-flex; transition: transform .22s ease; opacity: .6; font-size: 12px; }
-.details[open] > summary .chev { transform: rotate(180deg); }
-.details .details-body { overflow: hidden; max-height: 0; opacity: 0; transition: max-height .5s cubic-bezier(.25,.46,.45,.94), opacity .38s ease, padding-top .38s ease, margin-top .38s ease; padding-top: 0; margin-top: 0; border-top: 1px solid rgba(255,255,255,.09); }
-.section-light .details .details-body { border-top-color: rgba(0,0,0,.07); }
-.details .details-body.is-open { max-height: none !important; overflow: visible !important; opacity: 1 !important; padding-top: 12px !important; margin-top: 10px !important; }
-.details .details-body p { font-size: 13px; line-height: 1.65; letter-spacing: -.005em; color: rgba(240,237,232,.55); }
-.section-light .details .details-body p { color: var(--muted); }
-
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
-.form-group label { display: block; font-weight: 600; font-size: 12px; letter-spacing: -.005em; margin-bottom: 7px; color: var(--white); }
-.form-group .field-note { display: block; font-weight: 400; font-size: 11px; letter-spacing: -.005em; color: rgba(240,237,232,.45); margin: -3px 0 8px; line-height: 1.5; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px 13px; border: 1px solid rgba(255,255,255,.11); border-radius: 6px; background: rgba(255,255,255,.06); color: var(--white); font-size: 14px; font-family: inherit; letter-spacing: -.005em; box-sizing: border-box; transition: border-color .26s; resize: vertical; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); }
-.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(240,237,232,.26); }
-.form-group select option { background: #1a1a1a; }
-.form-submit { width: 100%; padding: 14px 28px; background: var(--slate); color: var(--white); border: none; border-radius: 10px; font-weight: 700; font-size: 14px; letter-spacing: -.01em; cursor: pointer; transition: background .22s ease; margin-bottom: 12px; font-family: inherit; }
-.form-submit:hover { background: var(--gold); }
-
-footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px solid rgba(255,255,255,.1); }
-.footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
-.footer-links { display: flex; justify-content: center; gap: 26px; margin-bottom: 26px; flex-wrap: wrap; }
-.footer-links a { color: rgba(240,237,232,.44); font-size: 12px; letter-spacing: -.005em; transition: color .2s; }
-.footer-links a:hover { color: var(--gold); }
-.copyright { color: rgba(240,237,232,.28); font-size: 12px; letter-spacing: -.005em; }
-.footer-disclaimer { color: rgba(240,237,232,.24); font-size: 11px; letter-spacing: -.005em; line-height: 1.6; max-width: 78ch; margin: 14px auto 0; }
-
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity .72s cubic-bezier(.25,.46,.45,.94), transform .72s cubic-bezier(.25,.46,.45,.94); will-change: opacity, transform; }
-.reveal.visible { opacity: 1; transform: none; }
-.reveal-stagger > * { opacity: 0; transform: translateY(20px); transition: opacity .62s cubic-bezier(.25,.46,.45,.94), transform .62s cubic-bezier(.25,.46,.45,.94); will-change: opacity, transform; }
-.reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0s; }
-.reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.08s; }
-.reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.16s; }
-.reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.24s; }
-.reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.32s; }
-.reveal-stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.40s; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .marquee-track { animation: none; }
-  .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .hero-kicker, .hero h1, .hero-rule, .hero-sub, .hero-tagline, .hero-credential, .hero-actions { opacity: 1 !important; animation: none !important; }
-}
-
-@media (max-width: 1100px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
-  .nav-links.active { position: fixed; top: 0; left: 0; right: 0; background: rgba(26,26,26,.98); flex-direction: column; gap: 0; padding: 20px; padding-top: 70px; display: flex; border-bottom: 1px solid rgba(255,255,255,.07); z-index: 999; }
-  .nav-links.active li { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
-  .nav-links.active a { font-size: 17px; display: block; }
-  .problem-grid { grid-template-columns: repeat(2,1fr); }
-  .two-col { grid-template-columns: 1fr; gap: 44px; }
-  .objection-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 560px; }
-  .method-cards { grid-template-columns: 1fr; }
-  .testimonial-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
-  .founders-card { grid-template-columns: 1fr; gap: 24px; padding: 32px 26px; }
-  .founders-pricing { text-align: left; align-items: flex-start; }
-}
-@media (max-width: 768px) {
-  .nav-inner { padding: 0 20px; }
-  .nav-right { flex-direction: column; align-items: flex-end; gap: 3px; }
-  .nav-phone { font-size: 12px; }
-  .nav-cta { font-size: 12px; }
-  .section { padding: 80px 20px; }
-  .hero { padding: 100px 20px 60px; overflow: hidden; }
-  .problem-grid { grid-template-columns: 1fr; }
-  .form-grid { grid-template-columns: 1fr; }
-  .testimonial-card { padding: 36px 26px 28px; }
-  .testimonial-mark { font-size: 3rem; }
-  footer { padding: 44px 20px 34px; }
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-art{max-width:420px; margin:0 auto;}
+  .icon-grid, .obj-grid, .testi-grid, .price-grid{grid-template-columns:1fr;}
+  .two-col{grid-template-columns:1fr; gap:36px;}
+  .curriculum li{grid-template-columns:44px 1fr;}
+  .foot-grid{grid-template-columns:1fr; gap:34px;}
+  .f-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
-<body id="top">
+<body>
 
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Sam Osborne</a>
-    <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+<header>
+  <div class="wrap nav-row">
+    <a href="#top" class="logo">The Ordered <span>Field</span></a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#speaking">Speaking</a></li>
-      <li><a href="advisory.html">Private Advisory</a></li>
-      <li><a href="#format">The Format</a></li>
+      <li><a href="#study">The Study</a></li>
+      <li><a href="#curriculum">The Curriculum</a></li>
       <li><a href="#who">Who It's For</a></li>
-      <li><a href="#endorsements">Endorsements</a></li>
-      <li><a href="#investment">Investment</a></li>
+      <li><a href="#voices">Voices</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
-    <div class="nav-right">
-      <a class="nav-phone" href="tel:+12134232868">+1 (213) 423-2868</a>
-      <a class="nav-cta" href="#apply">Apply for a Seat ›</a>
-    </div>
+    <a href="#apply" class="nav-cta">Request an Invitation</a>
   </div>
-</nav>
+</header>
 
-<section class="hero" id="mastermind">
-  <span class="hero-kicker">The Conflict Advantage Mastermind · Group Facilitation</span>
-  <h1>You're not the only one still arguing with someone in your head.</h1>
-  <div class="hero-rule"></div>
-  <p class="hero-sub">A small, cross-industry cohort of attorneys, advisors, and executives working the Demartini Method together — one charged relationship a month, at a fraction of the private advisory's investment.</p>
-  <p class="hero-tagline">Same method. Same rigor. Built for people who want the work done in company, not alone.</p>
-  <p class="hero-credential">If the private advisory is more than your practice needs right now, this is where the same facilitation lives — monthly, in a group of peers who understand the stakes.</p>
-  <div class="hero-actions">
-    <a href="#apply" class="btn-primary">Apply for a Cohort Seat</a>
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">A Study Group · Dreams, the Transcendent Function &amp; Consciousness</span>
+      <h1>The third position between your opposites is <em>already forming.</em> This is where you learn to meet it.</h1>
+      <p class="lead">A small, invitation-based circle studying Jung's transcendent function through dream material, active imagination, and the alchemical stages of the work — held as a living practice, not a lecture series.</p>
+      <p class="sub">Facilitated by Dr. Sam Osborne, drawing on twenty-five years of self-directed study across Jungian psychology, Hermeticism, and the esoteric traditions, and an ongoing personal practice rooted in Jung's <em>Mysterium Coniunctionis</em>.</p>
+      <div class="hero-actions">
+        <a href="#apply" class="btn">Request an Invitation</a>
+        <a href="#curriculum" class="btn-outline">See the Curriculum</a>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <svg viewBox="0 0 400 430" preserveAspectRatio="xMidYMid slice">
+        <circle cx="200" cy="150" r="86" fill="none" stroke="rgba(0,0,0,.16)" stroke-width="1.3"/>
+        <circle cx="152" cy="200" r="86" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.3"/>
+        <circle cx="248" cy="200" r="86" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.3"/>
+        <path d="M120 330 Q200 260 280 330" fill="none" stroke="rgba(0,0,0,.2)" stroke-width="1.2"/>
+        <path d="M110 360 Q200 300 290 360" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.2"/>
+      </svg>
+      <div class="hero-stat"><b>25+ Yrs</b><span>self-directed study across Jungian, Hermetic &amp; esoteric traditions</span></div>
+    </div>
   </div>
 </section>
 
-<div class="marquee-band">
+<div class="marquee">
   <div class="marquee-track">
-    <span class="marquee-item">Cohort-Based Facilitation <span class="mdot"></span></span>
-    <span class="marquee-item">One Relationship A Month, Together <span class="mdot"></span></span>
-    <span class="marquee-item">Cross-Industry Peer Group <span class="mdot"></span></span>
-    <span class="marquee-item">Monthly Live Sessions <span class="mdot"></span></span>
-    <span class="marquee-item">Perceptual Balance <span class="mdot"></span></span>
-    <span class="marquee-item">Composure Restored <span class="mdot"></span></span>
-    <span class="marquee-item">Cohort-Based Facilitation <span class="mdot"></span></span>
-    <span class="marquee-item">One Relationship A Month, Together <span class="mdot"></span></span>
-    <span class="marquee-item">Cross-Industry Peer Group <span class="mdot"></span></span>
-    <span class="marquee-item">Monthly Live Sessions <span class="mdot"></span></span>
-    <span class="marquee-item">Perceptual Balance <span class="mdot"></span></span>
-    <span class="marquee-item">Composure Restored <span class="mdot"></span></span>
+    <span class="marquee-item">The Transcendent Function <i></i></span>
+    <span class="marquee-item">Dream As Data <i></i></span>
+    <span class="marquee-item">Active Imagination <i></i></span>
+    <span class="marquee-item">Nigredo · Albedo · Rubedo <i></i></span>
+    <span class="marquee-item">The Third That Is Not The Two <i></i></span>
+    <span class="marquee-item">Coniunctio <i></i></span>
+    <span class="marquee-item">The Transcendent Function <i></i></span>
+    <span class="marquee-item">Dream As Data <i></i></span>
+    <span class="marquee-item">Active Imagination <i></i></span>
+    <span class="marquee-item">Nigredo · Albedo · Rubedo <i></i></span>
+    <span class="marquee-item">The Third That Is Not The Two <i></i></span>
+    <span class="marquee-item">Coniunctio <i></i></span>
   </div>
 </div>
 
-<section class="section section-dark" style="padding:80px 40px;">
-  <div class="section-content reveal" style="text-align:center;">
-    <p class="intro-statement">On stage, one volunteer moves from charge to clarity while the room watches. In the mastermind, every member does that work on their own relationship — every month, alongside a small group doing the same.</p>
+<section class="section section-cream" style="padding:88px 0;">
+  <div class="wrap reveal">
+    <p class="statement">Jung called it the transcendent function: a third position, arising from two opposites held in genuine tension, that neither side could have produced alone. This is where that function gets exercised — deliberately, on your own material.</p>
   </div>
 </section>
 
-<section class="section section-dark" style="padding:0 40px 90px;">
-  <div class="section-content reveal" style="text-align:center;">
-    <span class="eyebrow">The Method — And Who Facilitates It</span>
-    <p class="method-credential">The work draws on the Demartini Method, developed by Dr. John Demartini. Sam Osborne is a <strong>trained Demartini Method Facilitator</strong> — not a licensed script read secondhand, but practiced work he leads live, backed by his own study of perception since 2008, work in the method since 2014, and five years demonstrating it in front of attorneys, advisors, executives, and boards. In the mastermind, he facilitates the group session and guides each member's individual worksheet between sessions.</p>
-    <div class="credential-row">
-      <span>95% Rated Excellent · CAI National Law Seminar 2026</span>
-      <span>Endorsed by the President · College of Community Association Lawyers</span>
-      <span>President-Elect · National Speakers Association, Southern California</span>
+<section class="section section-tan" id="study">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Why This Study Exists</span>
+      <h2>Most people treat a dream as noise. It is closer to correspondence.</h2>
+      <p>The recurring dream, the symbol you keep meeting, the argument between who you are and who you're becoming — these are not distractions from the work. In this tradition, they are the work, and they respond to structured attention.</p>
     </div>
-  </div>
-</section>
-
-<section class="section section-dark">
-  <div class="section-content reveal" style="text-align:center;">
-    <span class="eyebrow">Why This Work Exists</span>
-    <h2 class="t-xl" style="color:var(--off); margin-top:10px; text-align:center;">Most problems in high-stakes work are not strategic first. They are perceptual.</h2>
-    <p class="t-body" style="max-width:52ch; margin:16px auto 0; text-align:center;">You do not lose composure because the stakes are high. You lose it because specific people distort how you see, interpret, and respond. This work exists to address that distortion — and it holds up just as well worked in a room of peers as it does one on one.</p>
-  </div>
-</section>
-
-<section class="section section-light">
-  <div class="section-content">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">The Problem This Solves</span>
-      <h2 class="t-xl" style="color:var(--ink); margin-top:10px; text-align:center;">Specific people are costing you composure.</h2>
-      <p style="max-width:52ch; margin:16px auto 0; font-size:clamp(.96rem,1.5vw,1.15rem); font-weight:300; line-height:1.65; color:var(--muted);">Not in theory. In depositions, negotiations, and boardrooms. The mastermind works through six of these relationships, one a month, with a group that's carrying the same kind of charge — just not toward the same person.</p>
-    </div>
-    <div class="problem-grid reveal-stagger">
-      <div class="problem-card">
-        <h3>The Adversary</h3>
-        <p>Opposing counsel, the counterparty, the negotiator across the table. Their provocation is deliberate — and it works. You leave still arguing with them in your head, and your strategy narrows to a reaction.</p>
+    <div class="icon-grid reveal">
+      <div class="icon-card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4.5"/></svg></div>
+        <h3>Dream Work as Data</h3>
+        <p>Members bring live dream material into every session. It is read symbolically, alchemically, and personally — not decoded, but held.</p>
       </div>
-      <div class="problem-card">
-        <h3>The Client</h3>
-        <p>They ignore your counsel, then hold you responsible for the outcome. Resentment creeps into the relationship, and your judgment stops being clean.</p>
+      <div class="icon-card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
+        <h3>Opposites Held in Tension</h3>
+        <p>The method starts by locating a genuine pair of opposites in your own life — not resolving them prematurely, but holding both with equal weight.</p>
       </div>
-      <div class="problem-card">
-        <h3>The Boss or Senior Partner</h3>
-        <p>Their scrutiny changes your posture. You over-prepare, second-guess, and start performing competence instead of exercising it.</p>
-      </div>
-      <div class="problem-card">
-        <h3>The Board</h3>
-        <p>Every meeting becomes a firing squad. One member's hostility triggers your defensiveness before the agenda even starts — and the whole room reads it.</p>
-      </div>
-      <div class="problem-card">
-        <h3>The Rival</h3>
-        <p>A peer competing for the same ground — the promotion, the account, the mandate. Their presence pulls you off your own game and into theirs.</p>
-      </div>
-      <div class="problem-card">
-        <h3>The Direct Report</h3>
-        <p>Their resistance pulls you toward micromanagement, avoidance, or frustration. Delegation becomes distorted by charge, and the work suffers for it.</p>
+      <div class="icon-circle" style="display:none"></div>
+      <div class="icon-card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
+        <h3>A Monthly Practice</h3>
+        <p>Not a single workshop and not an open-ended group. A fixed cadence, a small roster, and a curriculum that moves in a genuine sequence.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark" id="format">
-  <div class="section-content">
-    <div class="reveal" style="text-align:center; margin-bottom:60px;">
-      <span class="eyebrow">What the Mastermind Delivers</span>
-      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Structured work. One relationship a month.</h2>
-    </div>
+<section class="section section-cream" id="curriculum">
+  <div class="wrap">
     <div class="two-col reveal">
       <div>
-        <h3>Cohort Facilitation</h3>
-        <p>Each monthly session applies the method live to the relationship category assigned that month. You bring the specific person and trait carrying the charge in your own practice; the facilitation happens on your own worksheet, guided in real time, at the group's shared pace.</p>
-        <p>You are never asked to describe your situation, name the person, or share case details with the group. Everyone works the same structured sequence, on their own material, at the same time.</p>
-        <p>Between sessions, a private workbook and a monthly cohort thread keep the work moving — with an optional 30-minute individual check-in each quarter for anyone who wants it.</p>
+        <h3>The Six-Month Study</h3>
+        <p>Each monthly session works one stage of the transcendent function in sequence — read from primary material, then applied live to something you bring: a dream, a recurring symbol, a tension you can't resolve by thinking harder about it.</p>
+        <p>You are never asked to interpret someone else's dream, and no one is asked to explain their inner life to the group beyond what they choose to share. The structure is shared; the material is your own.</p>
+        <p>Sessions run 90 minutes over video, capped at twelve members, with primary-text reading guides and a private thread for the weeks in between.</p>
       </div>
       <div>
-        <h3>The Six-Month Arc</h3>
-        <ol class="curriculum-list">
-          <li><strong>The Adversary</strong>Opposing counsel, the counterparty, the negotiator across the table.</li>
-          <li><strong>The Client</strong>The relationship that won't take counsel and holds you responsible anyway.</li>
-          <li><strong>The Boss or Senior Partner</strong>The scrutiny that changes your posture before you walk in the room.</li>
-          <li><strong>The Board</strong>The dynamic that turns every meeting into a firing squad.</li>
-          <li><strong>The Rival</strong>The peer whose presence pulls you off your own game.</li>
-          <li><strong>The Direct Report</strong>The resistance that distorts how you delegate and lead.</li>
+        <ol class="curriculum">
+          <li><div><h4>Reading a Dream as Data</h4><p>Moving from "what does this mean" to a disciplined method of amplification and personal association.</p></div></li>
+          <li><div><h4>Locating the Opposites</h4><p>Finding the genuine tension underneath a symptom, a recurring image, or a stuck decision.</p></div></li>
+          <li><div><h4>Active Imagination</h4><p>Holding both poles in imaginal contact, without collapsing toward either one, until something moves.</p></div></li>
+          <li><div><h4>The Transcendent Function</h4><p>Where the third position — genuinely new, not a compromise — begins to appear.</p></div></li>
+          <li><div><h4>Nigredo, Albedo, Rubedo</h4><p>The alchemical stages of the work, and how to recognize which one you're standing in.</p></div></li>
+          <li><div><h4>Mercurius and the Symbol That Won't Resolve</h4><p>What to do with the material that refuses a tidy ending — and why that's often the point.</p></div></li>
         </ol>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="shift-metric">
-          <span class="shift-label">The measurable shift</span>
-          <div class="shift-row">
-            <span class="shift-before">100% cost · 0% benefit</span>
-            <span class="shift-arrow">&rarr;</span>
-            <span class="shift-after">toward 50 / 50</span>
-          </div>
-          <p>The same movement the room watches during a keynote demonstration — here, worked monthly, in the company of a small group moving through it with you.</p>
+<section class="section section-tan">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Before You Apply</span>
+      <h2>The two questions worth asking first.</h2>
+    </div>
+    <div class="obj-grid reveal">
+      <div class="obj-card">
+        <h4>&ldquo;Isn't this just journaling with extra steps?&rdquo;</h4>
+        <p>Journaling records the material. This works it. Active imagination and the amplification method are structured techniques for holding a symbol or a tension until something genuinely new emerges — a different outcome than writing something down and moving on.</p>
+      </div>
+      <div class="obj-card">
+        <h4>&ldquo;Do I need a background in Jung to join?&rdquo;</h4>
+        <p>No. Members range from long-time students of the esoteric to people who've never opened a Jung text but can't shake a recurring dream. The reading guides carry the terminology; you bring the material and the willingness to sit with it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" id="who">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Who This Is For</span>
+      <h2>People for whom the dream keeps returning.</h2>
+    </div>
+    <div class="icon-grid reveal">
+      <div class="icon-card">
+        <h3>The Practicing Clinician or Coach</h3>
+        <p>Therapists, coaches, and practitioners who already work with depth material professionally and want a rigorous personal practice of their own, held apart from client work.</p>
+      </div>
+      <div class="icon-card">
+        <h3>The Long-Time Student of the Esoteric</h3>
+        <p>People with years of self-directed study in Jung, Hermeticism, alchemy, or the Kabbalistic and tarot traditions who want structure and company, not another introductory course.</p>
+      </div>
+      <div class="icon-card">
+        <h3>The Person at a Threshold</h3>
+        <p>Someone navigating a transition — vocational, relational, or simply internal — where the rational tools have stopped working and something else keeps showing up in sleep.</p>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:44px; text-align:center; background:var(--white); border-radius:8px; padding:34px 30px; border:1px solid var(--line);">
+      <p style="font-size:15px; max-width:60ch; margin:0 auto;"><strong>If a specific dream or symbol came to mind while reading this,</strong> that is the material the first month's session works with.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tan" id="voices">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Voices</span>
+      <h2>What members bring to a session — and what they leave with.</h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <span class="testi-mark">&ldquo;</span>
+        <p class="testi-quote">I'd been journaling the same dream for two years without moving an inch. Four sessions in, I finally understood what the two figures in it actually wanted from each other.</p>
+        <div class="testi-name">Founding Member</div>
+        <div class="testi-role">Cohort One · Therapist</div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-mark">&ldquo;</span>
+        <p class="testi-quote">I've read Jung for fifteen years on my own. This is the first place I've found that treats the material with the same seriousness I do, without turning it into a lecture.</p>
+        <div class="testi-name">Founding Member</div>
+        <div class="testi-role">Cohort One · Independent Researcher</div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-mark">&ldquo;</span>
+        <p class="testi-quote">The structure is what made it work for me. I'm not a "sit with your feelings" person. Give me a method, a sequence, and something to actually do with the material — that I can use.</p>
+        <div class="testi-name">Founding Member</div>
+        <div class="testi-role">Cohort One · Executive</div>
+      </div>
+    </div>
+    <p class="testi-note">Voices reflect the experiences of founding members and are shared with permission, attributed by role rather than name at their request. Individual experience varies; no particular outcome is promised or guaranteed. This study group is educational and developmental, not psychotherapy, medical care, or a substitute for licensed mental health treatment.</p>
+  </div>
+</section>
+
+<section class="section section-cream" id="membership">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Membership</span>
+      <h2>One circle. Priced monthly or by the year.</h2>
+      <p>Membership is capped and invitation-based. Applications are reviewed to keep each cohort at a workable size and a genuine mix of backgrounds.</p>
+    </div>
+
+    <div class="toggle-row reveal">
+      <span>Billed Monthly</span>
+      <div class="switch" id="billingSwitch" role="button" aria-label="Toggle annual billing"></div>
+      <span>Billed Annually <span class="save-tag">Save 15%</span></span>
+    </div>
+
+    <div class="pricing" id="pricingBlock">
+      <div class="price-grid reveal">
+        <div class="price-card">
+          <span class="price-label">Circle</span>
+          <div class="price-title">Standard Membership</div>
+          <div class="price-amount monthly-only">$95<span>/month</span></div>
+          <div class="price-amount annual-only">$970<span>/year</span></div>
+          <p class="price-detail">Monthly 90-minute session · Capped cohort</p>
+          <ul class="price-features">
+            <li>One live session monthly</li>
+            <li>The six-month curriculum, on rotation</li>
+            <li>Dream journal &amp; amplification template</li>
+            <li>Private member discussion thread</li>
+          </ul>
+          <a href="#apply" class="btn" style="width:100%; text-align:center;">Request an Invitation</a>
+        </div>
+
+        <div class="price-card featured">
+          <span class="price-flag">Most Selected</span>
+          <span class="price-label">Full Study</span>
+          <div class="price-title">Complete Membership</div>
+          <div class="price-amount monthly-only">$165<span>/month</span></div>
+          <div class="price-amount annual-only">$1,685<span>/year</span></div>
+          <p class="price-detail">Monthly session · Reading guides · Office hours</p>
+          <ul class="price-features">
+            <li>Everything in Circle</li>
+            <li>Primary-text reading guides each month</li>
+            <li>Monthly written facilitator notes on your dream material</li>
+            <li>Quarterly open office hours</li>
+          </ul>
+          <a href="#apply" class="btn" style="width:100%; text-align:center;">Request an Invitation</a>
+        </div>
+
+        <div class="price-card">
+          <span class="price-label">Inner Circle</span>
+          <div class="price-title">By Application</div>
+          <div class="price-amount monthly-only">$325<span>/month</span></div>
+          <div class="price-amount annual-only">$3,315<span>/year</span></div>
+          <p class="price-detail">Capped at 6 members</p>
+          <ul class="price-features">
+            <li>Everything in Full Study</li>
+            <li>Smaller pod, longer sessions</li>
+            <li>One quarterly individual dream session</li>
+            <li>Priority scheduling</li>
+          </ul>
+          <a href="#apply" class="btn" style="width:100%; text-align:center;">Request an Invitation</a>
         </div>
       </div>
     </div>
 
-    <div class="method-cards reveal-stagger">
-      <div class="method-card">
-        <h3>Perceptual Balance</h3>
-        <p>Each session works to restore a more balanced, accurate view of the person across the table.</p>
+    <div class="founding reveal">
+      <div>
+        <span class="lbl">By Invitation</span>
+        <h3>Founding Cohort</h3>
+        <p>For the first circle convened under this format — twelve members, one six-month arc, priced to reflect that this cohort helps shape the cadence going forward.</p>
       </div>
-      <div class="method-card">
-        <h3>Projection Revealed</h3>
-        <p>The traits that carry the strongest charge are rarely only about them. The method makes that visible.</p>
-      </div>
-      <div class="method-card">
-        <h3>Peer Accountability</h3>
-        <p>A cohort moving through the same sequence, on the same monthly cadence, keeps the work from stalling out between sessions.</p>
+      <div class="founding-price">
+        <b>$65/mo</b>
+        <a href="#apply" class="btn">Request an Invitation</a>
       </div>
     </div>
 
-    <div class="highlight-box reveal">
-      <p><strong style="color:var(--off);">What this is — and is not.</strong> The Demartini Method is a structured perceptual-reframing facilitation: a systematic sequence of written and guided questions designed to bring balance to how you perceive a specific person. It is educational and developmental in nature, delivered here in a small group format. It does not diagnose, treat, or provide therapy for any medical, psychological, or mental health condition, and it is not group therapy or a substitute for care from a licensed mental health professional. If you are dealing with a mental health condition, please work with a qualified provider.</p>
+    <p class="reveal" style="text-align:center; margin-top:36px; font-size:12.5px; color:rgba(70,67,64,.5); max-width:64ch; margin-left:auto; margin-right:auto;">Membership begins with a brief conversation to confirm fit and cohort placement. Cancel anytime with 30 days' notice; annual memberships are prorated on cancellation.</p>
+  </div>
+</section>
+
+<section class="section section-tan" id="faq">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Common Questions</span>
+      <h2>What to expect.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>What if I don't remember my dreams?<span class="chev">▾</span></summary>
+        <p>Recall is a skill that develops with the practice, not a prerequisite for it. The first month covers a simple method for improving recall, and the curriculum works just as well with a waking symbol, a recurring image, or a decision you can't resolve rationally.</p>
+      </details>
+      <details>
+        <summary>Is this therapy or mental health treatment?<span class="chev">▾</span></summary>
+        <p>No. This is an educational and developmental study group in the Jungian tradition, not psychotherapy, counseling, or medical care. It does not diagnose or treat any condition and is not a substitute for licensed care. If you are dealing with a mental health condition, please work with a qualified provider alongside this practice, not instead of it.</p>
+      </details>
+      <details>
+        <summary>How is this different from a book club?<span class="chev">▾</span></summary>
+        <p>A book club discusses the text. This applies it. Every session includes live, structured facilitation on material a member brings — a dream, a symbol, a tension — using the amplification and active imagination methods the reading covers.</p>
+      </details>
+      <details>
+        <summary>What's the group size and how is confidentiality handled?<span class="chev">▾</span></summary>
+        <p>Cohorts are capped at twelve members (six for the Inner Circle). Everyone agrees to hold what's shared in session as confidential. You're never required to share more of your material than you choose to.</p>
+      </details>
+      <details>
+        <summary>What's the time commitment?<span class="chev">▾</span></summary>
+        <p>One 90-minute live session a month, plus whatever time you give to your own dream journal and the reading guide between sessions. There's no daily obligation.</p>
+      </details>
+      <details>
+        <summary>Can I join without prior background in Jung or the esoteric traditions?<span class="chev">▾</span></summary>
+        <p>Yes. The reading guides are written to carry the terminology as the cohort goes. What matters more is a genuine willingness to bring real material and sit with it past the point of an easy answer.</p>
+      </details>
     </div>
   </div>
 </section>
 
-<section class="section section-dark" id="objections" style="padding-top:0;">
-  <div class="section-content">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">Before You Apply</span>
-      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">The two objections worth naming.</h2>
-      <p class="t-body" style="max-width:54ch; margin:16px auto 0; text-align:center;">Nobody considers doing this work in a group without wondering about these two things first.</p>
+<section class="section section-cream" id="apply">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Start Here</span>
+      <h2>Request an Invitation.</h2>
+      <p>Share a little about what brings you to this material. We'll follow up within a few days to confirm fit and cohort placement.</p>
     </div>
-    <div class="objection-grid reveal-stagger">
-      <div class="objection-card">
-        <div class="objection-q">&ldquo;Will I have to share my personal business with strangers?&rdquo;</div>
-        <p><strong>No.</strong> You are never asked to name the person, describe the relationship, or disclose what happened. The facilitation runs on your own private worksheet — the group works the same sequence in parallel, not out loud.</p>
-        <p>Cohorts are also built across industries and firms. No two people from competing practices or the same matter are ever placed in the same group, so there is no live conflict of interest sitting in the room with you.</p>
+    <form class="form-card reveal" action="https://formspree.io/f/xaqdebvj" method="POST">
+      <div class="f-grid">
+        <div class="f-group"><label for="n-name">Your Name *</label><input id="n-name" name="name" type="text" required placeholder="First and Last Name"></div>
+        <div class="f-group"><label for="n-email">Email Address *</label><input id="n-email" name="email" type="email" required placeholder="you@email.com"></div>
       </div>
-      <div class="objection-card">
-        <div class="objection-q">&ldquo;Isn't a mastermind too generic to work on my specific situation?&rdquo;</div>
-        <p>A typical mastermind is a roundtable — advice, accountability, shared war stories. This is not that. It follows the exact structured Demartini sequence used in the private advisory, applied to your own charged relationship, every session.</p>
-        <p><strong>The difference from private facilitation is who's in the room, not the rigor of the method.</strong> What changes is the price, and the company you do it in.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-light" id="who">
-  <div class="section-content">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">Who This Is For</span>
-      <h2 class="t-xl" style="color:var(--ink); margin-top:10px;">Professionals in high-stakes practice.</h2>
-      <p style="max-width:56ch; margin:16px auto 0; font-size:clamp(.96rem,1.5vw,1.15rem); font-weight:300; line-height:1.65; color:var(--muted);">Where specific people distort perception, disrupt composure, or quietly erode the authority your work depends on — and who'd rather do the work alongside peers than alone.</p>
-    </div>
-    <div class="problem-grid reveal-stagger">
-      <div class="problem-card">
-        <h3>Litigators &amp; Trial Attorneys</h3>
-        <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Depositions, cross-examination, hostile negotiations: arenas where visible reactivity is exploited the moment it appears. Cohorts are matched so no two members practice against each other.</p></div></details>
-      </div>
-      <div class="problem-card">
-        <h3>Advisors &amp; Client-Facing Professionals</h3>
-        <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Financial advisors, consultants, and senior client-facing experts working the same client, prospect, or referral-source dynamics that show up for everyone else at the table.</p></div></details>
-      </div>
-      <div class="problem-card">
-        <h3>Executives &amp; Firm Leaders</h3>
-        <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Managing partners, general counsel, CFOs, and practice leaders: partner friction, board dynamics, and succession pressure, worked alongside peers from other firms and industries.</p></div></details>
-      </div>
-    </div>
-    <div class="highlight-box reveal">
-      <p style="color:var(--ink);"><strong>If a specific person came to mind while reading this page,</strong> that is the relationship the first monthly session addresses.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section section-dark" id="endorsements">
-  <div class="section-content">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">Endorsements</span>
-      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">What the work delivers.</h2>
-      <p class="t-body" style="max-width:60ch; margin:16px auto 0; text-align:center;">Three professionals on the moment the method worked on them — a president, a former PIMCO EVP, and a COO. The same method the mastermind applies monthly, in a small group.</p>
-    </div>
-    <div class="testimonial-grid reveal-stagger">
-      <article class="testimonial-card">
-        <span class="testimonial-tag">A Difficult Person</span>
-        <div class="testimonial-mark">&ldquo;</div>
-        <blockquote class="testimonial-quote">One word comes to mind: transformational. The longer it went on, the more it helped me reframe how I think about that one difficult person &mdash; and how they perceive me. I walked out feeling lighter.</blockquote>
-        <div class="testimonial-rule"></div>
-        <div class="testimonial-attr">
-          <div class="testimonial-name">Kevin Husted</div>
-          <div class="testimonial-role">President &middot; Advisor Health Benefits Group</div>
-        </div>
-      </article>
-      <article class="testimonial-card featured">
-        <span class="testimonial-tag">Composure Under Pressure</span>
-        <div class="testimonial-mark">&ldquo;</div>
-        <blockquote class="testimonial-quote">Within seconds, Sam illustrated what happens when we let someone get under our skin &mdash; and the power of an equilibrated mind: staying calm, rational, and centered despite stress or strong emotions.</blockquote>
-        <div class="testimonial-rule"></div>
-        <div class="testimonial-attr">
-          <div class="testimonial-name">Christine Long</div>
-          <div class="testimonial-role">Strategic Marketing Leader &middot; Former EVP, PIMCO</div>
-        </div>
-      </article>
-      <article class="testimonial-card">
-        <span class="testimonial-tag">The Trigger, Dissolved</span>
-        <div class="testimonial-mark">&ldquo;</div>
-        <blockquote class="testimonial-quote">I now have a tool to understand why I&rsquo;m triggered &mdash; and to eliminate that trigger in the meeting, flip it around, and make it a positive as I go forward in my career.</blockquote>
-        <div class="testimonial-rule"></div>
-        <div class="testimonial-attr">
-          <div class="testimonial-name">Adam Sokolic</div>
-          <div class="testimonial-role">Chief Operating Officer &middot; Bluespring Wealth Partners</div>
-        </div>
-      </article>
-    </div>
-    <p class="endorsement-disclaimer reveal">Endorsements reflect the individual experiences of the people quoted. Results vary from person to person, and no particular outcome is promised or guaranteed. The Demartini Method is not therapy, counseling, or mental health treatment, and these statements should not be read as comparisons to, or substitutes for, licensed care.</p>
-  </div>
-</section>
-
-<section class="section section-dark" id="investment">
-  <div class="section-content">
-    <div class="reveal" style="text-align:center;">
-      <span class="eyebrow">Investment</span>
-      <h2 class="t-xl" style="color:var(--off); margin-top:10px;">Three ways into a cohort.</h2>
-      <p class="t-body" style="max-width:50ch; margin:16px auto 0; text-align:center;">Priced per seat, per cohort. Cohorts are capped at 8&ndash;12 members and matched across industries and firms.</p>
-    </div>
-    <div class="pricing-grid reveal-stagger">
-
-      <div class="pricing-card">
-        <span class="pricing-label">Six-Month Cohort</span>
-        <div class="pricing-title">One Arc</div>
-        <div class="pricing-amount"><span class="from">From</span>$4,200</div>
-        <p class="pricing-detail">Six monthly 90-minute sessions · Cohort of 8&ndash;12</p>
-        <ul class="pricing-features">
-          <li>The full six-relationship arc</li>
-          <li>Private facilitation workbook</li>
-          <li>Live guided session each month</li>
-          <li>Cross-industry cohort matching</li>
-          <li>Private cohort thread for accountability</li>
-        </ul>
-        <a href="#apply" class="btn-primary">Apply for a Seat</a>
-      </div>
-
-      <div class="pricing-card featured">
-        <span class="pricing-flag">Most Selected</span>
-        <span class="pricing-label">Twelve-Month Cohort</span>
-        <div class="pricing-title">Two Arcs</div>
-        <div class="pricing-amount"><span class="from">From</span>$7,500</div>
-        <p class="pricing-detail">Twelve monthly sessions · Cohort of 8&ndash;12</p>
-        <ul class="pricing-features">
-          <li>Two full passes through the six relationships</li>
-          <li>Private facilitation workbook</li>
-          <li>Live guided session each month</li>
-          <li>One private 30-minute check-in included</li>
-          <li>Cross-industry cohort matching</li>
-          <li>Better per-session value for committed members</li>
-        </ul>
-        <a href="#apply" class="btn-primary">Apply for a Seat</a>
-      </div>
-
-      <div class="pricing-card">
-        <span class="pricing-label">Executive Cohort</span>
-        <div class="pricing-title">By Application</div>
-        <div class="pricing-amount"><span class="from">From</span>$12,000</div>
-        <p class="pricing-detail">Twelve months · Capped at 6 members</p>
-        <ul class="pricing-features">
-          <li>Smaller cohort, senior-only membership</li>
-          <li>Quarterly optional in-person session</li>
-          <li>Priority scheduling and direct access</li>
-          <li>Designed for managing partners, general counsel, and firm or business leaders</li>
-          <li>Limited availability</li>
-        </ul>
-        <a href="#apply" class="btn-primary">Apply for a Seat</a>
-      </div>
-
-    </div>
-
-    <article class="founders-card">
-      <span class="founders-flag">By Invitation</span>
-      <div class="founders-body">
-        <span class="founders-label">Founding Cohort</span>
-        <div class="founders-title">The First Six-Month Arc</div>
-        <p class="founders-detail">For the first cohort launched under this format. A limited number of seats, priced to reflect that this group helps shape the cadence and format going forward. Same facilitation, same six-relationship arc, same cross-industry matching.</p>
-        <ul class="founders-features">
-          <li>Six-month arc</li>
-          <li>Limited to 10 seats</li>
-          <li>Direct feedback loop with Sam</li>
-          <li>Priority access to future cohorts</li>
-        </ul>
-      </div>
-      <div class="founders-pricing">
-        <div class="founders-amount"><span class="from">From</span>$3,200</div>
-        <a href="#apply" class="btn-primary">Apply for a Seat</a>
-      </div>
-    </article>
-
-    <p class="reveal" style="text-align:center; margin-top:44px; font-size:.84rem; color:rgba(240,237,232,.36); max-width:64ch; margin-left:auto; margin-right:auto;">Every cohort seat begins with a brief application call to confirm fit and check for conflicts of interest within the group, and is governed by a written engagement agreement covering payment terms, scheduling, and refunds, provided before any commitment. See our <a href="terms.html">Terms of Engagement</a>.</p>
-  </div>
-</section>
-
-<section class="section section-light">
-  <div class="section-content">
-    <div class="reveal" style="text-align:center; margin-bottom:52px;">
-      <span class="eyebrow">Common Questions</span>
-      <h2 class="t-xl" style="color:var(--ink); margin-top:10px;">What to expect.</h2>
-    </div>
-    <div style="max-width:820px; margin:0 auto;" class="reveal">
-      <details class="details"><summary><span>How is this different from a typical mastermind or peer group?</span><span class="chev">▼</span></summary><div class="details-body"><p>Most masterminds are roundtables — members trade advice and hold each other accountable to goals. This one follows a structured facilitation method, the same one used in private sessions, applied to your own material every month. The group provides the cadence and the company; it doesn't dilute the rigor.</p></div></details>
-      <details class="details"><summary><span>Will I have to share personal or case details with the group?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. You're never asked to name the person or describe the situation out loud. The facilitation happens on your own private worksheet, guided live, while the rest of the cohort works the same sequence on their own material in parallel.</p></div></details>
-      <details class="details"><summary><span>How is confidentiality and conflict of interest handled within a cohort?</span><span class="chev">▼</span></summary><div class="details-body"><p>Cohorts are built across industries and firms — no two members from the same firm, opposing sides of a matter, or directly competing practices are placed together. Everyone in the group signs a confidentiality agreement as a condition of the engagement. To be clear: this is not a legally privileged setting, and the method is deliberately structured so no privileged or case-identifying information is ever required.</p></div></details>
-      <details class="details"><summary><span>What's the cohort size, and how are members selected?</span><span class="chev">▼</span></summary><div class="details-body"><p>Cohorts run 8&ndash;12 members (6 for the Executive Cohort). Applications are reviewed individually to confirm fit and to check for overlap with anyone already enrolled before a seat is confirmed.</p></div></details>
-      <details class="details"><summary><span>Is this therapy or mental health treatment?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. The Demartini Method is a structured, educational facilitation process, not psychotherapy, counseling, or group therapy. It does not diagnose or treat any medical, psychological, or mental health condition, and it is not a substitute for care from a licensed mental health professional.</p></div></details>
-      <details class="details"><summary><span>Will this blunt my edge in an adversarial setting?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. Aggression that you choose is a tool; aggression that gets pulled out of you is a tell. The work removes the second without touching the first — your intensity becomes something you deploy deliberately rather than something opposing counsel can trigger on demand.</p></div></details>
-      <details class="details"><summary><span>What if I miss a session?</span><span class="chev">▼</span></summary><div class="details-body"><p>Each session is recorded for members, and your private workbook lets you complete that month's relationship on your own timeline. Two consecutive missed live sessions typically prompt a short catch-up call to keep you on pace with the cohort.</p></div></details>
-      <details class="details"><summary><span>Can I move from the mastermind into the private advisory later?</span><span class="chev">▼</span></summary><div class="details-body"><p>Yes. Members who want deeper, one-on-one work on a specific relationship can move into the private advisory at any point, and a portion of mastermind fees paid within the prior six months applies toward the first advisory engagement.</p></div></details>
-      <details class="details"><summary><span>Do I need to have attended one of your keynotes?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. Many members first encountered the work during a keynote, but the mastermind is open to any professional dealing with charge toward specific people.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="section section-dark" id="apply">
-  <div class="section-content">
-    <div class="reveal" style="text-align:center; margin-bottom:44px;">
-      <span class="eyebrow">Start Here</span>
-      <h2 class="t-xl" style="color:var(--white); margin-top:10px;">Apply for a Cohort Seat.</h2>
-      <p class="t-body" style="max-width:46ch; margin:16px auto 0; text-align:center;">Share a few details below. We'll confirm fit, check for conflicts within current and forming cohorts, and follow up within two business days.</p>
-    </div>
-    <form id="mastermind-form" method="POST" action="https://formspree.io/f/xaqdebvj" style="max-width:700px; margin:0 auto;">
-      <div class="form-grid">
-        <div class="form-group"><label for="f-name">Your Name *</label><input id="f-name" type="text" name="name" required placeholder="First and Last Name"></div>
-        <div class="form-group"><label for="f-email">Email Address *</label><input id="f-email" type="email" name="email" required placeholder="you@company.com"></div>
-      </div>
-      <div class="form-grid">
-        <div class="form-group"><label for="f-phone">Phone Number</label><input id="f-phone" type="tel" name="phone" placeholder="(555) 000-0000"></div>
-        <div class="form-group"><label for="f-title">Your Title / Role</label><input id="f-title" type="text" name="title" placeholder="e.g., Partner, Advisor, Executive, General Counsel, CFO"></div>
-      </div>
-      <div class="form-grid">
-        <div class="form-group"><label for="f-org">Firm / Company / Organisation *</label><input id="f-org" type="text" name="organization" required placeholder="Firm, company, or organisation name"></div>
-        <div class="form-group"><label for="f-web">Website</label><input id="f-web" type="url" name="website" placeholder="https://company.com"></div>
-      </div>
-      <div class="form-grid">
-        <div class="form-group"><label for="f-option">Cohort Option *</label>
-          <select id="f-option" name="cohort_option" required>
-            <option value="">Select an option…</option>
-            <option>Six-Month Cohort</option>
-            <option>Twelve-Month Cohort</option>
-            <option>Executive Cohort (By Application)</option>
-            <option>Founding Cohort (By Invitation)</option>
-            <option>Not sure yet — help me choose</option>
+      <div class="f-grid">
+        <div class="f-group"><label for="n-tier">Membership of Interest *</label>
+          <select id="n-tier" name="membership" required>
+            <option value="">Select…</option>
+            <option>Circle (Standard)</option>
+            <option>Full Study</option>
+            <option>Inner Circle (By Application)</option>
+            <option>Founding Cohort</option>
+            <option>Not sure yet</option>
           </select>
         </div>
-        <div class="form-group"><label for="f-timeline">Preferred Start *</label>
-          <select id="f-timeline" name="timeline" required>
-            <option value="">Select timeline…</option>
-            <option>Next cohort start</option>
-            <option>Within the next quarter</option>
-            <option>Within the next 6 months</option>
-            <option>Just exploring</option>
+        <div class="f-group"><label for="n-back">Familiarity with Jung's Work *</label>
+          <select id="n-back" name="background" required>
+            <option value="">Select…</option>
+            <option>New to this material</option>
+            <option>Some prior reading</option>
+            <option>Long-time student</option>
+            <option>Clinician / practitioner</option>
           </select>
         </div>
       </div>
-      <div class="form-grid">
-        <div class="form-group"><label for="f-context">Primary Context *</label>
-          <select id="f-context" name="primary_context" required>
-            <option value="">Select context…</option>
-            <option>Opposing Counsel / Adversary</option>
-            <option>Client / Client Board</option>
-            <option>Partner / Boss / Firm Leadership</option>
-            <option>Board / Board President</option>
-            <option>Rival / Peer</option>
-            <option>Direct Reports / Staff</option>
-            <option>Judge / Regulator</option>
-            <option>Other</option>
+      <div class="f-grid">
+        <div class="f-group"><label for="n-time">Best Time for a Monthly Session *</label>
+          <select id="n-time" name="best_time" required>
+            <option value="">Select…</option>
+            <option>Weekday evenings</option>
+            <option>Weekday daytime</option>
+            <option>Weekends</option>
           </select>
         </div>
-        <div class="form-group"><label for="f-time">Best Time to Reach You *</label>
-          <select id="f-time" name="best_time" required>
-            <option value="">Select time…</option>
-            <option>Morning</option><option>Midday</option><option>Afternoon</option><option>Evening</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-grid">
-        <div class="form-group"><label for="f-tz">Time Zone *</label>
-          <select id="f-tz" name="timezone" required>
-            <option value="">Select time zone…</option>
+        <div class="f-group"><label for="n-tz">Time Zone *</label>
+          <select id="n-tz" name="timezone" required>
+            <option value="">Select…</option>
             <option>Pacific (PT)</option><option>Mountain (MT)</option><option>Central (CT)</option>
-            <option>Eastern (ET)</option><option>GMT</option><option>Australia (AET)</option><option>Other</option>
-          </select>
-        </div>
-        <div class="form-group"><label for="f-keynote">Did you attend a keynote / see the live demonstration?</label>
-          <select id="f-keynote" name="attended_keynote">
-            <option value="">Select…</option><option>Yes</option><option>No</option><option>Not sure</option>
+            <option>Eastern (ET)</option><option>GMT</option><option>Other</option>
           </select>
         </div>
       </div>
-      <div class="form-group" style="margin-bottom:24px;">
-        <label for="f-situation">What's the situation? (High-level) *</label>
-        <span class="field-note">Please do not include privileged, confidential client, or case-identifying information. A general description of the relationship and pattern is all that&rsquo;s needed — communications through this form are not legally privileged. This also helps us check for conflicts with anyone already enrolled.</span>
-        <textarea id="f-situation" name="situation" required rows="5" placeholder="Who is carrying the charge? What is the recurring pattern? Keep it high-level."></textarea>
+      <div class="f-group" style="margin-bottom:24px;">
+        <label for="n-what">What draws you to this study? *</label>
+        <span class="f-note">A recurring dream, a symbol, a question, or simply an interest in the tradition — whatever's true.</span>
+        <textarea id="n-what" name="what_draws_you" rows="4" required placeholder="Tell us a little about what's bringing you here."></textarea>
       </div>
-      <button type="submit" class="form-submit">Request Cohort Application</button>
-      <p style="text-align:center; color:rgba(240,237,232,.36); font-size:11px; letter-spacing:-.005em;">* Required fields. We'll respond within 2 business days to confirm fit and cohort placement. By submitting this form you agree to our <a href="privacy.html">Privacy Policy</a>; your details are used only to respond to your inquiry.</p>
-      <input type="hidden" name="form_type" value="Mastermind Cohort Application">
+      <button type="submit" class="f-submit">Send Request</button>
+      <p class="f-fine">* Required fields. We reply within a few days. By submitting, you agree to be contacted about cohort placement.</p>
+      <input type="hidden" name="form_type" value="The Ordered Field — Invitation Request">
     </form>
   </div>
 </section>
 
 <footer>
-  <div class="footer-content">
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#speaking">Speaking</a>
-      <a href="advisory.html">Private Advisory</a>
-      <a href="#format">The Format</a>
-      <a href="#endorsements">Endorsements</a>
-      <a href="#apply">Apply</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Engagement</a>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo">The Ordered <span>Field</span></a>
+        <p style="margin-top:16px;">A small study circle on dreams, the transcendent function, and consciousness, facilitated by Dr. Sam Osborne. Held monthly, in sequence, by invitation.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#study">The Study</a></li>
+          <li><a href="#curriculum">The Curriculum</a></li>
+          <li><a href="#who">Who It's For</a></li>
+          <li><a href="#membership">Membership</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:sam@samosborne.net">sam@samosborne.net</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#apply">Request an Invitation</a></li>
+        </ul>
+      </div>
     </div>
-    <p class="copyright">© 2026 Sam Osborne · Demartini Method Facilitator · Based in Burbank, California · samosborne.net</p>
-    <p class="footer-disclaimer">The Demartini Method facilitation described on this page is an educational and developmental group service. It is not psychotherapy, counseling, group therapy, medical care, legal advice, or mental health treatment, and it does not create an attorney&ndash;client, therapist&ndash;patient, or other legally privileged relationship. Individual results vary and are not guaranteed.</p>
+    <div class="foot-bottom">
+      <p class="copyright">© 2026 Dr. Sam Osborne · The Ordered Field · Based in Burbank, California</p>
+      <p class="foot-disclaimer">The Ordered Field is an educational and developmental study group grounded in Jungian and esoteric traditions. It is not psychotherapy, group therapy, medical care, or a substitute for treatment from a licensed mental health professional. Individual experience varies, and no particular outcome is promised or guaranteed.</p>
+    </div>
   </div>
 </footer>
 
 <script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+const burger=document.getElementById('burger'), navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
 
-const mt=document.getElementById('menuToggle'),nl=document.getElementById('navLinks');
-function closeMenu(){nl.classList.remove('active');mt.classList.remove('is-open');mt.innerHTML='&#9776;';}
-mt.addEventListener('click',()=>{
-  const open=nl.classList.toggle('active');
-  mt.classList.toggle('is-open',open);
-  mt.innerHTML=open?'&#x2715;':'&#9776;';
-});
-nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+const sw=document.getElementById('billingSwitch'), pricing=document.getElementById('pricingBlock');
+sw.addEventListener('click',()=>{sw.classList.toggle('annual'); pricing.classList.toggle('annual');});
 
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h==='#')return;const t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const h=a.getAttribute('href'); if(h==='#')return;
+  const t=document.querySelector(h); if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth'});}
+}));
 
-(function(){document.querySelectorAll('details.details').forEach(det=>{const summ=det.querySelector('summary'),body=det.querySelector('.details-body');if(!summ||!body)return;summ.addEventListener('click',e=>{e.preventDefault();if(!det.open){det.open=true;body.style.overflow='hidden';body.style.maxHeight='0';body.style.opacity='0';body.style.paddingTop='0';body.style.marginTop='0';body.offsetHeight;body.style.transition='max-height .5s cubic-bezier(.25,.46,.45,.94),opacity .38s ease,padding-top .38s ease,margin-top .38s ease';body.style.maxHeight=(body.scrollHeight+26)+'px';body.style.opacity='1';body.style.paddingTop='12px';body.style.marginTop='10px';body.addEventListener('transitionend',()=>{body.style.maxHeight='none';body.style.overflow='visible';body.style.transition='';body.classList.add('is-open');},{once:true});}else{body.classList.remove('is-open');body.style.overflow='hidden';body.style.maxHeight=body.scrollHeight+'px';body.style.opacity='1';body.offsetHeight;body.style.transition='max-height .42s cubic-bezier(.25,.46,.45,.94),opacity .32s ease,padding-top .32s ease,margin-top .32s ease';body.style.maxHeight='0';body.style.opacity='0';body.style.paddingTop='0';body.style.marginTop='0';body.addEventListener('transitionend',()=>{det.open=false;body.style.transition='';body.style.overflow='';},{once:true});}});});})();
-
-(function(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>obs.observe(el));})();
+const obs=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible'); obs.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
