@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +47,6 @@
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Ccircle cx='71.2' cy='33.2' r='1.05' fill='%23bcd0ff' fill-opacity='0.25'/%3E%3Ccircle cx='117.9' cy='80.5' r='0.46' fill='%23bcd0ff' fill-opacity='0.5'/%3E%3Ccircle cx='8.2' cy='95.4' r='0.47' fill='%23bcd0ff' fill-opacity='0.26'/%3E%3Ccircle cx='93.4' cy='181.9' r='0.52' fill='%23bcd0ff' fill-opacity='0.35'/%3E%3Ccircle cx='138.0' cy='208.5' r='0.98' fill='%23bcd0ff' fill-opacity='0.45'/%3E%3Ccircle cx='214.8' cy='10.2' r='1.26' fill='%23bcd0ff' fill-opacity='0.38'/%3E%3Ccircle cx='31.7' cy='25.9' r='0.71' fill='%23bcd0ff' fill-opacity='0.68'/%3E%3Ccircle cx='39.8' cy='128.0' r='1.04' fill='%23bcd0ff' fill-opacity='0.42'/%3E%3Ccircle cx='120.5' cy='13.8' r='0.46' fill='%23bcd0ff' fill-opacity='0.32'/%3E%3Ccircle cx='149.7' cy='94.1' r='0.71' fill='%23bcd0ff' fill-opacity='0.55'/%3E%3Ccircle cx='99.7' cy='65.9' r='1.19' fill='%23bcd0ff' fill-opacity='0.6'/%3E%3Ccircle cx='53.7' cy='126.4' r='0.93' fill='%23bcd0ff' fill-opacity='0.72'/%3E%3Ccircle cx='160.5' cy='63.3' r='1.38' fill='%23bcd0ff' fill-opacity='0.28'/%3E%3Ccircle cx='92.0' cy='166.6' r='0.55' fill='%23bcd0ff' fill-opacity='0.48'/%3E%3Ccircle cx='8.6' cy='147.0' r='1.16' fill='%23bcd0ff' fill-opacity='0.52'/%3E%3Ccircle cx='192.6' cy='69.0' r='1.1' fill='%23bcd0ff' fill-opacity='0.55'/%3E%3Ccircle cx='127.6' cy='100.4' r='1.24' fill='%23bcd0ff' fill-opacity='0.75'/%3E%3Ccircle cx='104.3' cy='146.1' r='0.46' fill='%23bcd0ff' fill-opacity='0.6'/%3E%3Ccircle cx='142.4' cy='218.5' r='1.22' fill='%23bcd0ff' fill-opacity='0.36'/%3E%3Ccircle cx='84.9' cy='147.1' r='0.42' fill='%23bcd0ff' fill-opacity='0.46'/%3E%3Ccircle cx='37.0' cy='25.8' r='0.46' fill='%23bcd0ff' fill-opacity='0.65'/%3E%3Ccircle cx='28.5' cy='54.5' r='0.79' fill='%23bcd0ff' fill-opacity='0.72'/%3E%3C/svg%3E");
     background-repeat:no-repeat, no-repeat, repeat;
   }
-  /* Tape scanlines — a thin repeating horizontal texture, dub-plate/analog feel */
   body::before{
     content:"";
     position:fixed;
@@ -60,7 +58,6 @@
   }
   a{ color:inherit; text-decoration:none; }
 
-  /* Cursor-reactive spotlight — cheap radial gradient, no blur filter, safe on mobile (no mousemove = stays put) */
   .spotlight{
     position:fixed;
     inset:0;
@@ -122,7 +119,6 @@
   @keyframes drift{ 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-16px) rotate(4deg); } }
   @media (prefers-reduced-motion: reduce){ .shape{ animation:none; } }
 
-  /* Giant background word */
   .bg-word{
     position:absolute;
     top:50%; left:50%;
@@ -186,6 +182,7 @@
     color:var(--accent);
   }
   .inline-cta{ margin-top:38px; display:flex; justify-content:center; position:relative; z-index:2; }
+  .microcopy{ font-family:var(--inscript); font-size:12px; color:var(--ink-faint); margin-top:14px; letter-spacing:0.02em; position:relative; z-index:2; }
 
   .marquee{ overflow:hidden; background:#000; padding:18px 0; white-space:nowrap; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); }
   .marquee-track{ display:inline-flex; animation:marquee 22s linear infinite; }
@@ -290,6 +287,39 @@
   .price-btn{ width:100%; }
   .price-schedule{ font-family:var(--inscript); font-size:13px; font-weight:400; color:var(--ink); margin:0 auto 0; position:relative; z-index:2; letter-spacing:0.02em; }
   .price-schedule strong{ color:var(--accent); font-weight:700; }
+  .scarcity-banner{
+    display:inline-block; margin:18px auto 0; font-family:var(--inscript); font-size:13px; letter-spacing:0.03em;
+    color:var(--accent); background:rgba(47,111,255,0.08); border:1px dashed rgba(47,111,255,0.5);
+    padding:9px 18px; border-radius:2px; position:relative; z-index:2;
+  }
+
+  .trust-bar{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:22px auto 0; position:relative; z-index:2; }
+  .trust-chip{
+    font-family:var(--inscript); font-size:11px; letter-spacing:0.03em; color:var(--ink-dim);
+    border:1px solid var(--glass-border); background:var(--glass); padding:7px 13px; border-radius:2px;
+  }
+
+  .placeholder-box{
+    max-width:640px; margin:28px auto 0; text-align:left; position:relative; z-index:2;
+    border:1.5px dashed rgba(47,111,255,0.55); background:rgba(47,111,255,0.06);
+    border-radius:6px; padding:20px 22px; font-size:14px; color:var(--ink-dim); line-height:1.6;
+  }
+  .placeholder-box .ph-tag{
+    display:inline-block; font-family:var(--inscript); font-size:11px; font-weight:700; letter-spacing:0.05em;
+    color:var(--bg); background:var(--accent); padding:3px 9px; border-radius:3px; margin-bottom:10px;
+  }
+  .placeholder-box p{ margin:0; max-width:none; font-size:14px; color:var(--ink-dim); }
+
+  .capture-form{ max-width:420px; margin:0 auto; display:flex; gap:8px; position:relative; z-index:2; flex-wrap:wrap; justify-content:center; }
+  .capture-form input[type="email"]{
+    flex:1; min-width:200px; background:var(--glass); border:1px solid var(--glass-border); border-radius:2px;
+    padding:12px 14px; color:var(--ink); font-family:var(--sans); font-size:14px;
+  }
+  .capture-form input[type="email"]::placeholder{ color:var(--ink-faint); }
+  .capture-form button{
+    background:var(--grad); color:#fff; border:none; padding:12px 20px; border-radius:2px;
+    font-family:var(--serif); font-size:14px; font-weight:500; cursor:pointer;
+  }
 
   .disclosure{ max-width:600px; margin:20px auto 0; text-align:left; position:relative; z-index:2; }
   .disclosure summary{ cursor:pointer; list-style:none; font-size:14px; font-weight:400; color:var(--accent); display:flex; align-items:center; gap:6px; }
@@ -302,7 +332,6 @@
 
   footer{ padding:36px 22px 52px; text-align:center; font-family:var(--inscript); font-size:11px; font-weight:400; letter-spacing:0.02em; color:var(--ink-faint); border-top:1px solid var(--glass-border); position:relative; z-index:2; }
 
-  /* Unity mark — two interlocking forms, warm and cool, resolving into one shape */
   .unity-mark{ display:inline-block; flex-shrink:0; }
   .unity-mark .u-warm{ fill:url(#u-grad-warm); }
   .unity-mark .u-cool{ fill:url(#u-grad-cool); }
@@ -312,7 +341,6 @@
     opacity:0.12; z-index:0; pointer-events:none;
   }
 
-  /* Echo — a faint delayed repeat of a word, visualizing dub delay */
   .echo-word{
     position:relative;
     display:inline-block;
@@ -328,14 +356,12 @@
     z-index:-1;
   }
 
-  /* Ambient nebula cloud — soft, oversized, for atmosphere-heavy sections */
   .nebula{
     position:absolute; border-radius:50%; filter:blur(120px); z-index:0; pointer-events:none;
     max-width:75vw; max-height:75vw;
   }
   @media (max-width:600px){ .nebula{ filter:blur(60px); } }
 
-  /* Outcomes */
   .outcomes-list{ max-width:720px; margin:44px auto 0; text-align:left; position:relative; z-index:2; }
   .outcome-row{
     display:grid; grid-template-columns:28px 1fr; gap:16px;
@@ -345,7 +371,6 @@
   .outcome-row .o-mark{ font-family:var(--inscript); font-size:13px; color:var(--accent); padding-top:2px; }
   .outcome-row p{ font-size:16px; font-weight:400; line-height:1.6; color:var(--ink); max-width:600px; }
 
-  /* FAQ */
   .faq-list{ max-width:720px; margin:44px auto 0; text-align:left; position:relative; z-index:2; }
   .faq-item{ border-top:1px solid var(--glass-border); }
   .faq-item:last-child{ border-bottom:1px solid var(--glass-border); }
@@ -403,9 +428,18 @@
     <div class="shape shape-line" style="width:90px; top:26%; right:10%; animation-delay:0.8s;"></div>
     <div class="shape shape-cool shape-plus" style="top:70%; right:14%; animation-delay:2.2s;">☽</div>
     <div class="hero-inner">
-      <div class="eyebrow reveal">so / mastermind — 001</div>
-      <h1 class="reveal">Sam Osborne's mastermind program for expanding your thinking capacity, for professionals who think across disciplines.</h1>
-      <p class="sub reveal">Sam is a trained Demartini Method Facilitator, the incoming President, National Speakers Association of Southern California, and a Marketing Director.</p>
+      <div class="eyebrow reveal">so / mastermind — 001 · founding cohort, 6–10 seats</div>
+      <h1 class="reveal"><span class="grad-text">You're not stuck.</span> You're choosing a side.</h1>
+      <p class="sub reveal">A mastermind for professionals who think across disciplines — built to end the stuck decision you've been quietly living with for a year. Sam is a trained Demartini Method Facilitator, the incoming President, National Speakers Association of Southern California, and a Marketing Director.</p>
+      <div class="trust-bar reveal">
+        <span class="trust-chip">Best of Conference — CAI National Law Seminar</span>
+        <span class="trust-chip">President-Elect, NSA Southern California</span>
+        <span class="trust-chip">Trained Demartini Method Facilitator</span>
+      </div>
+      <div class="inline-cta reveal">
+        <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
+      </div>
+      <p class="microcopy reveal">15 minutes. No pitch. Just to see if this is the room for you.</p>
     </div>
   </section>
 
@@ -414,7 +448,7 @@
     <div class="wrap-narrow">
       <span class="cp-label reveal" style="display:block; margin-bottom:16px;">The Cost</span>
       <h2 class="reveal">A stuck decision, an ambiguous relationship, a project you keep almost starting.</h2>
-      <p class="body-lg reveal">None of it feels urgent, so it just runs. A year later, that's what it actually cost you.</p>
+      <p class="body-lg reveal">None of it feels urgent, so it just runs. A year from today you'll know exactly what letting it run actually cost you — the only open question is whether you find out on your terms, or in the rearview mirror.</p>
     </div>
   </section>
 
@@ -426,6 +460,7 @@
       <div class="inline-cta reveal">
         <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
       </div>
+      <p class="microcopy reveal">The founding cohort is capped at 10 people. When it's full, it's full.</p>
     </div>
   </section>
 
@@ -489,8 +524,24 @@
         <img src="images/sam-osborne-vest.jpg" alt="Portrait of Sam Osborne.">
       </div>
     </div>
+    <div class="placeholder-box reveal">
+      <span class="ph-tag">Add — a video of you</span>
+      <p>60–90 seconds of you talking directly to camera about why this exists outperforms any copy on this page. People will trust the unusual subject matter (dreams, the unconscious, alchemy) far faster once they've seen the person behind it — the same reason your video testimonial works on the main site. Drop the embed here.</p>
+    </div>
     <div class="inline-cta reveal">
       <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
+    </div>
+  </section>
+
+  <section class="s-alt copy">
+    <div class="wrap-narrow">
+      <span class="cp-label reveal" style="display:block; margin-bottom:16px;">Proof, Not Theory</span>
+      <h2 class="reveal">One of these has already happened.</h2>
+      <p class="body-lg reveal">A concrete before/after does more work than another paragraph about tension resolving — especially for someone deciding whether "the third option" is real or just a nice sentence.</p>
+    </div>
+    <div class="placeholder-box reveal">
+      <span class="ph-tag">Add — a real, anonymized case</span>
+      <p>Pull one story from your Demartini facilitation work: the stuck decision going in, roughly what surfaced in the session, and the concrete move that came out the other side. Doesn't need a name attached — "a managing partner who'd been sitting on a partnership decision for eight months" is enough specificity to feel real. This is the single highest-leverage thing missing from this page.</p>
     </div>
   </section>
 
@@ -574,7 +625,7 @@
       </div>
     </details>
     <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="#book">Schedule Your Private Call</a>
+      <a class="btn btn-primary" href="#book">Claim Your Seat in the Founding Cohort</a>
     </div>
   </section>
 
@@ -584,6 +635,7 @@
       <p class="body-lg reveal">One price. One format. Everything that's included, stated plainly.</p>
       <p class="price-schedule reveal"><strong>Starts Saturday, January 9, 2027</strong> · Saturdays, 8:00am PST · 10 weeks</p>
       <p class="price-schedule reveal" style="color:var(--ink-dim); font-size:14px; margin-top:8px;">Deliberately small — 6 to 10 people, by design, not a marketing number.</p>
+      <div class="scarcity-banner reveal">Six to ten seats. Not sixty. This is the only cohort that will ever run at this price.</div>
     </div>
     <div class="price-card-wrap reveal">
       <div class="price-card">
@@ -652,9 +704,25 @@
     <div class="shape shape-cool shape-plus" style="top:75%; right:12%; animation-delay:1.4s;">☽</div>
     <h2 class="reveal">If this is landing somewhere real.</h2>
     <p class="body-lg reveal">For the founding cohort, a conversation comes first — not a purchase. I'd rather talk than sell you on a page.</p>
+    <p class="microcopy reveal" style="margin-bottom:28px;">Six to ten seats. Ten weeks. One conversation to find out if you're one of them.</p>
+
+    <div class="placeholder-box reveal" style="margin-bottom:24px;">
+      <span class="ph-tag">Add — one-click scheduler</span>
+      <p>Replace this box with a Calendly / Cal.com / SavvyCal embed (or a direct link on the button below). Every "Schedule Your Private Call" button on the page points here — right now the button below opens an email instead of booking a time, which is real friction at the exact moment someone is most ready to say yes. The email fallback stays as a backup either way.</p>
+    </div>
+
     <div class="btn-row reveal">
       <a class="btn btn-primary magnetic" href="/cdn-cgi/l/email-protection#186b7975586b7975776b7a776a767d36767d6c276b6d7a727d7b6c2555796b6c7d6a7571767c3d2a28353d2a28747d6c3d2a2f6b3d2a286c797473">Schedule Your Private Call</a>
       <a class="btn btn-secondary" href="/cdn-cgi/l/email-protection#4734262a0734262a2834252835292269292233">Not ready yet — email me ›</a>
+    </div>
+
+    <div class="reveal" style="margin-top:56px;">
+      <p class="microcopy" style="margin-bottom:16px;">Not ready for a call? Leave your email — when the next cohort opens, you'll hear about it first.</p>
+      <form class="capture-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="you@email.com" required>
+        <button type="submit">Keep me posted</button>
+      </form>
+      <p class="microcopy" style="margin-top:10px; opacity:0.7;">[Placeholder — swap YOUR_FORM_ID for a real Formspree endpoint, same pattern as the main site]</p>
     </div>
   </section>
 
@@ -669,13 +737,11 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Cursor spotlight — desktop only in practice, since mobile has no mousemove
   window.addEventListener('mousemove', (e) => {
     document.documentElement.style.setProperty('--mx', e.clientX + 'px');
     document.documentElement.style.setProperty('--my', e.clientY + 'px');
   }, { passive: true });
 
-  // Magnetic button
   document.querySelectorAll('.magnetic').forEach((btn) => {
     btn.addEventListener('mousemove', (e) => {
       const r = btn.getBoundingClientRect();
