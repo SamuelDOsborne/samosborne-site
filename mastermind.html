@@ -3,551 +3,439 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Ordered Field | A Study Group on Dreams, the Transcendent Function &amp; Consciousness</title>
-<meta name="description" content="A small, invitation-based study circle on Jung's transcendent function, dream work, and consciousness — facilitated by Dr. Sam Osborne. Monthly sessions, held as a living practice, not a lecture."/>
-
+<title>The Ordered Field | A Study of Dreams, the Transcendent Function &amp; Consciousness</title>
+<meta name="description" content="A small, invitation-based study group on Jung's transcendent function, dream work, and consciousness. Facilitated by Dr. Sam Osborne."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --primary:#825846;       /* wdtPrimaryColor */
-  --secondary:#000000;     /* wdtSecondaryColor */
-  --tertiary:#f2ebe1;      /* wdtTertiaryColor */
-  --bodybg:#e4d8c9;        /* wdtBodyBGColor */
-  --bodytxt:#464340;       /* wdtBodyTxtColor */
-  --white:#ffffff;
-  --line:rgba(70,67,64,.14);
-  --primary-rgb:130,88,70;
+  --ink:#1d1d1f;
+  --muted:#86868b;
+  --muted2:#6e6e73;
+  --bg:#ffffff;
+  --surface:#f5f5f7;
+  --dark:#000000;
+  --dark-surface:#0a0a0c;
+  --blue:#0071e3;
+  --blue-hover:#0077ed;
+  --line:rgba(0,0,0,.08);
+  --line-dark:rgba(255,255,255,.14);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+*,*::before,*::after{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Jost', sans-serif; font-weight:400; font-size:17px; line-height:1.7;
-  background:var(--bodybg); color:var(--bodytxt); overflow-x:hidden;
+  font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased; line-height:1.47059; letter-spacing:-.01em;
 }
-h1,h2,h3,h4,h5{font-family:'Marcellus', serif; font-weight:400; color:var(--secondary); line-height:1.18; letter-spacing:.002em;}
-a{color:inherit; text-decoration:none;}
+a{color:var(--blue); text-decoration:none;}
+a:hover{text-decoration:underline;}
 img{max-width:100%; display:block;}
-.wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+.wrap{max-width:1120px; margin:0 auto; padding:0 22px;}
+.wrap-wide{max-width:1400px; margin:0 auto; padding:0 22px;}
 
 /* ===== Nav ===== */
-header{position:sticky; top:0; z-index:500; background:rgba(242,235,225,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
-.nav-row{display:flex; align-items:center; justify-content:space-between; padding:20px 0;}
-.logo{font-family:'Marcellus', serif; font-size:22px; color:var(--secondary); letter-spacing:.01em;}
-.logo span{color:var(--primary);}
-.nav-links{display:flex; gap:34px; list-style:none;}
-.nav-links a{font-size:14px; letter-spacing:.01em; color:var(--bodytxt); position:relative; padding-bottom:4px;}
-.nav-links a:hover{color:var(--primary);}
-.nav-cta{background:var(--primary); color:var(--white) !important; padding:11px 26px; border-radius:4px; font-size:13px; letter-spacing:.03em; text-transform:uppercase; font-weight:500;}
-.nav-cta:hover{background:var(--secondary);}
-.burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
-.burger span{width:22px; height:2px; background:var(--secondary); display:block;}
-@media(max-width:920px){
-  .nav-links{position:fixed; inset:64px 0 auto 0; background:var(--tertiary); flex-direction:column; padding:24px 32px; gap:0; display:none; border-bottom:1px solid var(--line);}
+nav{position:fixed; top:0; width:100%; z-index:900; height:44px; background:rgba(255,255,255,.8); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid rgba(0,0,0,.06); transition:background .3s ease;}
+nav.dark{background:rgba(0,0,0,.8); border-bottom-color:rgba(255,255,255,.08);}
+.nav-inner{max-width:1024px; margin:0 auto; padding:0 20px; height:44px; display:flex; align-items:center; justify-content:space-between;}
+.nav-logo{font-size:14px; font-weight:600; color:var(--ink); letter-spacing:0;}
+nav.dark .nav-logo{color:#f5f5f7;}
+.nav-links{display:flex; gap:28px; list-style:none;}
+.nav-links a{color:rgba(29,29,31,.78); font-size:12px; font-weight:400; text-decoration:none; letter-spacing:0;}
+nav.dark .nav-links a{color:rgba(245,245,247,.78);}
+.nav-links a:hover{color:var(--ink);}
+nav.dark .nav-links a:hover{color:#fff;}
+.nav-apply{background:var(--ink); color:#fff !important; padding:6px 16px; border-radius:980px; font-size:12px; font-weight:500;}
+nav.dark .nav-apply{background:#fff; color:var(--dark) !important;}
+.nav-apply:hover{text-decoration:none; opacity:.82;}
+.burger{display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:4px; padding:6px;}
+.burger span{width:18px; height:1.5px; background:var(--ink);}
+nav.dark .burger span{background:#fff;}
+@media(max-width:834px){
+  .nav-links{position:fixed; inset:44px 0 auto 0; background:rgba(255,255,255,.97); flex-direction:column; padding:10px 24px 20px; display:none; border-bottom:1px solid var(--line);}
   .nav-links.open{display:flex;}
   .nav-links li{border-bottom:1px solid var(--line); width:100%;}
-  .nav-links a{display:block; padding:14px 0;}
-  .nav-cta{display:none;}
+  .nav-links a{display:block; padding:14px 0; font-size:15px;}
+  .nav-apply{display:none;}
   .burger{display:flex;}
 }
 
 /* ===== Hero ===== */
-.hero{padding:96px 0 80px; position:relative; overflow:hidden;}
-.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;}
-.eyebrow{display:inline-block; font-size:13px; letter-spacing:.04em; color:var(--primary); font-style:italic; margin-bottom:18px;}
-.hero h1{font-size:clamp(2.3rem,4.4vw,3.6rem); max-width:14ch; margin-bottom:22px;}
-.hero h1 em{color:var(--primary); font-style:normal;}
-.hero p.lead{font-size:18px; font-weight:300; color:var(--bodytxt); max-width:46ch; margin-bottom:16px;}
-.hero p.sub{font-size:14px; font-weight:300; color:rgba(70,67,64,.66); max-width:44ch; margin-bottom:34px;}
-.btn{display:inline-block; background:var(--primary); color:var(--white); padding:16px 34px; border-radius:4px; font-size:14px; letter-spacing:.03em; text-transform:uppercase; font-weight:500; transition:background .2s ease, transform .2s ease;}
-.btn:hover{background:var(--secondary); transform:translateY(-2px);}
-.btn-outline{display:inline-block; border:1px solid var(--secondary); color:var(--secondary); padding:15px 30px; border-radius:4px; font-size:14px; letter-spacing:.03em; margin-left:14px;}
-.btn-outline:hover{background:var(--secondary); color:var(--white);}
-.hero-actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
+.hero{background:var(--dark); color:#fff; padding:112px 0 64px; text-align:center;}
+.hero-eyebrow{font-size:14px; font-weight:600; color:var(--muted); margin-bottom:8px;}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem); font-weight:700; letter-spacing:-.03em; line-height:1.05; margin-bottom:14px;}
+.hero h1 .accent{background:linear-gradient(90deg,#fff, #a3a3a8); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero p.sub{font-size:clamp(1.15rem,2vw,1.6rem); font-weight:400; color:rgba(245,245,247,.86); max-width:34ch; margin:0 auto 30px; line-height:1.4;}
+.hero-actions{display:flex; justify-content:center; gap:22px; align-items:center; margin-bottom:56px; flex-wrap:wrap;}
+.btn-pill{display:inline-block; background:var(--blue); color:#fff; padding:12px 24px; border-radius:980px; font-size:17px; font-weight:400; transition:background .2s ease;}
+.btn-pill:hover{background:var(--blue-hover); text-decoration:none;}
+.btn-link{font-size:17px; color:var(--blue); display:inline-flex; align-items:center; gap:5px;}
+.btn-link:hover{text-decoration:none;}
+.btn-link svg{width:9px; height:9px;}
 
-.hero-art{position:relative; aspect-ratio:1/1.08; border-radius:6px; background:
-  radial-gradient(circle at 30% 26%, rgba(255,255,255,.5), transparent 46%),
-  linear-gradient(150deg, var(--tertiary) 0%, #d8c6ab 60%, var(--primary) 130%);
-  overflow:hidden; border:1px solid var(--line);}
-.hero-art svg{position:absolute; inset:0; width:100%; height:100%;}
-.hero-stat{position:absolute; left:24px; bottom:24px; background:var(--white); border-radius:6px; padding:18px 22px; box-shadow:0 18px 40px rgba(0,0,0,.12); max-width:220px;}
-.hero-stat b{font-family:'Marcellus',serif; font-size:26px; color:var(--primary); display:block;}
-.hero-stat span{font-size:12px; color:var(--bodytxt); letter-spacing:.01em;}
-
-/* ===== Marquee ===== */
-.marquee{background:var(--secondary); overflow:hidden; padding:15px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-.marquee-track{display:flex; width:max-content; animation:mq 32s linear infinite; white-space:nowrap;}
-.marquee-item{color:rgba(255,255,255,.7); font-family:'Marcellus',serif; font-size:15px; padding:0 30px; display:flex; align-items:center; gap:30px;}
-.marquee-item i{width:5px; height:5px; border-radius:50%; background:var(--primary); display:inline-block;}
-@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+/* video placeholder */
+.video-frame{max-width:1000px; margin:0 auto; border-radius:20px; overflow:hidden; position:relative; aspect-ratio:16/9; background:
+  radial-gradient(circle at 30% 20%, rgba(0,113,227,.35), transparent 55%),
+  radial-gradient(circle at 75% 75%, rgba(120,80,220,.3), transparent 55%),
+  linear-gradient(135deg,#0a0a0c,#1c1c1e 60%,#0a0a0c);
+  border:1px solid rgba(255,255,255,.08); box-shadow:0 40px 80px rgba(0,0,0,.5);}
+.video-frame::before{content:""; position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px); background-size:26px 26px; opacity:.5; animation:drift 18s linear infinite;}
+@keyframes drift{from{background-position:0 0;} to{background-position:120px 90px;}}
+.play-btn{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:76px; height:76px; border-radius:50%; background:rgba(255,255,255,.14); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.4); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s ease, transform .2s ease;}
+.play-btn:hover{background:rgba(255,255,255,.24); transform:translate(-50%,-50%) scale(1.06);}
+.play-btn svg{width:22px; height:22px; fill:#fff; margin-left:4px;}
+.video-caption{position:absolute; bottom:16px; left:20px; font-size:11px; color:rgba(255,255,255,.4); letter-spacing:.03em;}
+.video-caption-r{position:absolute; bottom:16px; right:20px; font-size:11px; color:rgba(255,255,255,.4); letter-spacing:.03em;}
 
 /* ===== Sections ===== */
 .section{padding:100px 0;}
-.section-cream{background:var(--tertiary);}
-.section-tan{background:var(--bodybg);}
-.head-center{text-align:center; max-width:680px; margin:0 auto 56px;}
-.head-center .kicker{color:var(--primary); font-style:italic; font-size:14px; margin-bottom:12px; display:block;}
-.head-center h2{font-size:clamp(1.9rem,3.4vw,2.7rem);}
-.head-center p{font-size:16px; font-weight:300; color:rgba(70,67,64,.72); margin-top:16px;}
+.section-light{background:var(--bg);}
+.section-surface{background:var(--surface);}
+.section-dark{background:var(--dark); color:#fff;}
+.center{text-align:center;}
+.eyebrow{font-size:19px; font-weight:600; color:var(--blue); margin-bottom:8px;}
+.section-dark .eyebrow{color:#2997ff;}
+.t-headline{font-size:clamp(2.2rem,4.4vw,3.4rem); font-weight:700; letter-spacing:-.03em; line-height:1.08;}
+.t-lead{font-size:clamp(1.1rem,1.8vw,1.4rem); font-weight:400; color:var(--muted); max-width:38ch; margin:16px auto 0; line-height:1.5;}
+.section-dark .t-lead{color:rgba(245,245,247,.7);}
 
-.statement{font-family:'Marcellus',serif; font-size:clamp(1.4rem,2.6vw,2rem); line-height:1.5; max-width:34ch; margin:0 auto; text-align:center; color:var(--secondary);}
+/* statement */
+.statement{font-size:clamp(1.7rem,3.6vw,3rem); font-weight:600; letter-spacing:-.025em; line-height:1.2; max-width:22ch; margin:0 auto; text-align:center;}
+.statement .grey{color:var(--muted);}
 
-/* icon box grid */
-.icon-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:8px;}
-.icon-card{background:var(--white); border-radius:6px; padding:38px 30px; border:1px solid var(--line); transition:transform .25s ease, box-shadow .25s ease;}
-.icon-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,.08);}
-.icon-circle{width:52px; height:52px; border-radius:50%; background:var(--tertiary); display:flex; align-items:center; justify-content:center; margin-bottom:20px;}
-.icon-circle svg{width:24px; height:24px; stroke:var(--primary); fill:none; stroke-width:1.6;}
-.icon-card h3{font-size:19px; margin-bottom:10px;}
-.icon-card p{font-size:14.5px; font-weight:300; color:rgba(70,67,64,.72); line-height:1.65;}
+/* feature blocks (alternating) */
+.feature-row{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; padding:60px 0;}
+.feature-row.rev{direction:rtl;}
+.feature-row.rev > *{direction:ltr;}
+.feature-copy .num{font-size:14px; font-weight:600; color:var(--blue); margin-bottom:10px;}
+.feature-copy h3{font-size:clamp(1.6rem,3vw,2.3rem); font-weight:700; letter-spacing:-.025em; margin-bottom:14px; line-height:1.15;}
+.feature-copy p{font-size:17px; color:var(--muted2); line-height:1.6; max-width:44ch;}
+.feature-visual{aspect-ratio:4/3; border-radius:22px; position:relative; overflow:hidden;}
+.fv1{background:linear-gradient(135deg,#eef1f5,#d7e0ea);}
+.fv2{background:linear-gradient(135deg,#f6efe7,#e6d5c3);}
+.fv3{background:linear-gradient(135deg,#0a0a0c,#28282c);}
+.feature-visual::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 65% 30%, rgba(255,255,255,.5), transparent 55%);}
 
-/* curriculum */
-.curriculum{max-width:800px; margin:48px auto 0; list-style:none; counter-reset:mod;}
-.curriculum li{display:grid; grid-template-columns:60px 1fr; gap:22px; padding:22px 0; border-bottom:1px solid var(--line); counter-increment:mod;}
-.curriculum li:last-child{border-bottom:none;}
-.curriculum li::before{
-  content:counter(mod,decimal-leading-zero); font-family:'Marcellus',serif; font-size:26px; color:var(--primary);
-  align-self:start; line-height:1;
+/* curriculum spec list */
+.spec-list{max-width:760px; margin:56px auto 0; list-style:none;}
+.spec-list li{display:grid; grid-template-columns:60px 1fr; gap:26px; padding:26px 0; border-top:1px solid var(--line);}
+.spec-list li:last-child{border-bottom:1px solid var(--line);}
+.spec-num{font-size:14px; font-weight:600; color:var(--muted); padding-top:2px;}
+.spec-list h4{font-size:19px; font-weight:600; letter-spacing:-.015em; margin-bottom:6px;}
+.spec-list p{font-size:15px; color:var(--muted2); line-height:1.55; max-width:52ch;}
+
+/* who grid */
+.who-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border-radius:18px; overflow:hidden; margin-top:56px;}
+.who-card{background:var(--bg); padding:44px 34px;}
+.who-card h3{font-size:20px; font-weight:600; letter-spacing:-.015em; margin-bottom:12px;}
+.who-card p{font-size:14.5px; color:var(--muted2); line-height:1.65;}
+
+/* quotes */
+.quote-row{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border-radius:18px; overflow:hidden; margin-top:52px;}
+.quote-card{background:var(--surface); padding:38px 32px; display:flex; flex-direction:column;}
+.quote-card p.q{font-size:16px; font-style:italic; color:var(--ink); line-height:1.6; margin-bottom:20px; flex:1;}
+.quote-card .who{font-size:13px; font-weight:600; color:var(--ink);}
+.quote-card .role{font-size:12px; color:var(--muted);}
+.quote-note{text-align:center; font-size:12px; color:var(--muted); max-width:60ch; margin:32px auto 0; line-height:1.6;}
+
+/* pricing / compare */
+.compare{max-width:960px; margin:56px auto 0; border-radius:18px; overflow:hidden; border:1px solid var(--line);}
+.compare-head{display:grid; grid-template-columns:1.3fr repeat(3,1fr);}
+.compare-head > div{padding:26px 20px; text-align:center; border-left:1px solid var(--line);}
+.compare-head > div:first-child{border-left:none; text-align:left;}
+.compare-head .tier{font-size:17px; font-weight:600; letter-spacing:-.01em; margin-bottom:6px;}
+.compare-head .price{font-size:26px; font-weight:700; letter-spacing:-.02em;}
+.compare-head .price span{font-size:13px; font-weight:400; color:var(--muted);}
+.compare-head .featured-tag{display:inline-block; background:var(--blue); color:#fff; font-size:10px; font-weight:600; padding:3px 9px; border-radius:999px; margin-bottom:8px;}
+.compare-row{display:grid; grid-template-columns:1.3fr repeat(3,1fr); border-top:1px solid var(--line);}
+.compare-row > div{padding:16px 20px; text-align:center; font-size:14px; border-left:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
+.compare-row > div:first-child{border-left:none; text-align:left; color:var(--muted2); justify-content:flex-start;}
+.compare-row .yes{color:var(--blue); font-weight:700; font-size:16px;}
+.compare-row .no{color:rgba(0,0,0,.2);}
+.compare-cta{display:grid; grid-template-columns:1.3fr repeat(3,1fr); border-top:1px solid var(--line); background:var(--surface);}
+.compare-cta > div{padding:20px; text-align:center; border-left:1px solid var(--line);}
+.compare-cta > div:first-child{border-left:none;}
+.compare-cta a{font-size:13px; background:var(--ink); color:#fff; padding:9px 18px; border-radius:980px; display:inline-block;}
+.compare-cta a:hover{text-decoration:none; opacity:.85;}
+@media(max-width:834px){
+  .compare-head, .compare-row, .compare-cta{grid-template-columns:1fr 1fr; }
+  .compare-head > div:first-child, .compare-row > div:first-child, .compare-cta > div:first-child{display:none;}
 }
-.curriculum h4{font-size:18px; margin-bottom:6px;}
-.curriculum p{font-size:14.5px; font-weight:300; color:rgba(70,67,64,.7);}
-
-/* two col */
-.two-col{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
-.two-col h3{font-size:24px; margin-bottom:16px;}
-.two-col p{font-size:15px; font-weight:300; color:rgba(70,67,64,.75); margin-bottom:16px;}
-
-/* objections */
-.obj-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:8px;}
-.obj-card{background:var(--white); border-left:3px solid var(--primary); border-radius:4px; padding:32px 30px;}
-.obj-card h4{font-size:18px; margin-bottom:12px; font-style:italic;}
-.obj-card p{font-size:14.5px; font-weight:300; color:rgba(70,67,64,.75); line-height:1.7;}
-.obj-card p + p{margin-top:10px;}
-
-/* testimonials */
-.testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:12px;}
-.testi-card{background:var(--white); border-radius:6px; padding:36px 30px; border:1px solid var(--line);}
-.testi-mark{font-family:'Marcellus',serif; font-size:46px; color:var(--primary); opacity:.35; line-height:.5; margin-bottom:10px; display:block;}
-.testi-quote{font-style:italic; font-size:15px; line-height:1.7; color:var(--bodytxt); margin-bottom:20px;}
-.testi-name{font-weight:600; font-size:14px; color:var(--secondary);}
-.testi-role{font-size:12.5px; color:rgba(70,67,64,.6);}
-.testi-note{text-align:center; font-size:12.5px; color:rgba(70,67,64,.5); max-width:60ch; margin:36px auto 0; line-height:1.6;}
-
-/* pricing */
-.toggle-row{display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:44px;}
-.toggle-row span{font-size:14px; font-weight:500;}
-.switch{position:relative; width:52px; height:28px; background:var(--secondary); border-radius:999px; cursor:pointer; flex-shrink:0;}
-.switch::after{content:""; position:absolute; top:3px; left:3px; width:22px; height:22px; background:var(--white); border-radius:50%; transition:transform .25s ease;}
-.switch.annual::after{transform:translateX(24px);}
-.save-tag{background:var(--primary); color:var(--white); font-size:10.5px; padding:3px 9px; border-radius:999px; letter-spacing:.02em;}
-
-.price-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
-.price-card{background:var(--white); border:1px solid var(--line); border-radius:8px; padding:42px 32px; text-align:center; position:relative; transition:transform .25s ease, box-shadow .25s ease;}
-.price-card:hover{transform:translateY(-6px); box-shadow:0 24px 48px rgba(0,0,0,.1);}
-.price-card.featured{border-color:var(--primary); background:var(--tertiary);}
-.price-flag{position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--primary); color:var(--white); font-size:10.5px; padding:5px 14px; border-radius:999px; letter-spacing:.03em; text-transform:uppercase;}
-.price-label{font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--primary); margin-bottom:10px; display:block;}
-.price-title{font-size:22px; margin-bottom:14px;}
-.price-amount{font-family:'Marcellus',serif; font-size:2.6rem; color:var(--secondary); line-height:1;}
-.price-amount span{font-size:15px; font-family:'Jost',sans-serif; color:rgba(70,67,64,.55);}
-.price-detail{font-size:12.5px; color:rgba(70,67,64,.5); margin:10px 0 26px;}
-.price-features{list-style:none; text-align:left; margin-bottom:28px;}
-.price-features li{font-size:14px; font-weight:300; padding-left:22px; position:relative; margin-bottom:10px; color:rgba(70,67,64,.8);}
-.price-features li::before{content:"—"; position:absolute; left:0; color:var(--primary);}
-.annual-only{display:none;}
-.pricing.annual .monthly-only{display:none;}
-.pricing.annual .annual-only{display:block;}
-
-.founding{margin-top:20px; background:var(--secondary); color:var(--tertiary); border-radius:8px; padding:40px 42px; display:grid; grid-template-columns:1fr auto; gap:30px; align-items:center;}
-.founding .lbl{color:var(--primary); font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; display:block; margin-bottom:10px;}
-.founding h3{color:var(--tertiary); font-size:22px; margin-bottom:10px;}
-.founding p{font-size:14px; font-weight:300; color:rgba(242,235,225,.72); max-width:56ch;}
-.founding-price{text-align:right;}
-.founding-price b{font-family:'Marcellus',serif; font-size:2rem; color:var(--white); display:block; margin-bottom:14px;}
-@media(max-width:860px){.founding{grid-template-columns:1fr; text-align:left;} .founding-price{text-align:left;}}
 
 /* faq */
-.faq{max-width:800px; margin:0 auto;}
-details{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:18px 22px; margin-bottom:12px;}
-summary{cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; font-weight:500; font-size:15px;}
-summary::-webkit-details-marker{display:none;}
-summary .chev{transition:transform .2s ease; color:var(--primary); font-size:13px;}
-details[open] summary .chev{transform:rotate(180deg);}
-details p{font-size:14.5px; font-weight:300; color:rgba(70,67,64,.75); margin-top:14px; padding-top:14px; border-top:1px solid var(--line); line-height:1.7;}
+.faq{max-width:760px; margin:0 auto;}
+.faq details{border-bottom:1px solid var(--line); padding:20px 0;}
+.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:17px; font-weight:400;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary .chev{color:var(--blue); font-size:20px; font-weight:300; transition:transform .2s ease;}
+.faq details[open] summary .chev{transform:rotate(45deg);}
+.faq details p{font-size:15px; color:var(--muted2); line-height:1.65; margin-top:14px; max-width:60ch;}
+
+/* CTA banner */
+.cta-banner{background:var(--dark); color:#fff; text-align:center; padding:100px 0;}
+.cta-banner h2{font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-.025em; margin-bottom:18px;}
+.cta-banner p{font-size:19px; color:rgba(245,245,247,.7); max-width:40ch; margin:0 auto 34px;}
 
 /* form */
-.form-card{max-width:760px; margin:0 auto; background:var(--white); border-radius:8px; padding:48px; border:1px solid var(--line);}
-.f-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
-.f-group label{display:block; font-size:12.5px; font-weight:600; letter-spacing:.01em; margin-bottom:7px; color:var(--secondary);}
-.f-note{display:block; font-size:11.5px; font-weight:300; color:rgba(70,67,64,.55); margin:-3px 0 8px;}
-.f-group input, .f-group select, .f-group textarea{width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:5px; background:var(--tertiary); font-family:inherit; font-size:14px; color:var(--secondary);}
-.f-group input:focus, .f-group select:focus, .f-group textarea:focus{outline:none; border-color:var(--primary);}
-.f-submit{width:100%; background:var(--primary); color:var(--white); border:none; padding:16px; border-radius:5px; font-size:14px; letter-spacing:.03em; text-transform:uppercase; font-weight:500; cursor:pointer; margin-bottom:12px;}
-.f-submit:hover{background:var(--secondary);}
-.f-fine{text-align:center; font-size:11.5px; color:rgba(70,67,64,.5);}
+.apply-section{padding:100px 0; background:var(--surface);}
+.form-card{max-width:640px; margin:0 auto; background:#fff; border-radius:18px; padding:44px; border:1px solid var(--line);}
+.f-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+.f-group label{display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--ink);}
+.f-note{display:block; font-size:11.5px; color:var(--muted); margin:-2px 0 7px; font-weight:400;}
+.f-group input, .f-group select, .f-group textarea{width:100%; padding:11px 13px; border:1px solid rgba(0,0,0,.14); border-radius:8px; background:var(--surface); font-family:inherit; font-size:14px; color:var(--ink);}
+.f-group input:focus, .f-group select:focus, .f-group textarea:focus{outline:none; border-color:var(--blue); background:#fff;}
+.f-submit{width:100%; background:var(--blue); color:#fff; border:none; padding:14px; border-radius:980px; font-size:16px; font-weight:500; cursor:pointer; margin-bottom:12px;}
+.f-submit:hover{background:var(--blue-hover);}
+.f-fine{text-align:center; font-size:12px; color:var(--muted);}
 
 /* footer */
-footer{background:var(--secondary); color:rgba(242,235,225,.6); padding:64px 0 30px;}
-.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; margin-bottom:50px;}
-footer h5{color:var(--tertiary); font-size:16px; margin-bottom:18px;}
-footer .logo{color:var(--tertiary);}
-footer .logo span{color:var(--primary);}
-footer p{font-size:13.5px; font-weight:300; line-height:1.75; max-width:38ch;}
-footer ul{list-style:none;}
-footer li{margin-bottom:10px; font-size:13.5px;}
-footer li a:hover{color:var(--primary);}
-.foot-bottom{border-top:1px solid rgba(242,235,225,.12); padding-top:26px; text-align:center;}
-.foot-bottom .copyright{font-size:12.5px;}
-.foot-disclaimer{font-size:11px; line-height:1.7; max-width:78ch; margin:14px auto 0; color:rgba(242,235,225,.32);}
+footer{background:var(--surface); border-top:1px solid var(--line); padding:34px 0;}
+.footer-inner{max-width:1024px; margin:0 auto; padding:0 20px;}
+.footer-links{display:flex; flex-wrap:wrap; gap:16px 22px; padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:16px;}
+.footer-links a{font-size:12px; color:var(--muted2);}
+.footer-links a:hover{color:var(--ink); text-decoration:underline;}
+.footer-copy{font-size:12px; color:var(--muted);}
+.footer-disclaimer{font-size:11px; color:var(--muted); line-height:1.6; margin-top:10px; max-width:80ch;}
 
 .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.visible{opacity:1; transform:none;}
 
-@media(max-width:920px){
-  .hero-grid{grid-template-columns:1fr;}
-  .hero-art{max-width:420px; margin:0 auto;}
-  .icon-grid, .obj-grid, .testi-grid, .price-grid{grid-template-columns:1fr;}
-  .two-col{grid-template-columns:1fr; gap:36px;}
-  .curriculum li{grid-template-columns:44px 1fr;}
-  .foot-grid{grid-template-columns:1fr; gap:34px;}
-  .f-grid{grid-template-columns:1fr;}
+@media(max-width:834px){
+  .feature-row{grid-template-columns:1fr; gap:32px;}
+  .feature-row.rev{direction:ltr;}
+  .who-grid, .quote-row{grid-template-columns:1fr;}
+  .spec-list li{grid-template-columns:40px 1fr;}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav-row">
-    <a href="#top" class="logo">The Ordered <span>Field</span></a>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">The Ordered Field</a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#study">The Study</a></li>
-      <li><a href="#curriculum">The Curriculum</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
       <li><a href="#who">Who It's For</a></li>
-      <li><a href="#voices">Voices</a></li>
-      <li><a href="#membership">Membership</a></li>
+      <li><a href="#pricing">Membership</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#apply" class="nav-cta">Request an Invitation</a>
+    <a href="#apply" class="nav-apply">Apply</a>
   </div>
-</header>
+</nav>
 
 <section class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div class="reveal">
-      <span class="eyebrow">A Study Group · Dreams, the Transcendent Function &amp; Consciousness</span>
-      <h1>The third position between your opposites is <em>already forming.</em> This is where you learn to meet it.</h1>
-      <p class="lead">A small, invitation-based circle studying Jung's transcendent function through dream material, active imagination, and the alchemical stages of the work — held as a living practice, not a lecture series.</p>
-      <p class="sub">Facilitated by Dr. Sam Osborne, drawing on twenty-five years of self-directed study across Jungian psychology, Hermeticism, and the esoteric traditions, and an ongoing personal practice rooted in Jung's <em>Mysterium Coniunctionis</em>.</p>
-      <div class="hero-actions">
-        <a href="#apply" class="btn">Request an Invitation</a>
-        <a href="#curriculum" class="btn-outline">See the Curriculum</a>
-      </div>
-    </div>
-    <div class="hero-art reveal">
-      <svg viewBox="0 0 400 430" preserveAspectRatio="xMidYMid slice">
-        <circle cx="200" cy="150" r="86" fill="none" stroke="rgba(0,0,0,.16)" stroke-width="1.3"/>
-        <circle cx="152" cy="200" r="86" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.3"/>
-        <circle cx="248" cy="200" r="86" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.3"/>
-        <path d="M120 330 Q200 260 280 330" fill="none" stroke="rgba(0,0,0,.2)" stroke-width="1.2"/>
-        <path d="M110 360 Q200 300 290 360" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.2"/>
-      </svg>
-      <div class="hero-stat"><b>25+ Yrs</b><span>self-directed study across Jungian, Hermetic &amp; esoteric traditions</span></div>
-    </div>
-  </div>
-</section>
-
-<div class="marquee">
-  <div class="marquee-track">
-    <span class="marquee-item">The Transcendent Function <i></i></span>
-    <span class="marquee-item">Dream As Data <i></i></span>
-    <span class="marquee-item">Active Imagination <i></i></span>
-    <span class="marquee-item">Nigredo · Albedo · Rubedo <i></i></span>
-    <span class="marquee-item">The Third That Is Not The Two <i></i></span>
-    <span class="marquee-item">Coniunctio <i></i></span>
-    <span class="marquee-item">The Transcendent Function <i></i></span>
-    <span class="marquee-item">Dream As Data <i></i></span>
-    <span class="marquee-item">Active Imagination <i></i></span>
-    <span class="marquee-item">Nigredo · Albedo · Rubedo <i></i></span>
-    <span class="marquee-item">The Third That Is Not The Two <i></i></span>
-    <span class="marquee-item">Coniunctio <i></i></span>
-  </div>
-</div>
-
-<section class="section section-cream" style="padding:88px 0;">
-  <div class="wrap reveal">
-    <p class="statement">Jung called it the transcendent function: a third position, arising from two opposites held in genuine tension, that neither side could have produced alone. This is where that function gets exercised — deliberately, on your own material.</p>
-  </div>
-</section>
-
-<section class="section section-tan" id="study">
   <div class="wrap">
-    <div class="head-center reveal">
-      <span class="kicker">Why This Study Exists</span>
-      <h2>Most people treat a dream as noise. It is closer to correspondence.</h2>
-      <p>The recurring dream, the symbol you keep meeting, the argument between who you are and who you're becoming — these are not distractions from the work. In this tradition, they are the work, and they respond to structured attention.</p>
+    <div class="hero-eyebrow">The Ordered Field</div>
+    <h1>Think deeper<br><span class="accent">about your dreams.</span></h1>
+    <p class="sub">A small study group on Jung's transcendent function, dream work, and consciousness. Facilitated by Dr. Sam Osborne.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn-pill">Apply now</a>
+      <a href="#film" class="btn-link">Watch the film <svg viewBox="0 0 8 12" fill="none"><path d="M1 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"/></svg></a>
     </div>
-    <div class="icon-grid reveal">
-      <div class="icon-card">
-        <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4.5"/></svg></div>
-        <h3>Dream Work as Data</h3>
-        <p>Members bring live dream material into every session. It is read symbolically, alchemically, and personally — not decoded, but held.</p>
+  </div>
+  <div class="wrap" id="film">
+    <div class="video-frame">
+      <video class="video-el" muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;">
+        <!-- Replace with the final hero video file: <source src="hero.mp4" type="video/mp4"> -->
+      </video>
+      <div class="play-btn" id="playBtn" role="button" aria-label="Play video"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <span class="video-caption">Placeholder — drop in final video</span>
+      <span class="video-caption-r">01:12</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="study">
+  <div class="wrap reveal">
+    <p class="statement">Jung called it the transcendent function — the emergence of a genuinely <span class="grey">new</span> position between two opposites.</p>
+  </div>
+</section>
+
+<section class="section section-surface">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Why This Study Exists</div>
+      <h2 class="t-headline">Most people treat a dream as noise.<br>It is closer to correspondence.</h2>
+      <p class="t-lead">The recurring dream, the symbol you keep meeting, the argument between who you are and who you're becoming — these respond to structured attention.</p>
+    </div>
+
+    <div class="feature-row reveal">
+      <div class="feature-copy">
+        <div class="num">01</div>
+        <h3>Dream work as data.</h3>
+        <p>Members bring live dream material into every session. It's read symbolically, alchemically, and personally — not decoded, but held.</p>
       </div>
-      <div class="icon-card">
-        <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
-        <h3>Opposites Held in Tension</h3>
+      <div class="feature-visual fv1"></div>
+    </div>
+    <div class="feature-row rev reveal">
+      <div class="feature-copy">
+        <div class="num">02</div>
+        <h3>Opposites, held in tension.</h3>
         <p>The method starts by locating a genuine pair of opposites in your own life — not resolving them prematurely, but holding both with equal weight.</p>
       </div>
-      <div class="icon-circle" style="display:none"></div>
-      <div class="icon-card">
-        <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
-        <h3>A Monthly Practice</h3>
-        <p>Not a single workshop and not an open-ended group. A fixed cadence, a small roster, and a curriculum that moves in a genuine sequence.</p>
+      <div class="feature-visual fv2"></div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="feature-copy">
+        <div class="num">03</div>
+        <h3>A monthly practice.</h3>
+        <p>Not a single workshop, not an open-ended group. A fixed cadence, a small roster, and a curriculum that moves in a genuine sequence.</p>
       </div>
+      <div class="feature-visual fv3"></div>
     </div>
   </div>
 </section>
 
-<section class="section section-cream" id="curriculum">
+<section class="section section-light" id="curriculum">
   <div class="wrap">
-    <div class="two-col reveal">
-      <div>
-        <h3>The Six-Month Study</h3>
-        <p>Each monthly session works one stage of the transcendent function in sequence — read from primary material, then applied live to something you bring: a dream, a recurring symbol, a tension you can't resolve by thinking harder about it.</p>
-        <p>You are never asked to interpret someone else's dream, and no one is asked to explain their inner life to the group beyond what they choose to share. The structure is shared; the material is your own.</p>
-        <p>Sessions run 90 minutes over video, capped at twelve members, with primary-text reading guides and a private thread for the weeks in between.</p>
-      </div>
-      <div>
-        <ol class="curriculum">
-          <li><div><h4>Reading a Dream as Data</h4><p>Moving from "what does this mean" to a disciplined method of amplification and personal association.</p></div></li>
-          <li><div><h4>Locating the Opposites</h4><p>Finding the genuine tension underneath a symptom, a recurring image, or a stuck decision.</p></div></li>
-          <li><div><h4>Active Imagination</h4><p>Holding both poles in imaginal contact, without collapsing toward either one, until something moves.</p></div></li>
-          <li><div><h4>The Transcendent Function</h4><p>Where the third position — genuinely new, not a compromise — begins to appear.</p></div></li>
-          <li><div><h4>Nigredo, Albedo, Rubedo</h4><p>The alchemical stages of the work, and how to recognize which one you're standing in.</p></div></li>
-          <li><div><h4>Mercurius and the Symbol That Won't Resolve</h4><p>What to do with the material that refuses a tidy ending — and why that's often the point.</p></div></li>
-        </ol>
-      </div>
+    <div class="center reveal">
+      <div class="eyebrow">The Curriculum</div>
+      <h2 class="t-headline">The six-month study.</h2>
+      <p class="t-lead">Each session works one stage of the transcendent function, in sequence, applied live to your own material.</p>
     </div>
+    <ol class="spec-list reveal">
+      <li><span class="spec-num">01</span><div><h4>Reading a Dream as Data</h4><p>Moving from "what does this mean" to a disciplined method of amplification and personal association.</p></div></li>
+      <li><span class="spec-num">02</span><div><h4>Locating the Opposites</h4><p>Finding the genuine tension underneath a symptom, a recurring image, or a stuck decision.</p></div></li>
+      <li><span class="spec-num">03</span><div><h4>Active Imagination</h4><p>Holding both poles in imaginal contact, without collapsing toward either one, until something moves.</p></div></li>
+      <li><span class="spec-num">04</span><div><h4>The Transcendent Function</h4><p>Where the third position — genuinely new, not a compromise — begins to appear.</p></div></li>
+      <li><span class="spec-num">05</span><div><h4>Nigredo, Albedo, Rubedo</h4><p>The alchemical stages of the work, and how to recognize which one you're standing in.</p></div></li>
+      <li><span class="spec-num">06</span><div><h4>Mercurius and the Symbol That Won't Resolve</h4><p>What to do with material that refuses a tidy ending — and why that's often the point.</p></div></li>
+    </ol>
   </div>
 </section>
 
-<section class="section section-tan">
+<section class="section section-surface" id="who">
   <div class="wrap">
-    <div class="head-center reveal">
-      <span class="kicker">Before You Apply</span>
-      <h2>The two questions worth asking first.</h2>
+    <div class="center reveal">
+      <div class="eyebrow">Who This Is For</div>
+      <h2 class="t-headline">People for whom the dream keeps returning.</h2>
     </div>
-    <div class="obj-grid reveal">
-      <div class="obj-card">
-        <h4>&ldquo;Isn't this just journaling with extra steps?&rdquo;</h4>
-        <p>Journaling records the material. This works it. Active imagination and the amplification method are structured techniques for holding a symbol or a tension until something genuinely new emerges — a different outcome than writing something down and moving on.</p>
+    <div class="who-grid reveal">
+      <div class="who-card">
+        <h3>The Practicing Clinician</h3>
+        <p>Therapists, coaches, and practitioners who already work with depth material professionally and want a rigorous personal practice of their own.</p>
       </div>
-      <div class="obj-card">
-        <h4>&ldquo;Do I need a background in Jung to join?&rdquo;</h4>
-        <p>No. Members range from long-time students of the esoteric to people who've never opened a Jung text but can't shake a recurring dream. The reading guides carry the terminology; you bring the material and the willingness to sit with it.</p>
+      <div class="who-card">
+        <h3>The Long-Time Student</h3>
+        <p>People with years of self-directed study in Jung, Hermeticism, or the esoteric traditions who want structure and company, not another intro course.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-cream" id="who">
-  <div class="wrap">
-    <div class="head-center reveal">
-      <span class="kicker">Who This Is For</span>
-      <h2>People for whom the dream keeps returning.</h2>
-    </div>
-    <div class="icon-grid reveal">
-      <div class="icon-card">
-        <h3>The Practicing Clinician or Coach</h3>
-        <p>Therapists, coaches, and practitioners who already work with depth material professionally and want a rigorous personal practice of their own, held apart from client work.</p>
-      </div>
-      <div class="icon-card">
-        <h3>The Long-Time Student of the Esoteric</h3>
-        <p>People with years of self-directed study in Jung, Hermeticism, alchemy, or the Kabbalistic and tarot traditions who want structure and company, not another introductory course.</p>
-      </div>
-      <div class="icon-card">
+      <div class="who-card">
         <h3>The Person at a Threshold</h3>
-        <p>Someone navigating a transition — vocational, relational, or simply internal — where the rational tools have stopped working and something else keeps showing up in sleep.</p>
+        <p>Someone navigating a transition where the rational tools have stopped working and something else keeps showing up in sleep.</p>
       </div>
-    </div>
-    <div class="reveal" style="margin-top:44px; text-align:center; background:var(--white); border-radius:8px; padding:34px 30px; border:1px solid var(--line);">
-      <p style="font-size:15px; max-width:60ch; margin:0 auto;"><strong>If a specific dream or symbol came to mind while reading this,</strong> that is the material the first month's session works with.</p>
     </div>
   </div>
 </section>
 
-<section class="section section-tan" id="voices">
+<section class="section section-light" id="voices">
   <div class="wrap">
-    <div class="head-center reveal">
-      <span class="kicker">Voices</span>
-      <h2>What members bring to a session — and what they leave with.</h2>
+    <div class="center reveal">
+      <div class="eyebrow">Voices</div>
+      <h2 class="t-headline">What members bring — and leave with.</h2>
     </div>
-    <div class="testi-grid reveal">
-      <div class="testi-card">
-        <span class="testi-mark">&ldquo;</span>
-        <p class="testi-quote">I'd been journaling the same dream for two years without moving an inch. Four sessions in, I finally understood what the two figures in it actually wanted from each other.</p>
-        <div class="testi-name">Founding Member</div>
-        <div class="testi-role">Cohort One · Therapist</div>
+    <div class="quote-row reveal">
+      <div class="quote-card">
+        <p class="q">"I'd journaled the same dream for two years without moving an inch. Four sessions in, I finally understood what it wanted."</p>
+        <div class="who">Founding Member</div>
+        <div class="role">Cohort One · Therapist</div>
       </div>
-      <div class="testi-card">
-        <span class="testi-mark">&ldquo;</span>
-        <p class="testi-quote">I've read Jung for fifteen years on my own. This is the first place I've found that treats the material with the same seriousness I do, without turning it into a lecture.</p>
-        <div class="testi-name">Founding Member</div>
-        <div class="testi-role">Cohort One · Independent Researcher</div>
+      <div class="quote-card">
+        <p class="q">"I've read Jung for fifteen years on my own. This is the first place that treats the material seriously without turning it into a lecture."</p>
+        <div class="who">Founding Member</div>
+        <div class="role">Cohort One · Researcher</div>
       </div>
-      <div class="testi-card">
-        <span class="testi-mark">&ldquo;</span>
-        <p class="testi-quote">The structure is what made it work for me. I'm not a "sit with your feelings" person. Give me a method, a sequence, and something to actually do with the material — that I can use.</p>
-        <div class="testi-name">Founding Member</div>
-        <div class="testi-role">Cohort One · Executive</div>
+      <div class="quote-card">
+        <p class="q">"The structure is what made it work for me. Give me a method and something to actually do with the material — that I can use."</p>
+        <div class="who">Founding Member</div>
+        <div class="role">Cohort One · Executive</div>
       </div>
     </div>
-    <p class="testi-note">Voices reflect the experiences of founding members and are shared with permission, attributed by role rather than name at their request. Individual experience varies; no particular outcome is promised or guaranteed. This study group is educational and developmental, not psychotherapy, medical care, or a substitute for licensed mental health treatment.</p>
+    <p class="quote-note">Voices reflect the experiences of founding members, attributed by role at their request. This study group is educational, not psychotherapy or a substitute for licensed mental health treatment.</p>
   </div>
 </section>
 
-<section class="section section-cream" id="membership">
+<section class="section section-surface" id="pricing">
   <div class="wrap">
-    <div class="head-center reveal">
-      <span class="kicker">Membership</span>
-      <h2>One circle. Priced monthly or by the year.</h2>
-      <p>Membership is capped and invitation-based. Applications are reviewed to keep each cohort at a workable size and a genuine mix of backgrounds.</p>
+    <div class="center reveal">
+      <div class="eyebrow">Membership</div>
+      <h2 class="t-headline">Choose your circle.</h2>
+      <p class="t-lead">Membership is capped and invitation-based. Cancel anytime.</p>
     </div>
 
-    <div class="toggle-row reveal">
-      <span>Billed Monthly</span>
-      <div class="switch" id="billingSwitch" role="button" aria-label="Toggle annual billing"></div>
-      <span>Billed Annually <span class="save-tag">Save 15%</span></span>
-    </div>
-
-    <div class="pricing" id="pricingBlock">
-      <div class="price-grid reveal">
-        <div class="price-card">
-          <span class="price-label">Circle</span>
-          <div class="price-title">Standard Membership</div>
-          <div class="price-amount monthly-only">$95<span>/month</span></div>
-          <div class="price-amount annual-only">$970<span>/year</span></div>
-          <p class="price-detail">Monthly 90-minute session · Capped cohort</p>
-          <ul class="price-features">
-            <li>One live session monthly</li>
-            <li>The six-month curriculum, on rotation</li>
-            <li>Dream journal &amp; amplification template</li>
-            <li>Private member discussion thread</li>
-          </ul>
-          <a href="#apply" class="btn" style="width:100%; text-align:center;">Request an Invitation</a>
-        </div>
-
-        <div class="price-card featured">
-          <span class="price-flag">Most Selected</span>
-          <span class="price-label">Full Study</span>
-          <div class="price-title">Complete Membership</div>
-          <div class="price-amount monthly-only">$165<span>/month</span></div>
-          <div class="price-amount annual-only">$1,685<span>/year</span></div>
-          <p class="price-detail">Monthly session · Reading guides · Office hours</p>
-          <ul class="price-features">
-            <li>Everything in Circle</li>
-            <li>Primary-text reading guides each month</li>
-            <li>Monthly written facilitator notes on your dream material</li>
-            <li>Quarterly open office hours</li>
-          </ul>
-          <a href="#apply" class="btn" style="width:100%; text-align:center;">Request an Invitation</a>
-        </div>
-
-        <div class="price-card">
-          <span class="price-label">Inner Circle</span>
-          <div class="price-title">By Application</div>
-          <div class="price-amount monthly-only">$325<span>/month</span></div>
-          <div class="price-amount annual-only">$3,315<span>/year</span></div>
-          <p class="price-detail">Capped at 6 members</p>
-          <ul class="price-features">
-            <li>Everything in Full Study</li>
-            <li>Smaller pod, longer sessions</li>
-            <li>One quarterly individual dream session</li>
-            <li>Priority scheduling</li>
-          </ul>
-          <a href="#apply" class="btn" style="width:100%; text-align:center;">Request an Invitation</a>
-        </div>
+    <div class="compare reveal">
+      <div class="compare-head">
+        <div></div>
+        <div><div class="tier">Circle</div><div class="price">$95<span>/mo</span></div></div>
+        <div><span class="featured-tag">Most Selected</span><div class="tier">Full Study</div><div class="price">$165<span>/mo</span></div></div>
+        <div><div class="tier">Inner Circle</div><div class="price">$325<span>/mo</span></div></div>
+      </div>
+      <div class="compare-row"><div>Monthly 90-minute session</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+      <div class="compare-row"><div>Six-month curriculum</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+      <div class="compare-row"><div>Dream journal template</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
+      <div class="compare-row"><div>Primary-text reading guides</div><div class="no">—</div><div class="yes">✓</div><div class="yes">✓</div></div>
+      <div class="compare-row"><div>Written facilitator notes</div><div class="no">—</div><div class="yes">✓</div><div class="yes">✓</div></div>
+      <div class="compare-row"><div>Cohort size</div><div>12</div><div>12</div><div>6</div></div>
+      <div class="compare-row"><div>Quarterly individual session</div><div class="no">—</div><div class="no">—</div><div class="yes">✓</div></div>
+      <div class="compare-cta">
+        <div></div>
+        <div><a href="#apply">Apply</a></div>
+        <div><a href="#apply">Apply</a></div>
+        <div><a href="#apply">Apply</a></div>
       </div>
     </div>
-
-    <div class="founding reveal">
-      <div>
-        <span class="lbl">By Invitation</span>
-        <h3>Founding Cohort</h3>
-        <p>For the first circle convened under this format — twelve members, one six-month arc, priced to reflect that this cohort helps shape the cadence going forward.</p>
-      </div>
-      <div class="founding-price">
-        <b>$65/mo</b>
-        <a href="#apply" class="btn">Request an Invitation</a>
-      </div>
-    </div>
-
-    <p class="reveal" style="text-align:center; margin-top:36px; font-size:12.5px; color:rgba(70,67,64,.5); max-width:64ch; margin-left:auto; margin-right:auto;">Membership begins with a brief conversation to confirm fit and cohort placement. Cancel anytime with 30 days' notice; annual memberships are prorated on cancellation.</p>
+    <p class="reveal" style="text-align:center; margin-top:28px; font-size:12.5px; color:var(--muted); max-width:60ch; margin-left:auto; margin-right:auto;">All memberships billed monthly; annual billing available at application, with a 15% saving.</p>
   </div>
 </section>
 
-<section class="section section-tan" id="faq">
+<section class="section section-light" id="faq">
   <div class="wrap">
-    <div class="head-center reveal">
-      <span class="kicker">Common Questions</span>
-      <h2>What to expect.</h2>
+    <div class="center reveal">
+      <div class="eyebrow">Common Questions</div>
+      <h2 class="t-headline">What to expect.</h2>
     </div>
     <div class="faq reveal">
-      <details>
-        <summary>What if I don't remember my dreams?<span class="chev">▾</span></summary>
-        <p>Recall is a skill that develops with the practice, not a prerequisite for it. The first month covers a simple method for improving recall, and the curriculum works just as well with a waking symbol, a recurring image, or a decision you can't resolve rationally.</p>
-      </details>
-      <details>
-        <summary>Is this therapy or mental health treatment?<span class="chev">▾</span></summary>
-        <p>No. This is an educational and developmental study group in the Jungian tradition, not psychotherapy, counseling, or medical care. It does not diagnose or treat any condition and is not a substitute for licensed care. If you are dealing with a mental health condition, please work with a qualified provider alongside this practice, not instead of it.</p>
-      </details>
-      <details>
-        <summary>How is this different from a book club?<span class="chev">▾</span></summary>
-        <p>A book club discusses the text. This applies it. Every session includes live, structured facilitation on material a member brings — a dream, a symbol, a tension — using the amplification and active imagination methods the reading covers.</p>
-      </details>
-      <details>
-        <summary>What's the group size and how is confidentiality handled?<span class="chev">▾</span></summary>
-        <p>Cohorts are capped at twelve members (six for the Inner Circle). Everyone agrees to hold what's shared in session as confidential. You're never required to share more of your material than you choose to.</p>
-      </details>
-      <details>
-        <summary>What's the time commitment?<span class="chev">▾</span></summary>
-        <p>One 90-minute live session a month, plus whatever time you give to your own dream journal and the reading guide between sessions. There's no daily obligation.</p>
-      </details>
-      <details>
-        <summary>Can I join without prior background in Jung or the esoteric traditions?<span class="chev">▾</span></summary>
-        <p>Yes. The reading guides are written to carry the terminology as the cohort goes. What matters more is a genuine willingness to bring real material and sit with it past the point of an easy answer.</p>
-      </details>
+      <details><summary>What if I don't remember my dreams?<span class="chev">+</span></summary><p>Recall is a skill that develops with the practice, not a prerequisite for it. The curriculum works just as well with a waking symbol or a decision you can't resolve rationally.</p></details>
+      <details><summary>Is this therapy or mental health treatment?<span class="chev">+</span></summary><p>No. This is an educational study group, not psychotherapy or medical care. It's not a substitute for licensed treatment.</p></details>
+      <details><summary>How is this different from a book club?<span class="chev">+</span></summary><p>A book club discusses the text. This applies it — live, structured facilitation on material a member brings, using amplification and active imagination.</p></details>
+      <details><summary>What's the group size and confidentiality?<span class="chev">+</span></summary><p>Cohorts are capped at twelve (six for the Inner Circle). Everyone agrees to hold what's shared as confidential.</p></details>
+      <details><summary>Do I need a background in Jung to join?<span class="chev">+</span></summary><p>No. The reading guides carry the terminology; you bring the material and the willingness to sit with it.</p></details>
     </div>
   </div>
 </section>
 
-<section class="section section-cream" id="apply">
+<section class="cta-banner">
   <div class="wrap">
-    <div class="head-center reveal">
-      <span class="kicker">Start Here</span>
-      <h2>Request an Invitation.</h2>
-      <p>Share a little about what brings you to this material. We'll follow up within a few days to confirm fit and cohort placement.</p>
+    <h2>Ready to begin the work?</h2>
+    <p>A small number of seats open each cohort. Applications are reviewed to confirm fit.</p>
+    <a href="#apply" class="btn-pill">Apply now</a>
+  </div>
+</section>
+
+<section class="apply-section" id="apply">
+  <div class="wrap">
+    <div class="center reveal" style="margin-bottom:40px;">
+      <div class="eyebrow">Apply</div>
+      <h2 class="t-headline">Request an invitation.</h2>
     </div>
     <form class="form-card reveal" action="https://formspree.io/f/xaqdebvj" method="POST">
       <div class="f-grid">
-        <div class="f-group"><label for="n-name">Your Name *</label><input id="n-name" name="name" type="text" required placeholder="First and Last Name"></div>
-        <div class="f-group"><label for="n-email">Email Address *</label><input id="n-email" name="email" type="email" required placeholder="you@email.com"></div>
+        <div class="f-group"><label for="a-name">Your Name *</label><input id="a-name" name="name" type="text" required placeholder="First and Last Name"></div>
+        <div class="f-group"><label for="a-email">Email Address *</label><input id="a-email" name="email" type="email" required placeholder="you@email.com"></div>
       </div>
       <div class="f-grid">
-        <div class="f-group"><label for="n-tier">Membership of Interest *</label>
-          <select id="n-tier" name="membership" required>
+        <div class="f-group"><label for="a-tier">Membership of Interest *</label>
+          <select id="a-tier" name="membership" required>
             <option value="">Select…</option>
-            <option>Circle (Standard)</option>
+            <option>Circle</option>
             <option>Full Study</option>
-            <option>Inner Circle (By Application)</option>
-            <option>Founding Cohort</option>
+            <option>Inner Circle</option>
             <option>Not sure yet</option>
           </select>
         </div>
-        <div class="f-group"><label for="n-back">Familiarity with Jung's Work *</label>
-          <select id="n-back" name="background" required>
+        <div class="f-group"><label for="a-back">Familiarity with Jung's Work *</label>
+          <select id="a-back" name="background" required>
             <option value="">Select…</option>
             <option>New to this material</option>
             <option>Some prior reading</option>
@@ -556,79 +444,51 @@ footer li a:hover{color:var(--primary);}
           </select>
         </div>
       </div>
-      <div class="f-grid">
-        <div class="f-group"><label for="n-time">Best Time for a Monthly Session *</label>
-          <select id="n-time" name="best_time" required>
-            <option value="">Select…</option>
-            <option>Weekday evenings</option>
-            <option>Weekday daytime</option>
-            <option>Weekends</option>
-          </select>
-        </div>
-        <div class="f-group"><label for="n-tz">Time Zone *</label>
-          <select id="n-tz" name="timezone" required>
-            <option value="">Select…</option>
-            <option>Pacific (PT)</option><option>Mountain (MT)</option><option>Central (CT)</option>
-            <option>Eastern (ET)</option><option>GMT</option><option>Other</option>
-          </select>
-        </div>
+      <div class="f-group" style="margin-bottom:22px;">
+        <label for="a-what">What draws you to this study? *</label>
+        <span class="f-note">A recurring dream, a symbol, a question, or simply an interest in the tradition.</span>
+        <textarea id="a-what" name="what_draws_you" rows="4" required placeholder="Tell us a little about what's bringing you here."></textarea>
       </div>
-      <div class="f-group" style="margin-bottom:24px;">
-        <label for="n-what">What draws you to this study? *</label>
-        <span class="f-note">A recurring dream, a symbol, a question, or simply an interest in the tradition — whatever's true.</span>
-        <textarea id="n-what" name="what_draws_you" rows="4" required placeholder="Tell us a little about what's bringing you here."></textarea>
-      </div>
-      <button type="submit" class="f-submit">Send Request</button>
-      <p class="f-fine">* Required fields. We reply within a few days. By submitting, you agree to be contacted about cohort placement.</p>
-      <input type="hidden" name="form_type" value="The Ordered Field — Invitation Request">
+      <button type="submit" class="f-submit">Send Application</button>
+      <p class="f-fine">* Required fields. We reply within a few days.</p>
+      <input type="hidden" name="form_type" value="The Ordered Field — Apple-Style Landing — Application">
     </form>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="#top" class="logo">The Ordered <span>Field</span></a>
-        <p style="margin-top:16px;">A small study circle on dreams, the transcendent function, and consciousness, facilitated by Dr. Sam Osborne. Held monthly, in sequence, by invitation.</p>
-      </div>
-      <div>
-        <h5>Explore</h5>
-        <ul>
-          <li><a href="#study">The Study</a></li>
-          <li><a href="#curriculum">The Curriculum</a></li>
-          <li><a href="#who">Who It's For</a></li>
-          <li><a href="#membership">Membership</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="mailto:sam@samosborne.net">sam@samosborne.net</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#apply">Request an Invitation</a></li>
-        </ul>
-      </div>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#study">The Study</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#who">Who It's For</a>
+      <a href="#pricing">Membership</a>
+      <a href="#faq">FAQ</a>
+      <a href="#apply">Apply</a>
+      <a href="mailto:sam@samosborne.net">Contact</a>
     </div>
-    <div class="foot-bottom">
-      <p class="copyright">© 2026 Dr. Sam Osborne · The Ordered Field · Based in Burbank, California</p>
-      <p class="foot-disclaimer">The Ordered Field is an educational and developmental study group grounded in Jungian and esoteric traditions. It is not psychotherapy, group therapy, medical care, or a substitute for treatment from a licensed mental health professional. Individual experience varies, and no particular outcome is promised or guaranteed.</p>
-    </div>
+    <p class="footer-copy">Copyright © 2026 Dr. Sam Osborne. The Ordered Field. Based in Burbank, California.</p>
+    <p class="footer-disclaimer">The Ordered Field is an educational and developmental study group grounded in Jungian and esoteric traditions. It is not psychotherapy, group therapy, medical care, or a substitute for treatment from a licensed mental health professional. Individual experience varies, and no particular outcome is promised or guaranteed.</p>
   </div>
 </footer>
 
 <script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('dark',window.scrollY<420),{passive:true});
+nav.classList.add('dark');
+
 const burger=document.getElementById('burger'), navLinks=document.getElementById('navLinks');
 burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
-
-const sw=document.getElementById('billingSwitch'), pricing=document.getElementById('pricingBlock');
-sw.addEventListener('click',()=>{sw.classList.toggle('annual'); pricing.classList.toggle('annual');});
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
   const h=a.getAttribute('href'); if(h==='#')return;
   const t=document.querySelector(h); if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth'});}
 }));
+
+document.getElementById('playBtn').addEventListener('click',function(){
+  this.style.display='none';
+});
 
 const obs=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible'); obs.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
