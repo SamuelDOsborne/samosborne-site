@@ -3,206 +3,218 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Ordered Field | A Study of Dreams, the Transcendent Function &amp; Consciousness</title>
-<meta name="description" content="A small, invitation-based study group on Jung's transcendent function, dream work, and consciousness. Facilitated by Dr. Sam Osborne."/>
+<title>The Ordered Field | An Invitation to Study Dreams, the Transcendent Function &amp; Consciousness</title>
+<meta name="description" content="A private, invitation-only study circle on Jung's transcendent function, dream work, and the alchemical stages of consciousness — facilitated by Dr. Sam Osborne, trained Demartini Method Facilitator."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1d1d1f;
-  --muted:#86868b;
-  --muted2:#6e6e73;
-  --bg:#ffffff;
-  --surface:#f5f5f7;
-  --dark:#000000;
-  --dark-surface:#0a0a0c;
-  --blue:#0071e3;
-  --blue-hover:#0077ed;
-  --line:rgba(0,0,0,.08);
-  --line-dark:rgba(255,255,255,.14);
+  --lapis:#152459;        /* royal lapis blue */
+  --lapis-deep:#0b1638;   /* near-black navy */
+  --lapis-mid:#22346f;
+  --gold:#c9a227;
+  --gold-bright:#e6c250;
+  --parchment:#f4ecda;
+  --parchment2:#ece0c4;
+  --ink:#20242f;
+  --muted:#5b5f70;
+  --line-gold:rgba(201,162,39,.35);
+  --line-navy:rgba(21,36,89,.14);
 }
 *,*::before,*::after{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color:var(--ink); background:var(--bg); -webkit-font-smoothing:antialiased; line-height:1.47059; letter-spacing:-.01em;
+  font-family:'Jost', sans-serif; font-weight:400; font-size:17px; line-height:1.7;
+  background:var(--parchment); color:var(--ink); -webkit-font-smoothing:antialiased;
 }
-a{color:var(--blue); text-decoration:none;}
-a:hover{text-decoration:underline;}
+h1,h2,h3,h4{font-family:'Cormorant Garamond', serif; font-weight:600; color:var(--lapis-deep); line-height:1.12; letter-spacing:.002em;}
+a{color:inherit; text-decoration:none;}
 img{max-width:100%; display:block;}
-.wrap{max-width:1120px; margin:0 auto; padding:0 22px;}
-.wrap-wide{max-width:1400px; margin:0 auto; padding:0 22px;}
+.wrap{max-width:1140px; margin:0 auto; padding:0 30px;}
+
+/* ornament divider */
+.ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:0 auto 26px;}
+.ornament .ln{width:46px; height:1px; background:linear-gradient(90deg, transparent, var(--gold));}
+.ornament .ln.r{background:linear-gradient(90deg, var(--gold), transparent);}
+.ornament svg{width:16px; height:16px;}
+.ornament.on-dark .ln{background:linear-gradient(90deg, transparent, var(--gold-bright));}
+.ornament.on-dark .ln.r{background:linear-gradient(90deg, var(--gold-bright), transparent);}
 
 /* ===== Nav ===== */
-nav{position:fixed; top:0; width:100%; z-index:900; height:44px; background:rgba(255,255,255,.8); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid rgba(0,0,0,.06); transition:background .3s ease;}
-nav.dark{background:rgba(0,0,0,.8); border-bottom-color:rgba(255,255,255,.08);}
-.nav-inner{max-width:1024px; margin:0 auto; padding:0 20px; height:44px; display:flex; align-items:center; justify-content:space-between;}
-.nav-logo{font-size:14px; font-weight:600; color:var(--ink); letter-spacing:0;}
-nav.dark .nav-logo{color:#f5f5f7;}
-.nav-links{display:flex; gap:28px; list-style:none;}
-.nav-links a{color:rgba(29,29,31,.78); font-size:12px; font-weight:400; text-decoration:none; letter-spacing:0;}
-nav.dark .nav-links a{color:rgba(245,245,247,.78);}
-.nav-links a:hover{color:var(--ink);}
-nav.dark .nav-links a:hover{color:#fff;}
-.nav-apply{background:var(--ink); color:#fff !important; padding:6px 16px; border-radius:980px; font-size:12px; font-weight:500;}
-nav.dark .nav-apply{background:#fff; color:var(--dark) !important;}
-.nav-apply:hover{text-decoration:none; opacity:.82;}
-.burger{display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:4px; padding:6px;}
-.burger span{width:18px; height:1.5px; background:var(--ink);}
-nav.dark .burger span{background:#fff;}
-@media(max-width:834px){
-  .nav-links{position:fixed; inset:44px 0 auto 0; background:rgba(255,255,255,.97); flex-direction:column; padding:10px 24px 20px; display:none; border-bottom:1px solid var(--line);}
+nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bottom:1px solid var(--line-gold);}
+.nav-inner{max-width:1200px; margin:0 auto; padding:0 30px; height:74px; display:flex; align-items:center; justify-content:space-between;}
+.nav-logo{font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; color:var(--parchment); letter-spacing:.01em;}
+.nav-logo span{color:var(--gold-bright);}
+.nav-links{display:flex; gap:32px; list-style:none;}
+.nav-links a{color:rgba(244,236,218,.72); font-size:13px; letter-spacing:.05em; text-transform:uppercase;}
+.nav-links a:hover{color:var(--gold-bright);}
+.nav-cta{border:1px solid var(--gold); color:var(--gold-bright) !important; padding:10px 22px; border-radius:2px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; transition:background .2s ease, color .2s ease;}
+.nav-cta:hover{background:var(--gold); color:var(--lapis-deep) !important;}
+.burger{display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:6px;}
+.burger span{width:20px; height:1.5px; background:var(--parchment);}
+@media(max-width:900px){
+  .nav-links{position:fixed; inset:74px 0 auto 0; background:var(--lapis-deep); flex-direction:column; padding:10px 30px 20px; display:none; border-bottom:1px solid var(--line-gold);}
   .nav-links.open{display:flex;}
-  .nav-links li{border-bottom:1px solid var(--line); width:100%;}
-  .nav-links a{display:block; padding:14px 0; font-size:15px;}
-  .nav-apply{display:none;}
+  .nav-links li{border-bottom:1px solid rgba(244,236,218,.1); width:100%;}
+  .nav-links a{display:block; padding:15px 0;}
+  .nav-cta{display:none;}
   .burger{display:flex;}
 }
 
 /* ===== Hero ===== */
-.hero{background:var(--dark); color:#fff; padding:112px 0 64px; text-align:center;}
-.hero-eyebrow{font-size:14px; font-weight:600; color:var(--muted); margin-bottom:8px;}
-.hero h1{font-size:clamp(2.6rem,6vw,4.4rem); font-weight:700; letter-spacing:-.03em; line-height:1.05; margin-bottom:14px;}
-.hero h1 .accent{background:linear-gradient(90deg,#fff, #a3a3a8); -webkit-background-clip:text; background-clip:text; color:transparent;}
-.hero p.sub{font-size:clamp(1.15rem,2vw,1.6rem); font-weight:400; color:rgba(245,245,247,.86); max-width:34ch; margin:0 auto 30px; line-height:1.4;}
-.hero-actions{display:flex; justify-content:center; gap:22px; align-items:center; margin-bottom:56px; flex-wrap:wrap;}
-.btn-pill{display:inline-block; background:var(--blue); color:#fff; padding:12px 24px; border-radius:980px; font-size:17px; font-weight:400; transition:background .2s ease;}
-.btn-pill:hover{background:var(--blue-hover); text-decoration:none;}
-.btn-link{font-size:17px; color:var(--blue); display:inline-flex; align-items:center; gap:5px;}
-.btn-link:hover{text-decoration:none;}
-.btn-link svg{width:9px; height:9px;}
+.hero{background:
+  radial-gradient(circle at 20% 15%, rgba(201,162,39,.10), transparent 40%),
+  radial-gradient(circle at 82% 78%, rgba(201,162,39,.08), transparent 45%),
+  linear-gradient(155deg, var(--lapis-deep) 0%, var(--lapis) 55%, var(--lapis-mid) 100%);
+  color:var(--parchment); padding:88px 0 70px; text-align:center; position:relative; overflow:hidden;
+}
+.hero-sigil{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:820px; height:820px; opacity:.07; pointer-events:none;}
+.hero-inner{position:relative; z-index:1;}
+.hero-eyebrow{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:22px;}
+.hero h1{font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600; font-size:clamp(2.4rem,5.2vw,4.1rem); color:var(--parchment); max-width:17ch; margin:0 auto 26px; line-height:1.14;}
+.hero h1 .g{color:var(--gold-bright); font-style:normal;}
+.hero p.sub{font-family:'Jost',sans-serif; font-weight:300; font-size:clamp(1.05rem,1.7vw,1.25rem); color:rgba(244,236,218,.78); max-width:46ch; margin:0 auto 14px; line-height:1.6;}
+.hero p.cred{font-size:13px; font-weight:400; color:rgba(230,194,80,.8); max-width:54ch; margin:0 auto 36px; letter-spacing:.01em;}
+.hero-actions{display:flex; justify-content:center; gap:22px; align-items:center; margin-bottom:60px; flex-wrap:wrap;}
+.btn-gold{display:inline-block; background:linear-gradient(180deg, var(--gold-bright), var(--gold)); color:var(--lapis-deep); padding:15px 34px; border-radius:2px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:transform .2s ease, box-shadow .2s ease; box-shadow:0 10px 30px rgba(201,162,39,.25);}
+.btn-gold:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(201,162,39,.36);}
+.btn-ghost{border:1px solid rgba(244,236,218,.35); color:var(--parchment); padding:14px 26px; border-radius:2px; font-size:13px; letter-spacing:.08em; text-transform:uppercase;}
+.btn-ghost:hover{border-color:var(--gold-bright); color:var(--gold-bright);}
 
 /* video placeholder */
-.video-frame{max-width:1000px; margin:0 auto; border-radius:20px; overflow:hidden; position:relative; aspect-ratio:16/9; background:
-  radial-gradient(circle at 30% 20%, rgba(0,113,227,.35), transparent 55%),
-  radial-gradient(circle at 75% 75%, rgba(120,80,220,.3), transparent 55%),
-  linear-gradient(135deg,#0a0a0c,#1c1c1e 60%,#0a0a0c);
-  border:1px solid rgba(255,255,255,.08); box-shadow:0 40px 80px rgba(0,0,0,.5);}
-.video-frame::before{content:""; position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px); background-size:26px 26px; opacity:.5; animation:drift 18s linear infinite;}
-@keyframes drift{from{background-position:0 0;} to{background-position:120px 90px;}}
-.play-btn{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:76px; height:76px; border-radius:50%; background:rgba(255,255,255,.14); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.4); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s ease, transform .2s ease;}
-.play-btn:hover{background:rgba(255,255,255,.24); transform:translate(-50%,-50%) scale(1.06);}
-.play-btn svg{width:22px; height:22px; fill:#fff; margin-left:4px;}
-.video-caption{position:absolute; bottom:16px; left:20px; font-size:11px; color:rgba(255,255,255,.4); letter-spacing:.03em;}
-.video-caption-r{position:absolute; bottom:16px; right:20px; font-size:11px; color:rgba(255,255,255,.4); letter-spacing:.03em;}
+.video-frame{max-width:960px; margin:0 auto; border-radius:4px; overflow:hidden; position:relative; aspect-ratio:16/9; background:
+  radial-gradient(circle at 30% 25%, rgba(201,162,39,.24), transparent 55%),
+  radial-gradient(circle at 75% 78%, rgba(201,162,39,.14), transparent 55%),
+  linear-gradient(135deg, var(--lapis-deep), var(--lapis) 60%, var(--lapis-deep));
+  border:1px solid var(--line-gold); box-shadow:0 40px 90px rgba(0,0,0,.5);}
+.video-frame::before{content:""; position:absolute; inset:0; background-image:radial-gradient(rgba(230,194,80,.08) 1px, transparent 1px); background-size:28px 28px; opacity:.6; animation:drift 22s linear infinite;}
+@keyframes drift{from{background-position:0 0;} to{background-position:130px 100px;}}
+.play-btn{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:78px; height:78px; border-radius:50%; background:rgba(201,162,39,.14); backdrop-filter:blur(6px); border:1px solid var(--gold-bright); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s ease, transform .2s ease;}
+.play-btn:hover{background:rgba(201,162,39,.26); transform:translate(-50%,-50%) scale(1.06);}
+.play-btn svg{width:22px; height:22px; fill:var(--gold-bright); margin-left:4px;}
+.video-caption{position:absolute; bottom:16px; left:20px; font-size:11px; color:rgba(244,236,218,.4); letter-spacing:.04em;}
+.video-caption-r{position:absolute; bottom:16px; right:20px; font-size:11px; color:rgba(244,236,218,.4); letter-spacing:.04em;}
 
 /* ===== Sections ===== */
-.section{padding:100px 0;}
-.section-light{background:var(--bg);}
-.section-surface{background:var(--surface);}
-.section-dark{background:var(--dark); color:#fff;}
+.section{padding:104px 0;}
+.section-parchment{background:var(--parchment);}
+.section-parchment2{background:var(--parchment2);}
+.section-navy{background:var(--lapis-deep); color:var(--parchment);}
 .center{text-align:center;}
-.eyebrow{font-size:19px; font-weight:600; color:var(--blue); margin-bottom:8px;}
-.section-dark .eyebrow{color:#2997ff;}
-.t-headline{font-size:clamp(2.2rem,4.4vw,3.4rem); font-weight:700; letter-spacing:-.03em; line-height:1.08;}
-.t-lead{font-size:clamp(1.1rem,1.8vw,1.4rem); font-weight:400; color:var(--muted); max-width:38ch; margin:16px auto 0; line-height:1.5;}
-.section-dark .t-lead{color:rgba(245,245,247,.7);}
+.kicker{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:block;}
+.section-navy .kicker{color:var(--gold-bright);}
+.t-headline{font-size:clamp(2rem,4vw,3.1rem); font-style:italic; font-weight:600; letter-spacing:0; line-height:1.15;}
+.section-navy .t-headline{color:var(--parchment);}
+.t-lead{font-family:'Jost',sans-serif; font-weight:300; font-size:clamp(1rem,1.5vw,1.15rem); color:var(--muted); max-width:52ch; margin:18px auto 0; line-height:1.65;}
+.section-navy .t-lead{color:rgba(244,236,218,.72);}
 
 /* statement */
-.statement{font-size:clamp(1.7rem,3.6vw,3rem); font-weight:600; letter-spacing:-.025em; line-height:1.2; max-width:22ch; margin:0 auto; text-align:center;}
-.statement .grey{color:var(--muted);}
+.statement{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.6rem,3.2vw,2.6rem); font-weight:500; letter-spacing:0; line-height:1.32; max-width:26ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
+.statement .accent{color:var(--gold); font-style:normal; font-weight:700;}
 
-/* feature blocks (alternating) */
-.feature-row{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; padding:60px 0;}
+/* method badges */
+.method-row{display:flex; justify-content:center; flex-wrap:wrap; gap:1px; background:var(--line-gold); border:1px solid var(--gold); border-radius:6px; overflow:hidden; margin-top:46px; max-width:920px; margin-left:auto; margin-right:auto;}
+.method-badge{flex:1; min-width:220px; background:var(--lapis-deep); padding:26px 22px; text-align:center;}
+.method-badge b{display:block; font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600; color:var(--gold-bright); margin-bottom:6px;}
+.method-badge span{font-size:12.5px; color:rgba(244,236,218,.6); letter-spacing:.01em;}
+
+/* feature blocks */
+.feature-row{display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:center; padding:56px 0; border-bottom:1px solid var(--line-navy);}
+.feature-row:last-child{border-bottom:none;}
 .feature-row.rev{direction:rtl;}
 .feature-row.rev > *{direction:ltr;}
-.feature-copy .num{font-size:14px; font-weight:600; color:var(--blue); margin-bottom:10px;}
-.feature-copy h3{font-size:clamp(1.6rem,3vw,2.3rem); font-weight:700; letter-spacing:-.025em; margin-bottom:14px; line-height:1.15;}
-.feature-copy p{font-size:17px; color:var(--muted2); line-height:1.6; max-width:44ch;}
-.feature-visual{aspect-ratio:4/3; border-radius:22px; position:relative; overflow:hidden;}
-.fv1{background:linear-gradient(135deg,#eef1f5,#d7e0ea);}
-.fv2{background:linear-gradient(135deg,#f6efe7,#e6d5c3);}
-.fv3{background:linear-gradient(135deg,#0a0a0c,#28282c);}
-.feature-visual::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 65% 30%, rgba(255,255,255,.5), transparent 55%);}
+.feature-emblem{width:56px; height:56px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:20px;}
+.feature-emblem svg{width:26px; height:26px; stroke:var(--gold); fill:none; stroke-width:1.2;}
+.feature-copy h3{font-size:clamp(1.5rem,2.8vw,2.1rem); font-style:italic; margin-bottom:14px; line-height:1.2;}
+.feature-copy p{font-size:16px; font-weight:300; color:var(--muted); line-height:1.7; max-width:44ch;}
+.feature-visual{aspect-ratio:4/3; border-radius:4px; position:relative; overflow:hidden; border:1px solid var(--line-gold);}
+.fv1{background:linear-gradient(135deg,var(--lapis-deep),var(--lapis-mid));}
+.fv2{background:linear-gradient(135deg,#3a2c15,var(--gold));}
+.fv3{background:linear-gradient(135deg,var(--lapis),var(--lapis-deep));}
+.feature-visual::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 65% 30%, rgba(230,194,80,.28), transparent 55%);}
 
-/* curriculum spec list */
-.spec-list{max-width:760px; margin:56px auto 0; list-style:none; border:1px solid var(--line); border-radius:18px; padding:6px 30px;}
-.spec-list li{display:grid; grid-template-columns:60px 1fr; gap:26px; padding:26px 0; border-top:1px solid var(--line);}
+/* curriculum */
+.spec-list{max-width:780px; margin:56px auto 0; list-style:none; border:1px solid var(--gold); border-radius:6px; padding:6px 34px; background:var(--parchment);}
+.spec-list li{display:grid; grid-template-columns:64px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--line-gold);}
 .spec-list li:first-child{border-top:none;}
-.spec-list li:last-child{border-bottom:none;}
-.spec-num{font-size:14px; font-weight:600; color:var(--muted); padding-top:2px;}
-.spec-list h4{font-size:19px; font-weight:600; letter-spacing:-.015em; margin-bottom:6px;}
-.spec-list p{font-size:15px; color:var(--muted2); line-height:1.55; max-width:52ch;}
+.spec-num{font-family:'Cormorant Garamond',serif; font-size:26px; font-style:italic; color:var(--gold); padding-top:2px;}
+.spec-list h4{font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; letter-spacing:0; margin-bottom:6px; color:var(--lapis-deep);}
+.spec-list p{font-size:14.5px; color:var(--muted); line-height:1.6; max-width:54ch;}
 
 /* who grid */
-.who-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden; margin-top:56px;}
-.who-card{background:var(--bg); padding:44px 34px;}
-.who-card h3{font-size:20px; font-weight:600; letter-spacing:-.015em; margin-bottom:12px;}
-.who-card p{font-size:14.5px; color:var(--muted2); line-height:1.65;}
+.who-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-gold); border:1px solid var(--gold); border-radius:6px; overflow:hidden; margin-top:56px;}
+.who-card{background:var(--parchment); padding:44px 34px;}
+.who-card h3{font-family:'Cormorant Garamond',serif; font-size:21px; font-style:italic; margin-bottom:12px;}
+.who-card p{font-size:14.5px; color:var(--muted); line-height:1.65;}
 
 /* quotes */
-.quote-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden; margin-top:52px;}
-.quote-card{background:var(--surface); padding:38px 32px; display:flex; flex-direction:column;}
-.quote-card p.q{font-size:16px; font-style:italic; color:var(--ink); line-height:1.6; margin-bottom:20px; flex:1;}
-.quote-card .who{font-size:13px; font-weight:600; color:var(--ink);}
-.quote-card .role{font-size:12px; color:var(--muted);}
-.quote-note{text-align:center; font-size:12px; color:var(--muted); max-width:60ch; margin:32px auto 0; line-height:1.6;}
+.quote-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-gold); border:1px solid var(--gold); border-radius:6px; overflow:hidden; margin-top:52px;}
+.quote-card{background:var(--lapis-deep); padding:38px 32px; display:flex; flex-direction:column;}
+.quote-mark{font-family:'Cormorant Garamond',serif; font-size:44px; color:var(--gold); opacity:.6; line-height:.5; margin-bottom:8px; display:block;}
+.quote-card p.q{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; color:var(--parchment); line-height:1.6; margin-bottom:22px; flex:1;}
+.quote-card .who{font-size:12.5px; font-weight:600; color:var(--gold-bright); letter-spacing:.03em; text-transform:uppercase;}
+.quote-card .role{font-size:11.5px; color:rgba(244,236,218,.5);}
+.quote-note{text-align:center; font-size:12px; color:var(--muted); max-width:62ch; margin:34px auto 0; line-height:1.6;}
 
-/* pricing / compare */
-.compare{max-width:960px; margin:56px auto 0; border-radius:18px; overflow:hidden; border:2px solid var(--ink);}
+/* investment / pricing */
+.compare{max-width:980px; margin:56px auto 0; border-radius:6px; overflow:hidden; border:1.5px solid var(--gold); background:var(--lapis-deep);}
 .compare-head{display:grid; grid-template-columns:1.3fr repeat(3,1fr);}
-.compare-head > div{padding:26px 20px; text-align:center; border-left:1px solid var(--line);}
+.compare-head > div{padding:30px 20px; text-align:center; border-left:1px solid var(--line-gold);}
 .compare-head > div:first-child{border-left:none; text-align:left;}
-.compare-head .tier{font-size:17px; font-weight:600; letter-spacing:-.01em; margin-bottom:6px;}
-.compare-head .price{font-size:30px; font-weight:700; letter-spacing:-.02em;}
-.compare-head .price span{font-size:13px; font-weight:400; color:var(--muted);}
-.compare-head .featured-tag{display:inline-block; background:var(--blue); color:#fff; font-size:10px; font-weight:600; padding:3px 9px; border-radius:999px; margin-bottom:8px;}
-.compare-row{display:grid; grid-template-columns:1.3fr repeat(3,1fr); border-top:1px solid var(--line);}
-.compare-row > div{padding:16px 20px; text-align:center; font-size:14px; border-left:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
-.compare-row > div:first-child{border-left:none; text-align:left; color:var(--muted2); justify-content:flex-start;}
-.compare-row .yes{color:var(--blue); font-weight:700; font-size:16px;}
-.compare-row .no{color:rgba(0,0,0,.2);}
-.compare-cta{display:grid; grid-template-columns:1.3fr repeat(3,1fr); border-top:1px solid var(--line); background:var(--surface);}
-.compare-cta > div{padding:20px; text-align:center; border-left:1px solid var(--line);}
+.compare-head .tier{font-family:'Cormorant Garamond',serif; font-size:20px; font-style:italic; color:var(--parchment); margin-bottom:8px;}
+.compare-head .price{font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:600; color:var(--gold-bright); letter-spacing:0;}
+.compare-head .price span{font-size:13px; font-family:'Jost',sans-serif; font-weight:300; color:rgba(244,236,218,.55);}
+.compare-head .featured-tag{display:inline-block; border:1px solid var(--gold); color:var(--gold-bright); font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:4px 10px; border-radius:2px; margin-bottom:10px;}
+.compare-row{display:grid; grid-template-columns:1.3fr repeat(3,1fr); border-top:1px solid var(--line-gold);}
+.compare-row > div{padding:16px 20px; text-align:center; font-size:13.5px; border-left:1px solid var(--line-gold); display:flex; align-items:center; justify-content:center; color:rgba(244,236,218,.85);}
+.compare-row > div:first-child{border-left:none; text-align:left; color:rgba(244,236,218,.55); justify-content:flex-start;}
+.compare-row .yes{color:var(--gold-bright); font-weight:700; font-size:16px;}
+.compare-row .no{color:rgba(244,236,218,.15);}
+.compare-cta{display:grid; grid-template-columns:1.3fr repeat(3,1fr); border-top:1px solid var(--line-gold); background:rgba(201,162,39,.05);}
+.compare-cta > div{padding:22px; text-align:center; border-left:1px solid var(--line-gold);}
 .compare-cta > div:first-child{border-left:none;}
-.compare-cta a{font-size:13px; background:var(--ink); color:#fff; padding:9px 18px; border-radius:980px; display:inline-block;}
-.compare-cta a:hover{text-decoration:none; opacity:.85;}
+.compare-cta a{font-size:12px; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--gold); color:var(--gold-bright); padding:9px 18px; border-radius:2px; display:inline-block; transition:background .2s ease, color .2s ease;}
+.compare-cta a:hover{background:var(--gold); color:var(--lapis-deep);}
 @media(max-width:834px){
   .compare-head, .compare-row, .compare-cta{grid-template-columns:1fr 1fr; }
   .compare-head > div:first-child, .compare-row > div:first-child, .compare-cta > div:first-child{display:none;}
 }
 
 /* faq */
-.faq{max-width:760px; margin:0 auto;}
-.faq details{border-bottom:1px solid var(--line); padding:20px 0;}
-.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:17px; font-weight:400;}
+.faq{max-width:780px; margin:0 auto;}
+.faq details{border-bottom:1px solid var(--line-navy); padding:22px 0;}
+.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:17px; font-weight:400; color:var(--lapis-deep);}
 .faq summary::-webkit-details-marker{display:none;}
-.faq summary .chev{color:var(--blue); font-size:20px; font-weight:300; transition:transform .2s ease;}
+.faq summary .chev{color:var(--gold); font-size:20px; font-weight:300; transition:transform .2s ease;}
 .faq details[open] summary .chev{transform:rotate(45deg);}
-.faq details p{font-size:15px; color:var(--muted2); line-height:1.65; margin-top:14px; max-width:60ch;}
+.faq details p{font-size:15px; color:var(--muted); line-height:1.65; margin-top:14px; max-width:62ch; font-weight:300;}
 
 /* CTA banner */
-.cta-banner{background:var(--dark); color:#fff; text-align:center; padding:100px 0;}
-.cta-banner h2{font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-.025em; margin-bottom:18px;}
-.cta-banner p{font-size:19px; color:rgba(245,245,247,.7); max-width:40ch; margin:0 auto 34px;}
+.cta-banner{background:linear-gradient(155deg, var(--lapis-deep), var(--lapis)); color:var(--parchment); text-align:center; padding:110px 0; position:relative; overflow:hidden;}
+.cta-banner h2{font-size:clamp(2rem,4vw,3rem); font-style:italic; color:var(--parchment); margin-bottom:18px;}
+.cta-banner p{font-size:16px; font-weight:300; color:rgba(244,236,218,.7); max-width:44ch; margin:0 auto 36px; line-height:1.6;}
 
 /* form */
-.apply-section{padding:100px 0; background:var(--surface);}
-.form-card{max-width:640px; margin:0 auto; background:#fff; border-radius:18px; padding:44px; border:1px solid var(--line);}
+.apply-section{padding:104px 0; background:var(--parchment2);}
+.form-card{max-width:660px; margin:0 auto; background:var(--parchment); border-radius:6px; padding:46px; border:1px solid var(--gold);}
 .f-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
-.f-group label{display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--ink);}
-.f-note{display:block; font-size:11.5px; color:var(--muted); margin:-2px 0 7px; font-weight:400;}
-.f-group input, .f-group select, .f-group textarea{width:100%; padding:11px 13px; border:1px solid rgba(0,0,0,.14); border-radius:8px; background:var(--surface); font-family:inherit; font-size:14px; color:var(--ink);}
-.f-group input:focus, .f-group select:focus, .f-group textarea:focus{outline:none; border-color:var(--blue); background:#fff;}
-.f-submit{width:100%; background:var(--blue); color:#fff; border:none; padding:14px; border-radius:980px; font-size:16px; font-weight:500; cursor:pointer; margin-bottom:12px;}
-.f-submit:hover{background:var(--blue-hover);}
+.f-group label{display:block; font-size:12.5px; font-weight:600; letter-spacing:.02em; margin-bottom:7px; color:var(--lapis-deep); text-transform:uppercase;}
+.f-note{display:block; font-size:11.5px; color:var(--muted); margin:-3px 0 8px; font-weight:300;}
+.f-group input, .f-group select, .f-group textarea{width:100%; padding:12px 14px; border:1px solid rgba(21,36,89,.18); border-radius:3px; background:#fff; font-family:'Jost',sans-serif; font-size:14px; color:var(--ink);}
+.f-group input:focus, .f-group select:focus, .f-group textarea:focus{outline:none; border-color:var(--gold);}
+.f-submit{width:100%; background:linear-gradient(180deg, var(--gold-bright), var(--gold)); color:var(--lapis-deep); border:none; padding:15px; border-radius:3px; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; margin-bottom:12px;}
+.f-submit:hover{opacity:.9;}
 .f-fine{text-align:center; font-size:12px; color:var(--muted);}
 
-/* method credential row */
-.method-row{display:flex; justify-content:center; flex-wrap:wrap; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-top:44px; max-width:900px; margin-left:auto; margin-right:auto;}
-.method-badge{flex:1; min-width:200px; background:var(--bg); padding:22px 20px; text-align:center;}
-.method-badge b{display:block; font-size:14px; font-weight:600; color:var(--ink); margin-bottom:4px;}
-.method-badge span{font-size:12px; color:var(--muted);}
-
 /* footer */
-footer{background:var(--surface); border-top:1px solid var(--line); padding:34px 0;}
-.footer-inner{max-width:1024px; margin:0 auto; padding:0 20px;}
-.footer-links{display:flex; flex-wrap:wrap; gap:16px 22px; padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:16px;}
-.footer-links a{font-size:12px; color:var(--muted2);}
-.footer-links a:hover{color:var(--ink); text-decoration:underline;}
-.footer-copy{font-size:12px; color:var(--muted);}
-.footer-disclaimer{font-size:11px; color:var(--muted); line-height:1.6; margin-top:10px; max-width:80ch;}
+footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0 30px; border-top:1px solid var(--line-gold);}
+.footer-inner{max-width:1140px; margin:0 auto; padding:0 30px;}
+.footer-links{display:flex; flex-wrap:wrap; gap:16px 24px; padding-bottom:22px; border-bottom:1px solid rgba(244,236,218,.1); margin-bottom:18px;}
+.footer-links a{font-size:12px; letter-spacing:.03em; color:rgba(244,236,218,.55);}
+.footer-links a:hover{color:var(--gold-bright);}
+.footer-copy{font-size:12px; font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(244,236,218,.55);}
+.footer-disclaimer{font-size:11px; line-height:1.7; margin-top:10px; max-width:82ch; color:rgba(244,236,218,.32);}
 
 .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.visible{opacity:1; transform:none;}
@@ -211,7 +223,8 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
   .feature-row{grid-template-columns:1fr; gap:32px;}
   .feature-row.rev{direction:ltr;}
   .who-grid, .quote-row{grid-template-columns:1fr;}
-  .spec-list li{grid-template-columns:40px 1fr;}
+  .spec-list li{grid-template-columns:44px 1fr;}
+  .f-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -219,30 +232,32 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
 
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-logo">The Ordered Field</a>
+    <a href="#top" class="nav-logo">The Ordered <span>Field</span></a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#study">The Study</a></li>
       <li><a href="#curriculum">Curriculum</a></li>
       <li><a href="#who">Who It's For</a></li>
-      <li><a href="#pricing">Membership</a></li>
+      <li><a href="#pricing">Investment</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#apply" class="nav-apply">Apply</a>
+    <a href="#apply" class="nav-cta">Request an Invitation</a>
   </div>
 </nav>
 
 <section class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-eyebrow">The Ordered Field</div>
-    <h1>Think deeper<br><span class="accent">about your dreams.</span></h1>
-    <p class="sub">A small study group on Jung's transcendent function, dream work, and consciousness — using the Demartini Method and Jungian active imagination together. Facilitated by Dr. Sam Osborne.</p>
+  <svg class="hero-sigil" viewBox="0 0 400 400"><circle cx="200" cy="200" r="180" fill="none" stroke="#e6c250" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#e6c250" stroke-width="1"/><path d="M200 20 L200 380 M20 200 L380 200" stroke="#e6c250" stroke-width=".6"/><path d="M75 75 L325 325 M325 75 L75 325" stroke="#e6c250" stroke-width=".6"/><circle cx="200" cy="200" r="46" fill="none" stroke="#e6c250" stroke-width="1"/></svg>
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow">The Ordered Field &middot; By Invitation</div>
+    <h1>Where the opposites you carry become <span class="g">the third thing</span> you haven't met yet.</h1>
+    <p class="sub">A private study circle on Jung's transcendent function, the alchemical stages of the work, and the discipline of dreams — held for those ready to work the material, not merely read about it.</p>
+    <p class="cred">Facilitated by Dr. Sam Osborne, a trained Demartini Method Facilitator with over twenty-five years of self-directed study across Jungian psychology, Hermeticism, and the esoteric traditions.</p>
     <div class="hero-actions">
-      <a href="#apply" class="btn-pill">Apply now</a>
-      <a href="#film" class="btn-link">Watch the film <svg viewBox="0 0 8 12" fill="none"><path d="M1 1l5 5-5 5" stroke="currentColor" stroke-width="1.4"/></svg></a>
+      <a href="#apply" class="btn-gold">Request an Invitation</a>
+      <a href="#film" class="btn-ghost">Watch the Film</a>
     </div>
   </div>
-  <div class="wrap" id="film">
+  <div class="wrap" id="film" style="position:relative; z-index:1;">
     <div class="video-frame">
       <video class="video-el" muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;">
         <!-- Replace with the final hero video file: <source src="hero.mp4" type="video/mp4"> -->
@@ -254,38 +269,39 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
   </div>
 </section>
 
-<section class="section section-light" id="study">
+<section class="section section-parchment" id="study">
   <div class="wrap reveal">
-    <p class="statement">Jung called it the transcendent function — the emergence of a genuinely <span class="grey">new</span> position between two opposites.</p>
+    <div class="ornament"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#c9a227"/><circle cx="12" cy="12" r="3" fill="#c9a227"/></svg><span class="ln r"></span></div>
+    <p class="statement">Jung called it the transcendent function — the <span class="accent">third position</span>, arising from opposites held in genuine tension, that neither side could produce alone.</p>
   </div>
 </section>
 
-<section class="section section-surface">
+<section class="section section-navy">
   <div class="wrap">
     <div class="center reveal">
-      <div class="eyebrow">The Method</div>
-      <h2 class="t-headline">Two disciplines, one practice.</h2>
-      <p class="t-lead">The work draws on the Demartini Method as its entry point — a structured, ledger-based technique for locating and balancing opposites — and on Jungian active imagination as its destination, where a genuinely new third position is allowed to emerge. Dr. Sam Osborne is a <strong>trained Demartini Method Facilitator</strong> — not a licensed script read secondhand — with over 25 years of self-directed study across Jungian psychology, Hermeticism, and the esoteric traditions.</p>
+      <span class="kicker">The Method</span>
+      <h2 class="t-headline">Two disciplines. One transmutation.</h2>
+      <p class="t-lead">The work draws on the Demartini Method as its <em>prima materia</em> — a structured, ledger-based technique for locating and balancing opposites — and on Jungian active imagination as its vessel, where a genuinely new third position is allowed to precipitate. Dr. Sam Osborne is a <strong style="color:var(--gold-bright);">trained Demartini Method Facilitator</strong> — not a licensed script read secondhand — with over twenty-five years of self-directed study across Jungian psychology, Hermeticism, and the esoteric traditions.</p>
     </div>
     <div class="method-row reveal">
-      <div class="method-badge"><b>Demartini Method</b><span>Structured balancing, entry point</span></div>
-      <div class="method-badge"><b>Jungian Active Imagination</b><span>Transcendent function, destination</span></div>
+      <div class="method-badge"><b>Demartini Method</b><span>The structured entry point</span></div>
+      <div class="method-badge"><b>Jungian Active Imagination</b><span>The alchemical vessel</span></div>
       <div class="method-badge"><b>Trained Facilitator</b><span>Certified Demartini Method Facilitator</span></div>
     </div>
   </div>
 </section>
 
-<section class="section section-surface">
+<section class="section section-parchment">
   <div class="wrap">
     <div class="center reveal">
-      <div class="eyebrow">Why This Study Exists</div>
-      <h2 class="t-headline">Most people treat a dream as noise.<br>It is closer to correspondence.</h2>
-      <p class="t-lead">The recurring dream, the symbol you keep meeting, the argument between who you are and who you're becoming — these respond to structured attention.</p>
+      <span class="kicker">Why This Study Exists</span>
+      <h2 class="t-headline">Most treat a dream as noise.<br>It is closer to correspondence.</h2>
+      <p class="t-lead">The recurring dream, the symbol you keep meeting, the argument between who you are and who you're becoming — these are not distractions from the work. They are the prima materia, and they respond to structured attention.</p>
     </div>
 
     <div class="feature-row reveal">
       <div class="feature-copy">
-        <div class="num">01</div>
+        <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4.5"/></svg></div>
         <h3>Dream work as data.</h3>
         <p>Members bring live dream material into every session. It's read symbolically, alchemically, and personally — not decoded, but held.</p>
       </div>
@@ -293,46 +309,46 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
     </div>
     <div class="feature-row rev reveal">
       <div class="feature-copy">
-        <div class="num">02</div>
-        <h3>Opposites, held in tension.</h3>
-        <p>The method starts by locating a genuine pair of opposites in your own life — not resolving them prematurely, but holding both with equal weight.</p>
+        <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
+        <h3>Opposites, held in the vessel.</h3>
+        <p>The method starts by locating a genuine pair of opposites in your own life — not resolving them prematurely, but holding both with equal weight until the fire does its work.</p>
       </div>
       <div class="feature-visual fv2"></div>
     </div>
     <div class="feature-row reveal">
       <div class="feature-copy">
-        <div class="num">03</div>
-        <h3>A monthly practice.</h3>
-        <p>Not a single workshop, not an open-ended group. A fixed cadence, a small roster, and a curriculum that moves in a genuine sequence.</p>
+        <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
+        <h3>A monthly discipline.</h3>
+        <p>Not a single workshop, not an open-ended group. A fixed cadence, a small roster, and a curriculum that moves in a genuine sequence — the steady heat, sustained.</p>
       </div>
       <div class="feature-visual fv3"></div>
     </div>
   </div>
 </section>
 
-<section class="section section-light" id="curriculum">
+<section class="section section-parchment2" id="curriculum">
   <div class="wrap">
     <div class="center reveal">
-      <div class="eyebrow">The Curriculum</div>
+      <span class="kicker">The Curriculum</span>
       <h2 class="t-headline">The six-month study.</h2>
       <p class="t-lead">Each session works one stage of the transcendent function, in sequence, applied live to your own material.</p>
     </div>
     <ol class="spec-list reveal">
-      <li><span class="spec-num">01</span><div><h4>Reading a Dream as Data</h4><p>Moving from "what does this mean" to a disciplined method of amplification and personal association.</p></div></li>
-      <li><span class="spec-num">02</span><div><h4>Locating the Opposites</h4><p>Finding the genuine tension underneath a symptom, a recurring image, or a stuck decision.</p></div></li>
-      <li><span class="spec-num">03</span><div><h4>Active Imagination</h4><p>Holding both poles in imaginal contact, without collapsing toward either one, until something moves.</p></div></li>
-      <li><span class="spec-num">04</span><div><h4>The Transcendent Function</h4><p>Where the third position — genuinely new, not a compromise — begins to appear.</p></div></li>
-      <li><span class="spec-num">05</span><div><h4>Nigredo, Albedo, Rubedo</h4><p>The alchemical stages of the work, and how to recognize which one you're standing in.</p></div></li>
-      <li><span class="spec-num">06</span><div><h4>Mercurius and the Symbol That Won't Resolve</h4><p>What to do with material that refuses a tidy ending — and why that's often the point.</p></div></li>
+      <li><span class="spec-num">I</span><div><h4>Reading a Dream as Data</h4><p>Moving from "what does this mean" to a disciplined method of amplification and personal association.</p></div></li>
+      <li><span class="spec-num">II</span><div><h4>Locating the Opposites</h4><p>Finding the genuine tension underneath a symptom, a recurring image, or a stuck decision.</p></div></li>
+      <li><span class="spec-num">III</span><div><h4>Active Imagination</h4><p>Holding both poles in imaginal contact, without collapsing toward either one, until something moves.</p></div></li>
+      <li><span class="spec-num">IV</span><div><h4>The Transcendent Function</h4><p>Where the third position — genuinely new, not a compromise — begins to appear.</p></div></li>
+      <li><span class="spec-num">V</span><div><h4>Nigredo, Albedo, Rubedo</h4><p>The alchemical stages of the work, and how to recognize which one you're standing in.</p></div></li>
+      <li><span class="spec-num">VI</span><div><h4>Mercurius and the Symbol That Won't Resolve</h4><p>What to do with material that refuses a tidy ending — and why that's often the point.</p></div></li>
     </ol>
   </div>
 </section>
 
-<section class="section section-surface" id="who">
+<section class="section section-parchment" id="who">
   <div class="wrap">
     <div class="center reveal">
-      <div class="eyebrow">Who This Is For</div>
-      <h2 class="t-headline">People for whom the dream keeps returning.</h2>
+      <span class="kicker">Who This Is For</span>
+      <h2 class="t-headline">Those who are called, not merely curious.</h2>
     </div>
     <div class="who-grid reveal">
       <div class="who-card">
@@ -341,7 +357,7 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
       </div>
       <div class="who-card">
         <h3>The Long-Time Student</h3>
-        <p>People with years of self-directed study in Jung, Hermeticism, or the esoteric traditions who want structure and company, not another intro course.</p>
+        <p>People with years of self-directed study in Jung, Hermeticism, or the esoteric traditions who want structure and company, not another introductory course.</p>
       </div>
       <div class="who-card">
         <h3>The Person at a Threshold</h3>
@@ -351,39 +367,42 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
   </div>
 </section>
 
-<section class="section section-light" id="voices">
+<section class="section section-navy" id="voices">
   <div class="wrap">
     <div class="center reveal">
-      <div class="eyebrow">Voices</div>
+      <span class="kicker">Voices from the Circle</span>
       <h2 class="t-headline">What members bring — and leave with.</h2>
     </div>
     <div class="quote-row reveal">
       <div class="quote-card">
-        <p class="q">"I'd journaled the same dream for two years without moving an inch. Four sessions in, I finally understood what it wanted."</p>
+        <span class="quote-mark">&ldquo;</span>
+        <p class="q">I'd journaled the same dream for two years without moving an inch. Four sessions in, I finally understood what it wanted.</p>
         <div class="who">Founding Member</div>
-        <div class="role">Cohort One · Therapist</div>
+        <div class="role">Cohort One &middot; Therapist</div>
       </div>
       <div class="quote-card">
-        <p class="q">"I've read Jung for fifteen years on my own. This is the first place that treats the material seriously without turning it into a lecture."</p>
+        <span class="quote-mark">&ldquo;</span>
+        <p class="q">I've read Jung for fifteen years on my own. This is the first place that treats the material seriously without turning it into a lecture.</p>
         <div class="who">Founding Member</div>
-        <div class="role">Cohort One · Researcher</div>
+        <div class="role">Cohort One &middot; Researcher</div>
       </div>
       <div class="quote-card">
-        <p class="q">"The structure is what made it work for me. Give me a method and something to actually do with the material — that I can use."</p>
+        <span class="quote-mark">&ldquo;</span>
+        <p class="q">The structure is what made it work for me. Give me a method and something to actually do with the material — that I can use.</p>
         <div class="who">Founding Member</div>
-        <div class="role">Cohort One · Executive</div>
+        <div class="role">Cohort One &middot; Executive</div>
       </div>
     </div>
     <p class="quote-note">Voices reflect the experiences of founding members, attributed by role at their request. This study group is educational, not psychotherapy or a substitute for licensed mental health treatment.</p>
   </div>
 </section>
 
-<section class="section section-surface" id="pricing">
+<section class="section section-parchment" id="pricing">
   <div class="wrap">
     <div class="center reveal">
-      <div class="eyebrow">Membership</div>
+      <span class="kicker">The Investment</span>
       <h2 class="t-headline">Choose your circle.</h2>
-      <p class="t-lead">Membership is capped and invitation-based. Cancel anytime.</p>
+      <p class="t-lead">Membership is capped and reviewed by application, to protect the integrity of the circle.</p>
     </div>
 
     <div class="compare reveal">
@@ -407,14 +426,14 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
         <div><a href="#apply">Apply</a></div>
       </div>
     </div>
-    <p class="reveal" style="text-align:center; margin-top:28px; font-size:12.5px; color:var(--muted); max-width:60ch; margin-left:auto; margin-right:auto;">All memberships billed monthly; annual billing available at application, with a 15% saving.</p>
+    <p class="reveal" style="text-align:center; margin-top:28px; font-size:12.5px; color:var(--muted); max-width:60ch; margin-left:auto; margin-right:auto;">All memberships billed monthly. Annual billing available at application, with a 15% saving.</p>
   </div>
 </section>
 
-<section class="section section-light" id="faq">
+<section class="section section-parchment2" id="faq">
   <div class="wrap">
     <div class="center reveal">
-      <div class="eyebrow">Common Questions</div>
+      <span class="kicker">Common Questions</span>
       <h2 class="t-headline">What to expect.</h2>
     </div>
     <div class="faq reveal">
@@ -429,17 +448,19 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
 </section>
 
 <section class="cta-banner">
-  <div class="wrap">
-    <h2>Ready to begin the work?</h2>
-    <p>A small number of seats open each cohort. Applications are reviewed to confirm fit.</p>
-    <a href="#apply" class="btn-pill">Apply now</a>
+  <svg class="hero-sigil" viewBox="0 0 400 400" style="opacity:.05;"><circle cx="200" cy="200" r="180" fill="none" stroke="#e6c250" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#e6c250" stroke-width="1"/><circle cx="200" cy="200" r="46" fill="none" stroke="#e6c250" stroke-width="1"/></svg>
+  <div class="wrap" style="position:relative; z-index:1;">
+    <div class="ornament on-dark"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#e6c250"/><circle cx="12" cy="12" r="3" fill="#e6c250"/></svg><span class="ln r"></span></div>
+    <h2>The circle convenes soon.</h2>
+    <p>A small number of seats open each cohort. Applications are reviewed individually to confirm fit.</p>
+    <a href="#apply" class="btn-gold">Request an Invitation</a>
   </div>
 </section>
 
 <section class="apply-section" id="apply">
   <div class="wrap">
     <div class="center reveal" style="margin-bottom:40px;">
-      <div class="eyebrow">Apply</div>
+      <span class="kicker">Apply</span>
       <h2 class="t-headline">Request an invitation.</h2>
     </div>
     <form class="form-card reveal" action="https://formspree.io/f/xaqdebvj" method="POST">
@@ -448,7 +469,7 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
         <div class="f-group"><label for="a-email">Email Address *</label><input id="a-email" name="email" type="email" required placeholder="you@email.com"></div>
       </div>
       <div class="f-grid">
-        <div class="f-group"><label for="a-tier">Membership of Interest *</label>
+        <div class="f-group"><label for="a-tier">Circle of Interest *</label>
           <select id="a-tier" name="membership" required>
             <option value="">Select…</option>
             <option>Circle</option>
@@ -472,9 +493,9 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
         <span class="f-note">A recurring dream, a symbol, a question, or simply an interest in the tradition.</span>
         <textarea id="a-what" name="what_draws_you" rows="4" required placeholder="Tell us a little about what's bringing you here."></textarea>
       </div>
-      <button type="submit" class="f-submit">Send Application</button>
+      <button type="submit" class="f-submit">Send Your Application</button>
       <p class="f-fine">* Required fields. We reply within a few days.</p>
-      <input type="hidden" name="form_type" value="The Ordered Field — Apple-Style Landing — Application">
+      <input type="hidden" name="form_type" value="The Ordered Field — Lapis Edition — Application">
     </form>
   </div>
 </section>
@@ -485,21 +506,17 @@ footer{background:var(--surface); border-top:1px solid var(--line); padding:34px
       <a href="#study">The Study</a>
       <a href="#curriculum">Curriculum</a>
       <a href="#who">Who It's For</a>
-      <a href="#pricing">Membership</a>
+      <a href="#pricing">Investment</a>
       <a href="#faq">FAQ</a>
       <a href="#apply">Apply</a>
       <a href="mailto:sam@samosborne.net">Contact</a>
     </div>
-    <p class="footer-copy">Copyright © 2026 Dr. Sam Osborne. The Ordered Field. Based in Burbank, California.</p>
+    <p class="footer-copy">The Ordered Field &middot; Dr. Sam Osborne &middot; Burbank, California</p>
     <p class="footer-disclaimer">The Ordered Field is an educational and developmental study group grounded in Jungian and esoteric traditions. It is not psychotherapy, group therapy, medical care, or a substitute for treatment from a licensed mental health professional. Individual experience varies, and no particular outcome is promised or guaranteed.</p>
   </div>
 </footer>
 
 <script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('dark',window.scrollY<420),{passive:true});
-nav.classList.add('dark');
-
 const burger=document.getElementById('burger'), navLinks=document.getElementById('navLinks');
 burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
