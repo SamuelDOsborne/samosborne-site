@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Ordered Field | An Invitation to Study Dreams, the Transcendent Function &amp; Consciousness</title>
-<meta name="description" content="A private, invitation-only study circle on Jung's transcendent function, dream work, and the alchemical stages of consciousness — facilitated by Dr. Sam Osborne, trained Demartini Method Facilitator."/>
+<title>The Ordered Field | Founding Cohort — Dream Analysis &amp; the Demartini Method</title>
+<meta name="description" content="Some people get under your skin. Some dreams won't let go. Join Sam Osborne's founding study group using the Demartini Method and dream analysis."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .hero-sigil{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:820px; height:820px; opacity:.07; pointer-events:none;}
 .hero-inner{position:relative; z-index:1;}
 .hero-eyebrow{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:22px;}
-.hero h1{font-family:'Montserrat',sans-serif; font-weight:600; font-size:clamp(2.4rem,5.2vw,4.1rem); color:var(--parchment); max-width:17ch; margin:0 auto 26px; line-height:1.14;}
+.hero h1{font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(2.6rem,6.5vw,5rem); color:var(--parchment); max-width:15ch; margin:0 auto 26px; line-height:1.1; letter-spacing:-.02em;}
 .hero h1 .g{color:var(--gold-bright); font-style:normal;}
 .hero p.sub{font-family:'Montserrat',sans-serif; font-weight:300; font-size:clamp(1.05rem,1.7vw,1.25rem); color:rgba(244,236,218,.78); max-width:46ch; margin:0 auto 14px; line-height:1.6;}
 .hero p.cred{font-size:13px; font-weight:400; color:rgba(230,194,80,.8); max-width:54ch; margin:0 auto 36px; letter-spacing:.01em;}
@@ -104,13 +104,13 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .center{text-align:center;}
 .kicker{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:block;}
 .section-navy .kicker{color:var(--gold-bright);}
-.t-headline{font-size:clamp(2rem,4vw,3.1rem); font-weight:600; letter-spacing:0; line-height:1.15;}
+.t-headline{font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:800; letter-spacing:-.02em; line-height:1.1;}
 .section-navy .t-headline{color:var(--parchment);}
 .t-lead{font-family:'Montserrat',sans-serif; font-weight:300; font-size:clamp(1rem,1.5vw,1.15rem); color:var(--muted); max-width:52ch; margin:18px auto 0; line-height:1.65;}
 .section-navy .t-lead{color:rgba(244,236,218,.72);}
 
 /* statement */
-.statement{font-family:'Montserrat',sans-serif; font-size:clamp(1.6rem,3.2vw,2.6rem); font-weight:500; letter-spacing:0; line-height:1.32; max-width:26ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
+.statement{font-family:'Montserrat',sans-serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:700; letter-spacing:-.01em; line-height:1.25; max-width:24ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
 .statement .accent{color:var(--gold); font-style:normal; font-weight:700;}
 
 /* method badges */
@@ -126,7 +126,7 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .feature-row.rev > *{direction:ltr;}
 .feature-emblem{width:56px; height:56px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:20px;}
 .feature-emblem svg{width:26px; height:26px; stroke:var(--gold); fill:none; stroke-width:1.2;}
-.feature-copy h3{font-size:clamp(1.5rem,2.8vw,2.1rem); margin-bottom:14px; line-height:1.2;}
+.feature-copy h3{font-size:clamp(1.7rem,3.2vw,2.5rem); font-weight:800; letter-spacing:-.015em; margin-bottom:14px; line-height:1.1;}
 .feature-copy p{font-size:16px; font-weight:300; color:var(--muted); line-height:1.7; max-width:44ch;}
 .feature-visual{aspect-ratio:4/3; border-radius:4px; position:relative; overflow:hidden; border:1px solid var(--line-gold);}
 .fv1{background:linear-gradient(135deg,var(--lapis-deep),var(--lapis-mid));}
@@ -180,6 +180,20 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
   .compare-head, .compare-row, .compare-cta{grid-template-columns:1fr 1fr; }
   .compare-head > div:first-child, .compare-row > div:first-child, .compare-cta > div:first-child{display:none;}
 }
+.compare.two-col .compare-head, .compare.two-col .compare-row, .compare.two-col .compare-cta{grid-template-columns:1.6fr repeat(2,1fr);}
+@media(max-width:834px){
+  .compare.two-col .compare-head, .compare.two-col .compare-row, .compare.two-col .compare-cta{grid-template-columns:1fr 1fr;}
+}
+
+/* single founding-cohort price card */
+.single-price{max-width:440px; margin:52px auto 0; background:var(--lapis-deep); border:2px solid var(--gold); border-radius:8px; padding:48px 40px; text-align:center; position:relative;}
+.single-price-tag{display:inline-block; border:1px solid var(--gold); color:var(--gold-bright); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px;}
+.single-price-title{font-family:'Montserrat',sans-serif; font-size:24px; font-weight:700; color:var(--parchment); margin-bottom:12px;}
+.single-price-amount{font-family:'Montserrat',sans-serif; font-size:56px; font-weight:800; color:var(--gold-bright); line-height:1; letter-spacing:-.02em;}
+.single-price-detail{font-size:13px; color:rgba(244,236,218,.55); margin:12px 0 30px;}
+.single-price-features{list-style:none; text-align:left; margin-bottom:32px;}
+.single-price-features li{font-size:15px; font-weight:500; color:rgba(244,236,218,.9); padding-left:26px; position:relative; margin-bottom:14px;}
+.single-price-features li::before{content:"✓"; position:absolute; left:0; color:var(--gold-bright); font-weight:700;}
 
 /* faq */
 .faq{max-width:780px; margin:0 auto;}
@@ -238,22 +252,22 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
       <li><a href="#study">The Study</a></li>
       <li><a href="#curriculum">Curriculum</a></li>
       <li><a href="#who">Who It's For</a></li>
-      <li><a href="#pricing">Investment</a></li>
+      <li><a href="#pricing">Enroll</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#apply" class="nav-cta">Request an Invitation</a>
+    <a href="#apply" class="nav-cta">Enroll Now</a>
   </div>
 </nav>
 
 <section class="hero" id="top">
   <svg class="hero-sigil" viewBox="0 0 400 400"><circle cx="200" cy="200" r="180" fill="none" stroke="#e6c250" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#e6c250" stroke-width="1"/><path d="M200 20 L200 380 M20 200 L380 200" stroke="#e6c250" stroke-width=".6"/><path d="M75 75 L325 325 M325 75 L75 325" stroke="#e6c250" stroke-width=".6"/><circle cx="200" cy="200" r="46" fill="none" stroke="#e6c250" stroke-width="1"/></svg>
   <div class="wrap hero-inner">
-    <div class="hero-eyebrow">The Ordered Field &middot; By Invitation</div>
-    <h1>Where the opposites you carry become <span class="g">the third thing</span> you haven't met yet.</h1>
-    <p class="sub">A private study circle on Jung's transcendent function, the alchemical stages of the work, and the discipline of dreams — held for those ready to work the material, not merely read about it.</p>
-    <p class="cred">Facilitated by Dr. Sam Osborne, a trained Demartini Method Facilitator with over twenty-five years of self-directed study across Jungian psychology, Hermeticism, and the esoteric traditions.</p>
+    <div class="hero-eyebrow">The Ordered Field &middot; Founding Cohort</div>
+    <h1>Some people get under your skin.<br>Some dreams won't let go.</h1>
+    <p class="sub">Both are trying to tell you something. A live study group using the Demartini Method and dream analysis to find out what.</p>
+    <p class="cred">Facilitated by Sam Osborne, trained Demartini Method Facilitator.</p>
     <div class="hero-actions">
-      <a href="#apply" class="btn-gold">Request an Invitation</a>
+      <a href="#apply" class="btn-gold">Join the Founding Cohort</a>
       <a href="#film" class="btn-ghost">Watch the Film</a>
     </div>
   </div>
@@ -272,7 +286,7 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
 <section class="section section-parchment" id="study">
   <div class="wrap reveal">
     <div class="ornament"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#c9a227"/><circle cx="12" cy="12" r="3" fill="#c9a227"/></svg><span class="ln r"></span></div>
-    <p class="statement">Jung called it the transcendent function — the <span class="accent">third position</span>, arising from opposites held in genuine tension, that neither side could produce alone.</p>
+    <p class="statement">The person you can't stop thinking about. The dream that keeps coming back. <span class="accent">Neither is random.</span></p>
   </div>
 </section>
 
@@ -280,13 +294,13 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
   <div class="wrap">
     <div class="center reveal">
       <span class="kicker">The Method</span>
-      <h2 class="t-headline">Two disciplines. One transmutation.</h2>
-      <p class="t-lead">The work draws on the Demartini Method as its <strong style="color:var(--gold-bright);">prima materia</strong> — a structured, ledger-based technique for locating and balancing opposites — and on Jungian active imagination as its vessel, where a genuinely new third position is allowed to precipitate. Dr. Sam Osborne is a <strong style="color:var(--gold-bright);">trained Demartini Method Facilitator</strong> — not a licensed script read secondhand — with over twenty-five years of self-directed study across Jungian psychology, Hermeticism, and the esoteric traditions.</p>
+      <h2 class="t-headline">Two tools. One method.</h2>
+      <p class="t-lead">The Demartini Method to balance what charges you. Dream analysis to show you what's underneath. Facilitated live by <strong style="color:var(--gold-bright);">Sam Osborne</strong>, trained Demartini Method Facilitator.</p>
     </div>
     <div class="method-row reveal">
-      <div class="method-badge"><b>Demartini Method</b><span>The structured entry point</span></div>
-      <div class="method-badge"><b>Jungian Active Imagination</b><span>The alchemical vessel</span></div>
-      <div class="method-badge"><b>Trained Facilitator</b><span>Certified Demartini Method Facilitator</span></div>
+      <div class="method-badge"><b>Demartini Method</b><span>Balance the charge</span></div>
+      <div class="method-badge"><b>Dream Analysis</b><span>See what's underneath</span></div>
+      <div class="method-badge"><b>Live Facilitation</b><span>Trained &amp; certified</span></div>
     </div>
   </div>
 </section>
@@ -294,32 +308,32 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
 <section class="section section-parchment">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker">Why This Study Exists</span>
-      <h2 class="t-headline">Most treat a dream as noise.<br>It is closer to correspondence.</h2>
-      <p class="t-lead">The recurring dream, the symbol you keep meeting, the argument between who you are and who you're becoming — these are not distractions from the work. They are the prima materia, and they respond to structured attention.</p>
+      <span class="kicker">Why This Exists</span>
+      <h2 class="t-headline">Dreams aren't noise.</h2>
+      <p class="t-lead">They're data — if you know how to read them.</p>
     </div>
 
     <div class="feature-row reveal">
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4.5"/></svg></div>
-        <h3>Dream work as data.</h3>
-        <p>Members bring live dream material into every session. It's read symbolically, alchemically, and personally — not decoded, but held.</p>
+        <h3>Your dreams, decoded.</h3>
+        <p>Bring a real dream. Leave with what it's telling you.</p>
       </div>
       <div class="feature-visual fv1"></div>
     </div>
     <div class="feature-row rev reveal">
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
-        <h3>Opposites, held in the vessel.</h3>
-        <p>The method starts by locating a genuine pair of opposites in your own life — not resolving them prematurely, but holding both with equal weight until the fire does its work.</p>
+        <h3>The charge, balanced.</h3>
+        <p>The person who gets under your skin has something to teach you.</p>
       </div>
       <div class="feature-visual fv2"></div>
     </div>
     <div class="feature-row reveal">
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
-        <h3>A monthly discipline.</h3>
-        <p>Not a single workshop, not an open-ended group. A fixed cadence, a small roster, and a curriculum that moves in a genuine sequence — the steady heat, sustained.</p>
+        <h3>Four weeks. Live.</h3>
+        <p>One session a week. Small group. Real work.</p>
       </div>
       <div class="feature-visual fv3"></div>
     </div>
@@ -330,16 +344,14 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
   <div class="wrap">
     <div class="center reveal">
       <span class="kicker">The Curriculum</span>
-      <h2 class="t-headline">The six-month study.</h2>
-      <p class="t-lead">Each session works one stage of the transcendent function, in sequence, applied live to your own material.</p>
+      <h2 class="t-headline">Four weeks. Four sessions.</h2>
+      <p class="t-lead">One idea a week, worked live on your own material.</p>
     </div>
     <ol class="spec-list reveal">
-      <li><span class="spec-num">I</span><div><h4>Reading a Dream as Data</h4><p>Moving from "what does this mean" to a disciplined method of amplification and personal association.</p></div></li>
-      <li><span class="spec-num">II</span><div><h4>Locating the Opposites</h4><p>Finding the genuine tension underneath a symptom, a recurring image, or a stuck decision.</p></div></li>
-      <li><span class="spec-num">III</span><div><h4>Active Imagination</h4><p>Holding both poles in imaginal contact, without collapsing toward either one, until something moves.</p></div></li>
-      <li><span class="spec-num">IV</span><div><h4>The Transcendent Function</h4><p>Where the third position — genuinely new, not a compromise — begins to appear.</p></div></li>
-      <li><span class="spec-num">V</span><div><h4>Nigredo, Albedo, Rubedo</h4><p>The alchemical stages of the work, and how to recognize which one you're standing in.</p></div></li>
-      <li><span class="spec-num">VI</span><div><h4>Mercurius and the Symbol That Won't Resolve</h4><p>What to do with material that refuses a tidy ending — and why that's often the point.</p></div></li>
+      <li><span class="spec-num">I</span><div><h4>Read the Dream</h4><p>Turn "what does this mean" into a method.</p></div></li>
+      <li><span class="spec-num">II</span><div><h4>Find the Opposite</h4><p>Locate what's really charging you.</p></div></li>
+      <li><span class="spec-num">III</span><div><h4>Sit With It</h4><p>Hold the tension until something shifts.</p></div></li>
+      <li><span class="spec-num">IV</span><div><h4>The Third Way</h4><p>Find the option neither side could see alone.</p></div></li>
     </ol>
   </div>
 </section>
@@ -348,21 +360,24 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
   <div class="wrap">
     <div class="center reveal">
       <span class="kicker">Who This Is For</span>
-      <h2 class="t-headline">Those who are called, not merely curious.</h2>
+      <h2 class="t-headline">Any adult ready to look closer.</h2>
     </div>
     <div class="who-grid reveal">
       <div class="who-card">
-        <h3>The Practicing Clinician</h3>
-        <p>Therapists, coaches, and practitioners who already work with depth material professionally and want a rigorous personal practice of their own.</p>
+        <h3>Someone You Can't Let Go Of</h3>
+        <p>An ex, a parent, a boss. Still living in your head.</p>
       </div>
       <div class="who-card">
-        <h3>The Long-Time Student</h3>
-        <p>People with years of self-directed study in Jung, Hermeticism, or the esoteric traditions who want structure and company, not another introductory course.</p>
+        <h3>A Dream That Keeps Returning</h3>
+        <p>Same place, same feeling, again and again.</p>
       </div>
       <div class="who-card">
-        <h3>The Person at a Threshold</h3>
-        <p>Someone navigating a transition where the rational tools have stopped working and something else keeps showing up in sleep.</p>
+        <h3>A Decision You Can't Make</h3>
+        <p>Stuck between two options you can't think your way out of.</p>
       </div>
+    </div>
+    <div class="reveal" style="margin-top:44px; max-width:760px; margin-left:auto; margin-right:auto; text-align:center; background:var(--white,#fff); border:1px solid var(--gold); border-radius:6px; padding:28px 32px;">
+      <p style="font-size:14px; color:var(--muted); line-height:1.6;"><strong style="color:var(--lapis-deep);">A note on fit.</strong> This is a study group, not therapy. It assumes a steady starting point. If you're currently in crisis or working through acute emotional distress, please reach out to a licensed professional first — this isn't the right space for that right now.</p>
     </div>
   </div>
 </section>
@@ -370,63 +385,54 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
 <section class="section section-navy" id="voices">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker">Voices from the Circle</span>
-      <h2 class="t-headline">What members bring — and leave with.</h2>
+      <span class="kicker">Voices from Past Groups</span>
+      <h2 class="t-headline">What people find.</h2>
     </div>
     <div class="quote-row reveal">
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">I'd journaled the same dream for two years without moving an inch. Four sessions in, I finally understood what it wanted.</p>
-        <div class="who">Founding Member</div>
-        <div class="role">Cohort One &middot; Therapist</div>
+        <p class="q">Two years of journaling. Four sessions here, and I finally got it.</p>
+        <div class="who">Past Participant</div>
+        <div class="role">Therapist</div>
       </div>
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">I've read Jung for fifteen years on my own. This is the first place that treats the material seriously without turning it into a lecture.</p>
-        <div class="who">Founding Member</div>
-        <div class="role">Cohort One &middot; Researcher</div>
+        <p class="q">I'd read about this for years. This is the first time I actually did it.</p>
+        <div class="who">Past Participant</div>
+        <div class="role">Researcher</div>
       </div>
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">The structure is what made it work for me. Give me a method and something to actually do with the material — that I can use.</p>
-        <div class="who">Founding Member</div>
-        <div class="role">Cohort One &middot; Executive</div>
+        <p class="q">Give me a method and something to do with it. This delivered.</p>
+        <div class="who">Past Participant</div>
+        <div class="role">Executive</div>
       </div>
     </div>
-    <p class="quote-note">Voices reflect the experiences of founding members, attributed by role at their request. This study group is educational, not psychotherapy or a substitute for licensed mental health treatment.</p>
+    <p class="quote-note">Voices reflect past participants' experiences, shared with permission. This group is educational, not a substitute for licensed mental health treatment.</p>
   </div>
 </section>
 
 <section class="section section-parchment" id="pricing">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker">The Investment</span>
-      <h2 class="t-headline">Choose your circle.</h2>
-      <p class="t-lead">Membership is capped and reviewed by application, to protect the integrity of the circle.</p>
+      <span class="kicker">Enroll</span>
+      <h2 class="t-headline">Join the founding cohort.</h2>
+      <p class="t-lead">One offer. A small group. Locked-in founding rate.</p>
     </div>
 
-    <div class="compare reveal">
-      <div class="compare-head">
-        <div></div>
-        <div><div class="tier">Circle</div><div class="price">$245<span>/mo</span></div></div>
-        <div><span class="featured-tag">Most Selected</span><div class="tier">Full Study</div><div class="price">$425<span>/mo</span></div></div>
-        <div><div class="tier">Inner Circle</div><div class="price">$850<span>/mo</span></div></div>
-      </div>
-      <div class="compare-row"><div>Monthly 90-minute session</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
-      <div class="compare-row"><div>Six-month curriculum</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
-      <div class="compare-row"><div>Dream journal template</div><div class="yes">✓</div><div class="yes">✓</div><div class="yes">✓</div></div>
-      <div class="compare-row"><div>Primary-text reading guides</div><div class="no">—</div><div class="yes">✓</div><div class="yes">✓</div></div>
-      <div class="compare-row"><div>Written facilitator notes</div><div class="no">—</div><div class="yes">✓</div><div class="yes">✓</div></div>
-      <div class="compare-row"><div>Cohort size</div><div>12</div><div>12</div><div>6</div></div>
-      <div class="compare-row"><div>Quarterly individual session</div><div class="no">—</div><div class="no">—</div><div class="yes">✓</div></div>
-      <div class="compare-cta">
-        <div></div>
-        <div><a href="#apply">Apply</a></div>
-        <div><a href="#apply">Apply</a></div>
-        <div><a href="#apply">Apply</a></div>
-      </div>
+    <div class="single-price reveal">
+      <span class="single-price-tag">Limited Seats</span>
+      <div class="single-price-title">Founding Cohort</div>
+      <div class="single-price-amount">$295</div>
+      <p class="single-price-detail">One-time &middot; future cohorts $395</p>
+      <ul class="single-price-features">
+        <li>4 live weekly sessions</li>
+        <li>Small group, capped</li>
+        <li>Lifetime access to recordings</li>
+        <li>Founding rate, locked in</li>
+      </ul>
+      <a href="#apply" class="btn-gold" style="width:100%; text-align:center; display:block;">Join the Founding Cohort</a>
     </div>
-    <p class="reveal" style="text-align:center; margin-top:28px; font-size:12.5px; color:var(--muted); max-width:60ch; margin-left:auto; margin-right:auto;">All memberships billed monthly. Annual billing available at application, with a 15% saving.</p>
   </div>
 </section>
 
@@ -437,12 +443,12 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
       <h2 class="t-headline">What to expect.</h2>
     </div>
     <div class="faq reveal">
-      <details><summary>What if I don't remember my dreams?<span class="chev">+</span></summary><p>Recall is a skill that develops with the practice, not a prerequisite for it. The curriculum works just as well with a waking symbol or a decision you can't resolve rationally.</p></details>
-      <details><summary>Is this therapy or mental health treatment?<span class="chev">+</span></summary><p>No. This is an educational study group, not psychotherapy or medical care. It's not a substitute for licensed treatment.</p></details>
-      <details><summary>How is this different from a book club?<span class="chev">+</span></summary><p>A book club discusses the text. This applies it — live, structured facilitation on material a member brings, using amplification and active imagination.</p></details>
-      <details><summary>What's the group size and confidentiality?<span class="chev">+</span></summary><p>Cohorts are capped at twelve (six for the Inner Circle). Everyone agrees to hold what's shared as confidential.</p></details>
-      <details><summary>Do I need a background in Jung to join?<span class="chev">+</span></summary><p>No. The reading guides carry the terminology; you bring the material and the willingness to sit with it.</p></details>
-      <details><summary>What is the Demartini Method, and how does it fit with the Jungian work?<span class="chev">+</span></summary><p>The Demartini Method is a structured, ledger-based technique for locating and balancing opposites — it's the entry point each session uses to surface the material cleanly. From there, the work moves into Jungian active imagination, where a genuinely new third position is allowed to emerge, rather than a compromise between the two sides.</p></details>
+      <details><summary>Is this therapy?<span class="chev">+</span></summary><p>No. It's educational, not a substitute for treatment.</p></details>
+      <details><summary>Do I need experience with dreams or Jung?<span class="chev">+</span></summary><p>No. Just a willingness to look.</p></details>
+      <details><summary>What if I miss a session?<span class="chev">+</span></summary><p>Every session is recorded. You won't fall behind.</p></details>
+      <details><summary>Is this right for me if I'm going through a hard time?<span class="chev">+</span></summary><p>If you're in crisis, please reach out to a licensed professional first. This group is for steady, curious adults ready to do the work.</p></details>
+      <details><summary>What's the group size?<span class="chev">+</span></summary><p>Small and capped, on purpose.</p></details>
+      <details><summary>How does the Demartini Method fit with dream work?<span class="chev">+</span></summary><p>The Demartini Method balances what charges you. Dream work shows you where it comes from. Used together, live, each session.</p></details>
     </div>
   </div>
 </section>
@@ -451,51 +457,34 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
   <svg class="hero-sigil" viewBox="0 0 400 400" style="opacity:.05;"><circle cx="200" cy="200" r="180" fill="none" stroke="#e6c250" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#e6c250" stroke-width="1"/><circle cx="200" cy="200" r="46" fill="none" stroke="#e6c250" stroke-width="1"/></svg>
   <div class="wrap" style="position:relative; z-index:1;">
     <div class="ornament on-dark"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#e6c250"/><circle cx="12" cy="12" r="3" fill="#e6c250"/></svg><span class="ln r"></span></div>
-    <h2>The circle convenes soon.</h2>
-    <p>A small number of seats open each cohort. Applications are reviewed individually to confirm fit.</p>
-    <a href="#apply" class="btn-gold">Request an Invitation</a>
+    <h2>Seats are limited.</h2>
+    <p>Join the founding cohort now.</p>
+    <a href="#apply" class="btn-gold">Join the Founding Cohort</a>
   </div>
 </section>
 
 <section class="apply-section" id="apply">
   <div class="wrap">
     <div class="center reveal" style="margin-bottom:40px;">
-      <span class="kicker">Apply</span>
-      <h2 class="t-headline">Request an invitation.</h2>
+      <span class="kicker">Enroll</span>
+      <h2 class="t-headline">Reserve your seat.</h2>
     </div>
     <form class="form-card reveal" action="https://formspree.io/f/xaqdebvj" method="POST">
       <div class="f-grid">
         <div class="f-group"><label for="a-name">Your Name *</label><input id="a-name" name="name" type="text" required placeholder="First and Last Name"></div>
         <div class="f-group"><label for="a-email">Email Address *</label><input id="a-email" name="email" type="email" required placeholder="you@email.com"></div>
       </div>
-      <div class="f-grid">
-        <div class="f-group"><label for="a-tier">Circle of Interest *</label>
-          <select id="a-tier" name="membership" required>
-            <option value="">Select…</option>
-            <option>Circle</option>
-            <option>Full Study</option>
-            <option>Inner Circle</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="f-group"><label for="a-back">Familiarity with Jung's Work *</label>
-          <select id="a-back" name="background" required>
-            <option value="">Select…</option>
-            <option>New to this material</option>
-            <option>Some prior reading</option>
-            <option>Long-time student</option>
-            <option>Clinician / practitioner</option>
-          </select>
-        </div>
+      <div class="f-group" style="margin-bottom:18px;">
+        <label for="a-what">What's bringing you here? *</label>
+        <input id="a-what" name="what_draws_you" type="text" required placeholder="A person, a dream, a decision — one line.">
       </div>
-      <div class="f-group" style="margin-bottom:22px;">
-        <label for="a-what">What draws you to this study? *</label>
-        <span class="f-note">A recurring dream, a symbol, a question, or simply an interest in the tradition.</span>
-        <textarea id="a-what" name="what_draws_you" rows="4" required placeholder="Tell us a little about what's bringing you here."></textarea>
+      <div class="f-group" style="margin-bottom:22px; display:flex; align-items:flex-start; gap:10px;">
+        <input id="a-ready" name="readiness_confirmed" type="checkbox" required style="width:auto; margin-top:4px;">
+        <label for="a-ready" style="text-transform:none; font-weight:400; font-size:13px; color:var(--muted); letter-spacing:0;">I'm not currently in crisis, and I understand this is an educational group, not therapy.</label>
       </div>
-      <button type="submit" class="f-submit">Send Your Application</button>
+      <button type="submit" class="f-submit">Join the Founding Cohort</button>
       <p class="f-fine">* Required fields. We reply within a few days.</p>
-      <input type="hidden" name="form_type" value="The Ordered Field — Lapis Edition — Application">
+      <input type="hidden" name="form_type" value="The Ordered Field — Founding Cohort — Enrollment">
     </form>
   </div>
 </section>
