@@ -20,7 +20,8 @@
   --bg-light:#e2d3a8;
   --bg-light2:#d5c28e;
   --ink:#20242f;
-  --muted:#5b5f70;
+  --muted:#3d3f4f;
+  --bronze:#6b4d10;
   --line-gold:rgba(201,162,39,.35);
   --line-navy:rgba(21,36,89,.14);
 }
@@ -105,8 +106,8 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .section-parchment2{background:var(--bg-light2);}
 .section-navy{background:var(--lapis-deep); color:var(--parchment);}
 .center{text-align:center;}
-.kicker{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:block;}
-.section-navy .kicker{color:var(--gold-bright);}
+.kicker{font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--bronze); margin-bottom:14px; display:block;}
+.section-navy .kicker{color:var(--gold-bright); font-weight:500;}
 .t-headline{font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:800; letter-spacing:-.02em; line-height:1.1;}
 .section-navy .t-headline{color:var(--parchment);}
 .t-lead{font-family:'Montserrat',sans-serif; font-weight:300; font-size:clamp(1rem,1.5vw,1.15rem); color:var(--muted); max-width:52ch; margin:18px auto 0; line-height:1.65;}
@@ -114,7 +115,7 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 
 /* statement */
 .statement{font-family:'Montserrat',sans-serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:700; letter-spacing:-.01em; line-height:1.25; max-width:24ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
-.statement .accent{color:var(--gold); font-style:normal; font-weight:700;}
+.statement .accent{color:var(--bronze); font-style:normal; font-weight:700;}
 
 /* method badges */
 .method-row{display:flex; justify-content:center; flex-wrap:wrap; gap:1px; background:var(--line-gold); border:1px solid var(--gold); border-radius:6px; overflow:hidden; margin-top:46px; max-width:920px; margin-left:auto; margin-right:auto;}
@@ -141,7 +142,7 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .spec-list{max-width:780px; margin:56px auto 0; list-style:none; border:1px solid var(--gold); border-radius:6px; padding:6px 34px; background:var(--bg-light);}
 .spec-list li{display:grid; grid-template-columns:64px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--line-gold);}
 .spec-list li:first-child{border-top:none;}
-.spec-num{font-family:'Montserrat',sans-serif; font-size:26px; color:var(--gold); padding-top:2px;}
+.spec-num{font-family:'Montserrat',sans-serif; font-size:26px; font-weight:700; color:var(--bronze); padding-top:2px;}
 .spec-list h4{font-family:'Montserrat',sans-serif; font-size:20px; font-weight:600; letter-spacing:0; margin-bottom:6px; color:var(--lapis-deep);}
 .spec-list p{font-size:14.5px; color:var(--muted); line-height:1.6; max-width:54ch;}
 
@@ -160,6 +161,7 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .quote-card .who{font-size:12.5px; font-weight:600; color:var(--gold-bright); letter-spacing:.03em; text-transform:uppercase;}
 .quote-card .role{font-size:11.5px; color:rgba(244,236,218,.5);}
 .quote-note{text-align:center; font-size:12px; color:var(--muted); max-width:62ch; margin:34px auto 0; line-height:1.6;}
+.section-navy .quote-note{color:rgba(244,236,218,.65);}
 
 /* investment / pricing */
 .compare{max-width:980px; margin:56px auto 0; border-radius:6px; overflow:hidden; border:1.5px solid var(--gold); background:var(--lapis-deep);}
@@ -284,8 +286,8 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
   <svg class="hero-sigil" viewBox="0 0 400 400"><circle cx="200" cy="200" r="180" fill="none" stroke="#e6c250" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#e6c250" stroke-width="1"/><path d="M200 20 L200 380 M20 200 L380 200" stroke="#e6c250" stroke-width=".6"/><path d="M75 75 L325 325 M325 75 L75 325" stroke="#e6c250" stroke-width=".6"/><circle cx="200" cy="200" r="46" fill="none" stroke="#e6c250" stroke-width="1"/></svg>
   <div class="wrap hero-inner">
     <div class="hero-eyebrow">Online Masterclass &middot; The Ordered Field</div>
-    <h1>Master your conscious mind.<br>Master what's <span class="g">unconscious</span> too.</h1>
-    <p class="sub">A proven method, paired with dream exploration, for working with the part of you that runs the show — not against it.</p>
+    <h1>Your conscious mind and your<br>unconscious mind were never<br>meant to work <span class="g">alone.</span></h1>
+    <p class="sub">A proven method, paired with dream exploration, for finally introducing your conscious and unconscious mind — so they can stop leaving each other cryptic notes at 3 a.m. and just work as one.</p>
     <p class="cred">Featuring Sam Osborne — Trained Demartini Method Facilitator.</p>
     <p class="cred" style="margin-top:4px; margin-bottom:36px;">(No incense. No chanting. Bring a notebook.)</p>
     <div class="hero-actions">
@@ -309,7 +311,7 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
   <div class="wrap reveal">
     <div class="ornament"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#c9a227" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#c9a227"/></svg><span class="ln r"></span></div>
     <span class="kicker" style="display:block; text-align:center;">The Bottom Line</span>
-    <p class="statement">The person who won't leave your head and the dream that won't stop repeating are doing <span class="accent">the same job.</span></p>
+    <p class="statement">Wholeness isn't found by fixing what's broken. It's found by finally <span class="accent">coming home</span> to the part of you that got left out.</p>
     <p style="text-align:center; margin-top:18px; font-size:13px; font-weight:600; color:var(--muted); letter-spacing:.02em;">— Sam Osborne</p>
   </div>
 </section>
@@ -319,12 +321,12 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
     <div class="center reveal">
       <span class="kicker">The Method</span>
       <h2 class="t-headline">Work with both minds at once.</h2>
-      <p class="t-lead">The Demartini Method and dream exploration to master what you're conscious of and to access what you're not. Facilitated live by <strong style="color:var(--gold-bright);">Sam Osborne</strong>, trained Demartini Method Facilitator.</p>
-      <p class="t-lead" style="font-size:14px; margin-top:14px; color:rgba(244,236,218,.62);">Basically: debugging for the parts of you that didn't come with a manual.</p>
+      <p class="t-lead">The Demartini Method and dream exploration, so the conscious and unconscious mind stop competing for the wheel and start driving somewhere together. Facilitated live by <strong style="color:var(--gold-bright);">Sam Osborne</strong>, trained Demartini Method Facilitator.</p>
+      <p class="t-lead" style="font-size:14px; margin-top:14px; color:rgba(244,236,218,.62);">Basically: an introduction between two halves of you that have never actually met.</p>
     </div>
     <div class="method-row reveal">
-      <div class="method-badge"><b>Demartini Method</b><span>Master the conscious</span></div>
-      <div class="method-badge"><b>Dream Exploration</b><span>Access the unconscious</span></div>
+      <div class="method-badge"><b>Demartini Method</b><span>Meet the conscious</span></div>
+      <div class="method-badge"><b>Dream Exploration</b><span>Meet the unconscious</span></div>
       <div class="method-badge"><b>Live Facilitation</b><span>Trained &amp; certified</span></div>
     </div>
   </div>
@@ -335,36 +337,36 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
     <div class="center reveal">
       <span class="kicker">Why This Exists</span>
       <h2 class="t-headline">Your unconscious isn't noise.</h2>
-      <p class="t-lead">It's data — if you know how to read it.</p>
-      <p class="t-lead" style="font-size:14px; margin-top:6px; color:var(--muted);">It's been sending reports for years, in your dreams and in the people who get under your skin. Nobody read them.</p>
+      <p class="t-lead">It's the other half of you — if you know how to bring it into the room.</p>
+      <p class="t-lead" style="font-size:14px; margin-top:6px; color:var(--muted);">It's been sending reports for years, in your dreams and in the people who get under your skin. Nobody ever introduced you.</p>
     </div>
 
     <div class="feature-row reveal">
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4.5"/></svg></div>
         <h3>Your dreams, decoded.</h3>
-        <p>Bring a real dream. Leave with what it's telling you.</p>
+        <p>Bring a real dream. Leave knowing what part of you sent it.</p>
         <p style="font-size:13px; margin-top:6px; color:var(--muted);">Yes, even the one with the teeth falling out.</p>
       </div>
-      <div class="feature-visual fv1"></div>
+      <div class="feature-visual fv1"><img src="images/decode1.png" alt="Your dreams, decoded" style="width:100%;height:100%;object-fit:cover;"></div>
     </div>
     <div class="feature-row rev reveal">
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
-        <h3>The charge, balanced.</h3>
-        <p>The person who gets under your skin has something to teach you.</p>
+        <h3>The stranger, welcomed.</h3>
+        <p>The person who gets under your skin is showing you a piece of yourself you haven't met yet.</p>
         <p style="font-size:13px; margin-top:6px; color:var(--muted);">Annoyingly. But still.</p>
       </div>
-      <div class="feature-visual fv2"></div>
+      <div class="feature-visual fv2"><img src="images/decode2.png" alt="The stranger, welcomed" style="width:100%;height:100%;object-fit:cover;"></div>
     </div>
     <div class="feature-row reveal">
+      <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
       <div class="feature-copy">
-        <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
         <h3>Four weeks. Live.</h3>
-        <p>One session a week. Small group. Real work.</p>
+        <p>One session a week. Small group. Real work, done together.</p>
         <p style="font-size:13px; margin-top:6px; color:var(--muted);">No app. No streak to break.</p>
       </div>
-      <div class="feature-visual fv3"></div>
+      <div class="feature-visual fv3"><img src="images/decode3.png" alt="Four weeks, live" style="width:100%;height:100%;object-fit:cover;"></div>
     </div>
   </div>
 </section>
@@ -378,9 +380,9 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
     </div>
     <ol class="spec-list reveal">
       <li><span class="spec-num">I</span><div><h4>Read the Dream</h4><p>Turn "what does this mean" into a method. <span style="color:var(--muted);">No dream dictionary required.</span></p></div></li>
-      <li><span class="spec-num">II</span><div><h4>Find the Opposite</h4><p>Locate what's really charging you. <span style="color:var(--muted);">Spoiler: it's rarely who you think.</span></p></div></li>
-      <li><span class="spec-num">III</span><div><h4>Sit With It</h4><p>Hold the tension until something shifts. <span style="color:var(--muted);">This is the uncomfortable part. Stay anyway.</span></p></div></li>
-      <li><span class="spec-num">IV</span><div><h4>The Third Way</h4><p>Find the option neither side could see alone. <span style="color:var(--muted);">This is the part that makes it worth it.</span></p></div></li>
+      <li><span class="spec-num">II</span><div><h4>Find the Opposite</h4><p>Locate the disowned half doing the charging. <span style="color:var(--muted);">Spoiler: it's rarely who you think.</span></p></div></li>
+      <li><span class="spec-num">III</span><div><h4>Sit With It</h4><p>Hold the tension until the two sides recognize each other. <span style="color:var(--muted);">This is the uncomfortable part. Stay anyway.</span></p></div></li>
+      <li><span class="spec-num">IV</span><div><h4>Come Home</h4><p>Let conscious and unconscious settle into one working whole. <span style="color:var(--muted);">No more separate group chats.</span></p></div></li>
     </ol>
   </div>
 </section>
@@ -433,7 +435,7 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
     <div class="quote-row reveal">
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">I'd optimized my career, my health, my finances. This was the one system I'd never debugged.</p>
+        <p class="q">I'd optimized my career, my health, my finances. This was the one place I'd never actually come home to myself.</p>
         <div class="who">Past Participant</div>
         <div class="role">Software Engineer</div>
       </div>
@@ -445,7 +447,7 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
       </div>
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">I've read every book on this. This is the first time I actually did the work.</p>
+        <p class="q">I've read every book on this. This is the first time I actually felt whole instead of managed.</p>
         <div class="who">Past Participant</div>
         <div class="role">Data Scientist</div>
       </div>
@@ -501,7 +503,7 @@ footer{background:var(--lapis-deep); color:rgba(244,236,218,.55); padding:44px 0
       <details><summary>What if I miss a session?<span class="chev">+</span></summary><p>Every session is recorded. You won't fall behind.</p></details>
       <details><summary>Is this right for me if I'm going through a hard time?<span class="chev">+</span></summary><p>If you're in crisis, please reach out to a licensed professional first. This group is for steady, curious adults ready to do the work.</p></details>
       <details><summary>What's the group size?<span class="chev">+</span></summary><p>Small and capped, on purpose.</p></details>
-      <details><summary>How does the Demartini Method fit with dream exploration?<span class="chev">+</span></summary><p>The Demartini Method works on the conscious side — balancing what charges you while you're awake and aware of it. Dream exploration works on the unconscious side — showing you where it comes from before you're consciously aware of it. Used together, live, each session.</p></details>
+      <details><summary>How does the Demartini Method fit with dream exploration?<span class="chev">+</span></summary><p>The Demartini Method works with the conscious side — balancing what charges you while you're awake and aware of it. Dream exploration works with the unconscious side — showing you where it comes from before you're consciously aware of it. Together, live, each session, they stop working against each other and start working as one. Think of it as finally getting your two minds on the same group project.</p></details>
     </div>
   </div>
 </section>
