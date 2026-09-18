@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --lapis:#4b5875;        /* medium slate blue */
-  --lapis-deep:#313b4e;   /* dark slate */
-  --lapis-mid:#5e6f92;
+  --lapis:#20263a;        /* deep slate */
+  --lapis-deep:#181d27;   /* near-black slate */
+  --lapis-mid:#2a3348;
   --gold:#a85a35;
   --gold-bright:#ffd8a8;
   --parchment:#f5f3ee;
@@ -22,8 +22,10 @@
   --ink:#20242f;
   --muted:#3d3f4f;
   --bronze:#954826;
+  --cta:#ff6b35;
+  --cta-deep:#e8501c;
   --line-gold:rgba(168,90,53,.35);
-  --line-navy:rgba(75,88,117,.14);
+  --line-navy:rgba(32,38,58,.14);
 }
 *,*::before,*::after{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
@@ -76,12 +78,12 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .hero-sigil{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:820px; height:820px; opacity:.07; pointer-events:none;}
 .hero-inner{position:relative; z-index:1;}
 .hero-eyebrow{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:22px;}
-.hero h1{font-family:'Montserrat',sans-serif; font-weight:500; font-size:clamp(2.6rem,6.5vw,5rem); color:var(--parchment); max-width:15ch; margin:0 auto 26px; line-height:1.1; letter-spacing:-.02em;}
+.hero h1{font-family:'Montserrat',sans-serif; font-weight:500; font-size:clamp(1.95rem,4.9vw,3.75rem); color:var(--parchment); max-width:26ch; margin:0 auto 26px; line-height:1.15; letter-spacing:-.02em;}
 .hero h1 .g{color:var(--gold-bright); font-style:normal;}
 .hero p.sub{font-family:'Montserrat',sans-serif; font-weight:300; font-size:clamp(1.05rem,1.7vw,1.25rem); color:rgba(245,243,238,.78); max-width:46ch; margin:0 auto 14px; line-height:1.6;}
 .hero p.cred{font-size:13px; font-weight:400; color:rgba(255,216,168,.8); max-width:54ch; margin:0 auto 36px; letter-spacing:.01em;}
 .hero-actions{display:flex; justify-content:center; gap:22px; align-items:center; margin-bottom:60px; flex-wrap:wrap;}
-.btn-gold{display:inline-block; background:linear-gradient(180deg, var(--gold-bright), var(--gold)); color:var(--lapis-deep); padding:15px 34px; border-radius:2px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:transform .2s ease, box-shadow .2s ease; box-shadow:0 10px 30px rgba(168,90,53,.25);}
+.btn-gold{display:inline-block; background:linear-gradient(180deg, var(--cta), var(--cta-deep)); color:#fff; padding:15px 34px; border-radius:2px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:transform .2s ease, box-shadow .2s ease; box-shadow:0 10px 30px rgba(232,80,28,.35);}
 .btn-gold:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(168,90,53,.36);}
 .btn-ghost{border:1px solid rgba(245,243,238,.35); color:var(--parchment); padding:14px 26px; border-radius:2px; font-size:13px; letter-spacing:.08em; text-transform:uppercase;}
 .btn-ghost:hover{border-color:var(--gold-bright); color:var(--gold-bright);}
@@ -195,16 +197,16 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .single-price{max-width:440px; margin:52px auto 0; background:var(--lapis-deep); border:2px solid var(--gold); border-radius:8px; padding:48px 40px; text-align:center; position:relative;}
 .single-price-tag{display:inline-block; border:1px solid var(--gold); color:var(--gold-bright); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px;}
 .single-price-title{font-family:'Montserrat',sans-serif; font-size:24px; font-weight:500; color:var(--parchment); margin-bottom:12px;}
-.single-price-amount{font-family:'Montserrat',sans-serif; font-size:56px; font-weight:600; color:var(--gold-bright); line-height:1; letter-spacing:-.02em;}
+.single-price-amount{font-family:'Montserrat',sans-serif; font-size:56px; font-weight:600; color:var(--cta); line-height:1; letter-spacing:-.02em;}
 .single-price-detail{font-size:13px; color:rgba(245,243,238,.55); margin:12px 0 30px;}
 .single-price-features{list-style:none; text-align:left; margin-bottom:32px;}
 .single-price-features li{font-size:15px; font-weight:500; color:rgba(245,243,238,.9); padding-left:26px; position:relative; margin-bottom:14px;}
-.single-price-features li::before{content:"✓"; position:absolute; left:0; color:var(--gold-bright); font-weight:700;}
+.single-price-features li::before{content:"✓"; position:absolute; left:0; color:var(--cta); font-weight:700;}
 
 /* countdown */
 .countdown-box{border:1px solid var(--line-gold); border-radius:6px; padding:16px; margin:22px 0 28px; background:rgba(168,90,53,.06);}
 .countdown-label{display:block; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:rgba(245,243,238,.5); margin-bottom:8px;}
-.countdown-digits{font-family:'Montserrat',sans-serif; font-size:26px; font-weight:600; color:var(--gold-bright); letter-spacing:.02em; font-variant-numeric:tabular-nums;}
+.countdown-digits{font-family:'Montserrat',sans-serif; font-size:26px; font-weight:600; color:var(--cta); letter-spacing:.02em; font-variant-numeric:tabular-nums;}
 
 /* sticky conversion bar */
 .sticky-bar{position:fixed; left:0; right:0; bottom:0; z-index:800; background:var(--lapis-deep); border-top:1px solid var(--gold); padding:14px 24px; display:flex; align-items:center; justify-content:center; gap:24px; transform:translateY(100%); transition:transform .3s ease; box-shadow:0 -8px 30px rgba(0,0,0,.3);}
@@ -238,9 +240,9 @@ nav{position:sticky; top:0; z-index:900; background:var(--lapis-deep); border-bo
 .f-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
 .f-group label{display:block; font-size:12.5px; font-weight:600; letter-spacing:.02em; margin-bottom:7px; color:var(--lapis-deep); text-transform:uppercase;}
 .f-note{display:block; font-size:11.5px; color:var(--muted); margin:-3px 0 8px; font-weight:300;}
-.f-group input, .f-group select, .f-group textarea{width:100%; padding:12px 14px; border:1px solid rgba(75,88,117,.18); border-radius:3px; background:#fff; font-family:'Montserrat',sans-serif; font-size:14px; color:var(--ink);}
+.f-group input, .f-group select, .f-group textarea{width:100%; padding:12px 14px; border:1px solid rgba(32,38,58,.18); border-radius:3px; background:#fff; font-family:'Montserrat',sans-serif; font-size:14px; color:var(--ink);}
 .f-group input:focus, .f-group select:focus, .f-group textarea:focus{outline:none; border-color:var(--gold);}
-.f-submit{width:100%; background:linear-gradient(180deg, var(--gold-bright), var(--gold)); color:var(--lapis-deep); border:none; padding:15px; border-radius:3px; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; margin-bottom:12px;}
+.f-submit{width:100%; background:linear-gradient(180deg, var(--cta), var(--cta-deep)); color:#fff; border:none; padding:15px; border-radius:3px; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; margin-bottom:12px;}
 .f-submit:hover{opacity:.9;}
 .f-fine{text-align:center; font-size:12px; color:var(--muted);}
 
@@ -286,7 +288,7 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
   <svg class="hero-sigil" viewBox="0 0 400 400"><circle cx="200" cy="200" r="180" fill="none" stroke="#ffd8a8" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#ffd8a8" stroke-width="1"/><path d="M200 20 L200 380 M20 200 L380 200" stroke="#ffd8a8" stroke-width=".6"/><path d="M75 75 L325 325 M325 75 L75 325" stroke="#ffd8a8" stroke-width=".6"/><circle cx="200" cy="200" r="46" fill="none" stroke="#ffd8a8" stroke-width="1"/></svg>
   <div class="wrap hero-inner">
     <div class="hero-eyebrow">Online Masterclass &middot; The Ordered Field</div>
-    <h1>Your conscious mind and your<br>unconscious mind were never<br>meant to work <span class="g">alone.</span></h1>
+    <h1>Your conscious mind and your unconscious mind were never meant to work <span class="g">alone.</span></h1>
     <p class="sub">A proven method, paired with dream exploration, for finally introducing your conscious and unconscious mind — so they can stop leaving each other cryptic notes at 3 a.m. and just work as one.</p>
     <p class="cred">Featuring Sam Osborne — Trained Demartini Method Facilitator.</p>
     <p class="cred" style="margin-top:4px; margin-bottom:36px;">(No incense. No chanting. Bring a notebook.)</p>
@@ -348,7 +350,26 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
         <p>Bring a real dream. Leave knowing what part of you sent it.</p>
         <p style="font-size:13px; margin-top:6px; color:var(--muted);">Yes, even the one with the teeth falling out.</p>
       </div>
-      <div class="feature-visual fv1"><img src="images/decode1.png" alt="Your dreams, decoded" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="feature-visual fv1">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <rect width="400" height="300" fill="#181d27"/>
+          <g transform="translate(200,150)">
+            <circle r="95" fill="none" stroke="#ffd8a8" stroke-width="1" opacity="0.35"/>
+            <circle r="72" fill="none" stroke="#ffd8a8" stroke-width="1" opacity="0.5"/>
+            <circle r="48" fill="none" stroke="#ffd8a8" stroke-width="1.2" opacity="0.65"/>
+            <circle r="24" fill="none" stroke="#ffd8a8" stroke-width="1.4" opacity="0.8"/>
+            <circle r="6" fill="#ff6b35"/>
+            <circle cx="72" cy="0" r="4.5" fill="#ffd8a8"/>
+            <circle cx="50.9" cy="50.9" r="4.5" fill="#ffd8a8"/>
+            <circle cx="0" cy="72" r="4.5" fill="#ffd8a8"/>
+            <circle cx="-50.9" cy="50.9" r="4.5" fill="#ffd8a8"/>
+            <circle cx="-72" cy="0" r="4.5" fill="#ffd8a8"/>
+            <circle cx="-50.9" cy="-50.9" r="4.5" fill="#ffd8a8"/>
+            <circle cx="0" cy="-72" r="4.5" fill="#ffd8a8"/>
+            <circle cx="50.9" cy="-50.9" r="4.5" fill="#ffd8a8"/>
+          </g>
+        </svg>
+      </div>
     </div>
     <div class="feature-row rev reveal">
       <div class="feature-copy">
@@ -357,7 +378,18 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
         <p>The person who gets under your skin is showing you a piece of yourself you haven't met yet.</p>
         <p style="font-size:13px; margin-top:6px; color:var(--muted);">Annoyingly. But still.</p>
       </div>
-      <div class="feature-visual fv2"><img src="images/decode2.png" alt="The stranger, welcomed" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="feature-visual fv2">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <rect width="400" height="300" fill="#2a3348"/>
+          <g transform="translate(200,148)">
+            <path d="M-24 -68 Q0 -98 24 -68" fill="none" stroke="#ffd8a8" stroke-width="3" stroke-linecap="round"/>
+            <circle r="42" fill="none" stroke="#ffd8a8" stroke-width="3"/>
+            <circle r="6" fill="#ff6b35"/>
+            <line x1="0" y1="42" x2="0" y2="92" stroke="#ffd8a8" stroke-width="3" stroke-linecap="round"/>
+            <line x1="-24" y1="67" x2="24" y2="67" stroke="#ffd8a8" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
     </div>
     <div class="feature-row reveal">
       <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
@@ -366,7 +398,33 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
         <p>One session a week. Small group. Real work, done together.</p>
         <p style="font-size:13px; margin-top:6px; color:var(--muted);">No app. No streak to break.</p>
       </div>
-      <div class="feature-visual fv3"><img src="images/decode3.png" alt="Four weeks, live" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="feature-visual fv3">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <rect width="400" height="300" fill="#181d27"/>
+          <g transform="translate(200,150)" stroke="#ffd8a8" stroke-width="1.6" opacity="0.85">
+            <line x1="0" y1="-100" x2="0" y2="100" stroke-width="2"/>
+            <line x1="0" y1="-55" x2="-58" y2="-92" stroke-width="1.4"/>
+            <line x1="0" y1="-40" x2="-30" y2="-88" stroke-width="1.4"/>
+            <line x1="0" y1="-40" x2="30" y2="-88" stroke-width="1.4"/>
+            <line x1="0" y1="-55" x2="58" y2="-92" stroke-width="1.4"/>
+            <line x1="0" y1="55" x2="-58" y2="92" stroke-width="1.4"/>
+            <line x1="0" y1="40" x2="-30" y2="88" stroke-width="1.4"/>
+            <line x1="0" y1="40" x2="30" y2="88" stroke-width="1.4"/>
+            <line x1="0" y1="55" x2="58" y2="92" stroke-width="1.4"/>
+          </g>
+          <g transform="translate(200,150)" fill="#ffd8a8">
+            <circle cx="-58" cy="-92" r="3.5"/>
+            <circle cx="-30" cy="-88" r="3.5"/>
+            <circle cx="30" cy="-88" r="3.5"/>
+            <circle cx="58" cy="-92" r="3.5"/>
+            <circle cx="-58" cy="92" r="3"/>
+            <circle cx="-30" cy="88" r="3"/>
+            <circle cx="30" cy="88" r="3"/>
+            <circle cx="58" cy="92" r="3"/>
+          </g>
+          <circle cx="200" cy="150" r="9" fill="#ff6b35"/>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
