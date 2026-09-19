@@ -4,36 +4,36 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Ordered Field | Find the Hidden Order in What You've Called a Flaw — Sam Osborne</title>
-<meta name="description" content="A structured method for finding the hidden use in the part of yourself you've called weak, wrong, or wasted — the guilt, the imposter feeling, the pattern you keep repeating. Join Sam Osborne's founding study group."/>
+<meta name="description" content="The temper, the procrastination, the way you go quiet in an argument — it's not a flaw. It's costing you money, relationships, and peace of mind. This method finds out why, live, in a small group. Join Sam Osborne's founding study group."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --lapis:#242e4f;
-  --lapis-deep:#11151f;
-  --lapis-mid:#313d63;
+  --lapis:#1a1c26;
+  --lapis-deep:#0a0b10;
+  --lapis-mid:#22242f;
   --gold:#b5622f;
   --gold-bright:#ffd48a;
   --parchment:#f8f4e8;
   --parchment2:#f0ead9;
   --bg-light:#efe6d0;
   --bg-light2:#e6d9b8;
-  --ink:#1b2032;
-  --muted:#454860;
+  --ink:#14120d;
+  --muted:#5c5548;
   --bronze:#a1502a;
-  --cta:#ff6a2e;
-  --cta-deep:#d8430f;
-  --cta-glow:rgba(255,106,46,.55);
+  --cta:#e0b25a;
+  --cta-deep:#8a5a25;
+  --cta-glow:rgba(224,178,90,.55);
   --line-gold:rgba(181,98,47,.35);
-  --line-navy:rgba(32,38,58,.14);
+  --line-navy:rgba(20,22,30,.14);
 }
 /* Conversion color system: --gold / --gold-bright signal TRUST (credentials, quotes, credibility marks).
    --cta / --cta-deep signal ACTION and appear ONLY on clickable buy/enroll controls, never as decoration,
    so the eye learns one color means "go." */
 @keyframes cta-pulse{
-  0%,100%{box-shadow:0 8px 24px rgba(216,67,15,.4), 0 0 0 1px rgba(255,255,255,.08) inset, 0 0 0 0 var(--cta-glow);}
-  50%{box-shadow:0 8px 30px rgba(216,67,15,.5), 0 0 0 1px rgba(255,255,255,.08) inset, 0 0 0 10px rgba(255,106,46,0);}
+  0%,100%{box-shadow:0 8px 24px rgba(138,90,37,.4), 0 0 0 1px rgba(255,255,255,.08) inset, 0 0 0 0 var(--cta-glow);}
+  50%{box-shadow:0 8px 30px rgba(138,90,37,.5), 0 0 0 1px rgba(255,255,255,.08) inset, 0 0 0 10px rgba(224,178,90,0);}
 }
 *,*::before,*::after{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
@@ -42,7 +42,7 @@ body{
   background:var(--bg-light); color:var(--ink); -webkit-font-smoothing:antialiased;
 }
 p{text-wrap:pretty;}
-h1,h2,h3,h4{font-family:'Plus Jakarta Sans', sans-serif; font-weight:500; color:var(--lapis-deep); line-height:1.18; letter-spacing:-.01em;}
+h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:500; color:var(--lapis-deep); line-height:1.12; letter-spacing:-.01em;}
 a{color:inherit; text-decoration:none;}
 img{max-width:100%; display:block;}
 .wrap{max-width:1140px; margin:0 auto; padding:0 30px;}
@@ -54,7 +54,7 @@ img{max-width:100%; display:block;}
 .ornament.on-dark .ln{background:linear-gradient(90deg, transparent, var(--gold-bright));}
 .ornament.on-dark .ln.r{background:linear-gradient(90deg, var(--gold-bright), transparent);}
 
-nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,212,138,.12);}
+nav{position:sticky; top:0; z-index:900; background:rgba(10,11,16,.62); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,212,138,.12);}
 .nav-inner{max-width:1200px; margin:0 auto; padding:0 30px; height:74px; display:flex; align-items:center; justify-content:space-between;}
 .nav-logo{font-family:'Plus Jakarta Sans',sans-serif; font-size:23px; font-weight:500; color:var(--parchment); letter-spacing:.01em;}
 .nav-logo span{color:var(--gold-bright);}
@@ -75,9 +75,9 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 }
 
 .hero{background:
-  radial-gradient(circle at 15% 10%, rgba(255,106,46,.28), transparent 42%),
+  radial-gradient(circle at 15% 10%, rgba(224,178,90,.28), transparent 42%),
   radial-gradient(circle at 85% 20%, rgba(255,212,138,.20), transparent 45%),
-  radial-gradient(circle at 75% 85%, rgba(255,106,46,.16), transparent 50%),
+  radial-gradient(circle at 75% 85%, rgba(224,178,90,.16), transparent 50%),
   radial-gradient(circle at 10% 85%, rgba(255,212,138,.10), transparent 45%),
   linear-gradient(155deg, var(--lapis-deep) 0%, var(--lapis) 55%, var(--lapis-mid) 100%);
   color:var(--parchment); padding:88px 0 70px; text-align:center; position:relative; overflow:hidden;
@@ -86,16 +86,22 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 .hero-sigil{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:820px; height:820px; opacity:.07; pointer-events:none;}
 .hero-inner{position:relative; z-index:1;}
 .hero-eyebrow{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:22px;}
-.hero h1{font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; font-size:clamp(1.95rem,4.9vw,3.75rem); color:var(--parchment); max-width:26ch; margin:0 auto 26px; line-height:1.15; letter-spacing:-.02em;}
-.hero h1 .g{background:linear-gradient(135deg, var(--gold-bright), var(--cta)); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:normal;}
+.hero-audience{font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.05rem,1.6vw,1.25rem); font-weight:600; color:rgba(248,244,232,.92); max-width:34ch; margin:0 auto 26px; line-height:1.4;}
+.hero h1{font-family:'Fraunces', serif; font-weight:500; font-size:clamp(2rem,5vw,3.9rem); color:var(--parchment); max-width:24ch; margin:0 auto 26px; line-height:1.1; letter-spacing:-.015em;}
+.hero h1 .g{background:linear-gradient(100deg, var(--gold) 0%, #fff3d1 25%, var(--cta) 50%, var(--gold-bright) 75%, var(--gold) 100%); background-size:250% auto; -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic; animation:foil-shimmer 5s ease-in-out 1s 1 forwards;}
+@keyframes foil-shimmer{0%{background-position:0% 50%;} 100%{background-position:100% 50%;}}
+@media (prefers-reduced-motion: reduce){.hero h1 .g{animation:none; background-position:40% 50%;}}
+.hero-payoff{font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:clamp(1.5rem,2.6vw,2.1rem); background:linear-gradient(100deg, var(--gold-bright), #fff3d1 45%, var(--gold-bright)); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0 auto 22px; max-width:20ch;}
 .hero p.sub{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1.15rem,1.85vw,1.4rem); color:rgba(248,244,232,.78); max-width:50ch; margin:0 auto 14px; line-height:1.6;}
 .hero p.cred{font-size:14.5px; font-weight:400; color:rgba(255,212,138,.8); max-width:54ch; margin:0 auto 36px; letter-spacing:.01em;}
 .hero-actions{display:flex; justify-content:center; gap:22px; align-items:center; margin-bottom:60px; flex-wrap:wrap;}
-.btn-gold{display:inline-block; background:linear-gradient(135deg, #ff8f52, var(--cta) 45%, var(--cta-deep)); color:#fff; padding:16px 36px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:transform .25s ease, box-shadow .25s ease; box-shadow:0 8px 24px rgba(216,67,15,.4), 0 0 0 1px rgba(255,255,255,.08) inset;}
-.btn-gold:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(216,67,15,.5);}
+.btn-gold{display:inline-block; position:relative; overflow:hidden; background:linear-gradient(135deg, #fff3d1 0%, var(--cta) 45%, var(--cta-deep) 100%); color:var(--ink); padding:16px 38px; border-radius:6px; font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; transition:transform .25s ease, box-shadow .25s ease; box-shadow:0 10px 30px rgba(138,90,37,.45), 0 0 0 1px rgba(255,243,209,.5) inset;}
+.btn-gold::after{content:""; position:absolute; top:0; left:-60%; width:35%; height:100%; background:linear-gradient(120deg, transparent, rgba(255,255,255,.65), transparent); transform:skewX(-20deg); transition:left .65s ease;}
+.btn-gold:hover::after{left:130%;}
+.btn-gold:hover{transform:translateY(-2px); box-shadow:0 16px 40px rgba(138,90,37,.55);}
 .btn-gold.is-primary{animation:cta-pulse 3.2s ease-in-out 1.5s 2;}
-@media (prefers-reduced-motion: reduce){.btn-gold.is-primary{animation:none;}}
-.btn-ghost{border:1px solid rgba(248,244,232,.28); background:rgba(255,255,255,.05); backdrop-filter:blur(8px); color:var(--parchment); padding:14px 28px; border-radius:999px; font-size:13px; letter-spacing:.08em; text-transform:uppercase; transition:background .2s ease, border-color .2s ease;}
+@media (prefers-reduced-motion: reduce){.btn-gold.is-primary{animation:none;} .btn-gold::after{display:none;}}
+.btn-ghost{border:1px solid rgba(248,244,232,.28); background:rgba(255,255,255,.05); backdrop-filter:blur(8px); color:var(--parchment); padding:14px 28px; border-radius:6px; font-size:13px; letter-spacing:.08em; text-transform:uppercase; transition:background .2s ease, border-color .2s ease;}
 .btn-ghost:hover{border-color:var(--gold-bright); color:var(--gold-bright);}
 
 .video-frame{max-width:960px; margin:0 auto; border-radius:28px; overflow:hidden; position:relative; aspect-ratio:16/9; background:
@@ -116,21 +122,35 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 .section-parchment2{background:var(--bg-light2);}
 .section-navy{background:var(--lapis-deep); color:var(--parchment);}
 .center{text-align:center;}
-.kicker{font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--bronze); margin-bottom:14px; display:block;}
-.section-navy .kicker{color:var(--gold-bright); font-weight:500;}
+.kicker{font-family:'Fraunces', serif; font-style:italic; font-size:17px; font-weight:500; letter-spacing:0; text-transform:none; background:linear-gradient(120deg, var(--gold), var(--bronze) 60%, var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; display:block;}
+.section-navy .kicker{background:linear-gradient(120deg, var(--gold-bright), #fff3d1 50%, var(--gold-bright)); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:500;}
 .t-headline{font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:500; letter-spacing:-.02em; line-height:1.1;}
 .section-navy .t-headline{color:var(--parchment);}
 .t-lead{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1.08rem,1.6vw,1.22rem); color:var(--muted); max-width:56ch; margin:18px auto 0; line-height:1.65;}
 .section-navy .t-lead{color:rgba(248,244,232,.72);}
 
-.statement{font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:400; letter-spacing:-.01em; line-height:1.25; max-width:26ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
-.statement .accent{color:var(--bronze); font-style:normal; font-weight:500;}
+.statement{font-family:'Fraunces', serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:400; letter-spacing:-.01em; line-height:1.25; max-width:26ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
+.statement .accent{background:linear-gradient(100deg, var(--bronze), var(--gold) 50%, var(--bronze)); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:italic; font-weight:500;}
 
 .method-row{display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin-top:46px; max-width:960px; margin-left:auto; margin-right:auto;}
 .method-badge{flex:1; min-width:220px; background:rgba(255,255,255,.045); backdrop-filter:blur(10px); border:1px solid rgba(255,212,138,.14); border-radius:22px; padding:28px 24px; text-align:center; transition:transform .25s ease, background .25s ease;}
 .method-badge:hover{transform:translateY(-4px); background:rgba(255,255,255,.08);}
 .method-badge b{display:block; font-family:'Plus Jakarta Sans',sans-serif; font-size:19px; font-weight:500; color:var(--gold-bright); margin-bottom:6px;}
 .method-badge span{font-size:12.5px; color:rgba(248,244,232,.6); letter-spacing:.01em;}
+
+.chain{max-width:900px; margin:52px auto 0; display:flex; flex-direction:column;}
+.chain-link{background:rgba(255,255,255,.55); border:1px solid rgba(181,98,47,.16); border-radius:22px; padding:26px 32px; box-shadow:0 14px 40px rgba(26,28,38,.06);}
+.chain-link-applied{background:linear-gradient(var(--lapis-deep), var(--lapis-deep)) padding-box, linear-gradient(135deg, var(--gold), var(--gold-bright) 50%, var(--bronze)) border-box; border:1.5px solid transparent; box-shadow:0 20px 50px rgba(10,11,16,.3);}
+.chain-connector{width:1px; height:26px; margin:0 auto; background:linear-gradient(180deg, var(--line-gold), transparent);}
+.chain-tag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:10px;}
+.chain-proven{background:var(--bronze); color:#fff;}
+.chain-speculative{background:transparent; border:1px dashed var(--bronze); color:var(--bronze);}
+.chain-psych{background:rgba(92,85,72,.12); color:var(--muted); border:1px solid rgba(92,85,72,.25);}
+.chain-applied{background:var(--gold-bright); color:var(--lapis-deep);}
+.chain-link h4{font-family:'Plus Jakarta Sans',sans-serif; font-size:19px; font-weight:500; color:var(--lapis-deep); margin-bottom:8px;}
+.chain-link p{font-size:14px; color:var(--muted); line-height:1.6; max-width:62ch;}
+.chain-link-applied h4, .chain-link-applied p{color:var(--parchment);}
+.chain-payoff{max-width:64ch; margin:36px auto 0; text-align:center; font-size:14.5px; font-style:italic; color:var(--muted); line-height:1.7;}
 
 .feature-row{display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:center; padding:56px 0; border-bottom:1px solid var(--line-navy);}
 .feature-row:last-child{border-bottom:none;}
@@ -140,23 +160,27 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 .feature-emblem svg{width:26px; height:26px; stroke:var(--gold); fill:none; stroke-width:1.2;}
 .feature-copy h3{font-size:clamp(1.7rem,3.2vw,2.5rem); font-weight:500; letter-spacing:-.015em; margin-bottom:14px; line-height:1.1;}
 .feature-copy p{font-size:16px; font-weight:300; color:var(--muted); line-height:1.7; max-width:46ch;}
-.feature-visual{aspect-ratio:4/3; border-radius:26px; position:relative; overflow:hidden; border:1px solid rgba(255,212,138,.16); box-shadow:0 24px 60px rgba(17,21,31,.18);}
+.feature-visual{aspect-ratio:4/3; border-radius:26px; position:relative; overflow:hidden; border:1px solid rgba(255,212,138,.16); box-shadow:0 24px 60px rgba(10,11,16,.18);}
 .fv1{background:linear-gradient(135deg,var(--lapis-deep),var(--lapis-mid));}
 .fv2{background:linear-gradient(135deg,var(--lapis-deep),var(--gold));}
 .fv3{background:linear-gradient(135deg,var(--lapis),var(--lapis-deep));}
 .feature-visual::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 65% 30%, rgba(255,212,138,.28), transparent 55%);}
 
-.spec-list{max-width:800px; margin:56px auto 0; list-style:none; border:1px solid rgba(181,98,47,.22); border-radius:28px; padding:6px 34px; background:rgba(255,255,255,.5); backdrop-filter:blur(6px); box-shadow:0 20px 60px rgba(36,46,79,.08);}
-.spec-list li{display:grid; grid-template-columns:64px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--line-gold);}
-.spec-list li:first-child{border-top:none;}
-.spec-num{font-family:'Plus Jakarta Sans',sans-serif; font-size:26px; font-weight:500; color:var(--bronze); padding-top:2px;}
-.spec-list h4{font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:500; letter-spacing:0; margin-bottom:6px; color:var(--lapis-deep);}
-.spec-list p{font-size:14.5px; color:var(--muted); line-height:1.6; max-width:56ch;}
+.split-format{display:flex; align-items:stretch; max-width:860px; margin:52px auto 0; border:1px solid rgba(181,98,47,.22); border-radius:28px; background:rgba(255,255,255,.5); backdrop-filter:blur(6px); box-shadow:0 20px 60px rgba(26,28,38,.08); overflow:hidden;}
+.split-half{flex:1; padding:40px 38px;}
+.split-pct{display:block; font-family:'Fraunces', serif; font-style:italic; font-size:22px; font-weight:500; color:var(--cta); letter-spacing:0; margin-bottom:10px;}
+.split-half h4{font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:500; margin-bottom:10px; color:var(--lapis-deep);}
+.split-half p{font-size:14.5px; color:var(--muted); line-height:1.6;}
+.split-divider{width:1px; background:linear-gradient(180deg, transparent, var(--line-gold), transparent);}
+@media(max-width:700px){
+  .split-format{flex-direction:column;}
+  .split-divider{width:100%; height:1px; background:linear-gradient(90deg, transparent, var(--line-gold), transparent);}
+}
 
 .who-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:56px;}
 @media(max-width:1100px){.who-grid{grid-template-columns:repeat(2,1fr);}}
-.who-card{background:rgba(255,255,255,.55); backdrop-filter:blur(8px); border:1px solid rgba(181,98,47,.14); border-radius:24px; padding:40px 26px; text-align:center; box-shadow:0 16px 40px rgba(36,46,79,.06); transition:transform .25s ease, box-shadow .25s ease;}
-.who-card:hover{transform:translateY(-6px); box-shadow:0 24px 50px rgba(36,46,79,.12);}
+.who-card{background:rgba(255,255,255,.55); backdrop-filter:blur(8px); border:1px solid rgba(181,98,47,.14); border-radius:24px; padding:40px 26px; text-align:center; box-shadow:0 16px 40px rgba(26,28,38,.06); transition:transform .25s ease, box-shadow .25s ease;}
+.who-card:hover{transform:translateY(-6px); box-shadow:0 24px 50px rgba(26,28,38,.12);}
 .who-card h3{font-family:'Plus Jakarta Sans',sans-serif; font-size:21px; margin-bottom:12px;}
 .who-card p{font-size:14.5px; color:var(--muted); line-height:1.65;}
 
@@ -171,7 +195,7 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 .quote-note{text-align:center; font-size:12px; color:var(--muted); max-width:64ch; margin:34px auto 0; line-height:1.6;}
 .section-navy .quote-note{color:rgba(248,244,232,.65);}
 
-.single-price{max-width:440px; margin:52px auto 0; background:linear-gradient(155deg, var(--lapis-deep), var(--lapis)); backdrop-filter:blur(14px); border:1px solid rgba(255,212,138,.2); border-radius:32px; padding:48px 40px; text-align:center; position:relative; box-shadow:0 30px 80px rgba(17,21,31,.35), 0 0 0 1px rgba(255,106,46,.12) inset;}
+.single-price{max-width:440px; margin:52px auto 0; background:linear-gradient(155deg, var(--lapis-deep), var(--lapis)) padding-box, linear-gradient(135deg, var(--gold), var(--gold-bright) 45%, var(--bronze) 75%, var(--gold)) border-box; backdrop-filter:blur(14px); border:1.5px solid transparent; border-radius:32px; padding:48px 40px; text-align:center; position:relative; box-shadow:0 30px 80px rgba(10,11,16,.35), 0 0 0 1px rgba(224,178,90,.12) inset;}
 .single-price-tag{display:inline-block; border:1px solid var(--gold); color:var(--gold-bright); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px;}
 .single-price-title{font-family:'Plus Jakarta Sans',sans-serif; font-size:24px; font-weight:500; color:var(--parchment); margin-bottom:12px;}
 .single-price-amount{font-family:'Plus Jakarta Sans',sans-serif; font-size:56px; font-weight:600; color:var(--cta); line-height:1; letter-spacing:-.02em;}
@@ -197,13 +221,19 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 
 .founder-row{display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:center; max-width:1000px; margin:56px auto 0;}
 @media(max-width:834px){.founder-row{grid-template-columns:1fr;}}
-.founder-photo{aspect-ratio:1/1; border-radius:26px; background:linear-gradient(135deg,var(--lapis-deep),var(--lapis-mid)); border:1px solid rgba(255,212,138,.16); position:relative; overflow:hidden; box-shadow:0 24px 60px rgba(17,21,31,.18);}
+.founder-photo{aspect-ratio:1/1; border-radius:26px; background:linear-gradient(135deg,var(--lapis-deep),var(--lapis-mid)); border:1px solid rgba(255,212,138,.16); position:relative; overflow:hidden; box-shadow:0 24px 60px rgba(10,11,16,.18);}
 .founder-photo::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 60% 30%, rgba(255,212,138,.22), transparent 55%);}
 .founder-photo .ph-note{position:absolute; bottom:14px; left:14px; right:14px; font-size:11px; color:rgba(248,244,232,.35); letter-spacing:.03em;}
 .founder-copy p{font-size:15.5px; color:var(--muted); line-height:1.7; margin-bottom:14px; font-weight:300;}
 .founder-credentials{list-style:none; margin-top:18px;}
 .founder-credentials li{font-size:14px; color:var(--lapis-deep); padding-left:22px; position:relative; margin-bottom:8px; font-weight:500;}
 .founder-credentials li::before{content:"—"; position:absolute; left:0; color:var(--bronze);}
+
+.host-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; max-width:1000px; margin:52px auto 0;}
+@media(max-width:834px){.host-stats{grid-template-columns:repeat(2,1fr);}}
+.host-stat{background:rgba(255,255,255,.55); border:1px solid rgba(181,98,47,.16); border-radius:20px; padding:26px 18px; text-align:center; box-shadow:0 14px 36px rgba(36,46,79,.06);}
+.host-stat-num{display:block; font-family:'Fraunces', serif; font-weight:600; font-size:22px; background:linear-gradient(120deg, var(--bronze), var(--gold) 60%, var(--bronze)); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:8px;}
+.host-stat-label{font-size:12px; color:var(--muted); line-height:1.4; display:block;}
 
 .faq{max-width:780px; margin:0 auto;}
 .faq details{border:1px solid rgba(181,98,47,.14); border-radius:18px; padding:20px 26px; margin-bottom:12px; background:rgba(255,255,255,.4); backdrop-filter:blur(6px); transition:background .2s ease;}
@@ -219,13 +249,13 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 .cta-banner p{font-size:16px; font-weight:300; color:rgba(248,244,232,.7); max-width:48ch; margin:0 auto 36px; line-height:1.6;}
 
 .apply-section{padding:104px 0; background:var(--bg-light2);}
-.form-card{max-width:660px; margin:0 auto; background:rgba(255,255,255,.55); backdrop-filter:blur(10px); border-radius:28px; padding:46px; border:1px solid rgba(181,98,47,.18); box-shadow:0 20px 60px rgba(36,46,79,.08);}
+.form-card{max-width:660px; margin:0 auto; background:rgba(255,255,255,.55); backdrop-filter:blur(10px); border-radius:28px; padding:46px; border:1px solid rgba(181,98,47,.18); box-shadow:0 20px 60px rgba(26,28,38,.08);}
 .f-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
 .f-group label{display:block; font-size:12.5px; font-weight:600; letter-spacing:.02em; margin-bottom:7px; color:var(--lapis-deep); text-transform:uppercase;}
 .f-note{display:block; font-size:11.5px; color:var(--muted); margin:-3px 0 8px; font-weight:300;}
-.f-group input, .f-group select, .f-group textarea{width:100%; padding:13px 16px; border:1px solid rgba(32,38,58,.16); border-radius:14px; background:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; color:var(--ink); transition:border-color .2s ease;}
+.f-group input, .f-group select, .f-group textarea{width:100%; padding:13px 16px; border:1px solid rgba(20,22,30,.16); border-radius:14px; background:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; color:var(--ink); transition:border-color .2s ease;}
 .f-group input:focus, .f-group select:focus, .f-group textarea:focus{outline:none; border-color:var(--gold);}
-.f-submit{width:100%; background:linear-gradient(135deg, var(--cta), var(--cta-deep)); color:#fff; border:none; padding:16px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; margin-bottom:12px; box-shadow:0 8px 24px rgba(216,67,15,.35); transition:transform .2s ease;}
+.f-submit{width:100%; background:linear-gradient(135deg, var(--cta), var(--cta-deep)); color:#fff; border:none; padding:16px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; margin-bottom:12px; box-shadow:0 8px 24px rgba(138,90,37,.35); transition:transform .2s ease;}
 .f-submit:hover{transform:translateY(-2px); opacity:.9;}
 .f-fine{text-align:center; font-size:12px; color:var(--muted);}
 .f-referral{margin-top:26px; padding-top:22px; border-top:1px solid rgba(181,98,47,.16); text-align:center;}
@@ -247,7 +277,6 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
   .feature-row{grid-template-columns:1fr; gap:32px;}
   .feature-row.rev{direction:ltr;}
   .who-grid{grid-template-columns:1fr;}
-  .spec-list li{grid-template-columns:44px 1fr;}
   .f-grid{grid-template-columns:1fr;}
 }
 </style>
@@ -259,28 +288,32 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
     <a href="#top" class="nav-logo">The Ordered <span>Field</span></a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#method">The Method</a></li>
-      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#throughline">The Throughline</a></li>
+      <li><a href="#method">Masterclass</a></li>
+      <li><a href="#curriculum">Experience</a></li>
       <li><a href="#who">Who It's For</a></li>
       <li><a href="#freebie">Free Worksheet</a></li>
-      <li><a href="#pricing">Enroll</a></li>
+      <li><a href="#pricing">Apply</a></li>
+      <li><a href="#host">Your Host</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#apply" class="nav-cta">Enroll Now</a>
+    <a href="#apply" class="nav-cta">Apply</a>
   </div>
 </nav>
 
 <section class="hero" id="top">
   <svg class="hero-sigil" viewBox="0 0 400 400"><circle cx="200" cy="200" r="180" fill="none" stroke="#ffd48a" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#ffd48a" stroke-width="1"/><path d="M200 20 L200 380 M20 200 L380 200" stroke="#ffd48a" stroke-width=".6"/><path d="M75 75 L325 325 M325 75 L75 325" stroke="#ffd48a" stroke-width=".6"/><circle cx="200" cy="200" r="46" fill="none" stroke="#ffd48a" stroke-width="1"/></svg>
   <div class="wrap hero-inner">
-    <div class="hero-eyebrow">Online Study Group &middot; The Ordered Field</div>
+    <div class="hero-eyebrow">A Private, By-Invitation Retreat &middot; The Ordered Field</div>
+    <p class="hero-audience">Built for people who argue, advise, sell, and lead for a living.</p>
     <h1>Every part of you that you've called weak, wrong, or wasted has a <span class="g">job</span> you haven't found yet.</h1>
-    <p class="sub">A structured method for finding it — used with attorneys, executives, and creatives to resolve the self-doubt, guilt, and repeating patterns that talk and time alone haven't touched.</p>
-    <p class="cred">Facilitated live by Sam Osborne — Demartini Method Facilitator, working toward Master level.</p>
-    <p class="cred" style="margin-top:4px; margin-bottom:36px;">(No incense. No chanting. Bring a notebook — and one thing about yourself you've never liked.)</p>
+    <p class="hero-payoff">Find it — and finally feel whole.</p>
+    <p class="sub">The temper. The procrastination. The way you go quiet the second things get tense. You've spent years managing it. This is where you find out what it's actually costing you — and what it takes to finally put it down.</p>
+    <p class="cred">Hosted personally by Sam Osborne. A small, private group, admitted by application — not a webinar.</p>
+    <p class="cred" style="margin-top:4px; margin-bottom:36px;">(No incense. No chanting. Just a small, private room, and one thing about yourself you've never liked. What's worked through stays strictly between the people in it.)</p>
     <div class="hero-actions">
-      <a href="#apply" class="btn-gold is-primary">Join the Founding Cohort</a>
-      <a href="#film" class="btn-ghost">A Message From Sam</a>
+      <a href="#apply" class="btn-gold is-primary">Request an Invitation</a>
+      <a href="#film" class="btn-ghost">A Word From Your Host</a>
     </div>
   </div>
   <div class="wrap" id="film" style="position:relative; z-index:1;">
@@ -301,16 +334,56 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
     <span class="kicker" style="display:block; text-align:center;">The Bottom Line</span>
     <p class="statement">You don't fix what's broken in you. You find what it's <span class="accent">actually for</span>.</p>
     <p style="text-align:center; margin-top:18px; font-size:13px; font-weight:600; color:var(--muted); letter-spacing:.02em;">— Sam Osborne</p>
+    <p class="t-lead" style="text-align:center; margin-top:22px;">What people describe afterward isn't relief. It's wholeness — the quiet feeling of finally being all of yourself, at once, with nothing left to manage.</p>
+  </div>
+</section>
+
+<section class="section section-parchment2" id="throughline">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="kicker">The Throughline</span>
+      <h2 class="t-headline">Why this isn't just self-help.</h2>
+      <p class="t-lead">Nothing that's genuinely part of you just disappears — not in physics, not in the mind, not in you. That's not a metaphor. It's a pattern serious enough to show up at every level people have actually looked.</p>
+    </div>
+
+    <div class="chain reveal">
+      <div class="chain-link">
+        <span class="chain-tag chain-proven">Something You Already Know</span>
+        <h4>Nothing Just Disappears</h4>
+        <p>Cut something back hard enough and the energy doesn't vanish — it comes out somewhere else, usually where you didn't expect it. You've seen this rule play out a hundred times in your own life.</p>
+      </div>
+      <div class="chain-connector" aria-hidden="true"></div>
+      <div class="chain-link">
+        <span class="chain-tag chain-speculative">Felt In The Body</span>
+        <h4>What's In Your Head Shows Up In Your Body</h4>
+        <p>The stress you haven't named yet shows up in your shoulders first. What you carry inside doesn't stay inside — it becomes physical, whether or not you ever put words to it.</p>
+      </div>
+      <div class="chain-connector" aria-hidden="true"></div>
+      <div class="chain-link">
+        <span class="chain-tag chain-psych">The Part You Buried</span>
+        <h4>What You Push Down Comes Back Sideways</h4>
+        <p>The thing you refuse to feel doesn't leave — it just changes its outfit. It shows up as the temper, the procrastination, the person who gets under your skin.</p>
+      </div>
+      <div class="chain-connector" aria-hidden="true"></div>
+      <div class="chain-link chain-link-applied">
+        <span class="chain-tag chain-applied">Applied &amp; Testable</span>
+        <h4>The Demartini Method</h4>
+        <p>Turns that idea into something you can actually do: whatever you've judged and disowned in someone else is still in you, locatable, waiting to be found. This is the part you test directly, live, every session.</p>
+      </div>
+    </div>
+
+    <p class="chain-payoff reveal">None of this needs a lab coat to check. You've felt every step of it already — you just haven't had a way to work with it on purpose. That's the whole difference: not a new belief, just a method for using what you already know is true.</p>
+    <p class="reveal" style="text-align:center; margin-top:18px; font-size:14.5px; color:var(--muted); max-width:62ch; margin-left:auto; margin-right:auto;">In plain terms: the thing you can't stand in your coworker, the reaction you can't shake with your partner, the habit you keep swearing off — none of it is gone, and none of it is random. It's still in you, waiting to be found.</p>
   </div>
 </section>
 
 <section class="section section-navy" id="method">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker">The Method</span>
-      <h2 class="t-headline">A tool, not a talk.</h2>
-      <p class="t-lead">The Demartini Method is a structured, repeatable process for locating the hidden benefit inside the thing you've judged as purely negative — the guilt, the imposter feeling, the person who gets under your skin. Facilitated live by <strong style="color:var(--gold-bright);">Sam Osborne</strong>.</p>
-      <p class="t-lead" style="font-size:14px; margin-top:14px; color:rgba(248,244,232,.62);">Not talk therapy. Not positive thinking. A specific set of questions, applied to your specific material, in front of you.</p>
+      <span class="kicker">A Private Masterclass</span>
+      <h2 class="t-headline">Built for people who argue, advise, sell, and lead for a living.</h2>
+      <p class="t-lead">The Demartini Method is a structured, repeatable process for locating the hidden benefit inside the thing you've judged as purely negative — the way opposing counsel gets under your skin, the client relationship that went sideways, the deal you keep losing the same way. Facilitated live by <strong style="color:var(--gold-bright);">Sam Osborne</strong>.</p>
+      <p class="t-lead" style="font-size:14px; margin-top:14px; color:rgba(248,244,232,.62);">Not talk therapy. Not a seminar. Say opposing counsel needles you every deposition, or a co-founder pushes the same button in every board meeting — this is a specific set of questions, applied to that exact thing, live, in front of you.</p>
     </div>
     <div class="method-row reveal">
       <div class="method-badge"><b>Name the Charge</b><span>Get precise about what you're carrying</span></div>
@@ -332,13 +405,13 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4.5"/></svg></div>
         <h3>The pattern you keep repeating.</h3>
-        <p>Bring the one you already know by heart — the indecision, the imposter feeling, the guilt that resurfaces on schedule. Leave knowing what it's been protecting.</p>
+        <p>The same fight with your partner. Checking your bank account and feeling sick before you even look. Saying yes when you mean no, again. Bring the one you already know by heart — leave knowing what it's been protecting, and what you get to do with that energy now.</p>
         <p style="font-size:13px; margin-top:6px; color:var(--muted);">You've named it before. This time you find its job.</p>
       </div>
       <div class="feature-visual fv1">
         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
           <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#11151f"/><stop offset="1" stop-color="#2c3860"/></linearGradient>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a0b10"/><stop offset="1" stop-color="#1e202b"/></linearGradient>
             <radialGradient id="glow1" cx="72%" cy="46%" r="55%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".22"/><stop offset="1" stop-color="#ffd48a" stop-opacity="0"/></radialGradient>
           </defs>
           <rect width="400" height="300" fill="url(#g1)"/>
@@ -367,15 +440,15 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
         <h3>The person who gets under your skin.</h3>
-        <p>Whatever quality in them charges you is a quality you're carrying too — just not one you've owned yet. Finding it is usually where the biggest release happens.</p>
+        <p>The coworker who always takes credit. The sibling who never follows through. The in-law who makes every holiday harder than it needs to be. Whatever quality in them charges you is a quality you're carrying too — just not one you've owned yet. Finding it is usually where the biggest release happens.</p>
         <p style="font-size:13px; margin-top:6px; color:var(--muted);">Annoyingly. But reliably.</p>
       </div>
       <div class="feature-visual fv2">
         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
           <defs>
-            <radialGradient id="glow2" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".16"/><stop offset="1" stop-color="#11151f" stop-opacity="0"/></radialGradient>
+            <radialGradient id="glow2" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".16"/><stop offset="1" stop-color="#0a0b10" stop-opacity="0"/></radialGradient>
           </defs>
-          <rect width="400" height="300" fill="#242e4f"/>
+          <rect width="400" height="300" fill="#1a1c26"/>
           <rect width="400" height="300" fill="url(#glow2)"/>
           <!-- two mirrored profiles, facing, forming a vesica between them -->
           <g fill="none" stroke="#ffd48a" stroke-width="1.6" opacity="0.85" stroke-linecap="round" stroke-linejoin="round">
@@ -390,18 +463,18 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
     <div class="feature-row reveal">
       <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
       <div class="feature-copy">
-        <h3>Four weeks. Live. On your material.</h3>
-        <p>One session a week, worked in real time on what you actually bring — not a general lecture on the theory.</p>
-        <p style="font-size:13px; margin-top:6px; color:var(--muted);">No app. No streak to break. Just the sessions and the work.</p>
+        <h3>One full day. Live. On your material.</h3>
+        <p>A single day, worked in real time on what you actually bring — not a general lecture on the theory.</p>
+        <p style="font-size:13px; margin-top:6px; color:var(--muted);">No app. No streak to break. Just the day and the work.</p>
       </div>
       <div class="feature-visual fv3">
         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
           <defs>
-            <radialGradient id="glow3" cx="50%" cy="46%" r="60%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".18"/><stop offset="1" stop-color="#11151f" stop-opacity="0"/></radialGradient>
+            <radialGradient id="glow3" cx="50%" cy="46%" r="60%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".18"/><stop offset="1" stop-color="#0a0b10" stop-opacity="0"/></radialGradient>
           </defs>
-          <rect width="400" height="300" fill="#11151f"/>
+          <rect width="400" height="300" fill="#0a0b10"/>
           <rect width="400" height="300" fill="url(#glow3)"/>
-          <!-- a four-week dial: one mark per live session -->
+          <!-- a single-day clock face: 9am to 4pm, morning theory into afternoon practice -->
           <g transform="translate(200,150)">
             <circle r="88" fill="none" stroke="#ffd48a" stroke-width="1" opacity="0.4"/>
             <circle r="62" fill="none" stroke="#ffd48a" stroke-width="1" opacity="0.28"/>
@@ -412,12 +485,12 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
               <line x1="-88" y1="0" x2="-72" y2="0"/>
             </g>
             <g fill="#ffd48a" font-family="Plus Jakarta Sans, sans-serif" font-size="11" opacity="0.75" text-anchor="middle">
-              <text x="0" y="-98">WK 1</text>
-              <text x="112" y="4">WK 2</text>
-              <text x="0" y="112">WK 3</text>
-              <text x="-112" y="4">WK 4</text>
+              <text x="0" y="-98">9AM</text>
+              <text x="112" y="4">NOON</text>
+              <text x="0" y="112">2PM</text>
+              <text x="-112" y="4">4PM</text>
             </g>
-            <path d="M0 -62 A62 62 0 0 1 44 -44" fill="none" stroke="#ffd48a" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M0 -62 A62 62 0 1 1 -44 44" fill="none" stroke="#ffd48a" stroke-width="2.4" stroke-linecap="round"/>
             <circle r="6" fill="#ffd48a"/>
           </g>
         </svg>
@@ -429,16 +502,26 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
 <section class="section section-parchment2" id="curriculum">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker">The Curriculum</span>
-      <h2 class="t-headline">Four weeks. Four sessions.</h2>
-      <p class="t-lead">One move a week, applied live to your own material — so by the end you're not just resolved, you have the tool.</p>
+      <span class="kicker">The Experience</span>
+      <h2 class="t-headline">The shape of the day.</h2>
+      <p class="t-lead">One continuous day, in one room — theory in the morning, live practice all afternoon — so by the time you leave, you've watched the method work on real material, not just heard about it.</p>
     </div>
-    <ol class="spec-list reveal">
-      <li><span class="spec-num">I</span><div><h4>Name the Charge</h4><p>Get specific about the thing you've been calling purely negative — the guilt, the imposter feeling, the pattern you keep repeating. <span style="color:var(--muted);">Vague doesn't work here. Precise does.</span></p></div></li>
-      <li><span class="spec-num">II</span><div><h4>Find the Hidden Benefit</h4><p>Locate what that "flaw" has actually been doing for you all along. <span style="color:var(--muted);">This is the session people describe as the "aha."</span></p></div></li>
-      <li><span class="spec-num">III</span><div><h4>Balance the Two Sides</h4><p>Hold the cost and the benefit at once until neither one runs the show. <span style="color:var(--muted);">This is where the charge actually lifts.</span></p></div></li>
-      <li><span class="spec-num">IV</span><div><h4>Make It Stick</h4><p>Apply the same method to a second pattern on your own, with the group's support. <span style="color:var(--muted);">You leave with the tool, not just one resolved issue.</span></p></div></li>
-    </ol>
+
+    <div class="split-format reveal">
+      <div class="split-half">
+        <span class="split-pct">Morning</span>
+        <h4>Theory</h4>
+        <p>Sam teaches the framework live — Name the Charge, Find the Hidden Benefit, Balance the Two Sides — grounded in real examples from the room.</p>
+      </div>
+      <div class="split-divider"></div>
+      <div class="split-half">
+        <span class="split-pct">Afternoon</span>
+        <h4>Live Practice</h4>
+        <p>Several volunteers work their real material with Sam, live, in front of the group, one after another. The day closes with everyone reflecting — applying what they just watched to their own material.</p>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align:center; margin-top:26px; font-size:13.5px; color:var(--muted); max-width:64ch; margin-left:auto; margin-right:auto;">One framework, watched in action on several different real situations over the course of the day. With a small group, most people get called up at least once — and the rounds you're watching are often where the biggest shifts happen anyway, seeing someone else's work unlock something in yours.</p>
   </div>
 </section>
 
@@ -446,32 +529,32 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
   <div class="wrap">
     <div class="center reveal">
       <span class="kicker">Who This Is For</span>
-      <h2 class="t-headline">For people who optimize everything else.</h2>
-      <p class="t-lead">High achievers. Systems thinkers. People who've already read the books and done the frameworks — for everything except the part of themselves they've written off.</p>
+      <h2 class="t-headline">For anyone tired of the same problem showing up again.</h2>
+      <p class="t-lead">You don't need a therapy background, a physics background, or a fancy title. You need one thing in your life that keeps costing you — money, a relationship, your peace of mind — that you're finally ready to look at.</p>
     </div>
     <div class="who-grid reveal">
       <div class="who-card">
         <div class="feature-emblem" style="margin:0 auto 18px;"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></div>
-        <h3>Imposter Syndrome</h3>
-        <p>The self-doubt that shows up despite years of evidence to the contrary.</p>
+        <h3>Playing Smaller Than You Are</h3>
+        <p>The promotion you didn't go for. The idea you didn't pitch. The gap between what you're capable of and what you actually let yourself do.</p>
         <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">It's not a knowledge gap. It's a perception one.</p>
       </div>
       <div class="who-card">
         <div class="feature-emblem" style="margin:0 auto 18px;"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
         <h3>Relationships</h3>
-        <p>The same dynamic, different person, every time.</p>
+        <p>The same fight with your partner. The friend you keep forgiving for the same thing. The same dynamic, different person, every time.</p>
         <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">Suspiciously consistent, honestly.</p>
       </div>
       <div class="who-card">
         <div class="feature-emblem" style="margin:0 auto 18px;"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H7"/></svg></div>
         <h3>Guilt &amp; Shame</h3>
-        <p>Old weight from a decision or event that hasn't actually lifted with time.</p>
+        <p>The thing from years ago you still think about at 2am. Old weight that hasn't actually lifted, no matter how much time has passed.</p>
         <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">Time alone rarely does the job.</p>
       </div>
       <div class="who-card">
         <div class="feature-emblem" style="margin:0 auto 18px;"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
         <h3>Stuck Patterns</h3>
-        <p>The indecision, the avoidance, the reaction you can predict before it happens.</p>
+        <p>The diet you keep quitting. The email you keep avoiding. The reaction you can already predict before it happens.</p>
         <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">Predictable is workable.</p>
       </div>
     </div>
@@ -484,9 +567,9 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
 <section class="section section-parchment2" id="freebie">
   <div class="wrap">
     <div class="center reveal" style="max-width:640px; margin:0 auto;">
-      <span class="kicker">Not Ready to Enroll Yet?</span>
-      <h2 class="t-headline" style="font-size:clamp(1.8rem,3.6vw,2.6rem);">Try the first move, free.</h2>
-      <p class="t-lead">The Hidden Benefit Worksheet — the same three-step method this cohort uses, walked through on a low-stakes example, so you can see how it actually works before you bring your real material.</p>
+      <span class="kicker">Not Ready to Reserve Yet?</span>
+      <h2 class="t-headline" style="font-size:clamp(1.8rem,3.6vw,2.6rem);">A small taste of the experience, free.</h2>
+      <p class="t-lead">The Hidden Benefit Worksheet — the same three-step method used in the retreat, walked through on a low-stakes example, so you can feel how it works before you bring your real material.</p>
     </div>
     <form class="form-card reveal" style="margin-top:40px; max-width:520px;" action="https://formspree.io/f/xaqdebvj" method="POST">
       <div class="f-group" style="margin-bottom:16px;"><label for="lm-name">First Name</label><input id="lm-name" name="name" type="text" placeholder="First name"></div>
@@ -508,9 +591,9 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
     <div class="quote-row reveal">
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">Even after seventy trips around the sun and a career built on qualifications, there are still days self-doubt washes over me. One session with Sam cleared more of it than anything I've tried before.</p>
-        <div class="who">Graham Harvey</div>
-        <div class="role">Certified Professional Speaker, Professional Speakers Australia Hall of Fame</div>
+        <p class="q">Every session with Sam, I leave feeling ready to take on a whole universe of new endeavours — stronger, wiser, and totally comfortable with whatever I'm trying to achieve.</p>
+        <div class="who">Kate Atkinson</div>
+        <div class="role">Entrepreneur, Perth, Australia</div>
       </div>
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
@@ -520,7 +603,7 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
       </div>
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">In just one session, Sam had me seeing the butterflies and imposter syndrome for the natural distractions they are — and finding the calm, even the enjoyment, of being myself in the spotlight.</p>
+        <p class="q">In just one session, Sam had me seeing the butterflies for the natural distractions they are — and finding the calm, even the enjoyment, of being myself in the spotlight.</p>
         <div class="who">David Fedirchuk</div>
         <div class="role">Head of Business Development, Ontario</div>
       </div>
@@ -528,9 +611,9 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
     <div class="quote-row reveal" style="margin-top:16px;">
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">You came up with practical, insightful suggestions for my business and finally dissolved a good part of my imposter syndrome. I made more headway in one session than I expected.</p>
-        <div class="who">Wendy De Munari</div>
-        <div class="role">Professional Speaker, Author &amp; Course Creator</div>
+        <p class="q">Sam worked with me until I felt 100% comfortable, confident and ready. If you want to improve how you show up, I give him my highest recommendation.</p>
+        <div class="who">Pamela Kratochvil</div>
+        <div class="role">President, Rotary Club of Pacific Palisades, Los Angeles</div>
       </div>
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
@@ -545,23 +628,24 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
         <div class="role">Maryland, USA</div>
       </div>
     </div>
-    <p class="quote-note">Quotes are from private one-on-one sessions with Sam, shared with permission and lightly trimmed for length. This is the first live cohort of The Ordered Field — the method is proven; the group format is new. This group is educational, not a substitute for licensed mental health treatment.</p>
+    <p class="quote-note">Quotes are from private one-on-one sessions with Sam, shared with permission and lightly trimmed for length. This is the first live retreat of The Ordered Field — the method is proven; the retreat format is new. This group is educational, not a substitute for licensed mental health treatment.</p>
   </div>
 </section>
 
-<section class="section section-parchment2">
+<section class="section section-parchment2" id="host">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker">Your Facilitator</span>
-      <h2 class="t-headline">Why Sam.</h2>
+      <span class="kicker">Your Host</span>
+      <h2 class="t-headline">Meet your host.</h2>
+      <p class="t-lead">The private work behind this retreat didn't start as a business. It started as a much stranger, much older question.</p>
     </div>
     <div class="founder-row reveal">
       <div class="founder-photo">
         <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
           <defs>
-            <radialGradient id="fpg" cx="50%" cy="42%" r="65%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".2"/><stop offset="1" stop-color="#11151f" stop-opacity="0"/></radialGradient>
+            <radialGradient id="fpg" cx="50%" cy="42%" r="65%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".2"/><stop offset="1" stop-color="#0a0b10" stop-opacity="0"/></radialGradient>
           </defs>
-          <rect width="400" height="400" fill="#11151f"/>
+          <rect width="400" height="400" fill="#0a0b10"/>
           <rect width="400" height="400" fill="url(#fpg)"/>
           <circle cx="200" cy="200" r="150" fill="none" stroke="#ffd48a" stroke-width="1" opacity="0.3"/>
           <circle cx="200" cy="200" r="118" fill="none" stroke="#ffd48a" stroke-width="1.4" opacity="0.55"/>
@@ -570,8 +654,9 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
         <div class="ph-note">Photo placeholder — swap in a real portrait of Sam before launch</div>
       </div>
       <div class="founder-copy">
-        <p>Dr. Sam Osborne is a professional keynote speaker and Demartini Method Facilitator, working toward Master level under Dr. John Demartini. He's spent years applying this method one-on-one with attorneys, executives, coaches, and creatives — helping people find what a pattern they'd judged as purely negative was actually doing for them.</p>
-        <p>The Ordered Field is the first time that private work is being run as a live group format.</p>
+        <p>Dr. Sam Osborne was born in Perth, Australia, and built his early thinking on a double major in Philosophy and English — long before any of this had a name. What began as a private, almost solitary fascination with esoteric and philosophical traditions became, over years of his own businesses and his own reading, the foundation for something far more practical than either sounds.</p>
+        <p>Today he's a professional keynote speaker and Demartini Method Facilitator, working toward Master level under Dr. John Demartini, and President-Elect of the National Speakers Association's Southern California chapter. He's the author of six books, with a seventh — <em>The Ordered Field</em> — underway. His work is delivered to attorneys, financial advisors, and executive teams under the banner of The Conflict Advantage: perception is the competitive advantage.</p>
+        <p>This retreat is the first time that private, one-on-one work has been opened to a small group. He reads every application himself, because who's in the room matters more than how many.</p>
         <ul class="founder-credentials">
           <li>Demartini Method Facilitator, working toward Master level</li>
           <li>Six published books; a seventh, The Ordered Field, underway</li>
@@ -580,39 +665,49 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
         </ul>
       </div>
     </div>
+
+    <div class="host-stats reveal">
+      <div class="host-stat"><span class="host-stat-num">6</span><span class="host-stat-label">Books published, a 7th underway</span></div>
+      <div class="host-stat"><span class="host-stat-num">Master</span><span class="host-stat-label">Level Demartini Facilitator, in progress</span></div>
+      <div class="host-stat"><span class="host-stat-num">Pres.-Elect</span><span class="host-stat-label">NSA Southern California</span></div>
+      <div class="host-stat"><span class="host-stat-num">Phil. &amp; Eng.</span><span class="host-stat-label">Double major, before any of this</span></div>
+    </div>
+
+    <p class="reveal" style="text-align:center; margin-top:34px; font-size:13.5px; color:var(--muted); max-width:64ch; margin-left:auto; margin-right:auto;">His work has been brought into rooms at organizations including the College of Community Association Lawyers, Morningstar Retirement, and Bluespring Wealth Partners.</p>
   </div>
 </section>
 
 <section class="section section-parchment" id="pricing">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker">Enroll</span>
-      <h2 class="t-headline">Join the founding cohort.</h2>
-      <p class="t-lead">One offer. A small, capped group. A locked-in founding rate.</p>
-      <p class="t-lead" style="font-size:14px; margin-top:6px; color:var(--muted);">Cheaper than a run of therapy sessions. Weirder than a gym membership. More precise than both.</p>
+      <span class="kicker">Reservations</span>
+      <h2 class="t-headline">Request your invitation to the founding season.</h2>
+      <p class="t-lead">Add up what that one pattern has actually cost you — the year you didn't ask for the raise, the relationship strain, the nights you couldn't sleep. $997 is less than most of us lose to it in a single bad month.</p>
+      <p class="t-lead" style="font-size:14px; margin-top:6px; color:var(--muted);">Held for a small, private party — not a webinar, not a crowd. Priced like a retreat, run like one too.</p>
     </div>
 
     <div class="single-price reveal">
-      <span class="single-price-tag">Limited Seats</span>
-      <div class="single-price-title">Founding Cohort</div>
+      <span class="single-price-tag">A Small, Private Party</span>
+      <div class="single-price-title">The Founding Retreat</div>
       <div class="single-price-amount">$997</div>
-      <p class="single-price-detail">One-time &middot; future cohorts $2,997</p>
+      <p class="single-price-detail">One-time &middot; future retreats $2,997</p>
 
       <div class="scarcity-box">
-        <span class="scarcity-label">Group is capped</span>
-        <div class="scarcity-body">Kept small on purpose so every session works live on real material — enrollment closes once the cohort is full, not on a countdown clock.</div>
+        <span class="scarcity-label">Admission by application</span>
+        <div class="scarcity-body">This isn't a checkout — it's an admission. Every application is reviewed personally by Sam, and places are kept deliberately few so the day can be held properly, not filled on a first-come basis.</div>
       </div>
 
       <ul class="single-price-features">
-        <li>4 live weekly sessions, 2 hours each</li>
-        <li>Small group, capped</li>
+        <li>One full day, live — 9am to 4pm, with breaks</li>
+        <li>A small, private group — not a crowd</li>
+        <li>A personal call to confirm fit before you're admitted</li>
         <li>Lifetime access to recordings</li>
-        <li>Founding rate, locked in</li>
+        <li>Founding rate, held for you</li>
       </ul>
-      <a href="#apply" class="btn-gold" style="width:100%; text-align:center; display:block;">Join the Founding Cohort</a>
-      <p style="font-size:12px; margin-top:14px; color:rgba(248,244,232,.55);">Not for you after session one? Full refund. No hard feelings.</p>
+      <a href="#apply" class="btn-gold" style="width:100%; text-align:center; display:block;">Request an Invitation</a>
+      <p style="font-size:12px; margin-top:14px; color:rgba(248,244,232,.55);">If it's not for you within the first hour, you're refunded in full. No hard feelings.</p>
     </div>
-    <p class="reveal" style="text-align:center; margin-top:26px; font-size:13px; color:var(--muted); max-width:56ch; margin-left:auto; margin-right:auto;">This is the first cohort of the group format — the method itself has years of one-on-one results behind it, some of which you've just read above.</p>
+    <p class="reveal" style="text-align:center; margin-top:26px; font-size:13px; color:var(--muted); max-width:56ch; margin-left:auto; margin-right:auto;">This is the first retreat of its kind — the method itself has years of one-on-one results behind it, some of which you've just read above.</p>
     <p class="reveal" style="text-align:center; margin-top:14px; font-size:13px; color:var(--muted); max-width:56ch; margin-left:auto; margin-right:auto;">Prefer to work through this privately first? <a href="mailto:hello@samosborne.net?subject=Private%20Session%20Inquiry" style="color:var(--bronze); font-weight:600; text-decoration:underline;">Ask about a 1:1 session with Sam</a>.</p>
   </div>
 </section>
@@ -627,9 +722,10 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
       <details><summary>Is this therapy?<span class="chev">+</span></summary><p>No. It's educational, not a substitute for treatment. If you're currently in crisis, please reach out to a licensed professional first — this group is for steady, curious adults ready to do the work.</p></details>
       <details><summary>What exactly does a session look like?<span class="chev">+</span></summary><p>You bring one specific thing — a pattern, a person, a piece of guilt. Sam walks you through a fixed set of questions live, in front of the group, until you can see what that thing has actually been doing for you.</p></details>
       <details><summary>Do I need experience with this kind of work?<span class="chev">+</span></summary><p>No. Just a willingness to look at something you've already decided is a flaw.</p></details>
-      <details><summary>What if I miss a session?<span class="chev">+</span></summary><p>Every session is recorded. You won't fall behind.</p></details>
+      <details><summary>Is this confidential?<span class="chev">+</span></summary><p>Yes. This is a small, closed room — not a recorded webinar shared publicly. What's worked through in the day stays with the people in it.</p></details>
+      <details><summary>What if I have to step out during the day?<span class="chev">+</span></summary><p>The full day is recorded. If you miss a stretch, you won't fall behind.</p></details>
       <details><summary>What's the group size?<span class="chev">+</span></summary><p>Small and capped, on purpose — everyone gets worked live, not just talked at.</p></details>
-      <details><summary>Has this exact group format run before?<span class="chev">+</span></summary><p>No — this is the first cohort of The Ordered Field as a live group. The method has been used one-on-one for years, which is where the testimonials above come from; the group format itself is new, and the founding rate reflects that.</p></details>
+      <details><summary>Has this exact retreat run before?<span class="chev">+</span></summary><p>No — this is the first time The Ordered Field has run as a live, small-group retreat. The method has been used one-on-one for years, which is where the testimonials above come from; the retreat format itself is new, and the founding rate reflects that.</p></details>
     </div>
   </div>
 </section>
@@ -638,17 +734,18 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
   <svg class="hero-sigil" viewBox="0 0 400 400" style="opacity:.05;"><circle cx="200" cy="200" r="180" fill="none" stroke="#ffd48a" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#ffd48a" stroke-width="1"/><circle cx="200" cy="200" r="46" fill="none" stroke="#ffd48a" stroke-width="1"/></svg>
   <div class="wrap" style="position:relative; z-index:1;">
     <div class="ornament on-dark"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#ffd48a" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#ffd48a"/></svg><span class="ln r"></span></div>
-    <h2>Seats are capped.</h2>
-    <p>Join the founding cohort and bring the thing you've written off — it's probably not what you think it is.</p>
-    <a href="#apply" class="btn-gold">Join the Founding Cohort</a>
+    <h2>Admission is limited.</h2>
+    <p>Request your invitation. Bring the thing you've written off — and leave feeling more whole than when you walked in.</p>
+    <a href="#apply" class="btn-gold">Request an Invitation</a>
   </div>
 </section>
 
 <section class="apply-section" id="apply">
   <div class="wrap">
     <div class="center reveal" style="margin-bottom:40px;">
-      <span class="kicker">Enroll</span>
-      <h2 class="t-headline">Reserve your seat.</h2>
+      <span class="kicker">Reservations</span>
+      <h2 class="t-headline">Request your invitation.</h2>
+      <p class="t-lead" style="font-size:14px; margin-top:6px;">Every application is read personally by Sam. If it's a fit, you'll hear back directly — including a short call before your place is confirmed.</p>
     </div>
     <form class="form-card reveal" action="https://formspree.io/f/xaqdebvj" method="POST">
       <div class="f-grid">
@@ -662,18 +759,18 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
       <div class="f-group" style="margin-bottom:18px;">
         <label for="a-referral">Referred by a friend? (optional)</label>
         <input id="a-referral" name="referred_by" type="text" placeholder="Their name">
-        <span class="f-note">Enrolling together often makes the work easier, not harder.</span>
+        <span class="f-note">Attending together often makes the work easier, not harder.</span>
       </div>
       <div class="f-group" style="margin-bottom:22px; display:flex; align-items:flex-start; gap:10px;">
         <input id="a-ready" name="readiness_confirmed" type="checkbox" required style="width:auto; margin-top:4px;">
         <label for="a-ready" style="text-transform:none; font-weight:400; font-size:13px; color:var(--muted); letter-spacing:0;">I'm not currently in crisis, and I understand this is an educational group, not therapy.</label>
       </div>
-      <button type="submit" class="f-submit">Join the Founding Cohort</button>
-      <p class="f-fine">* Required fields. We reply within a few days.</p>
+      <button type="submit" class="f-submit">Request an Invitation</button>
+      <p class="f-fine">* Required fields. Applications are reviewed personally; we reply within a few days.</p>
       <div class="f-referral">
-        <p>Bringing a friend? Enroll together and you'll both get <b>$100 off</b> — just have them note your name above.</p>
+        <p>Bringing someone with you? Apply together and you'll both get <b>$100 off</b> — just have them note your name above.</p>
       </div>
-      <input type="hidden" name="form_type" value="The Ordered Field — Founding Cohort — Enrollment">
+      <input type="hidden" name="form_type" value="The Ordered Field — Founding Retreat — Application">
     </form>
   </div>
 </section>
@@ -681,8 +778,8 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
 <footer>
   <div class="footer-inner">
     <div class="footer-links">
-      <a href="#method">The Method</a>
-      <a href="#curriculum">Curriculum</a>
+      <a href="#method">Masterclass</a>
+      <a href="#curriculum">The Experience</a>
       <a href="#who">Who It's For</a>
       <a href="#pricing">Investment</a>
       <a href="#faq">FAQ</a>
@@ -695,8 +792,8 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
 </footer>
 
 <div class="sticky-bar" id="stickyBar">
-  <span class="sticky-bar-price">Founding Cohort — <b>$997</b></span>
-  <a href="#apply" class="btn-gold">Join the Founding Cohort</a>
+  <span class="sticky-bar-price">The Founding Retreat — <b>$997</b></span>
+  <a href="#apply" class="btn-gold">Request an Invitation</a>
 </div>
 
 <script>
