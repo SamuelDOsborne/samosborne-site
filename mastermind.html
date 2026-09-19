@@ -3,29 +3,37 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Ordered Field | Master Your Conscious &amp; Unconscious Mind — A Proven Method &amp; Dream Exploration</title>
-<meta name="description" content="A proven method, paired with dream exploration, for mastering the conscious mind — and the unconscious one running underneath it. Join Sam Osborne's founding study group."/>
+<title>The Ordered Field | Find the Hidden Order in What You've Called a Flaw — Sam Osborne</title>
+<meta name="description" content="A structured method for finding the hidden use in the part of yourself you've called weak, wrong, or wasted — the guilt, the imposter feeling, the pattern you keep repeating. Join Sam Osborne's founding study group."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --lapis:#20263a;        /* deep slate */
-  --lapis-deep:#181d27;   /* near-black slate */
-  --lapis-mid:#2a3348;
-  --gold:#a85a35;
-  --gold-bright:#ffd8a8;
-  --parchment:#f5f3ee;
-  --parchment2:#ece9e1;
-  --bg-light:#e7e5de;
-  --bg-light2:#dcd9cf;
-  --ink:#20242f;
-  --muted:#3d3f4f;
-  --bronze:#954826;
-  --cta:#ff6b35;
-  --cta-deep:#e8501c;
-  --line-gold:rgba(168,90,53,.35);
+  --lapis:#242e4f;
+  --lapis-deep:#11151f;
+  --lapis-mid:#313d63;
+  --gold:#b5622f;
+  --gold-bright:#ffd48a;
+  --parchment:#f8f4e8;
+  --parchment2:#f0ead9;
+  --bg-light:#efe6d0;
+  --bg-light2:#e6d9b8;
+  --ink:#1b2032;
+  --muted:#454860;
+  --bronze:#a1502a;
+  --cta:#ff6a2e;
+  --cta-deep:#d8430f;
+  --cta-glow:rgba(255,106,46,.55);
+  --line-gold:rgba(181,98,47,.35);
   --line-navy:rgba(32,38,58,.14);
+}
+/* Conversion color system: --gold / --gold-bright signal TRUST (credentials, quotes, credibility marks).
+   --cta / --cta-deep signal ACTION and appear ONLY on clickable buy/enroll controls, never as decoration,
+   so the eye learns one color means "go." */
+@keyframes cta-pulse{
+  0%,100%{box-shadow:0 8px 24px rgba(216,67,15,.4), 0 0 0 1px rgba(255,255,255,.08) inset, 0 0 0 0 var(--cta-glow);}
+  50%{box-shadow:0 8px 30px rgba(216,67,15,.5), 0 0 0 1px rgba(255,255,255,.08) inset, 0 0 0 10px rgba(255,106,46,0);}
 }
 *,*::before,*::after{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
@@ -39,7 +47,6 @@ a{color:inherit; text-decoration:none;}
 img{max-width:100%; display:block;}
 .wrap{max-width:1140px; margin:0 auto; padding:0 30px;}
 
-/* ornament divider */
 .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:0 auto 26px;}
 .ornament .ln{width:52px; height:2px; background:linear-gradient(90deg, transparent, var(--gold));}
 .ornament .ln.r{background:linear-gradient(90deg, var(--gold), transparent);}
@@ -47,33 +54,31 @@ img{max-width:100%; display:block;}
 .ornament.on-dark .ln{background:linear-gradient(90deg, transparent, var(--gold-bright));}
 .ornament.on-dark .ln.r{background:linear-gradient(90deg, var(--gold-bright), transparent);}
 
-/* ===== Nav ===== */
-nav{position:sticky; top:0; z-index:900; background:rgba(24,29,39,.62); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,216,168,.12);}
+nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,212,138,.12);}
 .nav-inner{max-width:1200px; margin:0 auto; padding:0 30px; height:74px; display:flex; align-items:center; justify-content:space-between;}
 .nav-logo{font-family:'Plus Jakarta Sans',sans-serif; font-size:23px; font-weight:500; color:var(--parchment); letter-spacing:.01em;}
 .nav-logo span{color:var(--gold-bright);}
 .nav-links{display:flex; gap:32px; list-style:none;}
-.nav-links a{color:rgba(245,243,238,.72); font-size:13px; letter-spacing:.05em; text-transform:uppercase;}
+.nav-links a{color:rgba(248,244,232,.72); font-size:13px; letter-spacing:.05em; text-transform:uppercase;}
 .nav-links a:hover{color:var(--gold-bright);}
-.nav-cta{border:1px solid rgba(255,216,168,.4); color:var(--gold-bright) !important; padding:10px 22px; border-radius:999px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; transition:background .2s ease, color .2s ease, border-color .2s ease;}
+.nav-cta{border:1px solid rgba(255,212,138,.4); color:var(--gold-bright) !important; padding:10px 22px; border-radius:999px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; transition:background .2s ease, color .2s ease, border-color .2s ease;}
 .nav-cta:hover{background:var(--gold); color:var(--lapis-deep) !important;}
 .burger{display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:6px;}
 .burger span{width:20px; height:1.5px; background:var(--parchment);}
 @media(max-width:900px){
   .nav-links{position:fixed; inset:74px 0 auto 0; background:var(--lapis-deep); flex-direction:column; padding:10px 30px 20px; display:none; border-bottom:1px solid var(--line-gold);}
   .nav-links.open{display:flex;}
-  .nav-links li{border-bottom:1px solid rgba(245,243,238,.1); width:100%;}
+  .nav-links li{border-bottom:1px solid rgba(248,244,232,.1); width:100%;}
   .nav-links a{display:block; padding:15px 0;}
   .nav-cta{display:none;}
   .burger{display:flex;}
 }
 
-/* ===== Hero ===== */
 .hero{background:
-  radial-gradient(circle at 15% 10%, rgba(255,107,53,.28), transparent 42%),
-  radial-gradient(circle at 85% 20%, rgba(255,216,168,.20), transparent 45%),
-  radial-gradient(circle at 75% 85%, rgba(255,107,53,.16), transparent 50%),
-  radial-gradient(circle at 10% 85%, rgba(255,216,168,.10), transparent 45%),
+  radial-gradient(circle at 15% 10%, rgba(255,106,46,.28), transparent 42%),
+  radial-gradient(circle at 85% 20%, rgba(255,212,138,.20), transparent 45%),
+  radial-gradient(circle at 75% 85%, rgba(255,106,46,.16), transparent 50%),
+  radial-gradient(circle at 10% 85%, rgba(255,212,138,.10), transparent 45%),
   linear-gradient(155deg, var(--lapis-deep) 0%, var(--lapis) 55%, var(--lapis-mid) 100%);
   color:var(--parchment); padding:88px 0 70px; text-align:center; position:relative; overflow:hidden;
 }
@@ -83,29 +88,29 @@ nav{position:sticky; top:0; z-index:900; background:rgba(24,29,39,.62); backdrop
 .hero-eyebrow{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:22px;}
 .hero h1{font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; font-size:clamp(1.95rem,4.9vw,3.75rem); color:var(--parchment); max-width:26ch; margin:0 auto 26px; line-height:1.15; letter-spacing:-.02em;}
 .hero h1 .g{background:linear-gradient(135deg, var(--gold-bright), var(--cta)); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:normal;}
-.hero p.sub{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1.05rem,1.7vw,1.25rem); color:rgba(245,243,238,.78); max-width:46ch; margin:0 auto 14px; line-height:1.6;}
-.hero p.cred{font-size:13px; font-weight:400; color:rgba(255,216,168,.8); max-width:54ch; margin:0 auto 36px; letter-spacing:.01em;}
+.hero p.sub{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1.05rem,1.7vw,1.25rem); color:rgba(248,244,232,.78); max-width:50ch; margin:0 auto 14px; line-height:1.6;}
+.hero p.cred{font-size:13px; font-weight:400; color:rgba(255,212,138,.8); max-width:54ch; margin:0 auto 36px; letter-spacing:.01em;}
 .hero-actions{display:flex; justify-content:center; gap:22px; align-items:center; margin-bottom:60px; flex-wrap:wrap;}
-.btn-gold{display:inline-block; background:linear-gradient(135deg, var(--cta), var(--cta-deep)); color:#fff; padding:16px 36px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:transform .25s ease, box-shadow .25s ease; box-shadow:0 8px 24px rgba(232,80,28,.4), 0 0 0 1px rgba(255,255,255,.08) inset;}
-.btn-gold:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(168,90,53,.36);}
-.btn-ghost{border:1px solid rgba(245,243,238,.28); background:rgba(255,255,255,.05); backdrop-filter:blur(8px); color:var(--parchment); padding:14px 28px; border-radius:999px; font-size:13px; letter-spacing:.08em; text-transform:uppercase; transition:background .2s ease, border-color .2s ease;}
+.btn-gold{display:inline-block; background:linear-gradient(135deg, #ff8f52, var(--cta) 45%, var(--cta-deep)); color:#fff; padding:16px 36px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:transform .25s ease, box-shadow .25s ease; box-shadow:0 8px 24px rgba(216,67,15,.4), 0 0 0 1px rgba(255,255,255,.08) inset;}
+.btn-gold:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(216,67,15,.5);}
+.btn-gold.is-primary{animation:cta-pulse 3.2s ease-in-out 1.5s 2;}
+@media (prefers-reduced-motion: reduce){.btn-gold.is-primary{animation:none;}}
+.btn-ghost{border:1px solid rgba(248,244,232,.28); background:rgba(255,255,255,.05); backdrop-filter:blur(8px); color:var(--parchment); padding:14px 28px; border-radius:999px; font-size:13px; letter-spacing:.08em; text-transform:uppercase; transition:background .2s ease, border-color .2s ease;}
 .btn-ghost:hover{border-color:var(--gold-bright); color:var(--gold-bright);}
 
-/* video placeholder */
 .video-frame{max-width:960px; margin:0 auto; border-radius:28px; overflow:hidden; position:relative; aspect-ratio:16/9; background:
-  radial-gradient(circle at 30% 25%, rgba(168,90,53,.24), transparent 55%),
-  radial-gradient(circle at 75% 78%, rgba(168,90,53,.14), transparent 55%),
+  radial-gradient(circle at 30% 25%, rgba(181,98,47,.24), transparent 55%),
+  radial-gradient(circle at 75% 78%, rgba(181,98,47,.14), transparent 55%),
   linear-gradient(135deg, var(--lapis-deep), var(--lapis) 60%, var(--lapis-deep));
   border:1px solid var(--line-gold); box-shadow:0 40px 90px rgba(0,0,0,.5);}
-.video-frame::before{content:""; position:absolute; inset:0; background-image:radial-gradient(rgba(255,216,168,.08) 1px, transparent 1px); background-size:28px 28px; opacity:.6; animation:drift 22s linear infinite;}
+.video-frame::before{content:""; position:absolute; inset:0; background-image:radial-gradient(rgba(255,212,138,.08) 1px, transparent 1px); background-size:28px 28px; opacity:.6; animation:drift 22s linear infinite;}
 @keyframes drift{from{background-position:0 0;} to{background-position:130px 100px;}}
-.play-btn{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:78px; height:78px; border-radius:50%; background:rgba(168,90,53,.14); backdrop-filter:blur(6px); border:1px solid var(--gold-bright); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s ease, transform .2s ease;}
-.play-btn:hover{background:rgba(168,90,53,.26); transform:translate(-50%,-50%) scale(1.06);}
+.play-btn{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:78px; height:78px; border-radius:50%; background:rgba(181,98,47,.14); backdrop-filter:blur(6px); border:1px solid var(--gold-bright); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s ease, transform .2s ease;}
+.play-btn:hover{background:rgba(181,98,47,.26); transform:translate(-50%,-50%) scale(1.06);}
 .play-btn svg{width:22px; height:22px; fill:var(--gold-bright); margin-left:4px;}
-.video-caption{position:absolute; bottom:16px; left:20px; font-size:11px; color:rgba(245,243,238,.4); letter-spacing:.04em;}
-.video-caption-r{position:absolute; bottom:16px; right:20px; font-size:11px; color:rgba(245,243,238,.4); letter-spacing:.04em;}
+.video-caption{position:absolute; bottom:16px; left:20px; font-size:11px; color:rgba(248,244,232,.4); letter-spacing:.04em;}
+.video-caption-r{position:absolute; bottom:16px; right:20px; font-size:11px; color:rgba(248,244,232,.4); letter-spacing:.04em;}
 
-/* ===== Sections ===== */
 .section{padding:104px 0;}
 .section-parchment{background:var(--bg-light);}
 .section-parchment2{background:var(--bg-light2);}
@@ -115,21 +120,18 @@ nav{position:sticky; top:0; z-index:900; background:rgba(24,29,39,.62); backdrop
 .section-navy .kicker{color:var(--gold-bright); font-weight:500;}
 .t-headline{font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:500; letter-spacing:-.02em; line-height:1.1;}
 .section-navy .t-headline{color:var(--parchment);}
-.t-lead{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1rem,1.5vw,1.15rem); color:var(--muted); max-width:52ch; margin:18px auto 0; line-height:1.65;}
-.section-navy .t-lead{color:rgba(245,243,238,.72);}
+.t-lead{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1rem,1.5vw,1.15rem); color:var(--muted); max-width:56ch; margin:18px auto 0; line-height:1.65;}
+.section-navy .t-lead{color:rgba(248,244,232,.72);}
 
-/* statement */
-.statement{font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:400; letter-spacing:-.01em; line-height:1.25; max-width:24ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
+.statement{font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:400; letter-spacing:-.01em; line-height:1.25; max-width:26ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
 .statement .accent{color:var(--bronze); font-style:normal; font-weight:500;}
 
-/* method badges */
-.method-row{display:flex; justify-content:center; flex-wrap:wrap; gap:14px; background:transparent; border:none; border-radius:0; overflow:visible; margin-top:46px; max-width:960px; margin-left:auto; margin-right:auto;}
-.method-badge{flex:1; min-width:220px; background:rgba(255,255,255,.045); backdrop-filter:blur(10px); border:1px solid rgba(255,216,168,.14); border-radius:22px; padding:28px 24px; text-align:center; transition:transform .25s ease, background .25s ease;}
+.method-row{display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin-top:46px; max-width:960px; margin-left:auto; margin-right:auto;}
+.method-badge{flex:1; min-width:220px; background:rgba(255,255,255,.045); backdrop-filter:blur(10px); border:1px solid rgba(255,212,138,.14); border-radius:22px; padding:28px 24px; text-align:center; transition:transform .25s ease, background .25s ease;}
 .method-badge:hover{transform:translateY(-4px); background:rgba(255,255,255,.08);}
 .method-badge b{display:block; font-family:'Plus Jakarta Sans',sans-serif; font-size:19px; font-weight:500; color:var(--gold-bright); margin-bottom:6px;}
-.method-badge span{font-size:12.5px; color:rgba(245,243,238,.6); letter-spacing:.01em;}
+.method-badge span{font-size:12.5px; color:rgba(248,244,232,.6); letter-spacing:.01em;}
 
-/* feature blocks */
 .feature-row{display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:center; padding:56px 0; border-bottom:1px solid var(--line-navy);}
 .feature-row:last-child{border-bottom:none;}
 .feature-row.rev{direction:rtl;}
@@ -137,84 +139,51 @@ nav{position:sticky; top:0; z-index:900; background:rgba(24,29,39,.62); backdrop
 .feature-emblem{width:56px; height:56px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:20px;}
 .feature-emblem svg{width:26px; height:26px; stroke:var(--gold); fill:none; stroke-width:1.2;}
 .feature-copy h3{font-size:clamp(1.7rem,3.2vw,2.5rem); font-weight:500; letter-spacing:-.015em; margin-bottom:14px; line-height:1.1;}
-.feature-copy p{font-size:16px; font-weight:300; color:var(--muted); line-height:1.7; max-width:44ch;}
-.feature-visual{aspect-ratio:4/3; border-radius:26px; position:relative; overflow:hidden; border:1px solid rgba(255,216,168,.16); box-shadow:0 24px 60px rgba(24,29,39,.18);}
+.feature-copy p{font-size:16px; font-weight:300; color:var(--muted); line-height:1.7; max-width:46ch;}
+.feature-visual{aspect-ratio:4/3; border-radius:26px; position:relative; overflow:hidden; border:1px solid rgba(255,212,138,.16); box-shadow:0 24px 60px rgba(17,21,31,.18);}
 .fv1{background:linear-gradient(135deg,var(--lapis-deep),var(--lapis-mid));}
 .fv2{background:linear-gradient(135deg,var(--lapis-deep),var(--gold));}
 .fv3{background:linear-gradient(135deg,var(--lapis),var(--lapis-deep));}
-.feature-visual::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 65% 30%, rgba(255,216,168,.28), transparent 55%);}
+.feature-visual::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 65% 30%, rgba(255,212,138,.28), transparent 55%);}
 
-/* curriculum */
-.spec-list{max-width:780px; margin:56px auto 0; list-style:none; border:1px solid rgba(168,90,53,.22); border-radius:28px; padding:6px 34px; background:rgba(255,255,255,.5); backdrop-filter:blur(6px); box-shadow:0 20px 60px rgba(35,42,58,.08);}
+.spec-list{max-width:800px; margin:56px auto 0; list-style:none; border:1px solid rgba(181,98,47,.22); border-radius:28px; padding:6px 34px; background:rgba(255,255,255,.5); backdrop-filter:blur(6px); box-shadow:0 20px 60px rgba(36,46,79,.08);}
 .spec-list li{display:grid; grid-template-columns:64px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--line-gold);}
 .spec-list li:first-child{border-top:none;}
 .spec-num{font-family:'Plus Jakarta Sans',sans-serif; font-size:26px; font-weight:500; color:var(--bronze); padding-top:2px;}
 .spec-list h4{font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:500; letter-spacing:0; margin-bottom:6px; color:var(--lapis-deep);}
-.spec-list p{font-size:14.5px; color:var(--muted); line-height:1.6; max-width:54ch;}
+.spec-list p{font-size:14.5px; color:var(--muted); line-height:1.6; max-width:56ch;}
 
-/* who grid */
-.who-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; background:transparent; border:none; border-radius:0; overflow:visible; margin-top:56px;}
+.who-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:56px;}
 @media(max-width:1100px){.who-grid{grid-template-columns:repeat(2,1fr);}}
-.who-card{background:rgba(255,255,255,.55); backdrop-filter:blur(8px); border:1px solid rgba(168,90,53,.14); border-radius:24px; padding:40px 26px; text-align:center; box-shadow:0 16px 40px rgba(35,42,58,.06); transition:transform .25s ease, box-shadow .25s ease;}
-.who-card:hover{transform:translateY(-6px); box-shadow:0 24px 50px rgba(35,42,58,.12);}
+.who-card{background:rgba(255,255,255,.55); backdrop-filter:blur(8px); border:1px solid rgba(181,98,47,.14); border-radius:24px; padding:40px 26px; text-align:center; box-shadow:0 16px 40px rgba(36,46,79,.06); transition:transform .25s ease, box-shadow .25s ease;}
+.who-card:hover{transform:translateY(-6px); box-shadow:0 24px 50px rgba(36,46,79,.12);}
 .who-card h3{font-family:'Plus Jakarta Sans',sans-serif; font-size:21px; margin-bottom:12px;}
 .who-card p{font-size:14.5px; color:var(--muted); line-height:1.65;}
 
-/* quotes */
-.quote-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; background:transparent; border:none; border-radius:0; overflow:visible; margin-top:52px;}
-.quote-card{background:rgba(255,255,255,.05); backdrop-filter:blur(10px); border:1px solid rgba(255,216,168,.14); border-radius:24px; padding:38px 32px; display:flex; flex-direction:column; transition:transform .25s ease;}
+.quote-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:52px;}
+@media(max-width:900px){.quote-row{grid-template-columns:1fr;}}
+.quote-card{background:rgba(255,255,255,.05); backdrop-filter:blur(10px); border:1px solid rgba(255,212,138,.14); border-radius:24px; padding:38px 32px; display:flex; flex-direction:column; transition:transform .25s ease;}
 .quote-card:hover{transform:translateY(-4px);}
 .quote-mark{font-family:'Plus Jakarta Sans',sans-serif; font-size:44px; color:var(--gold); opacity:.6; line-height:.5; margin-bottom:8px; display:block;}
-.quote-card p.q{font-family:'Plus Jakarta Sans',sans-serif; font-size:17px; color:var(--parchment); line-height:1.6; margin-bottom:22px; flex:1;}
+.quote-card p.q{font-family:'Plus Jakarta Sans',sans-serif; font-size:16.5px; color:var(--parchment); line-height:1.6; margin-bottom:22px; flex:1;}
 .quote-card .who{font-size:12.5px; font-weight:600; color:var(--gold-bright); letter-spacing:.03em; text-transform:uppercase;}
-.quote-card .role{font-size:11.5px; color:rgba(245,243,238,.5);}
-.quote-note{text-align:center; font-size:12px; color:var(--muted); max-width:62ch; margin:34px auto 0; line-height:1.6;}
-.section-navy .quote-note{color:rgba(245,243,238,.65);}
+.quote-card .role{font-size:11.5px; color:rgba(248,244,232,.5);}
+.quote-note{text-align:center; font-size:12px; color:var(--muted); max-width:64ch; margin:34px auto 0; line-height:1.6;}
+.section-navy .quote-note{color:rgba(248,244,232,.65);}
 
-/* investment / pricing */
-.compare{max-width:980px; margin:56px auto 0; border-radius:6px; overflow:hidden; border:1.5px solid var(--gold); background:var(--lapis-deep);}
-.compare-head{display:grid; grid-template-columns:1.3fr repeat(3,1fr);}
-.compare-head > div{padding:30px 20px; text-align:center; border-left:1px solid var(--line-gold);}
-.compare-head > div:first-child{border-left:none; text-align:left;}
-.compare-head .tier{font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; color:var(--parchment); margin-bottom:8px;}
-.compare-head .price{font-family:'Plus Jakarta Sans',sans-serif; font-size:34px; font-weight:600; color:var(--gold-bright); letter-spacing:0;}
-.compare-head .price span{font-size:13px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; color:rgba(245,243,238,.55);}
-.compare-head .featured-tag{display:inline-block; border:1px solid var(--gold); color:var(--gold-bright); font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:4px 10px; border-radius:2px; margin-bottom:10px;}
-.compare-row{display:grid; grid-template-columns:1.3fr repeat(3,1fr); border-top:1px solid var(--line-gold);}
-.compare-row > div{padding:16px 20px; text-align:center; font-size:13.5px; border-left:1px solid var(--line-gold); display:flex; align-items:center; justify-content:center; color:rgba(245,243,238,.85);}
-.compare-row > div:first-child{border-left:none; text-align:left; color:rgba(245,243,238,.55); justify-content:flex-start;}
-.compare-row .yes{color:var(--gold-bright); font-weight:700; font-size:16px;}
-.compare-row .no{color:rgba(245,243,238,.15);}
-.compare-cta{display:grid; grid-template-columns:1.3fr repeat(3,1fr); border-top:1px solid var(--line-gold); background:rgba(168,90,53,.05);}
-.compare-cta > div{padding:22px; text-align:center; border-left:1px solid var(--line-gold);}
-.compare-cta > div:first-child{border-left:none;}
-.compare-cta a{font-size:12px; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--gold); color:var(--gold-bright); padding:9px 18px; border-radius:2px; display:inline-block; transition:background .2s ease, color .2s ease;}
-.compare-cta a:hover{background:var(--gold); color:var(--lapis-deep);}
-@media(max-width:834px){
-  .compare-head, .compare-row, .compare-cta{grid-template-columns:1fr 1fr; }
-  .compare-head > div:first-child, .compare-row > div:first-child, .compare-cta > div:first-child{display:none;}
-}
-.compare.two-col .compare-head, .compare.two-col .compare-row, .compare.two-col .compare-cta{grid-template-columns:1.6fr repeat(2,1fr);}
-@media(max-width:834px){
-  .compare.two-col .compare-head, .compare.two-col .compare-row, .compare.two-col .compare-cta{grid-template-columns:1fr 1fr;}
-}
-
-/* single founding-cohort price card */
-.single-price{max-width:440px; margin:52px auto 0; background:rgba(255,255,255,.05); backdrop-filter:blur(14px); border:1px solid rgba(255,216,168,.2); border-radius:32px; padding:48px 40px; text-align:center; position:relative; box-shadow:0 30px 80px rgba(24,29,39,.35), 0 0 0 1px rgba(255,107,53,.12) inset;}
+.single-price{max-width:440px; margin:52px auto 0; background:linear-gradient(155deg, var(--lapis-deep), var(--lapis)); backdrop-filter:blur(14px); border:1px solid rgba(255,212,138,.2); border-radius:32px; padding:48px 40px; text-align:center; position:relative; box-shadow:0 30px 80px rgba(17,21,31,.35), 0 0 0 1px rgba(255,106,46,.12) inset;}
 .single-price-tag{display:inline-block; border:1px solid var(--gold); color:var(--gold-bright); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:5px 14px; border-radius:2px; margin-bottom:20px;}
 .single-price-title{font-family:'Plus Jakarta Sans',sans-serif; font-size:24px; font-weight:500; color:var(--parchment); margin-bottom:12px;}
 .single-price-amount{font-family:'Plus Jakarta Sans',sans-serif; font-size:56px; font-weight:600; color:var(--cta); line-height:1; letter-spacing:-.02em;}
-.single-price-detail{font-size:13px; color:rgba(245,243,238,.55); margin:12px 0 30px;}
+.single-price-detail{font-size:13px; color:rgba(248,244,232,.55); margin:12px 0 30px;}
 .single-price-features{list-style:none; text-align:left; margin-bottom:32px;}
-.single-price-features li{font-size:15px; font-weight:500; color:rgba(245,243,238,.9); padding-left:26px; position:relative; margin-bottom:14px;}
+.single-price-features li{font-size:15px; font-weight:500; color:rgba(248,244,232,.9); padding-left:26px; position:relative; margin-bottom:14px;}
 .single-price-features li::before{content:"✓"; position:absolute; left:0; color:var(--cta); font-weight:700;}
 
-/* countdown */
-.countdown-box{border:1px solid var(--line-gold); border-radius:6px; padding:16px; margin:22px 0 28px; background:rgba(168,90,53,.06);}
-.countdown-label{display:block; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:rgba(245,243,238,.5); margin-bottom:8px;}
-.countdown-digits{font-family:'Plus Jakarta Sans',sans-serif; font-size:26px; font-weight:600; color:var(--cta); letter-spacing:.02em; font-variant-numeric:tabular-nums;}
+.scarcity-box{border:1px solid var(--line-gold); border-radius:6px; padding:16px; margin:22px 0 28px; background:rgba(181,98,47,.06); text-align:left;}
+.scarcity-label{display:block; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:rgba(248,244,232,.5); margin-bottom:6px;}
+.scarcity-body{font-size:13.5px; color:rgba(248,244,232,.85); line-height:1.5;}
 
-/* sticky conversion bar */
 .sticky-bar{position:fixed; left:0; right:0; bottom:0; z-index:800; background:var(--lapis-deep); border-top:1px solid var(--gold); padding:14px 24px; display:flex; align-items:center; justify-content:center; gap:24px; transform:translateY(100%); transition:transform .3s ease; box-shadow:0 -8px 30px rgba(0,0,0,.3);}
 .sticky-bar.show{transform:translateY(0);}
 .sticky-bar-price{color:var(--parchment); font-size:14px; font-weight:600;}
@@ -226,42 +195,50 @@ nav{position:sticky; top:0; z-index:900; background:rgba(24,29,39,.62); backdrop
   .sticky-bar a{padding:10px 16px; font-size:12px;}
 }
 
-/* faq */
+.founder-row{display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:center; max-width:1000px; margin:56px auto 0;}
+@media(max-width:834px){.founder-row{grid-template-columns:1fr;}}
+.founder-photo{aspect-ratio:1/1; border-radius:26px; background:linear-gradient(135deg,var(--lapis-deep),var(--lapis-mid)); border:1px solid rgba(255,212,138,.16); position:relative; overflow:hidden; box-shadow:0 24px 60px rgba(17,21,31,.18);}
+.founder-photo::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 60% 30%, rgba(255,212,138,.22), transparent 55%);}
+.founder-photo .ph-note{position:absolute; bottom:14px; left:14px; right:14px; font-size:11px; color:rgba(248,244,232,.35); letter-spacing:.03em;}
+.founder-copy p{font-size:15.5px; color:var(--muted); line-height:1.7; margin-bottom:14px; font-weight:300;}
+.founder-credentials{list-style:none; margin-top:18px;}
+.founder-credentials li{font-size:14px; color:var(--lapis-deep); padding-left:22px; position:relative; margin-bottom:8px; font-weight:500;}
+.founder-credentials li::before{content:"—"; position:absolute; left:0; color:var(--bronze);}
+
 .faq{max-width:780px; margin:0 auto;}
-.faq details{border:1px solid rgba(168,90,53,.14); border-radius:18px; padding:20px 26px; margin-bottom:12px; background:rgba(255,255,255,.4); backdrop-filter:blur(6px); transition:background .2s ease;}
+.faq details{border:1px solid rgba(181,98,47,.14); border-radius:18px; padding:20px 26px; margin-bottom:12px; background:rgba(255,255,255,.4); backdrop-filter:blur(6px); transition:background .2s ease;}
 .faq details[open]{background:rgba(255,255,255,.65);}
-.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:17px; font-weight:400; color:var(--lapis-deep);}
+.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:17px; font-weight:400; color:var(--lapis-deep); gap:16px;}
 .faq summary::-webkit-details-marker{display:none;}
-.faq summary .chev{color:var(--gold); font-size:20px; font-weight:300; transition:transform .2s ease;}
+.faq summary .chev{color:var(--gold); font-size:20px; font-weight:300; transition:transform .2s ease; flex-shrink:0;}
 .faq details[open] summary .chev{transform:rotate(45deg);}
 .faq details p{font-size:15px; color:var(--muted); line-height:1.65; margin-top:14px; max-width:62ch; font-weight:300;}
 
-/* CTA banner */
 .cta-banner{background:linear-gradient(155deg, var(--lapis-deep), var(--lapis)); color:var(--parchment); text-align:center; padding:110px 0; position:relative; overflow:hidden;}
 .cta-banner h2{font-size:clamp(2rem,4vw,3rem); color:var(--parchment); margin-bottom:18px;}
-.cta-banner p{font-size:16px; font-weight:300; color:rgba(245,243,238,.7); max-width:44ch; margin:0 auto 36px; line-height:1.6;}
+.cta-banner p{font-size:16px; font-weight:300; color:rgba(248,244,232,.7); max-width:48ch; margin:0 auto 36px; line-height:1.6;}
 
-/* form */
 .apply-section{padding:104px 0; background:var(--bg-light2);}
-.form-card{max-width:660px; margin:0 auto; background:rgba(255,255,255,.55); backdrop-filter:blur(10px); border-radius:28px; padding:46px; border:1px solid rgba(168,90,53,.18); box-shadow:0 20px 60px rgba(35,42,58,.08);}
+.form-card{max-width:660px; margin:0 auto; background:rgba(255,255,255,.55); backdrop-filter:blur(10px); border-radius:28px; padding:46px; border:1px solid rgba(181,98,47,.18); box-shadow:0 20px 60px rgba(36,46,79,.08);}
 .f-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
 .f-group label{display:block; font-size:12.5px; font-weight:600; letter-spacing:.02em; margin-bottom:7px; color:var(--lapis-deep); text-transform:uppercase;}
 .f-note{display:block; font-size:11.5px; color:var(--muted); margin:-3px 0 8px; font-weight:300;}
 .f-group input, .f-group select, .f-group textarea{width:100%; padding:13px 16px; border:1px solid rgba(32,38,58,.16); border-radius:14px; background:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; color:var(--ink); transition:border-color .2s ease;}
 .f-group input:focus, .f-group select:focus, .f-group textarea:focus{outline:none; border-color:var(--gold);}
-.f-submit{width:100%; background:linear-gradient(135deg, var(--cta), var(--cta-deep)); color:#fff; border:none; padding:16px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; margin-bottom:12px; box-shadow:0 8px 24px rgba(232,80,28,.35); transition:transform .2s ease;}
-.f-submit:hover{transform:translateY(-2px);}
-.f-submit:hover{opacity:.9;}
+.f-submit{width:100%; background:linear-gradient(135deg, var(--cta), var(--cta-deep)); color:#fff; border:none; padding:16px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; margin-bottom:12px; box-shadow:0 8px 24px rgba(216,67,15,.35); transition:transform .2s ease;}
+.f-submit:hover{transform:translateY(-2px); opacity:.9;}
 .f-fine{text-align:center; font-size:12px; color:var(--muted);}
+.f-referral{margin-top:26px; padding-top:22px; border-top:1px solid rgba(181,98,47,.16); text-align:center;}
+.f-referral p{font-size:13px; color:var(--muted); line-height:1.6;}
+.f-referral b{color:var(--lapis-deep);}
 
-/* footer */
-footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0 30px; border-top:1px solid var(--line-gold);}
+footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0 30px; border-top:1px solid var(--line-gold);}
 .footer-inner{max-width:1140px; margin:0 auto; padding:0 30px;}
-.footer-links{display:flex; flex-wrap:wrap; gap:16px 24px; padding-bottom:22px; border-bottom:1px solid rgba(245,243,238,.1); margin-bottom:18px;}
-.footer-links a{font-size:12px; letter-spacing:.03em; color:rgba(245,243,238,.55);}
+.footer-links{display:flex; flex-wrap:wrap; gap:16px 24px; padding-bottom:22px; border-bottom:1px solid rgba(248,244,232,.1); margin-bottom:18px;}
+.footer-links a{font-size:12px; letter-spacing:.03em; color:rgba(248,244,232,.55);}
 .footer-links a:hover{color:var(--gold-bright);}
-.footer-copy{font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; color:rgba(245,243,238,.55);}
-.footer-disclaimer{font-size:11px; line-height:1.7; margin-top:10px; max-width:82ch; color:rgba(245,243,238,.32);}
+.footer-copy{font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; color:rgba(248,244,232,.55);}
+.footer-disclaimer{font-size:11px; line-height:1.7; margin-top:10px; max-width:82ch; color:rgba(248,244,232,.32);}
 
 .reveal{opacity:0; transform:translateY(24px); filter:blur(6px); transition:opacity .8s ease, transform .8s ease, filter .8s ease;}
 .reveal.visible{opacity:1; transform:none; filter:blur(0);}
@@ -269,7 +246,7 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
 @media(max-width:834px){
   .feature-row{grid-template-columns:1fr; gap:32px;}
   .feature-row.rev{direction:ltr;}
-  .who-grid, .quote-row{grid-template-columns:1fr;}
+  .who-grid{grid-template-columns:1fr;}
   .spec-list li{grid-template-columns:44px 1fr;}
   .f-grid{grid-template-columns:1fr;}
 }
@@ -282,7 +259,7 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
     <a href="#top" class="nav-logo">The Ordered <span>Field</span></a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#study">The Study</a></li>
+      <li><a href="#method">The Method</a></li>
       <li><a href="#curriculum">Curriculum</a></li>
       <li><a href="#who">Who It's For</a></li>
       <li><a href="#pricing">Enroll</a></li>
@@ -293,16 +270,16 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
 </nav>
 
 <section class="hero" id="top">
-  <svg class="hero-sigil" viewBox="0 0 400 400"><circle cx="200" cy="200" r="180" fill="none" stroke="#ffd8a8" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#ffd8a8" stroke-width="1"/><path d="M200 20 L200 380 M20 200 L380 200" stroke="#ffd8a8" stroke-width=".6"/><path d="M75 75 L325 325 M325 75 L75 325" stroke="#ffd8a8" stroke-width=".6"/><circle cx="200" cy="200" r="46" fill="none" stroke="#ffd8a8" stroke-width="1"/></svg>
+  <svg class="hero-sigil" viewBox="0 0 400 400"><circle cx="200" cy="200" r="180" fill="none" stroke="#ffd48a" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#ffd48a" stroke-width="1"/><path d="M200 20 L200 380 M20 200 L380 200" stroke="#ffd48a" stroke-width=".6"/><path d="M75 75 L325 325 M325 75 L75 325" stroke="#ffd48a" stroke-width=".6"/><circle cx="200" cy="200" r="46" fill="none" stroke="#ffd48a" stroke-width="1"/></svg>
   <div class="wrap hero-inner">
-    <div class="hero-eyebrow">Online Masterclass &middot; The Ordered Field</div>
-    <h1>Your conscious mind and your unconscious mind were never meant to work <span class="g">alone.</span></h1>
-    <p class="sub">A proven method, paired with dream exploration, for finally introducing your conscious and unconscious mind — so they can stop leaving each other cryptic notes at 3 a.m. and just work as one.</p>
-    <p class="cred">Featuring Sam Osborne — Trained Demartini Method Facilitator.</p>
-    <p class="cred" style="margin-top:4px; margin-bottom:36px;">(No incense. No chanting. Bring a notebook.)</p>
+    <div class="hero-eyebrow">Online Study Group &middot; The Ordered Field</div>
+    <h1>Every part of you that you've called weak, wrong, or wasted has a <span class="g">job</span> you haven't found yet.</h1>
+    <p class="sub">A structured method for finding it — used with attorneys, executives, and creatives to resolve the self-doubt, guilt, and repeating patterns that talk and time alone haven't touched.</p>
+    <p class="cred">Facilitated live by Sam Osborne — Demartini Method Facilitator, working toward Master level.</p>
+    <p class="cred" style="margin-top:4px; margin-bottom:36px;">(No incense. No chanting. Bring a notebook — and one thing about yourself you've never liked.)</p>
     <div class="hero-actions">
-      <a href="#apply" class="btn-gold">Join the Founding Cohort</a>
-      <a href="#film" class="btn-ghost">A Message From the Facilitator</a>
+      <a href="#apply" class="btn-gold is-primary">Join the Founding Cohort</a>
+      <a href="#film" class="btn-ghost">A Message From Sam</a>
     </div>
   </div>
   <div class="wrap" id="film" style="position:relative; z-index:1;">
@@ -311,7 +288,7 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
         <!-- Replace with the final hero video file: <source src="hero.mp4" type="video/mp4"> -->
       </video>
       <div class="play-btn" id="playBtn" role="button" aria-label="Play video"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <span class="video-caption">A personal message from Sam — placeholder, drop in final video</span>
+      <span class="video-caption">A personal message from Sam on why he built this</span>
       <span class="video-caption-r">01:12</span>
     </div>
   </div>
@@ -319,25 +296,25 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
 
 <section class="section section-parchment" id="study">
   <div class="wrap reveal">
-    <div class="ornament"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#a85a35" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#a85a35"/></svg><span class="ln r"></span></div>
+    <div class="ornament"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#b5622f" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#b5622f"/></svg><span class="ln r"></span></div>
     <span class="kicker" style="display:block; text-align:center;">The Bottom Line</span>
-    <p class="statement">Wholeness isn't found by fixing what's broken. It's found by finally <span class="accent">coming home</span> to the part of you that got left out.</p>
+    <p class="statement">You don't fix what's broken in you. You find what it's <span class="accent">actually for</span>.</p>
     <p style="text-align:center; margin-top:18px; font-size:13px; font-weight:600; color:var(--muted); letter-spacing:.02em;">— Sam Osborne</p>
   </div>
 </section>
 
-<section class="section section-navy">
+<section class="section section-navy" id="method">
   <div class="wrap">
     <div class="center reveal">
       <span class="kicker">The Method</span>
-      <h2 class="t-headline">Work with both minds at once.</h2>
-      <p class="t-lead">The Demartini Method and dream exploration, so the conscious and unconscious mind stop competing for the wheel and start driving somewhere together. Facilitated live by <strong style="color:var(--gold-bright);">Sam Osborne</strong>, trained Demartini Method Facilitator.</p>
-      <p class="t-lead" style="font-size:14px; margin-top:14px; color:rgba(245,243,238,.62);">Basically: an introduction between two halves of you that have never actually met.</p>
+      <h2 class="t-headline">A tool, not a talk.</h2>
+      <p class="t-lead">The Demartini Method is a structured, repeatable process for locating the hidden benefit inside the thing you've judged as purely negative — the guilt, the imposter feeling, the person who gets under your skin. Facilitated live by <strong style="color:var(--gold-bright);">Sam Osborne</strong>.</p>
+      <p class="t-lead" style="font-size:14px; margin-top:14px; color:rgba(248,244,232,.62);">Not talk therapy. Not positive thinking. A specific set of questions, applied to your specific material, in front of you.</p>
     </div>
     <div class="method-row reveal">
-      <div class="method-badge"><b>Demartini Method</b><span>Meet the conscious</span></div>
-      <div class="method-badge"><b>Dream Exploration</b><span>Meet the unconscious</span></div>
-      <div class="method-badge"><b>Live Facilitation</b><span>Trained &amp; certified</span></div>
+      <div class="method-badge"><b>Name the Charge</b><span>Get precise about what you're carrying</span></div>
+      <div class="method-badge"><b>Find the Use</b><span>Locate what it's actually done for you</span></div>
+      <div class="method-badge"><b>Balance It</b><span>Hold both sides until the charge lifts</span></div>
     </div>
   </div>
 </section>
@@ -346,35 +323,41 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
   <div class="wrap">
     <div class="center reveal">
       <span class="kicker">Why This Exists</span>
-      <h2 class="t-headline">Your unconscious isn't noise.</h2>
-      <p class="t-lead">It's the other half of you — if you know how to bring it into the room.</p>
-      <p class="t-lead" style="font-size:14px; margin-top:6px; color:var(--muted);">It's been sending reports for years, in your dreams and in the people who get under your skin. Nobody ever introduced you.</p>
+      <h2 class="t-headline">The flaw was never the whole story.</h2>
+      <p class="t-lead">People come to this work certain that a part of them is simply a problem to manage. The method doesn't argue them out of it. It shows them what that part has been doing for them the entire time.</p>
     </div>
 
     <div class="feature-row reveal">
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4.5"/></svg></div>
-        <h3>Your dreams, decoded.</h3>
-        <p>Bring a real dream. Leave knowing what part of you sent it.</p>
-        <p style="font-size:13px; margin-top:6px; color:var(--muted);">Yes, even the one with the teeth falling out.</p>
+        <h3>The pattern you keep repeating.</h3>
+        <p>Bring the one you already know by heart — the indecision, the imposter feeling, the guilt that resurfaces on schedule. Leave knowing what it's been protecting.</p>
+        <p style="font-size:13px; margin-top:6px; color:var(--muted);">You've named it before. This time you find its job.</p>
       </div>
       <div class="feature-visual fv1">
         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
-          <rect width="400" height="300" fill="#181d27"/>
-          <g transform="translate(200,150)">
-            <circle r="95" fill="none" stroke="#ffd8a8" stroke-width="1" opacity="0.35"/>
-            <circle r="72" fill="none" stroke="#ffd8a8" stroke-width="1" opacity="0.5"/>
-            <circle r="48" fill="none" stroke="#ffd8a8" stroke-width="1.2" opacity="0.65"/>
-            <circle r="24" fill="none" stroke="#ffd8a8" stroke-width="1.4" opacity="0.8"/>
-            <circle r="6" fill="#ff6b35"/>
-            <circle cx="72" cy="0" r="4.5" fill="#ffd8a8"/>
-            <circle cx="50.9" cy="50.9" r="4.5" fill="#ffd8a8"/>
-            <circle cx="0" cy="72" r="4.5" fill="#ffd8a8"/>
-            <circle cx="-50.9" cy="50.9" r="4.5" fill="#ffd8a8"/>
-            <circle cx="-72" cy="0" r="4.5" fill="#ffd8a8"/>
-            <circle cx="-50.9" cy="-50.9" r="4.5" fill="#ffd8a8"/>
-            <circle cx="0" cy="-72" r="4.5" fill="#ffd8a8"/>
-            <circle cx="50.9" cy="-50.9" r="4.5" fill="#ffd8a8"/>
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#11151f"/><stop offset="1" stop-color="#2c3860"/></linearGradient>
+            <radialGradient id="glow1" cx="72%" cy="46%" r="55%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".22"/><stop offset="1" stop-color="#ffd48a" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g1)"/>
+          <rect width="400" height="300" fill="url(#glow1)"/>
+          <!-- tangled thread, left side: the repeating pattern as it feels -->
+          <path d="M40 150 C 65 90, 100 210, 120 140 C 140 70, 165 200, 150 150 C 140 115, 100 130, 108 165 C 116 200, 160 175, 155 150" fill="none" stroke="#ffd48a" stroke-width="1.6" opacity="0.55" stroke-linecap="round"/>
+          <circle cx="40" cy="150" r="4" fill="#ffd48a" opacity="0.7"/>
+          <!-- the thread resolving into order, right side -->
+          <path d="M155 150 C 190 150, 200 118, 232 118" fill="none" stroke="#ffd48a" stroke-width="1.6" opacity="0.8" stroke-linecap="round"/>
+          <g transform="translate(300,150)">
+            <circle r="86" fill="none" stroke="#ffd48a" stroke-width="1" opacity="0.3"/>
+            <circle r="60" fill="none" stroke="#ffd48a" stroke-width="1" opacity="0.48"/>
+            <circle r="34" fill="none" stroke="#ffd48a" stroke-width="1.3" opacity="0.75"/>
+            <circle r="5.5" fill="#ffd48a"/>
+            <g stroke="#ffd48a" stroke-width="1" opacity="0.65">
+              <line x1="0" y1="-86" x2="0" y2="-96"/>
+              <line x1="0" y1="86" x2="0" y2="96"/>
+              <line x1="-86" y1="0" x2="-96" y2="0"/>
+              <line x1="86" y1="0" x2="96" y2="0"/>
+            </g>
           </g>
         </svg>
       </div>
@@ -382,55 +365,60 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
     <div class="feature-row rev reveal">
       <div class="feature-copy">
         <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
-        <h3>The stranger, welcomed.</h3>
-        <p>The person who gets under your skin is showing you a piece of yourself you haven't met yet.</p>
-        <p style="font-size:13px; margin-top:6px; color:var(--muted);">Annoyingly. But still.</p>
+        <h3>The person who gets under your skin.</h3>
+        <p>Whatever quality in them charges you is a quality you're carrying too — just not one you've owned yet. Finding it is usually where the biggest release happens.</p>
+        <p style="font-size:13px; margin-top:6px; color:var(--muted);">Annoyingly. But reliably.</p>
       </div>
       <div class="feature-visual fv2">
         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
-          <rect width="400" height="300" fill="#2a3348"/>
-          <g transform="translate(200,148)">
-            <path d="M-24 -68 Q0 -98 24 -68" fill="none" stroke="#ffd8a8" stroke-width="3" stroke-linecap="round"/>
-            <circle r="42" fill="none" stroke="#ffd8a8" stroke-width="3"/>
-            <circle r="6" fill="#ff6b35"/>
-            <line x1="0" y1="42" x2="0" y2="92" stroke="#ffd8a8" stroke-width="3" stroke-linecap="round"/>
-            <line x1="-24" y1="67" x2="24" y2="67" stroke="#ffd8a8" stroke-width="3" stroke-linecap="round"/>
+          <defs>
+            <radialGradient id="glow2" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".16"/><stop offset="1" stop-color="#11151f" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="#242e4f"/>
+          <rect width="400" height="300" fill="url(#glow2)"/>
+          <!-- two mirrored profiles, facing, forming a vesica between them -->
+          <g fill="none" stroke="#ffd48a" stroke-width="1.6" opacity="0.85" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M148 90 C 128 92, 116 110, 118 132 C 119 144, 126 150, 122 160 C 138 162, 150 156, 156 144 C 162 132, 160 108, 148 90 Z"/>
+            <path d="M252 90 C 272 92, 284 110, 282 132 C 281 144, 274 150, 278 160 C 262 162, 250 156, 244 144 C 238 132, 240 108, 252 90 Z"/>
           </g>
+          <path d="M200 118 C 214 130, 214 168, 200 190 C 186 168, 186 130, 200 118 Z" fill="none" stroke="#ffd48a" stroke-width="1.2" opacity="0.55"/>
+          <circle cx="200" cy="154" r="3.5" fill="#ffd48a"/>
         </svg>
       </div>
     </div>
     <div class="feature-row reveal">
       <div class="feature-emblem"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
       <div class="feature-copy">
-        <h3>Four weeks. Live.</h3>
-        <p>One session a week. Small group. Real work, done together.</p>
-        <p style="font-size:13px; margin-top:6px; color:var(--muted);">No app. No streak to break.</p>
+        <h3>Four weeks. Live. On your material.</h3>
+        <p>One session a week, worked in real time on what you actually bring — not a general lecture on the theory.</p>
+        <p style="font-size:13px; margin-top:6px; color:var(--muted);">No app. No streak to break. Just the sessions and the work.</p>
       </div>
       <div class="feature-visual fv3">
         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
-          <rect width="400" height="300" fill="#181d27"/>
-          <g transform="translate(200,150)" stroke="#ffd8a8" stroke-width="1.6" opacity="0.85">
-            <line x1="0" y1="-100" x2="0" y2="100" stroke-width="2"/>
-            <line x1="0" y1="-55" x2="-58" y2="-92" stroke-width="1.4"/>
-            <line x1="0" y1="-40" x2="-30" y2="-88" stroke-width="1.4"/>
-            <line x1="0" y1="-40" x2="30" y2="-88" stroke-width="1.4"/>
-            <line x1="0" y1="-55" x2="58" y2="-92" stroke-width="1.4"/>
-            <line x1="0" y1="55" x2="-58" y2="92" stroke-width="1.4"/>
-            <line x1="0" y1="40" x2="-30" y2="88" stroke-width="1.4"/>
-            <line x1="0" y1="40" x2="30" y2="88" stroke-width="1.4"/>
-            <line x1="0" y1="55" x2="58" y2="92" stroke-width="1.4"/>
+          <defs>
+            <radialGradient id="glow3" cx="50%" cy="46%" r="60%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".18"/><stop offset="1" stop-color="#11151f" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="#11151f"/>
+          <rect width="400" height="300" fill="url(#glow3)"/>
+          <!-- a four-week dial: one mark per live session -->
+          <g transform="translate(200,150)">
+            <circle r="88" fill="none" stroke="#ffd48a" stroke-width="1" opacity="0.4"/>
+            <circle r="62" fill="none" stroke="#ffd48a" stroke-width="1" opacity="0.28"/>
+            <g stroke="#ffd48a" stroke-width="2" stroke-linecap="round">
+              <line x1="0" y1="-88" x2="0" y2="-72"/>
+              <line x1="88" y1="0" x2="72" y2="0"/>
+              <line x1="0" y1="88" x2="0" y2="72"/>
+              <line x1="-88" y1="0" x2="-72" y2="0"/>
+            </g>
+            <g fill="#ffd48a" font-family="Plus Jakarta Sans, sans-serif" font-size="11" opacity="0.75" text-anchor="middle">
+              <text x="0" y="-98">WK 1</text>
+              <text x="112" y="4">WK 2</text>
+              <text x="0" y="112">WK 3</text>
+              <text x="-112" y="4">WK 4</text>
+            </g>
+            <path d="M0 -62 A62 62 0 0 1 44 -44" fill="none" stroke="#ffd48a" stroke-width="2.4" stroke-linecap="round"/>
+            <circle r="6" fill="#ffd48a"/>
           </g>
-          <g transform="translate(200,150)" fill="#ffd8a8">
-            <circle cx="-58" cy="-92" r="3.5"/>
-            <circle cx="-30" cy="-88" r="3.5"/>
-            <circle cx="30" cy="-88" r="3.5"/>
-            <circle cx="58" cy="-92" r="3.5"/>
-            <circle cx="-58" cy="92" r="3"/>
-            <circle cx="-30" cy="88" r="3"/>
-            <circle cx="30" cy="88" r="3"/>
-            <circle cx="58" cy="92" r="3"/>
-          </g>
-          <circle cx="200" cy="150" r="9" fill="#ff6b35"/>
         </svg>
       </div>
     </div>
@@ -442,13 +430,13 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
     <div class="center reveal">
       <span class="kicker">The Curriculum</span>
       <h2 class="t-headline">Four weeks. Four sessions.</h2>
-      <p class="t-lead">One idea a week, worked live on your own material.</p>
+      <p class="t-lead">One move a week, applied live to your own material — so by the end you're not just resolved, you have the tool.</p>
     </div>
     <ol class="spec-list reveal">
-      <li><span class="spec-num">I</span><div><h4>Read the Dream</h4><p>Turn "what does this mean" into a method. <span style="color:var(--muted);">No dream dictionary required.</span></p></div></li>
-      <li><span class="spec-num">II</span><div><h4>Find the Opposite</h4><p>Locate the disowned half doing the charging. <span style="color:var(--muted);">Spoiler: it's rarely who you think.</span></p></div></li>
-      <li><span class="spec-num">III</span><div><h4>Sit With It</h4><p>Hold the tension until the two sides recognize each other. <span style="color:var(--muted);">This is the uncomfortable part. Stay anyway.</span></p></div></li>
-      <li><span class="spec-num">IV</span><div><h4>Come Home</h4><p>Let conscious and unconscious settle into one working whole. <span style="color:var(--muted);">No more separate group chats.</span></p></div></li>
+      <li><span class="spec-num">I</span><div><h4>Name the Charge</h4><p>Get specific about the thing you've been calling purely negative — the guilt, the imposter feeling, the pattern you keep repeating. <span style="color:var(--muted);">Vague doesn't work here. Precise does.</span></p></div></li>
+      <li><span class="spec-num">II</span><div><h4>Find the Hidden Benefit</h4><p>Locate what that "flaw" has actually been doing for you all along. <span style="color:var(--muted);">This is the session people describe as the "aha."</span></p></div></li>
+      <li><span class="spec-num">III</span><div><h4>Balance the Two Sides</h4><p>Hold the cost and the benefit at once until neither one runs the show. <span style="color:var(--muted);">This is where the charge actually lifts.</span></p></div></li>
+      <li><span class="spec-num">IV</span><div><h4>Make It Stick</h4><p>Apply the same method to a second pattern on your own, with the group's support. <span style="color:var(--muted);">You leave with the tool, not just one resolved issue.</span></p></div></li>
     </ol>
   </div>
 </section>
@@ -458,14 +446,14 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
     <div class="center reveal">
       <span class="kicker">Who This Is For</span>
       <h2 class="t-headline">For people who optimize everything else.</h2>
-      <p class="t-lead">High achievers. Systems thinkers. People who've already read the books and done the frameworks — for everything except this.</p>
+      <p class="t-lead">High achievers. Systems thinkers. People who've already read the books and done the frameworks — for everything except the part of themselves they've written off.</p>
     </div>
     <div class="who-grid reveal">
       <div class="who-card">
         <div class="feature-emblem" style="margin:0 auto 18px;"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></div>
-        <h3>Work</h3>
-        <p>The colleague, boss, or ceiling you can't logic your way past.</p>
-        <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">Your calendar app can't fix this one.</p>
+        <h3>Imposter Syndrome</h3>
+        <p>The self-doubt that shows up despite years of evidence to the contrary.</p>
+        <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">It's not a knowledge gap. It's a perception one.</p>
       </div>
       <div class="who-card">
         <div class="feature-emblem" style="margin:0 auto 18px;"><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5-4 8-8 11z"/></svg></div>
@@ -475,19 +463,19 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
       </div>
       <div class="who-card">
         <div class="feature-emblem" style="margin:0 auto 18px;"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H7"/></svg></div>
-        <h3>Wealth</h3>
-        <p>A block no spreadsheet or strategy has fixed yet.</p>
-        <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">You've made the spreadsheet. It didn't help.</p>
+        <h3>Guilt &amp; Shame</h3>
+        <p>Old weight from a decision or event that hasn't actually lifted with time.</p>
+        <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">Time alone rarely does the job.</p>
       </div>
       <div class="who-card">
         <div class="feature-emblem" style="margin:0 auto 18px;"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0z"/><path d="M12 8v4l3 2"/></svg></div>
-        <h3>Health</h3>
-        <p>The burnout, the sleep, the signal you keep overriding.</p>
-        <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">Your smartwatch already knows.</p>
+        <h3>Stuck Patterns</h3>
+        <p>The indecision, the avoidance, the reaction you can predict before it happens.</p>
+        <p style="font-size:12.5px; margin-top:6px; color:var(--muted);">Predictable is workable.</p>
       </div>
     </div>
-    <div class="reveal" style="margin-top:44px; max-width:760px; margin-left:auto; margin-right:auto; text-align:center; background:var(--white,#fff); border:1px solid var(--gold); border-radius:6px; padding:28px 32px;">
-      <p style="font-size:14px; color:var(--muted); line-height:1.6;"><strong style="color:var(--lapis-deep);">A note on fit.</strong> This is a study group, not therapy. It assumes a steady starting point. If you're currently in crisis or working through acute emotional distress, please reach out to a licensed professional first — this isn't the right space for that right now.</p>
+    <div class="reveal" style="margin-top:44px; max-width:760px; margin-left:auto; margin-right:auto; text-align:center; background:#fff; border:1px solid var(--gold); border-radius:6px; padding:28px 32px;">
+      <p style="font-size:14px; color:var(--muted); line-height:1.6;"><strong style="color:var(--lapis-deep);">A note on fit.</strong> This is a study group, not therapy, and it assumes a steady starting point. If you're currently in crisis or working through acute emotional distress, please reach out to a licensed professional first — this isn't the right space for that right now.</p>
     </div>
   </div>
 </section>
@@ -495,30 +483,85 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
 <section class="section section-navy" id="voices">
   <div class="wrap">
     <div class="center reveal">
-      <span class="kicker">Voices from Past Groups</span>
-      <h2 class="t-headline">What people find.</h2>
+      <span class="kicker">What Clients Have Found</span>
+      <h2 class="t-headline">Working the method with Sam.</h2>
+      <p class="t-lead" style="font-size:14px;">From private one-on-one sessions using the Demartini Method — the same method this group is built around.</p>
     </div>
     <div class="quote-row reveal">
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">I'd optimized my career, my health, my finances. This was the one place I'd never actually come home to myself.</p>
-        <div class="who">Past Participant</div>
-        <div class="role">Software Engineer</div>
+        <p class="q">Even after seventy trips around the sun and a career built on qualifications, there are still days self-doubt washes over me. One session with Sam cleared more of it than anything I've tried before.</p>
+        <div class="who">Graham Harvey</div>
+        <div class="role">Certified Professional Speaker, Professional Speakers Australia Hall of Fame</div>
       </div>
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">I finally stopped replaying the same argument in my head. It just... let go.</p>
-        <div class="who">Past Participant</div>
-        <div class="role">Startup Founder</div>
+        <p class="q">Sam was a master at keeping me on task, finding negative beliefs from childhood and showing how they still shaped me today. I'd recommend this method to anyone looking to take their career to the next level.</p>
+        <div class="who">Vernon Webb</div>
+        <div class="role">Managing Director, Los Angeles</div>
       </div>
       <div class="quote-card">
         <span class="quote-mark">&ldquo;</span>
-        <p class="q">I've read every book on this. This is the first time I actually felt whole instead of managed.</p>
-        <div class="who">Past Participant</div>
-        <div class="role">Data Scientist</div>
+        <p class="q">In just one session, Sam had me seeing the butterflies and imposter syndrome for the natural distractions they are — and finding the calm, even the enjoyment, of being myself in the spotlight.</p>
+        <div class="who">David Fedirchuk</div>
+        <div class="role">Head of Business Development, Ontario</div>
       </div>
     </div>
-    <p class="quote-note">Voices reflect past participants' experiences, shared with permission. This group is educational, not a substitute for licensed mental health treatment.</p>
+    <div class="quote-row reveal" style="margin-top:16px;">
+      <div class="quote-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="q">You came up with practical, insightful suggestions for my business and finally dissolved a good part of my imposter syndrome. I made more headway in one session than I expected.</p>
+        <div class="who">Wendy De Munari</div>
+        <div class="role">Professional Speaker, Author &amp; Course Creator</div>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="q">The emotional burden around my indecision lifted. I began to see balance instead of moral weight, and in the days since I've felt lighter and freed from guilt I'd carried for years.</p>
+        <div class="who">Bronwyn Beth</div>
+        <div class="role">Professional Violinist, USA</div>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="q">Sam cuts through the noise and gets to the core of you very quickly. If you're open to it, he's a guide you can trust to get you there.</p>
+        <div class="who">Lynn Dudley</div>
+        <div class="role">Maryland, USA</div>
+      </div>
+    </div>
+    <p class="quote-note">Quotes are from private one-on-one sessions with Sam, shared with permission and lightly trimmed for length. This is the first live cohort of The Ordered Field — the method is proven; the group format is new. This group is educational, not a substitute for licensed mental health treatment.</p>
+  </div>
+</section>
+
+<section class="section section-parchment2">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="kicker">Your Facilitator</span>
+      <h2 class="t-headline">Why Sam.</h2>
+    </div>
+    <div class="founder-row reveal">
+      <div class="founder-photo">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <defs>
+            <radialGradient id="fpg" cx="50%" cy="42%" r="65%"><stop offset="0" stop-color="#ffd48a" stop-opacity=".2"/><stop offset="1" stop-color="#11151f" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="400" height="400" fill="#11151f"/>
+          <rect width="400" height="400" fill="url(#fpg)"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="#ffd48a" stroke-width="1" opacity="0.3"/>
+          <circle cx="200" cy="200" r="118" fill="none" stroke="#ffd48a" stroke-width="1.4" opacity="0.55"/>
+          <text x="200" y="222" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="76" font-weight="500" fill="#ffd48a" opacity="0.92">SO</text>
+        </svg>
+        <div class="ph-note">Photo placeholder — swap in a real portrait of Sam before launch</div>
+      </div>
+      <div class="founder-copy">
+        <p>Dr. Sam Osborne is a professional keynote speaker and Demartini Method Facilitator, working toward Master level under Dr. John Demartini. He's spent years applying this method one-on-one with attorneys, executives, coaches, and creatives — helping people find what a pattern they'd judged as purely negative was actually doing for them.</p>
+        <p>The Ordered Field is the first time that private work is being run as a live group format.</p>
+        <ul class="founder-credentials">
+          <li>Demartini Method Facilitator, working toward Master level</li>
+          <li>Six published books; a seventh, The Ordered Field, underway</li>
+          <li>President-Elect, National Speakers Association — Southern California</li>
+          <li>Double major in Philosophy and English</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -527,8 +570,8 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
     <div class="center reveal">
       <span class="kicker">Enroll</span>
       <h2 class="t-headline">Join the founding cohort.</h2>
-      <p class="t-lead">One offer. A small group. Locked-in founding rate.</p>
-      <p class="t-lead" style="font-size:14px; margin-top:6px; color:var(--muted);">Cheaper than a therapist. Weirder than a gym membership. Deeper than both.</p>
+      <p class="t-lead">One offer. A small, capped group. A locked-in founding rate.</p>
+      <p class="t-lead" style="font-size:14px; margin-top:6px; color:var(--muted);">Cheaper than a run of therapy sessions. Weirder than a gym membership. More precise than both.</p>
     </div>
 
     <div class="single-price reveal">
@@ -537,9 +580,9 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
       <div class="single-price-amount">$997</div>
       <p class="single-price-detail">One-time &middot; future cohorts $2,997</p>
 
-      <div class="countdown-box">
-        <span class="countdown-label">Founding rate closes in</span>
-        <div class="countdown-digits" id="countdown">--:--:--:--</div>
+      <div class="scarcity-box">
+        <span class="scarcity-label">Group is capped</span>
+        <div class="scarcity-body">Kept small on purpose so every session works live on real material — enrollment closes once the cohort is full, not on a countdown clock.</div>
       </div>
 
       <ul class="single-price-features">
@@ -549,10 +592,9 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
         <li>Founding rate, locked in</li>
       </ul>
       <a href="#apply" class="btn-gold" style="width:100%; text-align:center; display:block;">Join the Founding Cohort</a>
-      <p style="font-size:12px; margin-top:14px; color:rgba(245,243,238,.55);">Not for you after session one? Full refund. No hard feelings.</p>
-      <p style="font-size:11.5px; margin-top:4px; color:rgba(245,243,238,.4);">(Existential clarity, on the other hand, is non-refundable.)</p>
+      <p style="font-size:12px; margin-top:14px; color:rgba(248,244,232,.55);">Not for you after session one? Full refund. No hard feelings.</p>
     </div>
-    <p class="reveal" style="text-align:center; margin-top:26px; font-size:13px; color:var(--muted); max-width:56ch; margin-left:auto; margin-right:auto;">This is the first cohort. No track record to point to yet — just the method, and a price that reflects that.</p>
+    <p class="reveal" style="text-align:center; margin-top:26px; font-size:13px; color:var(--muted); max-width:56ch; margin-left:auto; margin-right:auto;">This is the first cohort of the group format — the method itself has years of one-on-one results behind it, some of which you've just read above.</p>
   </div>
 </section>
 
@@ -563,23 +605,22 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
       <h2 class="t-headline">What to expect.</h2>
     </div>
     <div class="faq reveal">
-      <details><summary>Is this therapy?<span class="chev">+</span></summary><p>No. It's educational, not a substitute for treatment.</p></details>
-      <details><summary>Is this woo-woo?<span class="chev">+</span></summary><p>No crystals, no chanting. A structured method, your own dream material, and live facilitation. That's it.</p></details>
-      <details><summary>Do I need experience with dreams or Jung?<span class="chev">+</span></summary><p>No. Just a willingness to look.</p></details>
+      <details><summary>Is this therapy?<span class="chev">+</span></summary><p>No. It's educational, not a substitute for treatment. If you're currently in crisis, please reach out to a licensed professional first — this group is for steady, curious adults ready to do the work.</p></details>
+      <details><summary>What exactly does a session look like?<span class="chev">+</span></summary><p>You bring one specific thing — a pattern, a person, a piece of guilt. Sam walks you through a fixed set of questions live, in front of the group, until you can see what that thing has actually been doing for you.</p></details>
+      <details><summary>Do I need experience with this kind of work?<span class="chev">+</span></summary><p>No. Just a willingness to look at something you've already decided is a flaw.</p></details>
       <details><summary>What if I miss a session?<span class="chev">+</span></summary><p>Every session is recorded. You won't fall behind.</p></details>
-      <details><summary>Is this right for me if I'm going through a hard time?<span class="chev">+</span></summary><p>If you're in crisis, please reach out to a licensed professional first. This group is for steady, curious adults ready to do the work.</p></details>
-      <details><summary>What's the group size?<span class="chev">+</span></summary><p>Small and capped, on purpose.</p></details>
-      <details><summary>How does the Demartini Method fit with dream exploration?<span class="chev">+</span></summary><p>The Demartini Method works with the conscious side — balancing what charges you while you're awake and aware of it. Dream exploration works with the unconscious side — showing you where it comes from before you're consciously aware of it. Together, live, each session, they stop working against each other and start working as one. Think of it as finally getting your two minds on the same group project.</p></details>
+      <details><summary>What's the group size?<span class="chev">+</span></summary><p>Small and capped, on purpose — everyone gets worked live, not just talked at.</p></details>
+      <details><summary>Has this exact group format run before?<span class="chev">+</span></summary><p>No — this is the first cohort of The Ordered Field as a live group. The method has been used one-on-one for years, which is where the testimonials above come from; the group format itself is new, and the founding rate reflects that.</p></details>
     </div>
   </div>
 </section>
 
 <section class="cta-banner">
-  <svg class="hero-sigil" viewBox="0 0 400 400" style="opacity:.05;"><circle cx="200" cy="200" r="180" fill="none" stroke="#ffd8a8" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#ffd8a8" stroke-width="1"/><circle cx="200" cy="200" r="46" fill="none" stroke="#ffd8a8" stroke-width="1"/></svg>
+  <svg class="hero-sigil" viewBox="0 0 400 400" style="opacity:.05;"><circle cx="200" cy="200" r="180" fill="none" stroke="#ffd48a" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#ffd48a" stroke-width="1"/><circle cx="200" cy="200" r="46" fill="none" stroke="#ffd48a" stroke-width="1"/></svg>
   <div class="wrap" style="position:relative; z-index:1;">
-    <div class="ornament on-dark"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#ffd8a8" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#ffd8a8"/></svg><span class="ln r"></span></div>
-    <h2>Seats are limited.</h2>
-    <p>Join the founding cohort now. (We counted. There aren't many.)</p>
+    <div class="ornament on-dark"><span class="ln"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#ffd48a" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#ffd48a"/></svg><span class="ln r"></span></div>
+    <h2>Seats are capped.</h2>
+    <p>Join the founding cohort and bring the thing you've written off — it's probably not what you think it is.</p>
     <a href="#apply" class="btn-gold">Join the Founding Cohort</a>
   </div>
 </section>
@@ -596,8 +637,13 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
         <div class="f-group"><label for="a-email">Email Address *</label><input id="a-email" name="email" type="email" required placeholder="you@email.com"></div>
       </div>
       <div class="f-group" style="margin-bottom:18px;">
-        <label for="a-what">What's bringing you here? *</label>
-        <input id="a-what" name="what_draws_you" type="text" required placeholder="A person, a dream, a decision — one line.">
+        <label for="a-what">What's the thing you're bringing? *</label>
+        <input id="a-what" name="what_draws_you" type="text" required placeholder="A pattern, a person, a piece of guilt — one line.">
+      </div>
+      <div class="f-group" style="margin-bottom:18px;">
+        <label for="a-referral">Referred by a friend? (optional)</label>
+        <input id="a-referral" name="referred_by" type="text" placeholder="Their name">
+        <span class="f-note">Enrolling together often makes the work easier, not harder.</span>
       </div>
       <div class="f-group" style="margin-bottom:22px; display:flex; align-items:flex-start; gap:10px;">
         <input id="a-ready" name="readiness_confirmed" type="checkbox" required style="width:auto; margin-top:4px;">
@@ -605,6 +651,9 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
       </div>
       <button type="submit" class="f-submit">Join the Founding Cohort</button>
       <p class="f-fine">* Required fields. We reply within a few days.</p>
+      <div class="f-referral">
+        <p>Bringing a friend? Enroll together and you'll both get <b>$100 off</b> — just have them note your name above.</p>
+      </div>
       <input type="hidden" name="form_type" value="The Ordered Field — Founding Cohort — Enrollment">
     </form>
   </div>
@@ -613,16 +662,16 @@ footer{background:var(--lapis-deep); color:rgba(245,243,238,.55); padding:44px 0
 <footer>
   <div class="footer-inner">
     <div class="footer-links">
-      <a href="#study">The Study</a>
+      <a href="#method">The Method</a>
       <a href="#curriculum">Curriculum</a>
       <a href="#who">Who It's For</a>
       <a href="#pricing">Investment</a>
       <a href="#faq">FAQ</a>
       <a href="#apply">Apply</a>
-      <a href="/cdn-cgi/l/email-protection#4231232f0231232f2d31202d302c276c2c2736">Contact</a>
+      <a href="mailto:hello@samosborne.net">Contact</a>
     </div>
-    <p class="footer-copy">The Ordered Field &middot; Dr. Sam Osborne &middot; Burbank, California &middot; Powered by dreams (and Wi-Fi).</p>
-    <p class="footer-disclaimer">The Ordered Field is an educational and developmental study group grounded in Jungian and esoteric traditions. It is not psychotherapy, group therapy, medical care, or a substitute for treatment from a licensed mental health professional. Individual experience varies, and no particular outcome is promised or guaranteed.</p>
+    <p class="footer-copy">The Ordered Field &middot; Dr. Sam Osborne &middot; Burbank, California</p>
+    <p class="footer-disclaimer">The Ordered Field is an educational and developmental study group grounded in the Demartini Method and related traditions. It is not psychotherapy, group therapy, medical care, or a substitute for treatment from a licensed mental health professional. Individual experience varies, and no particular outcome is promised or guaranteed.</p>
   </div>
 </footer>
 
@@ -648,9 +697,7 @@ document.getElementById('playBtn').addEventListener('click',function(){
 const obs=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible'); obs.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* Sticky conversion bar: shows once the hero is scrolled past, hides once the pricing/apply section is reached */
 const stickyBar=document.getElementById('stickyBar');
-const pricingSection=document.getElementById('pricing');
 const applySection=document.getElementById('apply');
 function updateStickyBar(){
   const heroBottom=document.querySelector('.hero').getBoundingClientRect().bottom;
@@ -660,23 +707,6 @@ function updateStickyBar(){
 }
 window.addEventListener('scroll', updateStickyBar, {passive:true});
 updateStickyBar();
-
-/* Countdown: set REAL_DEADLINE to the actual date the founding rate closes before publishing.
-   Defaults to 7 days from page load as a placeholder. */
-const REAL_DEADLINE = null; // e.g. new Date('2026-10-15T23:59:59')
-const countdownEl = document.getElementById('countdown');
-const deadline = REAL_DEADLINE || new Date(Date.now() + 7*24*60*60*1000);
-function tickCountdown(){
-  const diff = deadline - new Date();
-  if (diff <= 0){ countdownEl.textContent = "Closed"; return; }
-  const d = Math.floor(diff/86400000);
-  const h = Math.floor((diff%86400000)/3600000);
-  const m = Math.floor((diff%3600000)/60000);
-  const s = Math.floor((diff%60000)/1000);
-  countdownEl.textContent = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-}
-tickCountdown();
-setInterval(tickCountdown, 1000);
 </script>
 </body>
 </html>
