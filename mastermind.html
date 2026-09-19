@@ -88,8 +88,8 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 .hero-eyebrow{font-size:13px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:22px;}
 .hero h1{font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; font-size:clamp(1.95rem,4.9vw,3.75rem); color:var(--parchment); max-width:26ch; margin:0 auto 26px; line-height:1.15; letter-spacing:-.02em;}
 .hero h1 .g{background:linear-gradient(135deg, var(--gold-bright), var(--cta)); -webkit-background-clip:text; background-clip:text; color:transparent; font-style:normal;}
-.hero p.sub{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1.05rem,1.7vw,1.25rem); color:rgba(248,244,232,.78); max-width:50ch; margin:0 auto 14px; line-height:1.6;}
-.hero p.cred{font-size:13px; font-weight:400; color:rgba(255,212,138,.8); max-width:54ch; margin:0 auto 36px; letter-spacing:.01em;}
+.hero p.sub{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1.15rem,1.85vw,1.4rem); color:rgba(248,244,232,.78); max-width:50ch; margin:0 auto 14px; line-height:1.6;}
+.hero p.cred{font-size:14.5px; font-weight:400; color:rgba(255,212,138,.8); max-width:54ch; margin:0 auto 36px; letter-spacing:.01em;}
 .hero-actions{display:flex; justify-content:center; gap:22px; align-items:center; margin-bottom:60px; flex-wrap:wrap;}
 .btn-gold{display:inline-block; background:linear-gradient(135deg, #ff8f52, var(--cta) 45%, var(--cta-deep)); color:#fff; padding:16px 36px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:transform .25s ease, box-shadow .25s ease; box-shadow:0 8px 24px rgba(216,67,15,.4), 0 0 0 1px rgba(255,255,255,.08) inset;}
 .btn-gold:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(216,67,15,.5);}
@@ -120,7 +120,7 @@ nav{position:sticky; top:0; z-index:900; background:rgba(17,21,31,.62); backdrop
 .section-navy .kicker{color:var(--gold-bright); font-weight:500;}
 .t-headline{font-size:clamp(2.2rem,4.6vw,3.6rem); font-weight:500; letter-spacing:-.02em; line-height:1.1;}
 .section-navy .t-headline{color:var(--parchment);}
-.t-lead{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1rem,1.5vw,1.15rem); color:var(--muted); max-width:56ch; margin:18px auto 0; line-height:1.65;}
+.t-lead{font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; font-size:clamp(1.08rem,1.6vw,1.22rem); color:var(--muted); max-width:56ch; margin:18px auto 0; line-height:1.65;}
 .section-navy .t-lead{color:rgba(248,244,232,.72);}
 
 .statement{font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.8rem,3.8vw,3rem); font-weight:400; letter-spacing:-.01em; line-height:1.25; max-width:26ch; margin:0 auto; text-align:center; color:var(--lapis-deep);}
@@ -262,6 +262,7 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
       <li><a href="#method">The Method</a></li>
       <li><a href="#curriculum">Curriculum</a></li>
       <li><a href="#who">Who It's For</a></li>
+      <li><a href="#freebie">Free Worksheet</a></li>
       <li><a href="#pricing">Enroll</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -480,6 +481,23 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
   </div>
 </section>
 
+<section class="section section-parchment2" id="freebie">
+  <div class="wrap">
+    <div class="center reveal" style="max-width:640px; margin:0 auto;">
+      <span class="kicker">Not Ready to Enroll Yet?</span>
+      <h2 class="t-headline" style="font-size:clamp(1.8rem,3.6vw,2.6rem);">Try the first move, free.</h2>
+      <p class="t-lead">The Hidden Benefit Worksheet — the same three-step method this cohort uses, walked through on a low-stakes example, so you can see how it actually works before you bring your real material.</p>
+    </div>
+    <form class="form-card reveal" style="margin-top:40px; max-width:520px;" action="https://formspree.io/f/xaqdebvj" method="POST">
+      <div class="f-group" style="margin-bottom:16px;"><label for="lm-name">First Name</label><input id="lm-name" name="name" type="text" placeholder="First name"></div>
+      <div class="f-group" style="margin-bottom:18px;"><label for="lm-email">Email Address *</label><input id="lm-email" name="email" type="email" required placeholder="you@email.com"></div>
+      <button type="submit" class="f-submit">Send Me the Worksheet</button>
+      <p class="f-fine">Free. No pitch attached — just the exercise.</p>
+      <input type="hidden" name="form_type" value="The Ordered Field — Lead Magnet — Hidden Benefit Worksheet">
+    </form>
+  </div>
+</section>
+
 <section class="section section-navy" id="voices">
   <div class="wrap">
     <div class="center reveal">
@@ -595,6 +613,7 @@ footer{background:var(--lapis-deep); color:rgba(248,244,232,.55); padding:44px 0
       <p style="font-size:12px; margin-top:14px; color:rgba(248,244,232,.55);">Not for you after session one? Full refund. No hard feelings.</p>
     </div>
     <p class="reveal" style="text-align:center; margin-top:26px; font-size:13px; color:var(--muted); max-width:56ch; margin-left:auto; margin-right:auto;">This is the first cohort of the group format — the method itself has years of one-on-one results behind it, some of which you've just read above.</p>
+    <p class="reveal" style="text-align:center; margin-top:14px; font-size:13px; color:var(--muted); max-width:56ch; margin-left:auto; margin-right:auto;">Prefer to work through this privately first? <a href="mailto:hello@samosborne.net?subject=Private%20Session%20Inquiry" style="color:var(--bronze); font-weight:600; text-decoration:underline;">Ask about a 1:1 session with Sam</a>.</p>
   </div>
 </section>
 
