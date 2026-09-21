@@ -3,133 +3,162 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Field Notes with Sam Osborne — a podcast on dreams, the transcendent function &amp; hidden order</title>
-<meta name="description" content="Sam Osborne has studied dreams and the transcendent function since he was twelve. Field Notes is where 25+ years of that study finally gets said out loud — one pattern at a time, tested against real life.">
+<title>Field Notes with Sam Osborne — a podcast on dreams, the Demartini Method &amp; the field between two worlds</title>
+<meta name="description" content="Sam Osborne has studied dreams and the transcendent function since he was twelve. Field Notes is where 25+ years of that study, and the Demartini Method, finally get said out loud — one dream at a time, tested against real life.">
 <meta property="og:title" content="Field Notes with Sam Osborne">
-<meta property="og:description" content="Dreams, the transcendent function, and the quiet logic underneath the chaos — a podcast built from 25+ years of field notes.">
+<meta property="og:description" content="Dreams, the Demartini Method, and the field where the inner and outer worlds meet — a podcast built from 25+ years of field notes.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Space+Mono:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 <style>
   :root {
-    --teal: #1B7A78; --gold: #E8A33D; --coral: #D94F30; --cream: #F5ECD8; --cream-deep: #EADFC3;
-    --ink: #221D14; --card: #FFFDF6; --line: #221D14; --muted: #6B5F4D; --body: #3A332B;
-    --accent: var(--teal); --gold-var: var(--gold);
+    --wine: #7C2340; --wine-deep: #4A1526; --mahogany: #3B2415; --mahogany-deep: #1E1209;
+    --gold: #C9A227; --gold-soft: #E0C066; --brass: #A9812E; --cream: #EFE3C6;
+    --ink: #F2E7CE; --card: #241609; --line: #5A3D20; --muted: #B7A07A; --body: #DCC9A2;
   }
   * { box-sizing: border-box; }
   html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  body { margin: 0; background: var(--cream); font-family: 'Source Sans 3', sans-serif; color: var(--body);
-    padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  a { color: var(--teal); text-decoration: none; }
+  body { margin: 0; background: var(--mahogany-deep); font-family: 'Inter', sans-serif; font-weight: 300; color: var(--ink);
+    padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+    background-image: radial-gradient(1400px 900px at 50% 0%, rgba(0,0,0,0), transparent 55%), radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.45) 100%);
+    background-attachment: fixed; }
+  a { color: var(--gold); text-decoration: none; }
   a:hover { opacity: 0.8; }
-  ::selection { background: var(--coral); color: var(--cream); }
-  .fn-display { font-family: 'Alfa Slab One', serif; letter-spacing: 0.5px; }
-  .fn-mono { font-family: 'Space Mono', monospace; }
+  ::selection { background: var(--wine); color: var(--cream); }
+  .fn-display { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 0.4px; }
   .wrap { width: 100%; max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; }
 
-  /* --- hero: atomic-age sunburst poster --- */
+  /* --- floating-in reveal on scroll --- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  /* --- ornamental section divider --- */
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; max-width: 220px; margin: 0 auto; padding: 0; }
+  .ornament span { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.7; }
+  .ornament i { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); display: inline-block; opacity: 0.9; }
+
+  /* --- hero: firelight against dark wood --- */
   .hero {
     position: relative;
     width: 100%;
-    padding: 150px 40px 110px;
-    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px;
-    border-bottom: 4px solid var(--ink);
+    padding: 100px 40px 120px;
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px;
+    border-bottom: 1px solid var(--line);
     overflow: hidden;
-    background-color: var(--cream);
-    background-image:
-      repeating-conic-gradient(from 0deg at 50% 8%, rgba(216,79,48,0.10) 0deg 8deg, transparent 8deg 16deg),
-      radial-gradient(circle at 50% 8%, rgba(232,163,61,0.35), transparent 42%),
-      radial-gradient(1.5px 1.5px at 15% 20%, rgba(34,29,20,0.12) 50%, transparent 51%) ,
-      radial-gradient(1.5px 1.5px at 85% 30%, rgba(34,29,20,0.12) 50%, transparent 51%),
-      radial-gradient(1.5px 1.5px at 30% 75%, rgba(34,29,20,0.10) 50%, transparent 51%),
-      radial-gradient(1.5px 1.5px at 70% 80%, rgba(34,29,20,0.10) 50%, transparent 51%);
+    background:
+      radial-gradient(900px 500px at 50% 118%, rgba(201,162,39,0.28), transparent 60%),
+      radial-gradient(700px 420px at 50% 130%, rgba(124,35,64,0.35), transparent 65%),
+      linear-gradient(180deg, var(--mahogany-deep) 0%, var(--mahogany) 100%);
   }
-  .saucer { position: absolute; top: 22%; left: -12%; font-size: 34px; opacity: 0.9;
-    animation: drift 16s linear infinite; }
-  @keyframes drift {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(124vw, 24px) rotate(3deg); }
-    50.01% { transform: translate(-12vw, 0) rotate(0deg); }
-    100% { transform: translate(-12vw, 0) rotate(0deg); }
-  }
-  @media (prefers-reduced-motion: reduce) { .saucer { animation: none; } }
-  .eyebrow { font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 3px; color: var(--coral); font-weight: 700; text-transform: uppercase; }
-  h1.title { margin: 0; font-weight: 400; font-size: 66px; line-height: 1.1; color: var(--ink); max-width: 920px;
-    text-shadow: 3px 3px 0 var(--gold); }
-  .lede { margin: 0; font-size: 20px; line-height: 1.6; color: var(--body); max-width: 640px; }
-  .hook { margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); max-width: 520px; font-family: 'Space Mono', monospace; }
-  .btn-row { display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; justify-content: center; }
-  .btn { display: inline-flex; align-items: center; padding: 14px 28px; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
-    border-radius: 8px; border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); transition: transform .12s ease, box-shadow .12s ease; }
-  .btn:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--ink); }
-  .btn-primary { background: var(--teal); color: var(--cream); }
-  .btn-gold { background: var(--gold); color: var(--ink); }
-  .btn-outline { background: var(--cream); color: var(--ink); }
+  .hero > * { animation: rise-in 1.1s cubic-bezier(.2,.7,.2,1) both; }
+  .hero > *:nth-child(7) { animation-delay: 0.05s; }
+  .hero > *:nth-child(8) { animation-delay: 0.18s; }
+  .hero > *:nth-child(9) { animation-delay: 0.30s; }
+  .hero > *:nth-child(10) { animation-delay: 0.42s; }
+  .hero > *:nth-child(11) { animation-delay: 0.54s; }
+  .hero > *:nth-child(12) { animation-delay: 0.66s; }
+  @keyframes rise-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .hero > * { animation: none; } }
+  .hearth-glow { position: absolute; bottom: -120px; left: 50%; transform: translateX(-50%);
+    width: 640px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(232,164,61,0.45), transparent 70%);
+    filter: blur(6px); animation: flicker 4.5s ease-in-out infinite; }
+  @keyframes flicker { 0%,100% { opacity: 0.75; } 30% { opacity: 1; } 55% { opacity: 0.85; } 80% { opacity: 0.95; } }
+  .ember { position: absolute; bottom: 8%; width: 4px; height: 4px; border-radius: 50%; background: #F0A83C;
+    box-shadow: 0 0 6px 2px rgba(240,168,60,0.7); animation: rise 6s ease-in infinite; opacity: 0; }
+  @keyframes rise { 0% { opacity: 0; transform: translateY(0) scale(1); } 10% { opacity: 0.9; } 90% { opacity: 0; } 100% { opacity: 0; transform: translateY(-220px) scale(0.4); } }
+  @media (prefers-reduced-motion: reduce) { .hearth-glow, .ember { animation: none; opacity: 0.85; } }
+
+  .crest { width: 62px; height: 62px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; letter-spacing: 2px; color: var(--gold); margin-bottom: 4px; }
+  .eyebrow { display: flex; align-items: center; gap: 16px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 5px; color: var(--gold); font-weight: 400; text-transform: uppercase; }
+  .eyebrow .rule { width: 30px; height: 1px; background: var(--gold); opacity: 0.6; }
+  h1.title { margin: 0; font-weight: 300; font-size: 76px; line-height: 1.08; color: var(--ink); max-width: 940px; letter-spacing: 0.5px; }
+  .gold-rule { width: 90px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 2px 0 6px; }
+  .lede { margin: 0; font-size: 21px; font-weight: 200; line-height: 1.7; color: var(--ink); max-width: 640px; }
+  .hook { margin: 0; font-size: 15px; font-weight: 300; line-height: 1.5; color: var(--muted); max-width: 520px; font-style: italic; font-family: 'Cormorant Garamond', serif; }
+  .backing { margin: -6px 0 0; font-size: 11px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); opacity: 0.75; }
+  .btn-row { display: flex; gap: 14px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn { display: inline-flex; align-items: center; padding: 13px 32px; font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; border: 1px solid var(--gold); transition: background .25s ease, color .25s ease; }
+  .btn-primary { background: transparent; color: var(--gold); }
+  .btn-primary:hover { background: var(--gold); color: var(--mahogany-deep); }
+  .btn-gold { background: var(--gold); color: var(--mahogany-deep); }
+  .btn-gold:hover { background: var(--gold-soft); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid rgba(242,231,206,0.35); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
   /* --- credibility strip --- */
-  .creds { width: 100%; max-width: 900px; padding: 24px 40px; display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;
-    font-size: 14px; font-family: 'Space Mono', monospace; color: var(--muted); border-bottom: 4px solid var(--ink); background: var(--gold); color: var(--ink); }
-  .creds span { white-space: nowrap; }
-  .creds b { color: var(--ink); font-weight: 700; }
+  .creds { width: 100%; max-width: 900px; padding: 26px 40px; display: flex; gap: 36px; flex-wrap: wrap; justify-content: center;
+    font-size: 12px; font-weight: 300; letter-spacing: 0.5px; color: var(--muted); border-bottom: 1px solid var(--line); }
+  .creds span { white-space: nowrap; text-transform: uppercase; letter-spacing: 1px; }
+  .creds b { color: var(--gold); font-weight: 500; }
 
-  .about { width: 100%; max-width: 1000px; padding: 92px 40px; display: flex; gap: 64px; align-items: flex-start; flex-wrap: wrap; }
+  .about { width: 100%; max-width: 1000px; padding: 100px 40px; display: flex; gap: 64px; align-items: flex-start; flex-wrap: wrap; }
   .about-main { flex: 1 1 400px; display: flex; flex-direction: column; gap: 18px; }
-  .label { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--coral); font-weight: 700; }
-  h2.section-title { margin: 0; font-weight: 400; font-size: 36px; color: var(--ink); line-height: 1.15; }
-  .body-text { margin: 0; font-size: 17px; line-height: 1.75; color: var(--body); max-width: 62ch; }
-  .card { flex: 1 1 300px; display: flex; flex-direction: column; gap: 16px; background: var(--card); border: 3px solid var(--ink); box-shadow: 7px 7px 0 var(--teal); border-radius: 14px; padding: 32px; }
-  .card-title { font-size: 22px; font-weight: 400; color: var(--coral); }
-  .card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; color: var(--body); line-height: 1.5; }
+  .label { font-size: 11px; letter-spacing: 4px; color: var(--gold); font-weight: 400; text-transform: uppercase; opacity: 0.9; }
+  h2.section-title { margin: 0; font-weight: 300; font-size: 40px; color: var(--ink); line-height: 1.2; }
+  .body-text { margin: 0; font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--body); max-width: 62ch; }
+  .card { flex: 1 1 300px; display: flex; flex-direction: column; gap: 16px; background: var(--card); border: 1px solid var(--gold); border-radius: 0px; padding: 38px;
+    position: relative; box-shadow: 0 0 0 4px rgba(30,18,9,0.6), 0 0 0 5px rgba(201,162,39,0.25); }
+  .card-title { font-size: 22px; font-weight: 300; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+  .card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; font-size: 14px; font-weight: 300; color: var(--body); line-height: 1.5; }
 
-  .episodes { width: 100%; background: var(--teal); padding: 92px 40px; display: flex; flex-direction: column; align-items: center; gap: 48px; border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); }
-  .episodes .section-title { color: var(--cream); }
+  /* --- reading room --- */
+  .reading-room { width: 100%; max-width: 1000px; padding: 100px 40px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+  .reading-grid { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; width: 100%; }
+  .reading-card { flex: 1 1 260px; max-width: 320px; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 20px; border: 1px solid var(--line); }
+  .reading-card svg { width: 100%; height: auto; }
+  .reading-caption { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 16px; color: var(--muted); }
+
+  .episodes { width: 100%; background: var(--wine-deep); padding: 100px 40px; display: flex; flex-direction: column; align-items: center; gap: 48px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .episode-grid { display: flex; gap: 28px; max-width: 1080px; width: 100%; flex-wrap: wrap; }
-  .episode-card { flex: 1 1 280px; background: var(--card); border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px; }
-  .ep-num { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--coral); font-weight: 700; letter-spacing: 1px; }
-  .ep-title { font-size: 24px; color: var(--ink); font-weight: 400; }
-  .ep-desc { font-size: 15px; color: var(--body); line-height: 1.6; }
-  .ep-link { font-size: 13px; font-weight: 700; margin-top: 4px; color: var(--teal); }
+  .episode-card { flex: 1 1 280px; background: var(--card); border-radius: 0; border-top: 2px solid; padding: 32px; display: flex; flex-direction: column; gap: 10px; }
+  .ep-num { font-size: 11px; color: var(--gold); font-weight: 400; letter-spacing: 3px; text-transform: uppercase; }
+  .ep-title { font-size: 25px; color: var(--ink); font-weight: 300; font-family: 'Cormorant Garamond', serif; }
+  .ep-desc { font-size: 14px; font-weight: 300; color: var(--body); line-height: 1.7; }
+  .ep-link { font-size: 11px; font-weight: 500; margin-top: 4px; letter-spacing: 1.5px; text-transform: uppercase; }
 
   /* --- listener voices --- */
-  .voices { width: 100%; max-width: 1000px; padding: 92px 40px; display: flex; flex-direction: column; gap: 32px; align-items: center; }
+  .voices { width: 100%; max-width: 1000px; padding: 100px 40px; display: flex; flex-direction: column; gap: 32px; align-items: center; }
   .voice-grid { display: flex; gap: 24px; width: 100%; flex-wrap: wrap; justify-content: center; }
-  .voice { flex: 1 1 280px; max-width: 380px; background: var(--card); border: 3px solid var(--ink); border-left: 8px solid var(--gold); border-radius: 8px; padding: 26px 28px; }
-  .voice p { margin: 0 0 12px; font-size: 15px; line-height: 1.6; color: var(--body); }
-  .voice cite { font-style: normal; font-family: 'Space Mono', monospace; font-size: 12px; color: var(--muted); }
+  .voice { flex: 1 1 280px; max-width: 380px; background: var(--card); border-left: 2px solid var(--gold); border-radius: 0; padding: 28px 30px; }
+  .voice p { margin: 0 0 12px; font-size: 14px; font-weight: 300; line-height: 1.7; color: var(--body); font-style: italic; }
+  .voice cite { font-style: normal; font-size: 11px; letter-spacing: 0.5px; color: var(--muted); text-transform: uppercase; }
 
-  /* --- for the skeptical and the curious --- */
-  .faq { width: 100%; max-width: 780px; padding: 92px 40px; display: flex; flex-direction: column; gap: 28px; }
-  .faq-item summary { cursor: pointer; font-size: 18px; color: var(--ink); padding: 6px 0; list-style: none; font-weight: 600; }
+  /* --- faq --- */
+  .faq { width: 100%; max-width: 780px; padding: 100px 40px; display: flex; flex-direction: column; gap: 26px; }
+  .faq-item summary { cursor: pointer; font-size: 17px; font-weight: 300; color: var(--ink); padding: 6px 0; list-style: none; font-family: 'Cormorant Garamond', serif; }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::before { content: "+"; color: var(--coral); font-weight: 700; margin-right: 12px; }
+  .faq-item summary::before { content: "+"; color: var(--gold); font-weight: 400; margin-right: 12px; }
   .faq-item[open] summary::before { content: "–"; }
-  .faq-item p { margin: 8px 0 4px 26px; font-size: 15px; line-height: 1.6; color: var(--body); }
-  .faq-item { border-bottom: 2px solid var(--ink); padding-bottom: 18px; }
+  .faq-item p { margin: 8px 0 4px 26px; font-size: 14px; font-weight: 300; line-height: 1.7; color: var(--body); }
+  .faq-item { border-bottom: 1px solid var(--line); padding-bottom: 18px; }
 
-  .host { width: 100%; max-width: 880px; padding: 92px 40px; display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
-  .avatar { width: 128px; height: 128px; min-width: 128px; border-radius: 50%; background: var(--gold); border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); display: flex; align-items: center; justify-content: center; font-size: 38px; color: var(--ink); }
-  .host-name { font-size: 26px; font-weight: 400; color: var(--ink); }
+  .host { width: 100%; max-width: 880px; padding: 100px 40px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+  .avatar { width: 108px; height: 108px; min-width: 108px; border-radius: 50%; background: var(--wine); border: 1px solid var(--gold); box-shadow: 0 0 0 4px var(--mahogany-deep), 0 0 0 5px rgba(201,162,39,0.4);
+    display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 300; font-family: 'Cormorant Garamond', serif; color: var(--cream); }
+  .host-name { font-size: 26px; font-weight: 300; font-family: 'Cormorant Garamond', serif; color: var(--ink); }
 
-  .subscribe { width: 100%; padding: 88px 40px 60px; display: flex; flex-direction: column; align-items: center; gap: 12px; background: var(--coral); border-top: 4px solid var(--ink); text-align: center; }
-  .subscribe .section-title { color: var(--cream); }
-  .subscribe .body-text { max-width: 480px; color: var(--cream) !important; }
+  .subscribe { width: 100%; padding: 96px 40px 70px; display: flex; flex-direction: column; align-items: center; gap: 12px; background: var(--mahogany); border-top: 1px solid var(--line); text-align: center; }
+  .subscribe .body-text { max-width: 480px; }
   .subscribe-form { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
-  .subscribe-form input { width: 300px; padding: 15px 18px; font-size: 16px; border-radius: 8px; border: 3px solid var(--ink); background: var(--cream); color: var(--ink); font-family: 'Source Sans 3', sans-serif; }
+  .subscribe-form input { width: 300px; padding: 14px 18px; font-size: 15px; font-weight: 300; border-radius: 0; border: 1px solid var(--line); background: var(--mahogany-deep); color: var(--ink); font-family: 'Inter', sans-serif; }
   .subscribe-form input::placeholder { color: var(--muted); }
-  .subscribe-form button { padding: 15px 30px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 8px; border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); background: var(--gold); color: var(--ink); cursor: pointer; }
+  .subscribe-form button { padding: 14px 30px; font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; border: 1px solid var(--gold); background: var(--gold); color: var(--mahogany-deep); cursor: pointer; font-family: 'Inter', sans-serif; transition: background .2s ease; }
+  .subscribe-form button:hover { background: var(--gold-soft); }
 
-  footer { width: 100%; padding: 34px 40px calc(30px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 10px; align-items: center; background: var(--ink); text-align: center; }
-  .footer-links { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; font-size: 14px; font-family: 'Space Mono', monospace; }
-  .footer-links a { color: var(--gold); }
-  .footer-links a:hover { color: var(--cream); }
-  .footer-text { font-size: 12px; font-family: 'Space Mono', monospace; color: #8A7F68; }
+  footer { width: 100%; padding: 40px 40px calc(36px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 12px; align-items: center; background: #0F0904; text-align: center; border-top: 1px solid var(--line); }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; font-size: 11px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; }
+  .footer-links a { color: var(--muted); }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-text { font-size: 11px; font-weight: 300; letter-spacing: 1px; text-transform: uppercase; color: #6E5A3E; }
 
   @media (max-width: 720px) {
-    h1.title { font-size: 38px; }
-    .hero { padding: 110px 24px 70px; }
-    .about, .episodes, .voices, .faq, .host, .subscribe { padding: 64px 24px; }
+    h1.title { font-size: 42px; }
+    .hero { padding: 90px 24px 80px; }
+    .about, .episodes, .voices, .faq, .host, .subscribe, .reading-room { padding: 70px 24px; }
   }
 </style>
 </head>
@@ -137,11 +166,19 @@
 <div class="wrap">
 
   <div class="hero">
-    <div class="saucer" aria-hidden="true">🛸</div>
-    <div class="eyebrow">A Podcast on Dreams, the Transcendent Function &amp; Hidden Order</div>
+    <div class="hearth-glow" aria-hidden="true"></div>
+    <div class="ember" style="left:38%; animation-delay:0s;"></div>
+    <div class="ember" style="left:47%; animation-delay:1.6s;"></div>
+    <div class="ember" style="left:55%; animation-delay:3.1s;"></div>
+    <div class="ember" style="left:44%; animation-delay:4.8s;"></div>
+    <div class="ember" style="left:60%; animation-delay:2.3s;"></div>
+    <div class="crest" aria-hidden="true">FN</div>
+    <div class="eyebrow"><span class="rule"></span>Podcast<span class="rule"></span></div>
     <h1 class="fn-display title">Field Notes<br>with Sam Osborne</h1>
-    <p class="lede">A weekly practice for spotting the order underneath your own chaos &mdash; using dreams, the transcendent function, and the traditions that map hidden patterns onto everyday life.</p>
-    <p class="hook">No belief required. Just patterns you can test against your own life.</p>
+    <div class="gold-rule" aria-hidden="true"></div>
+    <p class="lede">A weekly meditation on the field where the inner world touches the outer one &mdash; approached through the Demartini Method, the transcendent function, and the older traditions that first noticed it was there.</p>
+    <p class="hook">No belief required. Only the willingness to notice.</p>
+    <p class="backing">Backed by the Demartini Method and Jungian frameworks.</p>
     <div class="btn-row">
       <a href="#" class="btn btn-primary">Apple Podcasts</a>
       <a href="#" class="btn btn-gold">Spotify</a>
@@ -151,94 +188,163 @@
 
   <div class="creds">
     <span><b>Weekly</b> episodes</span>
-    <span><b>No belief</b> required &mdash; just patterns to test</span>
-    <span>Built for <b>real life</b>, not theory</span>
+    <span>No belief required &mdash; just patterns to test</span>
+    <span>Grounded in the <b>Demartini Method</b></span>
   </div>
 
   <div class="about">
-    <div class="about-main">
+    <div class="about-main reveal">
       <div class="label">About the Show</div>
-      <h2 class="fn-display section-title">Turn chaos into pattern</h2>
-      <p class="body-text">Underneath the chaos of ordinary life, there's an order &mdash; it doesn't announce itself on schedule, but once you learn to look for it, you start seeing it everywhere. Field Notes draws on dreams, the transcendent function, Jungian psychology, and Hermetic tradition, but treats all of it as data, not mystery: a set of tools for reading your own patterns, not someone else's theory. Every episode is built so you can check the pattern against your own experience by the time it ends.</p>
+      <h2 class="fn-display section-title">One field, two worlds</h2>
+      <p class="body-text">There's an old, half-mystical, half-scientific idea that psyche and matter aren't separate things at all &mdash; that they're ripples on the same field. Wolfgang Pauli and Carl Jung spent years circling it, arguing about it in letters, and finally gave it a name: the <em>unus mundus</em>, the one world underneath the two we think we're living in. Field Notes starts there. Using the Demartini Method as its primary instrument, alongside the transcendent function, Jungian psychology, and Hermetic tradition, each episode sits with a single dream, a single coincidence, a single ache &mdash; and asks, gently, what it's actually pointing to.</p>
     </div>
-    <div class="card">
+    <div class="card reveal">
       <div class="fn-display card-title">What you'll get</div>
       <ul>
-        <li>&mdash; A vocabulary for reading your own dreams</li>
-        <li>&mdash; A way to test synchronicity, not just marvel at it</li>
-        <li>&mdash; Field notes you can apply the same week</li>
-        <li>&mdash; The Pauli&ndash;Jung conjecture, in plain terms</li>
+        <li>&mdash; The Demartini Method, applied to your own dreams</li>
+        <li>&mdash; A vocabulary for reading what the field is showing you</li>
+        <li>&mdash; A way to sit with synchronicity, not just marvel at it</li>
+        <li>&mdash; Field notes you can carry into the same week</li>
+        <li>&mdash; The Pauli&ndash;Jung conjecture, told like a story</li>
         <li>&mdash; Listener questions, unscripted</li>
       </ul>
     </div>
   </div>
 
+  <div class="reading-room reveal">
+    <div class="label" style="text-align:center;">A Quiet Evening</div>
+    <h2 class="fn-display section-title" style="text-align:center;">Every episode starts like this</h2>
+    <div class="reading-grid">
+      <div class="reading-card">
+        <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="14" y="18" width="56" height="190" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+          <line x1="14" y1="66" x2="70" y2="66" stroke="var(--gold)" stroke-width="1"/>
+          <line x1="14" y1="114" x2="70" y2="114" stroke="var(--gold)" stroke-width="1"/>
+          <line x1="14" y1="162" x2="70" y2="162" stroke="var(--gold)" stroke-width="1"/>
+          <rect x="20" y="26" width="7" height="36" fill="var(--gold)" opacity="0.5"/>
+          <rect x="30" y="30" width="6" height="32" fill="var(--gold)" opacity="0.3"/>
+          <rect x="40" y="24" width="8" height="38" fill="var(--gold)" opacity="0.4"/>
+          <rect x="52" y="28" width="6" height="34" fill="var(--gold)" opacity="0.3"/>
+          <rect x="20" y="74" width="8" height="36" fill="var(--gold)" opacity="0.35"/>
+          <rect x="32" y="78" width="6" height="32" fill="var(--gold)" opacity="0.5"/>
+          <rect x="44" y="72" width="7" height="38" fill="var(--gold)" opacity="0.3"/>
+          <path d="M110,210 q0,-46 44,-46 q44,0 44,46 l0,10 l-88,0 Z" fill="var(--wine)" opacity="0.55" stroke="var(--gold)" stroke-width="1.5"/>
+          <ellipse cx="180" cy="112" rx="15" ry="16" fill="var(--gold)" opacity="0.9"/>
+          <path d="M158,138 q22,-14 44,0 q10,34 -6,58 l-32,0 q-16,-24 -6,-58 Z" fill="var(--gold)" opacity="0.85"/>
+          <path d="M164,150 l32,0 l-5,12 l-22,0 Z" fill="var(--mahogany-deep)"/>
+          <line x1="256" y1="58" x2="256" y2="216" stroke="var(--gold)" stroke-width="1.5"/>
+          <path d="M234,58 L278,58 L266,26 L246,26 Z" fill="var(--gold)" opacity="0.25" stroke="var(--gold)" stroke-width="1"/>
+          <circle cx="256" cy="44" r="30" fill="rgba(232,164,61,0.22)"/>
+        </svg>
+        <div class="reading-caption">A reader, undisturbed</div>
+      </div>
+      <div class="reading-card">
+        <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="14" y="18" width="56" height="190" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+          <line x1="14" y1="66" x2="70" y2="66" stroke="var(--gold)" stroke-width="1"/>
+          <line x1="14" y1="114" x2="70" y2="114" stroke="var(--gold)" stroke-width="1"/>
+          <line x1="14" y1="162" x2="70" y2="162" stroke="var(--gold)" stroke-width="1"/>
+          <rect x="20" y="26" width="7" height="36" fill="var(--gold)" opacity="0.4"/>
+          <rect x="30" y="30" width="6" height="32" fill="var(--gold)" opacity="0.5"/>
+          <rect x="40" y="24" width="8" height="38" fill="var(--gold)" opacity="0.3"/>
+          <rect x="52" y="28" width="6" height="34" fill="var(--gold)" opacity="0.4"/>
+          <rect x="20" y="74" width="8" height="36" fill="var(--gold)" opacity="0.3"/>
+          <rect x="32" y="78" width="6" height="32" fill="var(--gold)" opacity="0.4"/>
+          <rect x="44" y="72" width="7" height="38" fill="var(--gold)" opacity="0.5"/>
+          <path d="M110,210 q0,-46 44,-46 q44,0 44,46 l0,10 l-88,0 Z" fill="var(--wine)" opacity="0.55" stroke="var(--gold)" stroke-width="1.5"/>
+          <path d="M164,96 q16,-14 32,0 q4,10 -1,18 l-30,0 q-5,-8 -1,-18 Z" fill="var(--gold)" opacity="0.9"/>
+          <ellipse cx="180" cy="112" rx="14" ry="15" fill="var(--gold)" opacity="0.9"/>
+          <path d="M158,136 q22,-12 44,0 q10,34 -6,60 l-32,0 q-16,-26 -6,-60 Z" fill="var(--gold)" opacity="0.85"/>
+          <path d="M164,150 l32,0 l-5,12 l-22,0 Z" fill="var(--mahogany-deep)"/>
+          <line x1="256" y1="58" x2="256" y2="216" stroke="var(--gold)" stroke-width="1.5"/>
+          <path d="M234,58 L278,58 L266,26 L246,26 Z" fill="var(--gold)" opacity="0.25" stroke="var(--gold)" stroke-width="1"/>
+          <circle cx="256" cy="44" r="30" fill="rgba(232,164,61,0.22)"/>
+        </svg>
+        <div class="reading-caption">A reader, unhurried</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
+
   <div class="episodes">
     <h2 class="fn-display section-title">Start here</h2>
     <div class="episode-grid">
-      <div class="episode-card" style="border-top: 6px solid var(--coral);">
+      <div class="episode-card reveal" style="border-top: 3px solid var(--wine);">
         <div class="ep-num">EPISODE 1</div>
         <div class="fn-display ep-title">Welcome to Field Notes</div>
-        <div class="ep-desc">The one idea this whole show is built on &mdash; and a simple way to start spotting hidden order in your own week by the end of the episode.</div>
+        <div class="ep-desc">Where the whole show begins &mdash; the field Pauli and Jung once argued over in letters, and the first Demartini Method exercise you can try before the episode is even over.</div>
         <a href="#" class="ep-link">Start here &rarr;</a>
       </div>
-      <div class="episode-card" style="border-top: 6px solid var(--gold);">
+      <div class="episode-card reveal" style="border-top: 3px solid var(--gold); transition-delay: 0.1s;">
         <div class="ep-num">EPISODE 2</div>
         <div class="fn-display ep-title">The Dream That Won't Let You Go</div>
-        <div class="ep-desc">A beginner-friendly walk through reading dream symbols as data, not mystery &mdash; using a dream a listener sent in.</div>
+        <div class="ep-desc">A dream that followed one listener into her mornings for a week, taken apart the way the Demartini Method takes anything apart &mdash; until it finally let her go.</div>
         <a href="#" class="ep-link">Bring your own dream &rarr;</a>
       </div>
-      <div class="episode-card" style="border-top: 6px solid var(--teal);">
+      <div class="episode-card reveal" style="border-top: 3px solid var(--brass); transition-delay: 0.2s;">
         <div class="ep-num">EPISODE 3</div>
         <div class="fn-display ep-title">Why Does This Keep Happening to Me</div>
-        <div class="ep-desc">Synchronicity as a testable principle &mdash; and a simple check you can run the next time something feels too pointed to be coincidence.</div>
+        <div class="ep-desc">The coincidence too pointed to be nothing &mdash; and the older argument, from Pauli and Jung, about why the field sometimes seems to be listening back.</div>
         <a href="#" class="ep-link">Hear the pattern &rarr;</a>
       </div>
     </div>
   </div>
 
+  <div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
+
   <div class="voices">
     <div class="label" style="text-align:center;">Listener Notes</div>
     <h2 class="fn-display section-title" style="text-align:center;">What people say after an episode</h2>
     <div class="voice-grid">
-      <div class="voice">
+      <div class="voice reveal">
         <p>&ldquo;I came in skeptical of the transcendent function and stayed for how carefully he builds the argument. It's the only 'woo' podcast my engineer husband will actually listen to.&rdquo;</p>
         <cite>&mdash; placeholder quote, swap in a real review</cite>
       </div>
-      <div class="voice">
+      <div class="voice reveal" style="transition-delay: 0.1s;">
         <p>&ldquo;The dream episode gave me language for something I'd been carrying around for years without knowing what to call it.&rdquo;</p>
         <cite>&mdash; placeholder quote, swap in a real review</cite>
       </div>
     </div>
   </div>
 
+  <div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
+
   <div class="faq">
     <div class="label">Before You Press Play</div>
     <h2 class="fn-display section-title">For the skeptical and the curious</h2>
 
-    <details class="faq-item">
-      <summary>Do I need to believe in the transcendent function to get anything out of this?</summary>
-      <p>No. The show treats the transcendent function and dream symbols as a symbolic language for describing patterns &mdash; not as prediction. Most episodes work fine if you stay agnostic about the mechanism and just watch whether the pattern holds.</p>
+    <details class="faq-item reveal">
+      <summary>What is the Demartini Method, exactly?</summary>
+      <p>A structured way of asking questions about your own experience until the charge comes out of it, developed by Dr. John Demartini. It's the instrument this show leans on most. You don't need to have heard of it before Episode 1.</p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal">
+      <summary>Do I need to believe in the transcendent function to get anything out of this?</summary>
+      <p>No. The show treats the transcendent function, the Demartini Method, and ideas like the Pauli&ndash;Jung conjecture as ways of noticing &mdash; not claims you have to accept going in. Stay as skeptical as you like; just watch whether the pattern holds.</p>
+    </details>
+    <details class="faq-item reveal">
       <summary>Is this therapy, or a substitute for it?</summary>
       <p>No. Field Notes is educational and reflective, not clinical. If you're working through something acute, a licensed therapist is the right first call &mdash; this show is a companion to that work, not a replacement for it.</p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal">
       <summary>I've never studied any of this. Where do I start?</summary>
       <p>Episode 1 and Episode 2, in that order. They're built for a first-time listener and set up the vocabulary the rest of the show leans on.</p>
     </details>
   </div>
 
-  <div class="host">
+  <div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
+
+  <div class="host reveal">
     <div class="avatar fn-display">SO</div>
     <div>
       <div class="fn-display host-name">Hosted by Sam Osborne</div>
-      <p class="body-text" style="margin-top: 10px;">Dr. Sam Osborne has studied dreams and the transcendent function since he was twelve. In the years since, he's trained as a Demartini Method Facilitator, authored six books, and built a career as a keynote speaker teaching audiences how to find order inside conflict and chaos. Field Notes is where that private study finally gets said out loud &mdash; and tested against yours.</p>
+      <p class="body-text" style="margin-top: 10px;">Dr. Sam Osborne has studied dreams and the transcendent function since he was twelve. In the years since, he's trained as a Demartini Method Facilitator, authored six books, and built a career as a keynote speaker teaching audiences how to meet conflict and chaos as part of the same field they're already standing in. Field Notes is where that private study finally gets said out loud &mdash; and tested against yours.</p>
     </div>
   </div>
 
-  <div class="subscribe">
+  <div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
+
+  <div class="subscribe reveal">
     <h2 class="fn-display section-title" style="text-align:center;">Get new episodes first</h2>
     <p class="body-text" style="text-align:center; color:var(--muted);">No spam &mdash; just a note when a new episode drops, plus a short field guide to reading your own dreams.</p>
     <form class="subscribe-form">
@@ -258,5 +364,17 @@
   </footer>
 
 </div>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
