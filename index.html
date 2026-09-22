@@ -864,6 +864,9 @@
 
     footer { border-top: 1px solid var(--line); padding: 34px 0 44px; color: var(--muted-2); font-size: .95rem; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-attribution { margin-top: 18px; padding-top: 18px; border-top: 1px dashed rgba(255,255,255,.08); font-size: .82rem; line-height: 1.6; color: var(--muted-2); }
+    .footer-attribution a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+    .footer-attribution a:hover { color: var(--gold); }
 
     .method-photo-full, .method-intro-photo {
       position: relative;
@@ -890,6 +893,28 @@
     .method-intro-photo::after {
       content: none;
     }
+
+    .method-attribution {
+      margin-top: 28px;
+      padding: 22px 26px;
+      border-radius: 16px;
+      border: 1px solid rgba(212,165,116,.24);
+      background: rgba(212,165,116,.045);
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.65;
+      max-width: 68ch;
+    }
+    .method-attribution strong { color: var(--text); font-weight: 700; }
+    .method-footnote {
+      margin-top: 22px;
+      color: var(--muted-2);
+      font-size: .78rem;
+      line-height: 1.6;
+      max-width: 68ch;
+    }
+    .method-footnote a { color: var(--muted-2); text-decoration: underline; text-underline-offset: 2px; }
+    .method-footnote a:hover { color: var(--gold); }
 
     .demo-section {
       background: var(--bg-2);
@@ -1618,13 +1643,12 @@
             <div class="about-rule"></div>
             <p>He is not a motivational speaker, and says so before anyone else can. The work is procedural. It either moves the number in front of the room or it doesn&rsquo;t.</p>
             <div class="about-tags">
-              <span class="about-tag">Demartini Method Facilitator</span>
+              <span class="about-tag">Trained Demartini Method Facilitator</span>
               <span class="about-tag">NSA SoCal President-Elect</span>
               <span class="about-tag">Chapter Member of the Year 2026</span>
               <span class="about-tag">Perth &rarr; Los Angeles</span>
             </div>
             <p style="margin-top:24px;"><a href="about.html" style="color:var(--gold); font-weight:600; text-decoration:underline; text-underline-offset:3px;">The longer story &rarr;</a></p>
-            <p style="font-size:.95rem; color:var(--muted-2); margin-top:20px; padding-top:20px; border-top:1px solid rgba(255,255,255,.06);"><em>Book in development: <strong style="color:var(--gold); font-style:normal; font-weight:600;">The Conflict Advantage</strong>, 2027.</em></p>
           </div>
         </div>
       </div>
@@ -1717,30 +1741,37 @@
     <div class="container" style="padding-top: 72px;">
       <span class="eyebrow">The Method</span>
       <h2>A repeatable framework.<br>Not a motivational talk.</h2>
-      <p class="lede" style="margin-top:16px; max-width: 60ch;">Three mechanisms, applied in sequence, give a room a precise process for balancing perception, dissolving emotional charge, and recovering clear thought under pressure. It's built to change how people operate &mdash; not how they feel for an hour. Sam is a trained Demartini Method Facilitator.</p>
+      <p class="lede" style="margin-top:16px; max-width: 60ch;">Three applications of the Demartini Method, applied in sequence, give a room a precise process for balancing perception, dissolving emotional charge, and recovering clear thought under pressure. It's built to change how people operate &mdash; not how they feel for an hour. Sam is a Trained Demartini Method Facilitator.</p>
+
+      <div class="method-attribution">
+        <strong>The Demartini Method</strong>, developed by Dr. John Demartini, is a human transformation methodology designed to transform human perceptions. It is being used professionally by many psychologists, psychiatrists, social workers, educators, consultants and health professionals across the world. The Demartini Method is a tool for empowering and inspiring an individual&rsquo;s life, and its applications include reducing stress, resolving conflict, and creating new perspectives and paradigms for life.
+      </div>
+
       <div class="method-grid">
         <article class="card dark">
           <div class="method-echo"></div>
           <div class="method-card-content">
             <h3>Perceptual Balance</h3>
-            <p>See only the cost, or only the benefit, and perception distorts. Balance both and the charge has nowhere left to live. This is why it isn't suppression.</p>
+            <p>An application of the Demartini Method: see only the cost, or only the benefit, and perception distorts. Balance both and the charge has nowhere left to live. This is why it isn't suppression.</p>
           </div>
         </article>
         <article class="card dark">
           <div class="method-echo"></div>
           <div class="method-card-content">
             <h3>Values Hierarchy</h3>
-            <p>A remark only lands if it hits something you were protecting. Know what you and the other person are defending, and the conflict becomes workable.</p>
+            <p>Drawn from the Demartini Method's Value Determination Process: a remark only lands if it hits something you were protecting. Know what you and the other person are defending, and the conflict becomes workable.</p>
           </div>
         </article>
         <article class="card dark">
           <div class="method-echo"></div>
           <div class="method-card-content">
             <h3>Projection &amp; Injection</h3>
-            <p>What triggers you in someone else is usually pointing at something you haven't yet owned or balanced in yourself. The reaction is the read.</p>
+            <p>A core Demartini Method principle: what triggers you in someone else is usually pointing at something you haven't yet owned or balanced in yourself. The reaction is the read.</p>
           </div>
         </article>
       </div>
+
+      <p class="method-footnote">*The Demartini Method Dr. John F. Demartini © 2025 Property of the Demartini Institute. <a href="https://www.drdemartini.com" target="_blank" rel="noopener">www.DrDemartini.com</a></p>
     </div>
   </section>
 
@@ -2103,9 +2134,12 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container footer-inner">
-      <div>Sam Osborne · Conflict &amp; Composure Speaker for High-Stakes Professionals · Demartini Method Facilitator · Burbank, California</div>
-      <div><a href="/cdn-cgi/l/email-protection#e291838fa291838f8d91808d908c87cc8c8796"><span class="__cf_email__" data-cfemail="a7d4c6cae7d4c6cac8d4c5c8d5c9c289c9c2d3">[email&#160;protected]</span></a></div>
+    <div class="container">
+      <div class="footer-inner">
+        <div>Sam Osborne · Conflict &amp; Composure Speaker for High-Stakes Professionals · Trained Demartini Method Facilitator · Burbank, California</div>
+        <div><a href="/cdn-cgi/l/email-protection#e291838fa291838f8d91808d908c87cc8c8796"><span class="__cf_email__" data-cfemail="a7d4c6cae7d4c6cac8d4c5c8d5c9c289c9c2d3">[email&#160;protected]</span></a></div>
+      </div>
+      <p class="footer-attribution">*The Demartini Method Dr. John F. Demartini © 2025 Property of the Demartini Institute. <a href="https://www.drdemartini.com" target="_blank" rel="noopener">www.DrDemartini.com</a></p>
     </div>
   </footer>
 
@@ -2232,5 +2266,6 @@
 <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3937af6df08503f',t:'MTc4OTA5NjIzNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3c4f5c54cd49935',t:'MTc4OTYxNTA2OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3c4f5c54cd49935',t:'MTc4OTYxNTA2OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3f1c292ed5ed7cc',t:'MTc5MDA4NDgzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
