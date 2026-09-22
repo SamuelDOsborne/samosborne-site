@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#1a1a1a" />
+<title>Line of Sight | A Podcast by Sam Osborne</title>
+<meta name="description" content="Line of Sight — a podcast for attorneys, advisors, executives, and sales leaders who can't afford to lose composure when it matters most. Hosted by Sam Osborne." />
+
+<meta property="og:title" content="Line of Sight | A Podcast by Sam Osborne" />
+<meta property="og:description" content="Clear sight beats quick reactions, every time. One trigger per episode, run through the same process used live on stage." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #1a1a1a;
+    --bg-2: #232323;
+    --text: #f5f5f7;
+    --muted: rgba(245,245,247,.66);
+    --muted-2: rgba(245,245,247,.42);
+    --gold: #d4a574;
+    --slate: #4a5e7f;
+    --warm: #f5f3f0;
+    --ink: #1d1d1f;
+    --line: rgba(255,255,255,.08);
+    --line-dark: rgba(0,0,0,.08);
+    --card: rgba(255,255,255,.04);
+    --radius: 22px;
+    --shadow: 0 18px 60px rgba(0,0,0,.16);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .container { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+  .section { padding: 88px 0; }
+  section[id] { scroll-margin-top: 76px; }
+  .section-light { background: var(--warm); color: var(--ink); }
+  .eyebrow {
+    display: inline-block; margin-bottom: 14px; color: var(--gold);
+    text-transform: uppercase; letter-spacing: .14em; font-size: 11px; font-weight: 700;
+  }
+  .section-light .eyebrow { color: var(--slate); }
+  h1,h2,h3,p { margin: 0; }
+  h1 { font-size: clamp(2.2rem, 6vw, 4.2rem); line-height: 1.05; letter-spacing: -.04em; font-weight: 800; }
+  h2 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.08; letter-spacing: -.04em; font-weight: 800; }
+  h3 { font-size: 1.15rem; line-height: 1.15; letter-spacing: -.02em; font-weight: 700; }
+  .lede { font-size: clamp(1rem, 1.5vw, 1.18rem); color: var(--muted); max-width: 56ch; }
+  .lede-dark { font-size: clamp(1rem, 1.5vw, 1.18rem); color: rgba(29,29,31,.68); max-width: 56ch; }
+
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+  .btn-primary, .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 0 24px; border-radius: 999px; font-weight: 700;
+    letter-spacing: -.01em; transition: .22s ease; border: 1px solid transparent;
+    cursor: pointer; font-family: inherit; font-size: 1rem;
+  }
+  .btn-primary { background: var(--gold); color: #1a1a1a; }
+  .btn-primary:hover { transform: translateY(-1px); background: #e8c497; }
+  .btn-secondary { color: var(--text); border-color: rgba(255,255,255,.18); background: transparent; }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .section-light .btn-secondary { color: var(--ink); border-color: rgba(0,0,0,.18); }
+
+  nav {
+    position: sticky; top: 0; z-index: 20;
+    padding-top: env(safe-area-inset-top, 0px);
+    backdrop-filter: blur(18px) saturate(180%);
+    background: rgba(20,20,20,.9);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .nav-brand { display: flex; align-items: center; gap: 9px; font-weight: 800; letter-spacing: -.01em; font-size: 1.05rem; color: var(--text); }
+  .nav-brand .dot { color: var(--gold); }
+  .nav-links { display: flex; gap: 24px; color: rgba(245,245,247,.82); font-size: 14px; }
+  .nav-links a:hover { color: var(--gold); }
+  .mobile-toggle {
+    display: none; background: none; border: 1px solid rgba(255,255,255,.24);
+    color: #f5f5f7; font-size: 20px; border-radius: 8px; padding: 6px 10px; cursor: pointer; line-height: 1;
+  }
+
+  /* HERO */
+  .hero { position: relative; overflow: hidden; padding: 96px 0 84px; text-align: center; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(circle at 22% 20%, rgba(212,165,116,.14) 0%, transparent 46%),
+      radial-gradient(circle at 80% 78%, rgba(74,94,127,.14) 0%, transparent 48%);
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero-eye { display: flex; justify-content: center; margin-bottom: 26px; }
+  .hero-eye svg { width: 54px; height: 54px; }
+  .hero h1 { max-width: 16ch; margin: 0 auto; }
+  .hero-tag {
+    margin: 22px auto 0; max-width: 44ch; font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    font-weight: 600; color: var(--gold); letter-spacing: -.01em;
+  }
+  .hero-sub { margin: 18px auto 0; max-width: 56ch; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.14rem); line-height: 1.65; }
+  .hero .btn-row { justify-content: center; }
+
+  .platform-row {
+    display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+    margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line);
+  }
+  .platform-badge {
+    padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--card); color: var(--muted); font-size: .85rem; font-weight: 600;
+    letter-spacing: .01em; transition: .2s ease;
+  }
+  .platform-badge:hover { border-color: rgba(212,165,116,.4); color: var(--gold); }
+
+  .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; padding: 14px 0; }
+  .marquee-track {
+    display: inline-flex; gap: 34px; min-width: 200%; animation: marquee 26s linear infinite;
+    color: rgba(245,245,247,.32); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600;
+  }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+  /* POSITIONING */
+  .intro { text-align: center; }
+  .intro h2 { max-width: 16ch; margin: 0 auto 22px; }
+  .positioning-box {
+    margin-top: 30px; border: 1px solid var(--line-dark); background: rgba(255,255,255,.72);
+    border-radius: 20px; padding: 28px; box-shadow: 0 10px 34px rgba(0,0,0,.06);
+    max-width: 780px; margin-inline: auto;
+  }
+  .positioning-box p { font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.55; color: var(--ink); letter-spacing: -.02em; max-width: 52ch; margin: 0 auto; }
+
+  /* FORMAT STEPS */
+  .format-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+  .format-step { padding: 28px 24px; border-radius: 20px; border: 1px solid var(--line); background: var(--card); box-shadow: 0 18px 60px rgba(0,0,0,.16); }
+  .format-step-num { font-size: .74rem; font-weight: 800; color: var(--gold); letter-spacing: .14em; margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+  .format-step h3 { color: var(--text); margin-bottom: 8px; }
+  .format-step p { color: var(--muted); font-size: .95rem; line-height: 1.55; margin: 0; }
+
+  /* PILLARS */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; margin-top: 40px; }
+  .pillar-card {
+    padding: 30px 26px; border-radius: 20px; border: 1px solid var(--line);
+    background: var(--card); box-shadow: 0 18px 60px rgba(0,0,0,.16); position: relative; overflow: hidden;
+  }
+  .pillar-card .echo {
+    position: absolute; inset: 0; pointer-events: none; opacity: .12;
+    background: radial-gradient(circle at 85% 15%, rgba(212,165,116,.4) 0%, transparent 40%);
+  }
+  .pillar-tag {
+    display: inline-flex; padding: 4px 11px; margin-bottom: 14px; border-radius: 999px;
+    background: rgba(212,165,116,.14); border: 1px solid rgba(212,165,116,.32); color: var(--gold);
+    font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  }
+  .pillar-card h3 { position: relative; z-index: 1; margin-bottom: 10px; }
+  .pillar-card p { position: relative; z-index: 1; color: var(--muted); font-size: .95rem; line-height: 1.58; margin: 0; }
+  .pillar-card.anchor { border-color: rgba(212,165,116,.4); background: linear-gradient(180deg, rgba(212,165,116,.08) 0%, rgba(212,165,116,.02) 100%); }
+
+  /* PRINCIPLES */
+  .principles { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 88px 0; text-align: center; }
+  .principles-stack { max-width: 780px; margin: 40px auto 0; }
+  .principle {
+    padding: 26px 0; border-top: 1px solid rgba(212,165,116,.16);
+    font-size: clamp(1.3rem, 2.8vw, 2.1rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.15; color: var(--text);
+  }
+  .principle:first-of-type { border-top: none; }
+  .principle em { color: var(--gold); font-style: normal; white-space: nowrap; }
+
+  /* HOST */
+  .host-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 44px; align-items: center; }
+  .host-photo { border-radius: 22px; overflow: hidden; min-height: 380px; background: #0d0d0d; box-shadow: 0 30px 80px rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center; color: var(--muted-2); font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; border: 1px dashed rgba(255,255,255,.14); }
+  .host-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .host-tag { padding: 5px 14px; border-radius: 999px; border: 1px solid rgba(212,165,116,.28); color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; }
+
+  /* GUEST */
+  .guest-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+  .guest-list { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 14px; }
+  .guest-list li { position: relative; padding-left: 28px; color: var(--muted); font-size: .97rem; line-height: 1.55; }
+  .guest-list li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; }
+
+  form { border-radius: 22px; padding: 28px; border: 1px solid var(--line); background: rgba(255,255,255,.04); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .full { grid-column: 1 / -1; }
+  label { display: block; margin-bottom: 7px; font-size: 12px; font-weight: 700; letter-spacing: -.01em; color: white; }
+  input, select, textarea {
+    width: 100%; min-height: 46px; border-radius: 10px; border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.06); color: white; padding: 0 14px; font: inherit;
+    transition: border-color .18s ease, box-shadow .18s ease;
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,165,116,.18); }
+  input.error, textarea.error { border-color: #e05a5a; }
+  textarea { min-height: 110px; padding: 14px; resize: vertical; }
+  input::placeholder, textarea::placeholder { color: rgba(245,245,247,.28); }
+  .form-note { margin-top: 14px; color: var(--muted-2); font-size: .88rem; }
+  .form-toast { display: none; margin-top: 16px; border-radius: 10px; padding: 14px 18px; font-size: .95rem; font-weight: 500; }
+  .form-toast.success { display: block; background: rgba(76,175,100,.15); border: 1px solid rgba(76,175,100,.4); color: #7de89a; }
+  .form-toast.fail { display: block; background: rgba(224,90,90,.12); border: 1px solid rgba(224,90,90,.36); color: #f09090; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 calc(40px + env(safe-area-inset-bottom, 0px)); color: var(--muted-2); font-size: .92rem; }
+  .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .footer-inner a:hover { color: var(--gold); }
+  .footer-cross { margin-top: 18px; padding-top: 18px; border-top: 1px dashed rgba(255,255,255,.08); font-size: .85rem; }
+  .footer-cross a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .footer-cross a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    .format-steps { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .host-layout, .guest-layout { grid-template-columns: 1fr; }
+    .host-photo { min-height: 260px; }
+  }
+  @media (max-width: 620px) {
+    .format-steps { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="nav-brand" href="#top">Line of Sight <span class="dot">&middot;</span> <span style="font-weight:500; color: var(--muted); font-size:.85rem;">Sam Osborne</span></a>
+    <div class="nav-links">
+      <a href="#show">The Show</a>
+      <a href="#pillars">Episodes</a>
+      <a href="#host">Host</a>
+      <a href="#guest">Be a Guest</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-eye" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 32C4 32 16 12 32 12C48 12 60 32 60 32C60 32 48 52 32 52C16 52 4 32 4 32Z" stroke="#d4a574" stroke-width="2.4" stroke-linejoin="round"/>
+        <circle cx="32" cy="32" r="10" stroke="#d4a574" stroke-width="2.4"/>
+        <circle cx="32" cy="32" r="3.4" fill="#d4a574"/>
+      </svg>
+    </div>
+    <span class="eyebrow">A Podcast by Sam Osborne</span>
+    <h1>Line of Sight</h1>
+    <p class="hero-tag">Clear sight beats quick reactions, every time.</p>
+    <p class="hero-sub">A show for attorneys, advisors, executives, and sales leaders who can't afford to lose composure when it matters most. One real trigger per episode, run through the same process used live on stage &mdash; until the charge is gone.</p>
+    <div class="btn-row">
+      <a class="btn-primary" href="#listen">Listen Now</a>
+      <a class="btn-secondary" href="#guest">Be a Guest</a>
+    </div>
+
+    <div class="platform-row" id="listen">
+      <span class="platform-badge">Apple Podcasts</span>
+      <span class="platform-badge">Spotify</span>
+      <span class="platform-badge">YouTube</span>
+      <span class="platform-badge">RSS</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>The bigger the reaction, the bigger the blind spot</span>
+    <span>Clear Sight, Every Time</span>
+    <span>One Trigger. One Episode.</span>
+    <span>Not Restraint &mdash; Recalibration</span>
+    <span>Built for High-Stakes Rooms</span>
+    <span>The bigger the reaction, the bigger the blind spot</span>
+    <span>Clear Sight, Every Time</span>
+    <span>One Trigger. One Episode.</span>
+    <span>Not Restraint &mdash; Recalibration</span>
+    <span>Built for High-Stakes Rooms</span>
+  </div>
+</div>
+
+<!-- THE SHOW -->
+<section class="section section-light intro" id="show">
+  <div class="container">
+    <span class="eyebrow">The Show</span>
+    <h2>Composure isn&rsquo;t a talent.<br>It&rsquo;s a mechanism.</h2>
+    <div class="positioning-box">
+      <p>Each episode takes one real trigger &mdash; a hostile deposition, a difficult client, a colleague who won&rsquo;t let something go &mdash; and runs it through the same process used live on stage: name the behavior, measure the imbalance, get your line of sight back. No general advice to &ldquo;stay calm.&rdquo; A repeatable mechanism, built for rooms where losing composure has a real cost.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section class="section" id="format">
+  <div class="container">
+    <span class="eyebrow">The Format</span>
+    <h2>Four steps.<br>Every episode.</h2>
+    <p class="lede" style="margin-top:16px;">The same arc every time, so the mechanism becomes recognizable &mdash; and usable &mdash; long before the episode ends.</p>
+
+    <div class="format-steps">
+      <div class="format-step">
+        <div class="format-step-num">01 &mdash; THE BLUR</div>
+        <h3>The trigger</h3>
+        <p>The moment described specifically &mdash; a phrase, a look, an interruption. Not a general complaint.</p>
+      </div>
+      <div class="format-step">
+        <div class="format-step-num">02 &mdash; THE LENS</div>
+        <h3>The concept</h3>
+        <p>Why it landed &mdash; values hierarchy, projection, perceptual balance &mdash; applied to this exact situation.</p>
+      </div>
+      <div class="format-step">
+        <div class="format-step-num">03 &mdash; THE FOCUS</div>
+        <h3>The imbalance</h3>
+        <p>Named and measured &mdash; the 100/0 moment, made visible instead of just felt.</p>
+      </div>
+      <div class="format-step">
+        <div class="format-step-num">04 &mdash; LINE OF SIGHT</div>
+        <h3>The adjustment</h3>
+        <p>One question the listener can ask themselves next time it happens &mdash; on Monday, in the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EPISODE PILLARS -->
+<section class="section section-light" id="pillars">
+  <div class="container">
+    <span class="eyebrow">Episode Pillars</span>
+    <h2>One mechanism.<br>Five ways in.</h2>
+    <div class="grid-3">
+      <article class="pillar-card"><div class="echo"></div>
+        <span class="pillar-tag">Core</span>
+        <h3>Blind Spots</h3>
+        <p>The core mechanism, one trigger per episode &mdash; the reaction and the blind spot it measures.</p>
+      </article>
+      <article class="pillar-card"><div class="echo"></div>
+        <span class="pillar-tag">Guest</span>
+        <h3>In the Room</h3>
+        <p>Real guests &mdash; attorneys, advisors, executives, sales leaders &mdash; walk through an actual trigger, live on mic.</p>
+      </article>
+      <article class="pillar-card"><div class="echo"></div>
+        <span class="pillar-tag">Core</span>
+        <h3>Depth of Field</h3>
+        <p>Why the same remark lands on one person and not another &mdash; the values hierarchy at work.</p>
+      </article>
+      <article class="pillar-card"><div class="echo"></div>
+        <span class="pillar-tag">Guest</span>
+        <h3>After the Fact</h3>
+        <p>Post-mortems on real high-stakes exchanges, reframed with the guest after the pressure has passed.</p>
+      </article>
+      <article class="pillar-card anchor"><div class="echo"></div>
+        <span class="pillar-tag">Anchor</span>
+        <h3>The Injury</h3>
+        <p>The origin episode, told once, in full &mdash; the eye injury that started all of this.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="principles">
+  <div class="container">
+    <span class="eyebrow">What You&rsquo;ll Carry Out</span>
+    <p class="lede" style="max-width:44ch; margin:0 auto; color:var(--muted);">Three ideas the show keeps coming back to.</p>
+    <div class="principles-stack">
+      <p class="principle">The bigger the reaction,<br>the bigger the <em>blind spot</em>.</p>
+      <p class="principle">The clearer you see,<br>the <em>less you react</em>.</p>
+      <p class="principle">Line of sight is <em>a skill</em>,<br>not a personality trait.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOST -->
+<section class="section" id="host">
+  <div class="container">
+    <span class="eyebrow">Your Host</span>
+    <h2>Sam Osborne</h2>
+    <div class="host-layout" style="margin-top:40px;">
+      <div class="host-photo">Host Photo</div>
+      <div>
+        <p class="lede">A trained Demartini Method Facilitator and conflict &amp; composure speaker for attorneys, advisors, executives, and sales teams. On stage, he dissolves a real conflict live, in front of the room. On this show, he does the same thing &mdash; one trigger, one episode, one guest at a time.</p>
+        <p class="lede" style="margin-top:16px;">A piece of metal once tore through his left eye and pierced his retina. His eyesight recovered. His relationship with perception did not &mdash; and that's where this whole mechanism started.</p>
+        <div class="host-tags">
+          <span class="host-tag">Trained Demartini Method Facilitator</span>
+          <span class="host-tag">NSA SoCal President-Elect</span>
+          <span class="host-tag">Speaker, The Conflict Advantage</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn-secondary" href="https://samosborne.net" target="_blank" rel="noopener">Book Sam to Speak &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BE A GUEST -->
+<section class="section section-light" id="guest">
+  <div class="container">
+    <span class="eyebrow">Be a Guest</span>
+    <h2>Bring a real trigger.<br>Leave with your line of sight back.</h2>
+    <div class="guest-layout" style="margin-top:36px;">
+      <div>
+        <p class="lede-dark">Guest episodes are built for the show's actual audience &mdash; attorneys, advisors, executives, and sales leaders &mdash; not other speakers or coaches. You bring one real, specific trigger; Sam runs it through the same four-step process used live on stage, on mic.</p>
+        <ul class="guest-list">
+          <li>No prep required &mdash; the trigger just needs to be real and specific</li>
+          <li>Nothing private or dramatic is required &mdash; a behavior and a name is enough</li>
+          <li>You leave with your own episode to share with your network</li>
+          <li>Recorded remotely, roughly 30&ndash;40 minutes</li>
+        </ul>
+      </div>
+      <div>
+        <form id="guestForm" novalidate>
+          <div class="form-grid">
+            <div>
+              <label for="g-name">Your Name <span style="color:#e05a5a">*</span></label>
+              <input id="g-name" type="text" placeholder="First and last name" required />
+            </div>
+            <div>
+              <label for="g-email">Email <span style="color:#e05a5a">*</span></label>
+              <input id="g-email" type="email" placeholder="you@company.com" required />
+            </div>
+            <div>
+              <label for="g-role">Your Role</label>
+              <input id="g-role" type="text" placeholder="Attorney, advisor, executive, etc." />
+            </div>
+            <div>
+              <label for="g-org">Organization</label>
+              <input id="g-org" type="text" placeholder="Firm or company name" />
+            </div>
+            <div class="full">
+              <label for="g-trigger">What's the trigger you'd want to work through?</label>
+              <textarea id="g-trigger" placeholder="A client, a colleague, opposing counsel &mdash; briefly, what happens and who it's with."></textarea>
+            </div>
+          </div>
+          <div class="btn-row" style="justify-content:center;">
+            <button class="btn-primary" type="submit" id="guestSubmitBtn">Request to Be a Guest</button>
+          </div>
+          <p class="form-note" style="text-align:center;">You'll hear back within a few business days.</p>
+          <div id="guestToast" class="form-toast"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>Line of Sight &middot; A Podcast by Sam Osborne &middot; Burbank, California</div>
+      <div><a href="https://samosborne.net" target="_blank" rel="noopener">samosborne.net</a></div>
+    </div>
+    <p class="footer-cross">Looking to book Sam for a keynote, workshop, or intensive? Visit <a href="https://samosborne.net" target="_blank" rel="noopener">The Conflict Advantage</a>.</p>
+  </div>
+</footer>
+
+<script>
+  // NOTE: This form is not yet wired to a submission backend.
+  // Replace GUEST_FORM_ENDPOINT below with a Formspree (or similar) endpoint
+  // to make it functional, following the same pattern as the main site's inquiry form.
+  const GUEST_FORM_ENDPOINT = ''; // e.g. 'https://formspree.io/f/XXXXXXX'
+  const form = document.getElementById('guestForm');
+  const toast = document.getElementById('guestToast');
+  const submitBtn = document.getElementById('guestSubmitBtn');
+
+  function showToast(type, msg) {
+    toast.className = 'form-toast ' + type;
+    toast.textContent = msg;
+    toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  function clearErrors() {
+    form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+  }
+  function validate() {
+    let valid = true;
+    const name = document.getElementById('g-name');
+    const email = document.getElementById('g-email');
+    if (!name.value.trim()) { name.classList.add('error'); valid = false; }
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      email.classList.add('error'); valid = false;
+    }
+    return valid;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    clearErrors();
+    toast.className = 'form-toast';
+    if (!validate()) {
+      showToast('fail', 'Please fill in your name and a valid email address.');
+      return;
+    }
+    if (!GUEST_FORM_ENDPOINT) {
+      showToast('fail', 'This form isn\'t connected yet — add a submission endpoint to activate it.');
+      return;
+    }
+    const get = id => document.getElementById(id).value.trim();
+    const payload = {
+      _subject: 'Line of Sight guest request: ' + get('g-name'),
+      _replyto: get('g-email'),
+      Name: get('g-name'),
+      Email: get('g-email'),
+      Role: get('g-role') || 'Not provided',
+      Organization: get('g-org') || 'Not provided',
+      Trigger: get('g-trigger') || 'Not provided'
+    };
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const res = await fetch(GUEST_FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new URLSearchParams(payload)
+      });
+      if (res.ok) {
+        showToast('success', '✓ Request sent. You\'ll hear back within a few business days.');
+        form.reset();
+      } else {
+        showToast('fail', 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      showToast('fail', 'Network error. Please try again.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request to Be a Guest';
+    }
+  });
+
+  ['g-name', 'g-email'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => el.classList.remove('error'));
+  });
+</script>
+
+</body>
+</html>
