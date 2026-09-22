@@ -1173,6 +1173,7 @@
         <a href="#demonstration">The Demonstration</a>
         <a href="#about">About</a>
         <a href="#speaking">Programs</a>
+        <a href="#podcast">Podcast</a>
         <a href="#fit">Who It's For</a>
         <a href="#method">The Method</a>
         <a href="#proof">Proof</a>
@@ -1654,6 +1655,65 @@
       </div>
     </div>
   </section>
+
+  <!-- ═══════════════ PODCAST ═══════════════ -->
+  <style>
+    .podcast-section { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+    .podcast-section::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(212,165,116,.08) 0%, transparent 46%),
+        radial-gradient(circle at 82% 80%, rgba(74,94,127,.10) 0%, transparent 48%);
+    }
+    .podcast-section .container { position: relative; z-index: 1; }
+    .podcast-head { max-width: 680px; }
+    .podcast-head h2 { font-size: clamp(1.8rem, 3.4vw, 3rem); }
+    .podcast-tag { margin-top: 12px; color: var(--gold); font-weight: 600; font-size: clamp(1rem, 1.6vw, 1.15rem); letter-spacing: -.01em; }
+    .podcast-head p { margin-top: 14px; color: var(--muted); max-width: 58ch; font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.65; }
+    .podcast-badges { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+    .podcast-badge {
+      padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line);
+      background: var(--card); color: var(--muted); font-size: .85rem; font-weight: 600;
+      transition: .2s ease;
+    }
+    .podcast-badge:hover { border-color: rgba(212,165,116,.4); color: var(--gold); }
+  </style>
+  <section class="section podcast-section" id="podcast">
+    <div class="container">
+      <div class="podcast-head">
+        <span class="eyebrow">The Podcast</span>
+        <h2>Line of Sight</h2>
+        <p class="podcast-tag">Clear sight beats quick reactions, every time.</p>
+        <p>A show for attorneys, advisors, executives, and sales leaders who can&rsquo;t afford to lose composure when it matters most. One real trigger per episode, run through the same process used live on stage &mdash; until the charge is gone.</p>
+      </div>
+
+      <div class="grid-3" style="margin-top:36px;">
+        <article class="card dark">
+          <h3>Blind Spots</h3>
+          <p>The core mechanism, one real trigger per episode &mdash; the reaction and the blind spot it measures.</p>
+        </article>
+        <article class="card dark">
+          <h3>In the Room</h3>
+          <p>Real guests &mdash; attorneys, advisors, executives, sales leaders &mdash; walk through an actual trigger, live on mic.</p>
+        </article>
+        <article class="card dark">
+          <h3>The Injury</h3>
+          <p>The origin episode, told once, in full &mdash; the eye injury that started this whole mechanism.</p>
+        </article>
+      </div>
+
+      <div class="podcast-badges">
+        <span class="podcast-badge">Apple Podcasts</span>
+        <span class="podcast-badge">Spotify</span>
+        <span class="podcast-badge">YouTube</span>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn-primary" href="podcast.html">Listen to the Show &rarr;</a>
+      </div>
+    </div>
+  </section>
+  <!-- ═══════════════ END PODCAST ═══════════════ -->
 
   <!-- PROGRAMS -->
   <section class="section section-light" id="speaking">
@@ -2263,9 +2323,5 @@
   });
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3937af6df08503f',t:'MTc4OTA5NjIzNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3c4f5c54cd49935',t:'MTc4OTYxNTA2OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3f1c292ed5ed7cc',t:'MTc5MDA4NDgzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
