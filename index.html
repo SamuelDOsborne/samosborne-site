@@ -157,8 +157,8 @@
       gap: 20px;
       position: relative;
     }
-    .nav-brand { font-weight: 800; letter-spacing: .02em; font-size: 1.1rem; color: var(--gold); }
-    .nav-links { display: flex; gap: 24px; color: rgba(245,245,247,.86); font-size: 14px; }
+    .nav-brand { font-weight: 800; letter-spacing: .02em; font-size: 1.1rem; color: var(--gold); white-space: nowrap; }
+    .nav-links { display: flex; gap: 20px; color: rgba(245,245,247,.86); font-size: 13.5px; white-space: nowrap; }
     .nav-links a:hover, .nav-cta:hover { color: var(--gold); }
     .nav-right { display: flex; align-items: center; gap: 18px; }
     .nav-phone { color: #f5f5f7; font-size: 14px; font-weight: 600; white-space: nowrap; transition: color .18s ease; }
@@ -1085,6 +1085,28 @@
       .nav-cta { font-size: 12px; }
     }
 
+    /* Nav switches to the hamburger sooner than the rest of the responsive
+       breakpoints below — 8 links plus phone + CTA stop fitting on one line
+       well before 980px, which was previously causing "Sam Osborne" and the
+       multi-word links to wrap awkwardly instead of collapsing cleanly. */
+    @media (max-width: 1240px) {
+      .nav-links {
+        position: absolute;
+        top: 56px; left: 0;
+        width: 100%;
+        background: rgba(20,20,20,.97);
+        backdrop-filter: blur(18px);
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+        display: none;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+      .nav-links.active { display: flex; }
+      .nav-links a { display: block; width: 100%; white-space: normal; }
+      .mobile-toggle { display: block; }
+    }
+
     .vidtest { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .vidtest-head { max-width: 640px; margin-bottom: 40px; }
     .vidtest-head h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
@@ -1677,6 +1699,13 @@
       transition: .2s ease;
     }
     .podcast-badge:hover { border-color: rgba(212,165,116,.4); color: var(--gold); }
+    .podcast-photo { margin-top: 32px; max-width: 620px; }
+    .podcast-photo-frame {
+      border-radius: 22px; overflow: hidden; border: 1px solid rgba(212,165,116,.22);
+      box-shadow: 0 30px 80px rgba(0,0,0,.4), 0 0 0 1px rgba(212,165,116,.04) inset;
+      background: #0d0d0d;
+    }
+    .podcast-photo-frame img { width: 100%; display: block; max-height: 420px; object-fit: cover; }
   </style>
   <section class="section podcast-section" id="podcast">
     <div class="container">
@@ -1685,6 +1714,12 @@
         <h2>Line of Sight</h2>
         <p class="podcast-tag">Clear sight beats quick reactions, every time.</p>
         <p>A show for attorneys, advisors, executives, and sales leaders who can&rsquo;t afford to lose composure when it matters most. One real trigger per episode, run through the same process used live on stage &mdash; until the charge is gone.</p>
+      </div>
+
+      <div class="podcast-photo">
+        <div class="podcast-photo-frame">
+          <img src="images/sam-osborne-radio.jpg" alt="Sam Osborne recording Line of Sight" />
+        </div>
       </div>
 
       <div class="grid-3" style="margin-top:36px;">
