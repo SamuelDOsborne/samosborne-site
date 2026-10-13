@@ -17,7 +17,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--night);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:19px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:var(--gold)} a:hover{color:var(--gold-hi)}
 img,svg{display:block}
 #sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
@@ -88,9 +88,9 @@ h1{font-size:clamp(52px,7.6vw,110px);line-height:.98;letter-spacing:-.01em;margi
 @keyframes breathe{50%{box-shadow:0 0 80px 16px rgba(246,223,166,.45),0 0 200px 60px rgba(216,178,110,.22),inset -30px -20px 60px rgba(40,25,10,.45)}}
 
 /* sections */
-section{padding:130px 0;position:relative}
+section{padding:160px 0;position:relative}
 .band{background:linear-gradient(180deg,transparent,rgba(13,15,42,.75) 12%,rgba(13,15,42,.75) 88%,transparent)}
-.head{display:flex;flex-direction:column;gap:16px;max-width:800px;margin-bottom:56px}
+.head{display:flex;flex-direction:column;gap:18px;max-width:720px;margin-bottom:64px}
 .head.center{text-align:center;align-items:center;margin-left:auto;margin-right:auto}
 h2{font-size:clamp(36px,4.8vw,62px);line-height:1.06}
 h2 em{color:var(--gold)}
@@ -101,13 +101,13 @@ h2 em{color:var(--gold)}
 .card{position:relative;padding:40px 34px;border-radius:20px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(10px);overflow:hidden;transition:transform .5s, border-color .5s}
 .card::before{content:"";position:absolute;inset:-1px;border-radius:20px;padding:1px;background:linear-gradient(140deg,rgba(246,223,166,.6),transparent 40%,transparent 60%,rgba(123,92,196,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .5s}
 .card:hover{transform:translateY(-6px)} .card:hover::before{opacity:1}
-.card p{margin:14px 0 0;color:var(--soft);font-size:18px}
+.card p{margin:14px 0 0;color:var(--soft);font-size:20px;line-height:1.6}
 .numeral{font-family:var(--serif);font-style:italic;font-size:48px;line-height:1;color:var(--gold)}
 .card h3{font-size:30px;margin-top:18px}
 .icon{width:56px;height:56px;filter:drop-shadow(0 0 12px rgba(216,178,110,.55))}
 
 .split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:64px;align-items:center}
-.split p{font-size:21px;color:var(--soft);margin:20px 0 0}
+.split p{font-size:22px;max-width:520px;color:var(--soft);margin:20px 0 0}
 .shift{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(10px)}
 .shift .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);font-size:18px}
 .shift .row div{padding:22px 26px}
@@ -120,25 +120,30 @@ h2 em{color:var(--gold)}
 .shift .th div:last-child::before{content:none}
 
 .outcomes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px}
-.outcomes li{display:flex;gap:18px;font-size:18px;color:var(--ink)}
+.outcomes li{display:flex;gap:18px;font-size:21px;line-height:1.5;color:var(--ink)}
 .outcomes svg{flex:0 0 22px;margin-top:6px;filter:drop-shadow(0 0 8px rgba(246,223,166,.8))}
 
 /* timeline */
 .timeline{position:relative;padding-left:44px}
 .timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,transparent,var(--gold) 8%,var(--violet) 92%,transparent)}
-.step{position:relative;padding:0 0 46px}
+.step{position:relative;padding:0 0 30px;max-width:760px}
 .step::before{content:"";position:absolute;left:-39px;top:12px;width:13px;height:13px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 0 5px rgba(216,178,110,.15),0 0 18px 4px rgba(246,223,166,.6)}
 .step.pause::before{background:transparent;border:1px solid var(--gold);box-shadow:none}
 .time{font-family:var(--cap);font-size:14px;letter-spacing:.24em;color:var(--gold)}
-.step h3{font-size:clamp(26px,2.6vw,32px);line-height:1.2;margin:6px 0 8px}
-.step p{margin:0;color:var(--soft);font-size:18px;max-width:720px}
+.step h3{font-size:clamp(26px,2.6vw,32px);line-height:1.2;margin:4px 0 0}
+.step p{margin:10px 0 0;color:var(--soft);font-size:19px;max-width:640px}
+.step summary{list-style:none;cursor:pointer;display:block;position:relative;padding-right:40px;min-height:44px}
+.step summary::-webkit-details-marker{display:none}
+.step summary::after{content:"+";position:absolute;right:0;top:22px;font-size:28px;font-weight:300;color:var(--gold);transition:transform .3s}
+.step[open] summary::after{transform:rotate(45deg)}
+.step .time{display:block}
 
 /* guide */
 .portrait{position:relative;aspect-ratio:4/5;border-radius:240px 240px 24px 24px;border:1px solid var(--line);background:radial-gradient(circle at 50% 30%,rgba(216,178,110,.18),rgba(13,15,42,.9) 70%);display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--mute);font-family:var(--cap);font-size:14px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 0 120px -30px rgba(123,92,196,.6)}
 .portrait::after{content:"";position:absolute;inset:14px;border-radius:226px 226px 14px 14px;border:1px solid rgba(216,178,110,.25);pointer-events:none}
 
 .fit{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:28px}
-.fit .card ul{margin:22px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:12px;font-size:18px;color:var(--soft)}
+.fit .card ul{margin:22px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:14px;font-size:20px;color:var(--soft)}
 .fit .yes{border-color:rgba(216,178,110,.45)}
 
 /* offer */
@@ -148,7 +153,7 @@ h2 em{color:var(--gold)}
 .price{font-family:var(--serif);font-size:clamp(76px,11vw,128px);line-height:1;font-weight:500}
 .was{font-size:18px;color:var(--mute);margin-top:10px}
 .was s{color:var(--soft)}
-.stack{list-style:none;padding:0;margin:36px auto;display:flex;flex-direction:column;gap:14px;text-align:left;max-width:520px;font-size:18px;color:var(--soft)}
+.stack{list-style:none;padding:0;margin:36px auto;display:flex;flex-direction:column;gap:14px;text-align:left;max-width:440px;font-size:20px;color:var(--soft)}
 .stack li{display:flex;gap:14px}
 .stack li::before{content:"✦";color:var(--gold);flex:0 0 auto}
 .small{font-size:16px;color:var(--gold-hi);margin-top:18px}
@@ -164,7 +169,7 @@ h2 em{color:var(--gold)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:28px;color:var(--gold);transition:transform .3s}
 .faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{margin:0 0 22px;color:var(--soft);font-size:18px;max-width:720px}
+.faq details p{margin:0 0 22px;color:var(--soft);font-size:19px;max-width:720px}
 
 footer{padding:140px 0 70px;text-align:center}
 footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);font-style:italic;font-size:clamp(30px,4vw,48px);line-height:1.25}
@@ -187,7 +192,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
   .hero{padding:104px 0 72px;min-height:auto}
   .hero .wrap{grid-template-columns:1fr;gap:28px}
   .orrery-wrap{max-width:330px;margin:0 auto}
-  section{padding:84px 0}
+  section{padding:100px 0}
   .head{margin-bottom:40px}
   .split{gap:40px}
   .altar{padding:56px 22px 40px}
@@ -226,7 +231,10 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
   .outcomes{gap:18px}
   .timeline{padding-left:34px}
   .timeline::before{left:7px}
-  .step{padding-bottom:38px}
+  .step{padding-bottom:24px}
+  .card p{font-size:19px}
+  .outcomes li{font-size:20px}
+  .fit .card ul,.stack{font-size:19px}
   .step::before{left:-33px;width:11px;height:11px}
   .step h3{font-size:26px}
   .portrait{max-width:300px;width:100%;margin:0 auto}
@@ -266,12 +274,11 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <div class="eyebrow reveal">Reading the Soul · A one-day initiation</div>
       <h1 class="reveal">Your dreams are not noise.<br><span class="shimmer">They are your soul, speaking.</span></h1>
       <p class="promise reveal">By the end of the day, you’ll know what your soul is asking of you right now — and how to keep listening.</p>
-      <p class="lede reveal">Your soul speaks in two languages: the dreams you have each night and the chart you were born with. In one live day you’ll learn to read both — with Jung’s own method, your natal chart, and the Demartini Method, three distinct methods stacked in sequence.</p>
       <div class="ctas reveal">
         <a class="btn" href="#apply">Request your seat</a>
         <a class="ghost" href="#day">See the day ↓</a>
       </div>
-      <div class="facts reveal"><span>Live online · [DATE]</span><span>9:00am–4:00pm PT</span><span>Circle of [NUMBER]</span><span>By application</span></div>
+      <div class="facts reveal"><span>Live online · [DATE]</span><span>Circle of [NUMBER]</span></div>
     </div>
 
     <div class="orrery-wrap">
@@ -315,9 +322,9 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <h2>You already know your dreams mean something. You just can’t <em>read</em> them yet.</h2>
     </div>
     <div class="grid3">
-      <div class="card reveal"><div class="numeral">i.</div><p>You wake with an image that won’t leave you — and by lunch it has dissolved, unread.</p></div>
-      <div class="card reveal"><div class="numeral">ii.</div><p>Dream dictionaries feel hollow. “Snake means transformation” tells you nothing about <em>your</em> snake.</p></div>
-      <div class="card reveal"><div class="numeral">iii.</div><p>You sense a pattern running through years of dreams and your chart — a thread you can feel but not yet follow.</p></div>
+      <div class="card reveal"><div class="numeral">i.</div><p>An image stays with you all morning — then dissolves, unread.</p></div>
+      <div class="card reveal"><div class="numeral">ii.</div><p>Dream dictionaries tell you nothing about <em>your</em> snake.</p></div>
+      <div class="card reveal"><div class="numeral">iii.</div><p>You feel a thread running through your dreams, but can’t yet follow it.</p></div>
     </div>
   </div>
 </section>
@@ -330,9 +337,9 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
     </div>
     <ul class="outcomes reveal">
       <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">Clarity</strong> on the one message your dreams keep repeating</span></li>
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">Coherence</strong> — your chart and your dreams finally telling the same story</span></li>
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">Lightness</strong> — calmer and less reactive about the person who’s been taking up space in your head</span></li>
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">A daily practice</strong> — fifteen minutes each morning to keep the conversation going</span></li>
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">Coherence</strong> — your dreams and chart telling one story</span></li>
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">Lightness</strong> about the person who’s been living in your head</span></li>
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">A daily practice</strong> — fifteen minutes each morning</span></li>
     </ul>
   </div>
 </section>
@@ -342,7 +349,6 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
     <div class="reveal">
       <div class="eyebrow">The shift</div>
       <h2 style="margin-top:16px">Stop asking what the dream <em>means.</em> Start asking where your soul is <span class="shimmer">leading.</span></h2>
-      <p>Jung saw every dream as the psyche correcting its own course — supplying what the waking mind has left out. Read over time, those corrections form a plan. This day teaches you to see it.</p>
     </div>
     <div class="shift reveal">
       <div class="row th"><div>Before</div><div>After</div></div>
@@ -359,23 +365,23 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
     <div class="head center reveal">
       <div class="ornament eyebrow">Three methods · One stack</div>
       <h2>Unveil · Harmonize · Awaken</h2>
-      <p style="margin:0;max-width:680px;font-size:21px;color:var(--soft)">This is a method stack, not a blend. Each method is used whole, on its own terms, and in sequence — Jung’s dream method, then the natal chart, then the Demartini Method — so you always know which tool you are holding and why.</p>
+      <p style="margin:0;max-width:600px;font-size:21px;color:var(--soft)">A method stack, not a blend — each used whole, one after another.</p>
     </div>
     <div class="grid3">
       <div class="card reveal">
         <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="#E9CF95" stroke-width="1.2" aria-hidden="true"><path d="M37 11a18 18 0 1 0 0 34a14 14 0 0 1 0-34z"/><circle cx="44" cy="14" r="1.5" fill="#E9CF95"/><circle cx="47" cy="24" r="1" fill="#E9CF95"/></svg>
         <h3>The Dream</h3>
-        <p>Jung’s method from <em>On the Nature of Dreams</em>: the four acts of a dream, taking up its context, and telling a little dream from a big one.</p>
+        <p>Jung’s own method for hearing what a dream is saying.</p>
       </div>
       <div class="card reveal">
         <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="#E9CF95" stroke-width="1.2" aria-hidden="true"><circle cx="28" cy="28" r="20"/><circle cx="28" cy="28" r="8"/><path d="M28 4v10M28 42v10M4 28h10M42 28h10M11 11l7 7M38 38l7 7M45 11l-7 7M18 38l-7 7"/></svg>
         <h3>The Chart</h3>
-        <p>Your natal chart as the conscious attitude the dream speaks into — a map of what is being balanced, never a verdict on who you are. Requires your birth time to the minute.</p>
+        <p>Your natal chart as the map your dreams speak into.</p>
       </div>
       <div class="card reveal">
         <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="#E9CF95" stroke-width="1.2" aria-hidden="true"><path d="M28 8v40M12 18h32M12 18l-6 14h12zM44 18l-6 14h12zM20 48h16"/><circle cx="28" cy="8" r="2" fill="#E9CF95"/></svg>
         <h3>The Balance</h3>
-        <p>The Demartini Method, focused on one person — a figure from your dream or someone in your waking life — so the emotional charge you carry about them dissolves into a balanced, grateful view.</p>
+        <p>The Demartini Method, to dissolve the charge you carry about one person.</p>
       </div>
     </div>
   </div>
@@ -387,15 +393,16 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
     <div class="head reveal">
       <div class="eyebrow">The day</div>
       <h2>Bring one dream. We’ll read it <em>together.</em></h2>
+      <p style="margin:0;font-size:16px;color:var(--mute)">Tap a session for details.</p>
     </div>
     <div class="timeline">
-      <div class="step reveal"><div class="time">9:00</div><h3>Opening: “I have no idea what this dream means”</h3><p>The beginner’s stance Jung himself took. Setting aside dream-book meanings; each person names the dream they brought.</p></div>
-      <div class="step reveal"><div class="time">9:30</div><h3>The architecture of a dream</h3><p>Setting, rising tension, turning point, resolution — and what it means when a dream refuses to resolve.</p></div>
-      <div class="step reveal"><div class="time">10:45</div><h3>Taking up the context</h3><p>Your own associations for each image, person and place. Finding the one that carries feeling, and staying with it.</p></div>
-      <div class="step pause reveal"><div class="time">12:00</div><h3>Pause</h3><p>An hour away from the screen. Draw your dream, walk, or sit quietly.</p></div>
-      <div class="step reveal"><div class="time">1:00</div><h3>What the dream is correcting</h3><p>Compensation and the prospective mind: little dreams and big dreams, amplification through myth, and where a series is leading.</p></div>
-      <div class="step reveal"><div class="time">2:15</div><h3>The chart as context</h3><p>Reading your natal chart as the conscious attitude your dream speaks into — and what it is bringing into balance.</p></div>
-      <div class="step reveal" style="padding-bottom:0"><div class="time">3:15</div><h3>Balancing the figure</h3><p>The Demartini Method with one person from your dream or your waking life — dissolving the charge, so you leave lighter, clearer and less reactive. The symbol becomes action; closing circle.</p></div>
+      <details class="step reveal"><summary><span class="time">9:00</span><h3>Opening</h3></summary><p>The beginner’s stance Jung himself took. Each person names the dream they brought.</p></details>
+      <details class="step reveal"><summary><span class="time">9:30</span><h3>The architecture of a dream</h3></summary><p>Setting, tension, turning point, resolution — and what it means when a dream won’t resolve.</p></details>
+      <details class="step reveal"><summary><span class="time">10:45</span><h3>Taking up the context</h3></summary><p>Your own associations for each image, and finding the one that carries feeling.</p></details>
+      <details class="step pause reveal"><summary><span class="time">12:00</span><h3>Pause</h3></summary><p>An hour away from the screen. Draw your dream, walk, or rest.</p></details>
+      <details class="step reveal"><summary><span class="time">1:00</span><h3>What the dream is correcting</h3></summary><p>Little dreams and big dreams, and where a series is leading.</p></details>
+      <details class="step reveal"><summary><span class="time">2:15</span><h3>The chart as context</h3></summary><p>Your natal chart as the attitude your dream is bringing into balance.</p></details>
+      <details class="step reveal"><summary><span class="time">3:15</span><h3>Balancing the figure</h3></summary><p>The Demartini Method with one person from your dream or waking life. You leave with your soul’s message in a single sentence.</p></details>
     </div>
   </div>
 </section>
@@ -406,8 +413,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
     <div class="reveal">
       <div class="eyebrow">Your guide</div>
       <h2 style="margin-top:16px">Sam Osborne</h2>
-      <p>Every night’s dream, Sam draws in pencil at a wooden desk. He has spent years studying Jung, alchemy and astrology as a single discipline — learning to see the hidden order inside apparent chaos.</p>
-      <p style="font-size:18px">A Demartini Method Facilitator, keynote speaker and author of six books, trained in philosophy and English. He writes about this work on <a href="https://samthemystic.substack.com">Substack</a>.</p>
+      <p>Sam draws every night’s dream in pencil, and has spent years studying Jung, alchemy and astrology as one discipline. A Demartini Method Facilitator and author of six books.</p>
     </div>
   </div>
 </section>
@@ -417,18 +423,17 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
     <div class="card yes reveal">
       <h3>This circle is for you if</h3>
       <ul>
-        <li>You remember your dreams and feel they are speaking to you.</li>
-        <li>You want depth and method, not a dream dictionary.</li>
-        <li>You stand at a threshold — a new chapter, a decision, midlife.</li>
-        <li>You can sit with an unflattering image without needing it fixed today.</li>
+        <li>Your dreams feel like they’re speaking to you.</li>
+        <li>You want depth, not a dream dictionary.</li>
+        <li>You’re at a threshold in your life.</li>
       </ul>
     </div>
     <div class="card reveal">
       <h3 style="color:var(--soft)">It is not for you if</h3>
       <ul>
-        <li>You are in acute distress or crisis — please work with a licensed clinician first.</li>
-        <li>You want your dreams to make your decisions for you.</li>
-        <li>You are looking for therapy. This is an educational study circle.</li>
+        <li>You’re in crisis — please see a licensed clinician first.</li>
+        <li>You want dreams to decide for you.</li>
+        <li>You’re looking for therapy.</li>
       </ul>
     </div>
   </div>
@@ -446,14 +451,13 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <div class="price shimmer" style="font-style:normal">$997</div>
       <div class="was">one-time · future cohorts <s>$2,997</s></div>
       <ul class="stack">
-        <li>One full live day online · [DATE], 9:00am–4:00pm PT</li>
-        <li>Your own dream read live, held against your natal chart (exact birth time required)</li>
-        <li>A circle of only [NUMBER], admitted by short application</li>
-        <li>The Jungian dream-reading checklist and session workbook</li>
-        <li>Founding-member rate locked for every future circle</li>
+        <li>One live day · [DATE], 9am–4pm PT</li>
+        <li>Your dream read live, with your chart</li>
+        <li>A circle of only [NUMBER]</li>
+        <li>Workbook, plus your founding rate for life</li>
       </ul>
       <a class="btn" href="[APPLICATION LINK]">Request your founding seat</a>
-      <div class="small">Applications close [CLOSE DATE] · Takes about five minutes</div>
+      <div class="small">Applications close [CLOSE DATE]</div>
       <div class="seats"><i></i>Founding seats open now</div>
     </div>
   </div>
