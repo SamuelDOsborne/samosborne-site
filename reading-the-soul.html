@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reading the Sky — A One-Day Initiation in Dream Reading | Sam Osborne</title>
-<meta name="description" content="A one-day live initiation in Jungian dream reading, the natal chart and the Demartini Method. Founding Cohort, by application.">
+<title>Reading the Soul — A One-Day Initiation | Sam Osborne</title>
+<meta name="description" content="Reading the Soul: a one-day live initiation in reading your soul through your dreams and natal chart, with the Demartini Method. Founding Cohort, by application.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--night);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:var(--gold)} a:hover{color:var(--gold-hi)}
 img,svg{display:block}
 #sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
@@ -41,22 +41,39 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px
 /* hero */
 .hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 100px;position:relative}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center}
-.eyebrow{font-family:var(--cap);font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+.eyebrow{font-family:var(--cap);font-size:14px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
 h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;color:var(--ink)}
 h1{font-size:clamp(52px,7.6vw,110px);line-height:.98;letter-spacing:-.01em;margin:22px 0 28px}
 .shimmer{font-style:italic;background:linear-gradient(100deg,#B98E45 0%,#F6DFA6 30%,#D8B26E 45%,#FFF3D1 55%,#C99B52 75%,#F6DFA6 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
 @keyframes shine{to{background-position:-250% 0}}
-.lede{font-size:clamp(18px,1.9vw,21px);color:var(--soft);max-width:600px;margin:0}
+.lede{font-size:21px;color:var(--soft);max-width:600px;margin:0}
 .ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px}
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:18px 38px;border-radius:999px;font-weight:500;font-size:16px;letter-spacing:.06em;text-decoration:none;color:#1A1430;
   background:linear-gradient(180deg,#F6DFA6,#D8B26E 60%,#B98E45);box-shadow:0 0 0 1px rgba(255,240,200,.4) inset,0 10px 40px -10px rgba(216,178,110,.7),0 0 60px -20px rgba(216,178,110,.9);transition:transform .3s, box-shadow .3s}
 .btn:hover{color:#1A1430;transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,240,200,.5) inset,0 16px 50px -10px rgba(216,178,110,.85),0 0 90px -15px rgba(216,178,110,1)}
 .ghost{min-height:56px;display:inline-flex;align-items:center;padding:0 14px;text-decoration:none;color:var(--ink);font-size:16px}
-.facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;font-size:14px;color:var(--mute)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;font-size:16px;color:var(--soft)}
 .facts span::before{content:"✦";color:var(--gold);margin-right:8px;font-size:10px;vertical-align:2px}
 
 /* orrery */
-.orrery{position:relative;width:100%;max-width:520px;aspect-ratio:1;justify-self:center}
+.orrery-wrap{justify-self:center;width:100%;max-width:520px;display:flex;flex-direction:column;align-items:center;gap:22px}
+.orrery{position:relative;width:100%;aspect-ratio:1}
+.orrery .wheel.outer{animation:none;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.orrery .wheel.outer.dragging{cursor:grabbing}
+.orrery .wheel.inner,.orrery .moon{pointer-events:none}
+.seg{cursor:pointer;outline:none}
+.seg path{fill:transparent;stroke:transparent;transition:fill .5s, stroke .5s}
+.seg:hover path{fill:rgba(216,178,110,.08)}
+.seg:focus-visible path{stroke:#F6DFA6;stroke-width:1}
+.seg text{fill:#E9CF95;transition:fill .5s}
+.seg.on path{fill:rgba(246,223,166,.2);stroke:rgba(246,223,166,.7);stroke-width:.8;filter:url(#halo)}
+.seg.on text{fill:#FFF6DC;filter:url(#halo)}
+.readout{text-align:center;min-height:86px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.readout .hint{font-family:var(--cap);font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+.readout .sign{font-family:var(--serif);font-size:34px;line-height:1.1;color:var(--ink)}
+.readout .sign em{color:var(--gold-hi)}
+.readout .meta{font-size:16px;color:var(--soft)}
+.readout .note{font-size:16px;color:var(--mute);max-width:360px}
 .orrery .wheel{position:absolute;inset:0;animation:spin 240s linear infinite}
 .orrery .wheel.inner{inset:16%;animation-duration:160s;animation-direction:reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -78,30 +95,30 @@ h2 em{color:var(--gold)}
 .ornament{display:flex;align-items:center;gap:14px;color:var(--gold)}
 .ornament::before,.ornament::after{content:"";height:1px;width:56px;background:linear-gradient(90deg,transparent,var(--gold))}
 .ornament::after{transform:scaleX(-1)}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:24px}
 .card{position:relative;padding:40px 34px;border-radius:20px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(10px);overflow:hidden;transition:transform .5s, border-color .5s}
 .card::before{content:"";position:absolute;inset:-1px;border-radius:20px;padding:1px;background:linear-gradient(140deg,rgba(246,223,166,.6),transparent 40%,transparent 60%,rgba(123,92,196,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .5s}
 .card:hover{transform:translateY(-6px)} .card:hover::before{opacity:1}
-.card p{margin:14px 0 0;color:var(--soft);font-size:17px}
+.card p{margin:14px 0 0;color:var(--soft);font-size:18px}
 .numeral{font-family:var(--serif);font-style:italic;font-size:48px;line-height:1;color:var(--gold)}
 .card h3{font-size:30px;margin-top:18px}
 .icon{width:56px;height:56px;filter:drop-shadow(0 0 12px rgba(216,178,110,.55))}
 
-.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:center}
-.split p{font-size:19px;color:var(--soft);margin:20px 0 0}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:64px;align-items:center}
+.split p{font-size:21px;color:var(--soft);margin:20px 0 0}
 .shift{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(10px)}
-.shift .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);font-size:17px}
+.shift .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);font-size:18px}
 .shift .row div{padding:22px 26px}
 .shift .row div:first-child{color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(163,156,187,.4)}
 .shift .row div:last-child{color:var(--ink);position:relative}
 .shift .row div:last-child::before{content:"→";color:var(--gold);margin-right:10px}
-.shift .th{border-top:0;font-family:var(--cap);font-size:12px;letter-spacing:.28em;text-transform:uppercase;background:rgba(216,178,110,.06)}
+.shift .th{border-top:0;font-family:var(--cap);font-size:14px;letter-spacing:.28em;text-transform:uppercase;background:rgba(216,178,110,.06)}
 .shift .th div{text-decoration:none!important;color:var(--mute)!important}
 .shift .th div:last-child{color:var(--gold)!important}
 .shift .th div:last-child::before{content:none}
 
 .outcomes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px}
-.outcomes li{display:flex;gap:18px;font-size:19px;color:var(--ink)}
+.outcomes li{display:flex;gap:18px;font-size:18px;color:var(--ink)}
 .outcomes svg{flex:0 0 22px;margin-top:6px;filter:drop-shadow(0 0 8px rgba(246,223,166,.8))}
 
 /* timeline */
@@ -112,14 +129,14 @@ h2 em{color:var(--gold)}
 .step.pause::before{background:transparent;border:1px solid var(--gold);box-shadow:none}
 .time{font-family:var(--cap);font-size:14px;letter-spacing:.24em;color:var(--gold)}
 .step h3{font-size:clamp(26px,2.6vw,32px);line-height:1.2;margin:6px 0 8px}
-.step p{margin:0;color:var(--soft);font-size:17px;max-width:720px}
+.step p{margin:0;color:var(--soft);font-size:18px;max-width:720px}
 
 /* guide */
-.portrait{position:relative;aspect-ratio:4/5;border-radius:240px 240px 24px 24px;border:1px solid var(--line);background:radial-gradient(circle at 50% 30%,rgba(216,178,110,.18),rgba(13,15,42,.9) 70%);display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--mute);font-family:var(--cap);font-size:13px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 0 120px -30px rgba(123,92,196,.6)}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:240px 240px 24px 24px;border:1px solid var(--line);background:radial-gradient(circle at 50% 30%,rgba(216,178,110,.18),rgba(13,15,42,.9) 70%);display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--mute);font-family:var(--cap);font-size:14px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 0 120px -30px rgba(123,92,196,.6)}
 .portrait::after{content:"";position:absolute;inset:14px;border-radius:226px 226px 14px 14px;border:1px solid rgba(216,178,110,.25);pointer-events:none}
 
-.fit{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
-.fit .card ul{margin:22px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:12px;font-size:17px;color:var(--soft)}
+.fit{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:28px}
+.fit .card ul{margin:22px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:12px;font-size:18px;color:var(--soft)}
 .fit .yes{border-color:rgba(216,178,110,.45)}
 
 /* offer */
@@ -127,12 +144,12 @@ h2 em{color:var(--gold)}
 .altar{position:relative;margin-top:48px;padding:64px 44px 52px;border-radius:32px;background:linear-gradient(180deg,rgba(30,28,70,.85),rgba(13,15,42,.9));border:1px solid rgba(216,178,110,.5);box-shadow:0 0 0 8px rgba(216,178,110,.04),0 40px 120px -40px rgba(123,92,196,.8),0 0 140px -50px rgba(216,178,110,.7)}
 .altar .seal{position:absolute;top:-34px;left:50%;transform:translateX(-50%);width:68px;height:68px;border-radius:50%;background:var(--night);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(216,178,110,.5)}
 .price{font-family:var(--serif);font-size:clamp(76px,11vw,128px);line-height:1;font-weight:500}
-.was{font-size:17px;color:var(--mute);margin-top:10px}
+.was{font-size:18px;color:var(--mute);margin-top:10px}
 .was s{color:var(--soft)}
-.stack{list-style:none;padding:0;margin:36px auto;display:flex;flex-direction:column;gap:14px;text-align:left;max-width:520px;font-size:17px;color:var(--soft)}
+.stack{list-style:none;padding:0;margin:36px auto;display:flex;flex-direction:column;gap:14px;text-align:left;max-width:520px;font-size:18px;color:var(--soft)}
 .stack li{display:flex;gap:14px}
 .stack li::before{content:"✦";color:var(--gold);flex:0 0 auto}
-.small{font-size:14px;color:var(--mute);margin-top:18px}
+.small{font-size:16px;color:var(--gold-hi);margin-top:18px}
 .seats{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi)}
 .seats i{width:8px;height:8px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 12px var(--gold-hi);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.35}}
@@ -145,7 +162,7 @@ h2 em{color:var(--gold)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:28px;color:var(--gold);transition:transform .3s}
 .faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{margin:0 0 22px;color:var(--soft);font-size:17px;max-width:720px}
+.faq details p{margin:0 0 22px;color:var(--soft);font-size:18px;max-width:720px}
 
 footer{padding:140px 0 70px;text-align:center}
 footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);font-style:italic;font-size:clamp(30px,4vw,48px);line-height:1.25}
@@ -155,13 +172,68 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 1.1s ease, transform 1.1s ease}
 .reveal.in{opacity:1;transform:none}
 
+/* mobile sticky CTA */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;align-items:center;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(7,8,26,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .45s ease}
+.dock.show{transform:none}
+.dock .info{flex:1 1 auto;min-width:0;line-height:1.25}
+.dock .info b{display:block;font-family:var(--serif);font-weight:500;font-size:22px;color:var(--ink)}
+.dock .info span{font-size:13px;color:var(--soft)}
+.dock .btn{min-height:48px;padding:12px 22px;font-size:15px;flex:0 0 auto}
+
 @media (max-width:860px){
-  .hero{padding-top:120px;min-height:auto}
-  .hero .wrap{grid-template-columns:1fr}
-  .orrery{max-width:340px;order:-1;margin-bottom:-10px}
-  section{padding:96px 0}
-  .shift .row div{padding:18px 16px}
+  .hero{padding:104px 0 72px;min-height:auto}
+  .hero .wrap{grid-template-columns:1fr;gap:28px}
+  .orrery-wrap{max-width:330px;margin:0 auto}
+  section{padding:84px 0}
+  .head{margin-bottom:40px}
+  .split{gap:40px}
   .altar{padding:56px 22px 40px}
+  .dock{display:flex}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  nav .wrap{padding-top:18px;padding-bottom:18px;flex-wrap:nowrap}
+  .brand{font-size:12px;letter-spacing:.22em;gap:10px}
+  .brand svg{width:22px;height:22px}
+  .pill{min-height:44px;padding:10px 16px;font-size:12px;letter-spacing:.12em;white-space:nowrap}
+  .pill .extra{display:none}
+  .eyebrow{font-size:13px;letter-spacing:.16em;line-height:1.6}
+  .ornament::before,.ornament::after{display:none}
+  .readout{min-height:0}
+  .hero{padding-bottom:40px}
+  h1{font-size:clamp(44px,12.4vw,56px);line-height:1.02;margin:18px 0 22px}
+  h2{font-size:clamp(34px,9.4vw,42px);line-height:1.1}
+  .lede{font-size:19px}
+  .split p,.head p{font-size:19px!important}
+  .ctas{flex-direction:column;align-items:stretch;gap:8px;margin-top:30px}
+  .ctas .btn{width:100%}
+  .ghost{justify-content:center}
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;font-size:15px;margin-top:24px}
+  .card{padding:30px 24px;border-radius:18px}
+  .card:hover{transform:none}
+  .card h3{font-size:28px}
+  .numeral{font-size:40px}
+  .shift{border-radius:18px}
+  .shift .th{display:none}
+  .shift .row{grid-template-columns:1fr;padding:18px 20px;gap:4px}
+  .shift .row:first-of-type{border-top:0}
+  .shift .row div{padding:0}
+  .shift .row div:first-child{font-size:15px}
+  .outcomes{gap:18px}
+  .timeline{padding-left:34px}
+  .timeline::before{left:7px}
+  .step{padding-bottom:38px}
+  .step::before{left:-33px;width:11px;height:11px}
+  .step h3{font-size:26px}
+  .portrait{max-width:300px;width:100%;margin:0 auto}
+  .altar{border-radius:26px;padding:56px 20px 36px;margin-top:44px}
+  .altar .btn{width:100%}
+  .stack{margin:30px auto;gap:12px}
+  .faq summary{font-size:22px;min-height:60px;line-height:1.25;padding:10px 0}
+  footer{padding:100px 0 calc(110px + env(safe-area-inset-bottom))}
+  footer blockquote{font-size:30px}
+  .legal{margin-top:56px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -179,7 +251,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="12.5" stroke="#D8B26E" stroke-width=".8"/><path d="M18 5.5a9.5 9.5 0 1 0 0 17a7.4 7.4 0 0 1 0-17z" fill="#D8B26E"/></svg>
       Sam Osborne
     </a>
-    <a class="pill" href="#apply">Apply · [NUMBER] seats</a>
+    <a class="pill" href="#apply">Apply<span class="extra">&nbsp;· [NUMBER] seats</span></a>
   </div>
 </nav>
 
@@ -188,9 +260,9 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
 <header class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow reveal">A one-day initiation · Founding Cohort</div>
-      <h1 class="reveal">Your dreams are not noise.<br><span class="shimmer">They are a forecast.</span></h1>
-      <p class="lede reveal">Spend one live day learning to read them — with Jung’s own method, your natal chart, and a practice for integrating what the dream reveals. Leave able to do it every morning, for the rest of your life.</p>
+      <div class="eyebrow reveal">Reading the Soul · A one-day initiation</div>
+      <h1 class="reveal">Your dreams are not noise.<br><span class="shimmer">They are your soul, speaking.</span></h1>
+      <p class="lede reveal">Your soul speaks in two languages: the dreams you have each night and the chart you were born with. Spend one live day learning to read both — with Jung’s own method, your natal chart, and the Demartini Method, three distinct methods stacked in sequence. Leave able to listen every morning, for the rest of your life.</p>
       <div class="ctas reveal">
         <a class="btn" href="#apply">Request your seat</a>
         <a class="ghost" href="#day">See the day ↓</a>
@@ -198,18 +270,24 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <div class="facts reveal"><span>Live online · [DATE]</span><span>9:00am–4:00pm PT</span><span>Circle of [NUMBER]</span><span>By application</span></div>
     </div>
 
-    <div class="orrery" aria-hidden="true">
-      <svg class="wheel" viewBox="0 0 400 400">
+    <div class="orrery-wrap">
+    <div class="orrery">
+      <svg class="wheel outer" id="dialSvg" viewBox="0 0 400 400" role="group" aria-label="Zodiac wheel — drag to turn, select your Sun sign">
         <defs>
-          <path id="ring" d="M200,200 m-170,0 a170,170 0 1,1 340,0 a170,170 0 1,1 -340,0"/>
+          <filter id="halo" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
         </defs>
-        <circle cx="200" cy="200" r="196" fill="none" stroke="rgba(216,178,110,.35)" stroke-width=".7"/>
-        <circle cx="200" cy="200" r="184" fill="none" stroke="rgba(216,178,110,.18)" stroke-width=".7"/>
-        <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(216,178,110,.3)" stroke-width=".7"/>
-        <g id="ticks" stroke="rgba(216,178,110,.45)" stroke-width=".7"></g>
-        <g id="glyphs" fill="#E9CF95" font-family="Georgia, serif" font-size="20" text-anchor="middle" dominant-baseline="central"></g>
+        <g id="dial">
+          <circle cx="200" cy="200" r="196" fill="none" stroke="rgba(216,178,110,.35)" stroke-width=".7"/>
+          <circle cx="200" cy="200" r="184" fill="none" stroke="rgba(216,178,110,.18)" stroke-width=".7"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(216,178,110,.3)" stroke-width=".7"/>
+          <g id="ticks" stroke="rgba(216,178,110,.45)" stroke-width=".7"></g>
+          <g id="segs" font-family="Georgia, serif" font-size="20" text-anchor="middle" dominant-baseline="central"></g>
+        </g>
       </svg>
-      <svg class="wheel inner" viewBox="0 0 400 400">
+      <svg class="wheel inner" viewBox="0 0 400 400" aria-hidden="true">
         <circle cx="200" cy="200" r="196" fill="none" stroke="rgba(123,92,196,.45)" stroke-width="1" stroke-dasharray="2 10"/>
         <polygon points="200,10 364.5,295 35.5,295" fill="none" stroke="rgba(216,178,110,.22)" stroke-width=".8"/>
         <polygon points="200,390 35.5,105 364.5,105" fill="none" stroke="rgba(216,178,110,.22)" stroke-width=".8"/>
@@ -217,7 +295,11 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
         <circle cx="35.5" cy="295" r="2.5" fill="#F6DFA6"/>
         <circle cx="364.5" cy="105" r="3" fill="#C9B8F0"/>
       </svg>
-      <div class="moon"></div>
+      <div class="moon" aria-hidden="true"></div>
+    </div>
+    <div class="readout" id="readout" aria-live="polite">
+      <div class="hint">Turn the wheel · choose your Sun sign</div>
+    </div>
     </div>
   </div>
 </header>
@@ -240,7 +322,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
   <div class="wrap split">
     <div class="reveal">
       <div class="eyebrow">The shift</div>
-      <h2 style="margin-top:16px">Stop asking what the dream <em>means.</em> Start asking where it is <span class="shimmer">leading.</span></h2>
+      <h2 style="margin-top:16px">Stop asking what the dream <em>means.</em> Start asking where your soul is <span class="shimmer">leading.</span></h2>
       <p>Jung saw every dream as the psyche correcting its own course — supplying what the waking mind has left out. Read over time, those corrections form a plan. This day teaches you to see it.</p>
     </div>
     <div class="shift reveal">
@@ -256,8 +338,9 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
 <section class="band">
   <div class="wrap">
     <div class="head center reveal">
-      <div class="ornament eyebrow">Three lenses · One practice</div>
+      <div class="ornament eyebrow">Three methods · One stack</div>
       <h2>Unveil · Harmonize · Awaken</h2>
+      <p style="margin:0;max-width:680px;font-size:21px;color:var(--soft)">This is a method stack, not a blend. Each method is used whole, on its own terms, and in sequence — Jung’s dream method, then the natal chart, then the Demartini Method — so you always know which tool you are holding and why.</p>
     </div>
     <div class="grid3">
       <div class="card reveal">
@@ -273,7 +356,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <div class="card reveal">
         <svg class="icon" viewBox="0 0 56 56" fill="none" stroke="#E9CF95" stroke-width="1.2" aria-hidden="true"><path d="M28 8v40M12 18h32M12 18l-6 14h12zM44 18l-6 14h12zM20 48h16"/><circle cx="28" cy="8" r="2" fill="#E9CF95"/></svg>
         <h3>The Balance</h3>
-        <p>The Demartini Method and active imagination with the figure you most resist or admire — so the image is integrated, not just understood.</p>
+        <p>The Demartini Method, focused on one person — a figure from your dream or someone in your waking life — so the emotional charge you carry about them dissolves into a balanced, grateful view.</p>
       </div>
     </div>
   </div>
@@ -289,7 +372,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>Your own dream read in depth, live, with the circle</span></li>
       <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>A repeatable method you can use every morning in fifteen minutes</span></li>
       <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>Your natal chart understood as the context your dreams speak into</span></li>
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>One dream figure integrated through the Demartini Method</span></li>
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>Freedom from the charge you carry about one person, from a dream or your waking life — replaced by clarity and gratitude</span></li>
       <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>The checklist and workbook to keep the practice alive on your own</span></li>
     </ul>
   </div>
@@ -308,7 +391,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <div class="step pause reveal"><div class="time">12:00</div><h3>Pause</h3><p>An hour away from the screen. Draw your dream, walk, or sit quietly.</p></div>
       <div class="step reveal"><div class="time">1:00</div><h3>What the dream is correcting</h3><p>Compensation and the prospective mind: little dreams and big dreams, amplification through myth, and where a series is leading.</p></div>
       <div class="step reveal"><div class="time">2:15</div><h3>The chart as context</h3><p>Reading your natal chart as the conscious attitude your dream speaks into — and what it is bringing into balance.</p></div>
-      <div class="step reveal" style="padding-bottom:0"><div class="time">3:15</div><h3>Balancing the figure</h3><p>The Demartini Method and active imagination with one dream figure. The symbol becomes action; closing circle.</p></div>
+      <div class="step reveal" style="padding-bottom:0"><div class="time">3:15</div><h3>Balancing the figure</h3><p>The Demartini Method with one person from your dream or your waking life — dissolving the charge, so you leave lighter, clearer and less reactive. The symbol becomes action; closing circle.</p></div>
     </div>
   </div>
 </section>
@@ -320,7 +403,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
       <div class="eyebrow">Your guide</div>
       <h2 style="margin-top:16px">Sam Osborne</h2>
       <p>Every night’s dream, Sam draws in pencil at a wooden desk. He has spent years studying Jung, alchemy and astrology as a single discipline — learning to see the hidden order inside apparent chaos.</p>
-      <p style="font-size:17px">A Demartini Method Facilitator, keynote speaker and author of six books, trained in philosophy and English. He writes about this work on <a href="https://samthemystic.substack.com">Substack</a>.</p>
+      <p style="font-size:18px">A Demartini Method Facilitator, keynote speaker and author of six books, trained in philosophy and English. He writes about this work on <a href="https://samthemystic.substack.com">Substack</a>.</p>
     </div>
   </div>
 </section>
@@ -350,7 +433,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
 <section id="apply">
   <div class="wrap offer">
     <div class="reveal">
-      <div class="ornament eyebrow" style="justify-content:center">The Founding Cohort</div>
+      <div class="ornament eyebrow" style="justify-content:center">Reading the Soul · Founding Cohort</div>
       <h2 style="margin-top:18px">The first circle is the smallest — and the only one at this price.</h2>
     </div>
     <div class="altar reveal">
@@ -388,28 +471,98 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
 
 <footer>
   <div class="wrap">
-    <blockquote class="reveal">You are not at the mercy of the storm.<br><span class="shimmer">You are learning to read the sky.</span></blockquote>
+    <blockquote class="reveal">You are not at the mercy of the storm.<br><span class="shimmer">You are learning to read your soul.</span></blockquote>
     <a class="btn reveal" href="#apply">Request your seat</a>
     <div class="legal">Educational study only — not psychotherapy or medical advice. © Sam Osborne</div>
   </div>
 </footer>
 
+<div class="dock" id="dock" aria-hidden="true">
+  <div class="info"><b>$997 · Founding seat</b><span>[DATE] · [NUMBER] seats · by application</span></div>
+  <a class="btn" href="#apply" tabindex="-1">Apply</a>
+</div>
+
 <script>
 (function(){
-  // Zodiac wheel
-  var ns='http://www.w3.org/2000/svg', ticks=document.getElementById('ticks'), glyphs=document.getElementById('glyphs');
-  var signs=['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
+  // Zodiac wheel — draggable, selectable
+  var ns='http://www.w3.org/2000/svg', svg=document.getElementById('dialSvg'), dial=document.getElementById('dial'),
+      ticks=document.getElementById('ticks'), segsG=document.getElementById('segs'), readout=document.getElementById('readout');
+  var Z=[['♈','Aries','Mar 21 – Apr 19','Fire'],['♉','Taurus','Apr 20 – May 20','Earth'],['♊','Gemini','May 21 – Jun 20','Air'],
+         ['♋','Cancer','Jun 21 – Jul 22','Water'],['♌','Leo','Jul 23 – Aug 22','Fire'],['♍','Virgo','Aug 23 – Sep 22','Earth'],
+         ['♎','Libra','Sep 23 – Oct 22','Air'],['♏','Scorpio','Oct 23 – Nov 21','Water'],['♐','Sagittarius','Nov 22 – Dec 21','Fire'],
+         ['♑','Capricorn','Dec 22 – Jan 19','Earth'],['♒','Aquarius','Jan 20 – Feb 18','Air'],['♓','Pisces','Feb 19 – Mar 20','Water']];
+  function pt(r,deg){var a=deg*Math.PI/180;return [200+r*Math.cos(a),200+r*Math.sin(a)]}
   for(var i=0;i<72;i++){
-    var a=i*Math.PI/36, r1=i%6===0?150:178, r2=184, l=document.createElementNS(ns,'line');
-    l.setAttribute('x1',200+r1*Math.cos(a));l.setAttribute('y1',200+r1*Math.sin(a));
-    l.setAttribute('x2',200+r2*Math.cos(a));l.setAttribute('y2',200+r2*Math.sin(a));
+    var r1=i%6===0?150:178, p1=pt(r1,i*5), p2=pt(184,i*5), l=document.createElementNS(ns,'line');
+    l.setAttribute('x1',p1[0]);l.setAttribute('y1',p1[1]);l.setAttribute('x2',p2[0]);l.setAttribute('y2',p2[1]);
     ticks.appendChild(l);
   }
-  signs.forEach(function(s,i){
-    var a=(i*30+15-90)*Math.PI/180, t=document.createElementNS(ns,'text');
-    t.setAttribute('x',200+166*Math.cos(a));t.setAttribute('y',200+166*Math.sin(a));
-    t.textContent=s+'︎';glyphs.appendChild(t);
+  var segs=[], labels=[];
+  Z.forEach(function(z,i){
+    var a0=i*30-90, a1=a0+30, o0=pt(196,a0), o1=pt(196,a1), n1=pt(150,a1), n0=pt(150,a0), c=pt(166,a0+15);
+    var g=document.createElementNS(ns,'g'); g.setAttribute('class','seg'); g.setAttribute('tabindex','0');
+    g.setAttribute('role','button'); g.setAttribute('aria-label',z[1]+', '+z[2]); g.setAttribute('aria-pressed','false');
+    var path=document.createElementNS(ns,'path');
+    path.setAttribute('d','M'+o0+' A196 196 0 0 1 '+o1+' L'+n1+' A150 150 0 0 0 '+n0+' Z');
+    var t=document.createElementNS(ns,'text'); t.setAttribute('x',c[0]); t.setAttribute('y',c[1]); t.textContent=z[0]+'︎';
+    g.appendChild(path); g.appendChild(t); segsG.appendChild(g);
+    segs.push(g); labels.push({el:t,x:c[0],y:c[1]});
+    g.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();select(i)}
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();var n=(i+1)%12;segs[n].focus();select(n)}
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();var n=(i+11)%12;segs[n].focus();select(n)}
+    });
   });
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rot=0, vel=reduce?0:-.03, drift=reduce?0:-.03, dragging=false, lastA=0, moved=0, downSeg=-1, target=null, chosen=-1;
+  function norm(d){d=(d+540)%360-180;return d}
+  function apply(){
+    dial.setAttribute('transform','rotate('+rot+' 200 200)');
+    for(var k=0;k<labels.length;k++) labels[k].el.setAttribute('transform','rotate('+(-rot)+' '+labels[k].x+' '+labels[k].y+')');
+  }
+  function ang(e){var r=svg.getBoundingClientRect();return Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*180/Math.PI}
+  function select(i){
+    chosen=i;
+    segs.forEach(function(g,k){g.classList.toggle('on',k===i);g.setAttribute('aria-pressed',k===i?'true':'false')});
+    var z=Z[i];
+    readout.innerHTML='<div class="hint">Your Sun sign</div><div class="sign">Sun in <em>'+z[1]+'</em></div><div class="meta">'+z[2]+' · '+z[3]+'</div><div class="note">Your Sun is only the beginning — in the circle, your full chart is cast to the minute.</div>';
+    var goal=-(i*30+15);
+    if(reduce){rot=goal;apply();target=null}else{target=rot+norm(goal-rot)}
+    vel=0;
+  }
+  svg.addEventListener('pointerdown',function(e){
+    dragging=true; target=null; moved=0; lastA=ang(e);
+    var sg=e.target.closest&&e.target.closest('.seg'); downSeg=sg?segs.indexOf(sg):-1;
+    svg.setPointerCapture(e.pointerId); svg.classList.add('dragging');
+  });
+  svg.addEventListener('pointermove',function(e){
+    if(!dragging) return;
+    var a=ang(e), d=norm(a-lastA); rot+=d; vel=d; moved+=Math.abs(d); lastA=a; apply();
+  });
+  function end(){
+    if(!dragging) return; dragging=false; svg.classList.remove('dragging');
+    if(moved<3 && downSeg>-1) select(downSeg);
+    if(reduce) vel=0;
+  }
+  svg.addEventListener('pointerup',end); svg.addEventListener('pointercancel',end);
+  function spin(){
+    if(!dragging){
+      if(target!==null){var d=target-rot; rot+=d*.08; if(Math.abs(d)<.05){rot=target;target=null}}
+      else{ vel*= .95; if(chosen<0 && Math.abs(vel)<Math.abs(drift)) vel=drift; rot+=vel; }
+      apply();
+    }
+    requestAnimationFrame(spin);
+  }
+  apply(); requestAnimationFrame(spin);
+
+  // Mobile dock: show after the hero, hide over the offer
+  var dock=document.getElementById('dock'), hero=document.querySelector('.hero'), offer=document.getElementById('apply');
+  if('IntersectionObserver' in window && dock){
+    var heroGone=false, offerOn=false;
+    function upd(){var on=heroGone&&!offerOn;dock.classList.toggle('show',on);dock.setAttribute('aria-hidden',on?'false':'true');dock.querySelector('a').tabIndex=on?0:-1}
+    new IntersectionObserver(function(es){heroGone=!es[0].isIntersecting;upd()}).observe(hero);
+    new IntersectionObserver(function(es){offerOn=es[0].isIntersecting;upd()},{threshold:.15}).observe(offer);
+  }
 
   // Reveal on scroll
   var els=document.querySelectorAll('.reveal');
