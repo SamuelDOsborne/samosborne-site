@@ -46,6 +46,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;color:var(--ink)}
 h1{font-size:clamp(52px,7.6vw,110px);line-height:.98;letter-spacing:-.01em;margin:22px 0 28px}
 .shimmer{font-style:italic;background:linear-gradient(100deg,#B98E45 0%,#F6DFA6 30%,#D8B26E 45%,#FFF3D1 55%,#C99B52 75%,#F6DFA6 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
 @keyframes shine{to{background-position:-250% 0}}
+.promise{font-family:var(--serif);font-size:clamp(25px,2.6vw,31px);line-height:1.3;color:var(--gold-hi);max-width:620px;margin:0 0 22px}
+.oath{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.4vw,28px);line-height:1.3;color:var(--ink);margin:0 0 26px}
 .lede{font-size:21px;color:var(--soft);max-width:600px;margin:0}
 .ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px}
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:18px 38px;border-radius:999px;font-weight:500;font-size:16px;letter-spacing:.06em;text-decoration:none;color:#1A1430;
@@ -205,6 +207,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
   h1{font-size:clamp(44px,12.4vw,56px);line-height:1.02;margin:18px 0 22px}
   h2{font-size:clamp(34px,9.4vw,42px);line-height:1.1}
   .lede{font-size:19px}
+  .promise{font-size:24px}
   .split p,.head p{font-size:19px!important}
   .ctas{flex-direction:column;align-items:stretch;gap:8px;margin-top:30px}
   .ctas .btn{width:100%}
@@ -262,7 +265,8 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
     <div>
       <div class="eyebrow reveal">Reading the Soul · A one-day initiation</div>
       <h1 class="reveal">Your dreams are not noise.<br><span class="shimmer">They are your soul, speaking.</span></h1>
-      <p class="lede reveal">Your soul speaks in two languages: the dreams you have each night and the chart you were born with. Spend one live day learning to read both — with Jung’s own method, your natal chart, and the Demartini Method, three distinct methods stacked in sequence. Leave able to listen every morning, for the rest of your life.</p>
+      <p class="promise reveal">By the end of the day, you’ll know what your soul is asking of you right now — and how to keep listening.</p>
+      <p class="lede reveal">Your soul speaks in two languages: the dreams you have each night and the chart you were born with. In one live day you’ll learn to read both — with Jung’s own method, your natal chart, and the Demartini Method, three distinct methods stacked in sequence.</p>
       <div class="ctas reveal">
         <a class="btn" href="#apply">Request your seat</a>
         <a class="ghost" href="#day">See the day ↓</a>
@@ -319,6 +323,21 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
 </section>
 
 <section>
+  <div class="wrap split" style="align-items:start">
+    <div class="reveal">
+      <div class="eyebrow">By 4pm, you will have</div>
+      <h2 style="margin-top:16px">A clear message from your soul — and the way to keep <em>hearing</em> it.</h2>
+    </div>
+    <ul class="outcomes reveal">
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">Clarity</strong> on the one message your dreams keep repeating</span></li>
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">Coherence</strong> — your chart and your dreams finally telling the same story</span></li>
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">Lightness</strong> — calmer and less reactive about the person who’s been taking up space in your head</span></li>
+      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span><strong style="font-weight:500;color:var(--gold-hi)">A daily practice</strong> — fifteen minutes each morning to keep the conversation going</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
   <div class="wrap split">
     <div class="reveal">
       <div class="eyebrow">The shift</div>
@@ -335,7 +354,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
   </div>
 </section>
 
-<section class="band">
+<section>
   <div class="wrap">
     <div class="head center reveal">
       <div class="ornament eyebrow">Three methods · One stack</div>
@@ -362,21 +381,6 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
   </div>
 </section>
 
-<section>
-  <div class="wrap split" style="align-items:start">
-    <div class="reveal">
-      <div class="eyebrow">You will leave with</div>
-      <h2 style="margin-top:16px">Not a workshop high. A practice that <em>stays.</em></h2>
-    </div>
-    <ul class="outcomes reveal">
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>Your own dream read in depth, live, with the circle</span></li>
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>A repeatable method you can use every morning in fifteen minutes</span></li>
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>Your natal chart understood as the context your dreams speak into</span></li>
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>Freedom from the charge you carry about one person, from a dream or your waking life — replaced by clarity and gratitude</span></li>
-      <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.2 6.8L19 10l-6.8 2.2L10 19l-2.2-6.8L1 10l6.8-2.2z" fill="#F6DFA6"/></svg><span>The checklist and workbook to keep the practice alive on your own</span></li>
-    </ul>
-  </div>
-</section>
 
 <section id="day" class="band">
   <div class="wrap">
@@ -438,6 +442,7 @@ footer blockquote{margin:0 auto 40px;max-width:820px;font-family:var(--serif);fo
     </div>
     <div class="altar reveal">
       <div class="seal" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 28 28"><path d="M18 5.5a9.5 9.5 0 1 0 0 17a7.4 7.4 0 0 1 0-17z" fill="#D8B26E"/></svg></div>
+      <p class="oath">One day. A clear message from your soul.<br>A practice for life.</p>
       <div class="price shimmer" style="font-style:normal">$997</div>
       <div class="was">one-time · future cohorts <s>$2,997</s></div>
       <ul class="stack">
