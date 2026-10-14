@@ -47,7 +47,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .ph-portrait{aspect-ratio:1/1;width:96px;border-radius:50%;flex:none}
 .ph-guide{aspect-ratio:4/3;width:100%}
 .ph-drawing{aspect-ratio:3/2;width:100%}
-.ph-teach{aspect-ratio:16/9;width:100%}
+.ph-teach{aspect-ratio:4/5;width:100%}
+.ph-group{aspect-ratio:16/9;width:100%}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figcaption{font-size:.82rem;color:var(--mute)}
 
 .nav{display:flex;justify-content:space-between;align-items:center;padding-block:18px}
 .nav b{font:500 1.05rem var(--display)}
@@ -122,6 +125,13 @@ footer{padding-block:28px 40px;border-top:1px solid var(--line)}
     <li>Stop guessing with dream dictionaries</li>
     <li>Wake up with one clear thing to act on</li>
   </ul>
+  <!-- IMAGE: workshop group holding their dream drawings -->
+  <figure>
+    <div class="ph ph-group" data-label="Workshop photo (images/workshop-group.jpg)">
+      <img src="images/workshop-group.jpg" alt="Workshop participants holding up drawings of their dreams" loading="lazy">
+    </div>
+    <figcaption>Workshop participants with the dreams they drew and read.</figcaption>
+  </figure>
   <p class="small">“<span class="fill">needs a real testimonial</span>”</p>
 </section>
 
@@ -150,9 +160,12 @@ footer{padding-block:28px 40px;border-top:1px solid var(--line)}
     <span class="eyebrow">Live · one day online</span>
     <h2>Leave with your soul's message in one sentence.</h2>
     <!-- IMAGE 4: Sam teaching -->
-    <div class="ph ph-teach" data-label="Image: Sam leading a live online session (images/sam-teaching.jpg)">
-      <img src="images/sam-teaching.jpg" alt="Sam Osborne teaching a live online session">
-    </div>
+    <figure>
+      <div class="ph ph-teach" data-label="Sam teaching (images/sam-teaching.jpg)">
+        <img src="images/sam-teaching.jpg" alt="Sam Osborne teaching a session on remembering, drawing and interpreting dreams" loading="lazy">
+      </div>
+      <figcaption>Teaching “Remembering, Drawing and Interpreting Dreams.”</figcaption>
+    </figure>
     <ul class="list">
       <li>Clarity on the message your dreams keep repeating</li>
       <li>Lightness about the person you can't stop thinking about</li>
