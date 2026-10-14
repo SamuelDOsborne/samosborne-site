@@ -149,6 +149,11 @@ details p{padding:0 0 22px;color:var(--ink-2);max-width:38em}
 .path p{color:var(--ink-2);font-size:15.5px}
 .path .p{font:500 26px var(--serif);margin-top:auto;padding-top:10px}
 .path a{font-weight:600;font-size:15px}
+.tiers{display:grid;gap:8px;margin-top:auto;padding-top:10px}
+.tier{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14.5px;color:var(--ink-2)}
+.tier b{font:500 22px var(--serif);color:var(--ink);white-space:nowrap}
+.tier small{display:block;font-size:12.5px;color:var(--muted)}
+.tier.best{border-color:var(--gold);background:#fbf6ec}
 
 /* Final */
 .final{text-align:center;background:var(--ink);color:#f3ede2}
@@ -323,8 +328,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
       <aside class="price" id="apply" aria-label="Seminar pricing">
         <span class="badge">Founding seat</span>
-        <div class="amt"><strong>$997</strong><s>$2,997</s></div>
-        <p class="small">Founding price for this first cohort only.</p>
+        <div class="amt"><strong>$197</strong><s>$397</s></div>
+        <p class="small">Founding price for this first cohort. Then $397.</p>
         <ul class="meta">
           <li>Date <b><mark class="fill">[DATE]</mark></b></li>
           <li>Time <b>9am–4pm PT</b></li>
@@ -367,8 +372,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <h2 style="margin-top:14px">Start where you are</h2>
     <div class="paths">
       <div class="path"><span class="k">Start here · Free</span><h3>Bedside Dream Guide</h3><p>Two pages, fifteen minutes. Read your recurring dream tomorrow morning.</p><span class="p">Free</span><a href="#guide">Get the guide →</a></div>
-      <div class="path featured"><span class="k">Most popular</span><h3>One-day seminar</h3><p>Remember, draw and interpret your dreams live, with Sam and a small group.</p><span class="p">$997</span><a href="#apply">Apply for a seat →</a></div>
-      <div class="path"><span class="k">One to one</span><h3>Private sessions</h3><p>Free yourself from the person weighing on you. <mark class="fill">[LENGTH]</mark> · online.</p><span class="p">From $500</span><a href="#">Book a free call →</a></div>
+      <div class="path featured"><span class="k">Most popular</span><h3>One-day seminar</h3><p>Remember, draw and interpret your dreams live, with Sam and a small group.</p><span class="p">$197</span><a href="#apply">Apply for a seat →</a></div>
+      <div class="path"><span class="k">One to one</span><h3>Private sessions</h3><p>Free yourself from the person weighing on you. <mark class="fill">[LENGTH]</mark> sessions · online.</p>
+        <div class="tiers">
+          <div class="tier"><span>Single session</span><b>$500</b></div>
+          <div class="tier best"><span>3-session package<small>Best for a recurring dream <mark class="fill">[save $X]</mark></small></span><b><mark class="fill">[$1,350]</mark></b></div>
+        </div>
+        <a href="#">Book a free call →</a></div>
     </div>
     <p class="small" style="margin-top:22px;text-align:center">Prefer your own pace? <a href="#">Explore the video courses</a> <mark class="fill">[PRICE]</mark></p>
   </div>
