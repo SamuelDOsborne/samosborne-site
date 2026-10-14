@@ -7,29 +7,29 @@
 <meta name="description" content="Understand the dream that keeps coming back. Get Sam Osborne's free Bedside Dream Guide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
-/* Phone-first single column (max 520px). Night-sky theme, soft blue accent. */
+/* Classic theme: ivory paper, ink-navy text, Garamond headings, deep blue accent. Phone-first, two columns on desktop. */
 :root{
-  --night:#07080c; --panel:#11131b; --line:#242735;
-  --ink:#eeede8; --mute:#9b9dab; --accent:#7fb2ff; --accent-dim:#7fb2ff1f; --on-accent:#08132a;
-  --display:"Outfit","Helvetica Neue",Arial,sans-serif;
+  --night:#f8f4ec; --panel:#efe8db; --line:#ddd2bf;
+  --ink:#1e2233; --mute:#6a6873; --accent:#26457f; --accent-dim:#26457f12; --on-accent:#ffffff; --soft:#3c4052;
+  --display:"Cormorant Garamond","Garamond","Baskerville",serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--night);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#sky{display:none;position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 header,main,footer{position:relative;z-index:1}
 .wrap{max-width:520px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 section{padding-block:44px;display:flex;flex-direction:column;gap:16px}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
-h1{font-weight:300;font-size:clamp(2rem,9vw,2.6rem);letter-spacing:-.02em}
-h1 em{font-style:normal;color:var(--accent);font-weight:400}
-h2{font-weight:400;font-size:1.65rem;letter-spacing:-.01em}
-h3{font-weight:500;font-size:1.15rem}
+h1{font-weight:500;font-size:clamp(2rem,9vw,2.6rem);letter-spacing:-.02em}
+h1 em{font-style:italic;color:var(--accent);font-weight:500}
+h2{font-weight:500;font-size:1.9rem;letter-spacing:-.01em}
+h3{font-weight:600;font-size:1.35rem}
 p{margin:0}
 .eyebrow{font:500 .72rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .mute{color:var(--mute)}
@@ -56,32 +56,32 @@ figcaption{font-size:.82rem;color:var(--mute)}
 .nav b{font:500 1.05rem var(--display)}
 .nav a{color:var(--ink);text-decoration:none;font-size:.9rem;opacity:.8}
 
-.lede{font-size:1.1rem;color:#d3d3da}
+.lede{font-size:1.1rem;color:var(--soft)}
 .optin{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px}
-input{width:100%;background:var(--night);border:1px solid var(--line);color:var(--ink);font:inherit;font-size:16px;padding:14px;border-radius:8px}
-input::placeholder{color:#6e7181}
+input{width:100%;background:#fffdf8;border:1px solid var(--line);color:var(--ink);font:inherit;font-size:16px;padding:14px;border-radius:8px}
+input::placeholder{color:#9a968c}
 .btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;background:var(--accent);color:var(--on-accent);font:600 1rem var(--body);border:0;border-radius:8px;cursor:pointer;text-decoration:none}
 .btn:active{filter:brightness(.95)}
 
 .list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
 .list li{display:flex;gap:12px;align-items:flex-start}
-.list li::before{content:"✦";color:var(--accent);font-size:.8rem;line-height:1.9}
+.list li::before{content:"—";color:var(--accent);font-size:.8rem;line-height:1.9}
 
-.story p{font:300 1.2rem/1.5 var(--display)}
+.story p{font:500 1.35rem/1.45 var(--display)}
 .story p.you{color:var(--accent)}
 .story p.small{font:400 .82rem/1.6 var(--body)}
 .bio{display:flex;gap:16px;align-items:center}
 
 .seminar{background:var(--panel);border-block:1px solid var(--line)}
 .price{display:flex;align-items:baseline;gap:10px}
-.price b{font:300 2.6rem/1 var(--display)}
+.price b{font:600 2.8rem/1 var(--display)}
 .price s{color:var(--mute)}
 details{border-top:1px solid var(--line);padding-block:14px}
 summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";color:var(--accent)}
 details[open] summary::after{content:"–"}
-details p{margin-top:8px;color:#cfcfd6;font-size:.95rem}
+details p{margin-top:8px;color:var(--soft);font-size:.95rem}
 
 .way{border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:6px}
 footer{padding-block:28px 40px;border-top:1px solid var(--line)}
@@ -105,11 +105,11 @@ footer{padding-block:28px 40px;border-top:1px solid var(--line)}
   .split{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
   .hero{padding-top:56px}
   h1{font-size:clamp(2.8rem,4.4vw,3.6rem)}
-  h2{font-size:2.1rem}
+  h2{font-size:2.5rem}
   .lede{font-size:1.25rem;max-width:30em}
-  .story p:not(.small){font-size:1.35rem}
+  .story p:not(.small){font-size:1.55rem}
   #seminar .split{align-items:start}
-  .price-card{background:var(--night);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .price-card{background:#fffdf8;border:1px solid var(--line);border-radius:14px;padding:28px}
   .ph-teach{aspect-ratio:16/11}
   .close{align-items:center;text-align:center}
   .close .btn{max-width:360px}
@@ -166,8 +166,8 @@ footer{padding-block:28px 40px;border-top:1px solid var(--line)}
   </div>
   <!-- IMAGE: workshop group holding their dream drawings -->
   <figure class="col">
-    <div class="ph ph-group" data-label="Workshop photo (images/workshop-group.jpg)">
-      <img src="images/workshop-group.jpg" alt="Workshop participants holding up drawings of their dreams" loading="lazy">
+    <div class="ph ph-group" data-label="Workshop photo (images/sam-dream-workshop1.jpg)">
+      <img src="images/sam-dream-workshop1.jpg" alt="Workshop participants holding up drawings of their dreams" loading="lazy">
     </div>
     <figcaption>Workshop participants with the dreams they drew and read.</figcaption>
   </figure>
@@ -209,8 +209,8 @@ footer{padding-block:28px 40px;border-top:1px solid var(--line)}
       </ul>
       <!-- IMAGE: Sam teaching -->
       <figure>
-        <div class="ph ph-teach" data-label="Sam teaching (images/sam-teaching.jpg)">
-          <img src="images/sam-teaching.jpg" alt="Sam Osborne teaching a session on remembering, drawing and interpreting dreams" loading="lazy">
+        <div class="ph ph-teach" data-label="Sam teaching (images/sam-dream-workshop2.jpg)">
+          <img src="images/sam-dream-workshop2.jpg" alt="Sam Osborne teaching a session on remembering, drawing and interpreting dreams" loading="lazy">
         </div>
         <figcaption>Teaching “Remembering, Drawing and Interpreting Dreams.”</figcaption>
       </figure>
