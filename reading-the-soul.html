@@ -1,9 +1,14 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Reading the Soul</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Reading the Soul · Sam Osborne</title>
+<meta name="description" content="Know what your soul is trying to tell you through your dreams. Jung's dream method, your natal chart, and the Demartini Method in one morning practice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Urbanist:wght@400;500;600&display=swap">
 <style>
-/* Layout: alternating ink and paper bands, centered stacked-overlap headlines, sand cards with inset hairline frames */
 :root{
   --ink:#191919; --paper:#ffffff; --sand:#ede6dc; --ash:#8f8f8f; --line:#191919; --soft:#5d5a55; --live:#1aa34a;
   --display:"Oswald","Arial Narrow",Impact,sans-serif;
@@ -11,7 +16,8 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+img{max-width:100%}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .band{padding-block:96px}
 .dark{background:var(--ink);color:var(--paper)}
@@ -48,9 +54,17 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .namechip small{opacity:.7;font-size:13px}
 .hero .stack{font-size:clamp(42px,7.4vw,92px);max-width:16ch;margin-inline:auto}
 .hero .stack .k{margin-top:-.12em}
-.status{margin-top:36px;display:inline-flex;align-items:center;gap:10px;font-size:16px}
+.hero .sub{max-width:40ch;margin:28px auto 0;font-size:20px;color:var(--soft)}
+.status{margin-top:32px;display:inline-flex;align-items:center;gap:10px;font-size:16px}
 .status i{width:9px;height:9px;border-radius:50%;background:var(--live)}
-.hero-cta{margin-top:28px}
+.hero-cta{margin-top:24px}
+
+/* benefits */
+.gains{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:1000px;margin:0 auto}
+.gain .card-in{flex-direction:row;align-items:flex-start;text-align:left;gap:18px;padding:30px}
+.gain .num{flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--display);font-size:20px}
+.gain h3{font-size:26px!important;margin:0 0 6px!important}
+.gain p{max-width:none!important}
 
 /* story */
 .story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:64px;align-items:start;max-width:1000px;margin:0 auto}
@@ -69,6 +83,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .card svg{width:96px;height:96px;fill:var(--ink)}
 .card h3{font-family:var(--display);font-weight:600;font-size:34px;margin:6px 0 0;letter-spacing:-.5px}
 .card p{margin:0;color:var(--soft);max-width:30ch}
+.card .gets{color:var(--ink);font-weight:600}
 .quote{margin:64px auto 0;max-width:30ch;text-align:center;font-family:var(--display);font-weight:500;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-.5px}
 .quote small{display:block;margin-top:14px;font-family:var(--body);font-size:15px;color:var(--soft);letter-spacing:0}
 
@@ -101,7 +116,7 @@ footer .logo{color:var(--paper)}
 footer .links{gap:22px;flex-wrap:wrap}
 
 @media (max-width:860px){
-  .grid3,.story,.signup{grid-template-columns:minmax(0,1fr)}
+  .grid3,.story,.signup,.gains{grid-template-columns:minmax(0,1fr)}
   .portrait{max-width:320px}
   .signup .stack{text-align:center}
   .signup{text-align:center}.signup p{margin-inline:auto}
@@ -110,11 +125,14 @@ footer .links{gap:22px;flex-wrap:wrap}
 }
 @media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s}.btn:hover{transform:translateY(-1px)}}
 </style>
+</head>
+<body>
 
 <nav>
   <div class="wrap">
     <a class="logo" href="#top">Sam Osborne.</a>
     <div class="links top">
+      <a href="#benefits">What you gain</a>
       <a href="#story">Story</a>
       <a href="#method">Method</a>
       <a href="#work">Work with me</a>
@@ -130,18 +148,46 @@ footer .links{gap:22px;flex-wrap:wrap}
       <div class="namechip"><b>Sam Osborne</b><small>Dreams · Chart · Demartini Method</small></div>
     </div>
     <h1 class="stack">
-      <span class="g">The work asked to be witnessed.</span>
-      <span class="k">This is my record, and an invitation to keep yours.</span>
+      <span class="g">Your dreams are speaking.</span>
+      <span class="k">Know what your soul is trying to tell you.</span>
     </h1>
+    <p class="sub">Learn to read your dreams, see them against your chart, and act on what they’re asking of you.</p>
     <div class="status"><i></i>Free: The Dream Reading Checklist</div>
     <div class="hero-cta"><a class="btn btn-ink" style="width:auto" href="#checklist">Send me the checklist</a></div>
   </div>
 </header>
 
+<section class="band" id="benefits" style="padding-top:24px">
+  <div class="wrap">
+    <div class="head">
+      <span class="pill">What you gain</span>
+      <h2 class="stack h2"><span class="g">Stop forgetting your dreams.</span><span class="k">Start hearing them.</span></h2>
+    </div>
+    <div class="gains">
+      <div class="card gain"><div class="card-in">
+        <span class="num">1</span>
+        <div><h3>Understand your dreams</h3><p>Know what your recurring dreams mean instead of losing them by breakfast.</p></div>
+      </div></div>
+      <div class="card gain"><div class="card-in">
+        <span class="num">2</span>
+        <div><h3>See the bigger pattern</h3><p>Watch how your dreams line up with your natal chart and the season of life you’re in.</p></div>
+      </div></div>
+      <div class="card gain"><div class="card-in">
+        <span class="num">3</span>
+        <div><h3>Release what holds you</h3><p>Let go of the charge you carry about a person or situation, and feel lighter for it.</p></div>
+      </div></div>
+      <div class="card gain"><div class="card-in">
+        <span class="num">4</span>
+        <div><h3>Hear your soul’s message</h3><p>Leave with what your soul is asking of you, in a single sentence you can live by.</p></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
 <section class="band dark" id="story">
   <div class="wrap">
     <div class="head">
-      <span class="pill">My story</span>
+      <span class="pill">Why I do this work</span>
       <h2 class="stack h2"><span class="g">Twenty-five years of study.</span><span class="k">Then the dreams spoke.</span></h2>
     </div>
     <div class="story">
@@ -151,6 +197,7 @@ footer .links{gap:22px;flex-wrap:wrap}
         <div class="beat"><em>II</em><p>At twelve, my father handed me <i>Parker’s Astrology</i>. Twenty-five years of Jung, Hermeticism and Kabbalah followed, mostly in private.</p></div>
         <div class="beat"><em>III</em><p>In June 2026, a figure kept returning in my dreams, asking for one thing.<span class="record">Record the work.</span></p></div>
         <div class="beat"><em>IV</em><p>So I do. Each morning I draw the dream in pencil, read it through Jung, hold it against my chart, and balance it with the Demartini Method.</p></div>
+        <div class="beat"><em>V</em><p class="lead">The work asked to be witnessed. Now I help you keep your own record, and hear what your soul is saying.</p></div>
       </div>
     </div>
   </div>
@@ -164,16 +211,16 @@ footer .links{gap:22px;flex-wrap:wrap}
     </div>
     <div class="grid3">
       <div class="card"><div class="card-in">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M62 8a44 44 0 1 0 30 62A36 36 0 0 1 62 8z"/></svg>
-        <h3>The Dream</h3><p>Jung’s own method for hearing what a dream is saying.</p>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M62 8a44 44 0 1 0 30 62A36 36 0 0 1 62 8z"></path></svg>
+        <h3>The Dream</h3><p class="gets">Hear what your dream is actually saying.</p><p>Jung’s own method, step by step.</p>
       </div></div>
       <div class="card"><div class="card-in">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><path fill-rule="evenodd" d="M50 4a46 46 0 1 1 0 92 46 46 0 0 1 0-92zm0 12a34 34 0 1 0 0 68 34 34 0 0 0 0-68zM47 4h6v92h-6zM4 47h92v6H4z"/></svg>
-        <h3>The Chart</h3><p>Your natal chart as the map your dreams speak into.</p>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path fill-rule="evenodd" d="M50 4a46 46 0 1 1 0 92 46 46 0 0 1 0-92zm0 12a34 34 0 1 0 0 68 34 34 0 0 0 0-68zM47 4h6v92h-6zM4 47h92v6H4z"></path></svg>
+        <h3>The Chart</h3><p class="gets">Know why this dream is coming now.</p><p>Your natal chart as the map your dreams speak into.</p>
       </div></div>
       <div class="card"><div class="card-in">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M46 10h8v72h18v8H28v-8h18zM14 30h72v6H14zM8 60l14-26 14 26a14 8 0 0 1-28 0zM64 60l14-26 14 26a14 8 0 0 1-28 0z"/></svg>
-        <h3>The Balance</h3><p>The Demartini Method, to dissolve the charge you carry about a person.</p>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M46 10h8v72h18v8H28v-8h18zM14 30h72v6H14zM8 60l14-26 14 26a14 8 0 0 1-28 0zM64 60l14-26 14 26a14 8 0 0 1-28 0z"></path></svg>
+        <h3>The Balance</h3><p class="gets">Free yourself from what’s weighing on you.</p><p>The Demartini Method dissolves the charge you carry about a person.</p>
       </div></div>
     </div>
     <p class="quote">“The conscious mind can balance a perception. Only the unconscious can complete it.”<small>The principle at the heart of the work</small></p>
@@ -191,21 +238,21 @@ footer .links{gap:22px;flex-wrap:wrap}
         <span class="kind">Free guide</span>
         <h3>Dream Reading Checklist</h3>
         <div class="price">$0</div>
-        <p>Jung’s method in six steps, on two pages. Keep it by your bed.</p>
+        <p>Read tomorrow’s dream yourself. Jung’s method in six steps, on two pages. Keep it by your bed.</p>
         <a class="btn btn-ink" href="#checklist">Get it free</a>
       </div></div>
       <div class="card offer feature"><div class="card-in">
         <span class="kind">Live · one day online</span>
         <h3>Reading the Soul seminar</h3>
         <div class="price">$500</div>
-        <p>Leave with your soul’s message in a single sentence and a fifteen-minute daily practice.</p>
+        <p>Leave knowing your soul’s message in a single sentence, plus a fifteen-minute daily practice to keep hearing it.</p>
         <a class="btn btn-ink" href="#checklist">Reserve a seat</a>
       </div></div>
       <div class="card offer"><div class="card-in">
         <span class="kind">Private · one to one</span>
         <h3>Four private sessions</h3>
         <div class="price">$1,000<small>package of 4</small></div>
-        <p>The Demartini Method on the person or situation holding you back.</p>
+        <p>Clear the person or situation holding you back, one to one, with the Demartini Method.</p>
         <a class="btn btn-ink" href="#checklist">Book the package</a>
       </div></div>
     </div>
@@ -217,8 +264,8 @@ footer .links{gap:22px;flex-wrap:wrap}
     <div class="signup">
       <div>
         <span class="pill">Free gift</span>
-        <h2 class="stack" style="margin-top:22px"><span class="g">Start reading your dreams</span><span class="k">tomorrow morning.</span></h2>
-        <p>The Dream Reading Checklist: map the structure, take up the context, interpret, consider the depth, check yourself.</p>
+        <h2 class="stack" style="margin-top:22px"><span class="g">Tomorrow morning,</span><span class="k">know what your dream meant.</span></h2>
+        <p>The Dream Reading Checklist walks you through it: map the structure, take up the context, interpret, consider the depth, check yourself.</p>
       </div>
       <form id="signup" novalidate>
         <label for="name">Full name</label>
@@ -236,12 +283,12 @@ footer .links{gap:22px;flex-wrap:wrap}
 <footer>
   <div class="wrap">
     <div><a class="logo" href="#top">Sam Osborne.</a><div style="margin-top:8px">© 2026 Sam Osborne · samosborne.net</div></div>
-    <div class="links"><a href="#story">Story</a><a href="#method">Method</a><a href="#work">Work with me</a><a href="#checklist">Checklist</a></div>
+    <div class="links"><a href="#benefits">What you gain</a><a href="#story">Story</a><a href="#method">Method</a><a href="#work">Work with me</a><a href="#checklist">Checklist</a></div>
   </div>
 </footer>
 
 <script>
 document.getElementById('signup').addEventListener('submit',function(e){e.preventDefault();document.getElementById('thanks').hidden=false;});
 </script>
-
-</body></html>
+</body>
+</html>
