@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reading the Soul · Sam Osborne</title>
-<meta name="description" content="A free two-page bedside guide to understanding the dream that keeps coming back. From Sam Osborne.">
+<meta name="description" content="Same dream again? Get the free two-page Bedside Dream Guide and read your recurring dream tomorrow morning, in 15 minutes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@ body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-web
 img{max-width:100%;display:block}
 a{color:var(--navy)}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-.serif{font-family:var(--serif)}
+.narrow{max-width:760px;margin:0 auto}
 .eyebrow{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
 h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;letter-spacing:-.01em}
 h1{font-size:clamp(40px,6vw,64px)}
@@ -35,32 +35,30 @@ section{padding:96px 0}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--navy);color:#fff;font:600 16px var(--sans);
   border:0;border-radius:10px;padding:16px 26px;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s}
 .btn:hover{background:var(--navy-2);transform:translateY(-1px)}
-.btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
-.btn.ghost:hover{background:var(--navy);color:#fff}
+.btn[disabled]{opacity:.7;cursor:wait}
 .small{font-size:13.5px;color:var(--muted)}
-/* placeholder flag: remove the class once filled */
-.fill{background:#fff3c4;color:#6b4e00;border:1px dashed #d4a200;border-radius:4px;padding:0 5px;font:500 .85em var(--sans)}
+[hidden]{display:none!important}
 
 /* Header */
 header{position:sticky;top:0;z-index:20;background:rgba(247,243,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .2s}
 header.scrolled{border-color:var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{font:500 22px var(--serif);text-decoration:none;color:var(--ink)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{font-size:15px;color:var(--ink-2);text-decoration:none}
-.nav-links a:hover{color:var(--navy)}
-.nav-links .btn{padding:10px 18px;font-size:14px;color:#fff}
+.brand{font:500 22px var(--serif);color:var(--ink)}
+.nav .btn{padding:10px 18px;font-size:14px}
 
 /* Hero */
 .hero{padding:64px 0 88px}
 .hero h1{margin:18px 0 22px}
 .hero .lede{font-size:19px;color:var(--ink-2);max-width:30em}
-.gets{list-style:none;margin:28px 0 0;display:grid;gap:12px}
+.hero .grid2{grid-template-areas:"copy optin" "gets optin";row-gap:0}
+.hero-copy{grid-area:copy;align-self:end}
+.hero .optin{grid-area:optin}
+.gets{grid-area:gets;align-self:start;list-style:none;margin:28px 0 0;display:grid;gap:12px}
 .gets li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-2)}
 .gets li::before{content:"";flex:0 0 20px;height:20px;margin-top:3px;border-radius:50%;
   background:var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
 .optin{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -30px rgba(29,31,38,.25)}
-.optin img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.optin img{aspect-ratio:16/9;object-fit:cover;width:100%;height:auto}
 .optin-body{padding:26px}
 .optin-body h3{font-size:24px;margin:8px 0 4px}
 form.signup{display:grid;gap:10px;margin-top:18px}
@@ -68,31 +66,26 @@ form.signup{display:grid;gap:10px;margin-top:18px}
 input{font:16px var(--sans);padding:14px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);width:100%}
 input:focus{outline:2px solid var(--navy);outline-offset:1px;border-color:transparent}
 form.signup .btn{width:100%}
-.proofline{display:flex;align-items:center;gap:10px;margin-top:14px}
-.dots{display:flex}
-.dots span{width:26px;height:26px;border-radius:50%;border:2px solid var(--card);margin-left:-8px;background:var(--paper-2)}
-.dots span:first-child{margin-left:0;background:#d9c9ad}.dots span:nth-child(2){background:#c4b08d}.dots span:nth-child(3){background:#a9967a}
-
-/* Credibility strip */
-.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
-.strip .wrap{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 44px;font-size:14.5px;color:var(--ink-2)}
-.strip b{font:600 22px var(--serif);color:var(--ink);margin-right:6px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{font-size:14px;color:#9b2c2c}
+.bonus{margin-top:14px;padding:12px 14px;border:1px solid var(--gold);background:#fbf6ec;border-radius:10px;font-size:14px;color:var(--ink-2)}
+.bonus b{color:var(--ink)}
 
 /* Problem */
-.problem{text-align:center;max-width:760px;margin:0 auto}
+.problem{text-align:center}
 .problem p:not(.eyebrow){font:500 clamp(24px,3vw,32px)/1.35 var(--serif);color:var(--ink)}
 .problem p+p{margin-top:20px;color:var(--ink-2)}
 
-/* Testimonials */
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
-.quote{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:18px}
-.quote blockquote{font:500 21px/1.4 var(--serif)}
-.quote blockquote::before{content:"“";display:block;font-size:48px;line-height:.6;color:var(--gold)}
-.who{display:flex;align-items:center;gap:12px;margin-top:auto;font-size:14px;color:var(--muted)}
-.who .av{width:40px;height:40px;border-radius:50%;background:var(--paper-2)}
-.who b{display:block;color:var(--ink);font-weight:600}
+/* Steps (reason why) */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.step{border-top:2px solid var(--navy);padding-top:18px}
+.step .n{font:600 12.5px var(--sans);letter-spacing:.08em;color:var(--navy);text-transform:uppercase}
+.step h3{font-size:24px;margin:4px 0 8px}
+.step p{color:var(--ink-2);font-size:15.5px}
 
-/* Story */
+/* Story / proof */
+figure figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
+figure img{border-radius:var(--r)}
 .portrait{position:relative}
 .portrait img{border-radius:var(--r);aspect-ratio:4/5;object-fit:cover;width:100%}
 .portrait .inset{position:absolute;right:-24px;bottom:-28px;width:44%;border:6px solid var(--paper);border-radius:12px;box-shadow:0 20px 40px -20px rgba(0,0,0,.35);aspect-ratio:1;object-fit:cover}
@@ -100,37 +93,6 @@ form.signup .btn{width:100%}
 .story .big{font:500 30px/1.3 var(--serif);color:var(--ink);margin-top:16px}
 .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .creds span{font-size:13.5px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;color:var(--ink-2)}
-
-/* Seminar */
-.sem-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
-.sem-head h2{max-width:14em;margin-top:14px}
-.outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:44px 0}
-.outcome{border-top:2px solid var(--navy);padding-top:18px}
-.outcome h3{font-size:24px;margin-bottom:8px}
-.outcome p{color:var(--ink-2);font-size:15.5px}
-.sem-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
-.day{list-style:none;border-left:1px solid var(--line);margin-top:22px}
-.day li{position:relative;padding:0 0 24px 26px}
-.day li::before{content:"";position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--paper-2);border:2px solid var(--navy)}
-.day .t{font:600 12.5px var(--sans);letter-spacing:.08em;color:var(--navy);text-transform:uppercase}
-.day h4{font:500 22px var(--serif);margin:2px 0 2px}
-.day p{color:var(--ink-2);font-size:15.5px}
-figure figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
-figure img{border-radius:var(--r)}
-.price{position:sticky;top:96px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:0 30px 60px -34px rgba(29,31,38,.3)}
-.badge{display:inline-block;background:#e8eef9;color:var(--navy);font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:6px 12px}
-.amt{display:flex;align-items:baseline;gap:12px;margin:14px 0 4px}
-.amt strong{font:500 56px/1 var(--serif)}
-.amt s{color:var(--muted);font-size:20px}
-.meta{list-style:none;display:grid;gap:8px;margin:20px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-2)}
-.meta li{display:flex;justify-content:space-between;gap:12px}
-.meta b{color:var(--ink);font-weight:600;text-align:right}
-.seats{margin:4px 0 18px}
-.bar{height:6px;background:var(--paper-2);border-radius:99px;overflow:hidden;margin-top:8px}
-.bar i{display:block;height:100%;width:60%;background:var(--gold)}
-.price .btn{width:100%}
-.guarantee{display:flex;gap:12px;margin-top:18px;font-size:14px;color:var(--ink-2)}
-.guarantee svg{flex:0 0 22px;color:var(--navy)}
 
 /* FAQ */
 .faq{max-width:780px;margin:44px auto 0}
@@ -141,43 +103,33 @@ summary::after{content:"+";font:400 24px var(--sans);color:var(--navy);transitio
 details[open] summary::after{transform:rotate(45deg)}
 details p{padding:0 0 22px;color:var(--ink-2);max-width:38em}
 
-/* Paths */
-.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
-.path{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:10px}
-.path.featured{border:1.5px solid var(--navy)}
-.path .k{font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.path p{color:var(--ink-2);font-size:15.5px}
-.path .p{font:500 26px var(--serif);margin-top:auto;padding-top:10px}
-.path a{font-weight:600;font-size:15px}
-.tiers{display:grid;gap:8px;margin-top:auto;padding-top:10px}
-.tier{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14.5px;color:var(--ink-2)}
-.tier b{font:500 22px var(--serif);color:var(--ink);white-space:nowrap}
-.tier small{display:block;font-size:12.5px;color:var(--muted)}
-.tier.best{border-color:var(--gold);background:#fbf6ec}
-
 /* Final */
 .final{text-align:center;background:var(--ink);color:#f3ede2}
 .final h2{color:#f3ede2;max-width:16em;margin:0 auto}
 .final p{color:#b9b5ac;margin:16px auto 0;max-width:32em}
 .final form{max-width:520px;margin:32px auto 0}
 .final .small{color:#8f8b83}
+.final .err{color:#f0a8a8}
+.final .ps{margin-top:44px;padding-top:28px;border-top:1px solid #3a3c44;text-align:left;max-width:560px;font-size:16px;color:#d8d2c6}
+.final .ps b{color:#f3ede2}
 footer{padding:28px 0;font-size:13.5px;color:var(--muted)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 /* Mobile CTA */
 .mcta{display:none}
 @media (max-width:900px){
   section{padding:72px 0}
-  .grid2,.sem-grid{grid-template-columns:1fr;gap:44px}
-  .quotes,.outcomes,.paths{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr;gap:44px}
+  .hero .grid2{grid-template-areas:"copy" "optin" "gets";row-gap:28px}
+  .hero{padding-bottom:64px}
+  .hero h1{margin:14px 0 16px}
+  .gets{margin-top:0}
+  .steps{grid-template-columns:1fr}
   .portrait .inset{right:-8px;bottom:-20px}
-  .price{position:static}
-  .nav-links a:not(.btn){display:none}
   .mcta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(247,243,236,.96);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
   .mcta.show{transform:none}
   .mcta .btn{width:100%}
 }
-@media (max-width:520px){ .wrap{padding:0 16px} .row{grid-template-columns:1fr} .hero{padding-top:32px} }
+@media (max-width:520px){ .wrap{padding:0 16px} .row{grid-template-columns:1fr} .hero{padding-top:28px} .optin img{display:none} .optin-body{padding:22px} }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -185,99 +137,84 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 <header id="top">
   <div class="wrap nav">
-    <a class="brand" href="#top">Sam Osborne</a>
-    <nav class="nav-links" aria-label="Main">
-      <a href="#story">About</a>
-      <a href="#seminar">Seminar</a>
-      <a href="#work">Work with Sam</a>
-      <a class="btn" href="#guide">Free guide</a>
-    </nav>
+    <span class="brand">Sam Osborne</span>
+    <a class="btn" href="#guide">Get the free guide</a>
   </div>
 </header>
 
 <main>
-<!-- HERO -->
+<!-- HERO: headline + the only offer -->
 <section class="hero">
   <div class="wrap grid2">
-    <div>
-      <p class="eyebrow">The Bedside Dream Guide · Free</p>
-      <h1>There is an order beneath the chaos of your life. <em>Your dreams can show it to you.</em></h1>
-      <p class="lede">A two-page guide to understanding the dream that keeps coming back, and letting go of the person living in your head. Start tomorrow morning.</p>
-      <ul class="gets">
-        <li>Know what your recurring dream is asking of you</li>
-        <li>Stop guessing with dream dictionaries</li>
-        <li>Wake up with one clear thing to act on</li>
-      </ul>
+    <div class="hero-copy">
+      <p class="eyebrow js-eyebrow">The Bedside Dream Guide · Free</p>
+      <h1>Same dream again? It isn't random. <em>And a dream dictionary can't read it.</em></h1>
+      <p class="lede">Get the free two-page Bedside Dream Guide and read your recurring dream tomorrow morning, in 15 minutes, before it fades.</p>
     </div>
+    <ul class="gets">
+      <li>Know what your recurring dream is asking of you</li>
+      <li>Loosen the grip of the person living in your head</li>
+      <li>Wake up with one clear sentence to act on</li>
+    </ul>
 
     <div class="optin" id="guide">
       <img src="https://samosborne.net/images/dream-guide.png" alt="The Bedside Dream Guide on a nightstand beside a pencil" width="800" height="600">
       <div class="optin-body">
         <p class="eyebrow">Two pages · Fifteen minutes</p>
         <h3>Get the Bedside Dream Guide</h3>
-        <p class="small">Keep it by your bed. Use it the moment you wake.</p>
-        <form class="signup" action="#" method="post">
+        <p class="small">Free. Keep it by your bed. Use it the moment you wake.</p>
+        <form class="signup js-optin" action="https://formspree.io/f/xaqdebvj" method="post" data-form-name="dream-guide-hero">
           <div class="row">
-            <label class="sr"><input name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name"></label>
-            <label class="sr"><input name="email" type="email" required placeholder="Email address" autocomplete="email" aria-label="Email address"></label>
+            <input name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name">
+            <input name="email" type="email" required placeholder="Email address" autocomplete="email" aria-label="Email address">
           </div>
-          <button class="btn" type="submit">Send me the free guide →</button>
+          <button class="btn" type="submit">Send me the Bedside Dream Guide →</button>
+          <p class="err" role="alert" hidden></p>
         </form>
-        <div class="proofline">
-          <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
-          <p class="small">Joined by <mark class="fill">[N]</mark> dreamers. Occasional notes from Sam. Leave anytime.</p>
-        </div>
+        <p class="small" style="margin-top:12px">You'll get the guide right away, plus short notes from Sam on reading your dreams. One click to leave. Your email is never sold or shared.</p>
+        <p class="small js-count" hidden style="margin-top:6px">Joined by <span class="js-count-n"></span> dreamers.</p>
+        <p class="bonus js-bonus" hidden><b>Guide-reader bonus:</b> first access to the founding cohort of Sam's one-day live seminar at <b>$197</b> (then $397). Founding applications close <b class="js-closes"></b>.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CREDIBILITY STRIP -->
-<div class="strip">
-  <div class="wrap">
-    <span><b>25+</b>years of study</span>
-    <span><b><mark class="fill">[6]</mark></b>books written</span>
-    <span><b>Demartini</b>Method Facilitator</span>
-    <span><b><mark class="fill">[N]</mark></b>workshop participants</span>
-  </div>
-</div>
-
-<!-- PROBLEM -->
-<section>
-  <div class="wrap problem">
+<!-- PROBLEM / AGITATION -->
+<section class="alt">
+  <div class="wrap narrow problem">
     <p class="eyebrow" style="margin-bottom:22px">Sound familiar?</p>
     <p>The same dream returns. The same person won't leave your thoughts. You look it up, and the dictionary tells you a snake means "transformation."</p>
     <p>It doesn't help, because your dream isn't generic. It's written in your own language. You just haven't been taught to read it.</p>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- REASON WHY: what's in the guide -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">What's in the guide</p>
+    <h2 style="margin-top:14px;max-width:16em">Three steps, fifteen minutes, before you check your phone.</h2>
+    <div class="steps">
+      <div class="step"><span class="n">Step 1 · Remember</span><h3>Catch the dream before it fades</h3><p>Simple recall techniques. Fragments are enough to begin.</p></div>
+      <div class="step"><span class="n">Step 2 · Draw</span><h3>Put the image on paper</h3><p>No art skill needed. Drawing reveals what words skip over.</p></div>
+      <div class="step"><span class="n">Step 3 · Read</span><h3>Read it in your own language</h3><p>Find the pattern and the person it points to, and write it down as one sentence you can act on.</p></div>
+    </div>
+    <p style="margin-top:36px"><a class="btn" href="#guide">Send me the Bedside Dream Guide →</a></p>
+  </div>
+</section>
+
+<!-- PROOF -->
+<!-- When you have real, named participant quotes (the specific dream + what shifted), add them here above the photo. Never ship blanks. -->
 <section class="alt">
   <div class="wrap">
     <p class="eyebrow">From the workshops</p>
-    <h2 style="margin-top:14px">What changes when people read their dreams</h2>
-    <div class="quotes">
-      <figure class="quote">
-        <blockquote><mark class="fill">[Real quote: the specific dream + what shifted. 1–2 sentences.]</mark></blockquote>
-        <figcaption class="who"><span class="av"></span><span><b><mark class="fill">[Name]</mark></b><mark class="fill">[City · workshop year]</mark></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote><mark class="fill">[Real quote about letting go of a person.]</mark></blockquote>
-        <figcaption class="who"><span class="av"></span><span><b><mark class="fill">[Name]</mark></b><mark class="fill">[Detail]</mark></span></figcaption>
-      </figure>
-      <figure class="quote">
-        <blockquote><mark class="fill">[Real quote from a skeptic: "I barely remembered my dreams…"]</mark></blockquote>
-        <figcaption class="who"><span class="av"></span><span><b><mark class="fill">[Name]</mark></b><mark class="fill">[Detail]</mark></span></figcaption>
-      </figure>
-    </div>
-    <figure style="margin-top:40px">
+    <h2 style="margin-top:14px">People drawing, then reading, their own dreams</h2>
+    <figure style="margin-top:36px">
       <img src="https://samosborne.net/images/sam-dream-workshop1.jpg" alt="Workshop participants holding up drawings of their dreams" loading="lazy" style="aspect-ratio:21/9;object-fit:cover;width:100%">
       <figcaption>Workshop participants with the dreams they drew and read.</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- STORY -->
 <section id="story">
   <div class="wrap grid2">
     <div class="portrait">
@@ -287,131 +224,100 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div class="story">
       <p class="eyebrow">Why I can help</p>
       <p class="big">A shard of metal nearly took my sight. It changed how I see everything.</p>
-      <p>For 25 years I studied what lies beneath a life, mostly in private. <mark class="fill">[One or two sentences: what you found, and the moment dreams became central.]</mark></p>
-      <p>Now I read my dreams every morning, and draw the ones that matter. I'll show you how to read yours.</p>
-      <div class="creds"><span>25+ years of study</span><span>Demartini Method Facilitator</span><span>Author of <mark class="fill">[six]</mark> books</span></div>
+      <p>For 25 years I studied what lies beneath a life, mostly in private.</p>
+      <p>Now I read my dreams every morning, and draw the ones that matter. The guide is the same three steps I use. I'll show you how to read yours.</p>
+      <div class="creds"><span>25+ years of study</span><span>Demartini Method Facilitator</span><span>Author of six books</span></div>
     </div>
   </div>
 </section>
 
-<!-- SEMINAR -->
-<section class="alt" id="seminar">
-  <div class="wrap">
-    <div class="sem-head">
-      <div>
-        <p class="eyebrow">Live · One day · Online</p>
-        <h2>Leave with your soul's message in one sentence.</h2>
-      </div>
-      <a class="btn ghost" href="#apply">See dates &amp; price</a>
-    </div>
-
-    <div class="outcomes">
-      <div class="outcome"><h3>Clarity</h3><p>On the message your dreams keep repeating, written in a single sentence you can carry.</p></div>
-      <div class="outcome"><h3>Lightness</h3><p>About the person you can't stop thinking about, so they stop taking up space.</p></div>
-      <div class="outcome"><h3>A practice</h3><p>A 15-minute morning ritual you'll keep using for the rest of your life.</p></div>
-    </div>
-
-    <div class="sem-grid">
-      <div>
-        <h3>How the day runs</h3>
-        <ol class="day">
-          <li><span class="t">9:00 · Remembering</span><h4>Catch the dream before it fades</h4><p>Simple recall techniques. Fragments are enough to begin.</p></li>
-          <li><span class="t"><mark class="fill">[11:00]</mark> · Drawing</span><h4>Put the image on paper</h4><p>No art skill needed. Drawing reveals what words skip over.</p></li>
-          <li><span class="t"><mark class="fill">[1:30]</mark> · Interpreting</span><h4>Read it in your own language</h4><p>Find the pattern and the person it points to.</p></li>
-          <li><span class="t">4:00 · Close</span><h4>Your message in one sentence</h4><p>You leave with it written down, and a practice for tomorrow.</p></li>
-        </ol>
-        <figure style="margin-top:12px">
-          <img src="https://samosborne.net/images/sam-dream-workshop2.jpg" alt="Sam Osborne teaching a session on remembering, drawing and interpreting dreams" loading="lazy">
-          <figcaption>Teaching "Remembering, Drawing and Interpreting Dreams."</figcaption>
-        </figure>
-      </div>
-
-      <aside class="price" id="apply" aria-label="Seminar pricing">
-        <span class="badge">Founding seat</span>
-        <div class="amt"><strong>$197</strong><s>$397</s></div>
-        <p class="small">Founding price for this first cohort. Then $397.</p>
-        <ul class="meta">
-          <li>Date <b><mark class="fill">[DATE]</mark></b></li>
-          <li>Time <b>9am–4pm PT</b></li>
-          <li>Where <b>Live online</b></li>
-          <li>Applications close <b><mark class="fill">[CLOSE DATE]</mark></b></li>
-        </ul>
-        <div class="seats">
-          <p class="small"><strong style="color:var(--ink)"><mark class="fill">[X]</mark> of <mark class="fill">[N]</mark> seats left</strong></p>
-          <div class="bar" aria-hidden="true"><i></i></div>
-        </div>
-        <a class="btn" href="#">Apply for a founding seat</a>
-        <p class="small" style="margin-top:10px;text-align:center">Short form, 2 minutes. Sam replies within <mark class="fill">[48 hours]</mark>.</p>
-        <div class="guarantee">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-          <span><strong style="color:var(--ink)">Leave-by-lunch guarantee.</strong> Not for you? Leave before lunch for a full refund. <mark class="fill">[confirm]</mark></span>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
+<!-- FAQ (guide objections only) -->
+<section class="alt">
   <div class="wrap">
     <h2 style="text-align:center">Questions</h2>
     <div class="faq">
-      <details><summary>I barely remember my dreams.</summary><p>Fragments are enough. Most people's recall improves within a few days of starting the morning practice.</p></details>
-      <details><summary>Do I need to know Jung or astrology?</summary><p>No. You'll learn everything you need on the day. Your dream is read in your own language, not a borrowed system.</p></details>
-      <details><summary>Will my dream be shared?</summary><p>Only if you choose. <mark class="fill">[confirm privacy policy: recording, breakout rooms]</mark></p></details>
-      <details><summary>What if I can't attend the whole day live?</summary><p><mark class="fill">[Replay policy]</mark></p></details>
+      <details><summary>I barely remember my dreams.</summary><p>Fragments are enough. Step 1 of the guide is built for exactly this, and most people's recall improves within a few days of starting the morning practice.</p></details>
+      <details><summary>Do I need to know Jung or astrology?</summary><p>No. Your dream is read in your own language, not a borrowed system.</p></details>
+      <details><summary>What happens after I sign up?</summary><p>You go straight to a page where you can download the guide immediately. Print it or save it to your phone, put it by your bed tonight, and use it tomorrow morning.</p></details>
       <details><summary>Is this therapy?</summary><p>No. It's educational work, not psychotherapy or medical advice.</p></details>
     </div>
   </div>
 </section>
 
-<!-- PATHS -->
-<section class="alt" id="work">
-  <div class="wrap">
-    <p class="eyebrow">Ways to work with Sam</p>
-    <h2 style="margin-top:14px">Start where you are</h2>
-    <div class="paths">
-      <div class="path"><span class="k">Start here · Free</span><h3>Bedside Dream Guide</h3><p>Two pages, fifteen minutes. Read your recurring dream tomorrow morning.</p><span class="p">Free</span><a href="#guide">Get the guide →</a></div>
-      <div class="path featured"><span class="k">Most popular</span><h3>One-day seminar</h3><p>Remember, draw and interpret your dreams live, with Sam and a small group.</p><span class="p">$197</span><a href="#apply">Apply for a seat →</a></div>
-      <div class="path"><span class="k">One to one</span><h3>Private sessions</h3><p>Free yourself from the person weighing on you. <mark class="fill">[LENGTH]</mark> sessions · online.</p>
-        <div class="tiers">
-          <div class="tier"><span>Single session</span><b>$500</b></div>
-          <div class="tier best"><span>3-session package<small>Best for a recurring dream <mark class="fill">[save $X]</mark></small></span><b><mark class="fill">[$1,350]</mark></b></div>
-        </div>
-        <a href="#">Book a free call →</a></div>
-    </div>
-    <p class="small" style="margin-top:22px;text-align:center">Prefer your own pace? <a href="#">Explore the video courses</a> <mark class="fill">[PRICE]</mark></p>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
+<!-- SINGLE CTA + P.S. -->
 <section class="final">
   <div class="wrap">
     <h2>The storm has a pattern. Tomorrow morning, you'll see it.</h2>
-    <p>Get the two-page Bedside Dream Guide and read your first dream tomorrow morning.</p>
-    <form class="signup" action="#" method="post">
+    <p>Get the free two-page Bedside Dream Guide and read your first dream tomorrow morning.</p>
+    <form class="signup js-optin" action="https://formspree.io/f/xaqdebvj" method="post" data-form-name="dream-guide-footer">
       <div class="row">
         <input name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name">
         <input name="email" type="email" required placeholder="Email address" autocomplete="email" aria-label="Email address">
       </div>
-      <button class="btn" type="submit" style="background:#f3ede2;color:var(--ink)">Send me the free guide →</button>
-      <p class="small">Occasional notes from Sam. Leave anytime.</p>
+      <button class="btn" type="submit" style="background:#f3ede2;color:var(--ink)">Send me the Bedside Dream Guide →</button>
+      <p class="err" role="alert" hidden></p>
+      <p class="small">Free. One click to leave. Your email is never sold or shared.</p>
     </form>
+    <p class="ps"><b>P.S.</b> The guide is free and takes 15 minutes tomorrow morning. Keep it by your bed tonight and you'll read your first dream before breakfast.<span class="js-ps-bonus" hidden> Guide readers also get first access to the founding seminar seats at $197 until <b class="js-closes"></b>. After that it's $397.</span></p>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <span>Educational work only, not psychotherapy or medical advice. © Sam Osborne</span>
-    <span><a href="#">Speaking &amp; media</a> · <a href="#">Privacy</a></span>
-  </div>
+  <div class="wrap">Educational work only, not psychotherapy or medical advice. © Sam Osborne</div>
 </footer>
 
 <div class="mcta" id="mcta"><a class="btn" href="#guide">Get the free guide</a></div>
 
 <script>
+/* ===== EDIT HERE: fill these in when they're real. Empty = hidden on the page. ===== */
+var CONFIG = {
+  dreamers: "",          // real sign-up count, e.g. "212". Shown only when filled.
+  closes: "",            // founding seminar application deadline, e.g. "Friday, November 20". Turns on the bonus + P.S. deadline.
+  thanksUrl: "/reading-the-soul-thanks"
+};
+/* ================================================================================ */
 (function(){
+  // Show optional, true-only elements
+  if (CONFIG.dreamers){ document.querySelectorAll('.js-count').forEach(function(e){e.hidden=false}); document.querySelectorAll('.js-count-n').forEach(function(e){e.textContent=CONFIG.dreamers}); }
+  if (CONFIG.closes){
+    document.querySelectorAll('.js-bonus,.js-ps-bonus').forEach(function(e){e.hidden=false});
+    document.querySelectorAll('.js-closes').forEach(function(e){e.textContent=CONFIG.closes});
+  }
+
+  // Tracking: remember where this visitor came from (first touch for the session)
+  var KEYS=['utm_source','utm_medium','utm_campaign','utm_content'], q=new URLSearchParams(location.search), track={};
+  try{ track=JSON.parse(sessionStorage.getItem('rts_track')||'{}') }catch(e){}
+  KEYS.forEach(function(k){ if(q.get(k) && !track[k]) track[k]=q.get(k) });
+  if(!track.referrer) track.referrer=document.referrer||'direct';
+  if(!track.landing_page) track.landing_page=location.pathname;
+  try{ sessionStorage.setItem('rts_track',JSON.stringify(track)) }catch(e){}
+
+  // Message match: Substack readers already know Sam
+  if (/substack/i.test(track.utm_source||'')){
+    document.querySelectorAll('.js-eyebrow').forEach(function(e){ e.textContent='For Sam the Mystic readers · Free' });
+  }
+
+  function addHidden(f,name,val){ var i=document.createElement('input'); i.type='hidden'; i.name=name; i.value=val||''; f.appendChild(i) }
+
+  document.querySelectorAll('form.js-optin').forEach(function(f){
+    KEYS.concat(['referrer','landing_page']).forEach(function(k){ addHidden(f,k,track[k]||'') });
+    addHidden(f,'form_name',f.dataset.formName);
+    addHidden(f,'offer','bedside-dream-guide');
+    addHidden(f,'_subject','Bedside Dream Guide sign-up');
+    var hp=document.createElement('input'); hp.type='text'; hp.name='_gotcha'; hp.tabIndex=-1; hp.autocomplete='off'; hp.className='hp'; hp.setAttribute('aria-hidden','true'); f.appendChild(hp);
+
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var btn=f.querySelector('button'), err=f.querySelector('.err'), label=btn.textContent;
+      btn.disabled=true; btn.textContent='Sending…'; err.hidden=true;
+      fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+        .then(function(r){ if(!r.ok) throw new Error(r.status); location.href=CONFIG.thanksUrl })
+        .catch(function(){ btn.disabled=false; btn.textContent=label; err.textContent='That didn’t go through. Please check your email address and try again.'; err.hidden=false });
+    });
+  });
+
+  // Header border + mobile sticky CTA
   var h=document.querySelector('header'), m=document.getElementById('mcta'), g=document.getElementById('guide');
   function onScroll(){
     h.classList.toggle('scrolled', scrollY>8);
