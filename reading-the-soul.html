@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Reading the Soul · Sam Osborne</title>
-<meta name="description" content="Unveil your soul's sacred blueprint. Learn to read your dreams as a forecast of where your soul is taking you.">
+<meta name="description" content="Read your dreams. Know your soul's destiny. Learn to read your dreams as a forecast of where your soul is taking you.">
 <meta property="og:title" content="Reading the Soul · Sam Osborne">
-<meta property="og:description" content="Your dreams are a forecast. Learn to read them the way Jung did. Free guide: Forecasting the Soul.">
+<meta property="og:description" content="Your dreams are a forecast. Learn to read them the way Jung did. Free Dream Interpretation App and Journal.">
 <meta property="og:url" content="https://samosborne.net/">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -224,7 +224,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <header class="nav"><div class="wrap">
   <a class="brand" id="brand" href="#top"></a>
   <ul id="navlinks"></ul>
-  <a class="pill solid sm" href="#guide">Free guide</a>
+  <a class="pill solid sm" href="#guide">Free app</a>
 </div></header>
 
 <main id="main">
@@ -279,13 +279,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   </div></section>
 
   <section id="guide"><div class="wrap contact">
-    <div class="cover" id="cover"><div><b id="coverTitle"></b><small>Image placeholder: guide cover</small></div></div>
-    <span class="eyebrow">Free guide</span>
+    <div class="cover" id="cover"><div><b id="coverTitle"></b><small>Image placeholder: app preview</small></div></div>
+    <span class="eyebrow">Free app &amp; journal</span>
     <div class="head" style="margin:0"><h3 id="guideTitle"></h3><p class="lead soft" id="guideLead"></p></div>
     <form class="form" id="signup" novalidate>
       <div><label for="name">First name</label><input id="name" autocomplete="given-name" placeholder="Your name"></div>
       <div><label for="email">Email *</label><input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
-      <div class="full" style="text-align:center;margin-top:6px"><button class="pill solid" type="submit">Send me the free guide</button></div>
+      <div class="full" style="text-align:center;margin-top:6px"><button class="pill solid" type="submit">Send me the free app</button></div>
       <div class="full toast" id="toast"></div>
     </form>
     <p class="fine" id="guideFine"></p>
@@ -303,8 +303,8 @@ const SITE = {
   nav: [["The method","method"],["What you gain","process"],["Story","story"],["Work with me","offerings"],["Private sessions","private"],["Pricing","pricing"]],
   hero: {
     word: "Read the sky.",
-    tagline: "Unveil your soul’s sacred blueprint.",
-    cta: "Get the free guide",
+    tagline: "Read your dreams. Know your soul’s destiny.",
+    cta: "Get the free app & journal",
     fine: "Your dreams are a forecast. Learn to read them and know what your soul is trying to tell you, before life has to tell you the hard way.",
     // 34 tiles. Swap any null for "images/your-dream-drawing.jpg"
     tiles: Array(34).fill(null)
@@ -347,7 +347,7 @@ const SITE = {
     title: "Three ways in.",
     lead: "Start where you are.",
     items: [
-      { kind:"Free guide", title:"Forecasting the Soul", price:"$0", text:"Read tomorrow morning’s dream as a forecast, not a riddle. Why your dreams look forward, the four functions of a dream, and the one question to ask every dream.", cta:"Get it free", href:"#guide", more:"What’s inside", moreHref:"#pricing" },
+      { kind:"Free app & journal", title:"Dream Interpretation App and Journal", price:"$0", text:"Record every dream and read it as a forecast, not a riddle. Interpret each one through Jung’s forward lens and ask it the one question that matters.", cta:"Get it free", href:"#guide", more:"What’s inside", moreHref:"#pricing" },
       { kind:"Live · one day online", title:"Reading the Soul", price:"$500 seminar", text:"Leave knowing your soul’s message in a single sentence. Read your recurring dream through Jung’s forward lens and go through a guided Active Imagination, live.", cta:"Reserve a seat", href:"#guide", more:"Details", moreHref:"#pricing" },
       { kind:"Private · one to one", title:"Four Sessions", price:"$1,000 package", text:"Free yourself from the person or situation that still has a hold on you, and read your dreams alongside the work.", cta:"See how it works", href:"#private", more:"Details", moreHref:"#pricing" }
     ]
@@ -367,10 +367,10 @@ const SITE = {
   },
   pricing: {
     title: "Choose your way in",
-    lead: "From a free guide to four sessions, one to one.",
+    lead: "From a free dream app and journal to four sessions, one to one.",
     plans: [
-      { name:"Free guide · Forecasting the Soul", price:"$0", unit:"", promise:"Read tomorrow morning’s dream as a forecast, not a riddle.", cta:"Get it free", href:"#guide",
-        features:["Why your dreams look forward, not back","The four functions of a dream, in plain language","The descent and return: re-enter a dream in 3 steps","The Active Imagination Sprint: 3 prompts for any dream","The one question to ask every dream"] },
+      { name:"Free · Dream Interpretation App and Journal", price:"$0", unit:"", promise:"Read tomorrow morning’s dream as a forecast, not a riddle.", cta:"Get it free", href:"#guide",
+        features:["A private journal to record every dream","Interpret each dream through Jung’s forward lens","The four functions of a dream, in plain language","Active Imagination prompts for any dream","The one question to ask every dream"] },
       { name:"Live · one day online · Reading the Soul seminar", price:"$500", unit:"", promise:"Leave knowing your soul’s message in a single sentence.", cta:"Reserve a seat", href:"#guide", featured:true,
         features:["Read your own recurring dream through Jung’s forward lens","See what your dreams are forecasting and correcting in your life","Go through a guided Active Imagination, live","Find the third way through an inner conflict you’ve been stuck in","Take home a fifteen-minute daily practice to keep hearing it"] },
       { name:"Private · one to one · Four sessions", price:"$1,000", unit:" / 4", promise:"Free yourself from the person or situation that still has a hold on you.", cta:"See how it works", href:"#private",
@@ -378,10 +378,10 @@ const SITE = {
     ]
   },
   guide: {
-    cover: null,   // e.g. "images/forecasting-the-soul-cover.jpg"
-    coverTitle: "Forecasting the Soul",
+    cover: null,   // e.g. "images/dream-app-preview.jpg"
+    coverTitle: "Dream Interpretation App & Journal",
     title: "Tomorrow morning, read your forecast.",
-    lead: "Forecasting the Soul shows you how to read a dream the way Jung did: as a rough draft of your future. Then ask it the question that changes everything: “What are you preparing me for?”",
+    lead: "The Dream Interpretation App and Journal helps you record each dream and read it the way Jung did: as a rough draft of your future. Then ask it the question that changes everything: “What are you preparing me for?”",
     fine: "You’ll also receive occasional notes on dreams and the soul. Unsubscribe anytime."
   },
   footer: ["Sam Osborne · Dreams · Jung · Inner balance · samosborne.net", "© 2026 Sam Osborne"]
@@ -487,5 +487,6 @@ $("signup").addEventListener("submit", e => {
 
 $("footL").textContent = SITE.footer[0]; $("footR").textContent = SITE.footer[1];
 </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
