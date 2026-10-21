@@ -4,322 +4,279 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0E1530">
-<title>The Soulmate Within · Free guided dream session with Sam Osborne</title>
-<meta name="description" content="Fall in love with your inner soulmate again. Get a free video of Sam Osborne walking you through interpreting one of your own dreams, plus seven questions and exercises.">
-<meta property="og:title" content="Fall in love with your inner soulmate again">
-<meta property="og:description" content="A free guided dream session with Sam Osborne, plus seven questions and exercises.">
-<meta property="og:type" content="website">
+<title>What is your life preparing you for? · Free dream quiz with Sam Osborne</title>
+<meta name="description" content="What is your life preparing you for? Your dreams already know. A free 2-minute quiz with Sam Osborne.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
 :root{
-  --deep:#0E1530; --deep-2:#1C2747; --card-d:#18213F;
-  --p1:#2297FA; --p2:#50B6FE; --p3:#7ED8FA; --p4:#94AEFE; --p5:#8082D6; --amber:#E8A35C;
+  --deep:#0E1530; --p1:#2297FA; --p3:#7ED8FA; --p4:#94AEFE; --p5:#8082D6; --amber:#E8A35C;
   --ink:#0E1530; --gray:#4F5B7D; --line:#D6DDF3; --light:#EEF2FF; --paper:#F8FAFF;
-  --d-muted:rgba(226,234,255,.72); --d-line:rgba(148,174,254,.22);
   --grad:linear-gradient(90deg,#2297FA,#8082D6);
   --grad-d:linear-gradient(90deg,#7ED8FA,#94AEFE 55%,#E8A35C);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Helvetica Neue",Arial,sans-serif;
-  color-scheme:light;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--font);letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html,body{min-height:100%}
+body{margin:0;color:#fff;font:400 17px/1.5 var(--font);letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:
+  radial-gradient(50% 45% at 12% 18%,rgba(34,151,250,.28),transparent 70%),
+  radial-gradient(45% 40% at 90% 25%,rgba(128,130,214,.34),transparent 70%),
+  radial-gradient(40% 35% at 55% 100%,rgba(232,163,92,.14),transparent 70%),
+  linear-gradient(180deg,#0E1530,#16203f 60%,#1C2747);background-attachment:fixed}
 h1,h2,h3,p{margin:0}
-a{color:inherit}
-.wrap{width:min(1080px,calc(100% - 32px));margin:0 auto}
-:focus-visible{outline:2px solid var(--p1);outline-offset:3px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);font:600 13px/1 var(--font);background:var(--paper)}
-.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--grad)}
-h2{font:700 clamp(32px,4.6vw,54px)/1.06 var(--font);letter-spacing:-.04em;text-wrap:balance}
-h2 em,h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.lede{font-size:clamp(17px,1.5vw,20px);color:var(--gray);max-width:56ch}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;border:0;font:600 17px/1 var(--font);letter-spacing:-.01em;cursor:pointer;text-decoration:none;background:var(--grad);color:#fff;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(34,151,250,.3)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(128,130,214,.4)}
-.btn-xl{padding:21px 40px;font-size:19px}
-.btn .arr{font-size:18px}
-.js .rv{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
-.js .rv.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--p3);outline-offset:3px}
+.page{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:clamp(32px,4.5vw,60px) 0 40px;display:grid;gap:clamp(32px,4vw,52px)}
 
-/* nav */
-.bar{position:sticky;top:0;z-index:40;background:rgba(14,21,48,.78);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(148,174,254,.14)}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px}
-.brand{font:700 19px/1 var(--font);letter-spacing:-.03em;color:#fff;text-decoration:none}
+/* header */
+.head{text-align:center;display:grid;justify-items:center;gap:18px}
+.brand{font:700 16px/1 var(--font);letter-spacing:-.02em;color:rgba(226,234,255,.75)}
 .brand b{background:var(--grad-d);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.bar .btn{padding:10px 18px;font-size:14px;box-shadow:none}
+h1{font:700 clamp(34px,4.6vw,62px)/1.03 var(--font);letter-spacing:-.05em;max-width:20ch;text-wrap:balance}
+h1 em{font-style:normal;background:var(--grad-d);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:clamp(17px,1.7vw,21px);color:rgba(226,234,255,.75);max-width:52ch}
 
-/* hero */
-.hero{position:relative;overflow:hidden;color:#fff;padding:clamp(56px,7vw,96px) 0 clamp(110px,12vw,150px);background:
-  radial-gradient(50% 45% at 18% 20%,rgba(34,151,250,.30),transparent 70%),
-  radial-gradient(45% 40% at 85% 30%,rgba(128,130,214,.35),transparent 70%),
-  radial-gradient(40% 35% at 60% 95%,rgba(232,163,92,.16),transparent 70%),
-  linear-gradient(180deg,#0E1530,#141d3c 60%,#1C2747)}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:56px;z-index:0;background:linear-gradient(transparent,var(--paper));pointer-events:none}
-.hero .wrap{position:relative;z-index:1;display:grid;justify-items:center;text-align:center;gap:22px}
-.hero .eyebrow{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.2)}
-.hero h1{font:700 clamp(42px,7.2vw,96px)/1 var(--font);letter-spacing:-.05em;max-width:14ch;text-wrap:balance}
-.hero h1 em{background:var(--grad-d);-webkit-background-clip:text;background-clip:text}
-.hero .sub{font-size:clamp(18px,1.8vw,22px);line-height:1.45;color:var(--d-muted);max-width:52ch}
+/* grid */
+.grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:920px){.grid{grid-template-columns:1fr}}
 
 /* video */
-.video{position:relative;width:100%;max-width:920px;aspect-ratio:16/9;border-radius:28px;overflow:hidden;margin-top:14px;background:
-  radial-gradient(60% 70% at 50% 40%,rgba(148,174,254,.35),transparent 70%),
-  linear-gradient(160deg,#243056,#0E1530);box-shadow:0 40px 120px rgba(5,10,40,.6),0 0 0 1px rgba(148,174,254,.25)}
+.video{position:relative;width:100%;aspect-ratio:16/9;border-radius:28px;overflow:hidden;background:
+  radial-gradient(60% 70% at 50% 40%,rgba(148,174,254,.35),transparent 70%),linear-gradient(160deg,#243056,#0E1530);
+  box-shadow:0 40px 110px rgba(5,10,40,.55),0 0 0 1px rgba(148,174,254,.25)}
 .video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
-.speaker{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:34%;aspect-ratio:3/4;border-radius:50% 50% 0 0/38% 38% 0 0;background:linear-gradient(180deg,rgba(226,234,255,.16),rgba(226,234,255,.04));}
+.speaker{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:34%;aspect-ratio:3/4;border-radius:50% 50% 0 0/38% 38% 0 0;background:linear-gradient(180deg,rgba(226,234,255,.16),rgba(226,234,255,.04))}
 .speaker::before{content:"";position:absolute;left:50%;top:-26%;transform:translateX(-50%);width:46%;aspect-ratio:1;border-radius:50%;background:rgba(226,234,255,.16)}
-.play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:14px;color:rgba(255,255,255,.9);font:500 15px/1.3 var(--font)}
-.play span{width:84px;height:84px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 12px 40px rgba(0,0,0,.35)}
-.play span::after{content:"";margin-left:6px;border-left:22px solid var(--deep);border-top:13px solid transparent;border-bottom:13px solid transparent}
-.caption{position:absolute;left:18px;bottom:16px;padding:8px 14px;border-radius:999px;background:rgba(14,21,48,.6);backdrop-filter:blur(8px);font:500 13px/1 var(--font);color:#fff}
-.cta-row{display:grid;justify-items:center;gap:12px;margin-top:10px}
-.cta-note{font-size:14px;color:var(--d-muted)}
+.play{position:absolute;inset:0;display:grid;place-items:center}
+.play span{width:78px;height:78px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.play span::after{content:"";margin-left:6px;border-left:21px solid var(--deep);border-top:12px solid transparent;border-bottom:12px solid transparent}
+.caption{position:absolute;left:16px;bottom:14px;padding:8px 14px;border-radius:999px;background:rgba(14,21,48,.6);backdrop-filter:blur(8px);font:500 13px/1 var(--font)}
 
-/* gift */
-.gift{padding:clamp(72px,9vw,120px) 0}
-.center{text-align:center;display:grid;justify-items:center;gap:18px;margin-bottom:48px}
-.gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.g-card{border-radius:32px;padding:clamp(26px,3.4vw,40px);background:#fff;box-shadow:0 1px 2px rgba(14,21,48,.04),0 16px 50px rgba(14,21,48,.08);display:grid;gap:18px;align-content:start}
-.g-tag{justify-self:start;font:600 12px/1 var(--font);padding:7px 12px;border-radius:999px;background:var(--light);color:var(--p5)}
-.g-card h3{font:700 clamp(24px,2.4vw,30px)/1.12 var(--font);letter-spacing:-.035em}
-.g-card>p{color:var(--gray)}
-.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
-.steps li{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start;padding:14px;border-radius:18px;background:var(--light)}
-.steps li::before{counter-increment:s;content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font:700 14px/1 var(--font)}
-.steps b{display:block;font-size:16px;letter-spacing:-.02em}
-.steps span{font-size:14.5px;color:var(--gray)}
-@media (max-width:860px){.gift-grid{grid-template-columns:1fr}}
-
-/* try tonight */
-.try{padding:0 0 clamp(72px,9vw,120px)}
-.try-card{border-radius:36px;padding:clamp(28px,5vw,56px);color:#fff;background:
-  radial-gradient(60% 80% at 100% 0%,rgba(128,130,214,.45),transparent 70%),
-  radial-gradient(50% 70% at 0% 100%,rgba(34,151,250,.35),transparent 70%),var(--deep);display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
-.try-card .eyebrow{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.2)}
-.try-card h2{margin:18px 0 14px}
-.try-card h2 em{background:var(--grad-d);-webkit-background-clip:text;background-clip:text}
-.try-card .lede{color:var(--d-muted)}
-.try-steps{display:grid;gap:10px}
-.ts{padding:18px 20px;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid var(--d-line)}
-.ts small{display:block;font:600 12px/1 var(--font);color:var(--p3);margin-bottom:8px}
-.ts p{font-size:16px;line-height:1.5}
-@media (max-width:860px){.try-card{grid-template-columns:1fr}}
-
-/* about */
-.about{padding:0 0 clamp(72px,9vw,120px)}
-.about-card{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:center;max-width:880px;margin:0 auto}
-.headshot{width:200px;aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,#2297FA,#8082D6);display:grid;place-items:center;color:#fff;font:600 14px/1.3 var(--font);text-align:center;overflow:hidden}
-.headshot img{width:100%;height:100%;object-fit:cover}
-.about h3{font:700 28px/1.1 var(--font);letter-spacing:-.035em;margin:12px 0 4px}
-.about .role{font:600 14px/1.4 var(--font);color:var(--p5);margin-bottom:14px}
-.about p{color:var(--gray)}
-@media (max-width:640px){.about-card{grid-template-columns:1fr;justify-items:center;text-align:center}.headshot{width:150px}}
-
-/* final */
-.final{padding:clamp(72px,9vw,110px) 0;text-align:center;background:radial-gradient(60% 80% at 50% 100%,rgba(148,174,254,.28),transparent 70%)}
-.final h2{max-width:18ch;margin:0 auto 16px}
-.final .lede{margin:0 auto 30px}
-footer{background:var(--deep);color:rgba(226,234,255,.55);font-size:12.5px;padding:28px 0 36px}
-footer .wrap{display:grid;gap:10px}
-footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-/* modal */
-body.locked{overflow:hidden}
-.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;background:rgba(8,12,32,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);animation:fade .25s ease}
-.modal[hidden]{display:none}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-.sheet{position:relative;width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--paper);border-radius:32px;padding:clamp(26px,4vw,40px);display:grid;gap:16px;box-shadow:0 40px 120px rgba(0,0,0,.5);animation:up .35s cubic-bezier(.2,.7,.2,1)}
-@keyframes up{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
-.x{position:absolute;right:16px;top:16px;width:38px;height:38px;border-radius:50%;border:0;background:var(--light);font-size:22px;line-height:1;cursor:pointer;color:var(--ink)}
-.sheet h3{font:700 28px/1.12 var(--font);letter-spacing:-.035em;padding-right:36px}
-.sheet h3 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sheet .lede{font-size:16px}
-.field label{display:block;font:500 13px/1 var(--font);color:var(--gray);margin-bottom:8px}
-.field label i{font-style:normal;color:#8e98b8}
-.field input,.field textarea{width:100%;border:1px solid transparent;border-radius:16px;background:var(--light);color:var(--ink);font:400 17px var(--font);padding:14px 16px}
-.field textarea{min-height:92px;resize:vertical}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--p1);background:#fff}
-.field .error{border-color:#d70015}
-.sheet .btn{width:100%}
+/* quiz card */
+.quiz{background:var(--paper);color:var(--ink);border-radius:32px;padding:clamp(22px,3vw,34px);box-shadow:0 40px 110px rgba(5,10,40,.55);min-height:100%}
+.q-top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.q-top span{font:600 12.5px/1 var(--font);color:var(--gray);white-space:nowrap}
+.q-bar{flex:1;height:5px;background:#E1E6F7;border-radius:5px;overflow:hidden}
+.q-bar i{display:block;height:100%;width:0;background:var(--grad);border-radius:5px;transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.step{display:grid;gap:14px;animation:in .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.kicker{justify-self:start;font:600 12px/1 var(--font);padding:7px 12px;border-radius:999px;background:var(--light);color:var(--p5)}
+.step h2{font:700 clamp(24px,2.5vw,30px)/1.12 var(--font);letter-spacing:-.035em;text-wrap:balance}
+.step h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hint{color:var(--gray);font-size:15px;margin-top:-6px}
+.opts{display:grid;gap:8px}
+.opt{display:grid;grid-template-columns:30px 1fr;align-items:center;gap:12px;width:100%;text-align:left;padding:13px 14px;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--ink);font:500 16px/1.35 var(--font);cursor:pointer;transition:border-color .2s,background .2s}
+.opt b{width:28px;height:28px;border-radius:50%;background:var(--light);color:var(--p1);display:grid;place-items:center;font:600 13px/1 var(--font)}
+.opt:hover{border-color:var(--p1);background:#F0F5FF}
+.opt.sel{background:var(--grad);border-color:transparent;color:#fff}
+.opt.sel b{background:#fff}
+.back{justify-self:start;background:none;border:0;color:var(--gray);font:500 14px/1 var(--font);cursor:pointer;padding:8px 10px;border-radius:999px}
+.back:hover{background:var(--light);color:var(--ink)}
+.start-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.start-list li{position:relative;padding-left:30px;color:var(--gray);font-size:15.5px}
+.start-list li::before{content:"";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:var(--grad)}
+.start-list li::after{content:"";position:absolute;left:7px;top:6px;width:5px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg)}
+.start-list b{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 24px;border-radius:999px;border:0;font:600 17px/1 var(--font);cursor:pointer;background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(34,151,250,.3);transition:transform .2s}
+.btn:hover{transform:translateY(-1px)}
 .fine{font-size:12.5px;color:#8e98b8;text-align:center}
-.msg{font:500 15px/1.4 var(--font)}
+.field label{display:block;font:500 13px/1 var(--font);color:var(--gray);margin-bottom:7px}
+.field input{width:100%;height:50px;border:1px solid transparent;border-radius:14px;background:var(--light);color:var(--ink);font:400 17px var(--font);padding:0 15px}
+.field input:focus{outline:none;border-color:var(--p1);background:#fff}
+.field input.error{border-color:#d70015}
+.msg{font:500 14px/1.4 var(--font);color:#b00012}
 .msg:empty{display:none}
-.done{text-align:center;display:grid;gap:14px;justify-items:center}
-.done .tick{width:64px;height:64px;border-radius:50%;background:var(--grad);display:grid;place-items:center}
-.done .tick::after{content:"";width:14px;height:24px;border-right:3px solid #fff;border-bottom:3px solid #fff;transform:rotate(40deg) translate(-2px,-3px)}
+.result{text-align:center;justify-items:center}
+.orb{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#7ED8FA,#2297FA 40%,#8082D6 75%)}
+.type{font:700 clamp(32px,3.6vw,44px)/1 var(--font);letter-spacing:-.045em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.line{font:600 18px/1.35 var(--font);letter-spacing:-.02em;max-width:30ch}
+.teaser{color:var(--gray);font-size:15.5px}
+.ask{width:100%;padding:16px 18px;border-radius:18px;background:var(--light);font:600 18px/1.35 var(--font);letter-spacing:-.02em}
+.ask small{display:block;font:500 12px/1 var(--font);color:var(--gray);margin-bottom:8px}
+.sent{font-size:13.5px;color:var(--gray)}
+.result .kicker{justify-self:center}
+.again{background:none;border:0;color:var(--p1);font:500 14px var(--font);cursor:pointer;text-decoration:underline}
 
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+.foot{text-align:center;font-size:12px;color:rgba(226,234,255,.45);max-width:80ch;margin:0 auto}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
-<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<main class="page">
 
-<header class="bar"><div class="wrap">
-  <a class="brand" href="#top">Sam Osborne<b>.</b></a>
-  <button class="btn" type="button" data-open>Get the free video</button>
-</div></header>
+  <header class="head">
+    <span class="brand">Sam Osborne<b>.</b> · Forecasting the Soul</span>
+    <h1>What is your life preparing you for? <em>Your dreams already know.</em></h1>
+    <p class="sub">Answer 7 quick questions about one dream. Get your forecast and the one question to ask it, instantly, plus a full written reading by email.</p>
+  </header>
 
-<main>
-
-<!-- HERO -->
-<section class="hero" id="top"><div class="wrap">
-  <span class="eyebrow rv">The Soulmate Within · free guided session</span>
-  <h1 class="rv">Fall in love with your <em>inner soulmate</em> again.</h1>
-  <p class="sub rv">Watch me walk you through interpreting one of your own dreams, step by step. Then use seven simple questions and exercises to rebuild the relationship that shapes every other one: the one with yourself.</p>
-
-  <!-- VIDEO: replace the placeholder with your talking-to-camera video, e.g.
-       <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Sam Osborne: The Soulmate Within" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe> -->
-  <div class="video rv" role="img" aria-label="Video placeholder: Sam speaking to camera">
-    <div class="speaker" aria-hidden="true"></div>
-    <div class="play"><span></span></div>
-    <span class="caption">Sam, speaking to camera</span>
-  </div>
-
-  <div class="cta-row rv">
-    <button class="btn btn-xl" type="button" data-open>Get the free video <span class="arr">→</span></button>
-    <p class="cta-note">Free · instant access · guided video + 7 questions and exercises</p>
-  </div>
-</div></section>
-
-<!-- WHAT YOU GET -->
-<section class="gift"><div class="wrap">
-  <div class="center rv">
-    <span class="eyebrow">Your free gift</span>
-    <h2>Everything you need to <em>start tonight.</em></h2>
-  </div>
-  <div class="gift-grid">
-    <div class="g-card rv">
-      <span class="g-tag">The guided video</span>
-      <h3>Interpret one of your own dreams, with me beside you.</h3>
-      <p>Pause the video, bring a dream you remember, and follow along. By the end, you’ll know what it’s been trying to tell you.</p>
-      <ol class="steps">
-        <li><div><b>Record it</b><span>Capture the dream before the day rewrites it.</span></div></li>
-        <li><div><b>Find the feeling</b><span>The emotion is the doorway, not the plot.</span></div></li>
-        <li><div><b>Meet the figures</b><span>Every character carries a part of you.</span></div></li>
-        <li><div><b>Ask its purpose</b><span>Not “what caused this?” but “what is this preparing me for?”</span></div></li>
-        <li><div><b>Bring it into your day</b><span>One small action that honours the message.</span></div></li>
-      </ol>
+  <div class="grid">
+    <!-- VIDEO: replace the placeholder with your talking-to-camera video, e.g.
+         <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Sam Osborne" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe> -->
+    <div class="video" role="img" aria-label="Video placeholder: Sam speaking to camera">
+      <div class="speaker" aria-hidden="true"></div>
+      <div class="play"><span></span></div>
+      <span class="caption">Sam, speaking to camera</span>
     </div>
-    <div class="g-card rv">
-      <span class="g-tag">The 7 exercises</span>
-      <h3>Questions to fall back in love with yourself.</h3>
-      <p>Short, honest exercises drawn from Jung’s dream work and the Demartini Method. Ten minutes each.</p>
-      <ol class="steps">
-        <li><div><b>The dream lover</b><span>Name what draws you to someone, and find it in yourself.</span></div></li>
-        <li><div><b>The mirror question</b><span>Turn the trait that bothers you most into self-knowledge.</span></div></li>
-        <li><div><b>The two lists</b><span>What you give others, and what you withhold from you.</span></div></li>
-        <li><div><b>The morning question</b><span>Ask your dream what it’s preparing you for.</span></div></li>
-        <li><div><b>Step back in</b><span>Return to a dream and let the figure speak.</span></div></li>
-        <li><div><b>A letter from your whole self</b><span>Hear what the future you is grateful for.</span></div></li>
-        <li><div><b>The vow</b><span>One sentence for how you’ll treat yourself this week.</span></div></li>
-      </ol>
-    </div>
+
+    <section class="quiz" aria-label="Free dream quiz">
+      <div class="q-top"><span id="qLabel">Free · 2 minutes</span><div class="q-bar"><i id="qBar"></i></div></div>
+      <div id="qBody"></div>
+    </section>
   </div>
-</div></section>
 
-<!-- TRY ONE NOW -->
-<section class="try"><div class="wrap">
-  <div class="try-card rv">
-    <div>
-      <span class="eyebrow">Try one right now</span>
-      <h2>The mirror <em>question.</em></h2>
-      <p class="lede">The trait you can’t stand in someone close to you is often a part of yourself you haven’t made peace with. This exercise takes five minutes and changes how that person feels to you.</p>
-    </div>
-    <div class="try-steps">
-      <div class="ts"><small>Step 1</small><p>Think of someone close who frustrates you. Name the one trait that bothers you most.</p></div>
-      <div class="ts"><small>Step 2</small><p>Where have you shown that same trait, even once, even in a different form? Write down three moments.</p></div>
-      <div class="ts"><small>Step 3</small><p>For each moment, who did it help or protect? Notice how your feeling toward them, and toward yourself, begins to soften.</p></div>
-    </div>
-  </div>
-</div></section>
-
-<!-- ABOUT -->
-<section class="about"><div class="wrap">
-  <div class="about-card rv">
-    <!-- Replace the text with: <img src="images/sam-headshot.jpg" alt="Sam Osborne"> -->
-    <div class="headshot">Headshot<br>of Sam</div>
-    <div>
-      <span class="eyebrow">Your guide</span>
-      <h3>Dr. Sam Osborne</h3>
-      <p class="role">Author · speaker · trained Demartini Method Facilitator</p>
-      <p>For more than 25 years I’ve studied Jung, depth psychology and the philosophy of the self. In 2026, my own dreams kept giving me the same instruction: record the work. Every morning since, I’ve recorded and read my dreams, and balanced what they stir up. Now I teach you to do the same.</p>
-    </div>
-  </div>
-</div></section>
-
-<!-- FINAL -->
-<section class="final"><div class="wrap">
-  <h2 class="rv">The relationship that changes <em>every other one.</em></h2>
-  <p class="lede rv">It starts tonight, with one dream.</p>
-  <button class="btn btn-xl rv" type="button" data-open>Get the free video <span class="arr">→</span></button>
-</div></section>
-
+  <p class="foot">The Demartini Method® was developed by Dr. John F. Demartini and is the property of the Demartini Institute. This quiz is for education and personal reflection, not a substitute for medical or psychological care. © 2026 Sam Osborne</p>
 </main>
 
-<footer><div class="wrap">
-  <div class="row"><span>© 2026 Sam Osborne · samosborne.net</span><span>The Soulmate Within</span></div>
-  <p>The Demartini Method® was developed by Dr. John F. Demartini and is the property of the Demartini Institute. These exercises are for education and personal development, not a substitute for medical or psychological care.</p>
-</div></footer>
-
-<!-- SIGN-UP MODAL -->
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
-  <div class="sheet">
-    <button class="x" type="button" id="mClose" aria-label="Close">×</button>
-    <div id="mForm">
-      <form id="leadForm" novalidate style="display:grid;gap:16px">
-        <h3 id="mTitle">Get your free <em>guided dream session.</em></h3>
-        <p class="lede">The video and your seven exercises, sent straight to your inbox.</p>
-        <div class="field"><label for="lName">First name</label><input id="lName" autocomplete="given-name" placeholder="Your name"></div>
-        <div class="field"><label for="lEmail">Email</label><input id="lEmail" type="email" autocomplete="email" required placeholder="you@example.com"></div>
-        <div class="field"><label for="lDream">A dream you’d like to work with <i>(optional)</i></label><textarea id="lDream" placeholder="A few words are enough: a place, a person, a feeling."></textarea></div>
-        <button class="btn" type="submit">Send me the video <span class="arr">→</span></button>
-        <p class="msg" id="lMsg" role="status"></p>
-        <p class="fine">You’ll also receive occasional notes on dreams and the soul. Unsubscribe anytime.</p>
-      </form>
-    </div>
-    <div class="done" id="mDone" hidden>
-      <div class="tick" aria-hidden="true"></div>
-      <h3>Check your inbox.</h3>
-      <p class="lede" id="doneText">Your guided video and seven exercises are on their way.</p>
-      <p class="fine">Tonight, before you sleep, ask: <b>what are you preparing me for?</b></p>
-    </div>
-  </div>
-</div>
-
 <script>
-/* ═══ Connect your email tool: paste a form endpoint (Kit, Mailchimp, Formspree, Zapier).
-   Each sign-up sends: name, email and dream (optional). Have your tool email the video + exercises. */
-var LEAD_ENDPOINT = "";
+/* Connect your email tool: paste a form endpoint (Kit, Mailchimp, Formspree, Zapier).
+   Each submission sends name, email, result (pattern), reading (full text) and answers. */
+var QUIZ_ENDPOINT = "";
+
+var TYPES = {
+  threshold: {
+    name: "The Threshold",
+    line: "Your life is preparing you for a new chapter you haven’t named yet.",
+    ask: "What are you preparing me for?",
+    moon: '<path class="lit" d="M20 4a16 16 0 0 1 0 32 9 16 0 0 0 0-32z"/>',
+    reading: "Threshold dreams arrive when part of your life is getting ready to end and something new is getting ready to begin. Doors, edges, journeys, unfamiliar rooms, arriving somewhere you’ve never been: your unconscious is drafting the next chapter before your waking mind has caught up. Jung called this the prospective function of dreams. They don’t only look back; they rehearse what’s coming. The temptation is to treat the dream as a riddle to solve. Instead, read it as a forecast. Write it down, then ask it one question: what are you preparing me for? Notice the first answer that comes, even if it seems too simple. Over the next week, watch where your waking life echoes the dream. That’s the forecast showing itself. The direction you’re looking for usually shows up first as a feeling, then as an image, and only later as a plan."
+  },
+  counterweight: {
+    name: "The Counterweight",
+    line: "Before you move forward, your life is asking you to rebalance.",
+    ask: "What have I been leaving out?",
+    moon: '<path class="lit" d="M20 4a16 16 0 0 1 0 32z"/>',
+    reading: "Counterweight dreams show up when your waking life has tipped too far one way. If you’ve been holding everything together, the dream lets you fall apart. If you’ve been playing small, the dream puts you on a stage. When someone you know acts completely unlike themselves, or you do something you’d never do awake, the dream is adding back what your conscious attitude has left out. Jung called this compensation: the psyche correcting its own course. These dreams can feel strange or even embarrassing, which is exactly why they’re useful. Ask the dream: what have I been leaving out? Then find one small, practical way to let that missing side into your week. Direction comes faster once you stop leaning so hard in one direction: the missing side is often the next step."
+  },
+  bridge: {
+    name: "The Bridge",
+    line: "You’re not choosing between two paths. A third one is forming.",
+    ask: "What stance could hold both?",
+    moon: '<circle class="lit" cx="20" cy="20" r="16"/>',
+    reading: "Bridge dreams appear when you’re caught between two pulls: two choices, two people, two versions of yourself. In the dream, opposites sit side by side, places merge, or one scene turns into another. Your unconscious isn’t telling you which side to pick. It’s showing you that the answer may be neither. Jung called this the transcendent function: when you hold the tension between opposites long enough, a third option appears that neither side could reach alone. Resist the urge to force a decision this week. Instead, ask the dream: what stance could hold both? Then pay close attention to the image where the two sides meet. That is often the bridge. Your next move is rarely option A or option B. It’s usually the one that keeps the best of both."
+  },
+  ret: {
+    name: "The Return",
+    line: "Your life keeps returning you to the same lesson until you take the next step.",
+    ask: "What do you want me to see?",
+    moon: '<path class="lit" d="M20 4a16 16 0 0 0 0 32 9 16 0 0 1 0-32z"/>',
+    reading: "Return dreams repeat: the same house, the same chase, the same exam, the same person. A recurring dream isn’t your mind being stuck; it’s your soul being persistent. It will keep sending the message until you answer. Jung’s method for this is Active Imagination: re-entering the dream while you’re awake and letting it continue. Sit quietly, return to the last scene you remember, and ask what happens next. Let the figures speak, and answer them honestly. Often the dream changes the moment you stop running or stop waking before the end. Ask it: what do you want me to see? The loop ends when the lesson is learned, and that’s usually when the next chapter opens."
+  },
+  shadow: {
+    name: "The Shadow Messenger",
+    line: "The quality you’ve been avoiding is the one your next chapter needs.",
+    ask: "What do you want from me?",
+    moon: '<circle class="rim" cx="20" cy="20" r="9"/>',
+    reading: "Shadow dreams bring you the stranger, the pursuer, the person you’d never want to be. They feel uncomfortable on purpose. Jung called the shadow the part of ourselves we’ve disowned, and it often wears someone else’s face, in dreams and in the people who get under our skin when we’re awake. The figure isn’t your enemy. It’s carrying a trait you’ve pushed away, and with it, energy you need. In your imagination, stop running and turn around. Ask it: what do you want from me? Then look for where you already express that same trait in your own life, in your own way. That’s where integration begins, and it’s the heart of the private work Sam does one to one. The trait you resist in others is often the strength your next chapter is asking you to claim."
+  }
+};
+
+var QUESTIONS = [
+  { q:"Which dream are you thinking of?", hint:"Pick the one that comes to mind first.", o:[
+    ["Last night’s, or one from this week", {threshold:1,counterweight:1}],
+    ["One that keeps coming back", {ret:3}],
+    ["One from years ago I’ve never forgotten", {threshold:1,ret:1}],
+    ["A nightmare", {shadow:2,ret:1}],
+    ["One that left me feeling torn", {bridge:2}] ]},
+  { q:"What’s happening in it?", o:[
+    ["I’m being chased, watched or threatened", {shadow:2}],
+    ["I’m searching for something, or lost", {threshold:1,ret:1}],
+    ["I’m caught between two places, people or choices", {bridge:2}],
+    ["I’m doing something I’d never do awake", {counterweight:2}],
+    ["I’m arriving at a door, an edge, or somewhere new", {threshold:2}] ]},
+  { q:"Who stands out in the dream?", o:[
+    ["A stranger I couldn’t quite see", {shadow:2}],
+    ["Someone from my past", {ret:2}],
+    ["Someone I know, acting unlike themselves", {counterweight:2}],
+    ["Two people who don’t belong together", {bridge:2}],
+    ["Mostly me, on my own", {threshold:2}] ]},
+  { q:"How did you feel when you woke up?", o:[
+    ["Unsettled. I wanted to shake it off", {shadow:2}],
+    ["Curious, like it meant something", {threshold:2}],
+    ["Strangely relieved, or lighter", {counterweight:2}],
+    ["Torn, or conflicted", {bridge:2}],
+    ["Tired. Here we go again", {ret:2}] ]},
+  { q:"How does the dream end?", o:[
+    ["I wake up before it resolves", {ret:2}],
+    ["It turns into a different scene", {bridge:2}],
+    ["I turn and face whatever it was", {shadow:2}],
+    ["Somewhere I’ve never been before", {threshold:2}],
+    ["Quietly. Nothing dramatic", {counterweight:2}] ]},
+  { q:"In your life right now, what feels most true?", o:[
+    ["Something is about to change, and I can feel it", {threshold:2}],
+    ["I’ve been holding it all together too tightly", {counterweight:2}],
+    ["I’m stuck between two choices", {bridge:2}],
+    ["The same problem keeps showing up", {ret:2}],
+    ["Someone is really getting under my skin", {shadow:2}] ]},
+  { q:"If the dream could talk, what would you <em>ask it?</em>", o:[
+    ["What’s coming?", {threshold:2}],
+    ["What am I missing?", {counterweight:2}],
+    ["Which way do I go?", {bridge:2}],
+    ["How do I get out of this loop?", {ret:2}],
+    ["What do you want from me?", {shadow:2}] ]}
+];
+
 
 (function(){
-  var modal=document.getElementById('modal'),last=null;
-  function open(e){last=e&&e.currentTarget;modal.hidden=false;document.body.classList.add('locked');setTimeout(function(){document.getElementById('lName').focus()},50);}
-  function close(){modal.hidden=true;document.body.classList.remove('locked');if(last)last.focus();}
-  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',open)});
-  document.getElementById('mClose').addEventListener('click',close);
-  modal.addEventListener('click',function(e){if(e.target===modal)close();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
-
-  document.getElementById('leadForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    var em=document.getElementById('lEmail'),msg=document.getElementById('lMsg');
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){em.classList.add('error');msg.textContent='Please enter a valid email address.';em.focus();return;}
-    em.classList.remove('error');msg.textContent='';
-    var data={name:document.getElementById('lName').value.trim(),email:em.value.trim(),dream:document.getElementById('lDream').value.trim(),_subject:'The Soulmate Within: free video'};
-    if(LEAD_ENDPOINT){fetch(LEAD_ENDPOINT,{method:'POST',headers:{Accept:'application/json'},body:new URLSearchParams(data)}).catch(function(){});}
-    else{document.getElementById('doneText').textContent='Preview: once your email tool is connected, the video and seven exercises go to '+data.email+'.';}
-    document.getElementById('mForm').hidden=true;document.getElementById('mDone').hidden=false;
-  });
-})();
-
-/* reveal on scroll */
-(function(){
-  var els=document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1});
-  els.forEach(function(e){io.observe(e)});
+  var body=document.getElementById('qBody'),bar=document.getElementById('qBar'),label=document.getElementById('qLabel');
+  var step=-1,answers=[],result=null,L="ABCDE";
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function prog(n,txt){bar.style.width=(n/(QUESTIONS.length+1)*100)+'%';label.textContent=txt;}
+  function score(){
+    var t={};Object.keys(TYPES).forEach(function(k){t[k]=0});
+    answers.forEach(function(a,qi){var w=QUESTIONS[qi].o[a][1];for(var k in w)t[k]+=w[k];});
+    var max=Math.max.apply(null,Object.values(t)),tied=Object.keys(t).filter(function(k){return t[k]===max});
+    if(tied.length===1)return tied[0];
+    for(var qi=answers.length-1;qi>=0;qi--){var w=QUESTIONS[qi].o[answers[qi]][1];for(var k in w)if(tied.indexOf(k)>-1)return k;}
+    return tied[0];
+  }
+  function render(d){
+    if(step<0){
+      prog(0,'Free · 2 minutes');
+      body.innerHTML='<div class="step"><span class="kicker">Free dream quiz</span><h2>What is your life <em>preparing you for?</em></h2>'+
+        '<ul class="start-list"><li><b>Your forecast</b>: one of five, revealed the moment you finish</li><li><b>The question to ask your dream</b> tomorrow morning</li><li><b>Your full written reading</b>, sent to your inbox</li></ul>'+
+        '<button class="btn" type="button" id="go">Start the quiz <span>→</span></button><p class="fine">7 questions · no right answers</p></div>';
+      document.getElementById('go').onclick=function(){step=0;render();};
+    } else if(step<QUESTIONS.length){
+      var Q=QUESTIONS[step];
+      prog(step,'Question '+(step+1)+' of '+QUESTIONS.length);
+      body.innerHTML='<div class="step"><h2>'+Q.q+'</h2>'+(Q.hint?'<p class="hint">'+esc(Q.hint)+'</p>':'')+
+        '<div class="opts">'+Q.o.map(function(o,i){return '<button type="button" class="opt'+(answers[step]===i?' sel':'')+'" data-i="'+i+'"><b>'+L[i]+'</b><span>'+esc(o[0])+'</span></button>'}).join('')+'</div>'+
+        '<button type="button" class="back">← Back</button></div>';
+      body.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){answers[step]=+b.dataset.i;b.classList.add('sel');setTimeout(function(){step++;render();},200);};});
+      body.querySelector('.back').onclick=function(){step--;render();};
+    } else if(!result){
+      prog(QUESTIONS.length,'Almost there');
+      body.innerHTML='<form class="step" novalidate><span class="kicker">Your forecast is ready</span><h2>Where should we send <em>your full reading?</em></h2>'+
+        '<div class="field"><label for="qName">First name</label><input id="qName" autocomplete="given-name" placeholder="Your name"></div>'+
+        '<div class="field"><label for="qEmail">Email</label><input id="qEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>'+
+        '<button class="btn" type="submit">Show my forecast <span>→</span></button><p class="msg" role="status"></p>'+
+        '<p class="fine">You’ll also receive occasional notes on dreams and the soul. Unsubscribe anytime.</p><button type="button" class="back">← Back</button></form>';
+      var f=body.querySelector('form');
+      f.querySelector('.back').onclick=function(){step--;render();};
+      f.onsubmit=function(e){
+        e.preventDefault();
+        var em=document.getElementById('qEmail'),nm=document.getElementById('qName');
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){em.classList.add('error');f.querySelector('.msg').textContent='Please enter a valid email address.';em.focus();return;}
+        result=score();var R=TYPES[result];
+        var data={name:nm.value.trim(),email:em.value.trim(),result:R.name,reading:R.reading,
+          answers:answers.map(function(a,qi){return QUESTIONS[qi].q.replace(/<[^>]+>/g,'')+': '+QUESTIONS[qi].o[a][0]}).join(' | '),_subject:'Your dream reading: '+R.name};
+        if(QUIZ_ENDPOINT){fetch(QUIZ_ENDPOINT,{method:'POST',headers:{Accept:'application/json'},body:new URLSearchParams(data)}).catch(function(){});}
+        render(data);
+      };
+    } else {
+      var R=TYPES[result];d=d||{};
+      prog(QUESTIONS.length+1,'Your result');
+      body.innerHTML='<div class="step result"><div class="orb" aria-hidden="true"></div><span class="kicker">'+(d.name?esc(d.name)+', your forecast is':'Your forecast is')+'</span>'+
+        '<div class="type">'+esc(R.name)+'</div><p class="line">'+esc(R.line)+'</p><p class="teaser">'+esc(R.reading.split('. ')[0])+'.</p>'+
+        '<p class="ask"><small>The question to ask your dream tomorrow morning</small>“'+esc(R.ask)+'”</p>'+
+        '<p class="sent">'+(QUIZ_ENDPOINT?'Your full reading is on its way to '+esc(d.email)+'.':'Preview: once connected, the full reading is emailed to '+esc(d.email||'you')+'.')+'</p>'+
+        '<button type="button" class="again">Take it again with another dream</button></div>';
+      body.querySelector('.again').onclick=function(){step=0;answers=[];result=null;render();};
+    }
+  }
+  render();
 })();
 </script>
 </body>
