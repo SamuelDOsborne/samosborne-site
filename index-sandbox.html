@@ -77,7 +77,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   text-align: center;
-  padding: 116px 40px 80px;
+  padding: 140px 40px 100px;
   background:
     radial-gradient(circle at 50% 36%, rgba(212,165,116,.22) 0%, rgba(212,165,116,.08) 14%, rgba(212,165,116,0) 38%),
     linear-gradient(180deg, rgba(26,26,26,.35) 0%, rgba(26,26,26,.55) 55%, rgba(26,26,26,.85) 100%),
@@ -292,7 +292,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .video-section-intro { text-align: center; }
 
 /* ===== Free gift (lead magnet) ===== */
-.hero-gift { margin: 30px auto 0; max-width: 620px; width: 100%; padding: 22px 24px 20px; border: 1px solid rgba(212,165,116,.34); border-radius: 18px; background: rgba(26,26,26,.62); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); text-align: left; opacity: 0; animation: riseIn .8s 1.15s ease forwards; }
+.gift-band-card { width: 100%; padding: 26px 26px 22px; border: 1px solid rgba(212,165,116,.34); border-radius: 20px; background: rgba(212,165,116,.05); text-align: left; }
 .gift-label { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--charcoal); background: var(--gold); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
 .gift-title { font-size: 1.05rem; font-weight: 600; color: var(--off); letter-spacing: -.015em; margin-bottom: 4px; }
 .gift-sub { font-size: .88rem; line-height: 1.55; color: rgba(240,237,232,.7); margin-bottom: 14px; }
@@ -309,6 +309,11 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .gift-success a { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .gift-error { font-size: .85rem; color: #F0B49A; margin-top: 8px; }
 
+.gift-band { background: #202020; border-top: 1px solid rgba(255,255,255,.08); padding: 90px 40px; }
+.gift-band-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; }
+.gift-band-copy h2 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.08; color: var(--off); margin-bottom: 14px; }
+.gift-band-copy p { font-size: 1rem; line-height: 1.65; color: rgba(240,237,232,.7); }
+
 /* Nav button: appears once the hero has scrolled away */
 .nav-gift { font-size: 12.5px; font-weight: 600; letter-spacing: -.01em; color: var(--gold); border: 1px solid rgba(212,165,116,.55); padding: 7px 14px; border-radius: 999px; background: transparent; cursor: pointer; font-family: inherit; white-space: nowrap; opacity: 0; transform: translateY(-4px); pointer-events: none; transition: opacity .3s ease, transform .3s ease, background .2s ease, color .2s ease; }
 .nav-gift:hover { background: var(--gold); color: #1A1A1A; }
@@ -324,6 +329,8 @@ body.past-hero .nav-gift { opacity: 1; transform: none; pointer-events: auto; }
 .gift-list li { font-size: .9rem; line-height: 1.55; color: rgba(240,237,232,.78); padding-left: 22px; position: relative; margin-bottom: 6px; }
 .gift-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; font-size: 12px; top: 2px; }
 .gift-dialog .gift-form { grid-template-columns: 1fr; }
+.gift-band-card .gift-form { grid-template-columns: 1fr 1fr; }
+.gift-band-card .gift-form button { grid-column: 1 / -1; }
 .gift-close { position: absolute; top: 12px; right: 14px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.14); background: transparent; color: rgba(240,237,232,.8); font-size: 20px; line-height: 1; cursor: pointer; }
 .gift-close:hover { border-color: var(--gold); color: var(--gold); }
 body.modal-open { overflow: hidden; }
@@ -331,7 +338,9 @@ body.modal-open { overflow: hidden; }
 /* Mobile: slim bar fixed to the bottom after the hero */
 .mobile-bar { display: none; }
 @media (max-width: 768px) {
-  .hero-gift { padding: 18px 16px 16px; margin-top: 32px; }
+  .gift-band { padding: 64px 20px; }
+  .gift-band-inner { grid-template-columns: 1fr; gap: 28px; }
+  .gift-band-card { padding: 20px 16px 18px; }
   .gift-form { grid-template-columns: 1fr; }
   .nav-gift { display: none; }
   .mobile-bar { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 1040; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(26,26,26,.94); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(255,255,255,.1); transform: translateY(110%); transition: transform .35s ease; }
@@ -365,7 +374,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   html { scroll-behavior: auto; }
   .marquee-track { animation: none; }
   .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .hero-kicker, .hero h1, .hero-rule, .hero-sub, .hero-tagline, .hero-actions, .hero-gift { opacity: 1 !important; animation: none !important; }
+  .hero-kicker, .hero h1, .hero-rule, .hero-sub, .hero-tagline, .hero-actions { opacity: 1 !important; animation: none !important; }
 }
 
 @media (max-width: 1100px) {
@@ -448,22 +457,6 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <div class="hero-actions">
     <a href="#book" class="btn-primary">Book a Free Fit Call</a>
     <a href="#offers" class="btn-ghost">See the Options</a>
-  </div>
-  <div class="hero-gift" id="free-gift">
-    <span class="gift-label">Free Gift</span>
-    <p class="gift-title">The Name Your Trigger Worksheet</p>
-    <p class="gift-sub">A 10-minute exercise to pinpoint the one person, memory, or pattern costing you the most, and see it more clearly.</p>
-    <div class="gift-body">
-      <form class="gift-form" action="https://formspree.io/f/xaqdebvj" method="POST" data-gift-form>
-        <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name">
-        <input type="email" name="email" required placeholder="Email address" autocomplete="email" aria-label="Email address">
-        <button type="submit">Send Me the Worksheet</button>
-        <input type="hidden" name="form_type" value="Lead Magnet: Name Your Trigger worksheet">
-        <input type="hidden" name="source" value="hero">
-        <div class="gift-hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
-      </form>
-      <p class="gift-fine">Free. You'll also get occasional notes from Sam on perception and composure. Unsubscribe anytime.</p>
-    </div>
   </div>
 </section>
 
@@ -882,6 +875,33 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   </div>
 </section>
 
+<!-- FREE GIFT BAND (just above the footer) -->
+<section class="gift-band" id="free-gift">
+  <div class="gift-band-inner reveal">
+    <div class="gift-band-copy">
+      <span class="eyebrow" style="text-align:left;">Not ready to book?</span>
+      <h2>Start with the free worksheet.</h2>
+      <p>Ten minutes, on your own, with the same first step Sam uses in every session.</p>
+    </div>
+  <div class="gift-band-card">
+    <span class="gift-label">Free Gift</span>
+    <p class="gift-title">The Name Your Trigger Worksheet</p>
+    <p class="gift-sub">A 10-minute exercise to pinpoint the one person, memory, or pattern costing you the most, and see it more clearly.</p>
+    <div class="gift-body">
+      <form class="gift-form" action="https://formspree.io/f/xaqdebvj" method="POST" data-gift-form>
+        <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name">
+        <input type="email" name="email" required placeholder="Email address" autocomplete="email" aria-label="Email address">
+        <button type="submit">Send Me the Worksheet</button>
+        <input type="hidden" name="form_type" value="Lead Magnet: Name Your Trigger worksheet">
+        <input type="hidden" name="source" value="footer">
+        <div class="gift-hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      </form>
+      <p class="gift-fine">Free. You'll also get occasional notes from Sam on perception and composure. Unsubscribe anytime.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
 <!-- FREE GIFT POP-UP -->
 <div class="gift-modal" id="giftModal" role="dialog" aria-modal="true" aria-labelledby="giftModalTitle">
   <div class="gift-dialog">
@@ -923,6 +943,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <a href="#sessions">Private Sessions</a>
       <a href="#stories">Client Stories</a>
       <a href="#book">Book a Fit Call</a>
+      <a href="#free-gift">Free Worksheet</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Engagement</a>
     </div>
@@ -979,7 +1000,9 @@ document.querySelectorAll('.yt').forEach(function(btn){
     new IntersectionObserver(function(es){ document.body.classList.toggle('past-hero', !es[0].isIntersecting); },{threshold:0.05}).observe(hero);
   }
   if(book && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ document.body.classList.toggle('near-form', es[0].isIntersecting); },{threshold:0.01}).observe(book);
+    var nearEls=[book,document.getElementById('free-gift')].filter(Boolean), nearState=new Map();
+    var nio=new IntersectionObserver(function(es){ es.forEach(function(e){nearState.set(e.target,e.isIntersecting);}); document.body.classList.toggle('near-form', Array.from(nearState.values()).some(Boolean)); },{threshold:0.01});
+    nearEls.forEach(function(el){nio.observe(el);});
   }
   var modal=document.getElementById('giftModal'), lastFocus=null;
   function openGift(){ lastFocus=document.activeElement; modal.classList.add('open'); document.body.classList.add('modal-open');
