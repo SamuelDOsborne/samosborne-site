@@ -567,6 +567,14 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   .intro-grid { margin-top: 48px; gap: 40px; }
   .stats-band { margin-top: 56px; }
 }
+
+/* As heard on (credibility row under the hero) */
+.heard-on { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 22px; padding: 26px 40px; background: var(--charcoal); border-top: 1px solid rgba(255,255,255,.06); }
+.heard-label { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.heard-list { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 8px 16px; color: rgba(240,237,232,.82) !important; font-size: 15px; font-weight: 500; }
+.heard-list:hover { color: var(--off) !important; }
+.heard-list i { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,165,116,.6); display: inline-block; }
+@media (max-width: 768px) { .heard-on { padding: 22px 20px; flex-direction: column; gap: 10px; } .heard-list { font-size: 14px; gap: 6px 12px; } }
 </style>
 </head>
 <body id="top">
@@ -609,6 +617,14 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   </div>
 </section>
 
+
+<!-- AS HEARD ON -->
+<div class="heard-on" aria-label="As heard on">
+  <span class="heard-label">As heard on</span>
+  <a href="#listen" class="heard-list">
+    <span>Real Estate Elevated with Cheryl Knowlton</span><i></i><span>Shari Leid</span><i></i><span>Mathew Blades</span><i></i><span>Jeff Mendelson</span>
+  </a>
+</div>
 
 <!-- FREE GIFT STRIP (top) -->
 <section class="gift-strip" id="hero-gift">
@@ -869,16 +885,16 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     </div>
     <div class="video-grid reveal-stagger">
       <div class="video-card">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/S7og2aAcYa4?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne podcast clip 1" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-        <div class="video-caption">On the podcast &middot; Clip 1</div>
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/S7og2aAcYa4?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne in conversation with Shari Leid" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        <div class="video-caption">In conversation with Shari Leid</div>
       </div>
       <div class="video-card">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/6_8JrzuRnoo?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne podcast clip 2" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-        <div class="video-caption">On the podcast &middot; Clip 2</div>
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/6_8JrzuRnoo?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne in conversation with Mathew Blades" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        <div class="video-caption">In conversation with Mathew Blades</div>
       </div>
       <div class="video-card">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/mduKnQgAr-0?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne podcast clip 3" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
-        <div class="video-caption">On the podcast &middot; Clip 3</div>
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/mduKnQgAr-0?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne in conversation with Jeff Mendelson" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        <div class="video-caption">In conversation with Jeff Mendelson</div>
       </div>
     </div>
     <div class="episode-card reveal">
