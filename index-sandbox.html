@@ -77,7 +77,7 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
   min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   text-align: center;
-  padding: 140px 40px 100px;
+  padding: 116px 40px 80px;
   background:
     radial-gradient(circle at 50% 36%, rgba(212,165,116,.22) 0%, rgba(212,165,116,.08) 14%, rgba(212,165,116,0) 38%),
     linear-gradient(180deg, rgba(26,26,26,.35) 0%, rgba(26,26,26,.55) 55%, rgba(26,26,26,.85) 100%),
@@ -291,6 +291,58 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .photo-strip.single img { object-position: 18% 45%; }
 .video-section-intro { text-align: center; }
 
+/* ===== Free gift (lead magnet) ===== */
+.hero-gift { margin: 30px auto 0; max-width: 620px; width: 100%; padding: 22px 24px 20px; border: 1px solid rgba(212,165,116,.34); border-radius: 18px; background: rgba(26,26,26,.62); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); text-align: left; opacity: 0; animation: riseIn .8s 1.15s ease forwards; }
+.gift-label { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--charcoal); background: var(--gold); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+.gift-title { font-size: 1.05rem; font-weight: 600; color: var(--off); letter-spacing: -.015em; margin-bottom: 4px; }
+.gift-sub { font-size: .88rem; line-height: 1.55; color: rgba(240,237,232,.7); margin-bottom: 14px; }
+.gift-form { display: grid; grid-template-columns: 1fr 1.3fr auto; gap: 8px; }
+.gift-form input[type=text], .gift-form input[type=email] { width: 100%; padding: 12px 14px; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; background: rgba(255,255,255,.07); color: var(--white); font-size: 14px; font-family: inherit; }
+.gift-form input::placeholder { color: rgba(240,237,232,.45); }
+.gift-form input:focus { outline: none; border-color: var(--gold); }
+.gift-form button { padding: 12px 18px; border: none; border-radius: 10px; background: var(--gold); color: #1A1A1A; font-weight: 700; font-size: 14px; font-family: inherit; cursor: pointer; white-space: nowrap; transition: background .2s ease; }
+.gift-form button:hover { background: #E8C497; }
+.gift-form button[disabled] { opacity: .6; cursor: wait; }
+.gift-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.gift-fine { font-size: 11.5px; line-height: 1.5; color: rgba(240,237,232,.58); margin-top: 10px; }
+.gift-success { font-size: .95rem; line-height: 1.6; color: var(--off); }
+.gift-success a { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.gift-error { font-size: .85rem; color: #F0B49A; margin-top: 8px; }
+
+/* Nav button: appears once the hero has scrolled away */
+.nav-gift { font-size: 12.5px; font-weight: 600; letter-spacing: -.01em; color: var(--gold); border: 1px solid rgba(212,165,116,.55); padding: 7px 14px; border-radius: 999px; background: transparent; cursor: pointer; font-family: inherit; white-space: nowrap; opacity: 0; transform: translateY(-4px); pointer-events: none; transition: opacity .3s ease, transform .3s ease, background .2s ease, color .2s ease; }
+.nav-gift:hover { background: var(--gold); color: #1A1A1A; }
+body.past-hero .nav-gift { opacity: 1; transform: none; pointer-events: auto; }
+
+/* Pop-up */
+.gift-modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(10,10,10,.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.gift-modal.open { display: flex; }
+.gift-dialog { position: relative; width: 100%; max-width: 520px; background: #222; border: 1px solid rgba(212,165,116,.34); border-radius: 22px; padding: 34px 30px 26px; box-shadow: 0 30px 80px rgba(0,0,0,.5); animation: riseIn .35s ease; }
+.gift-dialog h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 700; letter-spacing: -.03em; color: var(--white); line-height: 1.15; margin-bottom: 10px; }
+.gift-dialog .gift-sub { font-size: .95rem; }
+.gift-list { list-style: none; margin: 4px 0 18px; }
+.gift-list li { font-size: .9rem; line-height: 1.55; color: rgba(240,237,232,.78); padding-left: 22px; position: relative; margin-bottom: 6px; }
+.gift-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; font-size: 12px; top: 2px; }
+.gift-dialog .gift-form { grid-template-columns: 1fr; }
+.gift-close { position: absolute; top: 12px; right: 14px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.14); background: transparent; color: rgba(240,237,232,.8); font-size: 20px; line-height: 1; cursor: pointer; }
+.gift-close:hover { border-color: var(--gold); color: var(--gold); }
+body.modal-open { overflow: hidden; }
+
+/* Mobile: slim bar fixed to the bottom after the hero */
+.mobile-bar { display: none; }
+@media (max-width: 768px) {
+  .hero-gift { padding: 18px 16px 16px; margin-top: 32px; }
+  .gift-form { grid-template-columns: 1fr; }
+  .nav-gift { display: none; }
+  .mobile-bar { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 1040; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(26,26,26,.94); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(255,255,255,.1); transform: translateY(110%); transition: transform .35s ease; }
+  body.past-hero .mobile-bar { transform: none; }
+  body.near-form .mobile-bar { transform: translateY(110%); }
+  .mobile-bar button, .mobile-bar a { flex: 1; text-align: center; padding: 12px 10px; border-radius: 999px; font-size: 14px; font-weight: 600; font-family: inherit; }
+  .mobile-bar button { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,116,.6); }
+  .mobile-bar a { background: var(--gold); color: #1A1A1A; border: 1px solid var(--gold); }
+  footer { padding-bottom: 96px; }
+}
+
 footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px solid rgba(255,255,255,.1); }
 .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
 .footer-links { display: flex; justify-content: center; gap: 26px; margin-bottom: 26px; flex-wrap: wrap; }
@@ -313,7 +365,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   html { scroll-behavior: auto; }
   .marquee-track { animation: none; }
   .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .hero-kicker, .hero h1, .hero-rule, .hero-sub, .hero-tagline, .hero-actions { opacity: 1 !important; animation: none !important; }
+  .hero-kicker, .hero h1, .hero-rule, .hero-sub, .hero-tagline, .hero-actions, .hero-gift { opacity: 1 !important; animation: none !important; }
 }
 
 @media (max-width: 1100px) {
@@ -379,6 +431,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <li><a href="#listen">Listen</a></li>
     </ul>
     <div class="nav-right">
+      <button class="nav-gift" type="button" data-open-gift>Free Worksheet</button>
       <a class="nav-phone" href="tel:+18189345140">+1 (818) 934-5140</a>
       <a class="nav-cta" href="#book">Book a Fit Call ›</a>
     </div>
@@ -395,6 +448,22 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <div class="hero-actions">
     <a href="#book" class="btn-primary">Book a Free Fit Call</a>
     <a href="#offers" class="btn-ghost">See the Options</a>
+  </div>
+  <div class="hero-gift" id="free-gift">
+    <span class="gift-label">Free Gift</span>
+    <p class="gift-title">The Name Your Trigger Worksheet</p>
+    <p class="gift-sub">A 10-minute exercise to pinpoint the one person, memory, or pattern costing you the most, and see it more clearly.</p>
+    <div class="gift-body">
+      <form class="gift-form" action="https://formspree.io/f/xaqdebvj" method="POST" data-gift-form>
+        <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name">
+        <input type="email" name="email" required placeholder="Email address" autocomplete="email" aria-label="Email address">
+        <button type="submit">Send Me the Worksheet</button>
+        <input type="hidden" name="form_type" value="Lead Magnet: Name Your Trigger worksheet">
+        <input type="hidden" name="source" value="hero">
+        <div class="gift-hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      </form>
+      <p class="gift-fine">Free. You'll also get occasional notes from Sam on perception and composure. Unsubscribe anytime.</p>
+    </div>
   </div>
 </section>
 
@@ -813,6 +882,38 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   </div>
 </section>
 
+<!-- FREE GIFT POP-UP -->
+<div class="gift-modal" id="giftModal" role="dialog" aria-modal="true" aria-labelledby="giftModalTitle">
+  <div class="gift-dialog">
+    <button class="gift-close" type="button" aria-label="Close" data-close-gift>&times;</button>
+    <span class="gift-label">Free Gift</span>
+    <h2 id="giftModalTitle">Name the one thing that keeps pulling you off your game.</h2>
+    <p class="gift-sub">The Name Your Trigger worksheet walks you through the same first step Sam uses in every session.</p>
+    <ul class="gift-list">
+      <li>Pinpoint the person or pattern carrying the most charge</li>
+      <li>Score how one-sided it feels right now</li>
+      <li>Start seeing what you've been missing, in about 10 minutes</li>
+    </ul>
+    <div class="gift-body">
+      <form class="gift-form" action="https://formspree.io/f/xaqdebvj" method="POST" data-gift-form>
+        <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name">
+        <input type="email" name="email" required placeholder="Email address" autocomplete="email" aria-label="Email address">
+        <button type="submit">Send Me the Worksheet</button>
+        <input type="hidden" name="form_type" value="Lead Magnet: Name Your Trigger worksheet">
+        <input type="hidden" name="source" value="popup">
+        <div class="gift-hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      </form>
+      <p class="gift-fine">Free. You'll also get occasional notes from Sam on perception and composure. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE BOTTOM BAR -->
+<div class="mobile-bar" aria-label="Quick actions">
+  <button type="button" data-open-gift>Free Worksheet</button>
+  <a href="#book">Book a Fit Call</a>
+</div>
+
 <footer>
   <div class="footer-content">
     <div class="footer-links">
@@ -870,6 +971,44 @@ document.querySelectorAll('.yt').forEach(function(btn){
     btn.innerHTML='';btn.appendChild(f);btn.style.cursor='default';
   },{once:true});
 });
+
+/* ===== Free gift: show nav button / mobile bar after the hero, pop-up, form submit ===== */
+(function(){
+  var hero=document.querySelector('.hero'), book=document.getElementById('book');
+  if(hero && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ document.body.classList.toggle('past-hero', !es[0].isIntersecting); },{threshold:0.05}).observe(hero);
+  }
+  if(book && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ document.body.classList.toggle('near-form', es[0].isIntersecting); },{threshold:0.01}).observe(book);
+  }
+  var modal=document.getElementById('giftModal'), lastFocus=null;
+  function openGift(){ lastFocus=document.activeElement; modal.classList.add('open'); document.body.classList.add('modal-open');
+    var f=modal.querySelector('input[type=text]:not([name=_gotcha]), input[type=email]'); if(f) setTimeout(function(){f.focus();},50); }
+  function closeGift(){ modal.classList.remove('open'); document.body.classList.remove('modal-open'); if(lastFocus) lastFocus.focus(); }
+  document.querySelectorAll('[data-open-gift]').forEach(function(b){ b.addEventListener('click', openGift); });
+  document.querySelectorAll('[data-close-gift]').forEach(function(b){ b.addEventListener('click', closeGift); });
+  modal.addEventListener('click', function(e){ if(e.target===modal) closeGift(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeGift(); });
+
+  /* Where the worksheet lives once you upload it */
+  var WORKSHEET_URL='/downloads/name-your-trigger-worksheet.pdf';
+  document.querySelectorAll('[data-gift-form]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      if(!window.fetch) return; /* old browsers: normal post */
+      e.preventDefault();
+      var btn=form.querySelector('button'), old=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
+      var err=form.parentNode.querySelector('.gift-error'); if(err) err.remove();
+      fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+        .then(function(r){ if(!r.ok) throw new Error(); 
+          var body=form.closest('.gift-body');
+          body.innerHTML='<p class="gift-success"><strong>It\'s yours.</strong> <a href="'+WORKSHEET_URL+'" target="_blank" rel="noopener">Download the Name Your Trigger worksheet</a>. When you\'re ready to go further, <a href="#book" data-close-after>book a free fit call</a>.</p>';
+          var c=body.querySelector('[data-close-after]'); if(c) c.addEventListener('click', function(){ if(modal.classList.contains('open')) closeGift(); });
+        })
+        .catch(function(){ btn.disabled=false; btn.textContent=old;
+          var p=document.createElement('p'); p.className='gift-error'; p.textContent='Something went wrong. Please try again, or email sam@samosborne.net.'; form.insertAdjacentElement('afterend',p); });
+    });
+  });
+})();
 
 (function(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>obs.observe(el));})();
 </script>
