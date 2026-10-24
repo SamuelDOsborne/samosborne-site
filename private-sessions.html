@@ -235,15 +235,15 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .photo-strip img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.86) contrast(1.04); }
 .photo-strip figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 20px 16px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(240,237,232,.85); background: linear-gradient(180deg, rgba(26,26,26,0) 0%, rgba(26,26,26,.82) 100%); }
 
-/* Podcast videos — click-to-load so the page stays fast */
+/* Podcast videos — standard YouTube players with full controls */
 .video-head { text-align: center; margin-top: 80px; }
 .video-head h3 { font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 700; letter-spacing: -.03em; color: var(--off); margin-top: 6px; }
 .video-head p { font-size: .95rem; font-weight: 400; color: rgba(240,237,232,.66); margin-top: 10px; }
 .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
 .video-card { border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); transition: border-color .3s ease, transform .3s ease; }
 .video-card:hover { border-color: rgba(212,165,116,.45); transform: translateY(-4px); }
-.yt { position: relative; aspect-ratio: 16 / 9; background: #111 center / cover no-repeat; cursor: pointer; border: 0; width: 100%; display: block; padding: 0; }
-.yt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,26,26,.1), rgba(26,26,26,.45)); transition: opacity .3s ease; }
+.yt { position: relative; aspect-ratio: 16 / 9; background: #111; cursor: auto; border: 0; width: 100%; display: block; padding: 0; }
+
 .yt:hover::after { opacity: .5; }
 .yt-play { position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 64px; height: 64px; border-radius: 50%; background: rgba(212,165,116,.92); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform .22s ease; }
 .yt:hover .yt-play { transform: translate(-50%,-50%) scale(1.08); }
@@ -508,6 +508,65 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 .bio-grid--studio { grid-template-columns: 1fr !important; gap: 44px; }
 .bio-grid--studio .bio-photo--full { max-width: none; width: 100%; border-radius: 22px; }
 .bio-grid--studio .bio-copy { max-width: 780px; margin: 0 auto; }
+
+/* ===== Breathing room: hero ===== */
+.hero { grid-template-columns: 52% 48%; }
+.hero-media { width: 56%; }
+.hero-content { padding: 150px 64px 110px 24px; max-width: 600px; }
+.hero-kicker { margin-bottom: 22px; letter-spacing: .14em; }
+.hero h1 { font-size: clamp(2.5rem, 3.7vw, 4rem); line-height: 1.06; letter-spacing: -.035em; max-width: 12.5ch; margin: 0 0 28px; }
+.hero-rule { display: none; }
+.hero-sub { font-size: clamp(1.08rem, 1.45vw, 1.28rem); line-height: 1.6; max-width: 40ch; margin: 0 0 40px; color: rgba(240,237,232,.8); }
+.hero-actions { gap: 14px; }
+.hero-proof { margin: 26px 0 0; font-size: 14px; color: rgba(240,237,232,.62); font-weight: 400; }
+
+/* Gift strip under the hero */
+.gift-strip { background: #222; border-top: 1px solid rgba(212,165,116,.22); border-bottom: 1px solid rgba(255,255,255,.06); padding: 34px 40px; }
+.gift-strip-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: center; }
+.gift-strip-copy { display: flex; align-items: center; gap: 16px; }
+.gift-strip-copy .gift-label { margin-bottom: 0; flex-shrink: 0; }
+.gift-strip-copy p { font-size: 1.02rem; line-height: 1.5; color: rgba(240,237,232,.78); }
+.gift-strip-copy strong { color: var(--off); font-weight: 600; }
+.gift-strip .gift-form { grid-template-columns: 1fr 1.3fr auto; }
+
+/* ===== Breathing room: one vertical rhythm for every section ===== */
+.section { padding: 140px 40px; }
+.section .eyebrow { margin-bottom: 18px; }
+.section .t-xl + p, .section .t-xl + .lead-light { margin-top: 22px !important; }
+.problem-grid, .testimonial-grid, .pricing-grid, .video-grid { margin-top: 64px; gap: 20px; }
+.after-list { margin-top: 64px; gap: 16px; }
+.two-col { margin-top: 72px; gap: 96px; }
+.intro-grid { margin-top: 80px; gap: 80px; }
+.bio-grid { margin-top: 64px; }
+.stats-band { margin-top: 80px; gap: 16px; }
+.photo-strip { margin-top: 20px; }
+.lead-quote { margin-top: 64px; }
+.testimonial-grid { margin-top: 20px; }
+.episode-card { margin-top: 24px; }
+.booking-host { margin-bottom: 48px; }
+.gift-band { padding: 120px 40px; }
+.tone-b { background: #1F1F1F; }
+.section-dark.tone-b + .section-dark, .section-dark + .section-dark.tone-b { border-top: 1px solid rgba(255,255,255,.04); }
+
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-media { width: 100%; }
+  .hero-content { grid-column: 1; padding: 16px 24px 80px; max-width: 640px; }
+  .hero h1 { max-width: 14ch; }
+  .gift-strip-inner { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 768px) {
+  .section { padding: 96px 20px; }
+  .gift-band { padding: 88px 20px; }
+  .gift-strip { padding: 28px 20px; }
+  .gift-strip-copy { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .gift-strip .gift-form { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.45rem; }
+  .problem-grid, .testimonial-grid, .pricing-grid, .video-grid, .after-list { margin-top: 44px; }
+  .two-col { margin-top: 48px; gap: 48px; }
+  .intro-grid { margin-top: 48px; gap: 40px; }
+  .stats-band { margin-top: 56px; }
+}
 </style>
 </head>
 <body id="top">
@@ -539,36 +598,40 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 <section class="hero" id="sessions">
   <div class="hero-media" aria-hidden="true"><img src="/images/sam-osborne-hero-banner.jpg" alt=""></div>
   <div class="hero-content">
-  <span class="hero-kicker">For Accomplished Professionals<span class="kicker-extra"> · Private Sessions</span></span>
-  <h1>From second-guessing yourself at 2&nbsp;a.m. to walking in calm, clear, and certain.</h1>
-  <div class="hero-rule"></div>
-  <p class="hero-sub">Private one-to-one sessions for speakers, coaches, leaders, and attorneys held back by self-doubt, guilt, or one person they can't stop reacting to. See it clearly, and it stops running you.</p>
-  <p class="hero-proof">Trusted by professionals in 10 countries · 45+ client testimonials</p>
-  <div class="hero-actions">
-    <a href="#book" class="btn-primary">Book a Free Fit Call</a>
-    <a href="#offers" class="btn-ghost">See Sessions &amp; Pricing</a>
+    <span class="hero-kicker">For Accomplished Professionals</span>
+    <h1>From 2&nbsp;a.m. self&#8209;doubt to calm, clear, and certain.</h1>
+    <p class="hero-sub">Private sessions for speakers, coaches, leaders, and attorneys held back by self-doubt, guilt, or one person they can't stop reacting to.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Book a Free Fit Call</a>
+      <a href="#offers" class="btn-ghost">See Sessions &amp; Pricing</a>
+    </div>
+    <p class="hero-proof">Trusted by professionals in 10 countries · 45+ client testimonials</p>
   </div>
-  <div class="hero-gift" id="hero-gift">
-    <span class="gift-label">Free Gift</span>
-    <p class="gift-title">The Name Your Trigger Worksheet</p>
-    <p class="gift-sub">Find the one thing costing you the most, in 10 minutes.</p>
+</section>
+
+
+<!-- FREE GIFT STRIP (top) -->
+<section class="gift-strip" id="hero-gift">
+  <div class="gift-strip-inner">
+    <div class="gift-strip-copy">
+      <span class="gift-label">Free Gift</span>
+      <p><strong>The Name Your Trigger Worksheet.</strong> Find the one thing costing you the most, in 10 minutes.</p>
+    </div>
     <div class="gift-body">
       <form class="gift-form" action="https://formspree.io/f/xaqdebvj" method="POST" data-gift-form>
         <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name">
         <input type="email" name="email" required placeholder="Email address" autocomplete="email" aria-label="Email address">
         <button type="submit">Send It to Me</button>
         <input type="hidden" name="form_type" value="Lead Magnet: Name Your Trigger worksheet">
-        <input type="hidden" name="source" value="hero">
+        <input type="hidden" name="source" value="top-strip">
         <div class="gift-hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       </form>
-      <p class="gift-fine">Free. Occasional notes from Sam. Unsubscribe anytime.</p>
     </div>
-  </div>
   </div>
 </section>
 
 <!-- WHO IT'S FOR -->
-<section class="section section-dark" id="for-you" style="padding:100px 40px 110px;">
+<section class="section section-dark" id="for-you">
   <div class="section-content">
     <p class="intro-statement reveal">You've done the work. Therapy, coaching, the books. And there's still one thing pulling you off your game.</p>
     <div class="intro-grid reveal">
@@ -640,7 +703,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section section-dark" id="how" style="padding-top:20px;">
+<section class="section section-dark tone-b" id="how">
   <div class="section-content">
     <div class="reveal" style="text-align:center;">
       <span class="eyebrow">How a Session Works</span>
@@ -722,7 +785,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </section>
 
 <!-- WHY SAM -->
-<section class="section section-dark" id="about" style="padding-top:20px;">
+<section class="section section-dark tone-b" id="about">
   <div class="section-content">
     <div class="reveal" style="text-align:center;">
       <span class="eyebrow">Why Sam</span>
@@ -798,7 +861,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </section>
 
 <!-- HEAR HIM FIRST -->
-<section class="section section-dark" id="listen" style="padding-top:20px;">
+<section class="section section-dark tone-b" id="listen">
   <div class="section-content">
     <div class="video-head reveal" style="margin-top:0;">
       <span class="eyebrow">Hear Him First</span>
@@ -806,15 +869,15 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     </div>
     <div class="video-grid reveal-stagger">
       <div class="video-card">
-        <button class="yt" data-id="S7og2aAcYa4" aria-label="Play podcast clip 1" style="background-image:url('https://i.ytimg.com/vi/S7og2aAcYa4/hqdefault.jpg');"><span class="yt-play"></span></button>
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/S7og2aAcYa4?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne podcast clip 1" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
         <div class="video-caption">On the podcast &middot; Clip 1</div>
       </div>
       <div class="video-card">
-        <button class="yt" data-id="6_8JrzuRnoo" aria-label="Play podcast clip 2" style="background-image:url('https://i.ytimg.com/vi/6_8JrzuRnoo/hqdefault.jpg');"><span class="yt-play"></span></button>
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/6_8JrzuRnoo?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne podcast clip 2" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
         <div class="video-caption">On the podcast &middot; Clip 2</div>
       </div>
       <div class="video-card">
-        <button class="yt" data-id="mduKnQgAr-0" aria-label="Play podcast clip 3" style="background-image:url('https://i.ytimg.com/vi/mduKnQgAr-0/hqdefault.jpg');"><span class="yt-play"></span></button>
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/mduKnQgAr-0?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne podcast clip 3" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
         <div class="video-caption">On the podcast &middot; Clip 3</div>
       </div>
     </div>
@@ -1010,18 +1073,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 
 (function(){document.querySelectorAll('details.details').forEach(det=>{const summ=det.querySelector('summary'),body=det.querySelector('.details-body');if(!summ||!body)return;summ.addEventListener('click',e=>{e.preventDefault();if(!det.open){det.open=true;body.style.overflow='hidden';body.style.maxHeight='0';body.style.opacity='0';body.style.paddingTop='0';body.style.marginTop='0';body.offsetHeight;body.style.transition='max-height .5s cubic-bezier(.25,.46,.45,.94),opacity .38s ease,padding-top .38s ease,margin-top .38s ease';body.style.maxHeight=(body.scrollHeight+26)+'px';body.style.opacity='1';body.style.paddingTop='12px';body.style.marginTop='10px';body.addEventListener('transitionend',()=>{body.style.maxHeight='none';body.style.overflow='visible';body.style.transition='';body.classList.add('is-open');},{once:true});}else{body.classList.remove('is-open');body.style.overflow='hidden';body.style.maxHeight=body.scrollHeight+'px';body.style.opacity='1';body.offsetHeight;body.style.transition='max-height .42s cubic-bezier(.25,.46,.45,.94),opacity .32s ease,padding-top .32s ease,margin-top .32s ease';body.style.maxHeight='0';body.style.opacity='0';body.style.paddingTop='0';body.style.marginTop='0';body.addEventListener('transitionend',()=>{det.open=false;body.style.transition='';body.style.overflow='';},{once:true});}});});})();
 
-/* Click-to-load YouTube: thumbnail first, player only on click */
-document.querySelectorAll('.yt').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    var id=btn.getAttribute('data-id');
-    var f=document.createElement('iframe');
-    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
-    f.title='Sam Osborne podcast clip';
-    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    f.allowFullscreen=true;
-    btn.innerHTML='';btn.appendChild(f);btn.style.cursor='default';
-  },{once:true});
-});
+
 
 /* ===== Free gift: show nav button / mobile bar after the hero, pop-up, form submit ===== */
 (function(){
