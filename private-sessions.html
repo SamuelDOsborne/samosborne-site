@@ -884,7 +884,10 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 
 /* ===== Cinematic layer ===== */
 /* Hero: slow push-in, film grain, letterbox open */
-.hero-media img { transform-origin: 38% 30%; }
+.hero-media img { transform-origin: 40% 0%; }
+/* Keep Sam's head clear of the fixed nav bar */
+.hero-media { top: 52px; }
+@media (max-width: 1000px) { .hero-media { top: auto; margin-top: 52px; } .hero-media img { object-position: 34% 0%; } }
 .cine .hero-media img { animation: cinePush 26s cubic-bezier(.2,.6,.3,1) forwards; }
 @keyframes cinePush { from { transform: scale(1.0); } to { transform: scale(1.08); } }
 .hero-media .grain { position: absolute; inset: -50%; z-index: 1; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
