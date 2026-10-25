@@ -1554,11 +1554,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
   /* Where the worksheet lives once you upload it */
   var WORKSHEET_URL='/downloads/name-your-trigger-worksheet.pdf';
   /* Copy of each submission sent to Sam's private Google Sheet (Apps Script web app URL). Empty = off. */
-  var SHEET_ENDPOINT='';
+  var SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbwZSZy0nbTV9gVmAsxm7uuziUCxFgZOOLaOwu9I2wTRDq3IUUTwhH2y697SjdfoK5G7/exec';
   function sendToSheet(form){
     if(!SHEET_ENDPOINT) return;
     try{
-      fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,body:new URLSearchParams(new FormData(form))});
+      var data=new URLSearchParams(new FormData(form));
+      if(navigator.sendBeacon && navigator.sendBeacon(SHEET_ENDPOINT,data)) return;
+      fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,body:data});
     }catch(err){}
   }
   var sessionForm=document.getElementById('session-form');

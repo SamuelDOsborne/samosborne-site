@@ -111,14 +111,19 @@ footer a { color: rgba(240,237,232,.7); text-decoration: none; }
 <script>
 (function(){
   var EXERCISE_URL='/downloads/under-your-skin-exercise.pdf';
+  var SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbwZSZy0nbTV9gVmAsxm7uuziUCxFgZOOLaOwu9I2wTRDq3IUUTwhH2y697SjdfoK5G7/exec';
+  function sendToSheet(f){ try{ var d=new URLSearchParams(new FormData(f)); if(navigator.sendBeacon && navigator.sendBeacon(SHEET_ENDPOINT,d)) return; fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,body:d}); }catch(err){} }
   var form=document.getElementById('start-form'), card=document.getElementById('card');
   try {
     var q=new URLSearchParams(location.search);
     ['utm_source','utm_medium','utm_campaign','ttclid'].forEach(function(k){ var v=q.get(k); if(v) form.elements[k].value=v.slice(0,120); });
     if(!form.elements.utm_source.value && /tiktok/i.test(document.referrer)) form.elements.utm_source.value='tiktok';
+    if(form.elements.utm_source.value) form.elements.source.value='start-page ('+form.elements.utm_source.value+(form.elements.utm_medium.value?' / '+form.elements.utm_medium.value:'')+')';
   } catch(e){}
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    if(form.elements._gotcha.value) return;
+    sendToSheet(form);
     var btn=form.querySelector('button'), old=btn.textContent;
     btn.disabled=true; btn.textContent='Sending…';
     var prev=form.querySelector('.err'); if(prev) prev.remove();
