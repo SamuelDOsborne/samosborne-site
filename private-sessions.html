@@ -881,6 +881,72 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 .photo-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 22px 16px; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: rgba(240,237,232,.92); background: linear-gradient(180deg, rgba(26,26,26,0) 0%, rgba(26,26,26,.85) 100%); }
 .photo-caption em { font-style: italic; }
 @media (max-width: 768px) { .photo-caption { font-size: 12px; padding: 32px 16px 12px; } }
+
+/* ===== Cinematic layer ===== */
+/* Hero: slow push-in, film grain, letterbox open */
+.hero-media img { transform-origin: 38% 30%; }
+.cine .hero-media img { animation: cinePush 26s cubic-bezier(.2,.6,.3,1) forwards; }
+@keyframes cinePush { from { transform: scale(1.0); } to { transform: scale(1.08); } }
+.hero-media .grain { position: absolute; inset: -50%; z-index: 1; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.cine .hero-media .grain { animation: grain 1.2s steps(6) infinite; }
+@keyframes grain { 0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)} }
+.hero-media .lb { position: absolute; left: 0; right: 0; height: 0; background: #0d0d0d; z-index: 2; pointer-events: none; }
+.hero-media .lb-top { top: 0; } .hero-media .lb-bot { bottom: 0; }
+.cine .hero-media .lb { animation: lbOpen 1.6s cubic-bezier(.7,0,.2,1) both; }
+@keyframes lbOpen { from { height: 50%; } to { height: 0; } }
+.bg-loop { position: absolute; top: 50%; left: 50%; border: 0; pointer-events: none; opacity: 0; transform: translate(-50%,-50%); transition: opacity 1.4s ease; }
+.bg-loop.on { opacity: 1; }
+.bg-dip { position: absolute; inset: 0; background: #0d0d0d; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+.bg-dip.on { opacity: 1; }
+.loop-toggle { position: absolute; left: 20px; bottom: 20px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(0,0,0,.4); color: #fff; font-size: 13px; cursor: pointer; display: none; }
+.has-loop > .loop-toggle { display: block; }
+.interlude .loop-toggle { left: auto; right: 20px; }
+
+/* Watch-the-reel button under the hero buttons */
+.reel-btn { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; background: none; border: 0; padding: 0; color: rgba(240,237,232,.86); font: inherit; font-size: 15px; font-weight: 500; cursor: pointer; }
+.reel-btn .rb-icon { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(212,165,116,.7); display: inline-flex; align-items: center; justify-content: center; transition: background .25s ease, transform .25s ease; }
+.reel-btn .rb-icon::before { content: ""; margin-left: 3px; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent var(--gold); }
+.reel-btn:hover .rb-icon { background: rgba(212,165,116,.16); transform: scale(1.06); }
+.reel-btn small { display: block; font-size: 12px; color: rgba(240,237,232,.5); font-weight: 400; }
+
+/* Full-bleed interlude */
+.interlude { position: relative; min-height: 78vh; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 9vh; overflow: hidden; background: #0d0d0d; text-align: center; }
+.interlude img { position: absolute; inset: -8% 0; width: 100%; height: 116%; object-fit: cover; object-position: 50% 40%; filter: saturate(.85) contrast(1.05); }
+.interlude::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(13,13,13,.1) 0%, rgba(13,13,13,.6) 75%), linear-gradient(180deg, var(--charcoal) 0%, rgba(26,26,26,0) 20%, rgba(26,26,26,0) 50%, rgba(13,13,13,.85) 82%, var(--charcoal) 100%); z-index: 1; }
+.interlude-copy { position: relative; z-index: 2; padding: 0 24px; max-width: 900px; }
+.interlude-copy p { font-size: clamp(2rem, 4.6vw, 4.2rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.08; color: #fff; text-wrap: balance; text-shadow: 0 4px 40px rgba(0,0,0,.5); }
+.interlude-copy span { display: block; margin-top: 18px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+@supports (animation-timeline: view()) {
+  .cine .interlude img { animation: drift linear both; animation-timeline: view(); }
+  @keyframes drift { from { transform: translateY(-6%) scale(1.04); } to { transform: translateY(6%) scale(1.04); } }
+}
+
+/* On camera: video testimonials */
+.oncam-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+.oncam-card { border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); transition: border-color .3s ease, transform .3s ease; }
+.oncam-card:hover { border-color: rgba(212,165,116,.45); transform: translateY(-4px); }
+.oncam-frame { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; padding: 0; background: #111; cursor: pointer; overflow: hidden; }
+.oncam-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; filter: saturate(.9); }
+.oncam-frame:hover img { transform: scale(1.04); }
+.oncam-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,.45) 100%); }
+.oncam-name { padding: 16px 18px 2px; font-weight: 600; color: var(--off); font-size: .95rem; }
+.oncam-role { padding: 0 18px 16px; font-size: .82rem; color: rgba(240,237,232,.6); }
+.oncam-note { text-align: center; margin-top: 18px; font-size: 13px; color: rgba(240,237,232,.5); }
+@media (max-width: 900px) { .oncam-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; } }
+
+/* Video lightbox */
+.vbox { position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; background: rgba(5,5,5,.92); padding: 24px; }
+.vbox.open { display: flex; animation: vfade .35s ease; }
+@keyframes vfade { from { opacity: 0; } to { opacity: 1; } }
+.vbox-frame { position: relative; width: min(1100px, 100%); aspect-ratio: 16 / 9; background: #000; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+.vbox-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vbox-close { position: absolute; top: 18px; right: 18px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.06); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+.vbox-cta { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media img, .hero-media .grain, .hero-media .lb, .interlude img { animation: none !important; }
+}
 </style>
 </head>
 <body id="top">
@@ -910,7 +976,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 
 <!-- HERO -->
 <section class="hero" id="sessions">
-  <div class="hero-media"><img src="/images/opt/private-sessions-hero.jpg" alt="Sam Osborne speaking on stage" width="2000" height="1000" fetchpriority="high"></div>
+  <div class="hero-media"><img src="/images/opt/private-sessions-hero.jpg" alt="Sam Osborne speaking on stage" width="2000" height="1000" fetchpriority="high"><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
   <div class="hero-content">
     <span class="hero-kicker">Private Demartini Method Sessions<span class="kicker-extra"> · Online</span></span>
     <h1>From 2&nbsp;a.m. self&#8209;doubt to calm when it&nbsp;counts.</h1>
@@ -919,6 +985,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <a href="#book" class="btn-primary">Book a Free 20-Min Fit Call</a>
       <a href="#offers" class="btn-ghost">See Sessions &amp; Pricing</a>
     </div>
+    <button class="reel-btn" type="button" data-stream="5fbe6dc81b04702d48532c37cac6b9f7" data-title="Sam Osborne speaker reel"><span class="rb-icon" aria-hidden="true"></span><span>Watch Sam at work<small>Speaker reel &middot; with sound</small></span></button>
     <p class="hero-proof"><span class="hero-quote">&ldquo;One session with Sam cleared more black clouds than anything I have ever previously experienced.&rdquo;</span><span class="hero-attr">Graham Harvey, Hall of Fame Speaker</span><span class="hero-stats">45+ client testimonials · 10 countries</span></p>
   </div>
 </section>
@@ -1040,6 +1107,14 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </section>
 
 <!-- HOW IT WORKS -->
+<section class="interlude" aria-label="Sam on stage">
+  <img src="/images/opt/sam-osborne-on-stage.jpg" alt="" width="1800" height="1199" loading="lazy" decoding="async">
+  <div class="interlude-copy reveal">
+    <p>What he does for a room, he does for one person.</p>
+    <span>Private &middot; One to one &middot; By video</span>
+  </div>
+</section>
+
 <section class="section section-dark tone-b" id="how">
   <div class="section-content">
     <div class="reveal" style="text-align:center;">
@@ -1117,6 +1192,34 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         </div>
       </article>
     </div>
+    <div class="video-head reveal">
+      <span class="eyebrow">On Camera</span>
+      <h3>Ask the people who were in the room.</h3>
+    </div>
+    <div class="oncam-grid reveal-stagger">
+      <article class="oncam-card">
+        <button class="oncam-frame" type="button" data-stream="16b06040a73f6acf4daa43f9e0458e39" data-title="Video testimonial from Trisha Graham" aria-label="Play video testimonial from Trisha Graham">
+          <img src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/16b06040a73f6acf4daa43f9e0458e39/thumbnails/thumbnail.jpg?height=540" alt="" width="960" height="540" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <div class="oncam-name">Trisha Graham</div>
+        <div class="oncam-role">Director of Account Management, Morningstar Retirement</div>
+      </article>
+      <article class="oncam-card">
+        <button class="oncam-frame" type="button" data-stream="abaa78dcf8e735558b3bfb1d1e01d727" data-title="Video testimonial from Kevin Husted" aria-label="Play video testimonial from Kevin Husted">
+          <img src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/abaa78dcf8e735558b3bfb1d1e01d727/thumbnails/thumbnail.jpg?height=540" alt="" width="960" height="540" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <div class="oncam-name">Kevin Husted</div>
+        <div class="oncam-role">President, Advisor Health Benefits Group</div>
+      </article>
+      <article class="oncam-card">
+        <button class="oncam-frame" type="button" data-stream="ce2c6c70c0c037142f57452ce26c22a8" data-title="Video testimonial from Adam Sokolic" aria-label="Play video testimonial from Adam Sokolic">
+          <img src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/ce2c6c70c0c037142f57452ce26c22a8/thumbnails/thumbnail.jpg?height=540" alt="" width="960" height="540" loading="lazy" decoding="async" onerror="this.remove()"><span class="yt-play" aria-hidden="true"></span>
+        </button>
+        <div class="oncam-name">Adam Sokolic</div>
+        <div class="oncam-role">Chief Operating Officer, Bluespring Wealth Partners</div>
+      </article>
+    </div>
+    <p class="oncam-note reveal">Unscripted reflections, recorded at Sam&rsquo;s live events.</p>
     <p class="endorsement-disclaimer reveal">Individual experiences, shared with permission. Results vary.</p>
   </div>
 </section>
@@ -1207,15 +1310,15 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     </div>
     <div class="video-grid reveal-stagger">
       <div class="video-card">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/S7og2aAcYa4?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne on Flip the Box with Shari Leid" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        <button class="yt" type="button" data-yt="S7og2aAcYa4" aria-label="Play: Sam Osborne on Flip the Box with Shari Leid"><img src="https://i.ytimg.com/vi/S7og2aAcYa4/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><span class="yt-play" aria-hidden="true"></span></button>
         <div class="video-caption"><strong>Flip the Box</strong> &middot; with Shari Leid</div>
       </div>
       <div class="video-card">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/6_8JrzuRnoo?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne on Air-Check Your Life with Mathew Blades" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        <button class="yt" type="button" data-yt="6_8JrzuRnoo" aria-label="Play: Sam Osborne on Air-Check Your Life with Mathew Blades"><img src="https://i.ytimg.com/vi/6_8JrzuRnoo/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><span class="yt-play" aria-hidden="true"></span></button>
         <div class="video-caption"><strong>Air-Check Your Life</strong> &middot; with Mathew Blades</div>
       </div>
       <div class="video-card">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/mduKnQgAr-0?controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="Sam Osborne on One Big Tip with Jeff Mendelson" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        <button class="yt" type="button" data-yt="mduKnQgAr-0" aria-label="Play: Sam Osborne on One Big Tip with Jeff Mendelson"><img src="https://i.ytimg.com/vi/mduKnQgAr-0/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><span class="yt-play" aria-hidden="true"></span></button>
         <div class="video-caption"><strong>One Big Tip</strong> &middot; with Jeff Mendelson</div>
       </div>
     </div>
@@ -1477,6 +1580,80 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 })();
 
 (function(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>obs.observe(el));})();
+</script>
+
+<div class="vbox" id="vbox" role="dialog" aria-modal="true" aria-label="Video" hidden>
+  <button class="vbox-close" type="button" aria-label="Close video">&times;</button>
+  <div class="vbox-frame"></div>
+</div>
+<script>
+/* ===== Cinematic layer ===== */
+(function(){
+  var STREAM='https://customer-lilcuopn7rwe61gd.cloudflarestream.com/';
+  /* Background loops cut from the speaker reel (seconds). Desktop only; never with reduced motion or data saver. */
+  var REEL='5fbe6dc81b04702d48532c37cac6b9f7';
+  var LOOPS=[
+    /* One-on-one conversation (12.5s) cutting to Sam on stage (to 24.1s). The hero keeps its still: in the tall hero panel Sam walks behind the text. */
+    {box:'.interlude', id:REEL, start:12.5, end:24.1, before:'.interlude-copy'}
+  ];
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData=navigator.connection&&navigator.connection.saveData;
+  if(!reduce) document.documentElement.classList.add('cine');
+
+  var sdk=null;
+  function loadSdk(){ if(sdk) return sdk; sdk=new Promise(function(res,rej){ var sc=document.createElement('script'); sc.src='https://embed.cloudflarestream.com/embed/sdk.latest.js'; sc.onload=function(){res(window.Stream)}; sc.onerror=rej; document.head.appendChild(sc); }); return sdk; }
+  function cover(f,box){ var w=box.clientWidth,h=box.clientHeight; if(w/h>16/9){ f.style.width=w+'px'; f.style.height=Math.ceil(w*9/16)+'px'; } else { f.style.height=h+'px'; f.style.width=Math.ceil(h*16/9)+'px'; } }
+  function mount(cfg){
+    var box=document.querySelector(cfg.box); if(!box) return;
+    var f=document.createElement('iframe'); f.className='bg-loop'; f.title='Background video'; f.setAttribute('aria-hidden','true'); f.tabIndex=-1; f.allow='autoplay; encrypted-media';
+    f.src=STREAM+cfg.id+'/iframe?muted=true&autoplay=true&controls=false&preload=auto&startTime='+cfg.start+'s';
+    var dip=document.createElement('div'); dip.className='bg-dip';
+    var ref=box.querySelector(cfg.before); box.insertBefore(f,ref); box.insertBefore(dip,ref);
+    cover(f,box); window.addEventListener('resize',function(){cover(f,box)});
+    var t=box.querySelector(':scope > .loop-toggle'); if(!t){ t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; box.appendChild(t); }
+    t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video');
+    loadSdk().then(function(Stream){
+      var p=Stream(f), busy=false, userPaused=false, visible=true;
+      box.classList.add('has-loop');
+      p.addEventListener('playing',function(){ f.classList.add('on'); });
+      p.addEventListener('timeupdate',function(){
+        if(busy||p.currentTime<cfg.end-0.3) return; busy=true; dip.classList.add('on');
+        setTimeout(function(){ p.currentTime=cfg.start; setTimeout(function(){ dip.classList.remove('on'); busy=false; },380); },320);
+      });
+      t.addEventListener('click',function(){
+        userPaused=!userPaused;
+        if(userPaused){ p.pause(); f.classList.remove('on'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
+        else { p.play(); f.classList.add('on'); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
+      });
+      if('IntersectionObserver' in window) new IntersectionObserver(function(es){ visible=es[0].isIntersecting; if(userPaused) return; if(visible) p.play(); else p.pause(); },{threshold:0.05}).observe(box);
+    }).catch(function(){ f.remove(); dip.remove(); });
+  }
+  if(!reduce && !saveData && window.innerWidth>1000){
+    window.addEventListener('load',function(){ LOOPS.forEach(mount); });
+  }
+
+  var box=document.getElementById('vbox'), frame=box.querySelector('.vbox-frame'), last=null;
+  function open(src,title){
+    last=document.activeElement;
+    frame.innerHTML='<iframe src="'+src+'" title="'+(title||'Video')+'" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    box.hidden=false; box.classList.add('open'); document.body.style.overflow='hidden';
+    box.querySelector('.vbox-close').focus();
+  }
+  function close(){ box.classList.remove('open'); box.hidden=true; frame.innerHTML=''; document.body.style.overflow=''; if(last) last.focus(); }
+  box.querySelector('.vbox-close').addEventListener('click',close);
+  box.addEventListener('click',function(e){ if(e.target===box) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&box.classList.contains('open')) close(); });
+  document.querySelectorAll('[data-stream]').forEach(function(b){
+    b.addEventListener('click',function(){ open(STREAM+b.getAttribute('data-stream')+'/iframe?autoplay=true', b.getAttribute('data-title')); });
+  });
+  document.querySelectorAll('.yt[data-yt]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var w=document.createElement('div'); w.className='yt';
+      w.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&controls=1&rel=0&playsinline=1&modestbranding=1" title="'+b.getAttribute('aria-label').replace('Play: ','')+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      b.replaceWith(w);
+    });
+  });
+})();
 </script>
 </body>
 </html>
