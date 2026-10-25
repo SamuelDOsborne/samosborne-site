@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Under-Your-Skin Exercise | Sam Osborne</title>
+<meta name="description" content="A free 10-minute exercise for the one person who gets under your skin. Name it, get specific, and take your first clear look at it.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://samosborne.net/start">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:title" content="Still replaying what they said?">
+<meta property="og:description" content="The free 10-minute exercise for the one person who gets under your skin.">
+<meta property="og:url" content="https://samosborne.net/start">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://samosborne.net/images/opt/og-private-sessions.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --charcoal: #1A1A1A; --deep: #121212; --gold: #D4A574; --gold-2: #E8C497; --off: #F0EDE8; --muted: rgba(240,237,232,.66); --line: rgba(255,255,255,.1); }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--charcoal); color: var(--off); line-height: 1.55; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 560px; margin: 0 auto; padding: 28px 20px 40px; }
+.top { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
+.top img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+.top .who { font-size: 14px; line-height: 1.35; }
+.top .who strong { display: block; color: #fff; font-weight: 600; }
+.top .who span { color: var(--muted); font-size: 13px; }
+.kicker { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: #fff; text-wrap: balance; }
+.sub { margin-top: 14px; font-size: 1.12rem; color: rgba(240,237,232,.84); max-width: 34ch; }
+.promises { list-style: none; margin: 26px 0 0; display: grid; gap: 12px; }
+.promises li { position: relative; padding-left: 30px; font-size: 1rem; color: rgba(240,237,232,.9); }
+.promises li::before { content: ""; position: absolute; left: 0; top: .32em; width: 18px; height: 18px; border-radius: 50%; background: rgba(212,165,116,.16); border: 1px solid rgba(212,165,116,.6); }
+.promises li::after { content: ""; position: absolute; left: 6px; top: calc(.32em + 5px); width: 6px; height: 4px; border-left: 1.5px solid var(--gold); border-bottom: 1.5px solid var(--gold); transform: rotate(-45deg); }
+.card { margin-top: 28px; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 18px; padding: 22px 20px; }
+form { display: grid; gap: 12px; }
+label { font-size: 13px; font-weight: 500; color: var(--muted); display: grid; gap: 6px; }
+input[type=text], input[type=email] { width: 100%; font: inherit; font-size: 16px; color: #fff; background: var(--deep); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 14px 14px; }
+input:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: transparent; }
+button { font: inherit; font-size: 16px; font-weight: 700; color: #1A1A1A; background: var(--gold); border: 0; border-radius: 999px; padding: 16px 22px; cursor: pointer; margin-top: 4px; transition: background .2s ease, transform .2s ease; }
+button:hover { background: var(--gold-2); transform: translateY(-1px); }
+button:disabled { opacity: .6; cursor: default; transform: none; }
+.fine { font-size: 13px; color: var(--muted); text-align: center; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.err { font-size: 14px; color: #f2b8a0; }
+.quote { margin-top: 30px; padding-left: 16px; border-left: 2px solid rgba(212,165,116,.55); }
+.quote p { font-size: 1rem; color: rgba(240,237,232,.86); }
+.quote cite { display: block; margin-top: 8px; font-style: normal; font-size: 13px; color: var(--gold); }
+.done h2 { font-size: 1.7rem; font-weight: 800; letter-spacing: -.03em; color: #fff; }
+.done p { margin-top: 10px; color: rgba(240,237,232,.86); }
+.done .btn { display: block; text-align: center; margin-top: 18px; background: var(--gold); color: #1A1A1A; font-weight: 700; text-decoration: none; border-radius: 999px; padding: 16px 22px; }
+.done .q { margin-top: 22px; padding: 16px; border-radius: 14px; background: rgba(212,165,116,.08); border: 1px solid rgba(212,165,116,.3); }
+.done .q strong { color: #fff; }
+.done .next { margin-top: 18px; font-size: 15px; }
+footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: rgba(240,237,232,.5); display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: space-between; }
+footer a { color: rgba(240,237,232,.7); text-decoration: none; }
+@media (min-width: 900px) { .wrap { padding-top: 64px; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top">
+    <img src="/images/opt/sam-avatar.jpg" alt="Sam Osborne" width="96" height="96">
+    <div class="who"><strong>Sam Osborne</strong><span>Demartini Method facilitator &middot; 45+ client testimonials</span></div>
+  </div>
+
+  <span class="kicker">Free 10-minute exercise</span>
+  <h1>Still replaying what they said?</h1>
+  <p class="sub">The free exercise for the one person who gets under your skin.</p>
+
+  <ul class="promises">
+    <li>Name the one person, and the one thing they did, without the story.</li>
+    <li>The question that starts to take the charge out.</li>
+    <li>Ten minutes, a pen, and your first honest answer.</li>
+  </ul>
+
+  <div class="card" id="card">
+    <form id="start-form" action="https://formspree.io/f/xaqdebvj" method="POST">
+      <label>First name<input type="text" name="first_name" autocomplete="given-name" required></label>
+      <label>Email<input type="email" name="email" autocomplete="email" required></label>
+      <input type="hidden" name="form_type" value="Lead Magnet: Under-Your-Skin Exercise">
+      <input type="hidden" name="source" value="start-page">
+      <input type="hidden" name="utm_source" value="">
+      <input type="hidden" name="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" value="">
+      <input type="hidden" name="ttclid" value="">
+      <div class="hp" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      <button type="submit">Send me the exercise</button>
+      <p class="fine">No spam. Your email stays with me.</p>
+    </form>
+  </div>
+
+  <div class="quote">
+    <p>&ldquo;&hellip;feelings of &lsquo;balance&rsquo; and peace with both this person and with the situation. It&rsquo;s many weeks later and those feelings have endured.&rdquo;</p>
+    <cite>Corinne Westphal, Editor, France</cite>
+  </div>
+
+  <footer>
+    <span>&copy; Sam Osborne</span>
+    <a href="/private-sessions">Private sessions</a>
+    <a href="/">samosborne.net</a>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var EXERCISE_URL='/downloads/under-your-skin-exercise.pdf';
+  var form=document.getElementById('start-form'), card=document.getElementById('card');
+  try {
+    var q=new URLSearchParams(location.search);
+    ['utm_source','utm_medium','utm_campaign','ttclid'].forEach(function(k){ var v=q.get(k); if(v) form.elements[k].value=v.slice(0,120); });
+    if(!form.elements.utm_source.value && /tiktok/i.test(document.referrer)) form.elements.utm_source.value='tiktok';
+  } catch(e){}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('button'), old=btn.textContent;
+    btn.disabled=true; btn.textContent='Sending…';
+    var prev=form.querySelector('.err'); if(prev) prev.remove();
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){ if(!r.ok) throw new Error('bad'); return r; })
+      .then(function(){
+        var name=(form.elements.first_name.value||'').trim().split(' ')[0];
+        card.className='card done';
+        card.innerHTML='<h2>It’s yours'+(name?', '+name.replace(/[<>&"]/g,''):'')+'.</h2>'+
+          '<p>Open it now, or save it for somewhere quiet.</p>'+
+          '<a class="btn" href="'+EXERCISE_URL+'" target="_blank" rel="noopener">Open the exercise (PDF)</a>'+
+          '<div class="q"><strong>Before you start:</strong> who came to mind first when you read the headline? Do the exercise with that one person in mind, not five.</div>'+
+          '<p class="next">If they still take up room in your head afterwards, that’s what my private sessions are for. <a href="/private-sessions#book">Book a free 20-minute call</a>.</p>';
+        card.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+      .catch(function(){
+        btn.disabled=false; btn.textContent=old;
+        var p=document.createElement('p'); p.className='err';
+        p.innerHTML='Something went wrong. Please try again, or <a href="'+EXERCISE_URL+'" target="_blank" rel="noopener">open the exercise here</a>.';
+        form.appendChild(p);
+      });
+  });
+})();
+</script>
+</body>
+</html>
