@@ -103,56 +103,53 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 
 .hero {
   min-height: 100vh;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  text-align: center;
-  padding: 140px 40px 100px;
-  background:
-    radial-gradient(circle at 50% 36%, rgba(212,165,116,.22) 0%, rgba(212,165,116,.08) 14%, rgba(212,165,116,0) 38%),
-    linear-gradient(180deg, rgba(26,26,26,.35) 0%, rgba(26,26,26,.55) 55%, rgba(26,26,26,.85) 100%),
-    url('/images/opt/private-sessions-hero.jpg') center 25% / cover no-repeat,
-    var(--charcoal);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  background: var(--charcoal);
   position: relative; overflow: hidden;
 }
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 28%;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(212,165,116,0), rgba(212,165,116,.42));
-  transform: translateY(-50%);
-  pointer-events: none;
+.hero-photo {
+  position: relative;
+  min-height: 100%;
+  background: url('/images/opt/private-sessions-hero.jpg') 18% 30% / cover no-repeat;
 }
-.hero::before { left: 4%; }
-.hero::after { right: 4%; transform: translateY(-50%) scaleX(-1); }
+.hero-photo::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, #1A1A1A 0%, rgba(26,26,26,0) 7%, rgba(26,26,26,0) 55%, rgba(26,26,26,.85) 92%, #1A1A1A 100%),
+    linear-gradient(180deg, rgba(26,26,26,.25) 0%, rgba(26,26,26,0) 30%, rgba(26,26,26,.35) 100%);
+}
+.hero-copy {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  text-align: left;
+  padding: 140px clamp(32px, 6vw, 96px) 100px clamp(28px, 4vw, 64px);
+}
 .hero-kicker {
   font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 20px;
   opacity: 0; animation: riseIn .7s .3s ease forwards;
 }
 .hero h1 {
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  font-size: clamp(2.3rem, 4.2vw, 4.2rem);
   font-weight: 700; line-height: 1.06; letter-spacing: -.04em;
-  color: var(--white); max-width: 18ch; margin: 0 auto 24px;
+  color: var(--white); max-width: 15ch; margin: 0 0 24px;
   opacity: 0; animation: riseIn .9s .46s ease forwards;
 }
-.hero-rule { width: 36px; height: 1px; background: rgba(212,165,116,.5); margin: 0 auto 24px; opacity: 0; animation: riseIn .7s .6s ease forwards; }
+.hero-rule { width: 36px; height: 1px; background: rgba(212,165,116,.5); margin: 0 0 24px; opacity: 0; animation: riseIn .7s .6s ease forwards; }
 .hero-sub {
   font-size: clamp(1rem, 2vw, 1.32rem); font-weight: 300;
   line-height: 1.55; letter-spacing: -.01em;
-  color: rgba(240,237,232,.62); max-width: 46ch; margin: 0 auto 14px;
+  color: rgba(240,237,232,.74); max-width: 46ch; margin: 0 0 14px;
   opacity: 0; animation: riseIn .9s .72s ease forwards;
 }
 .hero-tagline {
   font-size: clamp(.9rem, 1.4vw, 1.08rem); font-weight: 300;
-  color: rgba(240,237,232,.36); max-width: 46ch; margin: 0 auto 20px;
+  color: rgba(240,237,232,.52); max-width: 46ch; margin: 0 0 20px;
   opacity: 0; animation: riseIn .8s .86s ease forwards;
 }
 .hero-credential {
   font-size: 12px; font-weight: 500; letter-spacing: .02em;
-  color: rgba(212,165,116,.74); max-width: 52ch; margin: 0 auto 40px;
+  color: rgba(212,165,116,.74); max-width: 52ch; margin: 0 0 40px;
   line-height: 1.6;
   opacity: 0; animation: riseIn .8s .98s ease forwards;
 }
@@ -629,13 +626,19 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   .founders-card { grid-template-columns: 1fr; gap: 24px; padding: 32px 26px; }
   .founders-pricing { text-align: left; align-items: flex-start; }
 }
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 64px; }
+  .hero-photo { grid-column: 1; width: 100%; height: 58vh; min-height: 340px; background-position: 18% 22%; }
+  .hero-photo::after { background: linear-gradient(90deg, #1A1A1A 0%, rgba(26,26,26,0) 8%), linear-gradient(180deg, rgba(26,26,26,0) 60%, #1A1A1A 100%); }
+  .hero-copy { grid-column: 1; width: 100%; padding: 40px 32px 72px; }
+}
 @media (max-width: 768px) {
   .nav-inner { padding: 0 20px; }
   .nav-right { flex-direction: column; align-items: flex-end; gap: 3px; }
   .nav-phone { font-size: 12px; }
   .nav-cta { font-size: 12px; }
   .section { padding: 80px 20px; }
-  .hero { padding: 100px 20px 60px; overflow: hidden; }
+  .hero-copy { padding: 36px 20px 64px; }
   .problem-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .testimonial-card { padding: 36px 26px 28px; }
@@ -770,6 +773,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </nav>
 
 <section class="hero" id="advisory">
+  <div class="hero-photo" role="img" aria-label="Sam Osborne speaking on stage"></div>
+  <div class="hero-copy">
   <span class="hero-kicker">Leadership Advisory · Private Facilitation</span>
   <h1>There's one person you're still arguing with in your head.</h1>
   <div class="hero-rule"></div>
@@ -778,6 +783,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <p class="hero-credential">If you watched the live demonstration and immediately thought of someone, this is where that same work gets applied to your actual practice.</p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Schedule Consultation</a>
+  </div>
   </div>
 </section>
 
