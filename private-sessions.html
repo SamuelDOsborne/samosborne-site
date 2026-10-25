@@ -576,6 +576,22 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 .heard-list:hover { color: var(--off) !important; }
 .heard-list i { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,165,116,.6); display: inline-block; }
 @media (max-width: 768px) { .heard-on { padding: 22px 20px; flex-direction: column; gap: 10px; } .heard-list { font-size: 14px; gap: 6px 12px; } }
+
+/* More conversations list under the podcast players */
+.more-convos { max-width: 920px; margin: 40px auto 0; }
+.more-convos h4 { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.more-convos ul { list-style: none; border-top: 1px solid rgba(255,255,255,.1); }
+.more-convos li a { display: grid; grid-template-columns: 240px 1fr auto; gap: 16px; align-items: baseline; padding: 16px 4px; border-bottom: 1px solid rgba(255,255,255,.1); color: rgba(240,237,232,.78) !important; transition: background .2s ease; }
+.more-convos li a:hover { background: rgba(212,165,116,.05); }
+.more-convos .mc-show { font-weight: 600; color: var(--off); font-size: 15px; }
+.more-convos .mc-title { font-size: 15px; line-height: 1.5; }
+.more-convos .mc-listen { font-size: 14px; font-weight: 600; color: var(--gold); white-space: nowrap; }
+@media (max-width: 768px) {
+  .more-convos li a { grid-template-columns: 1fr auto; gap: 4px 12px; }
+  .more-convos .mc-show { grid-column: 1; }
+  .more-convos .mc-title { grid-column: 1; grid-row: 2; font-size: 14px; }
+  .more-convos .mc-listen { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+}
 </style>
 </head>
 <body id="top">
@@ -904,6 +920,15 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <span class="episode-show">Real Estate Elevated with Cheryl Knowlton, CSP</span>
       </div>
       <iframe src="https://open.spotify.com/embed/episode/4bnQmrlKwreG7aFnFggImt" title="Sam Osborne on Real Estate Elevated with Cheryl Knowlton" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="more-convos reveal">
+      <h4>More conversations</h4>
+      <ul>
+        <li><a href="https://badassleaderspodcast.transistor.fm/episodes/how-to-crush-imposter-syndrome-lead-with-confidence-samuel-osborne-and-david-graf" target="_blank" rel="noopener"><span class="mc-show">Badass Leaders</span><span class="mc-title">How to crush imposter syndrome and lead with confidence &middot; 2025</span><span class="mc-listen">Listen &rarr;</span></a></li>
+        <li><a href="https://craftingsolutionstoconflict.com/podcast/episode-352-sam-osborne-on-beating-the-imposter-syndrome" target="_blank" rel="noopener"><span class="mc-show">Crafting Solutions to Conflict</span><span class="mc-title">Beating imposter syndrome &middot; 2025</span><span class="mc-listen">Listen &rarr;</span></a></li>
+        <li><a href="https://www.spreaker.com/episode/16-is-your-imposter-syndrome-killing-your-relationships-with-self-worth-sam--51708207" target="_blank" rel="noopener"><span class="mc-show">Loving Against My Instincts</span><span class="mc-title">Is imposter syndrome killing your relationships? &middot; 2022</span><span class="mc-listen">Listen &rarr;</span></a></li>
+        <li><a href="https://podcast.app/support-and-challenge-the-keys-to-personal-growth-with-self-worth-sam-e404673166" target="_blank" rel="noopener"><span class="mc-show">More Life</span><span class="mc-title">Support and challenge, the keys to personal growth</span><span class="mc-listen">Listen &rarr;</span></a></li>
+      </ul>
     </div>
   </div>
 </section>
