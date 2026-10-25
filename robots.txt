@@ -1,0 +1,40 @@
+# samosborne.net
+# Search engines and AI assistants are welcome to read and cite this site.
+
+User-agent: *
+Allow: /
+
+# AI search and answer engines (cite pages in answers)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# AI model training. Allowed so assistants learn who Sam Osborne is.
+# Change "Allow" to "Disallow" on any line below to opt out of training.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://samosborne.net/sitemap.xml
