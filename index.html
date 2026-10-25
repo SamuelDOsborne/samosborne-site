@@ -1227,6 +1227,58 @@
     </div>
   </section>
 
+  <!-- ═══════════════ CREDIBILITY: SPOKEN FOR + AS HEARD ON ═══════════════ -->
+  <style>
+    .cred-band { background: var(--bg); border-top: 1px solid var(--line); padding: 44px 40px 8px; }
+    .cred-row { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .cred-band .heard-label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+    .logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px 44px; }
+    .logo-row li { display: flex; align-items: center; opacity: .72; transition: opacity .2s ease; }
+    .logo-row li:hover { opacity: 1; }
+    .logo-row img { height: 40px; width: auto; display: block; }
+    .logo-row li.tall img { height: 50px; }
+    .logo-row li.wide img { height: 34px; }
+    .logo-row .logo-text { flex-direction: column; align-items: center; line-height: 1.05; color: #fff; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 12px; }
+    .logo-row .logo-text small { font-size: 9.5px; font-weight: 500; letter-spacing: .22em; margin-top: 4px; }
+    .cred-band .heard-on { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 22px; padding: 28px 0 32px; }
+    .cred-band .heard-on .heard-label { display: inline; margin: 0; }
+    .heard-list { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 8px 16px; color: rgba(245,245,247,.82); font-size: 15px; font-weight: 500; text-decoration: none; }
+    .heard-list:hover { color: #fff; }
+    .heard-list i { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,165,116,.6); display: inline-block; }
+    @media (max-width: 768px) {
+      .cred-band { padding: 36px 20px 4px; }
+      .logo-row { gap: 20px 28px; }
+      .logo-row img { height: 32px; }
+      .logo-row li.tall img { height: 40px; }
+      .logo-row li.wide img { height: 26px; }
+      .logo-row .logo-text { font-size: 10.5px; }
+      .cred-band .heard-on { flex-direction: column; gap: 10px; padding: 24px 0 28px; }
+      .heard-list { font-size: 14px; gap: 6px 12px; }
+    }
+  </style>
+  <section class="cred-band" aria-label="Organizations and podcasts">
+  <div class="cred-row">
+    <span class="heard-label">Spoken for</span>
+    <ul class="logo-row">
+      <li class="tall"><img src="images/logos/ccal.png" alt="College of Community Association Lawyers (CCAL)" loading="lazy"></li>
+      <li class=""><img src="images/logos/cai.png" alt="Community Associations Institute (CAI)" loading="lazy"></li>
+      <li class="logo-text" aria-label="Strata Community Association (Victoria)"><span>Strata Community</span><span>Association</span><small>Victoria</small></li>
+      <li class="wide"><img src="images/logos/victoria-university.png" alt="Victoria University, Melbourne" loading="lazy"></li>
+      <li class="tall"><img src="images/logos/english-australia.png" alt="English Australia" loading="lazy"></li>
+      <li class="wide"><img src="images/logos/abwa.png" alt="American Business Women's Association" loading="lazy"></li>
+      <li class="wide"><img src="images/logos/glendale-college.png" alt="Glendale Community College" loading="lazy"></li>
+      <li class="tall"><img src="images/logos/hispanic-business-network.png" alt="Hispanic Business Network" loading="lazy"></li>
+    </ul>
+  </div>
+  <div class="heard-on">
+    <span class="heard-label">As heard on</span>
+  <a href="private-sessions.html#listen" class="heard-list">
+    <span>KPFK Radio · Inner Vision</span><i></i><span>Flip the Box</span><i></i><span>Air-Check Your Life</span><i></i><span>Badass Leaders</span><i></i><span>Crafting Solutions to Conflict</span><i></i><span>One Big Tip</span><i></i><span>Real Estate Elevated</span>
+  </a>
+  </div>
+</section>
+  <!-- ═══════════════ END CREDIBILITY ═══════════════ -->
+
   <!-- SHOW REEL — below the hero -->
   <section class="reel-section" id="reel">
     <div class="container">
@@ -1395,50 +1447,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ═══════════════ CLIENT LOGO STRIP ═══════════════ -->
-  <style>
-    .logostrip { background: var(--bg); border-top: 1px solid var(--line); padding: 54px 0; }
-    .logostrip-label {
-      text-align: center; color: var(--muted-2); font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .2em; margin-bottom: 32px;
-    }
-    .logostrip-row {
-      display: flex; align-items: center; justify-content: center;
-      gap: clamp(28px, 7vw, 88px); flex-wrap: wrap;
-    }
-    .logostrip-item {
-      display: flex; align-items: center; justify-content: center;
-      min-width: 220px; height: 120px;
-      opacity: .85; transition: opacity .22s ease;
-    }
-    .logostrip-item:hover { opacity: 1; }
-    .logostrip-item img { max-height: 100%; width: auto; object-fit: contain; }
-    .logostrip-ph {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; height: 100%;
-      border: 1px dashed rgba(245,245,247,.18); border-radius: 10px;
-      color: var(--muted-2); font-size: 11px; font-weight: 600;
-      letter-spacing: .14em; text-transform: uppercase;
-    }
-  </style>
-  <section class="logostrip">
-    <div class="container">
-      <div class="logostrip-label">Trusted by</div>
-      <div class="logostrip-row">
-        <div class="logostrip-item">
-          <img src="images/ccal-grey.jpg" alt="College of Community Association Lawyers (CCAL)" />
-        </div>
-        <div class="logostrip-item">
-          <img src="images/cai.png" alt="Community Associations Institute (CAI)" />
-        </div>
-        <div class="logostrip-item">
-          <span class="logostrip-ph">Logo 3</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ═══════════════ END CLIENT LOGO STRIP ═══════════════ -->
 
   <!-- MARQUEE -->
   <div class="marquee">
