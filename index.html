@@ -1331,6 +1331,81 @@
  ]
 }
   </script>
+<style>
+/* ===== Cinematic layer ===== */
+.hero-image { overflow: hidden; background: #2a2a2a !important; }
+.hero-kb { position: absolute; inset: 0; background: url('images/opt/private-sessions-hero.jpg') center center/cover no-repeat; transform-origin: 40% 0%; }
+.cine .hero-kb { animation: cinePush 26s cubic-bezier(.2,.6,.3,1) forwards; }
+@keyframes cinePush { from { transform: scale(1); } to { transform: scale(1.08); } }
+.hero-image::after { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%), linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%); }
+.grain { position: absolute; inset: -50%; z-index: 2; pointer-events: none; opacity: .08; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.cine .grain { animation: grain 1.2s steps(6) infinite; }
+@keyframes grain { 0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)} }
+.lb { position: absolute; left: 0; right: 0; height: 0; background: #0d0d0d; z-index: 4; pointer-events: none; }
+.lb-top { top: 0; } .lb-bot { bottom: 0; }
+.cine .lb { animation: lbOpen 1.6s cubic-bezier(.7,0,.2,1) both; }
+@keyframes lbOpen { from { height: 50%; } to { height: 0; } }
+@media (max-width: 980px) {
+  .hero-kb { background-position: center 12%; }
+  .hero-image::after { background: none; }
+}
+
+/* Full-bleed video bands */
+.cine-band { position: relative; min-height: 74vh; display: flex; align-items: flex-end; overflow: hidden; background: #0d0d0d; color: #fff; }
+.cine-band > .band-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.9); }
+.cine-band::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse at 50% 35%, rgba(13,13,13,.05) 0%, rgba(13,13,13,.55) 80%), linear-gradient(180deg, rgba(13,13,13,.55) 0%, rgba(13,13,13,0) 18%, rgba(13,13,13,0) 48%, rgba(13,13,13,.88) 85%, #0d0d0d 100%); }
+.band-copy { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px 8vh; }
+.band-eyebrow { display: block; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.band-title { font-size: clamp(2rem, 4.4vw, 4rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.05; max-width: 16ch; text-wrap: balance; text-shadow: 0 4px 40px rgba(0,0,0,.45); }
+.band-sub { margin-top: 14px; font-size: clamp(1rem, 1.4vw, 1.2rem); color: rgba(245,245,247,.82); max-width: 52ch; line-height: 1.55; }
+.band-play { display: inline-flex; align-items: center; gap: 16px; margin-top: 26px; background: none; border: 0; padding: 0; color: #fff; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; }
+.band-play .bp-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--gold); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,.4); transition: transform .25s ease; }
+.band-play .bp-icon::before { content: ""; margin-left: 5px; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent #1a1a1a; }
+.band-play:hover .bp-icon { transform: scale(1.07); }
+.band-play small { display: block; font-size: 13px; font-weight: 400; color: rgba(245,245,247,.6); }
+.band-fallback { margin-top: 18px; font-size: 13px; color: rgba(245,245,247,.5); }
+.band-fallback a { color: rgba(245,245,247,.75); text-decoration: underline; }
+.stat-big { font-size: clamp(4.5rem, 11vw, 9.5rem); font-weight: 800; letter-spacing: -.05em; line-height: .9; color: #fff; }
+.stat-big span { color: var(--gold); }
+.cine-band .btn-primary { margin-top: 26px; }
+.band-center .band-copy { text-align: center; } .band-center .band-title, .band-center .band-sub { margin-left: auto; margin-right: auto; }
+@media (max-width: 768px) { .cine-band { min-height: 64vh; } .band-copy { padding: 0 20px 48px; } }
+
+/* Background loops and controls */
+.bg-loop { position: absolute; top: 50%; left: 50%; border: 0; pointer-events: none; opacity: 0; transform: translate(-50%,-50%); transition: opacity 1.4s ease; }
+.bg-loop.on { opacity: 1; }
+.bg-dip { position: absolute; inset: 0; background: #0d0d0d; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+.bg-dip.on { opacity: 1; }
+.loop-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(0,0,0,.4); color: #fff; font-size: 13px; cursor: pointer; display: none; }
+.has-loop > .loop-toggle { display: block; }
+
+/* Video lightbox */
+.vbox { position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; background: rgba(5,5,5,.92); padding: 24px; }
+.vbox.open { display: flex; animation: vfade .35s ease; }
+@keyframes vfade { from { opacity: 0; } to { opacity: 1; } }
+.vbox-frame { position: relative; width: min(1100px, 100%); aspect-ratio: 16 / 9; background: #000; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+.vbox-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vbox-close { position: absolute; top: 18px; right: 18px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.06); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) { .hero-kb, .grain, .lb { animation: none !important; } }
+
+/* Reel as a framed screen: title above, never over the footage */
+.reel-screen { background: var(--bg); border-bottom: 1px solid var(--line); padding: 88px 0 80px; color: #fff; }
+.rs-head { text-align: center; margin-bottom: 34px; }
+.rs-title { font-size: clamp(1.9rem, 3.6vw, 3.2rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.08; max-width: 20ch; margin: 0 auto; text-wrap: balance; }
+.screen { position: relative; max-width: 1100px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 40px 100px rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.08); }
+.screen > .band-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.screen::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(0,0,0,.7) 100%); }
+.screen .band-play { position: absolute; left: 26px; bottom: 22px; z-index: 2; margin: 0; }
+.screen .loop-toggle { z-index: 2; }
+.reel-screen .band-fallback { text-align: center; }
+/* Text on room footage stays in a narrow left column; Sam is always right of it */
+.cine-band .band-copy > * { max-width: min(30vw, 440px); }
+.cine-band .band-title { font-size: clamp(2rem, 3.6vw, 3.4rem); }
+.cine-band > .band-poster { object-position: 50% 0%; }
+.bg-loop.top { top: 0; transform: translateX(-50%); }
+@media (max-width: 1000px) { .cine-band .band-copy > * { max-width: none; } .screen .band-play small { display: none; } .screen .bp-icon { width: 52px; height: 52px; } .screen .band-play { left: 16px; bottom: 14px; } }
+</style>
 </head>
 <body>
 
@@ -1361,7 +1436,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, seated portrait"></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne speaking on stage"><span class="hero-kb" aria-hidden="true"></span><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         <span class="eyebrow" style="margin-bottom:10px; font-size: clamp(1rem, 1.4vw, 1.3rem); letter-spacing: .08em;">Sam Osborne</span>
@@ -1371,7 +1446,7 @@
         <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Watch the emotional trigger that costs you the most, dissolved live on stage, using a proven method.</p>
         <div class="btn-row">
           <a class="btn-primary hero-check-btn" href="#contact">Check Availability</a>
-          <a class="btn-secondary" href="#reel" style="border-color: var(--slate); color: var(--slate);">Watch Showreel</a>
+          <a class="btn-secondary" href="#reel" data-stream="5fbe6dc81b04702d48532c37cac6b9f7" data-title="Sam Osborne speaker reel" style="border-color: var(--slate); color: var(--slate);">&#9654;&nbsp; Watch Showreel</a>
         </div>
       </div>
     </div>
@@ -1430,20 +1505,17 @@
   <!-- ═══════════════ END CREDIBILITY ═══════════════ -->
 
   <!-- SHOW REEL — below the hero -->
-  <section class="reel-section" id="reel">
+  <section class="reel-screen" id="reel" aria-label="Speaker reel">
     <div class="container">
-      <div class="hero-reel-inner">
-        <p class="hero-reel-label">Watch the Reel</p>
-        <div class="hero-reel-frame">
-          <iframe
-            src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/iframe?poster=https%3A%2F%2Fcustomer-lilcuopn7rwe61gd.cloudflarestream.com%2F5fbe6dc81b04702d48532c37cac6b9f7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D4.5s%26height%3D720"
-            title="Sam Osborne — Speaker Reel"
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-            allowfullscreen
-            loading="lazy"></iframe>
-        </div>
-        <p class="reel-fallback">Video not loading on your network? <a href="https://drive.google.com/file/d/1VCtn5fvsXfO_2RkOuyCpTpc1EnTY8hJB/view?usp=sharing" target="_blank" rel="noopener">watch the reel here instead</a>.</p>
+      <div class="rs-head">
+        <span class="band-eyebrow">Watch the Reel</span>
+        <h2 class="rs-title">He doesn&rsquo;t talk about composure. He shows it.</h2>
       </div>
+      <div class="screen" id="reel-screen">
+        <img class="band-poster" src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/thumbnails/thumbnail.jpg?time=48s&amp;height=720" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
+        <button class="band-play" type="button" data-stream="5fbe6dc81b04702d48532c37cac6b9f7" data-title="Sam Osborne speaker reel"><span class="bp-icon" aria-hidden="true"></span><span>Play the speaker reel<small>2 min 49 sec &middot; with sound</small></span></button>
+      </div>
+      <p class="band-fallback">Video not loading on your network? <a href="https://drive.google.com/file/d/1VCtn5fvsXfO_2RkOuyCpTpc1EnTY8hJB/view?usp=sharing" target="_blank" rel="noopener">Watch the reel here instead</a>.</p>
     </div>
   </section>
 
@@ -1514,6 +1586,15 @@
     </div>
   </section>
   <!-- ═══════════════ END DEMONSTRATION ═══════════════ -->
+
+  <section class="cine-band" id="room-proof" aria-label="Audience results">
+    <img class="band-poster" src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/thumbnails/thumbnail.jpg?time=63s&amp;height=720" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
+    <div class="band-copy">
+      <div class="stat-big">95<span>%</span></div>
+      <p class="band-title" style="font-size:clamp(1.5rem,2.8vw,2.4rem); margin-top:10px;">rated his delivery excellent.</p>
+      <p class="band-sub">39 evaluations. The Friday morning slot. CAI National Law Seminar 2026.</p>
+    </div>
+  </section>
 
   <!-- TESTIMONIALS -->
   <section class="section" id="proof">
@@ -2177,6 +2258,15 @@
   </style>
 
   <!-- CONTACT -->
+  <section class="cine-band" id="your-room" aria-label="Book Sam">
+    <img class="band-poster" src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/thumbnails/thumbnail.jpg?time=78s&amp;height=720" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
+    <div class="band-copy">
+      <span class="band-eyebrow">Your Event</span>
+      <h2 class="band-title">Bring the demonstration to your room.</h2>
+      <a class="btn-primary" href="#contact">Check Availability</a>
+    </div>
+  </section>
+
   <section class="section" id="contact">
     <div class="container">
 
@@ -2442,6 +2532,79 @@
   document.querySelectorAll('a,button,summary,.card,.ptier,.vidtest-frame').forEach(function(el){
     el.addEventListener('mouseenter', function(){ ring.style.width='50px'; ring.style.height='50px'; ring.style.borderColor='rgba(212,165,116,.55)'; });
     el.addEventListener('mouseleave', function(){ ring.style.width='34px'; ring.style.height='34px'; ring.style.borderColor='rgba(245,245,247,.32)'; });
+  });
+})();
+</script>
+
+<div class="vbox" id="vbox" role="dialog" aria-modal="true" aria-label="Video" hidden>
+  <button class="vbox-close" type="button" aria-label="Close video">&times;</button>
+  <div class="vbox-frame"></div>
+</div>
+<script>
+/* ===== Cinematic layer ===== */
+(function(){
+  var STREAM='https://customer-lilcuopn7rwe61gd.cloudflarestream.com/', REEL='5fbe6dc81b04702d48532c37cac6b9f7';
+  /* Background loops cut from the speaker reel (seconds). Desktop only; never with reduced motion or data saver. */
+  var LOOPS=[
+    {box:'#reel-screen', start:44.6, end:54.4},
+    {box:'#room-proof', start:59.8, end:66.6},
+    {box:'#your-room', start:76.0, end:80.7}
+  ];
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData=navigator.connection&&navigator.connection.saveData;
+  if(!reduce) document.documentElement.classList.add('cine');
+
+  var sdk=null;
+  function loadSdk(){ if(sdk) return sdk; sdk=new Promise(function(res,rej){ var sc=document.createElement('script'); sc.src='https://embed.cloudflarestream.com/embed/sdk.latest.js'; sc.onload=function(){res(window.Stream)}; sc.onerror=rej; document.head.appendChild(sc); }); return sdk; }
+  function cover(f,box){ var w=box.clientWidth,h=box.clientHeight; if(w/h>16/9){ f.style.width=w+'px'; f.style.height=Math.ceil(w*9/16)+'px'; } else { f.style.height=h+'px'; f.style.width=Math.ceil(h*16/9)+'px'; } }
+  function mount(cfg){
+    var box=document.querySelector(cfg.box); if(!box) return;
+    var started=false;
+    function start(){
+      if(started) return; started=true;
+      var f=document.createElement('iframe'); f.className='bg-loop'+(box.classList.contains('cine-band')?' top':''); f.title='Background video'; f.setAttribute('aria-hidden','true'); f.tabIndex=-1; f.allow='autoplay; encrypted-media';
+      f.src=STREAM+REEL+'/iframe?muted=true&autoplay=true&controls=false&preload=auto&startTime='+cfg.start+'s';
+      var dip=document.createElement('div'); dip.className='bg-dip';
+      var ref=box.querySelector('.band-copy, .band-play'); box.insertBefore(f,ref); box.insertBefore(dip,ref);
+      cover(f,box); window.addEventListener('resize',function(){cover(f,box)});
+      var t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); box.appendChild(t);
+      loadSdk().then(function(Stream){
+        var p=Stream(f), busy=false, userPaused=false;
+        box.classList.add('has-loop');
+        p.addEventListener('playing',function(){ if(!userPaused) f.classList.add('on'); });
+        p.addEventListener('timeupdate',function(){
+          if(busy||p.currentTime<cfg.end-0.3) return; busy=true; dip.classList.add('on');
+          setTimeout(function(){ p.currentTime=cfg.start; setTimeout(function(){ dip.classList.remove('on'); busy=false; },380); },320);
+        });
+        t.addEventListener('click',function(){
+          userPaused=!userPaused;
+          if(userPaused){ p.pause(); f.classList.remove('on'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
+          else { p.play(); f.classList.add('on'); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
+        });
+        new IntersectionObserver(function(es){ if(userPaused) return; if(es[0].isIntersecting) p.play(); else p.pause(); },{threshold:0.05}).observe(box);
+      }).catch(function(){ f.remove(); dip.remove(); t.remove(); });
+    }
+    /* Only load each loop when its band comes near the screen */
+    if('IntersectionObserver' in window){ var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ io.disconnect(); start(); } },{rootMargin:'400px 0px'}); io.observe(box); }
+    else start();
+  }
+  if(!reduce && !saveData && window.innerWidth>1000){
+    window.addEventListener('load',function(){ LOOPS.forEach(mount); });
+  }
+
+  var box=document.getElementById('vbox'), frame=box.querySelector('.vbox-frame'), last=null;
+  function open(src,title){
+    last=document.activeElement;
+    frame.innerHTML='<iframe src="'+src+'" title="'+(title||'Video')+'" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    box.hidden=false; box.classList.add('open'); document.body.style.overflow='hidden';
+    box.querySelector('.vbox-close').focus();
+  }
+  function close(){ box.classList.remove('open'); box.hidden=true; frame.innerHTML=''; document.body.style.overflow=''; if(last) last.focus(); }
+  box.querySelector('.vbox-close').addEventListener('click',close);
+  box.addEventListener('click',function(e){ if(e.target===box) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&box.classList.contains('open')) close(); });
+  document.querySelectorAll('[data-stream]').forEach(function(b){
+    b.addEventListener('click',function(e){ e.preventDefault(); open(STREAM+b.getAttribute('data-stream')+'/iframe?autoplay=true', b.getAttribute('data-title')); });
   });
 })();
 </script>
