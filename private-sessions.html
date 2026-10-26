@@ -1419,8 +1419,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
         <input id="f-source" type="text" name="referral_source" placeholder="Podcast, friend, keynote, Google…">
       </div>
       <label class="form-check"><input type="checkbox" name="scope_acknowledged" value="yes" required> I understand this is facilitation, not therapy.</label>
-      <button type="submit" class="form-submit">Request My Fit Call</button>
-      <p class="form-fine">I'll reply within two business days. <a href="privacy.html">Privacy Policy</a></p>
+      <button type="submit" class="form-submit">Next: Pick a Time</button>
+      <p class="form-fine">Next, you'll pick a time that suits you on my calendar. <a href="privacy.html">Privacy Policy</a></p>
       <input type="hidden" name="form_type" value="Private Sessions Fit Call">
     </form>
   </div>
@@ -1564,7 +1564,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
     }catch(err){}
   }
   var sessionForm=document.getElementById('session-form');
-  if(sessionForm){ sessionForm.addEventListener('submit', function(){ sendToSheet(sessionForm); }); }
+  /* Fit call: log the request, then go straight to Calendly with name and email filled in */
+  var CALENDLY_URL='https://calendly.com/sam-samosborne/20min';
+  if(sessionForm){ sessionForm.addEventListener('submit', function(e){
+    sendToSheet(sessionForm);
+    if(!window.fetch) return; /* old browsers: normal post */
+    e.preventDefault();
+    var btn=sessionForm.querySelector('.form-submit'); btn.disabled=true; btn.textContent='One moment\u2026';
+    var go=function(){
+      var u=CALENDLY_URL+'?name='+encodeURIComponent((sessionForm.elements.name.value||'').trim())+'&email='+encodeURIComponent((sessionForm.elements.email.value||'').trim());
+      window.location.href=u;
+    };
+    var done=false, finish=function(){ if(!done){ done=true; go(); } };
+    fetch(sessionForm.action,{method:'POST',body:new FormData(sessionForm),headers:{'Accept':'application/json'}}).then(finish,finish);
+    setTimeout(finish,4000);
+  }); }
   document.querySelectorAll('[data-gift-form]').forEach(function(form){
     form.addEventListener('submit', function(e){
       if(!window.fetch) return; /* old browsers: normal post */
