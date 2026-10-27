@@ -5,3 +5,5 @@
 /start/instagram  /start?utm_source=instagram  302
 /start/youtube    /start?utm_source=youtube    302
 /start/podcast    /start?utm_source=podcast    302
+/start/email      /start?utm_source=email&utm_medium=signature   302
+/start/substack   /start?utm_source=substack   302
