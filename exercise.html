@@ -2,168 +2,218 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>The Under-Your-Skin Exercise | Sam Osborne</title>
 <meta name="description" content="The free 10-minute exercise for the one person or moment you can't stop replaying. Name it, get specific, and take your first clear look at it.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://samosborne.net/exercise">
 <meta name="theme-color" content="#1A1A1A">
+<meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root { --charcoal: #1A1A1A; --deep: #121212; --gold: #D4A574; --gold-2: #E8C497; --off: #F0EDE8; --muted: rgba(240,237,232,.66); --line: rgba(255,255,255,.1); --soft: rgba(240,237,232,.86); }
+:root {
+  --bg: #1A1A1A; --deep: #121212; --raise: #232220; --raise-2: #2B2926;
+  --gold: #D4A574; --gold-2: #E8C497; --gold-ink: #1A1A1A;
+  --text: #F5F2ED; --soft: #D9D4CC; --muted: #B4AEA5; --faint: #8E887F;
+  --line: rgba(255,255,255,.12); --line-2: rgba(255,255,255,.2);
+  --gold-wash: rgba(212,165,116,.12); --gold-edge: rgba(212,165,116,.45);
+  --cost: #E59E84;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --pad: 20px;
+}
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { -webkit-text-size-adjust: 100%; }
-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--charcoal); color: var(--off); line-height: 1.55; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-a { color: var(--gold); }
-.wrap { max-width: 580px; margin: 0 auto; padding: 22px 20px 48px; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 90px; scroll-padding-bottom: 140px; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 17px; background: var(--bg); color: var(--text); line-height: 1.55; -webkit-font-smoothing: antialiased; min-height: 100vh; min-height: 100dvh; -webkit-tap-highlight-color: transparent; }
+a { color: var(--gold); text-underline-offset: 3px; }
+button { -webkit-user-select: none; user-select: none; touch-action: manipulation; }
+.wrap { max-width: 600px; margin: 0 auto; padding: 0 var(--pad); }
 
-/* top bar + progress */
-.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-size: 14px; font-weight: 600; }
-.brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
-.stepcount { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.progress { height: 4px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; margin-bottom: 34px; }
-.progress span { display: block; height: 100%; width: 0; background: var(--gold); border-radius: 99px; transition: width .4s ease; }
+/* ---------- sticky header with progress ---------- */
+.head { position: sticky; top: 0; z-index: 20; background: rgba(26,26,26,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.head.scrolled { border-bottom-color: var(--line); }
+.head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 15px; font-weight: 600; min-height: 44px; }
+.brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); background: var(--raise); }
+.stepcount { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.progress { height: 4px; background: rgba(255,255,255,.08); }
+.progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-2)); border-radius: 0 99px 99px 0; transition: width .45s cubic-bezier(.2,.8,.2,1); }
 
-/* screens */
-.screen { display: none; animation: rise .35s ease; }
-.screen.on { display: block; }
-@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .screen { animation: none; } .progress span { transition: none; } }
+/* ---------- screens ---------- */
+main { padding-top: 28px; }
+.screen { display: none; }
+.screen.on { display: block; animation: rise .35s ease; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .screen.on { animation: none; } .progress span, .fill { transition: none !important; } }
 
-.kicker { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-h1 { font-size: clamp(2.1rem, 9vw, 3rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.05; color: #fff; text-wrap: balance; }
-h2 { font-size: clamp(1.6rem, 6.5vw, 2.1rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; color: #fff; text-wrap: balance; }
-.lead { margin-top: 14px; font-size: 1.08rem; color: var(--soft); }
-.hint { margin-top: 10px; font-size: .95rem; color: var(--muted); }
-.field { margin-top: 24px; }
-.field > label, .qlabel { display: block; font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-textarea, input[type=text] { width: 100%; font: inherit; font-size: 16px; color: #fff; background: var(--deep); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 14px; resize: vertical; }
-textarea { min-height: 92px; line-height: 1.5; }
-textarea:focus, input:focus, button:focus-visible, .chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
-::placeholder { color: rgba(240,237,232,.38); }
+.kicker { display: block; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+h1 { font-size: clamp(2.4rem, 11vw, 3.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #fff; text-wrap: balance; outline: none; }
+h2 { font-size: clamp(1.65rem, 7vw, 2.1rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.14; color: #fff; text-wrap: balance; outline: none; }
+.lead { margin-top: 14px; font-size: 1.12rem; color: var(--soft); }
+.hint { margin-top: 10px; font-size: 1rem; color: var(--muted); }
+.field { margin-top: 26px; }
+.qlabel { display: block; font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 10px; line-height: 1.4; }
+textarea, input[type=text] { width: 100%; font: inherit; font-size: 17px; color: #fff; background: var(--deep); border: 1.5px solid var(--line-2); border-radius: 14px; padding: 15px 16px; transition: border-color .15s, box-shadow .15s; }
+textarea { min-height: 112px; line-height: 1.5; resize: none; overflow: hidden; }
+textarea:focus, input[type=text]:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(212,165,116,.18); }
+button:focus-visible, a:focus-visible, .chip:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+::placeholder { color: var(--faint); opacity: 1; }
 
-.meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 24px; }
-.meta div { background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
-.meta b { display: block; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
-.meta span { font-size: 14px; color: var(--soft); line-height: 1.35; display: block; }
-.private { margin-top: 18px; display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--muted); padding: 12px 14px; border-radius: 12px; background: rgba(212,165,116,.07); border: 1px solid rgba(212,165,116,.22); }
+/* intro */
+.meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 26px; }
+.meta div { background: var(--raise); border: 1px solid var(--line); border-radius: 14px; padding: 13px 14px; }
+.meta b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+.meta span { font-size: 15px; color: var(--soft); line-height: 1.35; display: block; }
+.private { margin-top: 16px; display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--soft); padding: 14px 16px; border-radius: 14px; background: var(--gold-wash); border: 1px solid rgba(212,165,116,.28); }
 .private svg { flex: 0 0 auto; margin-top: 2px; }
+.textlink { font: inherit; font-size: 15px; font-weight: 600; background: none; border: 0; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 12px 8px; min-height: 44px; }
+.center { text-align: center; }
 
 /* chips */
 .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
-.chip { font: inherit; font-size: 15px; text-align: left; color: var(--off); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 13px 14px; cursor: pointer; line-height: 1.3; transition: border-color .15s, background .15s; }
-.chip:hover { border-color: rgba(212,165,116,.5); }
-.chip[aria-pressed="true"] { background: rgba(212,165,116,.14); border-color: var(--gold); color: #fff; }
+.chip { position: relative; font: inherit; font-size: 16px; font-weight: 500; text-align: left; color: var(--soft); background: var(--raise); border: 1.5px solid var(--line); border-radius: 14px; padding: 14px 14px 14px 46px; min-height: 58px; cursor: pointer; line-height: 1.3; transition: border-color .15s, background .15s, color .15s; }
+.chip::before { content: ""; position: absolute; left: 15px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; border: 2px solid var(--faint); transition: border-color .15s, background .15s; }
+.chip[aria-pressed="true"] { background: var(--gold-wash); border-color: var(--gold); color: #fff; }
+.chip[aria-pressed="true"]::before { border-color: var(--gold); background: radial-gradient(circle, var(--gold) 0 5px, transparent 6px); }
+@media (hover: hover) { .chip:hover { border-color: var(--gold-edge); } }
 
 /* examples */
-details.ex { margin-top: 18px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.03); }
-details.ex summary { cursor: pointer; padding: 12px 14px; font-size: 14px; font-weight: 600; color: var(--gold); list-style: none; }
+details.ex { margin-top: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--raise); overflow: hidden; }
+details.ex summary { cursor: pointer; padding: 14px 16px; font-size: 15px; font-weight: 600; color: var(--gold); list-style: none; display: flex; justify-content: space-between; align-items: center; min-height: 50px; }
 details.ex summary::-webkit-details-marker { display: none; }
-details.ex summary::after { content: " +"; }
-details.ex[open] summary::after { content: " –"; }
-.exlist { padding: 0 14px 14px; display: grid; gap: 10px; }
-.exrow { font-size: 14px; display: grid; gap: 2px; }
-.exrow .s { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(240,237,232,.35); }
+details.ex summary::after { content: "+"; font-size: 22px; font-weight: 400; line-height: 1; }
+details.ex[open] summary::after { content: "–"; }
+.exlist { padding: 2px 16px 16px; display: grid; gap: 14px; }
+.exrow { font-size: 15px; display: grid; gap: 3px; }
+.exrow .s { color: var(--faint); text-decoration: line-through; text-decoration-color: rgba(240,237,232,.4); }
 .exrow .f { color: #fff; }
 
 /* sliders */
-.scale { margin-top: 26px; }
-.scorebig { font-size: 3.4rem; font-weight: 800; letter-spacing: -.04em; color: #fff; line-height: 1; text-align: center; font-variant-numeric: tabular-nums; }
+.scale { margin-top: 28px; padding: 22px 18px 18px; border-radius: 18px; background: var(--raise); border: 1px solid var(--line); }
+.scorebig { font-size: 3.6rem; font-weight: 800; letter-spacing: -.04em; color: #fff; line-height: 1; text-align: center; font-variant-numeric: tabular-nums; }
 .scorebig small { font-size: 1rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
-.scoreword { text-align: center; font-size: 14px; color: var(--gold); margin: 6px 0 18px; min-height: 1.4em; }
-input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 99px; background: linear-gradient(90deg, rgba(212,165,116,.25), rgba(212,165,116,.25) 50%, rgba(242,184,160,.45)); outline: none; }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; border-radius: 50%; background: var(--gold); border: 3px solid var(--charcoal); box-shadow: 0 0 0 1px var(--gold); cursor: pointer; }
-input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--gold); border: 3px solid var(--charcoal); cursor: pointer; }
-.ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 10px; gap: 8px; }
+.scoreword { text-align: center; font-size: 15px; font-weight: 600; color: var(--gold); margin: 8px 0 20px; min-height: 1.4em; }
+.slider { display: grid; grid-template-columns: 48px 1fr 48px; gap: 10px; align-items: center; }
+.step { font: inherit; font-size: 24px; font-weight: 500; width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--line-2); background: var(--deep); color: var(--text); cursor: pointer; line-height: 1; }
+.step:active { background: var(--gold-wash); border-color: var(--gold); }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 44px; background: transparent; cursor: pointer; }
+input[type=range]::-webkit-slider-runnable-track { height: 10px; border-radius: 99px; background: linear-gradient(90deg, var(--gold) 0%, #8a8378 50%, var(--cost) 100%); }
+input[type=range]::-moz-range-track { height: 10px; border-radius: 99px; background: linear-gradient(90deg, var(--gold) 0%, #8a8378 50%, var(--cost) 100%); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 34px; height: 34px; margin-top: -12px; border-radius: 50%; background: #fff; border: 4px solid var(--bg); box-shadow: 0 0 0 2px #fff, 0 4px 14px rgba(0,0,0,.5); }
+input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 4px solid var(--bg); box-shadow: 0 0 0 2px #fff; }
+input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; border-radius: 8px; }
+.ends { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 13px; color: var(--muted); margin-top: 10px; gap: 8px; line-height: 1.3; }
 .ends span:nth-child(2) { text-align: center; }
 .ends span:last-child { text-align: right; }
-.dots { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 10px; }
-.dot { font: inherit; font-size: 14px; font-weight: 600; aspect-ratio: 1; border-radius: 10px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color: var(--off); cursor: pointer; padding: 0; }
-.dot[aria-pressed="true"] { background: var(--gold); color: #1A1A1A; border-color: var(--gold); }
+.dots { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+.dot { font: inherit; font-size: 16px; font-weight: 700; min-height: 48px; border-radius: 12px; border: 1.5px solid var(--line-2); background: var(--deep); color: var(--soft); cursor: pointer; padding: 0; }
+.dot[aria-pressed="true"] { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); }
+.pull { margin-top: 18px; padding: 20px 18px 16px; border-radius: 18px; background: var(--raise); border: 1px solid var(--line); }
 
 /* glimpse lists */
-.q { margin-top: 26px; }
-.addrow { display: flex; gap: 8px; }
-.addrow input { flex: 1; }
-.addbtn { font: inherit; font-size: 15px; font-weight: 700; border: 1px solid var(--gold); color: var(--gold); background: transparent; border-radius: 12px; padding: 0 16px; cursor: pointer; }
-.addbtn:hover { background: rgba(212,165,116,.1); }
-.items { list-style: none; margin-top: 10px; display: grid; gap: 8px; }
-.items li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; padding: 10px 12px; border-radius: 10px; background: rgba(212,165,116,.08); border: 1px solid rgba(212,165,116,.22); color: #fff; }
+.qnum { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gold-wash); border: 1px solid var(--gold-edge); color: var(--gold); font-weight: 700; font-size: 14px; margin-right: 8px; vertical-align: 4px; }
+.addrow { position: relative; margin-top: 22px; }
+.addrow input { padding-right: 86px; min-height: 58px; }
+.addbtn { position: absolute; right: 7px; top: 7px; bottom: 7px; font: inherit; font-size: 15px; font-weight: 700; border: 0; color: var(--gold-ink); background: var(--gold); border-radius: 10px; padding: 0 16px; cursor: pointer; transition: opacity .15s; }
+.addbtn:disabled { opacity: .35; }
+.items { list-style: none; margin-top: 12px; display: grid; gap: 8px; }
+.items li { display: flex; gap: 10px; align-items: center; font-size: 16px; padding: 8px 6px 8px 14px; border-radius: 12px; background: var(--gold-wash); border: 1px solid rgba(212,165,116,.3); color: #fff; animation: pop .25s ease; }
+@keyframes pop { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
 .items li span { flex: 1; overflow-wrap: anywhere; }
-.items li button { font: inherit; background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; }
-.tally { margin-top: 26px; padding: 12px 16px; border-radius: 14px; background: rgba(212,165,116,.08); border: 1px solid rgba(212,165,116,.3); display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--soft); }
-.tally b { font-size: 1.5rem; color: var(--gold); font-variant-numeric: tabular-nums; min-width: 1.6ch; text-align: center; }
+.items li button { font: inherit; background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 22px; line-height: 1; width: 40px; height: 40px; border-radius: 10px; flex: 0 0 auto; }
+.items li button:active { background: rgba(255,255,255,.08); }
+.tally { margin-top: 20px; display: flex; align-items: center; gap: 14px; font-size: 15px; color: var(--soft); padding: 14px 16px; border-radius: 14px; background: var(--raise); border: 1px solid var(--line); }
+.tally b { font-size: 1.7rem; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; min-width: 1.6ch; text-align: center; line-height: 1; }
+.tally small { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 2px; }
 
-/* nav buttons */
-.nav { display: flex; gap: 10px; margin-top: 30px; align-items: center; }
-.btn { font: inherit; font-size: 16px; font-weight: 700; color: #1A1A1A; background: var(--gold); border: 0; border-radius: 999px; padding: 16px 24px; cursor: pointer; text-decoration: none; text-align: center; transition: background .2s, transform .2s; }
-.btn:hover { background: var(--gold-2); transform: translateY(-1px); }
-.btn:disabled { opacity: .45; cursor: default; transform: none; }
+/* ---------- sticky action bar ---------- */
+.nav { position: sticky; bottom: 0; z-index: 10; display: flex; gap: 10px; align-items: center; margin: 30px calc(var(--pad) * -1) 0; padding: 16px var(--pad) calc(14px + var(--safe-b)); background: linear-gradient(180deg, rgba(26,26,26,0) 0, rgba(26,26,26,.94) 26%, var(--bg) 60%); }
+.btn { font: inherit; font-size: 17px; font-weight: 700; color: var(--gold-ink); background: var(--gold); border: 0; border-radius: 999px; padding: 0 24px; min-height: 56px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; text-align: center; transition: background .2s, transform .1s, opacity .2s; box-shadow: 0 6px 20px rgba(212,165,116,.18); }
+.btn:active { transform: scale(.98); }
+@media (hover: hover) { .btn:hover { background: var(--gold-2); } }
+.btn:disabled { opacity: .4; cursor: default; box-shadow: none; transform: none; }
 .btn.grow { flex: 1; }
-.back { font: inherit; font-size: 15px; font-weight: 600; background: none; border: 0; color: var(--muted); cursor: pointer; padding: 12px 6px; }
-.back:hover { color: #fff; }
-.ghost { font: inherit; font-size: 15px; font-weight: 600; color: var(--off); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 13px 18px; cursor: pointer; text-decoration: none; text-align: center; }
-.ghost:hover { border-color: rgba(212,165,116,.6); }
+.back { font: inherit; font-size: 16px; font-weight: 600; background: var(--raise); border: 1.5px solid var(--line-2); border-radius: 999px; color: var(--soft); cursor: pointer; min-width: 56px; min-height: 56px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
+.back svg { flex: 0 0 auto; }
+.ghost { font: inherit; font-size: 15px; font-weight: 600; color: var(--text); background: var(--raise); border: 1.5px solid var(--line-2); border-radius: 14px; padding: 12px 14px; min-height: 52px; cursor: pointer; text-decoration: none; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.ghost:active { border-color: var(--gold); }
 
-/* summary */
-.shift { margin-top: 22px; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
-.shift .row { display: grid; grid-template-columns: 64px 1fr 44px; align-items: center; gap: 10px; margin-top: 10px; font-size: 13px; color: var(--muted); }
-.shift .track { height: 10px; border-radius: 99px; background: rgba(255,255,255,.07); overflow: hidden; }
-.shift .fill { height: 100%; border-radius: 99px; background: rgba(242,184,160,.7); width: 0; transition: width .8s ease; }
+/* ---------- results ---------- */
+.shift { margin-top: 22px; background: var(--raise); border: 1px solid var(--line); border-radius: 18px; padding: 20px 18px; }
+.big-move { display: flex; align-items: baseline; gap: 10px; }
+.big-move b { font-size: 3rem; font-weight: 800; letter-spacing: -.04em; color: var(--gold); line-height: 1; font-variant-numeric: tabular-nums; }
+.big-move span { font-size: 15px; color: var(--muted); }
+.shift .row { display: grid; grid-template-columns: 56px 1fr 40px; align-items: center; gap: 10px; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.shift .track { height: 12px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; }
+.shift .fill { height: 100%; border-radius: 99px; width: 0; transition: width .9s cubic-bezier(.2,.8,.2,1); background: repeating-linear-gradient(135deg, var(--cost) 0 6px, #d68b72 6px 12px); }
 .shift .fill.after { background: var(--gold); }
-.shift .row b { color: #fff; text-align: right; font-variant-numeric: tabular-nums; }
-.shift p.note { margin-top: 14px; font-size: 15px; color: var(--soft); }
-.recap { margin-top: 18px; display: grid; gap: 14px; }
-.recap div { border-left: 2px solid rgba(212,165,116,.5); padding-left: 14px; }
-.recap b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
-.recap p, .recap li { font-size: 15px; color: #fff; overflow-wrap: anywhere; }
-.recap ul { padding-left: 18px; display: grid; gap: 4px; }
-.tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.tools .ghost { flex: 1 1 150px; }
-.next { margin-top: 38px; padding-top: 30px; border-top: 1px solid var(--line); }
+.shift .row b { color: #fff; text-align: right; font-variant-numeric: tabular-nums; font-size: 16px; }
+.shift p.note { margin-top: 16px; font-size: 16px; color: var(--soft); }
+.recap { margin-top: 18px; display: grid; gap: 10px; }
+.recap > div { background: var(--raise); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.recap b { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+.recap p, .recap li { font-size: 16px; color: #fff; overflow-wrap: anywhere; }
+.recap ul { padding-left: 20px; display: grid; gap: 4px; }
+.recap li::marker { color: var(--gold); }
+.recap .none { color: var(--faint); }
+.tools { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.next { margin-top: 36px; padding: 26px 20px 22px; border-radius: 22px; background: linear-gradient(180deg, rgba(212,165,116,.14), rgba(212,165,116,.04)); border: 1px solid rgba(212,165,116,.3); }
 .offers { display: grid; gap: 10px; margin-top: 18px; }
-.offer { padding: 16px; border-radius: 14px; background: rgba(255,255,255,.04); border: 1px solid var(--line); }
-.offer strong { color: #fff; display: block; }
-.offer span { font-size: 14.5px; color: var(--muted); }
-.next .btn { display: block; margin-top: 18px; }
-.quote { margin-top: 26px; padding-left: 16px; border-left: 2px solid rgba(212,165,116,.55); }
-.quote p { color: var(--soft); }
-.quote cite { display: block; margin-top: 8px; font-style: normal; font-size: 13px; color: var(--gold); }
-.about { margin-top: 22px; font-size: 14px; color: var(--muted); }
-footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: rgba(240,237,232,.5); }
-footer p + p { margin-top: 8px; }
-footer a { color: rgba(240,237,232,.7); }
+.offer { padding: 15px 16px; border-radius: 14px; background: rgba(18,18,18,.55); border: 1px solid var(--line); }
+.offer strong { color: #fff; display: block; font-size: 16px; }
+.offer span { font-size: 15px; color: var(--muted); }
+.next .btn { display: flex; width: 100%; margin-top: 20px; }
+.quote { margin-top: 24px; padding-left: 16px; border-left: 3px solid var(--gold-edge); }
+.quote p { color: var(--soft); font-size: 16px; }
+.quote cite { display: block; margin-top: 8px; font-style: normal; font-size: 14px; color: var(--gold); }
+.about { margin-top: 20px; font-size: 15px; color: var(--muted); }
+.about strong { color: #fff; }
+footer { margin-top: 36px; padding: 20px 0 calc(28px + var(--safe-b)); border-top: 1px solid var(--line); font-size: 14px; color: var(--faint); }
+footer p + p { margin-top: 10px; }
+footer a { color: var(--soft); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.toast { position: fixed; left: 50%; bottom: calc(96px + var(--safe-b)); transform: translate(-50%, 20px); background: #fff; color: var(--gold-ink); font-size: 15px; font-weight: 600; padding: 10px 18px; border-radius: 99px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 30; box-shadow: 0 8px 24px rgba(0,0,0,.4); }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
 
-@media (max-width: 380px) { .chips { grid-template-columns: 1fr; } .meta { grid-template-columns: 1fr; } }
-@media (min-width: 900px) { .wrap { padding-top: 48px; } }
+@media (max-width: 560px) {
+  .chips { grid-template-columns: 1fr; }
+  .dots { grid-template-columns: repeat(5, 1fr); gap: 8px; }
+}
+@media (max-width: 400px) {
+  :root { --pad: 16px; }
+  .meta { grid-template-columns: 1fr; }
+  .meta div { display: flex; gap: 12px; align-items: baseline; }
+  .meta b { min-width: 58px; }
+}
+@media (min-width: 900px) { main { padding-top: 48px; } }
 
 /* print: just the answers */
 @media print {
-  body { background: #fff; color: #111; }
-  .bar, .progress, .nav, .tools, .next, .private, footer .noprint { display: none !important; }
-  .screen { display: none !important; }
+  body { background: #fff; color: #111; font-size: 12pt; }
+  .head, .nav, .tools, .next, .private, footer .noprint, .toast { display: none !important; }
+  .screen { display: none !important; animation: none !important; }
   #s-done { display: block !important; }
   h2, .recap p, .recap li, .shift .row b { color: #111; }
-  .shift { border-color: #ccc; background: none; }
-  .recap b, .kicker { color: #8a5a2b; }
-  .shift p.note, .lead { color: #333; }
+  .shift, .recap > div { border-color: #ccc; background: none; }
+  .recap b, .kicker, .big-move b { color: #8a5a2b; }
+  .shift p.note, .lead, .big-move span { color: #333; }
 }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="bar">
+<header class="head" id="head">
+  <div class="wrap">
     <a class="brand" href="/private-sessions"><img src="/images/opt/sam-avatar.jpg" alt="" width="68" height="68">Sam Osborne</a>
     <span class="stepcount" id="stepcount" aria-live="polite"></span>
   </div>
   <div class="progress" aria-hidden="true"><span id="prog"></span></div>
+</header>
+
+<main class="wrap">
 
   <!-- 0 · INTRO -->
-  <section class="screen" id="s-intro" data-step="0">
+  <section class="screen" id="s-intro">
     <span class="kicker">Free 10-minute exercise</span>
     <h1>Under Your Skin</h1>
     <p class="lead">For the one person, or moment, you can&rsquo;t stop replaying. Name it, get specific, and take your first clear look at it.</p>
@@ -173,13 +223,13 @@ footer a { color: rgba(240,237,232,.7); }
       <div><b>Where</b><span>Somewhere quiet, uninterrupted</span></div>
       <div><b>How</b><span>Your first honest answer</span></div>
     </div>
-    <p class="private"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Your answers stay on this device. Nothing you type here is sent to Sam or anyone else.</span></p>
+    <p class="private"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Your answers stay on this device. Nothing you type here is sent to Sam or anyone else.</span></p>
     <div class="nav"><button class="btn grow" type="button" id="startbtn">Start</button></div>
-    <p class="hint" id="resume" hidden style="text-align:center"><button class="back" type="button" id="restart">Start over with a clean page</button></p>
+    <p class="center" id="resume" hidden><button class="textlink" type="button" id="restart">Start over with a clean page</button></p>
   </section>
 
   <!-- 1 · NAME IT -->
-  <section class="screen" id="s-name" data-step="1">
+  <section class="screen" id="s-name">
     <span class="kicker">Step 1 &middot; Name it</span>
     <h2>What&rsquo;s pulling you off your game right now?</h2>
     <p class="hint">Choose the one that carries the most weight.</p>
@@ -192,14 +242,14 @@ footer a { color: rgba(240,237,232,.7); }
       <button class="chip" type="button" aria-pressed="false">Something else</button>
     </div>
     <div class="field">
-      <label for="a-name">In one sentence, it&rsquo;s:</label>
-      <textarea id="a-name" data-key="name" rows="2" placeholder="e.g. My business partner, and the way he talks to me in front of the team."></textarea>
+      <label class="qlabel" for="a-name">In one sentence, it&rsquo;s:</label>
+      <textarea id="a-name" data-key="name" rows="2" enterkeyhint="done" placeholder="e.g. My business partner, and the way he talks to me in front of the team."></textarea>
     </div>
-    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next data-need="name">Next</button></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn grow" type="button" data-next data-need="name">Next</button></div>
   </section>
 
   <!-- 2 · GET SPECIFIC -->
-  <section class="screen" id="s-specific" data-step="2">
+  <section class="screen" id="s-specific">
     <span class="kicker">Step 2 &middot; Get specific</span>
     <h2>Set the story aside. What exactly happened?</h2>
     <p class="hint">What exactly did they say or do? Stories keep it vague and heavy. Specifics make it something you can actually look at.</p>
@@ -212,95 +262,114 @@ footer a { color: rgba(240,237,232,.7); }
       </div>
     </details>
     <div class="field">
-      <label for="a-specific">Specifically:</label>
-      <textarea id="a-specific" data-key="specific" rows="3" placeholder="What a camera would have recorded, not what it meant."></textarea>
+      <label class="qlabel" for="a-specific">Specifically:</label>
+      <textarea id="a-specific" data-key="specific" rows="3" enterkeyhint="done" placeholder="What a camera would have recorded, not what it meant."></textarea>
     </div>
-    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next data-need="specific">Next</button></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn grow" type="button" data-next data-need="specific">Next</button></div>
   </section>
 
   <!-- 3 · SCORE IT -->
-  <section class="screen" id="s-score" data-step="3">
+  <section class="screen" id="s-score">
     <span class="kicker">Step 3 &middot; Score it</span>
     <h2>Right now, how one-sided does it feel?</h2>
     <p class="hint">0 means it&rsquo;s pure upside. 100 means it&rsquo;s all cost and no benefit. Most people start close to 100, and that&rsquo;s exactly the point.</p>
     <div class="scale">
       <div class="scorebig" aria-hidden="true"><span id="v-before">80</span><small> / 100</small></div>
       <div class="scoreword" id="w-before"></div>
-      <label class="sr" for="r-before">One-sidedness, 0 to 100</label>
-      <input type="range" id="r-before" min="0" max="100" step="1" value="80" data-key="before">
-      <div class="ends"><span>All upside</span><span>Balanced &middot; 50/50</span><span>All cost, no benefit</span></div>
+      <div class="slider">
+        <button class="step" type="button" data-nudge="before" data-by="-1" aria-label="Lower">&minus;</button>
+        <input type="range" id="r-before" min="0" max="100" step="1" value="80" aria-label="How one-sided it feels, 0 to 100">
+        <button class="step" type="button" data-nudge="before" data-by="1" aria-label="Higher">+</button>
+      </div>
+      <div class="ends"><span>All upside</span><span>Balanced 50/50</span><span>All cost, no benefit</span></div>
     </div>
-    <div class="field" style="margin-top:34px">
+    <div class="pull">
       <span class="qlabel" id="pull-l">How strongly does it pull on you?</span>
       <div class="dots" role="group" aria-labelledby="pull-l" id="pull"></div>
-      <div class="ends"><span>Barely</span><span></span><span>It runs my day</span></div>
+      <div class="ends"><span>1 &middot; Barely</span><span></span><span>10 &middot; It runs my day</span></div>
     </div>
-    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next>Next</button></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn grow" type="button" data-next>Next</button></div>
   </section>
 
-  <!-- 4 · THE OTHER SIDE -->
-  <section class="screen" id="s-glimpse" data-step="4">
-    <span class="kicker">Step 4 &middot; A first glimpse of the other side</span>
-    <h2>Now look at the side you haven&rsquo;t been looking at.</h2>
-    <p class="hint">You&rsquo;ve looked at what this has cost you. There are no wrong answers, and even something small counts. Add as many as you can find, one at a time.</p>
-
-    <div class="q" data-list="learn">
-      <label class="qlabel" for="in-learn">a. What has this pushed you to learn, build, or become?</label>
-      <div class="addrow"><input type="text" id="in-learn" maxlength="300" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
+  <!-- 4a/b/c · THE OTHER SIDE -->
+  <section class="screen" id="s-learn" data-list="learn">
+    <span class="kicker">Step 4 &middot; The other side &middot; 1 of 3</span>
+    <h2>You&rsquo;ve looked at what this has cost you. Now look at the side you haven&rsquo;t.</h2>
+    <p class="hint">There are no wrong answers, and even something small counts. Add as many as you can find, one at a time.</p>
+    <div class="field">
+      <label class="qlabel" for="in-learn"><span class="qnum">a</span>What has this pushed you to learn, build, or become?</label>
+      <div class="addrow"><input type="text" id="in-learn" maxlength="300" enterkeyhint="enter" autocomplete="off" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
       <ul class="items"></ul>
     </div>
-    <div class="q" data-list="stronger">
-      <label class="qlabel" for="in-stronger">b. Where has it made you stronger, sharper, or more determined?</label>
-      <div class="addrow"><input type="text" id="in-stronger" maxlength="300" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
-      <ul class="items"></ul>
-    </div>
-    <div class="q" data-list="friend">
-      <label class="qlabel" for="in-friend">c. If a close friend had lived through this, what would you say it gave them?</label>
-      <div class="addrow"><input type="text" id="in-friend" maxlength="300" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
-      <ul class="items"></ul>
-    </div>
-
-    <div class="tally" aria-live="polite"><b id="tally-n">0</b><span id="tally-t">Even something small counts.</span></div>
-    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next>Next</button></div>
+    <div class="tally" aria-live="polite"><b class="tally-n">0</b><span><small>Found so far</small><span class="tally-t">Even something small counts.</span></span></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn grow" type="button" data-next>Next question</button></div>
   </section>
 
-  <!-- 5 · LOOK AGAIN -->
-  <section class="screen" id="s-again" data-step="5">
+  <section class="screen" id="s-stronger" data-list="stronger">
+    <span class="kicker">Step 4 &middot; The other side &middot; 2 of 3</span>
+    <h2>Where has it made you stronger?</h2>
+    <div class="field">
+      <label class="qlabel" for="in-stronger"><span class="qnum">b</span>Where has it made you stronger, sharper, or more determined?</label>
+      <div class="addrow"><input type="text" id="in-stronger" maxlength="300" enterkeyhint="enter" autocomplete="off" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
+      <ul class="items"></ul>
+    </div>
+    <div class="tally" aria-live="polite"><b class="tally-n">0</b><span><small>Found so far</small><span class="tally-t"></span></span></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn grow" type="button" data-next>Next question</button></div>
+  </section>
+
+  <section class="screen" id="s-friend" data-list="friend">
+    <span class="kicker">Step 4 &middot; The other side &middot; 3 of 3</span>
+    <h2>Now see it through a friend&rsquo;s eyes.</h2>
+    <div class="field">
+      <label class="qlabel" for="in-friend"><span class="qnum">c</span>If a close friend had lived through this, what would you say it gave them?</label>
+      <div class="addrow"><input type="text" id="in-friend" maxlength="300" enterkeyhint="enter" autocomplete="off" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
+      <ul class="items"></ul>
+    </div>
+    <div class="tally" aria-live="polite"><b class="tally-n">0</b><span><small>Found so far</small><span class="tally-t"></span></span></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn grow" type="button" data-next>Next</button></div>
+  </section>
+
+  <!-- 4d · LOOK AGAIN -->
+  <section class="screen" id="s-again">
     <span class="kicker">Step 4 &middot; Look again</span>
     <h2>Now look at it again. Where is it now?</h2>
     <p class="hint">Same scale. Don&rsquo;t aim for a number. Just notice where it actually sits.</p>
     <div class="scale">
       <div class="scorebig" aria-hidden="true"><span id="v-after">80</span><small> / 100</small></div>
       <div class="scoreword" id="w-after"></div>
-      <label class="sr" for="r-after">New score, 0 to 100</label>
-      <input type="range" id="r-after" min="0" max="100" step="1" value="80" data-key="after">
-      <div class="ends"><span>All upside</span><span>Balanced &middot; 50/50</span><span>All cost, no benefit</span></div>
+      <div class="slider">
+        <button class="step" type="button" data-nudge="after" data-by="-1" aria-label="Lower">&minus;</button>
+        <input type="range" id="r-after" min="0" max="100" step="1" value="80" aria-label="New score, 0 to 100">
+        <button class="step" type="button" data-nudge="after" data-by="1" aria-label="Higher">+</button>
+      </div>
+      <div class="ends"><span>All upside</span><span>Balanced 50/50</span><span>All cost, no benefit</span></div>
     </div>
-    <p class="hint" style="margin-top:22px">This is a first glimpse, not the whole picture. In a full session, the questions go much deeper, and the number keeps moving.</p>
-    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next>Next</button></div>
+    <p class="hint" style="margin-top:18px">This is a first glimpse, not the whole picture. In a full session, the questions go much deeper, and the number keeps moving.</p>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn grow" type="button" data-next>Next</button></div>
   </section>
 
-  <!-- 6 · REFLECT -->
-  <section class="screen" id="s-reflect" data-step="6">
+  <!-- 5 · REFLECT -->
+  <section class="screen" id="s-reflect">
     <span class="kicker">Step 5 &middot; Reflect</span>
     <h2>What did you notice?</h2>
     <div class="field">
-      <label for="a-notice">What did you notice as you worked through this?</label>
+      <label class="qlabel" for="a-notice">What did you notice as you worked through this?</label>
       <textarea id="a-notice" data-key="notice" rows="3"></textarea>
     </div>
     <div class="field">
-      <label for="a-differently">If this no longer ran you, what would you do differently this week?</label>
+      <label class="qlabel" for="a-differently">If this no longer ran you, what would you do differently this week?</label>
       <textarea id="a-differently" data-key="differently" rows="3"></textarea>
     </div>
-    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next>See my results</button></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn grow" type="button" data-next>See my results</button></div>
   </section>
 
-  <!-- 7 · DONE -->
-  <section class="screen" id="s-done" data-step="7">
+  <!-- RESULTS -->
+  <section class="screen" id="s-done">
     <span class="kicker">Your Under-Your-Skin Exercise</span>
-    <h2 id="done-h">Here&rsquo;s where you landed.</h2>
+    <h2>Here&rsquo;s where you landed.</h2>
 
     <div class="shift">
+      <div class="big-move"><b id="moved">0</b><span id="moved-l">points moved</span></div>
       <div class="row"><span>Before</span><div class="track"><div class="fill" id="f-before"></div></div><b id="d-before">0</b></div>
       <div class="row"><span>After</span><div class="track"><div class="fill after" id="f-after"></div></div><b id="d-after">0</b></div>
       <p class="note" id="shift-note"></p>
@@ -309,10 +378,10 @@ footer a { color: rgba(240,237,232,.7); }
     <div class="recap" id="recap"></div>
 
     <div class="tools">
-      <button class="ghost" type="button" id="dl">Save my answers</button>
-      <button class="ghost" type="button" id="pr">Print or save as PDF</button>
-      <button class="ghost" type="button" id="clear">Clear and start over</button>
+      <button class="ghost" type="button" id="dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Save answers</button>
+      <button class="ghost" type="button" id="pr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/></svg>Print / PDF</button>
     </div>
+    <p class="center"><button class="textlink" type="button" id="clear">Clear my answers and start over</button></p>
 
     <div class="next">
       <span class="kicker">Your next step</span>
@@ -323,12 +392,12 @@ footer a { color: rgba(240,237,232,.7); }
         <div class="offer"><strong>Six-Session Program</strong><span>For self-worth and the patterns that keep coming back.</span></div>
       </div>
       <a class="btn" href="https://calendly.com/sam-samosborne/20min" target="_blank" rel="noopener">Book a free 20-minute fit call</a>
-      <p class="hint" style="text-align:center"><a href="/private-sessions">Learn more about private sessions</a></p>
+      <p class="center" style="margin-top:12px"><a href="/private-sessions">Learn more about private sessions</a></p>
       <div class="quote">
         <p>&ldquo;One session with Sam cleared more black clouds than anything I have ever previously experienced.&rdquo;</p>
         <cite>Graham Harvey &middot; Professional Speaker &middot; Professional Speakers Australia Hall of Fame</cite>
       </div>
-      <p class="about"><strong style="color:#fff">About Sam.</strong> Sam Osborne is a trained Demartini Method Facilitator and a keynote speaker on conflict and composure for attorneys, advisors, and executives. He works privately with clients in 10 countries.</p>
+      <p class="about"><strong>About Sam.</strong> Sam Osborne is a trained Demartini Method Facilitator and a keynote speaker on conflict and composure for attorneys, advisors, and executives. He works privately with clients in 10 countries.</p>
     </div>
   </section>
 
@@ -338,22 +407,25 @@ footer a { color: rgba(240,237,232,.7); }
     <p>&copy; 2026 Sam Osborne &middot; <a href="/">samosborne.net</a></p>
   </footer>
 </main>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 (function(){
-  var KEY='uys-exercise-v1';
+  var KEY='uys-exercise-v2';
   var S={step:0,kind:'',name:'',specific:'',before:80,pull:0,learn:[],stronger:[],friend:[],after:null,notice:'',differently:''};
-  function load(){ try{ var raw=localStorage.getItem(KEY); if(raw){ var o=JSON.parse(raw); for(var k in o) if(k in S) S[k]=o[k]; } }catch(e){} }
+  function load(){ try{ var raw=localStorage.getItem(KEY), old=false; if(!raw){ raw=localStorage.getItem('uys-exercise-v1'); old=!!raw; } if(raw){ var o=JSON.parse(raw); for(var k in o) if(k in S) S[k]=o[k]; if(old) S.step=1; } }catch(e){} }
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
-  function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} }
+  function wipe(){ try{ localStorage.removeItem(KEY); localStorage.removeItem('uys-exercise-v1'); }catch(e){} }
   load();
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function buzz(){ try{ if(navigator.vibrate) navigator.vibrate(8); }catch(e){} }
+  var toastT; function toast(msg){ var t=$('toast'); t.textContent=msg; t.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(function(){ t.classList.remove('on'); },1800); }
 
   var screens=[].slice.call(document.querySelectorAll('.screen'));
   var LAST=screens.length-1;
-  // step labels: screens 1-3 = steps 1-3, 4-5 = step 4, 6 = step 5
-  var STEPNO=[0,1,2,3,4,4,5,0];
+  // intro, 1 name, 2 specific, 3 score, 4a, 4b, 4c, 4 again, 5 reflect, results
+  var STEPNO=[0,1,2,3,4,4,4,4,5,0];
 
   function scoreWord(v){
     v=+v;
@@ -370,74 +442,80 @@ footer a { color: rgba(240,237,232,.7); }
     S.step=n; save();
     screens.forEach(function(s,i){ s.classList.toggle('on',i===n); });
     $('prog').style.width=(n/LAST*100)+'%';
-    var k=STEPNO[n]; $('stepcount').textContent=k?('Step '+k+' of 5'):'';
-    if(n===5 && S.after===null){ S.after=S.before; syncRange('after'); }
+    var k=STEPNO[n]; $('stepcount').textContent=k?('Step '+k+' of 5'):(n===LAST?'Done':'');
+    if(screens[n].id==='s-again' && S.after===null){ S.after=S.before; save(); }
+    syncRange('after');
     if(n===LAST) renderDone();
-    refreshNext();
-    window.scrollTo({top:0,behavior:'smooth'});
+    refreshNext(); tally();
+    window.scrollTo(0,0);
     var h=screens[n].querySelector('h1,h2'); if(h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
+    sizeAll();
   }
 
   function refreshNext(){
     document.querySelectorAll('[data-need]').forEach(function(b){ b.disabled=!String(S[b.getAttribute('data-need')]||'').trim(); });
   }
 
-  // nav
   document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click',function(){ show(S.step+1); }); });
   document.querySelectorAll('[data-prev]').forEach(function(b){ b.addEventListener('click',function(){ show(S.step-1); }); });
 
-  // text fields
+  // header border on scroll
+  window.addEventListener('scroll',function(){ $('head').classList.toggle('scrolled',window.scrollY>4); },{passive:true});
+
+  // auto-growing text areas
+  function size(t){ t.style.height='auto'; t.style.height=Math.max(t.scrollHeight+3,112)+'px'; }
+  function sizeAll(){ document.querySelectorAll('.screen.on textarea').forEach(size); }
   document.querySelectorAll('textarea[data-key]').forEach(function(t){
     var k=t.getAttribute('data-key'); t.value=S[k]||'';
-    t.addEventListener('input',function(){ S[k]=t.value; save(); refreshNext(); });
+    t.addEventListener('input',function(){ S[k]=t.value; save(); refreshNext(); size(t); });
   });
 
   // chips
   var chips=[].slice.call(document.querySelectorAll('.chip'));
   chips.forEach(function(c){
-    if(c.textContent===S.kind) c.setAttribute('aria-pressed','true');
+    c.setAttribute('aria-pressed',c.textContent===S.kind?'true':'false');
     c.addEventListener('click',function(){
       chips.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
-      c.setAttribute('aria-pressed','true'); S.kind=c.textContent; save();
-      $('a-name').focus();
+      c.setAttribute('aria-pressed','true'); S.kind=c.textContent; save(); buzz();
+      var f=$('a-name'); if(!f.value.trim()) f.scrollIntoView({behavior:'smooth',block:'center'});
     });
   });
 
   // sliders
   function syncRange(k){
-    var r=$('r-'+k), v=S[k]===null?S.before:S[k];
+    var v=S[k]===null?S.before:S[k], r=$('r-'+k);
     r.value=v; $('v-'+k).textContent=v; $('w-'+k).textContent=scoreWord(v);
     r.setAttribute('aria-valuetext',v+' out of 100, '+scoreWord(v));
   }
-  ['before','after'].forEach(function(k){
-    var r=$('r-'+k);
-    r.addEventListener('input',function(){ S[k]=+r.value; syncRange(k); save(); });
-    syncRange(k);
+  function setScore(k,v){ S[k]=Math.max(0,Math.min(100,+v)); syncRange(k); save(); }
+  ['before','after'].forEach(function(k){ $('r-'+k).addEventListener('input',function(){ setScore(k,this.value); }); syncRange(k); });
+  document.querySelectorAll('[data-nudge]').forEach(function(b){
+    var k=b.getAttribute('data-nudge'), by=+b.getAttribute('data-by'), hold, rep;
+    function step(){ var cur=S[k]===null?S.before:S[k]; setScore(k,cur+by); }
+    function stop(){ clearTimeout(hold); clearInterval(rep); }
+    b.addEventListener('click',function(e){ if(e.detail===0) step(); });
+    b.addEventListener('pointerdown',function(){ step(); buzz(); hold=setTimeout(function(){ rep=setInterval(step,70); },380); });
+    ['pointerup','pointerleave','pointercancel'].forEach(function(ev){ b.addEventListener(ev,stop); });
   });
 
   // pull 1-10
   var pull=$('pull');
   for(var i=1;i<=10;i++){
     var d=document.createElement('button'); d.type='button'; d.className='dot'; d.textContent=i; d.setAttribute('aria-pressed',S.pull===i?'true':'false');
-    d.addEventListener('click',(function(n,el){ return function(){ S.pull=n; save(); pull.querySelectorAll('.dot').forEach(function(x){ x.setAttribute('aria-pressed','false'); }); el.setAttribute('aria-pressed','true'); }; })(i,d));
+    d.addEventListener('click',(function(n,el){ return function(){ S.pull=n; save(); buzz(); pull.querySelectorAll('.dot').forEach(function(x){ x.setAttribute('aria-pressed','false'); }); el.setAttribute('aria-pressed','true'); }; })(i,d));
     pull.appendChild(d);
   }
 
-  // glimpse lists
-  var NUDGE=[
-    [0,'Even something small counts.'],
-    [1,'Good. What else?'],
-    [3,'Keep going. The less obvious ones matter most.'],
-    [6,'Look for the ones you didn&rsquo;t expect to find.'],
-    [10,'That&rsquo;s real work. Notice how it feels now.']
-  ];
+  // the other side
+  var NUDGE=[[0,'Even something small counts.'],[1,'Good. What else?'],[3,'Keep going. The less obvious ones matter most.'],[6,'Look for the ones you didn&rsquo;t expect to find.'],[10,'That&rsquo;s real work. Notice how it feels now.']];
   function tally(){
     var n=S.learn.length+S.stronger.length+S.friend.length, t='';
     NUDGE.forEach(function(p){ if(n>=p[0]) t=p[1]; });
-    $('tally-n').textContent=n; $('tally-t').innerHTML=t;
+    document.querySelectorAll('.tally-n').forEach(function(x){ x.textContent=n; });
+    document.querySelectorAll('.tally-t').forEach(function(x){ x.innerHTML=t; });
   }
   document.querySelectorAll('[data-list]').forEach(function(box){
-    var k=box.getAttribute('data-list'), inp=box.querySelector('input'), ul=box.querySelector('.items');
+    var k=box.getAttribute('data-list'), inp=box.querySelector('input'), ul=box.querySelector('.items'), btn=box.querySelector('.addbtn');
     function draw(){
       ul.innerHTML='';
       S[k].forEach(function(txt,idx){
@@ -448,26 +526,29 @@ footer a { color: rgba(240,237,232,.7); }
       });
       tally();
     }
-    function add(){ var v=inp.value.trim(); if(!v) return; S[k].push(v.slice(0,300)); inp.value=''; save(); draw(); inp.focus(); }
-    box.querySelector('.addbtn').addEventListener('click',add);
+    function sync(){ btn.disabled=!inp.value.trim(); }
+    function add(){ var v=inp.value.trim(); if(!v) return; S[k].push(v.slice(0,300)); inp.value=''; sync(); save(); draw(); buzz(); inp.focus(); }
+    btn.addEventListener('click',add);
+    inp.addEventListener('input',sync);
     inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); add(); } });
-    draw();
+    sync(); draw();
   });
 
-  // done
-  function list(arr){ return arr.length?'<ul>'+arr.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>':'<p style="color:var(--muted)">Nothing added</p>'; }
+  // results
+  function list(arr){ return arr.length?'<ul>'+arr.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>':'<p class="none">Nothing added</p>'; }
   function renderDone(){
     var b=S.before, a=S.after===null?S.before:S.after, diff=b-a;
     $('d-before').textContent=b; $('d-after').textContent=a;
+    $('moved').textContent=Math.abs(diff);
+    $('moved-l').textContent=diff>=0?(Math.abs(diff)===1?'point toward balance':'points toward balance'):'points further from balance';
     $('f-before').style.width='0'; $('f-after').style.width='0';
-    setTimeout(function(){ $('f-before').style.width=b+'%'; $('f-after').style.width=a+'%'; },60);
+    setTimeout(function(){ $('f-before').style.width=b+'%'; $('f-after').style.width=a+'%'; },80);
     var note;
-    if(diff>=15) note='It moved '+diff+' points. That&rsquo;s what happens when you look at the side you&rsquo;ve been missing. Imagine what a full session does.';
-    else if(diff>0) note='It moved '+diff+' point'+(diff===1?'':'s')+'. A first crack in a story you&rsquo;ve been carrying. In a session, we keep going until it&rsquo;s balanced.';
+    if(diff>=15) note='That&rsquo;s what happens when you look at the side you&rsquo;ve been missing. Imagine what a full session does.';
+    else if(diff>0) note='A first crack in a story you&rsquo;ve been carrying. In a session, we keep going until it&rsquo;s balanced.';
     else note='If the number barely moved, that&rsquo;s normal. A first glimpse rarely shifts it on its own. This is exactly where a session begins.';
     $('shift-note').innerHTML=note;
-    var all=S.learn.concat(S.stronger,S.friend);
-    var h='';
+    var all=S.learn.concat(S.stronger,S.friend), h='';
     h+='<div><b>What it is'+(S.kind?' &middot; '+esc(S.kind):'')+'</b><p>'+esc(S.name||'—')+'</p></div>';
     if(S.specific) h+='<div><b>Specifically</b><p>'+esc(S.specific)+'</p></div>';
     if(S.pull) h+='<div><b>How strongly it pulls</b><p>'+S.pull+' / 10</p></div>';
@@ -492,17 +573,22 @@ footer a { color: rgba(240,237,232,.7); }
     return L.join('\n');
   }
   $('dl').addEventListener('click',function(){
+    var text=asText();
     try{
-      var blob=new Blob([asText()],{type:'text/plain'}), u=URL.createObjectURL(blob), el=document.createElement('a');
+      var file=new File([text],'under-your-skin-exercise.txt',{type:'text/plain'});
+      if(navigator.canShare && navigator.canShare({files:[file]}) && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)){
+        navigator.share({files:[file],title:'My Under-Your-Skin Exercise'}).catch(function(){});
+        return;
+      }
+    }catch(e){}
+    try{
+      var u=URL.createObjectURL(new Blob([text],{type:'text/plain'})), el=document.createElement('a');
       el.href=u; el.download='under-your-skin-exercise.txt'; document.body.appendChild(el); el.click(); el.remove();
-      setTimeout(function(){ URL.revokeObjectURL(u); },1000);
+      setTimeout(function(){ URL.revokeObjectURL(u); },1000); toast('Answers saved');
     }catch(e){ window.print(); }
   });
   $('pr').addEventListener('click',function(){ window.print(); });
-  function reset(){
-    if(!confirm('Clear your answers from this device and start over?')) return;
-    wipe(); location.href=location.pathname;
-  }
+  function reset(){ if(!confirm('Clear your answers from this device and start over?')) return; wipe(); location.href=location.pathname; }
   $('clear').addEventListener('click',reset);
   $('restart').addEventListener('click',reset);
 
