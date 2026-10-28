@@ -8,6 +8,18 @@
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://samosborne.net/start">
 <meta name="theme-color" content="#1A1A1A">
+<script>
+/* Already signed up on this device? Skip the form and go straight to the exercise.
+   Add ?form to the URL to see the form anyway (handy for testing). */
+(function(){ try{
+  if(/[?&]form\b/.test(location.search)) return;
+  var ls=window.localStorage;
+  if(ls.getItem('uys-signed-up')||ls.getItem('uys-exercise-v2')||ls.getItem('uys-exercise-v1')){
+    var q=new URLSearchParams(location.search), src=q.get('utm_source');
+    location.replace('/exercise'+(src?'?returning='+encodeURIComponent(src):''));
+  }
+}catch(e){} })();
+</script>
 <meta property="og:title" content="Still replaying what they said?">
 <meta property="og:description" content="The free 10-minute exercise for the one person who gets under your skin.">
 <meta property="og:url" content="https://samosborne.net/start">
@@ -131,6 +143,7 @@ footer a { color: rgba(240,237,232,.7); text-decoration: none; }
       .then(function(r){ if(!r.ok) throw new Error('bad'); return r; })
       .then(function(){
         var name=(form.elements.first_name.value||'').trim().split(' ')[0];
+        try{ localStorage.setItem('uys-signed-up','1'); }catch(e){}
         card.className='card done';
         card.innerHTML='<h2>It’s yours'+(name?', '+name.replace(/[<>&"]/g,''):'')+'.</h2>'+
           '<p>Open it now, or save it for somewhere quiet.</p>'+
