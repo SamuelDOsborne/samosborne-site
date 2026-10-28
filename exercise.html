@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Under-Your-Skin Exercise | Sam Osborne</title>
+<meta name="description" content="The free 10-minute exercise for the one person or moment you can't stop replaying. Name it, get specific, and take your first clear look at it.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://samosborne.net/exercise">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --charcoal: #1A1A1A; --deep: #121212; --gold: #D4A574; --gold-2: #E8C497; --off: #F0EDE8; --muted: rgba(240,237,232,.66); --line: rgba(255,255,255,.1); --soft: rgba(240,237,232,.86); }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--charcoal); color: var(--off); line-height: 1.55; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+a { color: var(--gold); }
+.wrap { max-width: 580px; margin: 0 auto; padding: 22px 20px 48px; }
+
+/* top bar + progress */
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-size: 14px; font-weight: 600; }
+.brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+.stepcount { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.progress { height: 4px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; margin-bottom: 34px; }
+.progress span { display: block; height: 100%; width: 0; background: var(--gold); border-radius: 99px; transition: width .4s ease; }
+
+/* screens */
+.screen { display: none; animation: rise .35s ease; }
+.screen.on { display: block; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .screen { animation: none; } .progress span { transition: none; } }
+
+.kicker { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+h1 { font-size: clamp(2.1rem, 9vw, 3rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.05; color: #fff; text-wrap: balance; }
+h2 { font-size: clamp(1.6rem, 6.5vw, 2.1rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; color: #fff; text-wrap: balance; }
+.lead { margin-top: 14px; font-size: 1.08rem; color: var(--soft); }
+.hint { margin-top: 10px; font-size: .95rem; color: var(--muted); }
+.field { margin-top: 24px; }
+.field > label, .qlabel { display: block; font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+textarea, input[type=text] { width: 100%; font: inherit; font-size: 16px; color: #fff; background: var(--deep); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 14px; resize: vertical; }
+textarea { min-height: 92px; line-height: 1.5; }
+textarea:focus, input:focus, button:focus-visible, .chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+::placeholder { color: rgba(240,237,232,.38); }
+
+.meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 24px; }
+.meta div { background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.meta b { display: block; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
+.meta span { font-size: 14px; color: var(--soft); line-height: 1.35; display: block; }
+.private { margin-top: 18px; display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--muted); padding: 12px 14px; border-radius: 12px; background: rgba(212,165,116,.07); border: 1px solid rgba(212,165,116,.22); }
+.private svg { flex: 0 0 auto; margin-top: 2px; }
+
+/* chips */
+.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.chip { font: inherit; font-size: 15px; text-align: left; color: var(--off); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 13px 14px; cursor: pointer; line-height: 1.3; transition: border-color .15s, background .15s; }
+.chip:hover { border-color: rgba(212,165,116,.5); }
+.chip[aria-pressed="true"] { background: rgba(212,165,116,.14); border-color: var(--gold); color: #fff; }
+
+/* examples */
+details.ex { margin-top: 18px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.03); }
+details.ex summary { cursor: pointer; padding: 12px 14px; font-size: 14px; font-weight: 600; color: var(--gold); list-style: none; }
+details.ex summary::-webkit-details-marker { display: none; }
+details.ex summary::after { content: " +"; }
+details.ex[open] summary::after { content: " –"; }
+.exlist { padding: 0 14px 14px; display: grid; gap: 10px; }
+.exrow { font-size: 14px; display: grid; gap: 2px; }
+.exrow .s { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(240,237,232,.35); }
+.exrow .f { color: #fff; }
+
+/* sliders */
+.scale { margin-top: 26px; }
+.scorebig { font-size: 3.4rem; font-weight: 800; letter-spacing: -.04em; color: #fff; line-height: 1; text-align: center; font-variant-numeric: tabular-nums; }
+.scorebig small { font-size: 1rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.scoreword { text-align: center; font-size: 14px; color: var(--gold); margin: 6px 0 18px; min-height: 1.4em; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 99px; background: linear-gradient(90deg, rgba(212,165,116,.25), rgba(212,165,116,.25) 50%, rgba(242,184,160,.45)); outline: none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; border-radius: 50%; background: var(--gold); border: 3px solid var(--charcoal); box-shadow: 0 0 0 1px var(--gold); cursor: pointer; }
+input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--gold); border: 3px solid var(--charcoal); cursor: pointer; }
+.ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 10px; gap: 8px; }
+.ends span:nth-child(2) { text-align: center; }
+.ends span:last-child { text-align: right; }
+.dots { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 10px; }
+.dot { font: inherit; font-size: 14px; font-weight: 600; aspect-ratio: 1; border-radius: 10px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color: var(--off); cursor: pointer; padding: 0; }
+.dot[aria-pressed="true"] { background: var(--gold); color: #1A1A1A; border-color: var(--gold); }
+
+/* glimpse lists */
+.q { margin-top: 26px; }
+.addrow { display: flex; gap: 8px; }
+.addrow input { flex: 1; }
+.addbtn { font: inherit; font-size: 15px; font-weight: 700; border: 1px solid var(--gold); color: var(--gold); background: transparent; border-radius: 12px; padding: 0 16px; cursor: pointer; }
+.addbtn:hover { background: rgba(212,165,116,.1); }
+.items { list-style: none; margin-top: 10px; display: grid; gap: 8px; }
+.items li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; padding: 10px 12px; border-radius: 10px; background: rgba(212,165,116,.08); border: 1px solid rgba(212,165,116,.22); color: #fff; }
+.items li span { flex: 1; overflow-wrap: anywhere; }
+.items li button { font: inherit; background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; }
+.tally { margin-top: 26px; padding: 12px 16px; border-radius: 14px; background: rgba(212,165,116,.08); border: 1px solid rgba(212,165,116,.3); display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--soft); }
+.tally b { font-size: 1.5rem; color: var(--gold); font-variant-numeric: tabular-nums; min-width: 1.6ch; text-align: center; }
+
+/* nav buttons */
+.nav { display: flex; gap: 10px; margin-top: 30px; align-items: center; }
+.btn { font: inherit; font-size: 16px; font-weight: 700; color: #1A1A1A; background: var(--gold); border: 0; border-radius: 999px; padding: 16px 24px; cursor: pointer; text-decoration: none; text-align: center; transition: background .2s, transform .2s; }
+.btn:hover { background: var(--gold-2); transform: translateY(-1px); }
+.btn:disabled { opacity: .45; cursor: default; transform: none; }
+.btn.grow { flex: 1; }
+.back { font: inherit; font-size: 15px; font-weight: 600; background: none; border: 0; color: var(--muted); cursor: pointer; padding: 12px 6px; }
+.back:hover { color: #fff; }
+.ghost { font: inherit; font-size: 15px; font-weight: 600; color: var(--off); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 13px 18px; cursor: pointer; text-decoration: none; text-align: center; }
+.ghost:hover { border-color: rgba(212,165,116,.6); }
+
+/* summary */
+.shift { margin-top: 22px; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+.shift .row { display: grid; grid-template-columns: 64px 1fr 44px; align-items: center; gap: 10px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.shift .track { height: 10px; border-radius: 99px; background: rgba(255,255,255,.07); overflow: hidden; }
+.shift .fill { height: 100%; border-radius: 99px; background: rgba(242,184,160,.7); width: 0; transition: width .8s ease; }
+.shift .fill.after { background: var(--gold); }
+.shift .row b { color: #fff; text-align: right; font-variant-numeric: tabular-nums; }
+.shift p.note { margin-top: 14px; font-size: 15px; color: var(--soft); }
+.recap { margin-top: 18px; display: grid; gap: 14px; }
+.recap div { border-left: 2px solid rgba(212,165,116,.5); padding-left: 14px; }
+.recap b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
+.recap p, .recap li { font-size: 15px; color: #fff; overflow-wrap: anywhere; }
+.recap ul { padding-left: 18px; display: grid; gap: 4px; }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.tools .ghost { flex: 1 1 150px; }
+.next { margin-top: 38px; padding-top: 30px; border-top: 1px solid var(--line); }
+.offers { display: grid; gap: 10px; margin-top: 18px; }
+.offer { padding: 16px; border-radius: 14px; background: rgba(255,255,255,.04); border: 1px solid var(--line); }
+.offer strong { color: #fff; display: block; }
+.offer span { font-size: 14.5px; color: var(--muted); }
+.next .btn { display: block; margin-top: 18px; }
+.quote { margin-top: 26px; padding-left: 16px; border-left: 2px solid rgba(212,165,116,.55); }
+.quote p { color: var(--soft); }
+.quote cite { display: block; margin-top: 8px; font-style: normal; font-size: 13px; color: var(--gold); }
+.about { margin-top: 22px; font-size: 14px; color: var(--muted); }
+footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: rgba(240,237,232,.5); }
+footer p + p { margin-top: 8px; }
+footer a { color: rgba(240,237,232,.7); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 380px) { .chips { grid-template-columns: 1fr; } .meta { grid-template-columns: 1fr; } }
+@media (min-width: 900px) { .wrap { padding-top: 48px; } }
+
+/* print: just the answers */
+@media print {
+  body { background: #fff; color: #111; }
+  .bar, .progress, .nav, .tools, .next, .private, footer .noprint { display: none !important; }
+  .screen { display: none !important; }
+  #s-done { display: block !important; }
+  h2, .recap p, .recap li, .shift .row b { color: #111; }
+  .shift { border-color: #ccc; background: none; }
+  .recap b, .kicker { color: #8a5a2b; }
+  .shift p.note, .lead { color: #333; }
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="bar">
+    <a class="brand" href="/private-sessions"><img src="/images/opt/sam-avatar.jpg" alt="" width="68" height="68">Sam Osborne</a>
+    <span class="stepcount" id="stepcount" aria-live="polite"></span>
+  </div>
+  <div class="progress" aria-hidden="true"><span id="prog"></span></div>
+
+  <!-- 0 · INTRO -->
+  <section class="screen" id="s-intro" data-step="0">
+    <span class="kicker">Free 10-minute exercise</span>
+    <h1>Under Your Skin</h1>
+    <p class="lead">For the one person, or moment, you can&rsquo;t stop replaying. Name it, get specific, and take your first clear look at it.</p>
+    <p class="hint">Most of what holds capable people back isn&rsquo;t a lack of skill. It&rsquo;s one thing: the boss, client, partner or coworker whose words you replay at 2&nbsp;a.m., a voice of doubt, or a memory that keeps pulling you off your game.</p>
+    <div class="meta">
+      <div><b>Time</b><span>About 10 minutes</span></div>
+      <div><b>Where</b><span>Somewhere quiet, uninterrupted</span></div>
+      <div><b>How</b><span>Your first honest answer</span></div>
+    </div>
+    <p class="private"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Your answers stay on this device. Nothing you type here is sent to Sam or anyone else.</span></p>
+    <div class="nav"><button class="btn grow" type="button" id="startbtn">Start</button></div>
+    <p class="hint" id="resume" hidden style="text-align:center"><button class="back" type="button" id="restart">Start over with a clean page</button></p>
+  </section>
+
+  <!-- 1 · NAME IT -->
+  <section class="screen" id="s-name" data-step="1">
+    <span class="kicker">Step 1 &middot; Name it</span>
+    <h2>What&rsquo;s pulling you off your game right now?</h2>
+    <p class="hint">Choose the one that carries the most weight.</p>
+    <div class="chips" role="group" aria-label="What kind of thing is it?">
+      <button class="chip" type="button" aria-pressed="false">A voice of self-doubt</button>
+      <button class="chip" type="button" aria-pressed="false">A person I keep arguing with in my head</button>
+      <button class="chip" type="button" aria-pressed="false">Something I still feel guilty about</button>
+      <button class="chip" type="button" aria-pressed="false">A moment I dread</button>
+      <button class="chip" type="button" aria-pressed="false">A pattern I can&rsquo;t seem to break</button>
+      <button class="chip" type="button" aria-pressed="false">Something else</button>
+    </div>
+    <div class="field">
+      <label for="a-name">In one sentence, it&rsquo;s:</label>
+      <textarea id="a-name" data-key="name" rows="2" placeholder="e.g. My business partner, and the way he talks to me in front of the team."></textarea>
+    </div>
+    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next data-need="name">Next</button></div>
+  </section>
+
+  <!-- 2 · GET SPECIFIC -->
+  <section class="screen" id="s-specific" data-step="2">
+    <span class="kicker">Step 2 &middot; Get specific</span>
+    <h2>Set the story aside. What exactly happened?</h2>
+    <p class="hint">What exactly did they say or do? Stories keep it vague and heavy. Specifics make it something you can actually look at.</p>
+    <details class="ex">
+      <summary>See how: from story to specific</summary>
+      <div class="exlist">
+        <div class="exrow"><span class="s">&ldquo;She&rsquo;s impossible.&rdquo;</span><span class="f">&rarr; &ldquo;She interrupted me twice in the meeting.&rdquo;</span></div>
+        <div class="exrow"><span class="s">&ldquo;I&rsquo;m a fraud.&rdquo;</span><span class="f">&rarr; &ldquo;I freeze when someone senior asks me a question.&rdquo;</span></div>
+        <div class="exrow"><span class="s">&ldquo;I always let people down.&rdquo;</span><span class="f">&rarr; &ldquo;I missed my daughter&rsquo;s recital for a client call.&rdquo;</span></div>
+      </div>
+    </details>
+    <div class="field">
+      <label for="a-specific">Specifically:</label>
+      <textarea id="a-specific" data-key="specific" rows="3" placeholder="What a camera would have recorded, not what it meant."></textarea>
+    </div>
+    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next data-need="specific">Next</button></div>
+  </section>
+
+  <!-- 3 · SCORE IT -->
+  <section class="screen" id="s-score" data-step="3">
+    <span class="kicker">Step 3 &middot; Score it</span>
+    <h2>Right now, how one-sided does it feel?</h2>
+    <p class="hint">0 means it&rsquo;s pure upside. 100 means it&rsquo;s all cost and no benefit. Most people start close to 100, and that&rsquo;s exactly the point.</p>
+    <div class="scale">
+      <div class="scorebig" aria-hidden="true"><span id="v-before">80</span><small> / 100</small></div>
+      <div class="scoreword" id="w-before"></div>
+      <label class="sr" for="r-before">One-sidedness, 0 to 100</label>
+      <input type="range" id="r-before" min="0" max="100" step="1" value="80" data-key="before">
+      <div class="ends"><span>All upside</span><span>Balanced &middot; 50/50</span><span>All cost, no benefit</span></div>
+    </div>
+    <div class="field" style="margin-top:34px">
+      <span class="qlabel" id="pull-l">How strongly does it pull on you?</span>
+      <div class="dots" role="group" aria-labelledby="pull-l" id="pull"></div>
+      <div class="ends"><span>Barely</span><span></span><span>It runs my day</span></div>
+    </div>
+    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next>Next</button></div>
+  </section>
+
+  <!-- 4 · THE OTHER SIDE -->
+  <section class="screen" id="s-glimpse" data-step="4">
+    <span class="kicker">Step 4 &middot; A first glimpse of the other side</span>
+    <h2>Now look at the side you haven&rsquo;t been looking at.</h2>
+    <p class="hint">You&rsquo;ve looked at what this has cost you. There are no wrong answers, and even something small counts. Add as many as you can find, one at a time.</p>
+
+    <div class="q" data-list="learn">
+      <label class="qlabel" for="in-learn">a. What has this pushed you to learn, build, or become?</label>
+      <div class="addrow"><input type="text" id="in-learn" maxlength="300" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
+      <ul class="items"></ul>
+    </div>
+    <div class="q" data-list="stronger">
+      <label class="qlabel" for="in-stronger">b. Where has it made you stronger, sharper, or more determined?</label>
+      <div class="addrow"><input type="text" id="in-stronger" maxlength="300" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
+      <ul class="items"></ul>
+    </div>
+    <div class="q" data-list="friend">
+      <label class="qlabel" for="in-friend">c. If a close friend had lived through this, what would you say it gave them?</label>
+      <div class="addrow"><input type="text" id="in-friend" maxlength="300" placeholder="Type one, then Add"><button class="addbtn" type="button">Add</button></div>
+      <ul class="items"></ul>
+    </div>
+
+    <div class="tally" aria-live="polite"><b id="tally-n">0</b><span id="tally-t">Even something small counts.</span></div>
+    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next>Next</button></div>
+  </section>
+
+  <!-- 5 · LOOK AGAIN -->
+  <section class="screen" id="s-again" data-step="5">
+    <span class="kicker">Step 4 &middot; Look again</span>
+    <h2>Now look at it again. Where is it now?</h2>
+    <p class="hint">Same scale. Don&rsquo;t aim for a number. Just notice where it actually sits.</p>
+    <div class="scale">
+      <div class="scorebig" aria-hidden="true"><span id="v-after">80</span><small> / 100</small></div>
+      <div class="scoreword" id="w-after"></div>
+      <label class="sr" for="r-after">New score, 0 to 100</label>
+      <input type="range" id="r-after" min="0" max="100" step="1" value="80" data-key="after">
+      <div class="ends"><span>All upside</span><span>Balanced &middot; 50/50</span><span>All cost, no benefit</span></div>
+    </div>
+    <p class="hint" style="margin-top:22px">This is a first glimpse, not the whole picture. In a full session, the questions go much deeper, and the number keeps moving.</p>
+    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next>Next</button></div>
+  </section>
+
+  <!-- 6 · REFLECT -->
+  <section class="screen" id="s-reflect" data-step="6">
+    <span class="kicker">Step 5 &middot; Reflect</span>
+    <h2>What did you notice?</h2>
+    <div class="field">
+      <label for="a-notice">What did you notice as you worked through this?</label>
+      <textarea id="a-notice" data-key="notice" rows="3"></textarea>
+    </div>
+    <div class="field">
+      <label for="a-differently">If this no longer ran you, what would you do differently this week?</label>
+      <textarea id="a-differently" data-key="differently" rows="3"></textarea>
+    </div>
+    <div class="nav"><button class="back" type="button" data-prev>Back</button><button class="btn grow" type="button" data-next>See my results</button></div>
+  </section>
+
+  <!-- 7 · DONE -->
+  <section class="screen" id="s-done" data-step="7">
+    <span class="kicker">Your Under-Your-Skin Exercise</span>
+    <h2 id="done-h">Here&rsquo;s where you landed.</h2>
+
+    <div class="shift">
+      <div class="row"><span>Before</span><div class="track"><div class="fill" id="f-before"></div></div><b id="d-before">0</b></div>
+      <div class="row"><span>After</span><div class="track"><div class="fill after" id="f-after"></div></div><b id="d-after">0</b></div>
+      <p class="note" id="shift-note"></p>
+    </div>
+
+    <div class="recap" id="recap"></div>
+
+    <div class="tools">
+      <button class="ghost" type="button" id="dl">Save my answers</button>
+      <button class="ghost" type="button" id="pr">Print or save as PDF</button>
+      <button class="ghost" type="button" id="clear">Clear and start over</button>
+    </div>
+
+    <div class="next">
+      <span class="kicker">Your next step</span>
+      <h2>This is where a session begins.</h2>
+      <p class="lead">In a private session, we take the one thing you named today and work it through completely, so you can see it clearly and it stops running you. Sessions are one-to-one, by video.</p>
+      <div class="offers">
+        <div class="offer"><strong>Breakthrough Session</strong><span>One focused session on one person or pattern.</span></div>
+        <div class="offer"><strong>Six-Session Program</strong><span>For self-worth and the patterns that keep coming back.</span></div>
+      </div>
+      <a class="btn" href="https://calendly.com/sam-samosborne/20min" target="_blank" rel="noopener">Book a free 20-minute fit call</a>
+      <p class="hint" style="text-align:center"><a href="/private-sessions">Learn more about private sessions</a></p>
+      <div class="quote">
+        <p>&ldquo;One session with Sam cleared more black clouds than anything I have ever previously experienced.&rdquo;</p>
+        <cite>Graham Harvey &middot; Professional Speaker &middot; Professional Speakers Australia Hall of Fame</cite>
+      </div>
+      <p class="about"><strong style="color:#fff">About Sam.</strong> Sam Osborne is a trained Demartini Method Facilitator and a keynote speaker on conflict and composure for attorneys, advisors, and executives. He works privately with clients in 10 countries.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>This exercise is educational and is not therapy or a substitute for professional care. If you&rsquo;re in crisis, please contact a licensed professional or local emergency services.</p>
+    <p class="noprint">Prefer pen and paper? <a href="/downloads/under-your-skin-exercise.pdf" target="_blank" rel="noopener">Download the printable PDF</a>.</p>
+    <p>&copy; 2026 Sam Osborne &middot; <a href="/">samosborne.net</a></p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var KEY='uys-exercise-v1';
+  var S={step:0,kind:'',name:'',specific:'',before:80,pull:0,learn:[],stronger:[],friend:[],after:null,notice:'',differently:''};
+  function load(){ try{ var raw=localStorage.getItem(KEY); if(raw){ var o=JSON.parse(raw); for(var k in o) if(k in S) S[k]=o[k]; } }catch(e){} }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
+  function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} }
+  load();
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  var screens=[].slice.call(document.querySelectorAll('.screen'));
+  var LAST=screens.length-1;
+  // step labels: screens 1-3 = steps 1-3, 4-5 = step 4, 6 = step 5
+  var STEPNO=[0,1,2,3,4,4,5,0];
+
+  function scoreWord(v){
+    v=+v;
+    if(v>=90) return 'Almost all cost';
+    if(v>=70) return 'Mostly cost';
+    if(v>=56) return 'Leaning toward cost';
+    if(v>=45) return 'Close to balanced';
+    if(v>=25) return 'Leaning toward upside';
+    return 'Mostly upside';
+  }
+
+  function show(n){
+    n=Math.max(0,Math.min(LAST,n));
+    S.step=n; save();
+    screens.forEach(function(s,i){ s.classList.toggle('on',i===n); });
+    $('prog').style.width=(n/LAST*100)+'%';
+    var k=STEPNO[n]; $('stepcount').textContent=k?('Step '+k+' of 5'):'';
+    if(n===5 && S.after===null){ S.after=S.before; syncRange('after'); }
+    if(n===LAST) renderDone();
+    refreshNext();
+    window.scrollTo({top:0,behavior:'smooth'});
+    var h=screens[n].querySelector('h1,h2'); if(h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
+  }
+
+  function refreshNext(){
+    document.querySelectorAll('[data-need]').forEach(function(b){ b.disabled=!String(S[b.getAttribute('data-need')]||'').trim(); });
+  }
+
+  // nav
+  document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click',function(){ show(S.step+1); }); });
+  document.querySelectorAll('[data-prev]').forEach(function(b){ b.addEventListener('click',function(){ show(S.step-1); }); });
+
+  // text fields
+  document.querySelectorAll('textarea[data-key]').forEach(function(t){
+    var k=t.getAttribute('data-key'); t.value=S[k]||'';
+    t.addEventListener('input',function(){ S[k]=t.value; save(); refreshNext(); });
+  });
+
+  // chips
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function(c){
+    if(c.textContent===S.kind) c.setAttribute('aria-pressed','true');
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      c.setAttribute('aria-pressed','true'); S.kind=c.textContent; save();
+      $('a-name').focus();
+    });
+  });
+
+  // sliders
+  function syncRange(k){
+    var r=$('r-'+k), v=S[k]===null?S.before:S[k];
+    r.value=v; $('v-'+k).textContent=v; $('w-'+k).textContent=scoreWord(v);
+    r.setAttribute('aria-valuetext',v+' out of 100, '+scoreWord(v));
+  }
+  ['before','after'].forEach(function(k){
+    var r=$('r-'+k);
+    r.addEventListener('input',function(){ S[k]=+r.value; syncRange(k); save(); });
+    syncRange(k);
+  });
+
+  // pull 1-10
+  var pull=$('pull');
+  for(var i=1;i<=10;i++){
+    var d=document.createElement('button'); d.type='button'; d.className='dot'; d.textContent=i; d.setAttribute('aria-pressed',S.pull===i?'true':'false');
+    d.addEventListener('click',(function(n,el){ return function(){ S.pull=n; save(); pull.querySelectorAll('.dot').forEach(function(x){ x.setAttribute('aria-pressed','false'); }); el.setAttribute('aria-pressed','true'); }; })(i,d));
+    pull.appendChild(d);
+  }
+
+  // glimpse lists
+  var NUDGE=[
+    [0,'Even something small counts.'],
+    [1,'Good. What else?'],
+    [3,'Keep going. The less obvious ones matter most.'],
+    [6,'Look for the ones you didn&rsquo;t expect to find.'],
+    [10,'That&rsquo;s real work. Notice how it feels now.']
+  ];
+  function tally(){
+    var n=S.learn.length+S.stronger.length+S.friend.length, t='';
+    NUDGE.forEach(function(p){ if(n>=p[0]) t=p[1]; });
+    $('tally-n').textContent=n; $('tally-t').innerHTML=t;
+  }
+  document.querySelectorAll('[data-list]').forEach(function(box){
+    var k=box.getAttribute('data-list'), inp=box.querySelector('input'), ul=box.querySelector('.items');
+    function draw(){
+      ul.innerHTML='';
+      S[k].forEach(function(txt,idx){
+        var li=document.createElement('li');
+        li.innerHTML='<span>'+esc(txt)+'</span><button type="button" aria-label="Remove">&times;</button>';
+        li.querySelector('button').addEventListener('click',function(){ S[k].splice(idx,1); save(); draw(); });
+        ul.appendChild(li);
+      });
+      tally();
+    }
+    function add(){ var v=inp.value.trim(); if(!v) return; S[k].push(v.slice(0,300)); inp.value=''; save(); draw(); inp.focus(); }
+    box.querySelector('.addbtn').addEventListener('click',add);
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); add(); } });
+    draw();
+  });
+
+  // done
+  function list(arr){ return arr.length?'<ul>'+arr.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>':'<p style="color:var(--muted)">Nothing added</p>'; }
+  function renderDone(){
+    var b=S.before, a=S.after===null?S.before:S.after, diff=b-a;
+    $('d-before').textContent=b; $('d-after').textContent=a;
+    $('f-before').style.width='0'; $('f-after').style.width='0';
+    setTimeout(function(){ $('f-before').style.width=b+'%'; $('f-after').style.width=a+'%'; },60);
+    var note;
+    if(diff>=15) note='It moved '+diff+' points. That&rsquo;s what happens when you look at the side you&rsquo;ve been missing. Imagine what a full session does.';
+    else if(diff>0) note='It moved '+diff+' point'+(diff===1?'':'s')+'. A first crack in a story you&rsquo;ve been carrying. In a session, we keep going until it&rsquo;s balanced.';
+    else note='If the number barely moved, that&rsquo;s normal. A first glimpse rarely shifts it on its own. This is exactly where a session begins.';
+    $('shift-note').innerHTML=note;
+    var all=S.learn.concat(S.stronger,S.friend);
+    var h='';
+    h+='<div><b>What it is'+(S.kind?' &middot; '+esc(S.kind):'')+'</b><p>'+esc(S.name||'—')+'</p></div>';
+    if(S.specific) h+='<div><b>Specifically</b><p>'+esc(S.specific)+'</p></div>';
+    if(S.pull) h+='<div><b>How strongly it pulls</b><p>'+S.pull+' / 10</p></div>';
+    h+='<div><b>The other side &middot; '+all.length+' found</b>'+list(all)+'</div>';
+    if(S.notice) h+='<div><b>What I noticed</b><p>'+esc(S.notice)+'</p></div>';
+    if(S.differently) h+='<div><b>What I&rsquo;d do differently this week</b><p>'+esc(S.differently)+'</p></div>';
+    $('recap').innerHTML=h;
+  }
+
+  function asText(){
+    var a=S.after===null?S.before:S.after, L=[];
+    L.push('THE UNDER-YOUR-SKIN EXERCISE','samosborne.net','');
+    L.push('1. NAME IT'+(S.kind?' ('+S.kind+')':''),S.name||'-','');
+    L.push('2. GET SPECIFIC',S.specific||'-','');
+    L.push('3. SCORE IT','One-sided: '+S.before+' / 100'+(S.pull?'   Pull: '+S.pull+' / 10':''),'');
+    L.push('4. THE OTHER SIDE');
+    [['What it pushed me to learn, build, or become','learn'],['Where it made me stronger, sharper, more determined','stronger'],['What I would say it gave a close friend','friend']].forEach(function(p){
+      L.push(p[0]+':'); if(S[p[1]].length) S[p[1]].forEach(function(x){ L.push('  - '+x); }); else L.push('  -'); });
+    L.push('New score: '+a+' / 100','');
+    L.push('5. REFLECT','What I noticed: '+(S.notice||'-'),'What I would do differently this week: '+(S.differently||'-'),'');
+    L.push('Next step: book a free 20-minute fit call with Sam: https://calendly.com/sam-samosborne/20min');
+    return L.join('\n');
+  }
+  $('dl').addEventListener('click',function(){
+    try{
+      var blob=new Blob([asText()],{type:'text/plain'}), u=URL.createObjectURL(blob), el=document.createElement('a');
+      el.href=u; el.download='under-your-skin-exercise.txt'; document.body.appendChild(el); el.click(); el.remove();
+      setTimeout(function(){ URL.revokeObjectURL(u); },1000);
+    }catch(e){ window.print(); }
+  });
+  $('pr').addEventListener('click',function(){ window.print(); });
+  function reset(){
+    if(!confirm('Clear your answers from this device and start over?')) return;
+    wipe(); location.href=location.pathname;
+  }
+  $('clear').addEventListener('click',reset);
+  $('restart').addEventListener('click',reset);
+
+  var resumeAt=S.step;
+  if(S.name||resumeAt>0){ $('resume').hidden=false; $('startbtn').textContent='Pick up where I left off'; }
+  $('startbtn').addEventListener('click',function(){ show(resumeAt>0?resumeAt:1); resumeAt=0; });
+  show(0);
+})();
+</script>
+</body>
+</html>
