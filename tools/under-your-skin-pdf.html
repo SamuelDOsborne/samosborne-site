@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--
+  Source for /downloads/under-your-skin-exercise.pdf (the paper version of /exercise).
+  To rebuild: open this file in Chrome, Print > Save as PDF, Paper: Letter, Margins: None,
+  Background graphics: on. Keep the copy in step with EXAMPLES in /exercise.html.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Under-Your-Skin Exercise · Sam Osborne</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+@page { size: Letter; margin: 0; }
+:root { --gold: #D4A574; --gold-d: #A8743F; --ink: #1A1A1A; --text: #2A2724; --muted: #6E6860; --faint: #9A948B; --line: #DCCFBF; --paper: #FCFAF6; --card: #F4EEE6; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Inter', sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; background: #888; }
+.page { width: 8.5in; height: 11in; position: relative; overflow: hidden; background: var(--paper); padding: .6in .7in .7in; page-break-after: always; break-after: page; margin: 0 auto; }
+.page:last-child { page-break-after: auto; break-after: auto; }
+@media screen { .page { margin: 20px auto; box-shadow: 0 4px 24px rgba(0,0,0,.3); } }
+.foot { position: absolute; left: .7in; right: .7in; bottom: .4in; display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--faint); border-top: 1px solid var(--line); padding-top: 6pt; }
+
+/* cover */
+.cover { background: #1A1A1A radial-gradient(circle at 92% 6%, rgba(212,165,116,.22), transparent 38%); color: #F5F2ED; padding: .8in .75in; display: flex; flex-direction: column; }
+.pill { align-self: flex-start; background: var(--gold); color: var(--ink); font-size: 8pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 5pt 11pt; border-radius: 99px; }
+.cover h1 { margin-top: 1.1in; font-family: 'Lora', serif; font-weight: 500; font-size: 52pt; line-height: 1.02; letter-spacing: -.01em; color: #fff; }
+.cover h1 em { color: var(--gold); }
+.rule { width: 36pt; height: 1.5px; background: #fff; opacity: .7; margin: 24pt 0 18pt; }
+.cover .lede { font-size: 13pt; line-height: 1.5; color: #DAD5CD; max-width: 4.6in; }
+.inside { margin-top: 30pt; }
+.inside b { display: block; font-size: 7.5pt; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8pt; }
+.inside ol { list-style: none; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(6, auto); grid-auto-flow: column; gap: 6pt 24pt; max-width: 5.6in; counter-reset: s; }
+.inside li { counter-increment: s; font-size: 9.5pt; color: #DAD5CD; display: flex; gap: 8pt; align-items: center; }
+.inside li::before { content: counter(s); width: 15pt; height: 15pt; flex: 0 0 15pt; border: 1px solid var(--gold); border-radius: 50%; font-size: 7.5pt; display: inline-flex; align-items: center; justify-content: center; color: #F5F2ED; }
+.pull { margin-top: auto; border-left: 2px solid var(--gold); padding-left: 14pt; }
+.pull p { font-family: 'Lora', serif; font-style: italic; font-size: 14pt; color: #fff; }
+.pull span { display: block; margin-top: 4pt; font-size: 7.5pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.sig { margin-top: 30pt; display: flex; justify-content: space-between; align-items: flex-end; font-size: 8pt; color: #B8B2A9; }
+.sig strong { display: block; font-size: 10pt; color: #fff; }
+
+/* interior */
+h2.big { font-size: 22pt; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
+p.intro { margin-top: 8pt; font-size: 10.5pt; color: var(--text); }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8pt; margin-top: 14pt; }
+.facts div { background: var(--card); border: 1px solid var(--line); border-radius: 8pt; padding: 8pt 10pt; font-size: 8.5pt; color: var(--muted); }
+.facts b { display: block; font-size: 7pt; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-d); margin-bottom: 3pt; }
+.step { margin-top: 20pt; }
+.step-h { display: flex; align-items: center; gap: 10pt; padding-bottom: 7pt; border-bottom: 1.5px solid; border-image: linear-gradient(90deg, var(--gold), rgba(212,165,116,.15)) 1; }
+.num { width: 22pt; height: 22pt; border-radius: 50%; background: var(--gold); color: var(--ink); font-weight: 800; font-size: 10pt; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 22pt; }
+.step-h h3 { font-size: 14pt; font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.q { margin-top: 9pt; font-size: 10.5pt; font-weight: 600; color: var(--ink); }
+.sub { margin-top: 2pt; font-size: 8.5pt; color: var(--muted); }
+.lines { margin-top: 6pt; }
+.lines i { display: block; height: 20pt; border-bottom: 1px solid var(--line); }
+.inline { margin-top: 10pt; display: flex; gap: 8pt; align-items: flex-end; font-size: 9.5pt; font-weight: 600; color: var(--ink); }
+.inline i { flex: 1; border-bottom: 1px solid var(--line); height: 14pt; }
+.checks { margin-top: 8pt; display: grid; grid-template-columns: 1fr 1fr; gap: 5pt 18pt; font-size: 9pt; }
+.checks span::before { content: ""; display: inline-block; width: 8pt; height: 8pt; border: 1px solid var(--muted); border-radius: 2pt; margin-right: 6pt; vertical-align: -1pt; }
+.ex { margin-top: 9pt; background: var(--card); border: 1px solid var(--line); border-radius: 8pt; padding: 8pt 11pt; font-size: 8.5pt; color: var(--muted); }
+.ex b { display: block; font-size: 6.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-d); margin-bottom: 3pt; }
+.ex .pairs { display: grid; grid-template-columns: 1.05fr 1.6fr; gap: 3pt 12pt; }
+.ex .pairs s { color: var(--faint); }
+.ex .pairs span::before { content: "\2192  "; color: var(--gold-d); }
+.ex .pairs span { color: var(--text); }
+.ex ul { list-style: none; display: flex; flex-wrap: wrap; gap: 2pt 14pt; }
+.ex em { font-style: italic; }
+.watch { margin-top: 8pt; border-left: 2px solid var(--gold); padding: 2pt 0 2pt 10pt; font-size: 8.5pt; color: var(--muted); }
+.watch b { color: var(--ink); }
+.mfboxes { margin-top: 10pt; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; }
+.mfboxes div { height: 38pt; border: 1.5px solid var(--gold); border-radius: 6pt; position: relative; }
+.mfboxes div::after { content: attr(data-n); position: absolute; left: 6pt; bottom: -11pt; font-size: 6.5pt; color: var(--faint); letter-spacing: .08em; text-transform: uppercase; }
+.cam { margin-top: 18pt; font-size: 9.5pt; font-weight: 600; color: var(--ink); }
+.cam span { font-weight: 400; color: var(--muted); }
+
+.scale { margin-top: 12pt; }
+.ticks { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); }
+.bar { height: 6pt; border-radius: 99px; margin: 4pt 0; background: linear-gradient(90deg, var(--gold), #C9C1B5 50%, #E59E84); }
+.ends { display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); }
+.ends b { color: var(--gold-d); font-weight: 600; }
+.circles { display: flex; gap: 6pt; align-items: center; margin-top: 12pt; font-size: 9.5pt; font-weight: 600; color: var(--ink); }
+.circles i { width: 18pt; height: 18pt; border: 1px solid var(--muted); border-radius: 50%; font-style: normal; font-size: 7.5pt; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; }
+.circles .l { margin-right: 6pt; }
+
+.mfline { margin-top: 10pt; display: flex; gap: 8pt; align-items: flex-end; padding: 8pt 11pt; border: 1.5px solid var(--gold); border-radius: 8pt; background: #FBF4EA; font-size: 8.5pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-d); }
+.mfline i { flex: 1; border-bottom: 1px solid var(--gold); height: 14pt; }
+.areas { margin-top: 10pt; display: grid; grid-template-columns: 1fr 1fr; gap: 8pt 16pt; }
+.area { border: 1px solid var(--line); border-radius: 8pt; padding: 7pt 10pt 4pt; background: #fff; }
+.area.wide { grid-column: 1 / -1; }
+.area h4 { display: flex; justify-content: space-between; font-size: 9pt; font-weight: 800; color: var(--ink); }
+.area h4 span { font-weight: 500; font-size: 7.5pt; color: var(--faint); }
+.area .lines i { height: 17pt; }
+.tally { margin-top: 10pt; font-size: 9pt; color: var(--ink); font-weight: 600; }
+.tally i { display: inline-block; width: 30pt; border-bottom: 1px solid var(--line); }
+.prompts { margin-top: 8pt; display: grid; gap: 2pt; font-size: 9pt; color: var(--text); }
+.prompts li { margin-left: 14pt; }
+.exgrid { margin-top: 8pt; display: grid; grid-template-columns: 1fr 1fr; gap: 3pt 14pt; }
+.exgrid p { font-size: 7.8pt; line-height: 1.35; color: var(--muted); }
+.exgrid p b { display: inline; font-size: 7.8pt; letter-spacing: 0; text-transform: none; color: var(--text); margin: 0; }
+
+.cta { margin-top: 18pt; background: #1A1A1A; color: #DAD5CD; border-radius: 12pt; padding: 18pt 20pt; }
+.cta h3 { font-size: 16pt; font-weight: 800; color: #fff; letter-spacing: -.01em; }
+.cta p { margin-top: 6pt; font-size: 9.5pt; }
+.cta .book { margin-top: 12pt; display: flex; justify-content: space-between; align-items: center; gap: 12pt; }
+.cta .book span { background: var(--gold); color: var(--ink); font-weight: 800; font-size: 10pt; padding: 8pt 16pt; border-radius: 99px; }
+.cta .book a { color: var(--gold); font-size: 9.5pt; text-decoration: none; font-weight: 600; }
+.cta blockquote { margin-top: 14pt; border-left: 2px solid var(--gold); padding-left: 12pt; }
+.cta blockquote p { font-family: 'Lora', serif; font-style: italic; font-size: 10.5pt; color: #fff; }
+.cta cite { display: block; margin-top: 4pt; font-style: normal; font-size: 8pt; color: var(--gold); }
+.about { margin-top: 14pt; font-size: 8.5pt; color: var(--muted); }
+.disc { margin-top: 8pt; font-size: 7.5pt; color: var(--faint); }
+</style>
+</head>
+<body>
+
+<!-- 1 · Cover -->
+<section class="page cover">
+  <span class="pill">Free exercise</span>
+  <h1>Under Your<br><em>Skin</em></h1>
+  <div class="rule"></div>
+  <p class="lede">For the one person you can&rsquo;t stop replaying. Find the exact action that gets to you, see where it lives in your own life, and what it has given you. About 15&nbsp;minutes.</p>
+  <div class="inside">
+    <b>Inside</b>
+    <ol>
+      <li>Name it</li><li>Who</li><li>Say it your way</li><li>The literal line</li><li>Observed or reported?</li><li>What still stings</li>
+      <li>Your Motor Function</li><li>Score it</li><li>Turn the mirror</li><li>The other side</li><li>Look again</li><li>Reflect, and your next step</li>
+    </ol>
+  </div>
+  <div class="pull"><p>&ldquo;The size of a reaction shows you what you can&rsquo;t yet see.&rdquo;</p><span>Sam Osborne</span></div>
+  <div class="sig"><div><strong>Sam Osborne</strong>Private Sessions &middot; Keynotes on Conflict &amp; Composure</div><div>samosborne.net</div></div>
+</section>
+
+<!-- 2 · Before you start, Name it, Who, Say it your way -->
+<section class="page">
+  <h2 class="big">Before you start</h2>
+  <p class="intro">Most of what holds capable people back isn&rsquo;t a lack of skill. It&rsquo;s one person whose words you replay at 2&nbsp;a.m. This exercise turns the label you&rsquo;ve given them into one action a camera could record, then helps you find that same action in your own life, and what it has given you.</p>
+  <div class="facts">
+    <div><b>Time</b>About 15 minutes</div>
+    <div><b>Where</b>Somewhere quiet, uninterrupted</div>
+    <div><b>How</b>A pen, one person, one moment. Try each step before you read the examples.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="num">1</span><h3>Name it</h3></div>
+    <p class="q">What&rsquo;s pulling you off your game?</p>
+    <div class="checks">
+      <span>Self-doubt</span><span>Someone I argue with in my head</span>
+      <span>Guilt</span><span>A moment I dread</span>
+      <span>A pattern I can&rsquo;t break</span><span>Something else</span>
+    </div>
+    <div class="inline">In one sentence, it&rsquo;s: <i></i></div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="num">2</span><h3>Who</h3></div>
+    <p class="q">Who is it? First name or initials.</p>
+    <p class="sub">One person, not a group. If you wrote &ldquo;people,&rdquo; &ldquo;my clients,&rdquo; or &ldquo;lawyers,&rdquo; pick one person and one moment.</p>
+    <div class="inline">Who: <i></i></div>
+    <div class="ex"><b>Examples</b><ul><li>My brother Mark</li><li>J. from accounting</li><li>The opposing counsel on the Reyes case</li></ul></div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="num">3</span><h3>Say it your way</h3></div>
+    <p class="q">What did they do, in your own words? Labels welcome here.</p>
+    <div class="lines"><i></i><i></i></div>
+    <div class="watch"><b>Circle any verdicts</b> like manipulative, dismissed, selfish, rude, toxic, liar, fraud, controlling, always, never, &ldquo;made me feel.&rdquo; These are verdicts. We&rsquo;ll find the action under them next.</div>
+    <div class="ex"><b>Examples</b><ul><li>&ldquo;He defrauded senior citizens.&rdquo;</li><li>&ldquo;She dismissed me in front of the team.&rdquo;</li><li>&ldquo;My dad never listened.&rdquo;</li></ul></div>
+  </div>
+  <div class="foot"><span>samosborne.net &middot; The Under-Your-Skin Exercise</span><span>2</span></div>
+</section>
+
+<!-- 3 · Literal line, Observed, What stings -->
+<section class="page">
+  <div class="step" style="margin-top:0">
+    <div class="step-h"><span class="num">4</span><h3>The literal line</h3></div>
+    <p class="q">What exactly did they say or do? The words, or what a camera would have caught.</p>
+    <div class="lines"><i></i><i></i><i></i></div>
+    <p class="sub">Still see a label? Labels aren&rsquo;t endpoints. What would a camera have caught? Swap &ldquo;always&rdquo; or &ldquo;never&rdquo; for one time.</p>
+    <div class="ex"><b>From label to literal</b>
+      <div class="pairs">
+        <s>&ldquo;He defrauded seniors&rdquo;</s><span>&ldquo;You&rsquo;ve won $2.5 million, you just need to pay the $4,000 processing fee.&rdquo;</span>
+        <s>&ldquo;She dismissed me&rdquo;</s><span>She looked at her phone while I was talking.</span>
+        <s>&ldquo;He&rsquo;s controlling&rdquo;</s><span>He said, &ldquo;Send me the file before you send it to anyone else.&rdquo;</span>
+        <s>&ldquo;My dad never listened&rdquo;</s><span>He turned the TV up when I started talking about school.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="num">5</span><h3>Observed or reported?</h3></div>
+    <div class="checks" style="grid-template-columns:1fr">
+      <span>I saw or heard it myself (live or on video)</span>
+      <span>I was told or read about it</span>
+    </div>
+    <p class="sub" style="margin-top:6pt">Reported actions carry less weight. If you have a moment you witnessed directly, use that one.</p>
+    <div class="ex"><b>Examples</b><ul><li>Observed: &ldquo;I was on the call.&rdquo; &ldquo;I watched the video.&rdquo;</li><li>Reported: &ldquo;It&rsquo;s in the case file.&rdquo; &ldquo;My sister told me.&rdquo; &ldquo;I read it in the news.&rdquo;</li></ul></div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="num">6</span><h3>What still stings</h3></div>
+    <p class="q">Which part carries the charge? Underline it in step 4, or write it here.</p>
+    <p class="sub">The first label often isn&rsquo;t the real trigger.</p>
+    <div class="lines"><i></i></div>
+    <div class="ex"><b>Example</b>In &ldquo;You&rsquo;ve won $2.5 million, you just need to pay the $4,000 fee,&rdquo; the charge might sit in the promise, the asking first, or the gap between what was promised and what was delivered.</div>
+  </div>
+  <div class="foot"><span>samosborne.net &middot; The Under-Your-Skin Exercise</span><span>3</span></div>
+</section>
+
+<!-- 4 · Motor Function, Score it -->
+<section class="page">
+  <div class="step" style="margin-top:0">
+    <div class="step-h"><span class="num">7</span><h3>Your Motor Function</h3></div>
+    <p class="q">Say the action in 3&ndash;4 words, starting with a verb.</p>
+    <p class="sub">One word per box. A physical action, not a verdict.</p>
+    <div class="mfboxes"><div data-n="Verb"></div><div data-n="2"></div><div data-n="3"></div><div data-n="4 (optional)"></div></div>
+    <p class="cam">Could a camera record this? <span>&#9744; Yes &nbsp;&nbsp; &#9744; Not yet: picture the moment on video. What do their hands, face, or mouth do? Start with that verb.</span></p>
+    <div class="ex"><b>From label to Motor Function</b>
+      <div class="pairs">
+        <s>&ldquo;Fraud&rdquo;</s><span>Promises what isn&rsquo;t delivered</span>
+        <s>&ldquo;Dismissive&rdquo;</s><span>Looks away while I speak</span>
+        <s>&ldquo;Controlling&rdquo;</s><span>Requests approval before sending</span>
+        <s>&ldquo;Ignores me&rdquo;</s><span>Withholds a reply</span>
+        <s>&ldquo;Rude&rdquo;</s><span>Interrupts before I finish</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="num">8</span><h3>Score it</h3></div>
+    <p class="q">Right now, how one-sided does it feel? Mark the scale.</p>
+    <p class="sub">0 means it&rsquo;s all upside. 100 means it&rsquo;s all cost. Most people start near 100.</p>
+    <div class="scale">
+      <div class="ticks"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span><span>90</span><span>100</span></div>
+      <div class="bar"></div>
+      <div class="ends"><span>All upside</span><b>Balanced &middot; 50 / 50</b><span>All cost</span></div>
+    </div>
+    <div class="inline">My score (0&ndash;100): <i style="flex:0 0 60pt"></i></div>
+    <div class="circles"><span class="l">How strongly does it pull on you?</span><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>10</i></div>
+  </div>
+  <div class="foot"><span>samosborne.net &middot; The Under-Your-Skin Exercise</span><span>4</span></div>
+</section>
+
+<!-- 5 · Turn the mirror -->
+<section class="page">
+  <div class="step" style="margin-top:0">
+    <div class="step-h"><span class="num">9</span><h3>Turn the mirror</h3></div>
+    <div class="mfline">My Motor Function <i></i></div>
+    <p class="q">Where have <em>you</em> done this exact action, in any form, at any scale?</p>
+    <p class="sub">Match the action, not the amount. Who was there, when, what you said. Aim for at least three areas.</p>
+    <div class="areas">
+      <div class="area"><h4>Spiritual <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Mental <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Vocational <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Financial <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Family/Domestic <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Social <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area wide"><h4>Physical <span>#</span></h4><div class="lines"><i></i><i></i></div></div>
+    </div>
+    <p class="tally">Total: <i></i> moments across <i></i> of 7 areas</p>
+    <div class="ex"><b>Worked example: a prosecutor and &lsquo;Promises what isn&rsquo;t delivered.&rsquo; Use these as places to look, then write your own moment.</b>
+      <div class="exgrid">
+        <p><b>Spiritual:</b> Spoke a vow aloud and later acted against it &middot; Committed to a practice and stopped showing up</p>
+        <p><b>Mental:</b> &ldquo;Let me think it over and get back to you,&rdquo; then no reply</p>
+        <p><b>Vocational:</b> A pitch promised more than the product showed &middot; Offered terms, then withdrew them</p>
+        <p><b>Financial:</b> &ldquo;I&rsquo;ll pay you back,&rdquo; then paid late, less, or never</p>
+        <p><b>Family/Domestic:</b> &ldquo;I&rsquo;ll be home for dinner,&rdquo; then stayed late &middot; Promised a trip, then cancelled</p>
+        <p><b>Social:</b> &ldquo;Let&rsquo;s get coffee soon&rdquo; and never sent a date &middot; RSVP&rsquo;d yes and didn&rsquo;t go</p>
+        <p><b>Physical:</b> Told a doctor &ldquo;I&rsquo;ll cut back,&rdquo; then didn&rsquo;t</p>
+        <p><em>Tightest matches have the same order: you promised first, to get a yes, then didn&rsquo;t deliver.</em></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>samosborne.net &middot; The Under-Your-Skin Exercise</span><span>5</span></div>
+</section>
+
+<!-- 6 · The other side -->
+<section class="page">
+  <div class="step" style="margin-top:0">
+    <div class="step-h"><span class="num">10</span><h3>The other side</h3></div>
+    <p class="q">From the moment you saw them do it, how has it served you?</p>
+    <ul class="prompts">
+      <li>What has this pushed you to learn, build, or become?</li>
+      <li>Where has it made you stronger, sharper, or more determined?</li>
+      <li>If a close friend had lived this, what would it have given them?</li>
+    </ul>
+    <div class="areas">
+      <div class="area"><h4>Spiritual <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Mental <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Vocational <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Financial <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Family/Domestic <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area"><h4>Social <span>#</span></h4><div class="lines"><i></i><i></i><i></i></div></div>
+      <div class="area wide"><h4>Physical <span>#</span></h4><div class="lines"><i></i><i></i></div></div>
+    </div>
+    <p class="tally">Total: <i></i> benefits across <i></i> of 7 areas</p>
+    <div class="ex"><b>Worked example: a prosecutor and &lsquo;Promises what isn&rsquo;t delivered.&rsquo; Use these as places to look, then write your own moment.</b>
+      <div class="exgrid">
+        <p><b>Spiritual:</b> Reconnected with why they do the work &middot; Deepened compassion for elderly people</p>
+        <p><b>Mental:</b> Learned how the scheme works and can spot it fast</p>
+        <p><b>Vocational:</b> A case to try and a track record &middot; Material to train juniors</p>
+        <p><b>Financial:</b> A path to higher pay as a specialist</p>
+        <p><b>Family/Domestic:</b> Called their own parents to warn them</p>
+        <p><b>Social:</b> Invitations to speak at senior centers and bar events</p>
+        <p><b>Physical:</b> Energy and drive through long prep days</p>
+        <p><em>Their undelivered promise delivered something to you.</em></p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>samosborne.net &middot; The Under-Your-Skin Exercise</span><span>6</span></div>
+</section>
+
+<!-- 7 · Look again, Reflect, next step -->
+<section class="page">
+  <div class="step" style="margin-top:0">
+    <div class="step-h"><span class="num">11</span><h3>Look again</h3></div>
+    <p class="q">Look at it again. Where is it now? Don&rsquo;t aim for a number. Just notice.</p>
+    <div class="scale">
+      <div class="ticks"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span><span>90</span><span>100</span></div>
+      <div class="bar"></div>
+      <div class="ends"><span>All upside</span><b>Balanced &middot; 50 / 50</b><span>All cost</span></div>
+    </div>
+    <div class="inline">Before: <i style="flex:0 0 50pt"></i> &nbsp; After: <i style="flex:0 0 50pt"></i> &nbsp; Points toward balance: <i style="flex:0 0 50pt"></i></div>
+  </div>
+
+  <div class="step">
+    <div class="step-h"><span class="num">12</span><h3>Reflect</h3></div>
+    <p class="q">What did you notice as you worked through this?</p>
+    <div class="lines"><i></i><i></i></div>
+    <p class="q" style="margin-top:12pt">If this no longer ran you, what would you do differently this week?</p>
+    <div class="lines"><i></i><i></i></div>
+  </div>
+
+  <div class="cta">
+    <h3>This is where a session begins.</h3>
+    <p>If the number barely moved, that&rsquo;s normal. In a private session we take the one person you named today and work it through completely, one-to-one, by video.</p>
+    <div class="book"><span>Book a free 20-minute call</span><a href="https://calendly.com/sam-samosborne/20min">calendly.com/sam-samosborne/20min</a></div>
+    <blockquote><p>&ldquo;One session with Sam cleared more black clouds than anything I have ever previously experienced.&rdquo;</p><cite>Graham Harvey &middot; Professional Speakers Australia Hall of Fame</cite></blockquote>
+  </div>
+  <p class="about"><b>About Sam.</b> Sam Osborne is a trained Demartini Method Facilitator and a keynote speaker on conflict and composure for attorneys, advisors, and executives. He works privately with clients in 10 countries. Learn more at samosborne.net.</p>
+  <p class="disc">This exercise is educational and is not therapy or a substitute for professional care. If you&rsquo;re in crisis, please contact a licensed professional or local emergency services. &copy; 2026 Sam Osborne.</p>
+  <div class="foot"><span>samosborne.net &middot; The Under-Your-Skin Exercise</span><span>7</span></div>
+</section>
+
+</body>
+</html>
