@@ -272,20 +272,21 @@ footer a { color: var(--soft); }
     <div class="mini" id="resume" hidden><button type="button" id="restart">Start over</button></div>
   </section>
 
-  <!-- 1 · Name it -->
+  <!-- 1 · Name them -->
   <section class="screen" id="s-name" data-step="1">
-    <span class="label">Name it</span>
-    <h2>What&rsquo;s pulling you off your game?</h2>
-    <div class="opts" role="group" aria-label="What kind of thing is it?">
-      <button class="opt" type="button" aria-pressed="false">Self-doubt</button>
-      <button class="opt" type="button" aria-pressed="false">Someone I argue with in my head</button>
-      <button class="opt" type="button" aria-pressed="false">Guilt</button>
-      <button class="opt" type="button" aria-pressed="false">A moment I dread</button>
-      <button class="opt" type="button" aria-pressed="false">A pattern I can&rsquo;t break</button>
-      <button class="opt" type="button" aria-pressed="false">Something else</button>
+    <span class="label">Name them</span>
+    <h2>Who&rsquo;s getting under your skin right now?</h2>
+    <p class="help">Pick the one person who carries the most charge. You can work through the others later.</p>
+    <div class="opts" role="group" aria-label="Where is this person in your life?">
+      <button class="opt" type="button" aria-pressed="false">A family member</button>
+      <button class="opt" type="button" aria-pressed="false">My partner</button>
+      <button class="opt" type="button" aria-pressed="false">Someone at work</button>
+      <button class="opt" type="button" aria-pressed="false">A client or customer</button>
+      <button class="opt" type="button" aria-pressed="false">A friend</button>
+      <button class="opt" type="button" aria-pressed="false">Someone else</button>
     </div>
-    <label class="sr" for="a-name">In one sentence</label>
-    <textarea class="mt" id="a-name" data-key="name" rows="2" placeholder="In one sentence, it&rsquo;s&hellip;"></textarea>
+    <label class="sr" for="a-name">In one sentence, what&rsquo;s going on</label>
+    <textarea class="mt" id="a-name" data-key="name" rows="2" placeholder="In one sentence, what&rsquo;s going on&hellip;"></textarea>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
@@ -959,7 +960,7 @@ var COPY = {
       'If it barely moved, that\u2019s normal. This is where a session begins.';
     var stings=S.sting.slice(); if(S.stingText.trim()) stings.push(S.stingText.trim());
     var h='';
-    h+='<div><b>What it is'+(S.kind?' &middot; '+esc(S.kind):'')+'</b><p>'+esc(S.name||'\u2014')+'</p></div>';
+    h+='<div><b>What&rsquo;s going on'+(S.kind?' &middot; '+esc(S.kind):'')+'</b><p>'+esc(S.name||'\u2014')+'</p></div>';
     if(S.who) h+='<div><b>Who</b><p>'+esc(S.who)+'</p></div>';
     if(S.words) h+='<div><b>In my words</b><p>'+esc(S.words)+'</p></div>';
     if(S.literal) h+='<div><b>The literal line</b><p>'+esc(S.literal)+'</p></div>';
@@ -1008,7 +1009,7 @@ var COPY = {
     function areas(g){ AREAS.forEach(function(ar){ L.push('  '+ar.name+':'); if(S[g][ar.key].length) S[g][ar.key].forEach(function(x){ L.push('    - '+x); }); else L.push('    -'); }); }
     L.push('THE UNDER-YOUR-SKIN EXERCISE','samosborne.net','');
     L.push('MOTOR FUNCTION: '+(S.mf||'-'),'');
-    L.push('1. NAME IT'+(S.kind?' ('+S.kind+')':''),S.name||'-','');
+    L.push('1. NAME THEM'+(S.kind?' ('+S.kind+')':''),S.name||'-','');
     L.push('2. WHO',S.who||'-','');
     L.push('3. IN MY WORDS',S.words||'-','');
     L.push('4. THE LITERAL LINE',S.literal||'-','');
