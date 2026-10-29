@@ -109,7 +109,6 @@ input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset
 .items li { display: flex; gap: 8px; align-items: center; font-size: 16px; padding: 6px 4px 6px 14px; border-radius: 12px; background: var(--wash); border: 1px solid rgba(212,165,116,.3); color: #fff; }
 .items li span { flex: 1; overflow-wrap: anywhere; }
 .items li button { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 22px; width: 40px; height: 40px; border-radius: 10px; flex: 0 0 auto; }
-.need { margin-top: 10px; font-size: 15px; color: var(--gold); }
 .found { margin-top: 14px; font-size: 15px; color: var(--muted); }
 .found b { color: var(--gold); font-variant-numeric: tabular-nums; }
 
@@ -212,7 +211,7 @@ footer a { color: var(--soft); }
     </div>
     <label class="sr" for="a-name">In one sentence</label>
     <textarea class="mt" id="a-name" data-key="name" rows="2" placeholder="In one sentence, it&rsquo;s&hellip;"></textarea>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next data-need="name">Next question</button></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
   <section class="screen" id="s-specific">
@@ -229,7 +228,7 @@ footer a { color: var(--soft); }
     </details>
     <label class="sr" for="a-specific">Specifically</label>
     <textarea class="mt" id="a-specific" data-key="specific" rows="3" placeholder="Specifically&hellip;"></textarea>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next data-need="specific">Next question</button></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
   <section class="screen" id="s-score">
@@ -399,23 +398,10 @@ footer a { color: var(--soft); }
     else { var h=screens[n].querySelector('h1,h2'); if(h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); } }
   }
 
-  // every step shows a live "Next question" button; optional steps can be left blank
-  function refresh(){
-    document.querySelectorAll('[data-need]').forEach(function(b){
-      var sec=b.closest('.screen'), hint=sec.querySelector('.need');
-      if(hint && String(S[b.getAttribute('data-need')]||'').trim()) hint.hidden=true;
-    });
-  }
+  // every step shows a live "Next question" button; any step can be left blank
+  function refresh(){}
 
-  document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click',function(){
-    var k=b.getAttribute('data-need');
-    if(k && !String(S[k]||'').trim()){
-      var sec=b.closest('.screen'), hint=sec.querySelector('.need'), f=sec.querySelector('textarea');
-      if(!hint){ hint=document.createElement('p'); hint.className='need'; hint.setAttribute('role','status'); hint.textContent='Write a few words first.'; f.insertAdjacentElement('afterend',hint); }
-      hint.hidden=false; f.focus(); return;
-    }
-    show(S.step+1);
-  }); });
+  document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click',function(){ show(S.step+1); }); });
   document.querySelectorAll('[data-prev]').forEach(function(b){ b.addEventListener('click',function(){ show(S.step-1); }); });
 
   // text areas grow as you type
