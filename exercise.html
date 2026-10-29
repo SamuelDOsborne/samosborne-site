@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>The Under-Your-Skin Exercise | Sam Osborne</title>
-<meta name="description" content="The free 10-minute exercise for the one person you can't stop replaying.">
+<meta name="description" content="The free 15-minute exercise for the one person you can't stop replaying.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://samosborne.net/exercise">
 <meta name="theme-color" content="#1A1A1A">
@@ -44,7 +44,7 @@ main { padding-top: 36px; }
 .screen { display: none; }
 .screen.on { display: block; animation: in .2s ease; }
 @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .screen.on { animation: none; } .progress span, .fill { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { .screen.on { animation: none; } .progress span, .fill, .bar i { transition: none !important; } }
 
 .label { display: block; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
 h1, h2 { font-weight: 800; letter-spacing: -.03em; color: #fff; text-wrap: balance; outline: none; }
@@ -59,6 +59,7 @@ textarea:focus, input[type=text]:focus { outline: none; border-color: var(--gold
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 ::placeholder { color: var(--faint); opacity: 1; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.field-label { display: block; margin-top: 22px; margin-bottom: 8px; font-size: 15px; font-weight: 600; color: var(--soft); }
 
 .lock { margin-top: 20px; display: flex; gap: 10px; align-items: center; font-size: 15px; color: var(--muted); }
 
@@ -70,16 +71,43 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px soli
 .opt[aria-pressed="true"]::before { border-color: var(--gold); background: radial-gradient(circle, var(--gold) 0 4px, transparent 5px); }
 @media (hover: hover) { .opt:hover { border-color: var(--edge); } }
 @media (min-width: 560px) { .opts { grid-template-columns: 1fr 1fr; } }
+.opts.stack { grid-template-columns: 1fr; }
 
-/* example */
+/* chips (multi-select) */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.chip { text-align: left; font-size: 16px; font-weight: 500; color: var(--soft); background: var(--raise); border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 14px; min-height: 48px; cursor: pointer; line-height: 1.35; }
+.chip[aria-pressed="true"] { background: var(--wash); border-color: var(--gold); color: #fff; }
+@media (hover: hover) { .chip:hover { border-color: var(--edge); } }
+.empty { margin-top: 18px; font-size: 15px; color: var(--faint); }
+
+/* examples */
 details.ex { margin-top: 14px; }
 details.ex summary { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 16px; font-weight: 600; color: var(--gold); list-style: none; min-height: 44px; }
 details.ex summary::-webkit-details-marker { display: none; }
 details.ex summary::after { content: "+"; font-size: 20px; font-weight: 400; }
-details.ex[open] summary::after { content: "–"; }
-.exlist { margin-top: 4px; padding: 14px 16px; border-radius: 14px; background: var(--raise); border: 1px solid var(--line); display: grid; gap: 12px; font-size: 15px; }
+details.ex[open] summary::after { content: "\2013"; }
+.exlist { margin-top: 4px; padding: 14px 16px; border-radius: 14px; background: var(--raise); border: 1px solid var(--line); display: grid; gap: 12px; font-size: 15px; color: var(--soft); }
 .exlist s { color: var(--faint); display: block; }
 .exlist span { color: #fff; }
+.exlist ul { padding-left: 18px; display: grid; gap: 6px; }
+.exlist .ex-h { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+.exlist .ex-intro, .exlist .ex-foot { font-size: 14px; color: var(--muted); }
+.exlist .ex-foot { font-style: italic; }
+.arrow { color: var(--faint); }
+
+/* gentle notes */
+.gentle { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--wash); border: 1px solid rgba(212,165,116,.3); font-size: 15px; color: var(--soft); }
+.gentle p + p { margin-top: 6px; }
+.gentle mark { background: rgba(212,165,116,.28); color: #fff; border-radius: 4px; padding: 0 4px; }
+.gentle .linkish { background: none; border: 0; color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 0; min-height: 44px; }
+
+/* motor function */
+.wc { margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.wc.ok { color: var(--gold); }
+.cam { margin-top: 26px; font-size: 18px; font-weight: 700; color: #fff; }
+.mfhead { margin-top: 16px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--edge); background: var(--wash); }
+.mfhead small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.mfhead b { display: block; margin-top: 2px; font-size: 1.35rem; font-weight: 800; letter-spacing: -.02em; color: var(--gold); line-height: 1.2; overflow-wrap: anywhere; }
 
 /* sliders */
 .scale { margin-top: 26px; padding: 22px 16px 16px; border-radius: 18px; background: var(--raise); border: 1px solid var(--line); }
@@ -101,16 +129,33 @@ input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset
 @media (min-width: 560px) { .dots { grid-template-columns: repeat(10, 1fr); } .dot { min-height: 52px; } }
 
 /* list answers */
-.addrow { position: relative; margin-top: 22px; }
+.addrow { position: relative; margin-top: 12px; }
 .addrow input { padding-right: 84px; min-height: 58px; }
 .add { position: absolute; right: 7px; top: 7px; bottom: 7px; font-size: 15px; font-weight: 700; border: 0; color: var(--ink); background: var(--gold); border-radius: 10px; padding: 0 16px; cursor: pointer; }
 .add:disabled { opacity: .35; cursor: default; }
 .items { list-style: none; margin-top: 10px; display: grid; gap: 8px; }
+.items:empty { display: none; }
 .items li { display: flex; gap: 8px; align-items: center; font-size: 16px; padding: 6px 4px 6px 14px; border-radius: 12px; background: var(--wash); border: 1px solid rgba(212,165,116,.3); color: #fff; }
 .items li span { flex: 1; overflow-wrap: anywhere; }
 .items li button { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 22px; width: 40px; height: 40px; border-radius: 10px; flex: 0 0 auto; }
-.found { margin-top: 14px; font-size: 15px; color: var(--muted); }
+.found { margin-top: 16px; font-size: 15px; color: var(--muted); }
 .found b { color: var(--gold); font-variant-numeric: tabular-nums; }
+
+/* seven areas */
+.prompt { margin-top: 16px; display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; padding: 12px 14px; border-radius: 12px; background: var(--raise); border: 1px solid var(--line); }
+.prompt p { font-size: 16px; color: #fff; font-weight: 600; }
+.prompt button { flex: 0 0 auto; background: none; border: 0; color: var(--gold); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; min-height: 44px; }
+.areas { margin-top: 18px; display: grid; gap: 8px; }
+details.area { border-radius: 14px; background: var(--raise); border: 1px solid var(--line); }
+details.area[open] { border-color: var(--edge); }
+details.area > summary { cursor: pointer; list-style: none; padding: 12px 16px; min-height: 54px; display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; color: #fff; }
+details.area > summary::-webkit-details-marker { display: none; }
+details.area > summary .nm { flex: 1; }
+details.area > summary .n { min-width: 28px; height: 28px; padding: 0 8px; border-radius: 99px; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--muted); border: 1.5px solid var(--line-2); font-variant-numeric: tabular-nums; }
+details.area > summary .n.has { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+details.area > summary::after { content: "+"; color: var(--gold); font-size: 22px; font-weight: 400; width: 14px; text-align: center; }
+details.area[open] > summary::after { content: "\2013"; }
+.area-in { padding: 0 14px 14px; }
 
 /* action bar: pinned on phones, inline on desktop */
 .nav { display: flex; gap: 10px; align-items: center; margin-top: 28px; }
@@ -119,6 +164,7 @@ input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset
 @media (hover: hover) { .btn:hover { background: var(--gold-2); } }
 .btn:disabled { opacity: .4; cursor: default; transform: none; }
 .btn.quiet { background: var(--raise); color: var(--soft); border: 1.5px solid var(--line-2); }
+@media (hover: hover) { .btn.quiet:hover { background: var(--raise); border-color: var(--edge); color: #fff; } }
 .back { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--line-2); background: transparent; color: var(--muted); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
 .back:hover { color: #fff; }
 @media (max-width: 720px) {
@@ -126,7 +172,11 @@ input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset
 }
 
 /* results */
+.mf-big { margin-top: 18px; font-size: clamp(2rem, 8.5vw, 2.6rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; color: var(--gold); overflow-wrap: anywhere; text-wrap: balance; }
+.meta { margin-top: 10px; font-size: 15px; color: var(--muted); }
+.meta b { color: var(--soft); font-weight: 600; }
 .shift { margin-top: 20px; padding: 20px 18px; border-radius: 18px; background: var(--raise); border: 1px solid var(--line); }
+.shift h3 { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
 .moved { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .moved b { font-size: 3.4rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--gold); font-variant-numeric: tabular-nums; }
 .moved span { font-size: 16px; color: var(--soft); }
@@ -136,13 +186,23 @@ input[type=range]:focus-visible { outline: 3px solid var(--gold); outline-offset
 .fill.after { background: var(--gold); }
 .row b { text-align: right; color: #fff; font-size: 16px; font-variant-numeric: tabular-nums; }
 .note { margin-top: 14px; font-size: 16px; color: var(--soft); }
+.bars-l { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--soft); }
+.bars-l span { color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
+.bars { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 8px; }
+.bar { display: grid; gap: 4px; justify-items: center; }
+.bar .col { width: 100%; height: 44px; border-radius: 8px; background: rgba(255,255,255,.06); display: flex; align-items: flex-end; overflow: hidden; }
+.bar i { display: block; width: 100%; height: 0; background: var(--gold); border-radius: 8px 8px 0 0; transition: height .3s ease; }
+.bar.cost i { background: var(--cost); }
+.bar em { font-style: normal; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
+.bar strong { font-size: 13px; color: #fff; font-variant-numeric: tabular-nums; }
 details.mine { margin-top: 14px; border-radius: 14px; background: var(--raise); border: 1px solid var(--line); }
 details.mine summary { cursor: pointer; list-style: none; padding: 14px 16px; min-height: 52px; font-size: 16px; font-weight: 600; color: #fff; display: flex; justify-content: space-between; align-items: center; }
 details.mine summary::-webkit-details-marker { display: none; }
 details.mine summary::after { content: "+"; color: var(--gold); font-size: 22px; font-weight: 400; }
-details.mine[open] summary::after { content: "–"; }
+details.mine[open] summary::after { content: "\2013"; }
 .recap { padding: 0 16px 16px; display: grid; gap: 14px; }
 .recap b { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.recap i { font-style: normal; color: var(--muted); font-size: 14px; display: block; margin-top: 4px; }
 .recap p, .recap li { font-size: 16px; color: #fff; overflow-wrap: anywhere; }
 .recap ul { padding-left: 20px; display: grid; gap: 4px; }
 .recap .none { color: var(--faint); }
@@ -164,17 +224,30 @@ footer a { color: var(--soft); }
 .toast.on { opacity: 1; transform: translate(-50%, 0); }
 @media (min-width: 900px) { main { padding-top: 64px; } }
 
+/* one-page print summary (screen-hidden) */
+#sheet { display: none; }
 @media print {
-  body { background: #fff; color: #111; font-size: 12pt; }
-  .head, .nav, .mini, .cta, footer .noprint, .toast { display: none !important; }
-  .screen { display: none !important; animation: none !important; }
-  #s-done { display: block !important; }
-  details.mine > *:not(summary) { display: grid !important; }
-  details.mine summary { display: none; }
-  h2, .recap p, .recap li, .row b { color: #111; }
-  .shift, details.mine { background: none; border-color: #ccc; }
-  .recap b, .label, .moved b { color: #8a5a2b; }
-  .note, .moved span { color: #333; }
+  @page { size: auto; margin: 10mm 12mm; }
+  html, body { background: #fff !important; color: #111; font-size: 10pt; line-height: 1.35; }
+  .head, .screen, footer, .toast { display: none !important; }
+  main { padding: 0 !important; max-width: none; }
+  #sheet { display: block !important; color: #111; }
+  #sheet .s-top { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5pt solid #8a5a2b; padding-bottom: 4pt; }
+  #sheet .s-top b { font-size: 13pt; font-weight: 800; letter-spacing: -.01em; }
+  #sheet .s-top span { font-size: 9pt; color: #555; }
+  #sheet .s-mf { margin-top: 8pt; font-size: 20pt; font-weight: 800; color: #8a5a2b; letter-spacing: -.02em; line-height: 1.1; }
+  #sheet .s-meta { margin-top: 4pt; font-size: 10pt; color: #333; }
+  #sheet .s-k { display: block; font-size: 7.5pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a5a2b; margin-bottom: 1pt; }
+  #sheet .s-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6pt 16pt; margin-top: 8pt; }
+  #sheet p { font-size: 9.5pt; color: #111; overflow-wrap: anywhere; }
+  #sheet table { width: 100%; border-collapse: collapse; margin-top: 8pt; font-size: 8.5pt; table-layout: fixed; }
+  #sheet th, #sheet td { border-bottom: .5pt solid #ccc; padding: 3pt 4pt; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+  #sheet th { font-size: 7.5pt; letter-spacing: .08em; text-transform: uppercase; color: #8a5a2b; }
+  #sheet th:first-child, #sheet td:first-child { width: 21%; font-weight: 700; }
+  #sheet td ul { list-style: none; display: inline; } #sheet td li { display: inline; }
+  #sheet td li { color: #222; }
+  #sheet td .c { font-weight: 700; color: #111; }
+  #sheet .s-foot { margin-top: 10pt; padding-top: 4pt; border-top: .5pt solid #ccc; font-size: 8pt; color: #555; }
 }
 </style>
 </head>
@@ -189,16 +262,18 @@ footer a { color: var(--soft); }
 
 <main class="wrap">
 
+  <!-- 0 · Intro -->
   <section class="screen" id="s-intro">
-    <span class="label">Free 10-minute exercise</span>
+    <span class="label">Free exercise</span>
     <h1 id="hello">Under Your Skin</h1>
-    <p class="help">Do it with the first person who came to mind. About 10&nbsp;minutes.</p>
+    <p class="help">Do it with the first person who came to mind. About 15&nbsp;minutes.</p>
     <p class="lock"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Your answers stay on this device.</p>
     <div class="nav"><button class="btn" type="button" id="startbtn">Start</button></div>
     <div class="mini" id="resume" hidden><button type="button" id="restart">Start over</button></div>
   </section>
 
-  <section class="screen" id="s-name">
+  <!-- 1 · Name it -->
+  <section class="screen" id="s-name" data-step="1">
     <span class="label">Name it</span>
     <h2>What&rsquo;s pulling you off your game?</h2>
     <div class="opts" role="group" aria-label="What kind of thing is it?">
@@ -214,24 +289,87 @@ footer a { color: var(--soft); }
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-specific">
-    <span class="label">Get specific</span>
-    <h2>What exactly did they say or do?</h2>
-    <p class="help">Facts, not the story.</p>
-    <details class="ex">
-      <summary>See an example</summary>
-      <div class="exlist">
-        <div><s>&ldquo;She&rsquo;s impossible.&rdquo;</s><span>&ldquo;She interrupted me twice in the meeting.&rdquo;</span></div>
-        <div><s>&ldquo;I&rsquo;m a fraud.&rdquo;</s><span>&ldquo;I freeze when someone senior asks me a question.&rdquo;</span></div>
-        <div><s>&ldquo;I always let people down.&rdquo;</s><span>&ldquo;I missed my daughter&rsquo;s recital for a client call.&rdquo;</span></div>
-      </div>
-    </details>
-    <label class="sr" for="a-specific">Specifically</label>
-    <textarea class="mt" id="a-specific" data-key="specific" rows="3" placeholder="Specifically&hellip;"></textarea>
+  <!-- 2 · Who -->
+  <section class="screen" id="s-who" data-step="2">
+    <span class="label">Who</span>
+    <h2>Who is it?</h2>
+    <p class="help">One person. First name or initials is enough.</p>
+    <label class="field-label" for="a-who">First name or initials</label>
+    <input type="text" id="a-who" data-key="who" maxlength="80" autocomplete="off" autocapitalize="words" enterkeyhint="next" data-focus>
+    <div class="gentle" id="who-note" role="status" hidden></div>
+    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="who"></div></details>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next id="who-next">Next question</button></div>
+  </section>
+
+  <!-- 3 · Say it your way -->
+  <section class="screen" id="s-words" data-step="3">
+    <span class="label">Say it your way</span>
+    <h2>What did they do, in your own words?</h2>
+    <p class="help">Labels welcome here.</p>
+    <label class="sr" for="a-words">What they did, in your own words</label>
+    <textarea class="mt" id="a-words" data-key="words" data-flag="verdict" rows="3" data-focus></textarea>
+    <div class="gentle" data-flagnote="words" role="status" hidden></div>
+    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="words"></div></details>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-score">
+  <!-- 4 · The literal line -->
+  <section class="screen" id="s-literal" data-step="4">
+    <span class="label">The literal line</span>
+    <h2>What exactly did they say or do?</h2>
+    <p class="help">The words, or what a camera would have caught.</p>
+    <label class="sr" for="a-literal">Exactly what they said or did</label>
+    <textarea class="mt" id="a-literal" data-key="literal" data-flag="camera" rows="3" data-focus></textarea>
+    <div class="gentle" data-flagnote="literal" role="status" hidden></div>
+    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="literal"></div></details>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
+  </section>
+
+  <!-- 5 · Observed or reported -->
+  <section class="screen" id="s-source" data-step="5">
+    <span class="label">Observed or reported?</span>
+    <h2>How do you know it happened?</h2>
+    <div class="opts stack" role="group" aria-label="How you know it happened" id="source-opts">
+      <button class="opt" type="button" aria-pressed="false" data-source="observed">I saw or heard it myself</button>
+      <button class="opt" type="button" aria-pressed="false" data-source="reported">I was told or read about it</button>
+    </div>
+    <div class="gentle" id="source-note" role="status" hidden>
+      <p>Noted. Reported actions carry less weight. If you have a moment you witnessed directly, use that one.</p>
+      <p><button type="button" class="linkish" id="change-moment">Change my moment</button></p>
+    </div>
+    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="source"></div></details>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next id="source-next">Next question</button></div>
+  </section>
+
+  <!-- 6 · What still stings -->
+  <section class="screen" id="s-sting" data-step="6">
+    <span class="label">What still stings</span>
+    <h2>Which part carries the charge?</h2>
+    <p class="help">The first label often isn&rsquo;t the real trigger. Tap any part that still stings.</p>
+    <div class="chips" role="group" aria-label="Parts of what they said or did" id="sting-chips"></div>
+    <p class="empty" id="sting-empty" hidden>You left the literal line blank. Go back and add it, or write the part that stings below.</p>
+    <label class="field-label" for="a-stingText">Or say it in your words</label>
+    <input type="text" id="a-stingText" data-key="stingText" maxlength="200" autocomplete="off" enterkeyhint="next">
+    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="sting"></div></details>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
+  </section>
+
+  <!-- 7 · Motor Function -->
+  <section class="screen" id="s-mf" data-step="7">
+    <span class="label">Your Motor Function</span>
+    <h2>Say the action in 3&ndash;4 words, starting with a verb.</h2>
+    <label class="field-label" for="a-mf">The action, in 3&ndash;4 words</label>
+    <input type="text" id="a-mf" data-key="mf" data-flag="camera" maxlength="80" autocomplete="off" enterkeyhint="done" data-focus aria-describedby="mf-wc">
+    <p class="wc" id="mf-wc" aria-live="polite">0 words</p>
+    <div class="gentle" data-flagnote="mf" role="status" hidden></div>
+    <div class="gentle" id="mf-hint" role="status" hidden></div>
+    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="mf"></div></details>
+    <p class="cam" id="cam-q">Could a camera record this?</p>
+    <div class="nav" role="group" aria-labelledby="cam-q"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn quiet" type="button" id="cam-no">Not yet</button><button class="btn" type="button" id="cam-yes">Yes</button></div>
+  </section>
+
+  <!-- 8 · Score it -->
+  <section class="screen" id="s-score" data-step="8">
     <span class="label">Score it</span>
     <h2>How one-sided does it feel right now?</h2>
     <p class="help">0 = all upside. 100 = all cost. Most start near&nbsp;100.</p>
@@ -248,7 +386,7 @@ footer a { color: var(--soft); }
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-pull" data-optional="pull">
+  <section class="screen" id="s-pull" data-step="8">
     <span class="label">Score it</span>
     <h2 id="pull-l">How strongly does it pull on you?</h2>
     <p class="help">1 = barely. 10 = it runs my day.</p>
@@ -256,35 +394,33 @@ footer a { color: var(--soft); }
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-learn" data-list="learn">
-    <span class="label">The other side &middot; 1 of 3</span>
-    <h2>What has this pushed you to learn, build, or become?</h2>
-    <p class="help">Small counts. Add as many as you can.</p>
-    <div class="addrow"><label class="sr" for="in-learn">Add an answer</label><input type="text" id="in-learn" maxlength="300" enterkeyhint="enter" autocomplete="off" placeholder="Type one, then Add"><button class="add" type="button">Add</button></div>
-    <ul class="items"></ul>
-    <p class="found" aria-live="polite"><b class="found-n">0</b> found so far</p>
+  <!-- 9 · Turn the mirror -->
+  <section class="screen" id="s-mirror" data-step="9" data-areas="mirror">
+    <span class="label">Turn the mirror</span>
+    <div class="mfhead"><small>Your Motor Function</small><b data-mf></b></div>
+    <h2 class="mt">Where have <em>you</em> done this exact action, in any form, at any scale?</h2>
+    <p class="help">Match the action, not the amount. Who was there, when, what you said. Tap an area to add a moment.</p>
+    <div class="areas"></div>
+    <p class="found" aria-live="polite" data-total></p>
+    <div class="gentle" data-areanote role="status" hidden>Most people find more than they expect. Try at least three areas before moving on.</div>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-stronger" data-list="stronger">
-    <span class="label">The other side &middot; 2 of 3</span>
-    <h2>Where has it made you stronger, sharper, or more determined?</h2>
-    <div class="addrow"><label class="sr" for="in-stronger">Add an answer</label><input type="text" id="in-stronger" maxlength="300" enterkeyhint="enter" autocomplete="off" placeholder="Type one, then Add"><button class="add" type="button">Add</button></div>
-    <ul class="items"></ul>
-    <p class="found" aria-live="polite"><b class="found-n">0</b> found so far</p>
+  <!-- 10 · The other side -->
+  <section class="screen" id="s-benefits" data-step="10" data-areas="benefits">
+    <span class="label">The other side</span>
+    <div class="mfhead"><small>Your Motor Function</small><b data-mf></b></div>
+    <h2 class="mt">From the moment you saw them do it, how has it served you?</h2>
+    <div class="prompt"><p id="bprompt" aria-live="polite"></p><button type="button" id="bprompt-next">Another question</button></div>
+    <p class="help">Small counts. Tap an area to add a benefit.</p>
+    <div class="areas"></div>
+    <p class="found" aria-live="polite" data-total></p>
+    <div class="gentle" data-areanote role="status" hidden>Most people find more than they expect. Try at least three areas before moving on.</div>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-friend" data-list="friend">
-    <span class="label">The other side &middot; 3 of 3</span>
-    <h2>If a close friend had lived this, what would it have given them?</h2>
-    <div class="addrow"><label class="sr" for="in-friend">Add an answer</label><input type="text" id="in-friend" maxlength="300" enterkeyhint="enter" autocomplete="off" placeholder="Type one, then Add"><button class="add" type="button">Add</button></div>
-    <ul class="items"></ul>
-    <p class="found" aria-live="polite"><b class="found-n">0</b> found so far</p>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
-  </section>
-
-  <section class="screen" id="s-again">
+  <!-- 11 · Look again -->
+  <section class="screen" id="s-again" data-step="11">
     <span class="label">Look again</span>
     <h2>Look at it again. Where is it now?</h2>
     <p class="help">Don&rsquo;t aim for a number. Just notice.</p>
@@ -301,25 +437,36 @@ footer a { color: var(--soft); }
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-notice" data-optional="notice">
+  <!-- 12 · Reflect -->
+  <section class="screen" id="s-notice" data-step="12">
     <span class="label">Reflect</span>
     <h2>What did you notice as you worked through this?</h2>
     <label class="sr" for="a-notice">What you noticed</label>
-    <textarea class="mt" id="a-notice" data-key="notice" rows="3"></textarea>
+    <textarea class="mt" id="a-notice" data-key="notice" rows="3" data-focus></textarea>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-differently" data-optional="differently">
+  <section class="screen" id="s-differently" data-step="12">
     <span class="label">Reflect</span>
     <h2>If this no longer ran you, what would you do differently this week?</h2>
     <label class="sr" for="a-differently">What you would do differently</label>
-    <textarea class="mt" id="a-differently" data-key="differently" rows="3"></textarea>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next data-final>See my results</button></div>
+    <textarea class="mt" id="a-differently" data-key="differently" rows="3" data-focus></textarea>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>See my results</button></div>
   </section>
 
+  <!-- Result + CTA -->
   <section class="screen" id="s-done">
     <span class="label">Your result</span>
     <h2>Here&rsquo;s where you landed.</h2>
+    <p class="mf-big" id="r-mf"></p>
+    <p class="meta" id="r-meta"></p>
+    <div class="shift">
+      <h3>Found by area</h3>
+      <div class="bars-l">Your moments <span id="r-mcount"></span></div>
+      <div class="bars" id="r-mirror"></div>
+      <div class="bars-l">Benefits <span id="r-bcount"></span></div>
+      <div class="bars" id="r-benefits"></div>
+    </div>
     <div class="shift">
       <div class="moved"><b id="moved">0</b><span id="moved-l">points toward balance</span></div>
       <div class="row"><span>Before</span><div class="track"><div class="fill" id="f-before"></div></div><b id="d-before">0</b></div>
@@ -343,6 +490,8 @@ footer a { color: var(--soft); }
     </div>
   </section>
 
+  <div id="sheet" aria-hidden="true"></div>
+
   <footer>
     <p>This exercise is educational and is not therapy or a substitute for professional care. If you&rsquo;re in crisis, please contact a licensed professional or local emergency services.</p>
     <p class="noprint">Prefer paper? <a href="/downloads/under-your-skin-exercise.pdf" target="_blank" rel="noopener">Printable PDF</a> &middot; <a href="/private-sessions">About private sessions</a></p>
@@ -352,69 +501,283 @@ footer a { color: var(--soft); }
 <div class="toast" id="toast" role="status"></div>
 
 <script>
+/* ============================================================
+   EDITABLE COPY
+   Change wording here. The logic below reads from these objects.
+   ============================================================ */
+
+/* The Seven Areas of Life, in display order. */
+var AREAS = [
+  { key: 'spiritual', name: 'Spiritual',       short: 'Spi' },
+  { key: 'mental',    name: 'Mental',          short: 'Men' },
+  { key: 'vocational',name: 'Vocational',      short: 'Voc' },
+  { key: 'financial', name: 'Financial',       short: 'Fin' },
+  { key: 'family',    name: 'Family/Domestic', short: 'Fam' },
+  { key: 'social',    name: 'Social',          short: 'Soc' },
+  { key: 'physical',  name: 'Physical',        short: 'Phy' }
+];
+
+/* Every example on the page. Shown only behind "See examples". Never written into an input. */
+var EXAMPLES = {
+  who: ['My brother Mark', 'J. from accounting', 'The opposing counsel on the Reyes case'],
+  words: ['He defrauded senior citizens.', 'She dismissed me in front of the team.', 'My dad never listened.'],
+  literal: [
+    { label: 'He defrauded seniors', literal: '\u201CYou\u2019ve won $2.5 million, you just need to pay the $4,000 processing fee.\u201D' },
+    { label: 'She dismissed me',     literal: 'She looked at her phone while I was talking.' },
+    { label: 'He\u2019s controlling', literal: 'He said, \u201CSend me the file before you send it to anyone else.\u201D' },
+    { label: 'My dad never listened', literal: 'He turned the TV up when I started talking about school.' }
+  ],
+  source: {
+    observed: ['I was on the call.', 'I watched the video.'],
+    reported: ['It\u2019s in the case file.', 'My sister told me.', 'I read it in the news.']
+  },
+  sting: 'In \u201CYou\u2019ve won $2.5 million, you just need to pay the $4,000 fee,\u201D the charge might sit in the promise, the asking first, or the gap between what was promised and what was delivered.',
+  mf: [
+    { label: 'Fraud',       mf: 'Promises what isn\u2019t delivered' },
+    { label: 'Dismissive',  mf: 'Looks away while I speak' },
+    { label: 'Controlling', mf: 'Requests approval before sending' },
+    { label: 'Ignores me',  mf: 'Withholds a reply' },
+    { label: 'Rude',        mf: 'Interrupts before I finish' }
+  ],
+  mirror: {
+    intro: 'Worked example: a prosecutor and \u2018Promises what isn\u2019t delivered.\u2019 Use these as places to look, then write your own moment.',
+    footer: 'Tightest matches have the same order: you promised first, to get a yes, then didn\u2019t deliver.',
+    areas: {
+      spiritual:  ['Spoke a vow or oath aloud and later acted against it', 'Told someone \u201Cit\u2019ll all work out\u201D and it didn\u2019t', 'Committed to a practice and stopped showing up'],
+      mental:     ['\u201CI\u2019ll read that / take that course\u201D and never opened it', '\u201CLet me think it over and get back to you,\u201D then no reply', 'Promised yourself you\u2019d stop replaying something, then kept replaying it'],
+      vocational: ['Told a client or victim\u2019s family \u201Cwe\u2019ll get you a result,\u201D and it fell short', 'An opening statement or pitch promised more than the evidence or product showed', 'Offered terms, then withdrew them'],
+      financial:  ['\u201CI\u2019ll pay you back,\u201D then paid late, less, or never', '\u201CWe\u2019ll save for that,\u201D then spent it elsewhere', 'Projections in a proposal that didn\u2019t materialize'],
+      family:     ['\u201CI\u2019ll be home for dinner / at the game,\u201D then stayed late', '\u201CThis weekend I\u2019ll fix it\u201D', 'Promised a trip or visit, then cancelled'],
+      social:     ['\u201CLet\u2019s get coffee soon\u201D and never sent a date', 'RSVP\u2019d yes and didn\u2019t go', '\u201CI\u2019ve got your back,\u201D then stayed quiet'],
+      physical:   ['Told a doctor \u201CI\u2019ll cut back,\u201D then didn\u2019t', 'Signed up for a gym or race and stopped going', '\u201CAfter this deal I\u2019ll rest,\u201D then took the next one']
+    }
+  },
+  benefits: {
+    intro: 'Worked example: a prosecutor and \u2018Promises what isn\u2019t delivered.\u2019 Use these as places to look, then write your own moment.',
+    footer: 'Their undelivered promise delivered something to you.',
+    areas: {
+      spiritual:  ['Reconnected with why they do the work', 'Deepened compassion for elderly people', 'Prompted a look at their own integrity'],
+      mental:     ['Learned how the scheme works and can spot it fast', 'Sharpened how they read scripts and pitches, which helps in cross-examination', 'Gave them a clear problem to solve'],
+      vocational: ['A case to try and a track record', 'Press, peer recognition, consideration for promotion', 'Material to train juniors and the public'],
+      financial:  ['The role and caseload stay justified', 'A path to higher pay as a specialist', 'Restitution for victims, or grant funding for the office'],
+      family:     ['Called their own parents to warn them', 'Conversations at home about keeping your word', 'More present with aging family'],
+      social:     ['Invitations to speak at senior centers and bar events', 'Closer ties with investigators and victim advocates', 'Respect from victims\u2019 families'],
+      physical:   ['Energy and drive through long prep days', 'A push to get their own affairs in order', 'Time out of the office: interviews, site visits, court']
+    }
+  }
+};
+
+/* Rotating helper prompts on the benefits screen. */
+var BENEFIT_PROMPTS = [
+  'What has this pushed you to learn, build, or become?',
+  'Where has it made you stronger, sharper, or more determined?',
+  'If a close friend had lived this, what would it have given them?'
+];
+
+/* Flag words. Lowercase, matched as whole words or phrases. Add to any list. */
+var FLAGS = {
+  judgment:   ['manipulated', 'manipulative', 'criticized', 'dismissed', 'disrespectful', 'unfair', 'selfish', 'lazy', 'rude', 'arrogant', 'mean', 'cruel', 'toxic', 'narcissist', 'liar', 'fraud', 'scam', 'stole', 'cheated'],
+  diagnostic: ['abusive', 'alcoholic', 'crazy', 'controlling', 'unloving'],
+  scale:      ['always', 'never', 'constantly', 'extremely', 'every time', 'deeply'],
+  impact:     ['made me feel', 'hurt me', 'humiliated me', 'upset me', 'disrespected me', 'triggered me']
+};
+
+/* What the gentle note says. "verdict" is used on Say it your way; "camera" on the literal line and Motor Function. */
+var FLAG_NOTES = {
+  verdict: 'These are verdicts. We\u2019ll find the action under them next.',
+  camera:  'Labels aren\u2019t endpoints. What would a camera have caught?',
+  extra: {
+    scale:      '\u201CAlways\u201D and \u201Cnever\u201D stretch one moment into all of them. Pick one time.',
+    impact:     'That\u2019s the effect on you. What did they do?',
+    diagnostic: 'That\u2019s a diagnosis. What did you see or hear?'
+  }
+};
+
+/* Words that suggest a group rather than one person on the Who screen. */
+var GROUP_WORDS = ['people', 'everyone', 'everybody', 'they', 'them', 'clients', 'customers', 'men', 'women', 'guys', 'lawyers', 'attorneys', 'doctors', 'politicians', 'managers', 'bosses', 'coworkers', 'co-workers', 'colleagues', 'society', 'the world', 'the government', 'the media', 'my family', 'my parents', 'my kids', 'my team', 'millennials', 'boomers', 'teachers', 'cops', 'the police'];
+
+var COPY = {
+  whoEmpty: 'Pick one person and one moment. A first name or initials is enough.',
+  whoGroup: 'Pick one person and one moment.',
+  whoGroupBtn: 'It\u2019s one person. Continue',
+  mfEmpty: 'Write the action first. Three or four words, starting with a verb.',
+  mfNotYet: 'Picture the moment on video. What do their hands, face, or mouth do? Start with that verb.',
+  areasBtn: 'Continue anyway'
+};
+
+/* ============================================================
+   LOGIC
+   ============================================================ */
 (function(){
-  var KEY='uys-exercise-v2';
-  var S={step:0,kind:'',name:'',specific:'',before:80,pull:0,learn:[],stronger:[],friend:[],after:null,notice:'',differently:''};
+  var KEY='uys-exercise-v3';
+  function blankAreas(){ var o={}; AREAS.forEach(function(a){ o[a.key]=[]; }); return o; }
+  var S={step:0,kind:'',name:'',who:'',words:'',literal:'',source:'',sting:[],stingText:'',mf:'',before:80,pull:0,
+         mirror:blankAreas(),benefits:blankAreas(),after:null,notice:'',differently:''};
+
+  // restore (and carry over the few answers that still fit from the older version)
   try{
-    var raw=localStorage.getItem(KEY), old=false;
-    if(!raw){ raw=localStorage.getItem('uys-exercise-v1'); old=!!raw; }
-    if(raw){ var o=JSON.parse(raw); for(var k in o) if(k in S) S[k]=o[k]; if(old) S.step=1; }
+    var raw=localStorage.getItem(KEY);
+    if(raw){
+      var o=JSON.parse(raw);
+      for(var k in o) if(k in S && k!=='mirror' && k!=='benefits') S[k]=o[k];
+      ['mirror','benefits'].forEach(function(g){ if(o[g]) AREAS.forEach(function(a){ if(Array.isArray(o[g][a.key])) S[g][a.key]=o[g][a.key].map(String); }); });
+    } else {
+      var old=localStorage.getItem('uys-exercise-v2')||localStorage.getItem('uys-exercise-v1');
+      if(old){
+        var p=JSON.parse(old);
+        ['kind','name','before','pull','notice','differently'].forEach(function(f){ if(f in p) S[f]=p[f]; });
+        if(p.specific) S.literal=p.specific;
+        S.step=1;
+      }
+    }
   }catch(e){}
   if(typeof S.step!=='number'||S.step<0) S.step=0;
+  if(!Array.isArray(S.sting)) S.sting=[];
+  ['name','who','words','literal','stingText','mf','notice','differently','kind','source'].forEach(function(f){ if(typeof S[f]!=='string') S[f]=''; });
+
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
-  function wipe(){ try{ localStorage.removeItem(KEY); localStorage.removeItem('uys-exercise-v1'); }catch(e){} }
+  function wipe(){ try{ localStorage.removeItem(KEY); localStorage.removeItem('uys-exercise-v2'); localStorage.removeItem('uys-exercise-v1'); }catch(e){} }
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function buzz(){ try{ if(navigator.vibrate) navigator.vibrate(8); }catch(e){} }
+  function words(s){ s=String(s).trim(); return s?s.split(/\s+/).length:0; }
+  function cut(s,n){ s=String(s).replace(/\s+/g,' ').trim(); return s.length>n?s.slice(0,n-1).trim()+'\u2026':s; }
   var DESKTOP=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var tt; function toast(m){ var t=$('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(tt); tt=setTimeout(function(){ t.classList.remove('on'); },1800); }
 
   // greet by first name if they just signed up on this device
-  try{ var nm=(localStorage.getItem('uys-first-name')||'').trim().split(' ')[0]; if(nm) $('hello').textContent='It’s yours, '+nm.slice(0,30)+'.'; }catch(e){}
+  try{ var nm=(localStorage.getItem('uys-first-name')||'').trim().split(' ')[0]; if(nm) $('hello').textContent='It\u2019s yours, '+nm.slice(0,30)+'.'; }catch(e){}
 
+  /* ---------- examples (read-only text) ---------- */
+  function ul(a){ return '<ul>'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
+  var EXR={
+    who:function(){ return ul(EXAMPLES.who); },
+    words:function(){ return ul(EXAMPLES.words); },
+    literal:function(){ return EXAMPLES.literal.map(function(x){ return '<div><s>'+esc(x.label)+'</s><span><span class="arrow" aria-hidden="true">&rarr; </span>'+esc(x.literal)+'</span></div>'; }).join(''); },
+    source:function(){ return '<div><div class="ex-h">Observed</div>'+ul(EXAMPLES.source.observed)+'</div><div><div class="ex-h">Reported</div>'+ul(EXAMPLES.source.reported)+'</div>'; },
+    sting:function(){ return '<p>'+esc(EXAMPLES.sting)+'</p>'; },
+    mf:function(){ return EXAMPLES.mf.map(function(x){ return '<div><s>'+esc(x.label)+'</s><span><span class="arrow" aria-hidden="true">&rarr; </span>'+esc(x.mf)+'</span></div>'; }).join(''); }
+  };
+  document.querySelectorAll('[data-ex]').forEach(function(el){ var f=EXR[el.getAttribute('data-ex')]; if(f) el.innerHTML=f(); });
+
+  /* ---------- flag words ---------- */
+  var FLAG_RX=[];
+  Object.keys(FLAGS).forEach(function(cat){
+    FLAGS[cat].forEach(function(w){
+      var pat=w.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/\s+/g,'\\s+');
+      FLAG_RX.push({cat:cat,word:w,rx:new RegExp('(^|[^a-z0-9])('+pat+')(?![a-z0-9])','i')});
+    });
+  });
+  function findFlags(text){
+    var t=String(text||''), out=[], seen={};
+    FLAG_RX.forEach(function(f){ var m=t.match(f.rx); if(m && !seen[f.word]){ seen[f.word]=1; out.push({cat:f.cat,word:m[2]}); } });
+    return out;
+  }
+  function flagNote(el,mode,text){
+    var hits=findFlags(text);
+    if(!hits.length){ el.hidden=true; el.innerHTML=''; return; }
+    var cats={}; hits.forEach(function(h){ cats[h.cat]=1; });
+    var h='<p>'+hits.map(function(x){ return '<mark>'+esc(x.word)+'</mark>'; }).join(' ')+'</p><p>'+esc(FLAG_NOTES[mode])+'</p>';
+    if(mode==='camera') ['scale','impact','diagnostic'].forEach(function(c){ if(cats[c]) h+='<p>'+esc(FLAG_NOTES.extra[c])+'</p>'; });
+    el.innerHTML=h; el.hidden=false;
+  }
+  function runFlags(field){
+    var mode=field.getAttribute('data-flag'); if(!mode) return;
+    var note=document.querySelector('[data-flagnote="'+field.getAttribute('data-key')+'"]');
+    if(note) flagNote(note,mode,field.value);
+  }
+
+  /* ---------- screens ---------- */
   var screens=[].slice.call(document.querySelectorAll('.screen'));
-  if(S.step>screens.length-1) S.step=1;
   var LAST=screens.length-1;
-  // intro, name, specific, score, pull, learn, stronger, friend, again, notice, differently, done
-  var STEPNO=[0,1,2,3,3,4,4,4,5,6,6,0];
+  var TOTAL=12;
+  if(S.step>LAST) S.step=1;
+  function idx(id){ for(var i=0;i<screens.length;i++) if(screens[i].id===id) return i; return -1; }
 
-  function word(v){ v=+v; return v>=90?'Almost all cost':v>=70?'Mostly cost':v>=56?'Leaning toward cost':v>=45?'Close to balanced':v>=25?'Leaning toward upside':'Mostly upside'; }
+  function wordScore(v){ v=+v; return v>=90?'Almost all cost':v>=70?'Mostly cost':v>=56?'Leaning toward cost':v>=45?'Close to balanced':v>=25?'Leaning toward upside':'Mostly upside'; }
+  var mfShown=function(){ return S.mf.trim()||'Your Motor Function'; };
 
   function show(n){
     n=Math.max(0,Math.min(LAST,n));
     S.step=n;
-    if(screens[n].id==='s-again' && S.after===null) S.after=S.before;
+    var sc=screens[n];
+    if(sc.id==='s-again' && S.after===null) S.after=S.before;
     save();
     screens.forEach(function(s,i){ s.classList.toggle('on',i===n); });
     $('prog').style.width=(n/LAST*100)+'%';
-    var k=STEPNO[n]; $('count').textContent=k?(k+' of 6'):(n===LAST?'Done':'');
+    var k=+sc.getAttribute('data-step')||0; $('count').textContent=k?(k+' of '+TOTAL):(n===LAST?'Done':'');
+    document.querySelectorAll('[data-mf]').forEach(function(b){ b.textContent=mfShown(); });
     syncRange('after');
+    resetGuards(sc);
+    if(sc.id==='s-sting') drawSting();
+    if(sc.id==='s-mf') mfCount();
     if(n===LAST) renderDone();
-    refresh();
     window.scrollTo(0,0);
     sizeAll();
-    var field=screens[n].querySelector('textarea, input[type=text]');
+    var field=sc.querySelector('[data-focus]');
     if(DESKTOP && field) field.focus({preventScroll:true});
-    else { var h=screens[n].querySelector('h1,h2'); if(h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); } }
+    else { var h=sc.querySelector('h1,h2'); if(h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); } }
   }
+  function next(){ show(S.step+1); }
 
-  // every step shows a live "Next question" button; any step can be left blank
-  function refresh(){}
-
-  document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click',function(){ show(S.step+1); }); });
+  /* guards: a gentle stop on a few screens; most screens always move on */
+  var nudged={};
+  function resetGuards(sc){
+    nudged={};
+    $('who-next').textContent='Next question';
+    $('who-note').hidden=true;
+    $('mf-hint').hidden=true;
+    sc.querySelectorAll('[data-areanote]').forEach(function(n){ n.hidden=true; });
+    var nb=sc.querySelector('[data-areas] [data-next]'); if(nb) nb.textContent='Next question';
+    sourceUI();
+  }
+  var GUARD={
+    's-who':function(){
+      var v=S.who.trim(), note=$('who-note');
+      if(!v){ note.textContent=COPY.whoEmpty; note.hidden=false; $('a-who').focus(); return false; }
+      if(isGroup(v) && !nudged.who){ nudged.who=1; note.textContent=COPY.whoGroup; note.hidden=false; $('who-next').textContent=COPY.whoGroupBtn; return false; }
+      return true;
+    },
+    's-mirror':function(){ return areaGuard('mirror'); },
+    's-benefits':function(){ return areaGuard('benefits'); }
+  };
+  function areaGuard(g){
+    if(covered(g)>=3 || nudged[g]) return true;
+    nudged[g]=1;
+    var sc=$('s-'+g); sc.querySelector('[data-areanote]').hidden=false; sc.querySelector('[data-next]').textContent=COPY.areasBtn;
+    return false;
+  }
+  document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click',function(){
+    var g=GUARD[screens[S.step].id]; if(g && !g()) return; next();
+  }); });
   document.querySelectorAll('[data-prev]').forEach(function(b){ b.addEventListener('click',function(){ show(S.step-1); }); });
 
-  // text areas grow as you type
+  /* ---------- who ---------- */
+  var GROUP_RX=GROUP_WORDS.map(function(w){ return new RegExp('(^|[^a-z0-9])'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/\s+/g,'\\s+')+'(?![a-z0-9\u2019\'])','i'); });
+  function isGroup(v){ return GROUP_RX.some(function(r){ return r.test(v); }); }
+  $('a-who').addEventListener('input',function(){
+    if(nudged.who){ nudged.who=0; $('who-next').textContent='Next question'; }
+    var note=$('who-note'); if(!note.hidden && this.value.trim() && !isGroup(this.value)) note.hidden=true;
+  });
+
+  /* ---------- text fields ---------- */
   function size(t){ t.style.height='auto'; t.style.height=Math.max(t.scrollHeight+3,120)+'px'; }
   function sizeAll(){ document.querySelectorAll('.screen.on textarea').forEach(size); }
-  document.querySelectorAll('textarea[data-key]').forEach(function(t){
+  document.querySelectorAll('textarea[data-key], input[data-key]').forEach(function(t){
     var k=t.getAttribute('data-key'); t.value=S[k]||'';
-    t.addEventListener('input',function(){ S[k]=t.value; save(); refresh(); size(t); });
+    runFlags(t);
+    t.addEventListener('input',function(){
+      S[k]=t.value; save(); runFlags(t);
+      if(t.tagName==='TEXTAREA') size(t);
+      if(k==='literal') S.sting=S.sting.filter(function(s){ return t.value.indexOf(s)>-1; });
+      if(k==='mf'){ mfCount(); $('mf-hint').hidden=true; }
+    });
+    if(t.tagName==='INPUT' && k!=='mf') t.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); var b=screens[S.step].querySelector('[data-next]'); if(b) b.click(); } });
     t.addEventListener('focus',function(){ if(!DESKTOP) setTimeout(function(){ t.scrollIntoView({block:'center',behavior:'smooth'}); },300); });
   });
 
-  // options
-  var opts=[].slice.call(document.querySelectorAll('.opt'));
+  /* ---------- name it options ---------- */
+  var opts=[].slice.call(document.querySelectorAll('#s-name .opt'));
   opts.forEach(function(c){
     c.setAttribute('aria-pressed',c.textContent===S.kind?'true':'false');
     c.addEventListener('click',function(){
@@ -425,11 +788,65 @@ footer a { color: var(--soft); }
     });
   });
 
-  // sliders
+  /* ---------- observed or reported ---------- */
+  var srcBtns=[].slice.call(document.querySelectorAll('[data-source]'));
+  function sourceUI(){
+    srcBtns.forEach(function(b){ b.setAttribute('aria-pressed',b.getAttribute('data-source')===S.source?'true':'false'); });
+    $('source-note').hidden=S.source!=='reported';
+    $('source-next').textContent=S.source==='reported'?'Continue':'Next question';
+  }
+  srcBtns.forEach(function(b){ b.addEventListener('click',function(){
+    var v=b.getAttribute('data-source'); S.source=(S.source===v)?'':v; save(); buzz(); sourceUI();
+  }); });
+  $('change-moment').addEventListener('click',function(){ show(idx('s-literal')); });
+
+  /* ---------- what still stings ---------- */
+  function pieces(text){
+    var t=String(text||'').replace(/\s+/g,' ').trim(); if(!t) return [];
+    // a sentence ends at . ! or ? followed by a space, so "$2.5" stays whole
+    var parts=t.replace(/([.!?]+[\u201D\u2019"')]*)\s+/g,'$1\u0000').split('\u0000');
+    parts=parts.map(function(s){ return s.trim(); }).filter(Boolean);
+    if(parts.length===1){ // one sentence: offer its clauses instead
+      var c=parts[0].split(/\s*[,;:\u2013\u2014]\s+|\s+-\s+/).map(function(s){ return s.trim(); }).filter(function(s){ return s.length>1; });
+      if(c.length>1) parts=c;
+    }
+    var seen={}; return parts.filter(function(p){ if(seen[p]) return false; seen[p]=1; return true; }).slice(0,12);
+  }
+  function drawSting(){
+    var box=$('sting-chips'), ps=pieces(S.literal);
+    S.sting=S.sting.filter(function(s){ return ps.indexOf(s)>-1; });
+    box.innerHTML='';
+    $('sting-empty').hidden=ps.length>0;
+    box.hidden=!ps.length;
+    ps.forEach(function(p){
+      var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=p;
+      b.setAttribute('aria-pressed',S.sting.indexOf(p)>-1?'true':'false');
+      b.addEventListener('click',function(){
+        var i=S.sting.indexOf(p); if(i>-1) S.sting.splice(i,1); else S.sting.push(p);
+        b.setAttribute('aria-pressed',i>-1?'false':'true'); save(); buzz();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  /* ---------- motor function ---------- */
+  function mfCount(){
+    var n=words(S.mf), el=$('mf-wc'), ok=n>=3&&n<=4;
+    el.textContent=n+(n===1?' word':' words')+(ok?' \u00B7 good length':n>4?' \u00B7 try trimming to 3\u20134':n?' \u00B7 aim for 3\u20134':'');
+    el.classList.toggle('ok',ok);
+  }
+  $('cam-yes').addEventListener('click',function(){
+    if(!S.mf.trim()){ var h=$('mf-hint'); h.textContent=COPY.mfEmpty; h.hidden=false; $('a-mf').focus(); return; }
+    next();
+  });
+  $('cam-no').addEventListener('click',function(){ var h=$('mf-hint'); h.textContent=COPY.mfNotYet; h.hidden=false; var i=$('a-mf'); i.focus(); try{ i.setSelectionRange(i.value.length,i.value.length); }catch(e){} });
+  $('a-mf').addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); $('cam-yes').focus(); } });
+
+  /* ---------- sliders ---------- */
   function syncRange(k){
     var v=S[k]===null?S.before:S[k], r=$('r-'+k);
-    r.value=v; $('v-'+k).textContent=v; $('w-'+k).textContent=word(v);
-    r.setAttribute('aria-valuetext',v+' out of 100, '+word(v));
+    r.value=v; $('v-'+k).textContent=v; $('w-'+k).textContent=wordScore(v);
+    r.setAttribute('aria-valuetext',v+' out of 100, '+wordScore(v));
   }
   function setScore(k,v){ S[k]=Math.max(0,Math.min(100,Math.round(+v))); syncRange(k); save(); }
   ['before','after'].forEach(function(k){ $('r-'+k).addEventListener('input',function(){ setScore(k,this.value); }); syncRange(k); });
@@ -442,76 +859,172 @@ footer a { color: var(--soft); }
     ['pointerup','pointerleave','pointercancel'].forEach(function(ev){ b.addEventListener(ev,stop); });
   });
 
-  // pull 1-10
+  /* ---------- pull 1-10 ---------- */
   var pull=$('pull');
   for(var i=1;i<=10;i++){
     var d=document.createElement('button'); d.type='button'; d.className='dot'; d.textContent=i; d.setAttribute('aria-pressed',S.pull===i?'true':'false');
     d.addEventListener('click',(function(n,el){ return function(){
       S.pull=(S.pull===n)?0:n; save(); buzz();
       pull.querySelectorAll('.dot').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
-      if(S.pull) el.setAttribute('aria-pressed','true'); refresh();
+      if(S.pull) el.setAttribute('aria-pressed','true');
     }; })(i,d));
     pull.appendChild(d);
   }
 
-  // the other side
-  function found(){ var n=S.learn.length+S.stronger.length+S.friend.length; document.querySelectorAll('.found-n').forEach(function(x){ x.textContent=n; }); }
-  document.querySelectorAll('[data-list]').forEach(function(box){
-    var k=box.getAttribute('data-list'), inp=box.querySelector('input'), ul=box.querySelector('.items'), btn=box.querySelector('.add');
-    function draw(){
-      ul.innerHTML='';
-      S[k].forEach(function(txt,idx){
-        var li=document.createElement('li');
-        li.innerHTML='<span>'+esc(txt)+'</span><button type="button" aria-label="Remove">&times;</button>';
-        li.querySelector('button').addEventListener('click',function(){ S[k].splice(idx,1); save(); draw(); });
-        ul.appendChild(li);
-      });
-      found();
-    }
-    function sync(){ btn.disabled=!inp.value.trim(); }
-    function add(){ var v=inp.value.trim(); if(!v) return; S[k].push(v.slice(0,300)); inp.value=''; sync(); save(); draw(); buzz(); inp.focus(); }
-    btn.addEventListener('click',add);
-    inp.addEventListener('input',sync);
-    inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); add(); } });
-    sync(); draw();
+  /* ---------- seven areas (mirror + benefits) ---------- */
+  function count(g){ var n=0; AREAS.forEach(function(a){ n+=S[g][a.key].length; }); return n; }
+  function covered(g){ var n=0; AREAS.forEach(function(a){ if(S[g][a.key].length) n++; }); return n; }
+  function totalLine(g){
+    var n=count(g), c=covered(g), noun=g==='mirror'?(n===1?'moment':'moments'):(n===1?'benefit':'benefits');
+    return '<b>'+n+'</b> '+noun+' across <b>'+c+'</b> of 7 areas';
+  }
+  document.querySelectorAll('[data-areas]').forEach(function(sc){
+    var g=sc.getAttribute('data-areas'), box=sc.querySelector('.areas'), ex=EXAMPLES[g], total=sc.querySelector('[data-total]');
+    var noun=g==='mirror'?'moment':'benefit';
+    function updTotal(){ total.innerHTML=totalLine(g); if(covered(g)>=3){ var n=sc.querySelector('[data-areanote]'); n.hidden=true; sc.querySelector('[data-next]').textContent='Next question'; } }
+    AREAS.forEach(function(a){
+      var id=g+'-'+a.key;
+      var det=document.createElement('details'); det.className='area';
+      det.innerHTML=
+        '<summary><span class="nm">'+esc(a.name)+'</span><span class="n" aria-hidden="true"></span><span class="sr" data-srn></span></summary>'+
+        '<div class="area-in">'+
+          '<div class="addrow"><label class="sr" for="in-'+id+'">Add a '+noun+' in '+esc(a.name)+'</label>'+
+          '<input type="text" id="in-'+id+'" maxlength="300" enterkeyhint="enter" autocomplete="off" placeholder="Add a '+noun+'"><button class="add" type="button">Add</button></div>'+
+          '<ul class="items" aria-label="'+esc(a.name)+' '+noun+'s"></ul>'+
+          '<details class="ex"><summary>See examples</summary><div class="exlist">'+
+            '<p class="ex-intro">'+esc(ex.intro)+'</p>'+ul(ex.areas[a.key]||[])+'<p class="ex-foot">'+esc(ex.footer)+'</p>'+
+          '</div></details>'+
+        '</div>';
+      box.appendChild(det);
+      var inp=det.querySelector('input'), btn=det.querySelector('.add'), list=det.querySelector('.items'), badge=det.querySelector('.n'), srn=det.querySelector('[data-srn]');
+      function draw(){
+        var arr=S[g][a.key];
+        list.innerHTML='';
+        arr.forEach(function(txt,ix){
+          var li=document.createElement('li');
+          li.innerHTML='<span>'+esc(txt)+'</span><button type="button" aria-label="Remove: '+esc(cut(txt,40))+'">&times;</button>';
+          li.querySelector('button').addEventListener('click',function(){ arr.splice(ix,1); save(); draw(); inp.focus(); });
+          list.appendChild(li);
+        });
+        badge.textContent=arr.length; badge.classList.toggle('has',arr.length>0);
+        srn.textContent=', '+arr.length+' added';
+        updTotal();
+      }
+      function sync(){ btn.disabled=!inp.value.trim(); }
+      function add(){ var v=inp.value.trim(); if(!v) return; S[g][a.key].push(v.slice(0,300)); inp.value=''; sync(); save(); draw(); buzz(); inp.focus(); }
+      btn.addEventListener('click',add);
+      inp.addEventListener('input',sync);
+      inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); add(); } });
+      det.addEventListener('toggle',function(){ if(det.open && DESKTOP) inp.focus({preventScroll:true}); });
+      sync(); draw();
+    });
+    updTotal();
   });
 
-  // results
+  // rotating helper prompt on the benefits screen
+  var bp=0; function drawPrompt(){ $('bprompt').textContent=BENEFIT_PROMPTS[bp%BENEFIT_PROMPTS.length]; }
+  $('bprompt-next').addEventListener('click',function(){ bp++; drawPrompt(); });
+  drawPrompt();
+
+  /* ---------- results ---------- */
+  function sourceLabel(){ return S.source==='observed'?'Observed directly':S.source==='reported'?'Reported (told or read) \u00B7 carries less weight':'Source not marked'; }
+  function bars(el,g,cls){
+    var max=0; AREAS.forEach(function(a){ max=Math.max(max,S[g][a.key].length); });
+    el.innerHTML=AREAS.map(function(a){
+      var n=S[g][a.key].length;
+      return '<div class="bar'+(cls?' '+cls:'')+'" role="img" aria-label="'+esc(a.name)+': '+n+'"><strong aria-hidden="true">'+n+'</strong><div class="col"><i data-h="'+(max?Math.max(n?14:0,Math.round(n/Math.max(max,3)*100)):0)+'"></i></div><em aria-hidden="true">'+a.short+'</em></div>';
+    }).join('');
+    setTimeout(function(){ el.querySelectorAll('i').forEach(function(i){ i.style.height=i.getAttribute('data-h')+'%'; }); },60);
+  }
   function list(a){ return a.length?'<ul>'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>':'<p class="none">Nothing added</p>'; }
+  function areaRecap(g){
+    var h='';
+    AREAS.forEach(function(a){ if(S[g][a.key].length) h+='<i>'+esc(a.name)+'</i>'+list(S[g][a.key]); });
+    return h||'<p class="none">Nothing added</p>';
+  }
   function renderDone(){
+    $('r-mf').textContent=S.mf.trim()||'No Motor Function yet';
+    $('r-meta').innerHTML=(S.who.trim()?'<b>'+esc(S.who.trim())+'</b> \u00B7 ':'')+esc(sourceLabel());
+    $('r-mcount').textContent=count('mirror')+' across '+covered('mirror')+' of 7';
+    $('r-bcount').textContent=count('benefits')+' across '+covered('benefits')+' of 7';
+    bars($('r-mirror'),'mirror','');
+    bars($('r-benefits'),'benefits','');
     var b=S.before, a=S.after===null?S.before:S.after, diff=b-a;
     $('d-before').textContent=b; $('d-after').textContent=a; $('moved').textContent=Math.abs(diff);
     $('moved-l').textContent=diff>=0?(Math.abs(diff)===1?'point toward balance':'points toward balance'):'points further from balance';
     $('f-before').style.width='0'; $('f-after').style.width='0';
     setTimeout(function(){ $('f-before').style.width=b+'%'; $('f-after').style.width=a+'%'; },60);
-    $('note').textContent=diff>=15?'That’s what seeing the other side does. A session takes it all the way.':
-      diff>0?'A first crack in the story. A session keeps going until it’s balanced.':
-      'If it barely moved, that’s normal. This is where a session begins.';
-    var all=S.learn.concat(S.stronger,S.friend), h='';
-    h+='<div><b>What it is'+(S.kind?' &middot; '+esc(S.kind):'')+'</b><p>'+esc(S.name||'—')+'</p></div>';
-    if(S.specific) h+='<div><b>Specifically</b><p>'+esc(S.specific)+'</p></div>';
+    $('note').textContent=diff>=15?'That\u2019s what seeing the other side does. A session takes it all the way.':
+      diff>0?'A first crack in the story. A session keeps going until it\u2019s balanced.':
+      'If it barely moved, that\u2019s normal. This is where a session begins.';
+    var stings=S.sting.slice(); if(S.stingText.trim()) stings.push(S.stingText.trim());
+    var h='';
+    h+='<div><b>What it is'+(S.kind?' &middot; '+esc(S.kind):'')+'</b><p>'+esc(S.name||'\u2014')+'</p></div>';
+    if(S.who) h+='<div><b>Who</b><p>'+esc(S.who)+'</p></div>';
+    if(S.words) h+='<div><b>In my words</b><p>'+esc(S.words)+'</p></div>';
+    if(S.literal) h+='<div><b>The literal line</b><p>'+esc(S.literal)+'</p></div>';
+    h+='<div><b>Observed or reported</b><p>'+esc(sourceLabel())+'</p></div>';
+    if(stings.length) h+='<div><b>What still stings</b>'+list(stings)+'</div>';
+    h+='<div><b>Motor Function</b><p>'+esc(S.mf||'\u2014')+'</p></div>';
     if(S.pull) h+='<div><b>How strongly it pulls</b><p>'+S.pull+' / 10</p></div>';
-    h+='<div><b>The other side &middot; '+all.length+' found</b>'+list(all)+'</div>';
+    h+='<div><b>Where I&rsquo;ve done it &middot; '+count('mirror')+'</b>'+areaRecap('mirror')+'</div>';
+    h+='<div><b>How it has served me &middot; '+count('benefits')+'</b>'+areaRecap('benefits')+'</div>';
     if(S.notice) h+='<div><b>What I noticed</b><p>'+esc(S.notice)+'</p></div>';
     if(S.differently) h+='<div><b>What I&rsquo;d do differently this week</b><p>'+esc(S.differently)+'</p></div>';
     $('recap').innerHTML=h;
+    renderSheet(a,stings);
+  }
+
+  // one-page print summary: answers are trimmed so it always fits a page
+  function renderSheet(after,stings){
+    function cell(g,a){
+      var arr=S[g][a.key]; if(!arr.length) return '<span class="c">0</span>';
+      var more=arr.length>1?' <span>+'+(arr.length-1)+' more</span>':'';
+      return '<span class="c">'+arr.length+' \u00B7 </span><ul>'+arr.slice(0,1).map(function(x){ return '<li>'+esc(cut(x,80))+'</li>'; }).join('')+'</ul>'+more;
+    }
+    var diff=S.before-after, h='';
+    h+='<div class="s-top"><b>Under Your Skin</b><span>samosborne.net/exercise</span></div>';
+    h+='<div class="s-mf">'+esc(S.mf.trim()||'No Motor Function yet')+'</div>';
+    h+='<div class="s-meta">'+(S.who.trim()?esc(cut(S.who,60))+' \u00B7 ':'')+esc(sourceLabel())+'</div>';
+    h+='<div class="s-grid">';
+    h+='<div><span class="s-k">The literal line</span><p>'+esc(cut(S.literal||'\u2014',130))+'</p></div>';
+    h+='<div><span class="s-k">What still stings</span><p>'+esc(cut(stings.join(' \u00B7 ')||'\u2014',130))+'</p></div>';
+    h+='<div><span class="s-k">One-sidedness</span><p>Before '+S.before+' \u2192 After '+after+' \u00B7 '+Math.abs(diff)+(diff>=0?' points toward balance':' points further from balance')+(S.pull?' \u00B7 Pull '+S.pull+'/10':'')+'</p></div>';
+    h+='<div><span class="s-k">Found</span><p>'+count('mirror')+' moments across '+covered('mirror')+' of 7 areas \u00B7 '+count('benefits')+' benefits across '+covered('benefits')+' of 7</p></div>';
+    h+='</div>';
+    h+='<table><thead><tr><th>Area</th><th>Where I&rsquo;ve done it</th><th>How it has served me</th></tr></thead><tbody>';
+    AREAS.forEach(function(a){ h+='<tr><td>'+esc(a.name)+'</td><td>'+cell('mirror',a)+'</td><td>'+cell('benefits',a)+'</td></tr>'; });
+    h+='</tbody></table>';
+    h+='<div class="s-grid">';
+    h+='<div><span class="s-k">What I noticed</span><p>'+esc(cut(S.notice||'\u2014',130))+'</p></div>';
+    h+='<div><span class="s-k">What I&rsquo;d do differently this week</span><p>'+esc(cut(S.differently||'\u2014',130))+'</p></div>';
+    h+='</div>';
+    h+='<div class="s-foot">Educational, not therapy. Book a free 20-minute call with Sam: calendly.com/sam-samosborne/20min &middot; &copy; 2026 Sam Osborne</div>';
+    $('sheet').innerHTML=h;
   }
 
   function asText(){
-    var a=S.after===null?S.before:S.after, L=[];
+    var a=S.after===null?S.before:S.after, L=[], stings=S.sting.slice(); if(S.stingText.trim()) stings.push(S.stingText.trim());
+    function areas(g){ AREAS.forEach(function(ar){ L.push('  '+ar.name+':'); if(S[g][ar.key].length) S[g][ar.key].forEach(function(x){ L.push('    - '+x); }); else L.push('    -'); }); }
     L.push('THE UNDER-YOUR-SKIN EXERCISE','samosborne.net','');
+    L.push('MOTOR FUNCTION: '+(S.mf||'-'),'');
     L.push('1. NAME IT'+(S.kind?' ('+S.kind+')':''),S.name||'-','');
-    L.push('2. GET SPECIFIC',S.specific||'-','');
-    L.push('3. SCORE IT','One-sided: '+S.before+' / 100'+(S.pull?'   Pull: '+S.pull+' / 10':''),'');
-    L.push('4. THE OTHER SIDE');
-    [['What it pushed me to learn, build, or become','learn'],['Where it made me stronger, sharper, more determined','stronger'],['What it would have given a close friend','friend']].forEach(function(p){
-      L.push(p[0]+':'); if(S[p[1]].length) S[p[1]].forEach(function(x){ L.push('  - '+x); }); else L.push('  -'); });
-    L.push('','5. LOOK AGAIN','New score: '+a+' / 100','');
-    L.push('6. REFLECT','What I noticed: '+(S.notice||'-'),'What I would do differently this week: '+(S.differently||'-'),'');
+    L.push('2. WHO',S.who||'-','');
+    L.push('3. IN MY WORDS',S.words||'-','');
+    L.push('4. THE LITERAL LINE',S.literal||'-','');
+    L.push('5. OBSERVED OR REPORTED',sourceLabel(),'');
+    L.push('6. WHAT STILL STINGS'); if(stings.length) stings.forEach(function(x){ L.push('  - '+x); }); else L.push('  -'); L.push('');
+    L.push('7. MOTOR FUNCTION',S.mf||'-','');
+    L.push('8. SCORE IT','One-sided: '+S.before+' / 100'+(S.pull?'   Pull: '+S.pull+' / 10':''),'');
+    L.push('9. WHERE I HAVE DONE IT ('+count('mirror')+' across '+covered('mirror')+' of 7 areas)'); areas('mirror'); L.push('');
+    L.push('10. HOW IT HAS SERVED ME ('+count('benefits')+' across '+covered('benefits')+' of 7 areas)'); areas('benefits'); L.push('');
+    L.push('11. LOOK AGAIN','New score: '+a+' / 100','');
+    L.push('12. REFLECT','What I noticed: '+(S.notice||'-'),'What I would do differently this week: '+(S.differently||'-'),'');
     L.push('Next step: book a free 20-minute call with Sam: https://calendly.com/sam-samosborne/20min');
     return L.join('\n');
   }
   $('dl').addEventListener('click',function(){
+    save();
     var text=asText();
     try{
       var file=new File([text],'under-your-skin-exercise.txt',{type:'text/plain'});
@@ -523,13 +1036,14 @@ footer a { color: var(--soft); }
       setTimeout(function(){ URL.revokeObjectURL(u); },1000); toast('Answers saved');
     }catch(e){ window.print(); }
   });
-  $('pr').addEventListener('click',function(){ var d=document.querySelector('details.mine'); d.open=true; window.print(); });
+  $('pr').addEventListener('click',function(){ renderDone(); window.print(); });
+  window.addEventListener('beforeprint',function(){ if(!$('sheet').innerHTML) renderDone(); });
   function reset(){ if(!confirm('Clear your answers from this device and start over?')) return; wipe(); location.href=location.pathname; }
   $('clear').addEventListener('click',reset);
   $('restart').addEventListener('click',reset);
 
   var resumeAt=S.step;
-  if(S.name||resumeAt>0){ $('resume').hidden=false; $('startbtn').textContent='Pick up where I left off'; }
+  if(S.name||S.who||resumeAt>0){ $('resume').hidden=false; $('startbtn').textContent='Pick up where I left off'; }
   $('startbtn').addEventListener('click',function(){ show(resumeAt>0?resumeAt:1); resumeAt=0; });
   show(0);
 })();

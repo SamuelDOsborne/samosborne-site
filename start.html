@@ -14,7 +14,7 @@
 (function(){ try{
   if(/[?&]form\b/.test(location.search)) return;
   var ls=window.localStorage;
-  if(ls.getItem('uys-signed-up')||ls.getItem('uys-exercise-v2')||ls.getItem('uys-exercise-v1')){
+  if(ls.getItem('uys-signed-up')||ls.getItem('uys-exercise-v3')||ls.getItem('uys-exercise-v2')||ls.getItem('uys-exercise-v1')){
     var q=new URLSearchParams(location.search), src=q.get('utm_source');
     location.replace('/exercise'+(src?'?returning='+encodeURIComponent(src):''));
   }
