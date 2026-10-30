@@ -802,20 +802,20 @@ var COPY = {
   var EXR={
     who:function(){ return ul(EXAMPLES.who); },
     words:function(){ var r=relation(), base=ul(r?r.words:EXAMPLES.words), a=aiNow('words');
-      return a?aiHead()+ul(a.items)+'<div class="ex-h">More examples</div>'+base:aiWait('words')+base; },
+      return a?aiHead()+ul(a.items):aiWait('words')+base; },
     literal:function(){
       var a=aiNow('literal'), r0=relation();
-      if(a) return aiHead()+a.pairs.map(function(x){ return pair(x.label,x.literal); }).join('')+'<div class="ex-h">More examples</div>'+(r0?r0.literal:EXAMPLES.literal).map(function(x){ return pair(x.label,x.literal); }).join('');
+      if(a) return aiHead()+a.pairs.map(function(x){ return pair(x.label,x.literal); }).join('');
       var hits=labelHits(S.words), r=relation(), used={};
       hits.forEach(function(h){ used[h.e.literal]=1; });
       var rest=(r?r.literal:EXAMPLES.literal).filter(function(x){ return !used[x.literal]; });
       return aiWait('literal')+(hits.length?yours(hits,'literal'):'')+rest.map(function(x){ return pair(x.label,x.literal); }).join('');
     },
     source:function(){ return '<div><div class="ex-h">Observed</div>'+ul(EXAMPLES.source.observed)+'</div><div><div class="ex-h">Reported</div>'+ul(EXAMPLES.source.reported)+'</div>'; },
-    sting:function(){ var a=aiNow('sting'); return a?aiHead()+'<p>'+esc(a.text)+'</p><div class="ex-h">Another example</div><p>'+esc(EXAMPLES.sting)+'</p>':aiWait('sting')+'<p>'+esc(EXAMPLES.sting)+'</p>'; },
+    sting:function(){ var a=aiNow('sting'); return a?aiHead()+'<p>'+esc(a.text)+'</p>':aiWait('sting')+'<p>'+esc(EXAMPLES.sting)+'</p>'; },
     mf:function(){
       var a=aiNow('mf');
-      if(a) return aiHead()+a.pairs.map(function(x){ return pair(x.label,x.mf); }).join('')+'<div class="ex-h">More examples</div>'+EXAMPLES.mf.map(function(x){ return pair(x.label,x.mf); }).join('');
+      if(a) return aiHead()+a.pairs.map(function(x){ return pair(x.label,x.mf); }).join('');
       var hits=labelHits(S.words+'\n'+S.literal), used={};
       hits.forEach(function(h){ used[h.e.mf]=1; });
       var rest=EXAMPLES.mf.filter(function(x){ return !used[x.mf]; });
@@ -1069,9 +1069,8 @@ var COPY = {
     document.querySelectorAll('[data-areaex^="'+g+':"]').forEach(function(el){
       var key=el.getAttribute('data-areaex').split(':')[1], h='';
       if(a && a.areas[key] && a.areas[key].length){
-        h+=aiHead()+'<p class="ex-intro">'+(g==='mirror'?'Places to look for \u201C'+esc(cut(S.mf,60))+'\u201D. Then write your own moment.':'Ways it may have served you. Then write your own.')+'</p>'+ul(a.areas[key])+'<div class="ex-h">More examples</div>';
-      } else h+=waiting;
-      h+='<p class="ex-intro">'+esc(ex.intro)+'</p>'+ul(ex.areas[key]||[])+'<p class="ex-foot">'+esc(ex.footer)+'</p>';
+        h+=aiHead()+'<p class="ex-intro">'+(g==='mirror'?'Places to look for \u201C'+esc(cut(S.mf,60))+'\u201D. Then write your own moment.':'Ways it may have served you. Then write your own.')+'</p>'+ul(a.areas[key]);
+      } else h+=waiting+'<p class="ex-intro">'+esc(ex.intro)+'</p>'+ul(ex.areas[key]||[])+'<p class="ex-foot">'+esc(ex.footer)+'</p>';
       el.innerHTML=h;
       var sum=el.parentNode.querySelector('summary'); if(sum) sum.textContent=a&&a.areas[key]&&a.areas[key].length?'See examples written for you':'See examples';
     });
