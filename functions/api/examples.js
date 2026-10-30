@@ -23,7 +23,7 @@ function limited(ip) {
 
 const SYSTEM = `You write short examples for a self-reflection exercise based on the Demartini Method. A person is working on one other person whose behaviour gets under their skin. Your examples sit behind a "See examples" link and show the person what a good answer looks like for their own situation. They are prompts, never verdicts.
 
-Rules for every example:
+Rules for every example (except where the task says the examples must be labels or verdicts):
 - Concrete and observable: something a camera could record (words said, a body doing something). No judgment words (manipulative, rude, selfish, narcissist, controlling, toxic, unfair), no scale words (always, never, constantly), no effect-on-me language (made me feel, hurt me).
 - Plain, warm, everyday English. Relatable to professionals, partners and families. Mix settings where it makes sense.
 - Never diagnose anyone, never take sides, never tell the person what they feel, never give advice about the relationship.
@@ -48,7 +48,7 @@ function context(b) {
 const TASKS = {
   words: {
     need: b => b.name || b.kind,
-    ask: `Write 3 examples of how someone in a situation like this might first describe what the other person did, in their own words, labels allowed (for example "My boss strung me along."). Under 10 words each, first person.
+    ask: `This step invites the person to vent: to say what the other person did using the labels and verdicts they really think, before the exercise strips those labels away. Write 3 examples of how someone in a situation like this might put it, using a LABEL or VERDICT about the other person (e.g. "She's so bossy.", "He treats me like a child.", "My boss is a liar."). Do NOT restate or paraphrase the person's own sentence, and do not describe the literal action; the examples must be judgments, not facts. Vary the labels. Under 8 words each, first person, plain everyday speech.
 Shape: {"items":["...","...","..."]}`,
     check: r => Array.isArray(r.items) && r.items.length ? { items: r.items.slice(0, 4).map(clip) } : null
   },
