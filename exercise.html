@@ -568,6 +568,86 @@ var EXAMPLES = {
   }
 };
 
+/* Examples that follow what the person types. Everything runs on the device; nothing is sent anywhere.
+   LABEL_EXAMPLES: if any of "words" appears in their "Say it your way" answer (or literal line),
+   the Literal Line and Motor Function screens show this example first. Add entries freely.
+   RELATION_EXAMPLES: chosen on screen 1; swaps the general examples on screens 3 and 4. */
+var LABEL_EXAMPLES = [
+  { words: ['bossy', 'bossed', 'bossing', 'ordered me', 'orders me', 'ordering me'], label: 'Bossy', literal: 'He said, \u201CPut that down and do this first.\u201D', mf: 'Directs my next task' },
+  { words: ['controlling', 'controls', 'micromanages', 'micromanaging', 'micromanager'], label: 'Controlling', literal: 'He said, \u201CSend me the file before you send it to anyone else.\u201D', mf: 'Requests approval before sending' },
+  { words: ['narcissist', 'narcissistic', 'self-centered', 'self-centred', 'self-absorbed', 'egotistical'], label: 'Narcissist', literal: 'He talked about his promotion for twenty minutes and didn\u2019t ask about my week.', mf: 'Talks without asking questions' },
+  { words: ['selfish', 'greedy'], label: 'Selfish', literal: 'She took the last two slices before anyone else had one.', mf: 'Takes before offering' },
+  { words: ['dismissive', 'dismissed', 'dismissing', 'brushed me off', 'brushes me off'], label: 'Dismissive', literal: 'She looked at her phone while I was talking.', mf: 'Looks away while I speak' },
+  { words: ['rude', 'interrupts', 'interrupted', 'interrupting', 'talks over', 'talked over'], label: 'Rude', literal: 'He started talking before I finished my sentence.', mf: 'Interrupts before I finish' },
+  { words: ['disrespectful', 'disrespected', 'disrespects', 'disrespect'], label: 'Disrespectful', literal: 'She rolled her eyes and said, \u201CHere we go.\u201D', mf: 'Rolls eyes while I speak' },
+  { words: ['manipulative', 'manipulated', 'manipulating', 'manipulates', 'gaslighting', 'gaslit', 'gaslights'], label: 'Manipulative', literal: 'He said, \u201CI never said that,\u201D about something I heard him say.', mf: 'Says \u201CI never said that\u201D' },
+  { words: ['liar', 'lied', 'lying', 'lies', 'dishonest'], label: 'Liar', literal: 'She said the report had been sent. It went out two days later.', mf: 'Says \u201Cdone\u201D before doing' },
+  { words: ['lazy', "doesn't pull", 'pull his weight', 'pull her weight', 'pulls his weight', 'pulls her weight'], label: 'Lazy', literal: 'He stayed on the couch while I carried the groceries in.', mf: 'Sits while I carry' },
+  { words: ['arrogant', 'cocky', 'know-it-all', 'know it all', 'acts superior'], label: 'Arrogant', literal: 'He explained my own job to me in front of the client.', mf: 'Explains my work to others' },
+  { words: ['condescending', 'patronizing', 'patronising', 'talks down', 'talked down'], label: 'Condescending', literal: 'She said, \u201CLet me make this simple for you.\u201D', mf: 'Offers to simplify for me' },
+  { words: ['critical', 'criticized', 'criticised', 'criticizes', 'criticises', 'judgmental', 'judgemental', 'judging', 'judges me', 'judged me'], label: 'Critical', literal: 'She said, \u201CAre you really wearing that?\u201D', mf: 'Questions my clothes aloud' },
+  { words: ['ignored', 'ignores', 'ignoring', 'ghosted', 'ghosting', 'silent treatment', "doesn't listen", 'never listens', "didn't listen"], label: 'Ignores me', literal: 'He kept watching the game while I told him about my day.', mf: 'Watches screen while I speak' },
+  { words: ['mean to me', 'so mean', 'was mean', 'is mean', 'cruel', 'nasty', 'humiliated', 'embarrassed me'], label: 'Mean', literal: 'He laughed and said, \u201CNice haircut,\u201D to the whole table.', mf: 'Comments on my appearance' },
+  { words: ['cold', 'distant', 'shut me out', 'shuts me out', 'unaffectionate', 'withdrawn'], label: 'Cold', literal: 'She turned away when I went to hug her.', mf: 'Turns away from touch' },
+  { words: ['passive-aggressive', 'passive aggressive', 'sulking', 'sulked', 'sulks'], label: 'Passive-aggressive', literal: 'He said, \u201CFine,\u201D and closed the door.', mf: 'Answers in one word' },
+  { words: ['unreliable', 'flaky', 'flake', 'bailed', 'bails', 'cancelled on me', 'canceled on me'], label: 'Flaky', literal: 'She cancelled dinner an hour before, by text.', mf: 'Cancels plans by text' },
+  { words: ['jealous', 'possessive', 'suspicious'], label: 'Jealous', literal: 'He asked, \u201CWho was that?\u201D when my phone rang.', mf: 'Asks who called me' },
+  { words: ['needy', 'clingy', 'smothering'], label: 'Needy', literal: 'She called four times while I was out with friends.', mf: 'Calls while I\u2019m out' },
+  { words: ['stingy', 'cheapskate'], label: 'Stingy', literal: 'He asked to split the bill item by item.', mf: 'Splits the bill exactly' },
+  { words: ['hypocrite', 'hypocritical', 'double standard'], label: 'Hypocrite', literal: 'She told me to cut back on drinking while holding a glass of wine.', mf: 'Advises while doing it' },
+  { words: ['incompetent', 'useless', 'clueless'], label: 'Incompetent', literal: 'She sent the client the wrong file twice.', mf: 'Sends the wrong file' },
+  { words: ['unfair', 'favoritism', 'favouritism', 'plays favorites', 'plays favourites'], label: 'Unfair', literal: 'He said, \u201CI\u2019m giving the account to Dana.\u201D', mf: 'Assigns work to another' },
+  { words: ['blames', 'blamed', 'blaming', 'toxic'], label: 'Blames me', literal: 'He raised his voice and said, \u201CThis is your fault.\u201D', mf: 'Says \u201Cyour fault\u201D aloud' },
+  { words: ['took credit', 'takes credit', 'stole my idea', 'stole credit'], label: 'Took credit', literal: 'He said, \u201CI had an idea,\u201D and presented my slide.', mf: 'Presents my slide as his' },
+  { words: ['fraud', 'scam', 'scammed', 'defrauded', 'conned', 'con man'], label: 'Fraud', literal: '\u201CYou\u2019ve won $2.5 million, you just need to pay the $4,000 processing fee.\u201D', mf: 'Promises what isn\u2019t delivered' }
+];
+
+var RELATION_EXAMPLES = {
+  family: {
+    words: ['My brother never pulls his weight.', 'Mum is so critical.', 'My sister is bossy.'],
+    literal: [
+      { label: 'Never pulls his weight', literal: 'He stayed on his phone while I cleared the table.' },
+      { label: 'Mum is critical',        literal: 'She said, \u201CAre you really wearing that?\u201D' },
+      { label: 'My sister is bossy',     literal: 'She said, \u201CSit at the end, not next to Dad.\u201D' }
+    ]
+  },
+  partner: {
+    words: ['He never listens.', 'She\u2019s controlling about money.', 'He shuts me out.'],
+    literal: [
+      { label: 'He never listens',     literal: 'He kept watching the game while I told him about my day.' },
+      { label: 'Controlling about money', literal: 'She asked to see the receipt for the jacket.' },
+      { label: 'He shuts me out',      literal: 'He went to the spare room and closed the door.' }
+    ]
+  },
+  work: {
+    words: ['She dismissed me in front of the team.', 'My boss micromanages me.', 'He took credit for my idea.'],
+    literal: [
+      { label: 'She dismissed me', literal: 'She looked at her phone while I presented.' },
+      { label: 'He micromanages',  literal: 'He asked me to cc him on every email to the client.' },
+      { label: 'He took credit',   literal: 'He said, \u201CI had an idea,\u201D and presented my slide.' }
+    ]
+  },
+  client: {
+    words: ['He\u2019s impossible to please.', 'She disrespects my time.', 'He\u2019s squeezing me on price.'],
+    literal: [
+      { label: 'Impossible to please', literal: 'He sent the draft back with forty comments.' },
+      { label: 'Disrespects my time',  literal: 'She joined the call twenty minutes late.' },
+      { label: 'Squeezing me on price', literal: 'He said, \u201CYour competitor will do it for half.\u201D' }
+    ]
+  },
+  friend: {
+    words: ['She\u2019s flaky.', 'He only calls when he needs something.', 'She talked behind my back.'],
+    literal: [
+      { label: 'She\u2019s flaky',          literal: 'She cancelled dinner an hour before, by text.' },
+      { label: 'Only calls when he needs something', literal: 'He called and asked to borrow the truck.' },
+      { label: 'Talked behind my back',  literal: 'She told Amy what I\u2019d said about my marriage.' }
+    ]
+  }
+};
+
+/* Screen 1 option text -> RELATION_EXAMPLES key. "Someone else" uses the general examples. */
+var RELATION_KEYS = { 'A family member': 'family', 'My partner': 'partner', 'Someone at work': 'work', 'A client or customer': 'client', 'A friend': 'friend' };
+
 /* Rotating helper prompts on the benefits screen. */
 var BENEFIT_PROMPTS = [
   'What has this pushed you to learn, build, or become?',
@@ -577,7 +657,7 @@ var BENEFIT_PROMPTS = [
 
 /* Flag words. Lowercase, matched as whole words or phrases. Add to any list. */
 var FLAGS = {
-  judgment:   ['manipulated', 'manipulative', 'criticized', 'dismissed', 'disrespectful', 'unfair', 'selfish', 'lazy', 'rude', 'arrogant', 'mean', 'cruel', 'toxic', 'narcissist', 'liar', 'fraud', 'scam', 'stole', 'cheated'],
+  judgment:   ['manipulated', 'manipulative', 'criticized', 'dismissed', 'disrespectful', 'unfair', 'selfish', 'lazy', 'rude', 'arrogant', 'mean', 'cruel', 'toxic', 'narcissist', 'liar', 'fraud', 'scam', 'stole', 'cheated', 'bossy', 'narcissistic', 'self-centered', 'dismissive', 'condescending', 'patronizing', 'judgmental', 'flaky', 'needy', 'clingy', 'possessive', 'stingy', 'hypocrite', 'hypocritical', 'incompetent', 'gaslighting', 'gaslit', 'passive-aggressive', 'dishonest'],
   diagnostic: ['abusive', 'alcoholic', 'crazy', 'controlling', 'unloving'],
   scale:      ['always', 'never', 'constantly', 'extremely', 'every time', 'deeply'],
   impact:     ['made me feel', 'hurt me', 'humiliated me', 'upset me', 'disrespected me', 'triggered me']
@@ -651,15 +731,55 @@ var COPY = {
 
   /* ---------- examples (read-only text) ---------- */
   function ul(a){ return '<ul>'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
+  /* examples that follow what they typed (all on the device) */
+  var LABEL_RX=LABEL_EXAMPLES.map(function(e){
+    return e.words.map(function(w){
+      var pat=w.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/\s+/g,'\\s+').replace(/'/g,"['\u2019]");
+      return new RegExp('(^|[^a-z0-9])('+pat+')(?![a-z0-9])','i');
+    });
+  });
+  function labelHits(text){
+    var t=String(text||''), out=[];
+    LABEL_EXAMPLES.forEach(function(e,i){
+      for(var j=0;j<LABEL_RX[i].length;j++){ var m=t.match(LABEL_RX[i][j]); if(m){ out.push({e:e,word:m[2],at:m.index}); break; } }
+    });
+    out.sort(function(a,b){ return a.at-b.at; });
+    return out.slice(0,3);
+  }
+  function relation(){ return RELATION_EXAMPLES[RELATION_KEYS[S.kind]]||null; }
+  function pair(label,right){ return '<div><s>'+esc(label)+'</s><span><span class="arrow" aria-hidden="true">&rarr; </span>'+esc(right)+'</span></div>'; }
+  function yours(hits,key){
+    return '<div class="ex-h">For your words</div>'+hits.map(function(h){ return pair('\u201C'+h.word+'\u201D',h.e[key]); }).join('')+'<div class="ex-h">More examples</div>';
+  }
   var EXR={
     who:function(){ return ul(EXAMPLES.who); },
-    words:function(){ return ul(EXAMPLES.words); },
-    literal:function(){ return EXAMPLES.literal.map(function(x){ return '<div><s>'+esc(x.label)+'</s><span><span class="arrow" aria-hidden="true">&rarr; </span>'+esc(x.literal)+'</span></div>'; }).join(''); },
+    words:function(){ var r=relation(); return ul(r?r.words:EXAMPLES.words); },
+    literal:function(){
+      var hits=labelHits(S.words), r=relation(), used={};
+      hits.forEach(function(h){ used[h.e.literal]=1; });
+      var rest=(r?r.literal:EXAMPLES.literal).filter(function(x){ return !used[x.literal]; });
+      return (hits.length?yours(hits,'literal'):'')+rest.map(function(x){ return pair(x.label,x.literal); }).join('');
+    },
     source:function(){ return '<div><div class="ex-h">Observed</div>'+ul(EXAMPLES.source.observed)+'</div><div><div class="ex-h">Reported</div>'+ul(EXAMPLES.source.reported)+'</div>'; },
     sting:function(){ return '<p>'+esc(EXAMPLES.sting)+'</p>'; },
-    mf:function(){ return EXAMPLES.mf.map(function(x){ return '<div><s>'+esc(x.label)+'</s><span><span class="arrow" aria-hidden="true">&rarr; </span>'+esc(x.mf)+'</span></div>'; }).join(''); }
+    mf:function(){
+      var hits=labelHits(S.words+'\n'+S.literal), used={};
+      hits.forEach(function(h){ used[h.e.mf]=1; });
+      var rest=EXAMPLES.mf.filter(function(x){ return !used[x.mf]; });
+      return (hits.length?yours(hits,'mf'):'')+rest.map(function(x){ return pair(x.label,x.mf); }).join('');
+    }
   };
-  document.querySelectorAll('[data-ex]').forEach(function(el){ var f=EXR[el.getAttribute('data-ex')]; if(f) el.innerHTML=f(); });
+  var EX_SUMMARY={ literal:function(){ return labelHits(S.words); }, mf:function(){ return labelHits(S.words+'\n'+S.literal); } };
+  function renderEx(scope){
+    (scope||document).querySelectorAll('[data-ex]').forEach(function(el){
+      var k=el.getAttribute('data-ex'), f=EXR[k]; if(!f) return;
+      el.innerHTML=f();
+      var sum=el.parentNode.querySelector('summary'); if(!sum) return;
+      var hits=EX_SUMMARY[k]?EX_SUMMARY[k]():[];
+      sum.textContent=hits.length?'See examples for \u201C'+hits[0].word.toLowerCase()+'\u201D'+(hits.length>1?' and more':''):'See examples';
+    });
+  }
+  renderEx();
 
   /* ---------- flag words ---------- */
   var FLAG_RX=[];
@@ -710,6 +830,7 @@ var COPY = {
     document.querySelectorAll('[data-mf]').forEach(function(b){ b.textContent=mfShown(); });
     syncRange('after');
     resetGuards(sc);
+    renderEx(sc);
     if(sc.id==='s-sting') drawSting();
     if(sc.id==='s-mf') mfCount();
     if(n===LAST) renderDone();
