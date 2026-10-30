@@ -93,6 +93,41 @@ function areas(r) {
   return n ? { areas: out } : null;
 }
 
+
+async function runTask(step, input, env) {
+  const task = TASKS[step];
+  let res;
+  try {
+    res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({
+        model: env.AI_MODEL || MODEL,
+        max_tokens: 900,
+        temperature: 0.6,
+        system: SYSTEM,
+        messages: [{ role: 'user', content: `What the person has typed so far:\n${context(input)}\n\nTask:\n${task.ask}` }]
+      })
+    });
+  } catch (e) { return { error: 'ai unreachable', detail: e.message }; }
+  if (!res.ok) {
+    let detail = '';
+    try { const e = await res.json(); detail = (e.error && (e.error.type + ': ' + e.error.message)) || ''; } catch (e) {}
+    console.log('examples: AI error', res.status, detail);
+    return { error: 'ai error', status: res.status, detail };
+  }
+
+  let out = null, text = '';
+  try {
+    const data = await res.json();
+    text = (data.content || []).filter(c => c.type === 'text').map(c => c.text).join('');
+    const raw = text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1);
+    out = task.check(JSON.parse(raw));
+  } catch (e) { out = null; }
+  if (!out) { console.log('examples: unreadable AI reply', step, text.slice(0, 500)); return { error: 'unreadable', detail: text.slice(0, 500) }; }
+  return { out };
+}
+
 function json(obj, status = 200, origin = '') {
   return new Response(JSON.stringify(obj), {
     status,
@@ -121,6 +156,13 @@ export async function onRequestGet({ request, env }) {
       out.test = r.ok ? 'AI replied OK' : ('AI error ' + r.status + (body.error ? ' ' + body.error.type + ': ' + body.error.message : ''));
     } catch (e) { out.test = 'could not reach the AI: ' + e.message; }
   }
+  const step = url.searchParams.get('test');
+  if (step && TASKS[step] && env.ANTHROPIC_API_KEY) {
+    const sample = { kind: 'A family member', name: 'My sister told me not to talk to the bar staff', words: 'She was bossy and a narcissist',
+      literal: 'She said, "Please don\'t be like Dad and talk to the female bar staff."', sting: 'be like Dad', mf: 'Tells me what not-to-do' };
+    const r = await runTask(step, sample, env);
+    out.sample = r.error ? r : r.out;
+  }
   return json(out);
 }
 
@@ -148,34 +190,8 @@ export async function onRequestPost({ request, env }) {
   };
   if (!task.need(input)) return json({ error: 'nothing to work from' }, 422, origin);
 
-  let res;
-  try {
-    res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({
-        model: env.AI_MODEL || MODEL,
-        max_tokens: 900,
-        temperature: 0.6,
-        system: SYSTEM,
-        messages: [{ role: 'user', content: `What the person has typed so far:\n${context(input)}\n\nTask:\n${task.ask}` }]
-      })
-    });
-  } catch (e) { return json({ error: 'ai unreachable' }, 502, origin); }
-  if (!res.ok) {
-    let detail = '';
-    try { const e = await res.json(); detail = (e.error && (e.error.type + ': ' + e.error.message)) || ''; } catch (e) {}
-    console.log('examples: AI error', res.status, detail);
-    return json({ error: 'ai error', status: res.status, detail }, 502, origin);
-  }
-
-  let out = null;
-  try {
-    const data = await res.json();
-    const text = (data.content || []).filter(c => c.type === 'text').map(c => c.text).join('');
-    const raw = text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1);
-    out = task.check(JSON.parse(raw));
-  } catch (e) { out = null; }
-  if (!out) return json({ error: 'unreadable' }, 502, origin);
-  return json({ step, ...out }, 200, origin);
+  const r = await runTask(step, input, env);
+  if (r.error) return json(r, 502, origin);
+  return json({ step, ...r.out }, 200, origin);
 }
+
