@@ -894,7 +894,15 @@ var COPY = {
       if(k==='literal') S.sting=S.sting.filter(function(s){ return t.value.indexOf(s)>-1; });
       if(k==='mf'){ mfCount(); $('mf-hint').hidden=true; }
     });
-    if(t.tagName==='INPUT' && k!=='mf') t.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); var b=screens[S.step].querySelector('[data-next]'); if(b) b.click(); } });
+    // Return moves to the next question. In a text box, Shift+Return still starts a new line.
+    if(k!=='mf'){
+      if(t.tagName==='TEXTAREA') t.setAttribute('enterkeyhint','next');
+      t.addEventListener('keydown',function(e){
+        if(e.key!=='Enter' || e.isComposing || e.keyCode===229) return;
+        if(t.tagName==='TEXTAREA' && (e.shiftKey || e.altKey)) return;
+        e.preventDefault(); var b=screens[S.step].querySelector('[data-next]'); if(b) b.click();
+      });
+    }
     t.addEventListener('focus',function(){ if(!DESKTOP) setTimeout(function(){ t.scrollIntoView({block:'center',behavior:'smooth'}); },300); });
   });
 
