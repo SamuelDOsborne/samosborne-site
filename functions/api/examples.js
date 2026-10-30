@@ -104,6 +104,26 @@ function json(obj, status = 200, origin = '') {
   });
 }
 
+// GET /api/examples          -> is it set up?
+// GET /api/examples?test=1   -> also sends a tiny test request to the AI and reports the result
+export async function onRequestGet({ request, env }) {
+  const url = new URL(request.url), model = env.AI_MODEL || MODEL;
+  const out = { function: 'running', key: env.ANTHROPIC_API_KEY ? 'found' : 'MISSING', model };
+  if (url.searchParams.get('test') && env.ANTHROPIC_API_KEY) {
+    if (limited(request.headers.get('cf-connecting-ip') || 'x')) return json({ ...out, test: 'slow down' }, 429);
+    try {
+      const r = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
+        body: JSON.stringify({ model, max_tokens: 5, messages: [{ role: 'user', content: 'Say OK.' }] })
+      });
+      let body = {}; try { body = await r.json(); } catch (e) {}
+      out.test = r.ok ? 'AI replied OK' : ('AI error ' + r.status + (body.error ? ' ' + body.error.type + ': ' + body.error.message : ''));
+    } catch (e) { out.test = 'could not reach the AI: ' + e.message; }
+  }
+  return json(out);
+}
+
 export async function onRequestOptions({ request }) {
   const origin = request.headers.get('origin') || '';
   if (!ALLOWED.some(rx => rx.test(origin))) return new Response(null, { status: 403 });
@@ -142,7 +162,12 @@ export async function onRequestPost({ request, env }) {
       })
     });
   } catch (e) { return json({ error: 'ai unreachable' }, 502, origin); }
-  if (!res.ok) return json({ error: 'ai error', status: res.status }, 502, origin);
+  if (!res.ok) {
+    let detail = '';
+    try { const e = await res.json(); detail = (e.error && (e.error.type + ': ' + e.error.message)) || ''; } catch (e) {}
+    console.log('examples: AI error', res.status, detail);
+    return json({ error: 'ai error', status: res.status, detail }, 502, origin);
+  }
 
   let out = null;
   try {
