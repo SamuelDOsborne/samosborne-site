@@ -104,7 +104,6 @@ async function runTask(step, input, env) {
       body: JSON.stringify({
         model: env.AI_MODEL || MODEL,
         max_tokens: 900,
-        temperature: 0.6,
         system: SYSTEM,
         messages: [{ role: 'user', content: `What the person has typed so far:\n${context(input)}\n\nTask:\n${task.ask}` }]
       })
