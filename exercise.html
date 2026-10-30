@@ -879,6 +879,7 @@ var COPY = {
     if(sc.id==='s-again' && S.after===null) S.after=S.before;
     save();
     screens.forEach(function(s,i){ s.classList.toggle('on',i===n); });
+    var ft=document.querySelector('footer'); if(ft) ft.hidden=n!==0;   // disclaimer and links on the opening page only
     $('prog').style.width=(n/LAST*100)+'%';
     var k=+sc.getAttribute('data-step')||0; $('count').textContent=k?(k+' of '+TOTAL):(n===LAST?'Done':'');
     document.querySelectorAll('[data-mf]').forEach(function(b){ b.textContent=mfShown(); });
