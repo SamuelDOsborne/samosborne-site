@@ -520,50 +520,50 @@ var AREAS = [
 
 /* Every example on the page. Shown only behind "See examples". Never written into an input. */
 var EXAMPLES = {
-  who: ['My brother Mark', 'J. from accounting', 'The opposing counsel on the Reyes case'],
-  words: ['He defrauded senior citizens.', 'She dismissed me in front of the team.', 'My dad never listened.'],
+  who: ['My manager, Priya', 'My husband, Dave', 'My brother Mark'],
+  words: ['My boss strung me along.', 'My husband never listens.', 'My mum is so critical.'],
   literal: [
-    { label: 'He defrauded seniors', literal: '\u201CYou\u2019ve won $2.5 million, you just need to pay the $4,000 processing fee.\u201D' },
-    { label: 'She dismissed me',     literal: 'She looked at her phone while I was talking.' },
-    { label: 'He\u2019s controlling', literal: 'He said, \u201CSend me the file before you send it to anyone else.\u201D' },
-    { label: 'My dad never listened', literal: 'He turned the TV up when I started talking about school.' }
+    { label: 'My boss strung me along',   literal: 'He said, “You’ll make partner next year.” A year later, he didn’t raise it.' },
+    { label: 'She dismissed me',          literal: 'She looked at her phone while I was presenting.' },
+    { label: 'My husband never listens',  literal: 'He kept watching the game while I told him about my day.' },
+    { label: 'My mum is critical',        literal: 'She said, “Are you really wearing that?”' }
   ],
   source: {
-    observed: ['I was on the call.', 'I watched the video.'],
-    reported: ['It\u2019s in the case file.', 'My sister told me.', 'I read it in the news.']
+    observed: ['I was in the meeting.', 'I was at the dinner table.'],
+    reported: ['A colleague told me.', 'My sister told me.', 'I saw it in a group chat.']
   },
-  sting: 'In \u201CYou\u2019ve won $2.5 million, you just need to pay the $4,000 fee,\u201D the charge might sit in the promise, the asking first, or the gap between what was promised and what was delivered.',
+  sting: 'In “You’ll make partner next year,” the charge might sit in the promise itself, the confidence it was said with, or the year of silence that followed.',
   mf: [
-    { label: 'Fraud',       mf: 'Promises what isn\u2019t delivered' },
-    { label: 'Dismissive',  mf: 'Looks away while I speak' },
-    { label: 'Controlling', mf: 'Requests approval before sending' },
-    { label: 'Ignores me',  mf: 'Withholds a reply' },
-    { label: 'Rude',        mf: 'Interrupts before I finish' }
+    { label: 'Strung me along', mf: 'Promises what isn’t delivered' },
+    { label: 'Dismissive',      mf: 'Looks away while I speak' },
+    { label: 'Controlling',     mf: 'Requests approval before sending' },
+    { label: 'Ignores me',      mf: 'Withholds a reply' },
+    { label: 'Rude',            mf: 'Interrupts before I finish' }
   ],
   mirror: {
-    intro: 'Worked example: a prosecutor and \u2018Promises what isn\u2019t delivered.\u2019 Use these as places to look, then write your own moment.',
-    footer: 'Tightest matches have the same order: you promised first, to get a yes, then didn\u2019t deliver.',
+    intro: 'Worked example: a manager who said “You’ll make partner next year,” and ‘Promises what isn’t delivered.’ Use these as places to look, then write your own moment.',
+    footer: 'Tightest matches have the same order: you promised first, to get a yes, then didn’t deliver.',
     areas: {
-      spiritual:  ['Spoke a vow or oath aloud and later acted against it', 'Told someone \u201Cit\u2019ll all work out\u201D and it didn\u2019t', 'Committed to a practice and stopped showing up'],
-      mental:     ['\u201CI\u2019ll read that / take that course\u201D and never opened it', '\u201CLet me think it over and get back to you,\u201D then no reply', 'Promised yourself you\u2019d stop replaying something, then kept replaying it'],
-      vocational: ['Told a client or victim\u2019s family \u201Cwe\u2019ll get you a result,\u201D and it fell short', 'An opening statement or pitch promised more than the evidence or product showed', 'Offered terms, then withdrew them'],
-      financial:  ['\u201CI\u2019ll pay you back,\u201D then paid late, less, or never', '\u201CWe\u2019ll save for that,\u201D then spent it elsewhere', 'Projections in a proposal that didn\u2019t materialize'],
-      family:     ['\u201CI\u2019ll be home for dinner / at the game,\u201D then stayed late', '\u201CThis weekend I\u2019ll fix it\u201D', 'Promised a trip or visit, then cancelled'],
-      social:     ['\u201CLet\u2019s get coffee soon\u201D and never sent a date', 'RSVP\u2019d yes and didn\u2019t go', '\u201CI\u2019ve got your back,\u201D then stayed quiet'],
-      physical:   ['Told a doctor \u201CI\u2019ll cut back,\u201D then didn\u2019t', 'Signed up for a gym or race and stopped going', '\u201CAfter this deal I\u2019ll rest,\u201D then took the next one']
+      spiritual:  ['Spoke a vow or commitment aloud and later acted against it', 'Told someone “it’ll all work out” and it didn’t', 'Committed to a practice and stopped showing up'],
+      mental:     ['“I’ll read that / take that course” and never opened it', '“Let me think it over and get back to you,” then no reply', 'Promised yourself you’d stop replaying something, then kept replaying it'],
+      vocational: ['Told a client “You’ll have it Friday,” and it went out Tuesday', 'Told someone on your team “We’ll look at a raise soon,” then didn’t', 'A pitch or proposal promised more than you delivered'],
+      financial:  ['“I’ll pay you back,” then paid late, less, or never', '“We’ll save for that,” then spent it elsewhere', 'Projections in a plan that didn’t materialize'],
+      family:     ['“I’ll be home for dinner,” then stayed late', 'Told your partner “This weekend I’ll fix it”', 'Promised the kids or your parents a trip or visit, then cancelled'],
+      social:     ['“Let’s get coffee soon” and never sent a date', 'RSVP’d yes and didn’t go', '“I’ve got your back,” then stayed quiet'],
+      physical:   ['Told your doctor “I’ll cut back,” then didn’t', 'Signed up for a gym or race and stopped going', '“After this project I’ll rest,” then took the next one']
     }
   },
   benefits: {
-    intro: 'Worked example: a prosecutor and \u2018Promises what isn\u2019t delivered.\u2019 Use these as places to look, then write your own moment.',
+    intro: 'Worked example: a manager who said “You’ll make partner next year,” and ‘Promises what isn’t delivered.’ Use these as places to look, then write your own moment.',
     footer: 'Their undelivered promise delivered something to you.',
     areas: {
-      spiritual:  ['Reconnected with why they do the work', 'Deepened compassion for elderly people', 'Prompted a look at their own integrity'],
-      mental:     ['Learned how the scheme works and can spot it fast', 'Sharpened how they read scripts and pitches, which helps in cross-examination', 'Gave them a clear problem to solve'],
-      vocational: ['A case to try and a track record', 'Press, peer recognition, consideration for promotion', 'Material to train juniors and the public'],
-      financial:  ['The role and caseload stay justified', 'A path to higher pay as a specialist', 'Restitution for victims, or grant funding for the office'],
-      family:     ['Called their own parents to warn them', 'Conversations at home about keeping your word', 'More present with aging family'],
-      social:     ['Invitations to speak at senior centers and bar events', 'Closer ties with investigators and victim advocates', 'Respect from victims\u2019 families'],
-      physical:   ['Energy and drive through long prep days', 'A push to get their own affairs in order', 'Time out of the office: interviews, site visits, court']
+      spiritual:  ['Got clear on what you actually want from your work', 'Learned to trust your own read over someone else’s promise', 'Prompted a look at the promises you make'],
+      mental:     ['Learned to ask “What exactly has to happen, and by when?”', 'Got sharper at spotting vague commitments', 'Started keeping a written record of your wins'],
+      vocational: ['Built the case for your own promotion', 'Started conversations with recruiters and other firms', 'Now give your own team clear criteria'],
+      financial:  ['Negotiated harder on your next offer', 'Built savings so one person’s word doesn’t decide your future', 'Started asking for terms in writing'],
+      family:     ['Talked with your partner about what really matters', 'More evenings at home once you stopped over-working for the promise', 'Became the parent who keeps their word on small things'],
+      social:     ['Rebuilt your network outside the company', 'Found allies who’d heard the same promise', 'Now mentor someone in the same spot'],
+      physical:   ['Stopped the late nights spent chasing it', 'Took the holiday you’d been putting off', 'Energy and drive to go after what you want']
     }
   }
 };
@@ -599,7 +599,7 @@ var LABEL_EXAMPLES = [
   { words: ['unfair', 'favoritism', 'favouritism', 'plays favorites', 'plays favourites'], label: 'Unfair', literal: 'He said, \u201CI\u2019m giving the account to Dana.\u201D', mf: 'Assigns work to another' },
   { words: ['blames', 'blamed', 'blaming', 'toxic'], label: 'Blames me', literal: 'He raised his voice and said, \u201CThis is your fault.\u201D', mf: 'Says \u201Cyour fault\u201D aloud' },
   { words: ['took credit', 'takes credit', 'stole my idea', 'stole credit'], label: 'Took credit', literal: 'He said, \u201CI had an idea,\u201D and presented my slide.', mf: 'Presents my slide as his' },
-  { words: ['fraud', 'scam', 'scammed', 'defrauded', 'conned', 'con man'], label: 'Fraud', literal: '\u201CYou\u2019ve won $2.5 million, you just need to pay the $4,000 processing fee.\u201D', mf: 'Promises what isn\u2019t delivered' }
+  { words: ['fraud', 'scam', 'scammed', 'defrauded', 'conned', 'con man', 'strung me along', 'strings me along', 'broken promise', 'broke his promise', 'broke her promise', 'empty promises'], label: 'Fraud', literal: 'He said, \u201CThe money will be back in your account by Friday.\u201D It wasn\u2019t.', mf: 'Promises what isn\u2019t delivered' }
 ];
 
 var RELATION_EXAMPLES = {
