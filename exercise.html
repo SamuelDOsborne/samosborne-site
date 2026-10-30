@@ -267,7 +267,7 @@ footer a { color: var(--soft); }
     <span class="label">Free exercise</span>
     <h1 id="hello">Under Your Skin</h1>
     <p class="help">Do it with the first person who came to mind. About 15&nbsp;minutes.</p>
-    <p class="lock"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Your answers stay on this device.</p>
+    <p class="lock"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Your answers are saved on this device. To write examples for you, what you type is sent to an AI model. This site doesn&rsquo;t store it.</p>
     <div class="nav"><button class="btn" type="button" id="startbtn">Start</button></div>
     <div class="mini" id="resume" hidden><button type="button" id="restart">Start over</button></div>
   </section>
@@ -731,6 +731,52 @@ var COPY = {
 
   /* ---------- examples (read-only text) ---------- */
   function ul(a){ return '<ul>'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
+  /* ---------- AI-written examples ----------
+     What they type is sent to /api/examples (a Cloudflare function on this site), which asks an AI model
+     for examples fitted to their words. If it is not set up or fails, the built-in examples stay. */
+  var AI_ON=location.protocol.indexOf('http')===0;
+  var AI_STEP={ 's-words':'words', 's-literal':'literal', 's-sting':'sting', 's-mf':'mf', 's-mirror':'mirror', 's-benefits':'benefits' };
+  var AI_NEED={
+    words:function(){ return S.name.trim()||S.kind; },
+    literal:function(){ return S.words.trim(); },
+    sting:function(){ return S.literal.trim(); },
+    mf:function(){ return S.words.trim()||S.literal.trim(); },
+    mirror:function(){ return S.mf.trim(); },
+    benefits:function(){ return S.mf.trim(); }
+  };
+  var AI={ got:{}, wait:{}, off:false };
+  function aiPayload(step){
+    return { step:step, kind:S.kind, name:S.name, words:S.words, literal:S.literal,
+             sting:S.sting.concat(S.stingText.trim()?[S.stingText.trim()]:[]), mf:S.mf };
+  }
+  function aiKey(step){ return JSON.stringify(aiPayload(step)); }
+  function aiNow(step){ var g=AI.got[step]; return g && g.key===aiKey(step) ? g.data : null; }
+  function aiHead(){ return '<div class="ex-h">Written for you</div>'; }
+  function aiWait(step){ return AI.wait[step]===aiKey(step) ? '<p class="ex-intro ai-wait">Writing examples for you&hellip;</p>' : ''; }
+  function aiFetch(step,done){
+    if(!AI_ON || AI.off || !AI_NEED[step] || !AI_NEED[step]()) return;
+    var key=aiKey(step);
+    if(aiNow(step) || AI.wait[step]===key) return;
+    try{ var c=sessionStorage.getItem('uys-ai:'+key); if(c){ AI.got[step]={key:key,data:JSON.parse(c)}; if(done) done(); return; } }catch(e){}
+    AI.wait[step]=key; if(done) done();
+    var ctl=window.AbortController?new AbortController():null, timer=setTimeout(function(){ if(ctl) ctl.abort(); },20000);
+    fetch('/api/examples',{ method:'POST', headers:{'content-type':'application/json'}, body:key, signal:ctl?ctl.signal:undefined })
+      .then(function(r){ if(r.status===503||r.status===404||r.status===405) AI.off=true; return r.ok?r.json():null; })
+      .catch(function(){ return null; })
+      .then(function(d){
+        clearTimeout(timer);
+        if(AI.wait[step]===key) delete AI.wait[step];
+        if(d && !d.error){ AI.got[step]={key:key,data:d}; try{ sessionStorage.setItem('uys-ai:'+key,JSON.stringify(d)); }catch(e){} }
+        if(done) done();
+      });
+  }
+  function aiRefresh(sc){
+    var step=AI_STEP[sc.id]; if(!step) return;
+    function redraw(){ if(screens[S.step]!==sc) return; if(step==='mirror'||step==='benefits') drawAreaEx(step); else renderEx(sc); }
+    aiFetch(step,redraw);
+    if(step==='mirror') aiFetch('benefits');   // get the next screen's examples ready
+  }
+
   /* examples that follow what they typed (all on the device) */
   var LABEL_RX=LABEL_EXAMPLES.map(function(e){
     return e.words.map(function(w){
@@ -753,20 +799,25 @@ var COPY = {
   }
   var EXR={
     who:function(){ return ul(EXAMPLES.who); },
-    words:function(){ var r=relation(); return ul(r?r.words:EXAMPLES.words); },
+    words:function(){ var r=relation(), base=ul(r?r.words:EXAMPLES.words), a=aiNow('words');
+      return a?aiHead()+ul(a.items)+'<div class="ex-h">More examples</div>'+base:aiWait('words')+base; },
     literal:function(){
+      var a=aiNow('literal'), r0=relation();
+      if(a) return aiHead()+a.pairs.map(function(x){ return pair(x.label,x.literal); }).join('')+'<div class="ex-h">More examples</div>'+(r0?r0.literal:EXAMPLES.literal).map(function(x){ return pair(x.label,x.literal); }).join('');
       var hits=labelHits(S.words), r=relation(), used={};
       hits.forEach(function(h){ used[h.e.literal]=1; });
       var rest=(r?r.literal:EXAMPLES.literal).filter(function(x){ return !used[x.literal]; });
-      return (hits.length?yours(hits,'literal'):'')+rest.map(function(x){ return pair(x.label,x.literal); }).join('');
+      return aiWait('literal')+(hits.length?yours(hits,'literal'):'')+rest.map(function(x){ return pair(x.label,x.literal); }).join('');
     },
     source:function(){ return '<div><div class="ex-h">Observed</div>'+ul(EXAMPLES.source.observed)+'</div><div><div class="ex-h">Reported</div>'+ul(EXAMPLES.source.reported)+'</div>'; },
-    sting:function(){ return '<p>'+esc(EXAMPLES.sting)+'</p>'; },
+    sting:function(){ var a=aiNow('sting'); return a?aiHead()+'<p>'+esc(a.text)+'</p><div class="ex-h">Another example</div><p>'+esc(EXAMPLES.sting)+'</p>':aiWait('sting')+'<p>'+esc(EXAMPLES.sting)+'</p>'; },
     mf:function(){
+      var a=aiNow('mf');
+      if(a) return aiHead()+a.pairs.map(function(x){ return pair(x.label,x.mf); }).join('')+'<div class="ex-h">More examples</div>'+EXAMPLES.mf.map(function(x){ return pair(x.label,x.mf); }).join('');
       var hits=labelHits(S.words+'\n'+S.literal), used={};
       hits.forEach(function(h){ used[h.e.mf]=1; });
       var rest=EXAMPLES.mf.filter(function(x){ return !used[x.mf]; });
-      return (hits.length?yours(hits,'mf'):'')+rest.map(function(x){ return pair(x.label,x.mf); }).join('');
+      return aiWait('mf')+(hits.length?yours(hits,'mf'):'')+rest.map(function(x){ return pair(x.label,x.mf); }).join('');
     }
   };
   var EX_SUMMARY={ literal:function(){ return labelHits(S.words); }, mf:function(){ return labelHits(S.words+'\n'+S.literal); } };
@@ -776,6 +827,7 @@ var COPY = {
       el.innerHTML=f();
       var sum=el.parentNode.querySelector('summary'); if(!sum) return;
       var hits=EX_SUMMARY[k]?EX_SUMMARY[k]():[];
+      if(aiNow(k)){ sum.textContent='See examples written for you'; return; }
       sum.textContent=hits.length?'See examples for \u201C'+hits[0].word.toLowerCase()+'\u201D'+(hits.length>1?' and more':''):'See examples';
     });
   }
@@ -831,6 +883,8 @@ var COPY = {
     syncRange('after');
     resetGuards(sc);
     renderEx(sc);
+    if(sc.id==='s-mirror'||sc.id==='s-benefits') drawAreaEx(sc.getAttribute('data-areas'));
+    aiRefresh(sc);
     if(sc.id==='s-sting') drawSting();
     if(sc.id==='s-mf') mfCount();
     if(n===LAST) renderDone();
@@ -1008,8 +1062,20 @@ var COPY = {
     var n=count(g), c=covered(g), noun=g==='mirror'?(n===1?'moment':'moments'):(n===1?'benefit':'benefits');
     return '<b>'+n+'</b> '+noun+' across <b>'+c+'</b> of 7 areas';
   }
+  function drawAreaEx(g){
+    var ex=EXAMPLES[g], a=aiNow(g), waiting=aiWait(g);
+    document.querySelectorAll('[data-areaex^="'+g+':"]').forEach(function(el){
+      var key=el.getAttribute('data-areaex').split(':')[1], h='';
+      if(a && a.areas[key] && a.areas[key].length){
+        h+=aiHead()+'<p class="ex-intro">'+(g==='mirror'?'Places to look for \u201C'+esc(cut(S.mf,60))+'\u201D. Then write your own moment.':'Ways it may have served you. Then write your own.')+'</p>'+ul(a.areas[key])+'<div class="ex-h">More examples</div>';
+      } else h+=waiting;
+      h+='<p class="ex-intro">'+esc(ex.intro)+'</p>'+ul(ex.areas[key]||[])+'<p class="ex-foot">'+esc(ex.footer)+'</p>';
+      el.innerHTML=h;
+      var sum=el.parentNode.querySelector('summary'); if(sum) sum.textContent=a&&a.areas[key]&&a.areas[key].length?'See examples written for you':'See examples';
+    });
+  }
   document.querySelectorAll('[data-areas]').forEach(function(sc){
-    var g=sc.getAttribute('data-areas'), box=sc.querySelector('.areas'), ex=EXAMPLES[g], total=sc.querySelector('[data-total]');
+    var g=sc.getAttribute('data-areas'), box=sc.querySelector('.areas'), total=sc.querySelector('[data-total]');
     var noun=g==='mirror'?'moment':'benefit';
     function updTotal(){ total.innerHTML=totalLine(g); if(covered(g)>=3){ var n=sc.querySelector('[data-areanote]'); n.hidden=true; sc.querySelector('[data-next]').textContent='Next question'; } }
     AREAS.forEach(function(a){
@@ -1021,9 +1087,7 @@ var COPY = {
           '<div class="addrow"><label class="sr" for="in-'+id+'">Add a '+noun+' in '+esc(a.name)+'</label>'+
           '<input type="text" id="in-'+id+'" maxlength="300" enterkeyhint="enter" autocomplete="off" placeholder="Add a '+noun+'"><button class="add" type="button">Add</button></div>'+
           '<ul class="items" aria-label="'+esc(a.name)+' '+noun+'s"></ul>'+
-          '<details class="ex"><summary>See examples</summary><div class="exlist">'+
-            '<p class="ex-intro">'+esc(ex.intro)+'</p>'+ul(ex.areas[a.key]||[])+'<p class="ex-foot">'+esc(ex.footer)+'</p>'+
-          '</div></details>'+
+          '<details class="ex"><summary>See examples</summary><div class="exlist" data-areaex="'+g+':'+a.key+'"></div></details>'+
         '</div>';
       box.appendChild(det);
       var inp=det.querySelector('input'), btn=det.querySelector('.add'), list=det.querySelector('.items'), badge=det.querySelector('.n'), srn=det.querySelector('[data-srn]');
@@ -1049,6 +1113,7 @@ var COPY = {
       sync(); draw();
     });
     updTotal();
+    drawAreaEx(g);
   });
 
   // rotating helper prompt on the benefits screen
