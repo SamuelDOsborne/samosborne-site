@@ -127,6 +127,7 @@ footer a { color: rgba(240,237,232,.7); text-decoration: none; }
   var EXERCISE_URL='/downloads/under-your-skin-exercise.pdf';
   var SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbwZSZy0nbTV9gVmAsxm7uuziUCxFgZOOLaOwu9I2wTRDq3IUUTwhH2y697SjdfoK5G7/exec';
   function sendToSheet(f){ try{ var d=new URLSearchParams(new FormData(f)); if(navigator.sendBeacon && navigator.sendBeacon(SHEET_ENDPOINT,d)) return; fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,body:d}); }catch(err){} }
+  function sendToMailerLite(f,src){ try{ fetch('/api/subscribe',{method:'POST',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({email:f.elements.email.value,first_name:(f.elements.first_name&&f.elements.first_name.value)||'',source:src,_gotcha:(f.elements._gotcha&&f.elements._gotcha.value)||''})}); }catch(err){} }
   var form=document.getElementById('start-form'), card=document.getElementById('card');
   try {
     var q=new URLSearchParams(location.search);
@@ -137,7 +138,7 @@ footer a { color: rgba(240,237,232,.7); text-decoration: none; }
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var bot=!!form.elements._gotcha.value;
-    if(!bot) sendToSheet(form);
+    if(!bot){ sendToSheet(form); sendToMailerLite(form, form.elements.utm_source.value||'website'); }
     var btn=form.querySelector('button'), old=btn.textContent;
     btn.disabled=true; btn.textContent='Sending…';
     var prev=form.querySelector('.err'); if(prev) prev.remove();
