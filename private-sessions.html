@@ -251,7 +251,7 @@
      "name": "How soon will I notice a difference?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Many clients feel a shift during or soon after a session. Results vary and aren't guaranteed."
+      "text": "Many clients feel a shift during the session itself. That's why your first session comes with the Clear-Shift Guarantee: if you don't feel a clear shift in how you see that person by the end of it, tell me before we hang up and I'll refund you in full. How far the shift goes from there varies from person to person."
      }
     },
     {
@@ -708,6 +708,10 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 .step-list li { display: flex; align-items: center; gap: 16px; font-size: 1.12rem; color: rgba(240,237,232,.86); padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
 .step-list li:last-child { border-bottom: 0; }
 .step-list span { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(212,165,116,.6); color: var(--gold); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+.guarantee { max-width: 720px; margin: 36px auto 0; padding: 26px 28px; border: 1px solid rgba(212,165,116,.45); border-radius: 18px; background: rgba(212,165,116,.06); text-align: center; }
+.guarantee .g-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.guarantee h3 { font-size: clamp(1.35rem, 3.6vw, 1.7rem); font-weight: 800; letter-spacing: -.02em; color: #fff; margin: 0 0 10px; }
+.guarantee p { font-size: 15px; line-height: 1.65; color: rgba(240,237,232,.78); margin: 0 auto; max-width: 56ch; }
 .price-note { text-align: center; margin: 40px auto 0; max-width: 60ch; font-size: 15px; line-height: 1.6; color: rgba(240,237,232,.66); }
 .form-fine { text-align: center; font-size: 14px; color: rgba(240,237,232,.62); }
 
@@ -998,7 +1002,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <a href="#offers" class="btn-ghost">See Sessions &amp; Pricing</a>
     </div>
     <button class="reel-btn" type="button" data-stream="5fbe6dc81b04702d48532c37cac6b9f7" data-title="Sam Osborne speaker reel"><span class="rb-icon" aria-hidden="true"></span><span>Watch Sam at work<small>Speaker reel &middot; with sound</small></span></button>
-    <p class="hero-proof"><span class="hero-quote">&ldquo;A single session with Sam&hellip; had me reach feelings of &lsquo;balance&rsquo; and peace with both this person and with the situation.&rdquo;</span><span class="hero-attr">Corinne Westphal, Editor, France</span><span class="hero-stats">45+ client testimonials · 10 countries</span></p>
+    <p class="hero-proof"><span class="hero-quote">&ldquo;A single session with Sam&hellip; had me reach feelings of &lsquo;balance&rsquo; and peace with both this person and with the situation.&rdquo;</span><span class="hero-attr">Corinne Westphal, Editor, France</span><span class="hero-stats">45+ client testimonials · 10 countries · Feel a clear shift, or it&rsquo;s free</span></p>
   </div>
 </section>
 
@@ -1195,6 +1199,24 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
           <div class="testimonial-role">Professional Speaker &middot; Professional Speakers Australia Hall of Fame</div>
         </div>
       </article>
+      <article class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <blockquote class="testimonial-quote">Prior to our session, I was disheartened by the humans around me. During our session, I realized I held latent judgements that were projections and blockades to connection&hellip; After our sessions, my automatic responses with colleagues exude confidence&hellip; and clear me of judgments.</blockquote>
+        <div class="testimonial-rule"></div>
+        <div class="testimonial-attr">
+          <div class="testimonial-name">A.D.</div>
+          <div class="testimonial-role">USA</div>
+        </div>
+      </article>
+      <article class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <blockquote class="testimonial-quote">The work in the session centered around cynicism and how it affects my relationships and professional judgment&hellip; I would recommend Sam to other professionals seeking help with their professional/interpersonal problems.</blockquote>
+        <div class="testimonial-rule"></div>
+        <div class="testimonial-attr">
+          <div class="testimonial-name">Alex Milledge</div>
+          <div class="testimonial-role">Teacher &amp; Musician &middot; Los Angeles, USA</div>
+        </div>
+      </article>
     </div>
     <div class="video-head reveal">
       <span class="eyebrow">On Camera</span>
@@ -1283,6 +1305,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
           <li>One complete private session</li>
           <li>A check-in a week later</li>
           <li>Credited toward the program if you continue within 30 days</li>
+          <li>Clear-Shift Guarantee: feel a clear shift, or it&rsquo;s free</li>
         </ul>
         <a href="#book" class="btn-primary">Book a Fit Call</a>
       </div>
@@ -1297,9 +1320,15 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
           <li>A planned sequence, one person at a time</li>
           <li>Message support between sessions</li>
           <li>Priority scheduling</li>
+          <li>Clear-Shift Guarantee on your first session</li>
         </ul>
         <a href="#book" class="btn-primary">Book a Fit Call</a>
       </div>
+    </div>
+    <div class="guarantee reveal">
+      <span class="g-label">The Clear-Shift Guarantee</span>
+      <h3>Feel a clear shift, or it&rsquo;s free.</h3>
+      <p>If you don&rsquo;t feel a clear shift in how you see that person by the end of your first session, tell me before we hang up and I&rsquo;ll refund you in full. On the program, that means a full refund and the program is cancelled.</p>
     </div>
     <p class="price-note reveal">Every engagement starts with a free 20-minute fit call. Terms are set out in writing before you commit. <a href="terms.html">Terms of Engagement</a></p>
   </div>
@@ -1349,7 +1378,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <details class="details"><summary><span>Do I have to share my whole story?</span><span class="chev">▼</span></summary><div class="details-body"><p>No. The work focuses on how you see one person, not on retelling what happened.</p></div></details>
       <details class="details"><summary><span>What if they&rsquo;re still in my life?</span><span class="chev">▼</span></summary><div class="details-body"><p>Most are. The goal isn&rsquo;t to change them, avoid them, or confront them. It&rsquo;s to see them clearly enough that you can be around them and stay calm.</p></div></details>
       <details class="details"><summary><span>Single session or program?</span><span class="chev">▼</span></summary><div class="details-body"><p>One person: start with a single session. More than one, or the same reaction showing up with different people: the program. We'll decide together on the fit call.</p></div></details>
-      <details class="details"><summary><span>How soon will I notice a difference?</span><span class="chev">▼</span></summary><div class="details-body"><p>Many clients feel a shift during or soon after a session. Results vary and aren't guaranteed.</p></div></details>
+      <details class="details"><summary><span>How soon will I notice a difference?</span><span class="chev">▼</span></summary><div class="details-body"><p>Many clients feel a shift during the session itself. That's why your first session comes with the Clear-Shift Guarantee: if you don't feel a clear shift in how you see that person by the end of it, tell me before we hang up and I'll refund you in full. How far the shift goes from there varies from person to person.</p></div></details>
       <details class="details"><summary><span>Is it confidential?</span><span class="chev">▼</span></summary><div class="details-body"><p>Yes, under our written agreement. It isn't legally privileged, so please leave out confidential client or case details. They aren't needed.</p></div></details>
       <details class="details"><summary><span>Can I book from outside the US?</span><span class="chev">▼</span></summary><div class="details-body"><p>Yes. Sessions are by video, and Sam has worked with clients in 10 countries, including the US, Australia, the UK, Canada, and France. You choose your time zone when you book.</p></div></details>
     </div>
