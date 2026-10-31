@@ -62,7 +62,7 @@ export async function onRequestPost({ request, env }) {
       'content-type': 'application/json',
       'accept': 'application/json'
     },
-    body: JSON.stringify({ email, fields: { name, source }, groups: [String(env.MAILERLITE_GROUP_ID)] })
+    body: JSON.stringify({ email, fields: { name, signup_source: source }, groups: [String(env.MAILERLITE_GROUP_ID)] })
   }).catch(() => null);
 
   if (!res || !res.ok) return json({ ok: false, error: 'mailerlite', status: res ? res.status : 0 }, 502, origin);
