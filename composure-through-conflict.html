@@ -1140,6 +1140,15 @@
         .reel-frame iframe { width: 100%; height: 100%; border: 0; }
         .reel-close { position: absolute; top: 16px; right: 16px; z-index: 9; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.6); color: #fff; font-size: 22px; cursor: pointer; }
         .reel-play[hidden], .reel-soon[hidden] { display: none; }
+        #fees .fees-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
+        #fees .fee-card { padding: 32px 28px; }
+        #fees .fee-travel { grid-column: 1 / -1; display: grid; grid-template-columns: auto auto 1fr auto; align-items: center; gap: 8px 28px; padding: 22px 28px; }
+        #fees .fee-travel .fee-title, #fees .fee-travel .fee-detail { margin: 0; }
+        #fees .fee-travel .fee-price { font-size: 20px; margin: 0; }
+        #fees .fee-travel .fee-toggle { margin: 0; }
+        #fees .fee-travel .fee-list { grid-column: 1 / -1; }
+        @media (max-width: 1100px) { #fees .fees-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { #fees .fees-grid { grid-template-columns: 1fr; } #fees .fee-travel { grid-template-columns: 1fr; } }
         #reel::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(5,5,6,.82) 0%, rgba(5,5,6,.45) 45%, rgba(5,5,6,0) 70%); }
         .band-right .band-copy { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
         .band-right .band-quote { max-width: 620px; }
@@ -1401,7 +1410,7 @@
                     <li>Half-day workshop (4 hours)</li>
                     <li>Full-day retreat (8 hours)</li>
                     <li>Multi-session conference programming</li>
-                    <li>Virtual delivery available at same fee</li>
+                    <li>Virtual delivery available</li>
                 </ul>
             </div>
             <div class="program-block">
@@ -1422,52 +1431,83 @@
     <!-- FEES -->
     <section class="section" id="fees">
         <div class="section-label">Speaking Investment</div>
-        <h2 class="section-title">Transparent Pricing</h2>
-        <p style="text-align: center; font-size: 14px; color: rgba(245,245,247,0.55); max-width: 640px; margin: -20px auto 40px;">Preferred booking lead time is 90+ days — as a duo program, calendars are coordinated across two speakers and dates fill several months out. Early inquiry recommended.</p>
+        <h2 class="section-title">Programs from $5,000</h2>
+        <p style="text-align: center; font-size: 14px; color: rgba(245,245,247,0.55); max-width: 640px; margin: -20px auto 40px;">Both presenters, every format. Preferred booking lead time is 90+ days, as calendars are coordinated across two speakers. Early inquiry recommended.</p>
         <div class="fees-grid">
             <div class="fee-card">
-                <h3 class="fee-title">Program (Keynote Format)</h3>
-                <div class="fee-price">$15,000</div>
-                <p class="fee-detail">60–90 minute keynote, plus all customization, live demonstration, Q&A, and handouts.</p>
+                <h3 class="fee-title">Virtual Program</h3>
+                <div class="fee-price">$5,000</div>
+                <p class="fee-detail">60–90 minutes live by video, including the live volunteer demonstration and Q&amp;A.</p>
                 <button class="fee-toggle" onclick="toggleFee(this)">
                     <span>What's Included</span><span class="fee-toggle-icon">▼</span>
                 </button>
                 <ul class="fee-list">
-                    <li>Pre-event consultation to align program with organizational challenges</li>
-                    <li>Customization of framework to your industry and audience</li>
-                    <li>Live method demonstration with audience volunteer</li>
-                    <li>Post-program Q&A session</li>
+                    <li>Pre-event consultation with organizers</li>
+                    <li>Customization to your industry and audience</li>
+                    <li>Live method demonstration with an audience volunteer</li>
+                    <li>Q&amp;A with both presenters</li>
+                    <li>Perceptual balance framework handouts (digital)</li>
+                </ul>
+            </div>
+            <div class="fee-card">
+                <h3 class="fee-title">Education Session</h3>
+                <div class="fee-price">$7,500</div>
+                <p class="fee-detail">A conference education or breakout session, 60–90 minutes, in person.</p>
+                <button class="fee-toggle" onclick="toggleFee(this)">
+                    <span>What's Included</span><span class="fee-toggle-icon">▼</span>
+                </button>
+                <ul class="fee-list">
+                    <li>Pre-event consultation to align the session with your program</li>
+                    <li>Customization to your industry and audience</li>
+                    <li>Live method demonstration with an audience volunteer</li>
+                    <li>Q&amp;A with both presenters</li>
+                    <li>Perceptual balance framework handouts</li>
+                </ul>
+            </div>
+            <div class="fee-card">
+                <h3 class="fee-title">Keynote</h3>
+                <div class="fee-price">$10,000</div>
+                <p class="fee-detail">A keynote or general session, 60–90 minutes, plus all customization, live demonstration, Q&amp;A, and handouts.</p>
+                <button class="fee-toggle" onclick="toggleFee(this)">
+                    <span>What's Included</span><span class="fee-toggle-icon">▼</span>
+                </button>
+                <ul class="fee-list">
+                    <li>Pre-event consultation to align the program with organizational challenges</li>
+                    <li>Customization of the framework to your industry and audience</li>
+                    <li>Live method demonstration with an audience volunteer</li>
+                    <li>Post-program Q&amp;A session</li>
                     <li>Perceptual balance framework handouts for attendees</li>
                     <li>Full coordination between both speakers for seamless delivery</li>
                 </ul>
             </div>
             <div class="fee-card">
-                <h3 class="fee-title">Program (Extended Formats)</h3>
-                <div class="fee-price">$22,000+</div>
-                <p class="fee-detail">Workshop, retreat, or multi-session formats. Custom pricing based on depth and scope.</p>
+                <h3 class="fee-title">Half-Day Workshop</h3>
+                <div class="fee-price">$15,000</div>
+                <p class="fee-detail">Up to 4 hours of hands-on work with the method. Full-day and multi-session formats quoted on request.</p>
                 <button class="fee-toggle" onclick="toggleFee(this)">
                     <span>What's Included</span><span class="fee-toggle-icon">▼</span>
                 </button>
                 <ul class="fee-list">
-                    <li>Opening program + breakout session combinations</li>
-                    <li>Multi-day conference programming</li>
-                    <li>Executive leadership team sessions</li>
-                    <li>Board retreat facilitation</li>
-                    <li>Virtual programs available at same fee structure</li>
+                    <li>Everything in the keynote</li>
+                    <li>Small-group application exercises</li>
+                    <li>Each participant works through a live charge of their own</li>
+                    <li>Opening keynote + breakout combinations</li>
+                    <li>Executive team and board retreat versions</li>
                 </ul>
             </div>
-            <div class="fee-card">
-                <h3 class="fee-title">Travel & Accommodations</h3>
+            <div class="fee-card fee-travel">
+                <h3 class="fee-title">Travel &amp; Accommodations</h3>
                 <div class="fee-price">Billed Separately</div>
-                <p class="fee-detail">Standard travel arrangements for seamless program execution. Actual costs vary by location and distance.</p>
+                <p class="fee-detail">Travel for both speakers for in-person programs. Actual costs vary by location.</p>
                 <button class="fee-toggle" onclick="toggleFee(this)">
                     <span>What's Included</span><span class="fee-toggle-icon">▼</span>
                 </button>
                 <ul class="fee-list">
-                    <li>Round-trip airfare for both speakers (business class domestic and international)</li>
-                    <li><strong>USA Events:</strong> 1 night hotel accommodation (night of event)</li>
-                    <li><strong>International Events:</strong> 2 nights hotel accommodation (night before and night of event)</li>
-                    
+                    <li>Round-trip airfare for both speakers (economy or premium economy within the US)</li>
+                    <li><strong>USA events:</strong> 1 night hotel (night of event)</li>
+                    <li><strong>International events:</strong> 2 nights hotel (night before and night of event)</li>
+                    <li>Ground transport to and from the venue</li>
+                    <li>Virtual programs: no travel costs</li>
                 </ul>
             </div>
         </div>
@@ -1488,7 +1528,7 @@
             </div>
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)"><span>Do you deliver virtually?</span><span class="faq-icon">▼</span></button>
-                <div class="faq-answer">Yes. Virtual programs are available at the same fee structure, including the live volunteer demonstration — it translates surprisingly well on camera. Hybrid formats (in-person keynote with remote breakouts) are also an option.</div>
+                <div class="faq-answer">Yes. Virtual programs start at $5,000 and include the live volunteer demonstration — it translates surprisingly well on camera. Hybrid formats (in-person keynote with remote breakouts) are also an option.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)"><span>What does the live demonstration involve?</span><span class="faq-icon">▼</span></button>
@@ -1571,6 +1611,7 @@
                     <option value="">Select format...</option>
                     <option>60-minute keynote</option>
                     <option>90-minute keynote + Q&A</option>
+                    <option>Conference education session</option>
                     <option>Half-day workshop</option>
                     <option>Full-day retreat</option>
                     <option>Multi-session series</option>
