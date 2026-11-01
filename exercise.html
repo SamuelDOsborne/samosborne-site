@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>The Under-Your-Skin Exercise | Sam Osborne</title>
-<meta name="description" content="The free 15-minute exercise for the one person you can't stop replaying.">
+<meta name="description" content="The free 10-minute exercise for the one person you can't stop replaying.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://samosborne.net/exercise">
 <meta name="theme-color" content="#1A1A1A">
@@ -61,7 +61,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px soli
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .field-label { display: block; margin-top: 22px; margin-bottom: 8px; font-size: 17px; font-weight: 600; color: var(--soft); }
 
-.lock { margin-top: 20px; display: flex; gap: 10px; align-items: center; font-size: 17px; color: var(--muted); }
+.lock { margin-top: 20px; display: flex; gap: 10px; align-items: center; font-size: 15px; color: var(--muted); }
 
 /* options */
 .opts { display: grid; gap: 8px; margin-top: 22px; }
@@ -267,18 +267,21 @@ footer a { color: var(--soft); }
   <section class="screen" id="s-intro">
     <span class="label">Free exercise</span>
     <h1 id="hello">Under Your Skin</h1>
-    <p class="help">Do it with the first person who came to mind. About 15&nbsp;minutes.</p>
-    <p class="lock"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Your answers are saved on this device. To write examples for you, what you type is sent to an AI model. This site doesn&rsquo;t store it.</p>
+    <p class="help">Do it with the first person who came to mind. About 10&nbsp;minutes.</p>
+    <p class="lock"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Answers stay on this device. What you type is sent to an AI to write examples, and isn&rsquo;t stored.</p>
     <div class="nav"><button class="btn" type="button" id="startbtn">Start</button></div>
     <div class="mini" id="resume" hidden><button type="button" id="restart">Start over</button></div>
   </section>
 
-  <!-- 1 · Name them -->
-  <section class="screen" id="s-name" data-step="1">
+  <!-- 1 · Who -->
+  <section class="screen" id="s-who" data-step="1">
     <span class="label">Name them</span>
     <h2>Who&rsquo;s getting under your skin right now?</h2>
-    <p class="help">Pick the one person who carries the most charge. You can work through the others later.</p>
-    <div class="opts" role="group" aria-label="Where is this person in your life?">
+    <p class="help">The one person who carries the most charge. First name or initials is enough.</p>
+    <label class="sr" for="a-who">First name or initials</label>
+    <input class="mt" type="text" id="a-who" data-key="who" maxlength="80" autocomplete="off" autocapitalize="words" enterkeyhint="next" data-focus placeholder="First name or initials">
+    <div class="gentle" id="who-note" role="status" hidden></div>
+    <div class="opts" role="group" aria-label="Where is this person in your life? (optional)">
       <button class="opt" type="button" aria-pressed="false">A family member</button>
       <button class="opt" type="button" aria-pressed="false">My partner</button>
       <button class="opt" type="button" aria-pressed="false">Someone at work</button>
@@ -286,40 +289,14 @@ footer a { color: var(--soft); }
       <button class="opt" type="button" aria-pressed="false">A friend</button>
       <button class="opt" type="button" aria-pressed="false">Someone else</button>
     </div>
-    <label class="sr" for="a-name">In one sentence, what&rsquo;s going on</label>
-    <textarea class="mt" id="a-name" data-key="name" rows="2" placeholder="In one sentence, what&rsquo;s going on&hellip;"></textarea>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
-  </section>
-
-  <!-- 2 · Who -->
-  <section class="screen" id="s-who" data-step="2">
-    <span class="label">Who</span>
-    <h2>Who is it?</h2>
-    <p class="help">One person. First name or initials is enough.</p>
-    <label class="field-label" for="a-who">First name or initials</label>
-    <input type="text" id="a-who" data-key="who" maxlength="80" autocomplete="off" autocapitalize="words" enterkeyhint="next" data-focus>
-    <div class="gentle" id="who-note" role="status" hidden></div>
-    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="who"></div></details>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next id="who-next">Next question</button></div>
   </section>
 
-  <!-- 3 · Say it your way -->
-  <section class="screen" id="s-words" data-step="3">
-    <span class="label">Say it your way</span>
-    <h2>What did they do, in your own words?</h2>
-    <p class="help">Labels welcome here.</p>
-    <label class="sr" for="a-words">What they did, in your own words</label>
-    <textarea class="mt" id="a-words" data-key="words" data-flag="verdict" rows="3" data-focus></textarea>
-    <div class="gentle" data-flagnote="words" role="status" hidden></div>
-    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="words"></div></details>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
-  </section>
-
-  <!-- 4 · The literal line -->
-  <section class="screen" id="s-literal" data-step="4">
-    <span class="label">The literal line</span>
+  <!-- 2 · What they did -->
+  <section class="screen" id="s-literal" data-step="2">
+    <span class="label">What they did</span>
     <h2>What exactly did they say or do?</h2>
-    <p class="help">The words, or what a camera would have caught.</p>
+    <p class="help">Pick one moment. The words, or what a camera would have caught.</p>
     <label class="sr" for="a-literal">Exactly what they said or did</label>
     <textarea class="mt" id="a-literal" data-key="literal" data-flag="camera" rows="3" data-focus></textarea>
     <div class="gentle" data-flagnote="literal" role="status" hidden></div>
@@ -327,51 +304,23 @@ footer a { color: var(--soft); }
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <!-- 5 · Observed or reported -->
-  <section class="screen" id="s-source" data-step="5">
-    <span class="label">Observed or reported?</span>
-    <h2>How do you know it happened?</h2>
-    <div class="opts stack" role="group" aria-label="How you know it happened" id="source-opts">
-      <button class="opt" type="button" aria-pressed="false" data-source="observed">I saw or heard it myself</button>
-      <button class="opt" type="button" aria-pressed="false" data-source="reported">I was told or read about it</button>
-    </div>
-    <div class="gentle" id="source-note" role="status" hidden>
-      <p>Noted. Reported actions carry less weight. If you have a moment you witnessed directly, use that one.</p>
-      <p><button type="button" class="linkish" id="change-moment">Change my moment</button></p>
-    </div>
-    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="source"></div></details>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next id="source-next">Next question</button></div>
-  </section>
-
-  <!-- 6 · What still stings -->
-  <section class="screen" id="s-sting" data-step="6">
-    <span class="label">What still stings</span>
-    <h2>Which part carries the charge?</h2>
-    <p class="help">The first label often isn&rsquo;t the real trigger. Tap any part that still stings.</p>
-    <div class="chips" role="group" aria-label="Parts of what they said or did" id="sting-chips"></div>
-    <p class="empty" id="sting-empty" hidden>You left the literal line blank. Go back and add it, or write the part that stings below.</p>
-    <label class="field-label" for="a-stingText">Or say it in your words</label>
-    <input type="text" id="a-stingText" data-key="stingText" maxlength="200" autocomplete="off" enterkeyhint="next">
-    <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="sting"></div></details>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
-  </section>
-
-  <!-- 7 · Motor Function -->
-  <section class="screen" id="s-mf" data-step="7">
+  <!-- 3 · Motor Function -->
+  <section class="screen" id="s-mf" data-step="3">
     <span class="label">Your Motor Function</span>
     <h2>Say the action in 3&ndash;4 words, starting with a verb.</h2>
+    <p class="help">Something a camera could record.</p>
+    <div class="gentle" id="mf-suggest" hidden><p>Suggested: <mark id="mf-sugg-text"></mark></p><p><button type="button" class="linkish" id="mf-use">Use this</button></p></div>
     <label class="field-label" for="a-mf">The action, in 3&ndash;4 words</label>
-    <input type="text" id="a-mf" data-key="mf" data-flag="camera" maxlength="80" autocomplete="off" enterkeyhint="done" data-focus aria-describedby="mf-wc">
+    <input type="text" id="a-mf" data-key="mf" data-flag="camera" maxlength="80" autocomplete="off" enterkeyhint="next" data-focus aria-describedby="mf-wc">
     <p class="wc" id="mf-wc" aria-live="polite">0 words</p>
     <div class="gentle" data-flagnote="mf" role="status" hidden></div>
     <div class="gentle" id="mf-hint" role="status" hidden></div>
     <details class="ex"><summary>See examples</summary><div class="exlist" data-ex="mf"></div></details>
-    <p class="cam" id="cam-q">Could a camera record this?</p>
-    <div class="nav" role="group" aria-labelledby="cam-q"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn quiet" type="button" id="cam-no">Not yet</button><button class="btn" type="button" id="cam-yes">Yes</button></div>
+    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <!-- 8 · Score it -->
-  <section class="screen" id="s-score" data-step="8">
+  <!-- 4 · Score it -->
+  <section class="screen" id="s-score" data-step="4">
     <span class="label">Score it</span>
     <h2>How one-sided does it feel right now?</h2>
     <p class="help">0 = all upside. 100 = all cost. Most start near&nbsp;100.</p>
@@ -388,28 +337,20 @@ footer a { color: var(--soft); }
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <section class="screen" id="s-pull" data-step="8">
-    <span class="label">Score it</span>
-    <h2 id="pull-l">How strongly does it pull on you?</h2>
-    <p class="help">1 = barely. 10 = it runs my day.</p>
-    <div class="dots" role="group" aria-labelledby="pull-l" id="pull"></div>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
-  </section>
-
-  <!-- 9 · Turn the mirror -->
-  <section class="screen" id="s-mirror" data-step="9" data-areas="mirror">
+  <!-- 5 · Turn the mirror -->
+  <section class="screen" id="s-mirror" data-step="5" data-areas="mirror">
     <span class="label">Turn the mirror</span>
     <div class="mfhead"><small>Your Motor Function</small><b data-mf></b></div>
     <h2 class="mt">Where have <em>you</em> done this exact action, in any form?</h2>
     <p class="help">Keep going until you can honestly say you&rsquo;ve done it as much as they have. Who was there, when, what you said. Tap an area to add a moment.</p>
     <div class="areas"></div>
     <p class="found" aria-live="polite" data-total></p>
-    <div class="gentle" data-areanote role="status" hidden>Most people find more than they expect. Try at least three areas before moving on.</div>
+    <div class="gentle" data-areanote role="status" hidden>Most people find more than they expect. Add at least three before moving on. That&rsquo;s where the shift comes from.</div>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <!-- 10 · The other side -->
-  <section class="screen" id="s-benefits" data-step="10" data-areas="benefits">
+  <!-- 6 · The other side -->
+  <section class="screen" id="s-benefits" data-step="6" data-areas="benefits">
     <span class="label">The other side</span>
     <div class="mfhead"><small>Your Motor Function</small><b data-mf></b></div>
     <h2 class="mt">From the moment you saw them do it, how has it served you?</h2>
@@ -417,12 +358,12 @@ footer a { color: var(--soft); }
     <p class="help">Small counts. Tap an area to add a benefit.</p>
     <div class="areas"></div>
     <p class="found" aria-live="polite" data-total></p>
-    <div class="gentle" data-areanote role="status" hidden>Most people find more than they expect. Try at least three areas before moving on.</div>
+    <div class="gentle" data-areanote role="status" hidden>Most people find more than they expect. Add at least three before moving on. That&rsquo;s where the shift comes from.</div>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
   </section>
 
-  <!-- 11 · Look again -->
-  <section class="screen" id="s-again" data-step="11">
+  <!-- 7 · Look again + reflect -->
+  <section class="screen" id="s-again" data-step="7">
     <span class="label">Look again</span>
     <h2>Look at it again. Where is it now?</h2>
     <p class="help">Don&rsquo;t aim for a number. Just notice.</p>
@@ -436,25 +377,11 @@ footer a { color: var(--soft); }
       </div>
       <div class="ends"><span>All upside</span><span>All cost</span></div>
     </div>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
-  </section>
-
-  <!-- 12 · Reflect -->
-  <section class="screen" id="s-notice" data-step="12">
-    <span class="label">Reflect</span>
-    <h2>What did you notice as you worked through this?</h2>
-    <label class="sr" for="a-notice">What you noticed</label>
-    <textarea class="mt" id="a-notice" data-key="notice" rows="3" data-focus></textarea>
-    <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>Next question</button></div>
-  </section>
-
-  <section class="screen" id="s-differently" data-step="12">
-    <span class="label">Reflect</span>
-    <h2>If this no longer ran you, what would you do differently this week?</h2>
-    <label class="sr" for="a-differently">What you would do differently</label>
-    <textarea class="mt" id="a-differently" data-key="differently" rows="3" data-focus></textarea>
+    <label class="field-label" for="a-notice">What do you see differently now?</label>
+    <textarea id="a-notice" data-key="notice" rows="3"></textarea>
     <div class="nav"><button class="back" type="button" data-prev aria-label="Back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><button class="btn" type="button" data-next>See my results</button></div>
   </section>
+
 
   <!-- Result + CTA -->
   <section class="screen" id="s-done">
@@ -696,7 +623,7 @@ var COPY = {
   var KEY='uys-exercise-v3';
   function blankAreas(){ var o={}; AREAS.forEach(function(a){ o[a.key]=[]; }); return o; }
   var S={step:0,kind:'',name:'',who:'',words:'',literal:'',source:'',sting:[],stingText:'',mf:'',before:80,pull:0,
-         mirror:blankAreas(),benefits:blankAreas(),after:null,notice:'',differently:''};
+         mirror:blankAreas(),benefits:blankAreas(),after:null,notice:'',differently:'',v:4};
 
   // restore (and carry over the few answers that still fit from the older version)
   try{
@@ -705,6 +632,7 @@ var COPY = {
       var o=JSON.parse(raw);
       for(var k in o) if(k in S && k!=='mirror' && k!=='benefits') S[k]=o[k];
       ['mirror','benefits'].forEach(function(g){ if(o[g]) AREAS.forEach(function(a){ if(Array.isArray(o[g][a.key])) S[g][a.key]=o[g][a.key].map(String); }); });
+      if(o.v!==4){ S.v=4; if(S.step>0) S.step=1; }   // screens were renumbered in the 7-step version
     } else {
       var old=localStorage.getItem('uys-exercise-v2')||localStorage.getItem('uys-exercise-v1');
       if(old){
@@ -738,19 +666,18 @@ var COPY = {
      What they type is sent to /api/examples (a Cloudflare function on this site), which asks an AI model
      for examples fitted to their words. If it is not set up or fails, the built-in examples stay. */
   var AI_ON=location.protocol.indexOf('http')===0;
-  var AI_STEP={ 's-words':'words', 's-literal':'literal', 's-sting':'sting', 's-mf':'mf', 's-mirror':'mirror', 's-benefits':'benefits' };
+  var AI_STEP={ 's-literal':'literal', 's-mf':'mf', 's-mirror':'mirror', 's-benefits':'benefits' };
   var AI_NEED={
     words:function(){ return S.name.trim()||S.kind; },
-    literal:function(){ return S.words.trim(); },
+    literal:function(){ return S.kind||S.who.trim(); },
     sting:function(){ return S.literal.trim(); },
-    mf:function(){ return S.words.trim()||S.literal.trim(); },
+    mf:function(){ return S.literal.trim(); },
     mirror:function(){ return S.mf.trim(); },
     benefits:function(){ return S.mf.trim(); }
   };
   var AI={ got:{}, wait:{}, off:false };
   function aiPayload(step){
-    return { step:step, kind:S.kind, name:S.name, words:S.words, literal:S.literal,
-             sting:S.sting.concat(S.stingText.trim()?[S.stingText.trim()]:[]), mf:S.mf };
+    return { step:step, kind:S.kind, literal:S.literal, mf:S.mf };
   }
   function aiKey(step){ return JSON.stringify(aiPayload(step)); }
   function aiNow(step){ var g=AI.got[step]; return g && g.key===aiKey(step) ? g.data : null; }
@@ -775,7 +702,7 @@ var COPY = {
   }
   function aiRefresh(sc){
     var step=AI_STEP[sc.id]; if(!step) return;
-    function redraw(){ if(screens[S.step]!==sc) return; if(step==='mirror'||step==='benefits') drawAreaEx(step); else renderEx(sc); }
+    function redraw(){ if(screens[S.step]!==sc) return; if(step==='mirror'||step==='benefits') drawAreaEx(step); else renderEx(sc); if(step==='mf') drawSugg(); }
     aiFetch(step,redraw);
     if(step==='mirror') aiFetch('benefits');   // get the next screen's examples ready
   }
@@ -866,7 +793,7 @@ var COPY = {
   /* ---------- screens ---------- */
   var screens=[].slice.call(document.querySelectorAll('.screen'));
   var LAST=screens.length-1;
-  var TOTAL=12;
+  var TOTAL=7;
   if(S.step>LAST) S.step=1;
   function idx(id){ for(var i=0;i<screens.length;i++) if(screens[i].id===id) return i; return -1; }
 
@@ -889,8 +816,7 @@ var COPY = {
     renderEx(sc);
     if(sc.id==='s-mirror'||sc.id==='s-benefits') drawAreaEx(sc.getAttribute('data-areas'));
     aiRefresh(sc);
-    if(sc.id==='s-sting') drawSting();
-    if(sc.id==='s-mf') mfCount();
+    if(sc.id==='s-mf'){ mfCount(); drawSugg(); }
     if(n===LAST) renderDone();
     window.scrollTo(0,0);
     sizeAll();
@@ -909,7 +835,6 @@ var COPY = {
     $('mf-hint').hidden=true;
     sc.querySelectorAll('[data-areanote]').forEach(function(n){ n.hidden=true; });
     var nb=sc.querySelector('[data-areas] [data-next]'); if(nb) nb.textContent='Next question';
-    sourceUI();
   }
   var GUARD={
     's-who':function(){
@@ -917,6 +842,10 @@ var COPY = {
       if(!v){ note.textContent=COPY.whoEmpty; note.hidden=false; $('a-who').focus(); return false; }
       if(isGroup(v) && !nudged.who){ nudged.who=1; note.textContent=COPY.whoGroup; note.hidden=false; $('who-next').textContent=COPY.whoGroupBtn; return false; }
       return true;
+    },
+    's-mf':function(){
+      if(S.mf.trim()) return true;
+      var h=$('mf-hint'); h.textContent=COPY.mfEmpty; h.hidden=false; $('a-mf').focus(); return false;
     },
     's-mirror':function(){ return areaGuard('mirror'); },
     's-benefits':function(){ return areaGuard('benefits'); }
@@ -950,10 +879,10 @@ var COPY = {
       S[k]=t.value; save(); runFlags(t);
       if(t.tagName==='TEXTAREA') size(t);
       if(k==='literal') S.sting=S.sting.filter(function(s){ return t.value.indexOf(s)>-1; });
-      if(k==='mf'){ mfCount(); $('mf-hint').hidden=true; }
+      if(k==='mf'){ mfCount(); $('mf-hint').hidden=true; drawSugg(); }
     });
     // Return moves to the next question. In a text box, Shift+Return still starts a new line.
-    if(k!=='mf'){
+    {
       if(t.tagName==='TEXTAREA') t.setAttribute('enterkeyhint','next');
       t.addEventListener('keydown',function(e){
         if(e.key!=='Enter' || e.isComposing || e.keyCode===229) return;
@@ -965,57 +894,15 @@ var COPY = {
   });
 
   /* ---------- name it options ---------- */
-  var opts=[].slice.call(document.querySelectorAll('#s-name .opt'));
+  var opts=[].slice.call(document.querySelectorAll('#s-who .opt'));
   opts.forEach(function(c){
     c.setAttribute('aria-pressed',c.textContent===S.kind?'true':'false');
     c.addEventListener('click',function(){
       var on=c.getAttribute('aria-pressed')!=='true';
       opts.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
       c.setAttribute('aria-pressed',on?'true':'false'); S.kind=on?c.textContent:''; save(); buzz();
-      if(on && DESKTOP) $('a-name').focus();
     });
   });
-
-  /* ---------- observed or reported ---------- */
-  var srcBtns=[].slice.call(document.querySelectorAll('[data-source]'));
-  function sourceUI(){
-    srcBtns.forEach(function(b){ b.setAttribute('aria-pressed',b.getAttribute('data-source')===S.source?'true':'false'); });
-    $('source-note').hidden=S.source!=='reported';
-    $('source-next').textContent=S.source==='reported'?'Continue':'Next question';
-  }
-  srcBtns.forEach(function(b){ b.addEventListener('click',function(){
-    var v=b.getAttribute('data-source'); S.source=(S.source===v)?'':v; save(); buzz(); sourceUI();
-  }); });
-  $('change-moment').addEventListener('click',function(){ show(idx('s-literal')); });
-
-  /* ---------- what still stings ---------- */
-  function pieces(text){
-    var t=String(text||'').replace(/\s+/g,' ').trim(); if(!t) return [];
-    // a sentence ends at . ! or ? followed by a space, so "$2.5" stays whole
-    var parts=t.replace(/([.!?]+[\u201D\u2019"')]*)\s+/g,'$1\u0000').split('\u0000');
-    parts=parts.map(function(s){ return s.trim(); }).filter(Boolean);
-    if(parts.length===1){ // one sentence: offer its clauses instead
-      var c=parts[0].split(/\s*[,;:\u2013\u2014]\s+|\s+-\s+/).map(function(s){ return s.trim(); }).filter(function(s){ return s.length>1; });
-      if(c.length>1) parts=c;
-    }
-    var seen={}; return parts.filter(function(p){ if(seen[p]) return false; seen[p]=1; return true; }).slice(0,12);
-  }
-  function drawSting(){
-    var box=$('sting-chips'), ps=pieces(S.literal);
-    S.sting=S.sting.filter(function(s){ return ps.indexOf(s)>-1; });
-    box.innerHTML='';
-    $('sting-empty').hidden=ps.length>0;
-    box.hidden=!ps.length;
-    ps.forEach(function(p){
-      var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=p;
-      b.setAttribute('aria-pressed',S.sting.indexOf(p)>-1?'true':'false');
-      b.addEventListener('click',function(){
-        var i=S.sting.indexOf(p); if(i>-1) S.sting.splice(i,1); else S.sting.push(p);
-        b.setAttribute('aria-pressed',i>-1?'false':'true'); save(); buzz();
-      });
-      box.appendChild(b);
-    });
-  }
 
   /* ---------- motor function ---------- */
   function mfCount(){
@@ -1023,12 +910,16 @@ var COPY = {
     el.textContent=n+(n===1?' word':' words')+(ok?' \u00B7 good length':n>4?' \u00B7 try trimming to 3\u20134':n?' \u00B7 aim for 3\u20134':'');
     el.classList.toggle('ok',ok);
   }
-  $('cam-yes').addEventListener('click',function(){
-    if(!S.mf.trim()){ var h=$('mf-hint'); h.textContent=COPY.mfEmpty; h.hidden=false; $('a-mf').focus(); return; }
-    next();
+  // AI suggestion: one tap to use it, then edit
+  function drawSugg(){
+    var a=aiNow('mf'), box=$('mf-suggest'), top=a&&a.pairs&&a.pairs[0]?a.pairs[0].mf:'';
+    if(!top || S.mf.trim()){ box.hidden=true; return; }
+    $('mf-sugg-text').textContent=top; box.hidden=false;
+  }
+  $('mf-use').addEventListener('click',function(){
+    var t=$('mf-sugg-text').textContent, i=$('a-mf'); if(!t) return;
+    i.value=t; S.mf=t; save(); mfCount(); runFlags(i); $('mf-suggest').hidden=true; $('mf-hint').hidden=true; buzz(); i.focus();
   });
-  $('cam-no').addEventListener('click',function(){ var h=$('mf-hint'); h.textContent=COPY.mfNotYet; h.hidden=false; var i=$('a-mf'); i.focus(); try{ i.setSelectionRange(i.value.length,i.value.length); }catch(e){} });
-  $('a-mf').addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); $('cam-yes').focus(); } });
 
   /* ---------- sliders ---------- */
   function syncRange(k){
@@ -1046,18 +937,6 @@ var COPY = {
     b.addEventListener('pointerdown',function(){ step(); buzz(); hold=setTimeout(function(){ rep=setInterval(step,70); },380); });
     ['pointerup','pointerleave','pointercancel'].forEach(function(ev){ b.addEventListener(ev,stop); });
   });
-
-  /* ---------- pull 1-10 ---------- */
-  var pull=$('pull');
-  for(var i=1;i<=10;i++){
-    var d=document.createElement('button'); d.type='button'; d.className='dot'; d.textContent=i; d.setAttribute('aria-pressed',S.pull===i?'true':'false');
-    d.addEventListener('click',(function(n,el){ return function(){
-      S.pull=(S.pull===n)?0:n; save(); buzz();
-      pull.querySelectorAll('.dot').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
-      if(S.pull) el.setAttribute('aria-pressed','true');
-    }; })(i,d));
-    pull.appendChild(d);
-  }
 
   /* ---------- seven areas (mirror + benefits) ---------- */
   function count(g){ var n=0; AREAS.forEach(function(a){ n+=S[g][a.key].length; }); return n; }
@@ -1125,7 +1004,6 @@ var COPY = {
   drawPrompt();
 
   /* ---------- results ---------- */
-  function sourceLabel(){ return S.source==='observed'?'Observed directly':S.source==='reported'?'Reported (told or read) \u00B7 carries less weight':'Source not marked'; }
   function bars(el,g,cls){
     var max=0; AREAS.forEach(function(a){ max=Math.max(max,S[g][a.key].length); });
     el.innerHTML=AREAS.map(function(a){
@@ -1142,7 +1020,7 @@ var COPY = {
   }
   function renderDone(){
     $('r-mf').textContent=S.mf.trim()||'No Motor Function yet';
-    $('r-meta').innerHTML=(S.who.trim()?'<b>'+esc(S.who.trim())+'</b> \u00B7 ':'')+esc(sourceLabel());
+    $('r-meta').innerHTML=(S.who.trim()?'<b>'+esc(S.who.trim())+'</b>':'')+(S.kind?(S.who.trim()?' \u00B7 ':'')+esc(S.kind):'');
     $('r-mcount').textContent=count('mirror')+' across '+covered('mirror')+' of 7';
     $('r-bcount').textContent=count('benefits')+' across '+covered('benefits')+' of 7';
     bars($('r-mirror'),'mirror','');
@@ -1155,26 +1033,19 @@ var COPY = {
     $('note').textContent=diff>=15?'That\u2019s what seeing the other side does. A session takes it all the way.':
       diff>0?'A first crack in the story. A session keeps going until it\u2019s balanced.':
       'If it barely moved, that\u2019s normal. This is where a session begins.';
-    var stings=S.sting.slice(); if(S.stingText.trim()) stings.push(S.stingText.trim());
     var h='';
-    h+='<div><b>What&rsquo;s going on'+(S.kind?' &middot; '+esc(S.kind):'')+'</b><p>'+esc(S.name||'\u2014')+'</p></div>';
-    if(S.who) h+='<div><b>Who</b><p>'+esc(S.who)+'</p></div>';
-    if(S.words) h+='<div><b>In my words</b><p>'+esc(S.words)+'</p></div>';
-    if(S.literal) h+='<div><b>The literal line</b><p>'+esc(S.literal)+'</p></div>';
-    h+='<div><b>Observed or reported</b><p>'+esc(sourceLabel())+'</p></div>';
-    if(stings.length) h+='<div><b>What still stings</b>'+list(stings)+'</div>';
+    if(S.who) h+='<div><b>Who'+(S.kind?' &middot; '+esc(S.kind):'')+'</b><p>'+esc(S.who)+'</p></div>';
+    if(S.literal) h+='<div><b>What they said or did</b><p>'+esc(S.literal)+'</p></div>';
     h+='<div><b>Motor Function</b><p>'+esc(S.mf||'\u2014')+'</p></div>';
-    if(S.pull) h+='<div><b>How strongly it pulls</b><p>'+S.pull+' / 10</p></div>';
     h+='<div><b>Where I&rsquo;ve done it &middot; '+count('mirror')+'</b>'+areaRecap('mirror')+'</div>';
     h+='<div><b>How it has served me &middot; '+count('benefits')+'</b>'+areaRecap('benefits')+'</div>';
-    if(S.notice) h+='<div><b>What I noticed</b><p>'+esc(S.notice)+'</p></div>';
-    if(S.differently) h+='<div><b>What I&rsquo;d do differently this week</b><p>'+esc(S.differently)+'</p></div>';
+    if(S.notice) h+='<div><b>What I see differently now</b><p>'+esc(S.notice)+'</p></div>';
     $('recap').innerHTML=h;
-    renderSheet(a,stings);
+    renderSheet(a);
   }
 
   // one-page print summary: answers are trimmed so it always fits a page
-  function renderSheet(after,stings){
+  function renderSheet(after){
     function cell(g,a){
       var arr=S[g][a.key]; if(!arr.length) return '<span class="c">0</span>';
       var more=arr.length>1?' <span>+'+(arr.length-1)+' more</span>':'';
@@ -1183,41 +1054,32 @@ var COPY = {
     var diff=S.before-after, h='';
     h+='<div class="s-top"><b>Under Your Skin</b><span>samosborne.net/exercise</span></div>';
     h+='<div class="s-mf">'+esc(S.mf.trim()||'No Motor Function yet')+'</div>';
-    h+='<div class="s-meta">'+(S.who.trim()?esc(cut(S.who,60))+' \u00B7 ':'')+esc(sourceLabel())+'</div>';
+    h+='<div class="s-meta">'+esc(cut(S.who.trim()||'\u2014',60))+(S.kind?' \u00B7 '+esc(S.kind):'')+'</div>';
     h+='<div class="s-grid">';
-    h+='<div><span class="s-k">The literal line</span><p>'+esc(cut(S.literal||'\u2014',130))+'</p></div>';
-    h+='<div><span class="s-k">What still stings</span><p>'+esc(cut(stings.join(' \u00B7 ')||'\u2014',130))+'</p></div>';
-    h+='<div><span class="s-k">One-sidedness</span><p>Before '+S.before+' \u2192 After '+after+' \u00B7 '+Math.abs(diff)+(diff>=0?' points toward balance':' points further from balance')+(S.pull?' \u00B7 Pull '+S.pull+'/10':'')+'</p></div>';
+    h+='<div><span class="s-k">What they said or did</span><p>'+esc(cut(S.literal||'\u2014',130))+'</p></div>';
+    h+='<div><span class="s-k">What I see differently now</span><p>'+esc(cut(S.notice||'\u2014',130))+'</p></div>';
+    h+='<div><span class="s-k">One-sidedness</span><p>Before '+S.before+' \u2192 After '+after+' \u00B7 '+Math.abs(diff)+(diff>=0?' points toward balance':' points further from balance')+'</p></div>';
     h+='<div><span class="s-k">Found</span><p>'+count('mirror')+' moments across '+covered('mirror')+' of 7 areas \u00B7 '+count('benefits')+' benefits across '+covered('benefits')+' of 7</p></div>';
     h+='</div>';
     h+='<table><thead><tr><th>Area</th><th>Where I&rsquo;ve done it</th><th>How it has served me</th></tr></thead><tbody>';
     AREAS.forEach(function(a){ h+='<tr><td>'+esc(a.name)+'</td><td>'+cell('mirror',a)+'</td><td>'+cell('benefits',a)+'</td></tr>'; });
     h+='</tbody></table>';
-    h+='<div class="s-grid">';
-    h+='<div><span class="s-k">What I noticed</span><p>'+esc(cut(S.notice||'\u2014',130))+'</p></div>';
-    h+='<div><span class="s-k">What I&rsquo;d do differently this week</span><p>'+esc(cut(S.differently||'\u2014',130))+'</p></div>';
-    h+='</div>';
     h+='<div class="s-foot">Educational, not therapy. Book a free 20-minute call with Sam: calendly.com/sam-samosborne/20min &middot; &copy; 2026 Sam Osborne</div>';
     $('sheet').innerHTML=h;
   }
 
   function asText(){
-    var a=S.after===null?S.before:S.after, L=[], stings=S.sting.slice(); if(S.stingText.trim()) stings.push(S.stingText.trim());
+    var a=S.after===null?S.before:S.after, L=[];
     function areas(g){ AREAS.forEach(function(ar){ L.push('  '+ar.name+':'); if(S[g][ar.key].length) S[g][ar.key].forEach(function(x){ L.push('    - '+x); }); else L.push('    -'); }); }
     L.push('THE UNDER-YOUR-SKIN EXERCISE','samosborne.net','');
     L.push('MOTOR FUNCTION: '+(S.mf||'-'),'');
-    L.push('1. NAME THEM'+(S.kind?' ('+S.kind+')':''),S.name||'-','');
-    L.push('2. WHO',S.who||'-','');
-    L.push('3. IN MY WORDS',S.words||'-','');
-    L.push('4. THE LITERAL LINE',S.literal||'-','');
-    L.push('5. OBSERVED OR REPORTED',sourceLabel(),'');
-    L.push('6. WHAT STILL STINGS'); if(stings.length) stings.forEach(function(x){ L.push('  - '+x); }); else L.push('  -'); L.push('');
-    L.push('7. MOTOR FUNCTION',S.mf||'-','');
-    L.push('8. SCORE IT','One-sided: '+S.before+' / 100'+(S.pull?'   Pull: '+S.pull+' / 10':''),'');
-    L.push('9. WHERE I HAVE DONE IT ('+count('mirror')+' across '+covered('mirror')+' of 7 areas)'); areas('mirror'); L.push('');
-    L.push('10. HOW IT HAS SERVED ME ('+count('benefits')+' across '+covered('benefits')+' of 7 areas)'); areas('benefits'); L.push('');
-    L.push('11. LOOK AGAIN','New score: '+a+' / 100','');
-    L.push('12. REFLECT','What I noticed: '+(S.notice||'-'),'What I would do differently this week: '+(S.differently||'-'),'');
+    L.push('1. WHO'+(S.kind?' ('+S.kind+')':''),S.who||'-','');
+    L.push('2. WHAT THEY SAID OR DID',S.literal||'-','');
+    L.push('3. MOTOR FUNCTION',S.mf||'-','');
+    L.push('4. SCORE IT','One-sided: '+S.before+' / 100','');
+    L.push('5. WHERE I HAVE DONE IT ('+count('mirror')+' across '+covered('mirror')+' of 7 areas)'); areas('mirror'); L.push('');
+    L.push('6. HOW IT HAS SERVED ME ('+count('benefits')+' across '+covered('benefits')+' of 7 areas)'); areas('benefits'); L.push('');
+    L.push('7. LOOK AGAIN','New score: '+a+' / 100','What I see differently now: '+(S.notice||'-'),'');
     L.push('Next step: book a free 20-minute call with Sam: https://calendly.com/sam-samosborne/20min');
     return L.join('\n');
   }

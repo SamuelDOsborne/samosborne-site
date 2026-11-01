@@ -53,8 +53,8 @@ Shape: {"items":["...","...","..."]}`,
     check: r => Array.isArray(r.items) && r.items.length ? { items: r.items.slice(0, 4).map(clip) } : null
   },
   literal: {
-    need: b => b.words,
-    ask: `Take the labels and verdicts in what they wrote ("in their own words") and, for each of up to 3 of them, show what a camera might have caught instead: a plausible literal line or action that fits their situation. Use their label as "label" (short, in quotes-free form, e.g. "Bossy"). The "literal" is one sentence, past tense, e.g. She said, "Put that down and do this first."
+    need: b => b.words || b.kind,
+    ask: `Show what a camera might have caught instead of a label. If they wrote labels or verdicts ("in their own words"), use up to 3 of them. Otherwise, pick 3 labels people commonly use about someone in this relationship. For each, give a plausible literal line or action that fits their situation. Use their label as "label" (short, in quotes-free form, e.g. "Bossy"). The "literal" is one sentence, past tense, e.g. She said, "Put that down and do this first."
 Shape: {"pairs":[{"label":"...","literal":"..."}]}`,
     check: r => Array.isArray(r.pairs) && r.pairs.length ? { pairs: r.pairs.slice(0, 4).filter(p => p && p.label && p.literal).map(p => ({ label: clip(p.label), literal: clip(p.literal) })) } : null
   },
