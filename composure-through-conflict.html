@@ -1072,7 +1072,103 @@
             color: rgba(245, 245, 247, 0.7);
         }
         
+
+        /* ================= CINEMATIC LAYER ================= */
+        :root { --ink: #050506; }
+        .grain { position: absolute; inset: -50%; z-index: 3; pointer-events: none; opacity: .07; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+        .cine .grain { animation: grain 1.2s steps(6) infinite; }
+        @keyframes grain { 0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)} }
+        .lb { position: absolute; left: 0; right: 0; height: 0; background: #000; z-index: 4; pointer-events: none; }
+        .lb-top { top: 0; } .lb-bot { bottom: 0; }
+        .cine .lb { animation: lbOpen 1.8s cubic-bezier(.7,0,.2,1) both; }
+        @keyframes lbOpen { 0% { height: 50.5%; } 100% { height: 0; } }
+        @keyframes push { from { transform: scale(1.12) translate3d(0,0,0); } to { transform: scale(1) translate3d(0,0,0); } }
+        @keyframes drift { from { transform: scale(1.06) translate3d(-1.2%,0,0); } to { transform: scale(1.14) translate3d(1.2%,-1%,0); } }
+
+        /* hero */
+        .hero.cine-hero { position: relative; overflow: hidden; background: var(--ink); min-height: 100vh; min-height: 100svh; padding-top: 70px; justify-content: center; }
+        .hero-media { position: absolute; top: 0; right: 0; bottom: 0; width: min(54vw, 860px); z-index: 0; overflow: hidden; }
+        .hero-kb { position: absolute; right: 0; bottom: 0; width: 100%; height: auto; max-height: 100%; object-fit: cover; object-position: 50% 20%; transform-origin: 65% 70%;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, transparent 0%, #000 22%); -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, transparent 0%, #000 22%); mask-composite: intersect; }
+        .cine .hero-kb { animation: push 22s cubic-bezier(.2,.6,.3,1) forwards; }
+        .hero-media::after { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(5,5,6,0) 75%, var(--ink) 100%); }
+        .cine-hero .hero-grid { position: relative; z-index: 5; grid-template-columns: 1fr; width: 100%; padding-top: 60px; }
+        .cine-hero .hero-content { max-width: 600px; }
+        .cine-hero .hero-title { font-size: clamp(48px, 6.4vw, 84px); line-height: .98; letter-spacing: -.045em; text-shadow: 0 2px 30px rgba(0,0,0,.6); }
+        .cine-hero .hero-proof-wrap { position: relative; z-index: 5; }
+        .cine-hero .hero-proof { background: rgba(10,10,12,.55); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+        .scroll-cue { position: absolute; z-index: 5; left: 50%; bottom: 22px; transform: translateX(-50%); width: 1px; height: 46px; background: linear-gradient(180deg, rgba(212,165,116,0), var(--gold)); overflow: hidden; }
+        .cine .scroll-cue::after { content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: #fff; animation: cue 2.2s ease-in-out infinite; }
+        @keyframes cue { 0% { top: -40%; } 100% { top: 110%; } }
+        @media (max-width: 900px) {
+            .hero.cine-hero { justify-content: flex-start; }
+            .hero-media { width: 100%; bottom: auto; height: 74vh; }
+            .hero-media::after { background: linear-gradient(180deg, rgba(5,5,6,.2) 0%, rgba(5,5,6,0) 30%, rgba(5,5,6,.85) 78%, var(--ink) 100%); }
+            .hero-kb { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; -webkit-mask-image: none; mask-image: none; }
+            .cine-hero .hero-grid { padding-top: 42vh; }
+            .cine-hero .hero-content { margin: 0 auto; }
+            .scroll-cue { display: none; }
+        }
+
+        /* hero text: staggered entrance */
+        .cine .rise { opacity: 0; transform: translateY(22px); animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+        @keyframes rise { to { opacity: 1; transform: none; } }
+
+        /* full-bleed cinematic bands */
+        .band { position: relative; overflow: hidden; background: var(--ink); color: #fff; min-height: 78vh; display: flex; align-items: flex-end; }
+        .band-img { position: absolute; inset: -6% 0; background-size: cover; background-position: center; will-change: transform; }
+        .cine .band.inview .band-img { animation: drift 30s linear forwards; }
+        .band::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse at 50% 40%, rgba(5,5,6,.1) 0%, rgba(5,5,6,.6) 85%), linear-gradient(180deg, var(--charcoal) 0%, rgba(5,5,6,0) 22%, rgba(5,5,6,0) 45%, rgba(5,5,6,.9) 88%, var(--charcoal) 100%); }
+        .band-copy { position: relative; z-index: 5; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px 72px; }
+        .band-kicker { font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+        .band-quote { margin-top: 16px; font-size: clamp(28px, 4.4vw, 56px); font-weight: 700; letter-spacing: -.03em; line-height: 1.08; max-width: 900px; text-wrap: balance; transition: opacity .5s ease; }
+        .band-attrib { margin-top: 18px; font-size: 15px; color: rgba(245,245,247,.7); transition: opacity .5s ease; }
+        .reel-play { display: inline-flex; align-items: center; gap: 16px; margin-top: 30px; background: none; border: 0; padding: 0; color: #fff; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; text-align: left; }
+        .reel-play .rp-icon { width: 68px; height: 68px; border-radius: 50%; background: var(--gold); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 0 0 rgba(212,165,116,.5); transition: transform .25s ease; }
+        .cine .reel-play .rp-icon { animation: pulse 2.6s ease-out infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212,165,116,.45); } 100% { box-shadow: 0 0 0 26px rgba(212,165,116,0); } }
+        .reel-play .rp-icon::before { content: ""; margin-left: 5px; border-style: solid; border-width: 12px 0 12px 19px; border-color: transparent transparent transparent #1a1a1a; }
+        .reel-play:hover .rp-icon { transform: scale(1.07); }
+        .reel-play small { display: block; font-size: 13px; font-weight: 400; color: rgba(245,245,247,.6); }
+        .reel-soon { display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(245,245,247,.6); }
+        .reel-soon::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #e5484d; box-shadow: 0 0 10px #e5484d; }
+        .cine .reel-soon::before { animation: rec 1.6s steps(2) infinite; }
+        @keyframes rec { 50% { opacity: .2; } }
+        .reel-frame { position: absolute; inset: 0; z-index: 8; background: #000; display: none; }
+        .reel-frame.on { display: block; }
+        .reel-frame iframe { width: 100%; height: 100%; border: 0; }
+        .reel-close { position: absolute; top: 16px; right: 16px; z-index: 9; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.6); color: #fff; font-size: 22px; cursor: pointer; }
+        .reel-play[hidden], .reel-soon[hidden] { display: none; }
+        #reel::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(5,5,6,.82) 0%, rgba(5,5,6,.45) 45%, rgba(5,5,6,0) 70%); }
+        .band-right .band-copy { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+        .band-right .band-quote { max-width: 620px; }
+        .band-right::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(270deg, rgba(5,5,6,.85) 0%, rgba(5,5,6,.5) 40%, rgba(5,5,6,0) 62%); }
+        @media (max-width: 768px) { .band-right .band-copy { align-items: flex-start; text-align: left; } .band-right::before, #reel::before { background: linear-gradient(180deg, rgba(5,5,6,0) 30%, rgba(5,5,6,.7) 100%); } }
+        @media (max-width: 768px) { .band { min-height: 66vh; } .band-copy { padding: 0 20px 48px; } }
+
+        /* speakers: tall portraits */
+        .speakers-grid .speaker-portrait { position: relative; width: 100%; max-width: 420px; aspect-ratio: 4 / 5; margin: 0 auto 26px; border-radius: 18px; overflow: hidden; background: #0d0d0d; border: 1px solid rgba(212,165,116,.28); }
+        .speaker-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.08); transition: transform 1.6s cubic-bezier(.2,.7,.2,1), filter 1.6s ease; filter: grayscale(.55) brightness(.8); }
+        .speaker-card.inview .speaker-portrait img { transform: scale(1); filter: none; }
+        .speaker-portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%); }
+        @media (hover: hover) { .speaker-card:hover .speaker-portrait img { transform: scale(1.04); } }
+
+        /* scroll reveals */
+        .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+        .js .reveal.inview { opacity: 1; transform: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-kb, .band-img, .grain, .lb, .rise, .rp-icon, .scroll-cue::after, .reel-soon::before { animation: none !important; }
+            .js .reveal, .rise { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .speaker-portrait img { transform: none !important; filter: none !important; transition: none !important; }
+        }
     </style>
+    <script>
+        // Turn on motion before first paint (skipped for visitors who ask for reduced motion)
+        document.documentElement.classList.add('js');
+        if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) document.documentElement.classList.add('cine');
+    </script>
 </head>
 <body>
     <div class="cursor" aria-hidden="true"><div class="cursor-dot"></div><div class="cursor-ring"></div></div>
@@ -1098,27 +1194,28 @@
     </nav>
 
     <!-- HERO -->
-    <section class="hero" id="top">
+    <section class="hero cine-hero" id="top">
+        <div class="hero-media" aria-hidden="true"><img class="hero-kb" src="images/opt/ctc-duo.jpg" alt="" width="830" height="928" fetchpriority="high"></div>
+        <span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span>
         <div class="hero-grid">
             <div class="hero-content">
-                <div class="hero-badge">★★★★★ Rated Best Session of the Conference by Attendees</div>
-                <h1 class="hero-title">Composure <em>Through</em> Conflict</h1>
-                <p class="hero-kicker">Stop Taking Things So Personally</p>
-                <p class="hero-subtitle">A repeatable method for legal professionals who need composure under pressure — delivered by two practitioners who use it in the field.</p>
-                <div class="hero-presented-by">Presented By</div>
-                <div class="hero-speakers">
+                <div class="hero-badge rise" style="animation-delay:.5s">★★★★★ Rated Best Session of the Conference by Attendees</div>
+                <h1 class="hero-title rise" style="animation-delay:.7s">Composure <em>Through</em> Conflict</h1>
+                <p class="hero-kicker rise" style="animation-delay:.9s">Stop Taking Things So Personally</p>
+                <p class="hero-subtitle rise" style="animation-delay:1.05s">A repeatable method for legal professionals who need composure under pressure — delivered by two practitioners who use it in the field.</p>
+                <div class="hero-presented-by rise" style="animation-delay:1.2s">Presented By</div>
+                <div class="hero-speakers rise" style="animation-delay:1.25s">
                     <span>Sam Osborne</span>
                     <span class="plus">+</span>
                     <span>David J. Graf <span class="cred">Esq., CCAL</span></span>
                 </div>
-                <div class="hero-cta-group">
+                <div class="hero-cta-group rise" style="animation-delay:1.4s">
                     <a href="#contact" class="btn btn-primary">Request This Program</a>
                     <a href="#what" class="btn btn-secondary">See What's Included</a>
                 </div>
             </div>
-            <img src="images/sam%20dave%20hero%20sec.png" alt="Sam Osborne and David Graf" class="hero-photo" />
         </div>
-        <div class="hero-proof-wrap">
+        <div class="hero-proof-wrap rise" style="animation-delay:1.6s">
             <div class="hero-proof">
                 <div class="proof-item">
                     <div class="proof-number">4.7</div>
@@ -1134,19 +1231,22 @@
                 </div>
             </div>
         </div>
+        <span class="scroll-cue" aria-hidden="true"></span>
     </section>
 
-    <!-- DEMO REEL / LIVE PROOF -->
-    <div class="demo-reel-section">
-        <div class="demo-reel-placeholder">
-            <div class="play-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="demo-reel-quote" id="reelQuote">"Totally engaging. Different. Funny. Challenging. Best session I attended this conference."</p>
-            <div class="demo-reel-attrib" id="reelAttrib">Conference Attendee · CAI Law Seminar 2026</div>
-            <div class="demo-reel-tag">Demo Reel — Coming Soon · Footage In Production</div>
+    <!-- REEL BAND: set CTC_REEL in the script below to a Cloudflare Stream video ID when footage is ready -->
+    <section class="band" id="reel" aria-label="Session reel">
+        <div class="band-img" style="background-image:url('images/opt/ctc-room.jpg')" aria-hidden="true"></div>
+        <span class="grain" aria-hidden="true"></span>
+        <div class="band-copy reveal">
+            <div class="band-kicker">In the room</div>
+            <p class="band-quote" id="reelQuote">&ldquo;Totally engaging. Different. Funny. Challenging. Best session I attended this conference.&rdquo;</p>
+            <div class="band-attrib" id="reelAttrib">Conference Attendee &middot; CAI Law Seminar 2026</div>
+            <button class="reel-play" type="button" id="reelPlay" hidden><span class="rp-icon" aria-hidden="true"></span><span>Watch the session reel<small>With sound</small></span></button>
+            <div class="reel-soon" id="reelSoon">Session reel in production</div>
         </div>
-    </div>
+        <div class="reel-frame" id="reelFrame"><button class="reel-close" type="button" id="reelClose" aria-label="Close video">&times;</button></div>
+    </section>
 
     <!-- WHAT -->
     <section class="section" id="what">
@@ -1202,17 +1302,28 @@
         <h2 class="section-title">Your Speakers</h2>
         <div class="speakers-grid">
             <div class="speaker-card">
-                <img src="images/dave-graf-speaker-square-tile.jpg" alt="David J. Graf, Esq., CCAL" class="speaker-image-wrap" style="width: 200px; height: 200px; border-radius: 12px; border: 2px solid var(--gold); object-fit: cover;" />
+                <div class="speaker-portrait"><img src="images/opt/ctc-dave-portrait.jpg" alt="David J. Graf, Esq., CCAL, speaking on stage" loading="lazy" width="960" height="1280"></div>
                 <div class="speaker-role">Attorney · CCAL Fellow · Colorado</div>
                 <h3 class="speaker-name">David J. Graf</h3>
                 <p class="speaker-bio">Partner at Moeller Graf, P.C. in Colorado, and CCAL Fellow. David brings the lived reality of adversarial legal environments — the cost of taking conflict personally. His delivery is candid, self-aware, and real. He puts words to feelings professionals experience but rarely name. Attendees recognize themselves in his stories and leave with different eyes.</p>
             </div>
             <div class="speaker-card">
-                <img src="images/sam-osborne-speaker-square-tile.jpg" alt="Sam Osborne — Perception Mechanic" class="speaker-image-wrap" style="width: 200px; height: 200px; border-radius: 12px; border: 2px solid var(--gold); object-fit: cover;" />
+                <div class="speaker-portrait"><img src="images/opt/ctc-sam-portrait.jpg" alt="Sam Osborne speaking at a podium" loading="lazy" width="960" height="1200"></div>
                 <div class="speaker-role">Demartini Method Facilitator · Los Angeles</div>
                 <h3 class="speaker-name">Sam Osborne</h3>
                 <p class="speaker-bio">A metal shard nearly took his sight — and transformed his relationship with perception. He has studied perception since 2008 and the Demartini Method since 2014, and now works with attorneys and leaders who need composure under pressure. He delivers live demonstrations of perceptual transformation. Audiences witness it working in real time.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- QUOTE BAND -->
+    <section class="band band-right" aria-label="Attendee quote">
+        <div class="band-img" style="background-image:url('images/opt/ctc-sam-stage.jpg'); background-position: 50% 30%" aria-hidden="true"></div>
+        <span class="grain" aria-hidden="true"></span>
+        <div class="band-copy reveal">
+            <div class="band-kicker">Rated best session of the conference</div>
+            <p class="band-quote">&ldquo;Literally the best law seminar session I&rsquo;ve been to in many years.&rdquo;</p>
+            <div class="band-attrib">Legal Professional &middot; CAI Law Seminar 2026</div>
         </div>
     </section>
 
@@ -1535,7 +1646,7 @@
         (function() {
             const quotes = [
                 { q: '"Totally engaging. Different. Funny. Challenging. Best session I attended this conference."', a: 'Conference Attendee · CAI Law Seminar 2026' },
-                { q: '"Literally the best law seminar session I\'ve been to in many years. Thank you!"', a: 'Legal Professional · CAI Law Seminar 2026' },
+                { q: '"One of the best sessions I\'ve attended at any conference."', a: 'Dawn Roscoe, AMS, PCAM · VP of Operations, Professional Properties Management' },
                 { q: '"This transformational experience has forever changed the way I practice law and relate to people."', a: 'Augustus Shaw IV, Esq., CCAL · President, CCAL' }
             ];
             const qEl = document.getElementById('reelQuote');
@@ -1547,13 +1658,72 @@
             let i = 0;
             setInterval(() => {
                 i = (i + 1) % quotes.length;
-                qEl.style.opacity = 0;
+                qEl.style.opacity = 0; aEl.style.opacity = 0;
                 setTimeout(() => {
-                    qEl.textContent = quotes[i].q;
+                    qEl.textContent = quotes[i].q.replace(/^"/, '\u201C').replace(/"$/, '\u201D');
                     aEl.textContent = quotes[i].a;
-                    qEl.style.opacity = 1;
-                }, 400);
+                    qEl.style.opacity = 1; aEl.style.opacity = 1;
+                }, 500);
             }, 6000);
+        })();
+
+        /* ---------- Cinematic layer ---------- */
+        // Session reel: paste the Cloudflare Stream video ID here when the footage is ready.
+        // Leave it empty and the band shows "Session reel in production" instead of a play button.
+        const CTC_REEL = '';
+        const STREAM = 'https://customer-lilcuopn7rwe61gd.cloudflarestream.com/';
+        (function () {
+            const play = document.getElementById('reelPlay'), soon = document.getElementById('reelSoon');
+            const frame = document.getElementById('reelFrame'), close = document.getElementById('reelClose');
+            if (!CTC_REEL) return;
+            play.hidden = false; soon.hidden = true;
+            play.addEventListener('click', () => {
+                const f = document.createElement('iframe');
+                f.src = STREAM + CTC_REEL + '/iframe?autoplay=true&controls=true';
+                f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true; f.title = 'Composure Through Conflict session reel';
+                frame.appendChild(f); frame.classList.add('on'); close.focus();
+            });
+            close.addEventListener('click', () => { frame.classList.remove('on'); const f = frame.querySelector('iframe'); if (f) f.remove(); play.focus(); });
+        })();
+
+        // Scroll reveals, staggered within each group
+        (function () {
+            const sel = '.section-label,.section-title,.what-block,.outcome-card,.speaker-card,.testimonial-slide,.result-card,.program-block,.fee-card,.faq-item,.form-container';
+            const els = Array.from(document.querySelectorAll(sel));
+            els.forEach(el => {
+                el.classList.add('reveal');
+                const sibs = Array.from(el.parentNode.children).filter(c => c.matches(sel));
+                const i = sibs.indexOf(el);
+                if (i > 0) el.style.transitionDelay = Math.min(i * 0.09, 0.45) + 's';
+            });
+            const targets = els.concat(Array.from(document.querySelectorAll('.band, .band-copy')));
+            if (!('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('inview')); return; }
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('inview'); io.unobserve(e.target); } });
+            }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+            targets.forEach(el => io.observe(el));
+        })();
+
+        // Count-up numbers
+        (function () {
+            const nums = document.querySelectorAll('.proof-number, .result-number');
+            const reduce = !document.documentElement.classList.contains('cine');
+            function run(el) {
+                const raw = el.textContent.trim(), m = raw.match(/^([\d.]+)(.*)$/); if (!m) return;
+                const end = parseFloat(m[1]), dec = (m[1].split('.')[1] || '').length, suffix = m[2];
+                if (reduce) return;
+                const t0 = performance.now(), dur = 1600;
+                (function tick(t) {
+                    const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+                    el.textContent = (end * e).toFixed(dec) + suffix;
+                    if (k < 1) requestAnimationFrame(tick); else el.textContent = raw;
+                })(t0);
+            }
+            if (!('IntersectionObserver' in window)) return;
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); setTimeout(() => run(e.target), e.target.closest('.hero') ? 1500 : 0); } });
+            }, { threshold: 0.6 });
+            nums.forEach(n => io.observe(n));
         })();
 
         // FAQ toggle
