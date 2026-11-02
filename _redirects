@@ -11,3 +11,7 @@
 # Private sessions page moved to /calm
 /private-sessions       /calm   301
 /private-sessions.html  /calm   301
+
+# Composure Through Conflict page moved to /composure
+/composure-through-conflict       /composure   301
+/composure-through-conflict.html  /composure   301
