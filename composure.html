@@ -1276,6 +1276,43 @@
         .mcta .watch[hidden] { display: none; }
         @media (max-width: 768px) { .mcta { display: flex; } footer { padding-bottom: 96px !important; } }
         @media (prefers-reduced-motion: reduce) { .hero-loop, .mcta { transition: none; } }
+
+        /* ================= POLISH PASS ================= */
+        /* 1. one typographic voice: serif headings, Inter for reading and UI */
+        .section-title, .speaker-name, .reel-title { font-family: var(--serif); font-weight: 600; letter-spacing: -.01em; line-height: 1.05; }
+        .section-title { font-size: clamp(40px, 6.2vw, 64px); }
+        .speaker-name { font-size: 38px; }
+        /* 2. testimonials: upright, readable body; serif only in the quote mark */
+        .testimonial-slide { position: relative; }
+        .testimonial-quote { font-family: 'Inter', -apple-system, sans-serif; font-style: normal; font-size: 16.5px; line-height: 1.65; padding-top: 30px; }
+        .testimonial-quote::before { content: "\201C"; position: absolute; top: 18px; left: 36px; font-family: var(--serif); font-size: 64px; line-height: 1; color: var(--gold-deep); }
+        @media (max-width: 768px) { .testimonial-quote::before { left: 22px; } }
+        /* 3. hero tagline: balanced lines */
+        .hero-kicker { text-wrap: balance; letter-spacing: .1em; }
+        /* 4. one photo treatment for both speakers */
+        .speaker-portrait img, .speaker-card.inview .speaker-portrait img { filter: saturate(.55) sepia(.2) contrast(1.06) brightness(.95); }
+        .speaker-portrait[style*="dave"] img, .speaker-card.inview .speaker-portrait[style*="dave"] img { filter: saturate(.42) sepia(.3) hue-rotate(-6deg) contrast(1.08) brightness(.98); }
+        .speaker-portrait::before { filter: blur(16px) saturate(.4) sepia(.3) brightness(.5); }
+        /* 5. FAQ on paper */
+        .paper .faq-item { background: #FFFFFF; border: 1px solid #E6E1DA; }
+        .paper .faq-question { color: var(--paper-ink); }
+        .paper .faq-icon { color: var(--slate); }
+        .paper .faq-answer { color: #4A4A4F; }
+        /* 6. consistent left alignment */
+        #results > p, #fees > p { text-align: left !important; margin-left: 0 !important; }
+        .faq-container, .form-container, .carousel-container { margin-left: 0; }
+        #contact .section-label, #contact .section-title { text-align: left !important; }
+        /* 7. phones */
+        @media (max-width: 768px) {
+            .hero-proof { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; padding: 18px 10px !important; }
+            .proof-number { font-size: 28px; }
+            .proof-label { font-size: 10px; letter-spacing: .04em; }
+            .section-title { font-size: clamp(34px, 9.5vw, 42px); }
+            .speaker-name { font-size: 32px; }
+            .hero-speakers { flex-direction: column; align-items: center; gap: 2px; }
+            .hero-speakers .plus { font-size: 14px; line-height: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) { .speaker-portrait img { filter: saturate(.55) sepia(.2) contrast(1.06) brightness(.95) !important; } }
     </style>
     <script>
         // Turn on motion before first paint (skipped for visitors who ask for reduced motion)
@@ -1478,32 +1515,32 @@
         <div class="carousel-container">
             <div class="carousel-track">
                 <div class="testimonial-slide">
-                    <p class="testimonial-quote">"This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts. I highly recommend this seminar!"</p>
+                    <p class="testimonial-quote">This transformational experience has forever changed the way I practice law and relate to people. Practical and easily adaptable concepts. I highly recommend this seminar!</p>
                     <div class="testimonial-author">Augustus Shaw IV, Esq., CCAL</div>
                     <div class="testimonial-title">President, College of Community Association Lawyers</div>
                 </div>
                 <div class="testimonial-slide">
-                    <p class="testimonial-quote">"One of the best sessions I've attended at any conference. Sam and Dave delivered practical tools that immediately changed how I approach conflict—both professionally and personally."</p>
+                    <p class="testimonial-quote">One of the best sessions I've attended at any conference. Sam and Dave delivered practical tools that immediately changed how I approach conflict—both professionally and personally.</p>
                     <div class="testimonial-author">Dawn Roscoe, AMS, PCAM</div>
                     <div class="testimonial-title">VP of Operations, Professional Properties Management</div>
                 </div>
                 <div class="testimonial-slide">
-                    <p class="testimonial-quote">"The session reinforced emotional discipline during difficult conversations. Clear tools to separate facts from reactions. Supporting staying grounded, professional, and effective when conflict arises."</p>
+                    <p class="testimonial-quote">The session reinforced emotional discipline during difficult conversations. Clear tools to separate facts from reactions. Supporting staying grounded, professional, and effective when conflict arises.</p>
                     <div class="testimonial-author">Michael Tillotson, CMCA®, AMS®</div>
                     <div class="testimonial-title">VP of Community Management, HOALiving/CAM</div>
                 </div>
                 <div class="testimonial-slide">
-                    <p class="testimonial-quote">"Totally engaging. Different. Funny. Challenging. Best session I attended this conference. And on a Friday morning! Bravo, gentlemen."</p>
+                    <p class="testimonial-quote">Totally engaging. Different. Funny. Challenging. Best session I attended this conference. And on a Friday morning! Bravo, gentlemen.</p>
                     <div class="testimonial-author">Conference Attendee</div>
                     <div class="testimonial-title">CAI Law Seminar 2026</div>
                 </div>
                 <div class="testimonial-slide">
-                    <p class="testimonial-quote">"Sam was outstanding and provided a refreshing perspective. He also gave common sense and practical solutions."</p>
+                    <p class="testimonial-quote">Sam was outstanding and provided a refreshing perspective. He also gave common sense and practical solutions.</p>
                     <div class="testimonial-author">Legal Professional</div>
                     <div class="testimonial-title">CAI Law Seminar 2026</div>
                 </div>
                 <div class="testimonial-slide">
-                    <p class="testimonial-quote">"I highly recommend Sam and David for their presentation for conferences or leadership events serving professionals who operate regularly in stressful, conflict-rich environments."</p>
+                    <p class="testimonial-quote">I highly recommend Sam and David for their presentation for conferences or leadership events serving professionals who operate regularly in stressful, conflict-rich environments.</p>
                     <div class="testimonial-author">Brian Butler</div>
                     <div class="testimonial-title">President, FirstService Residential Illinois</div>
                 </div>
@@ -1649,7 +1686,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
+    <section class="section paper" id="faq">
         <div class="section-label">Before You Book</div>
         <h2 class="section-title">Common Questions</h2>
         <div class="faq-container">
