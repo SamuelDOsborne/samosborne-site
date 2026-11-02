@@ -12,6 +12,8 @@
 /private-sessions       /calm   301
 /private-sessions.html  /calm   301
 
-# Composure Through Conflict page moved to /composure
-/composure-through-conflict       /composure   301
-/composure-through-conflict.html  /composure   301
+# Composure Through Conflict moved to its own domain
+/composure                         https://composurethroughconflict.com/   301
+/composure.html                    https://composurethroughconflict.com/   301
+/composure-through-conflict        https://composurethroughconflict.com/   301
+/composure-through-conflict.html   https://composurethroughconflict.com/   301
