@@ -1380,6 +1380,23 @@
         .ph-corner i { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
         .pend-grid .band-quote { font-size: clamp(30px, 3.3vw, 46px); }
         @media (max-width: 900px) { .pend-grid { grid-template-columns: 1fr; gap: 28px; } .ph-play { width: 60px; height: 60px; } }
+
+        /* ---- mobile sideways-drift fix ----
+           iOS Safari ignores overflow-x on <body> alone and can let oversized animated
+           layers (grain overlays, Ken Burns photo) escape overflow:hidden. Lock the page
+           width at the root and hard-clip every section that holds oversized media. */
+        html, body { max-width: 100%; overflow-x: hidden; }
+        @supports (overflow: clip) { html, body { overflow-x: clip; } }
+        .hero.cine-hero, .hero-media, .band, .hero-loop { overflow: hidden; overflow: clip; contain: paint; isolation: isolate; }
+        .grain { inset: -10%; }   /* still covers the ±3% jitter, without a 200%-wide layer */
+        .cine-hero .hero-grid { grid-template-columns: minmax(0, 1fr); }
+        .cine-hero .hero-content { min-width: 0; }
+        @media (max-width: 900px) { .cine-hero .hero-content { max-width: 100%; } }
+        .hero-title, .hero-kicker, .hero-subtitle, .hero-quote { overflow-wrap: break-word; }
+        @media (max-width: 420px) {
+            .cine-hero .hero-title { font-size: clamp(42px, 14vw, 60px); }
+            .cine-hero .hero-title em { padding-left: .35em; }
+        }
     </style>
     <script>
         // Turn on motion before first paint (skipped for visitors who ask for reduced motion)
