@@ -1213,11 +1213,76 @@
         .paper .result-label { color: #4A4A4F; }
         .paper + .paper { padding-top: 20px; }
         @media (prefers-reduced-motion: reduce) { .speaker-portrait img { transform: scale(1.28) !important; filter: var(--grade) !important; } }
+
+        /* ================= SHOW REEL ================= */
+        .btn-watch { display: inline-flex; align-items: center; gap: 10px; background: none; border: 0; color: #fff; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; padding: 14px 4px; }
+        .btn-watch .w-ico { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--gold); display: inline-flex; align-items: center; justify-content: center; transition: background .2s; }
+        .btn-watch .w-ico::before { content: ""; margin-left: 3px; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent var(--gold); }
+        .btn-watch:hover .w-ico { background: rgba(212,165,116,.15); }
+        .btn-watch[hidden] { display: none; }
+
+        /* hero background loop */
+        .hero-loop { position: absolute; inset: 0; z-index: 1; overflow: hidden; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+        .hero-loop.on { opacity: 1; }
+        .hero-loop iframe { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 0; }
+        .hero.has-loop .hero-media { width: 100%; }
+        .hero.has-loop .hero-media::after { background: linear-gradient(90deg, rgba(5,5,6,.92) 0%, rgba(5,5,6,.7) 38%, rgba(5,5,6,.15) 75%), linear-gradient(180deg, rgba(5,5,6,0) 70%, var(--ink) 100%); z-index: 2; }
+        .loop-toggle { position: absolute; z-index: 6; right: 20px; bottom: 20px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.45); color: #fff; font-size: 12px; letter-spacing: -1px; cursor: pointer; }
+        @media (max-width: 900px) { .hero.has-loop .hero-media { height: 74vh; } .hero.has-loop .hero-media::after { background: linear-gradient(180deg, rgba(5,5,6,.2) 0%, rgba(5,5,6,0) 30%, rgba(5,5,6,.85) 78%, var(--ink) 100%); } }
+
+        /* reel band states */
+        #reel .reel-live { display: none; }
+        #reel.live .reel-live { display: block; }
+        #reel.live .reel-pending { display: none; }
+        .reel-title { margin-top: 14px; font-family: var(--serif); font-weight: 500; font-size: clamp(40px, 6vw, 80px); line-height: 1; letter-spacing: -.01em; color: #fff; }
+        .reel-title em { color: var(--gold-light); }
+        .reel-sub { margin-top: 14px; max-width: 520px; font-size: 17px; color: rgba(245,245,247,.78); }
+        .moments { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+        .moments-l { width: 100%; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--slate-l); }
+        .moment { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px 10px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); background: rgba(10,10,12,.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #fff; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; }
+        .moment b { font-weight: 600; color: var(--gold); font-variant-numeric: tabular-nums; }
+        .moment:hover { border-color: var(--gold); }
+        #reel .band-img { cursor: default; }
+        #reel.live .band-img { cursor: pointer; }
+
+        /* reel lightbox */
+        .reel-modal { position: fixed; inset: 0; z-index: 10000; display: none; background: rgba(0,0,0,.92); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+        .reel-modal.on { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: center; padding: 56px 40px 40px; }
+        .rm-stage { position: relative; width: 100%; aspect-ratio: 16 / 9; max-height: calc(100vh - 120px); background: #000; border-radius: 12px; overflow: hidden; }
+        .rm-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .rm-side h2 { font-family: var(--serif); font-weight: 500; font-size: 30px; line-height: 1.1; color: #fff; }
+        .rm-side p { margin-top: 8px; font-size: 14px; color: rgba(245,245,247,.65); }
+        .rm-chapters { list-style: none; margin-top: 20px; display: grid; gap: 6px; }
+        .rm-chapters button { width: 100%; text-align: left; display: flex; gap: 12px; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color: #fff; font: inherit; font-size: 14px; cursor: pointer; }
+        .rm-chapters button b { color: var(--gold); font-variant-numeric: tabular-nums; font-weight: 600; min-width: 38px; }
+        .rm-chapters button[aria-current="true"] { border-color: var(--gold); background: rgba(212,165,116,.1); }
+        .rm-side .btn { margin-top: 22px; width: 100%; text-align: center; }
+        .rm-close { position: absolute; top: 14px; right: 18px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.6); color: #fff; font-size: 24px; cursor: pointer; z-index: 3; }
+        .rm-end { position: absolute; inset: 0; z-index: 2; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 24px; background: rgba(5,5,6,.88); }
+        .rm-end.on { display: flex; }
+        .rm-end h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(28px, 4vw, 44px); color: #fff; line-height: 1.1; }
+        .rm-end p { color: rgba(245,245,247,.7); font-size: 15px; }
+        .rm-end .row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+        .rm-end .linkish { background: none; border: 0; color: rgba(245,245,247,.7); text-decoration: underline; font: inherit; font-size: 14px; cursor: pointer; }
+        @media (max-width: 900px) { .reel-modal.on { grid-template-columns: 1fr; align-content: start; padding: 64px 14px 24px; overflow-y: auto; } .rm-stage { max-height: none; } }
+
+        /* sticky mobile booking bar */
+        .mcta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; display: none; gap: 10px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(11,11,12,.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,.1); transform: translateY(110%); transition: transform .3s ease; }
+        .mcta.on { transform: none; }
+        .mcta a, .mcta button { flex: 1; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; }
+        .mcta .go { background: var(--gold); color: #1A1A1A; border: 0; }
+        .mcta .watch { background: none; color: #fff; border: 1.5px solid rgba(255,255,255,.3); }
+        .mcta .watch[hidden] { display: none; }
+        @media (max-width: 768px) { .mcta { display: flex; } footer { padding-bottom: 96px !important; } }
+        @media (prefers-reduced-motion: reduce) { .hero-loop, .mcta { transition: none; } }
     </style>
     <script>
         // Turn on motion before first paint (skipped for visitors who ask for reduced motion)
         document.documentElement.classList.add('js');
         if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) document.documentElement.classList.add('cine');
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Service","name":"Composure Through Conflict","serviceType":"Conference keynote and workshop program","description":"A duo program on composure under pressure for legal and professional audiences, delivered by Sam Osborne and David J. Graf, Esq., CCAL, including a live volunteer demonstration.","url":"https://samosborne.net/composure-through-conflict","provider":[{"@type":"Person","name":"Sam Osborne","url":"https://samosborne.net"},{"@type":"Person","name":"David J. Graf","honorificSuffix":"Esq., CCAL"}],"areaServed":"Worldwide","offers":[{"@type":"Offer","name":"Virtual program","price":5000,"priceCurrency":"USD"},{"@type":"Offer","name":"Education session","price":7500,"priceCurrency":"USD"},{"@type":"Offer","name":"Keynote","price":10000,"priceCurrency":"USD"},{"@type":"Offer","name":"Half-day workshop","price":15000,"priceCurrency":"USD"}]}
     </script>
 </head>
 <body>
@@ -1234,6 +1299,7 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#what">The Session</a></li>
+                <li id="navReel" hidden><a href="#reel">Reel</a></li>
                 <li><a href="#speakers">Speakers</a></li>
                 <li><a href="#results">Results</a></li>
                 <li><a href="#program">Program</a></li>
@@ -1245,7 +1311,7 @@
 
     <!-- HERO -->
     <section class="hero cine-hero" id="top">
-        <div class="hero-media" aria-hidden="true"><img class="hero-kb" src="images/opt/ctc-duo.jpg" alt="" width="830" height="928" fetchpriority="high"></div>
+        <div class="hero-media" aria-hidden="true"><div class="hero-loop" id="heroLoop"></div><img class="hero-kb" src="images/opt/ctc-duo.jpg" alt="" width="830" height="928" fetchpriority="high"></div>
         <span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span>
         <div class="hero-grid">
             <div class="hero-content">
@@ -1261,7 +1327,8 @@
                 </div>
                 <div class="hero-cta-group rise" style="animation-delay:1.4s">
                     <a href="#contact" class="btn btn-primary">Request This Program</a>
-                    <a href="#what" class="btn btn-secondary">See What's Included</a>
+                    <button type="button" class="btn-watch" id="heroWatch" hidden><span class="w-ico" aria-hidden="true"></span><span>Watch the reel</span></button>
+                    <a href="#what" class="btn btn-secondary" id="heroIncluded">See What's Included</a>
                 </div>
             </div>
         </div>
@@ -1284,19 +1351,45 @@
         <span class="scroll-cue" aria-hidden="true"></span>
     </section>
 
-    <!-- REEL BAND: set CTC_REEL in the script below to a Cloudflare Stream video ID when footage is ready -->
-    <section class="band" id="reel" aria-label="Session reel">
-        <div class="band-img" style="background-image:url('images/opt/ctc-room.jpg')" aria-hidden="true"></div>
+    <!-- SHOW REEL: switch on by filling CTC (the config block in the script near the end of this file) -->
+    <section class="band" id="reel" aria-label="Show reel">
+        <div class="band-img" id="reelPoster" style="background-image:url('images/opt/ctc-room.jpg')" aria-hidden="true"></div>
         <span class="grain" aria-hidden="true"></span>
         <div class="band-copy reveal">
-            <div class="band-kicker">In the room</div>
-            <p class="band-quote" id="reelQuote">&ldquo;Totally engaging. Different. Funny. Challenging. Best session I attended this conference.&rdquo;</p>
-            <div class="band-attrib" id="reelAttrib">Conference Attendee &middot; CAI Law Seminar 2026</div>
-            <button class="reel-play" type="button" id="reelPlay" hidden><span class="rp-icon" aria-hidden="true"></span><span>Watch the session reel<small>With sound</small></span></button>
-            <div class="reel-soon" id="reelSoon">Session reel in production</div>
+            <div class="reel-pending">
+                <div class="band-kicker">In the room</div>
+                <p class="band-quote" id="reelQuote">&ldquo;Totally engaging. Different. Funny. Challenging. Best session I attended this conference.&rdquo;</p>
+                <div class="band-attrib" id="reelAttrib">Conference Attendee &middot; CAI Law Seminar 2026</div>
+                <div class="reel-soon" id="reelSoon">Show reel coming soon</div>
+            </div>
+            <div class="reel-live">
+                <div class="band-kicker">The show reel</div>
+                <h2 class="reel-title">See the room <em>change.</em></h2>
+                <p class="reel-sub">A live volunteer, a real conflict, and the moment the charge leaves the room. Watch what your audience will experience.</p>
+                <button class="reel-play" type="button" id="reelPlay"><span class="rp-icon" aria-hidden="true"></span><span>Watch the reel<small id="reelMeta">With sound &middot; captions on</small></span></button>
+                <div class="moments" id="moments"></div>
+            </div>
         </div>
-        <div class="reel-frame" id="reelFrame"><button class="reel-close" type="button" id="reelClose" aria-label="Close video">&times;</button></div>
     </section>
+
+    <!-- Reel player (lightbox) -->
+    <div class="reel-modal" id="reelModal" role="dialog" aria-modal="true" aria-label="Composure Through Conflict show reel" hidden>
+        <button class="rm-close" type="button" id="rmClose" aria-label="Close video">&times;</button>
+        <div class="rm-stage" id="rmStage">
+            <div class="rm-end" id="rmEnd">
+                <h3>Bring this to your audience.</h3>
+                <p>Programs from $5,000 &middot; virtual or in person</p>
+                <div class="row"><a href="#contact" class="btn btn-primary" data-rm-go>Request This Program</a><a href="https://calendly.com/sam-samosborne/20min" target="_blank" rel="noopener" class="btn btn-secondary" data-rm-call>Book a 20-minute call</a></div>
+                <button type="button" class="linkish" id="rmReplay">Watch again</button>
+            </div>
+        </div>
+        <aside class="rm-side">
+            <h2>Composure Through Conflict</h2>
+            <p>Sam Osborne + David J. Graf, Esq., CCAL</p>
+            <ul class="rm-chapters" id="rmChapters"></ul>
+            <a href="#contact" class="btn btn-primary" data-rm-go>Request This Program</a>
+        </aside>
+    </div>
 
     <!-- WHAT -->
     <section class="section" id="what">
@@ -1670,6 +1763,12 @@
         </form>
     </section>
 
+    <!-- Sticky mobile booking bar -->
+    <div class="mcta" id="mcta" aria-label="Book this program">
+        <button type="button" class="watch" id="mctaWatch" hidden>&#9654; Reel</button>
+        <a href="#contact" class="go">Request This Program</a>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <p class="footer-names">Sam Osborne & David J. Graf, Esq., CCAL</p>
@@ -1749,23 +1848,149 @@
             }, 6000);
         })();
 
-        /* ---------- Cinematic layer ---------- */
-        // Session reel: paste the Cloudflare Stream video ID here when the footage is ready.
-        // Leave it empty and the band shows "Session reel in production" instead of a play button.
-        const CTC_REEL = '';
+        /* ================= SHOW REEL CONFIG =================
+           When the footage is edited and uploaded to Cloudflare Stream, fill these in. Nothing else needs to change.
+           - reel:     the Stream video ID of the main show reel (with sound). Turn on captions for it in Stream.
+           - length:   shown on the play button, e.g. '2:45'.
+           - loop:     the Stream ID of a short silent clip for the hero background (can be the reel itself).
+           - loopStart / loopEnd: the seconds of that clip to loop (6 to 10 seconds is ideal).
+           - chapters: jump points inside the reel, in seconds. Edit the labels to match the cut; delete any you don't have.
+           - uploadDate: the date the reel went live (YYYY-MM-DD), for search engines.
+           Leave reel empty and the page shows the "Show reel coming soon" state with the photos. */
+        const CTC = {
+            reel: '',
+            length: '',
+            loop: '',
+            loopStart: 0,
+            loopEnd: 8,
+            chapters: [
+                { label: 'The live demonstration', start: null },
+                { label: 'Dave on the cost of conflict', start: null },
+                { label: 'The room afterward', start: null }
+            ],
+            uploadDate: ''
+        };
         const STREAM = 'https://customer-lilcuopn7rwe61gd.cloudflarestream.com/';
+
         (function () {
-            const play = document.getElementById('reelPlay'), soon = document.getElementById('reelSoon');
-            const frame = document.getElementById('reelFrame'), close = document.getElementById('reelClose');
-            if (!CTC_REEL) return;
-            play.hidden = false; soon.hidden = true;
-            play.addEventListener('click', () => {
-                const f = document.createElement('iframe');
-                f.src = STREAM + CTC_REEL + '/iframe?autoplay=true&controls=true';
-                f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true; f.title = 'Composure Through Conflict session reel';
-                frame.appendChild(f); frame.classList.add('on'); close.focus();
+            const $ = id => document.getElementById(id);
+            const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const conn = navigator.connection || {};
+            const lowData = conn.saveData || /(^|-)2g/.test(conn.effectiveType || '');
+            const fmt = t => Math.floor(t / 60) + ':' + String(Math.floor(t % 60)).padStart(2, '0');
+            const track = (ev, extra) => { try { window.dispatchEvent(new CustomEvent('ctc:reel', { detail: Object.assign({ event: ev }, extra || {}) })); if (window.zaraz && zaraz.track) zaraz.track('ctc_reel_' + ev, extra || {}); } catch (e) {} };
+            let sdk = null;
+            const loadSdk = () => sdk || (sdk = new Promise((res, rej) => { const sc = document.createElement('script'); sc.src = 'https://embed.cloudflarestream.com/embed/sdk.latest.js'; sc.onload = () => res(window.Stream); sc.onerror = rej; document.head.appendChild(sc); }));
+
+            /* ---- hero background loop (silent) ---- */
+            (function heroLoop() {
+                if (!CTC.loop || reduce || lowData) return;
+                const hero = $('top'), box = $('heroLoop');
+                let started = false;
+                function cover(f) { const w = box.clientWidth, h = box.clientHeight; if (w / h > 16 / 9) { f.style.width = w + 'px'; f.style.height = Math.ceil(w * 9 / 16) + 'px'; } else { f.style.height = h + 'px'; f.style.width = Math.ceil(h * 16 / 9) + 'px'; } }
+                function start() {
+                    if (started) return; started = true;
+                    hero.classList.add('has-loop');
+                    const f = document.createElement('iframe');
+                    f.title = 'Background video'; f.tabIndex = -1; f.allow = 'autoplay; encrypted-media';
+                    f.src = STREAM + CTC.loop + '/iframe?muted=true&autoplay=true&loop=true&controls=false&preload=auto&startTime=' + CTC.loopStart + 's';
+                    box.appendChild(f); cover(f); window.addEventListener('resize', () => cover(f));
+                    const t = document.createElement('button'); t.type = 'button'; t.className = 'loop-toggle'; t.innerHTML = '&#10073;&#10073;'; t.setAttribute('aria-label', 'Pause background video'); hero.appendChild(t);
+                    loadSdk().then(Stream => {
+                        const p = Stream(f); let paused = false;
+                        p.addEventListener('playing', () => { if (!paused) box.classList.add('on'); });
+                        p.addEventListener('timeupdate', () => { if (p.currentTime >= CTC.loopEnd - 0.2) p.currentTime = CTC.loopStart; });
+                        t.addEventListener('click', () => { paused = !paused; if (paused) { p.pause(); t.innerHTML = '&#9654;'; t.setAttribute('aria-label', 'Play background video'); } else { p.play(); t.innerHTML = '&#10073;&#10073;'; t.setAttribute('aria-label', 'Pause background video'); } });
+                    }).catch(() => {});
+                }
+                if (document.readyState === 'complete') setTimeout(start, 600); else window.addEventListener('load', () => setTimeout(start, 600));
+            })();
+
+            /* ---- reel: pending vs live ---- */
+            const band = $('reel');
+            if (!CTC.reel) return;
+            band.classList.add('live');
+            document.getElementById('navReel').hidden = false;
+            $('heroWatch').hidden = false; $('mctaWatch').hidden = false;
+            $('heroIncluded').hidden = true;
+            if (CTC.length) $('reelMeta').textContent = CTC.length + ' · with sound · captions on';
+            $('reelPoster').style.backgroundImage = "url('" + STREAM + CTC.reel + "/thumbnails/thumbnail.jpg?time=" + (CTC.loopStart || 1) + "s&height=1080'), url('images/opt/ctc-room.jpg')";
+
+            const chapters = CTC.chapters.filter(c => typeof c.start === 'number');
+            const moments = $('moments'), list = $('rmChapters');
+            if (chapters.length) {
+                const l = document.createElement('span'); l.className = 'moments-l'; l.textContent = 'Jump to a moment'; moments.appendChild(l);
+                chapters.forEach((c, i) => {
+                    const b = document.createElement('button'); b.type = 'button'; b.className = 'moment';
+                    b.innerHTML = '<b>' + fmt(c.start) + '</b>'; b.appendChild(document.createTextNode(c.label));
+                    b.addEventListener('click', () => open(c.start, 'moment_' + (i + 1))); moments.appendChild(b);
+                    const li = document.createElement('li'), cb = document.createElement('button'); cb.type = 'button';
+                    cb.innerHTML = '<b>' + fmt(c.start) + '</b>'; cb.appendChild(document.createTextNode(c.label));
+                    cb.addEventListener('click', () => seek(c.start)); li.appendChild(cb); list.appendChild(li);
+                });
+            }
+
+            /* search engines: VideoObject */
+            try {
+                const ld = { '@context': 'https://schema.org', '@type': 'VideoObject', name: 'Composure Through Conflict show reel', description: 'Sam Osborne and David J. Graf, Esq., CCAL, deliver Composure Through Conflict, including a live volunteer demonstration of the Demartini Method.', thumbnailUrl: STREAM + CTC.reel + '/thumbnails/thumbnail.jpg', contentUrl: STREAM + CTC.reel + '/manifest/video.m3u8', embedUrl: STREAM + CTC.reel + '/iframe' };
+                if (CTC.uploadDate) ld.uploadDate = CTC.uploadDate;
+                const sc = document.createElement('script'); sc.type = 'application/ld+json'; sc.textContent = JSON.stringify(ld); document.head.appendChild(sc);
+            } catch (e) {}
+
+            /* ---- lightbox player ---- */
+            const modal = $('reelModal'), stage = $('rmStage'), end = $('rmEnd');
+            let player = null, iframe = null, lastFocus = null, marks = {};
+            function seek(t) { if (player) { player.currentTime = t; player.play(); end.classList.remove('on'); } }
+            function setCurrent(t) { const btns = list.querySelectorAll('button'); let cur = -1; chapters.forEach((c, i) => { if (t >= c.start) cur = i; }); btns.forEach((b, i) => b.setAttribute('aria-current', i === cur ? 'true' : 'false')); }
+            function open(at, src) {
+                lastFocus = document.activeElement; marks = {};
+                modal.hidden = false; modal.classList.add('on'); document.body.style.overflow = 'hidden'; end.classList.remove('on');
+                iframe = document.createElement('iframe');
+                iframe.title = 'Composure Through Conflict show reel';
+                iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; iframe.allowFullscreen = true;
+                iframe.src = STREAM + CTC.reel + '/iframe?autoplay=true&controls=true&defaultTextTrack=en&preload=auto' + (at ? '&startTime=' + at + 's' : '');
+                stage.insertBefore(iframe, end);
+                $('rmClose').focus();
+                track('open', { from: src || 'reel' });
+                loadSdk().then(Stream => {
+                    player = Stream(iframe);
+                    player.addEventListener('play', () => track('play'));
+                    player.addEventListener('timeupdate', () => {
+                        const d = player.duration, t = player.currentTime; setCurrent(t);
+                        if (d) [25, 50, 75].forEach(q => { if (!marks[q] && t / d >= q / 100) { marks[q] = 1; track('progress', { percent: q }); } });
+                    });
+                    player.addEventListener('ended', () => { end.classList.add('on'); track('complete'); end.querySelector('a').focus(); });
+                }).catch(() => {});
+            }
+            function close() {
+                modal.classList.remove('on'); modal.hidden = true; document.body.style.overflow = '';
+                if (iframe) iframe.remove(); iframe = null; player = null;
+                if (lastFocus) lastFocus.focus();
+            }
+            $('reelPlay').addEventListener('click', () => open(0, 'reel'));
+            $('reelPoster').addEventListener('click', () => open(0, 'poster'));
+            $('heroWatch').addEventListener('click', () => open(0, 'hero'));
+            $('mctaWatch').addEventListener('click', () => open(0, 'mobile_bar'));
+            $('rmClose').addEventListener('click', close);
+            $('rmReplay').addEventListener('click', () => seek(0));
+            modal.querySelectorAll('[data-rm-go]').forEach(a => a.addEventListener('click', () => { track('cta', { action: 'request' }); close(); }));
+            modal.querySelector('[data-rm-call]').addEventListener('click', () => track('cta', { action: 'call' }));
+            modal.addEventListener('click', e => { if (e.target === modal) close(); });
+            document.addEventListener('keydown', e => {
+                if (!modal.classList.contains('on')) return;
+                if (e.key === 'Escape') close();
+                if (e.key === 'Tab') { const f = Array.from(modal.querySelectorAll('button, a, iframe')).filter(x => x.offsetParent !== null); const first = f[0], last = f.at(-1); if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); } else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); } }
             });
-            close.addEventListener('click', () => { frame.classList.remove('on'); const f = frame.querySelector('iframe'); if (f) f.remove(); play.focus(); });
+        })();
+
+        /* ---- sticky mobile booking bar: shows after the hero, hides at the form ---- */
+        (function () {
+            const bar = document.getElementById('mcta'), hero = document.getElementById('top'), form = document.getElementById('contact');
+            if (!bar || !('IntersectionObserver' in window)) return;
+            let pastHero = false, atForm = false;
+            const upd = () => bar.classList.toggle('on', pastHero && !atForm);
+            new IntersectionObserver(e => { pastHero = !e[0].isIntersecting; upd(); }, { threshold: 0.05 }).observe(hero);
+            new IntersectionObserver(e => { atForm = e[0].isIntersecting; upd(); }, { threshold: 0 }).observe(form);
         })();
 
         // Scroll reveals, staggered within each group
