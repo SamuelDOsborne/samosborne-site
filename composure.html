@@ -1315,9 +1315,23 @@
         @media (prefers-reduced-motion: reduce) { .speaker-portrait img { filter: saturate(.55) sepia(.2) contrast(1.06) brightness(.95) !important; } }
         .speaker-portrait.plain img { -webkit-mask-image: none; mask-image: none; transform: scale(1.06); transform-origin: 45% 35%; }
         .speaker-card.inview .speaker-portrait.plain img { transform: scale(1); }
-        .speaker-portrait.plain img, .speaker-card.inview .speaker-portrait.plain img { filter: saturate(.55) sepia(.2) contrast(1.06) brightness(.85); }
-        .speaker-portrait.plain::after { background: radial-gradient(ellipse 72% 66% at 45% 36%, rgba(10,10,12,0) 42%, rgba(10,10,12,.72) 100%), linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(0,0,0,.55) 100%); }
         @media (hover: hover) { .speaker-card:hover .speaker-portrait.plain img { transform: scale(1.03); } }
+        /* keep the hero's buttons above the fold on laptop screens */
+        @media (min-width: 901px) {
+            .cine-hero .hero-grid { padding-top: 24px; padding-bottom: 24px; }
+            .cine-hero .hero-title { font-size: clamp(56px, 6.6vw, 96px); margin-bottom: 14px; }
+            .cine-hero .hero-kicker { margin-bottom: 14px; }
+            .cine-hero .hero-subtitle { margin-bottom: 22px; }
+            .cine-hero .hero-proof { margin-top: 28px; }
+        }
+        @media (min-width: 901px) and (max-height: 820px) {
+            .cine-hero .hero-title { font-size: clamp(52px, 5.6vw, 76px); }
+        }
+        /* hero pull quote (replaces the badge) */
+        .hero-quote { margin: 0 0 22px; padding-left: 16px; border-left: 2px solid var(--gold); max-width: 600px; }
+        .hero-quote blockquote { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(19px, 1.8vw, 22px); line-height: 1.3; color: #F5F5F7; text-wrap: balance; }
+        .hero-quote figcaption { margin-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--slate-l); }
+        @media (max-width: 900px) { .hero-quote { text-align: left; margin-left: auto; margin-right: auto; } }
     </style>
     <script>
         // Turn on motion before first paint (skipped for visitors who ask for reduced motion)
@@ -1358,7 +1372,7 @@
         <span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span>
         <div class="hero-grid">
             <div class="hero-content">
-                <div class="hero-badge rise" style="animation-delay:.5s">★★★★★ Rated Best Session of the Conference by Attendees</div>
+                <figure class="hero-quote rise" style="animation-delay:.5s"><blockquote>&ldquo;Literally the best law seminar session I&rsquo;ve been to in many years.&rdquo;</blockquote><figcaption>CAI National Law Seminar 2026 &middot; Best session of the conference</figcaption></figure>
                 <h1 class="hero-title rise" style="animation-delay:.7s">Composure <em>Through</em> Conflict</h1>
                 <p class="hero-kicker rise" style="animation-delay:.9s">Stop Taking Things So Personally</p>
                 <p class="hero-subtitle rise" style="animation-delay:1.05s">A repeatable method for legal professionals who need composure under pressure — delivered by two practitioners who use it in the field.</p>
@@ -1494,7 +1508,7 @@
                 <p class="speaker-bio">Partner at Moeller Graf, P.C. in Colorado, and CCAL Fellow. David brings the lived reality of adversarial legal environments — the cost of taking conflict personally. His delivery is candid, self-aware, and real. He puts words to feelings professionals experience but rarely name. Attendees recognize themselves in his stories and leave with different eyes.</p>
             </div>
             <div class="speaker-card">
-                <div class="speaker-portrait plain" style="--src:url('images/opt/ctc-sam-portrait.jpg?v=3'); --fx:45%; --fy:25%"><img src="images/opt/ctc-sam-portrait.jpg?v=3" alt="Sam Osborne" loading="lazy" width="766" height="957"></div>
+                <div class="speaker-portrait plain" style="--src:url('images/opt/ctc-sam-portrait.jpg?v=4'); --fx:42%; --fy:30%"><img src="images/opt/ctc-sam-portrait.jpg?v=4" alt="Sam Osborne speaking on stage" loading="lazy" width="960" height="1200"></div>
                 <div class="speaker-role">Demartini Method Facilitator · Los Angeles</div>
                 <h3 class="speaker-name">Sam Osborne</h3>
                 <p class="speaker-bio">A metal shard nearly took his sight — and transformed his relationship with perception. He has studied perception since 2008 and the Demartini Method since 2014, and now works with attorneys and leaders who need composure under pressure. He delivers live demonstrations of perceptual transformation. Audiences witness it working in real time.</p>
@@ -1507,9 +1521,9 @@
         <div class="band-img" style="background-image:url('images/opt/sam-osborne-speaking-panel.jpg'); background-position: 30% 50%" aria-hidden="true"></div>
         <span class="grain" aria-hidden="true"></span>
         <div class="band-copy reveal">
-            <div class="band-kicker">Rated best session of the conference</div>
-            <p class="band-quote">&ldquo;Literally the best law seminar session I&rsquo;ve been to in many years.&rdquo;</p>
-            <div class="band-attrib">Legal Professional &middot; CAI Law Seminar 2026</div>
+            <div class="band-kicker">What leaders in the field say</div>
+            <p class="band-quote">&ldquo;This transformational experience has forever changed the way I practice law and relate to people.&rdquo;</p>
+            <div class="band-attrib">Augustus Shaw IV, Esq., CCAL &middot; President, College of Community Association Lawyers</div>
         </div>
     </section>
 
@@ -1871,7 +1885,7 @@
             const quotes = [
                 { q: '"Totally engaging. Different. Funny. Challenging. Best session I attended this conference."', a: 'Conference Attendee · CAI Law Seminar 2026' },
                 { q: '"One of the best sessions I\'ve attended at any conference."', a: 'Dawn Roscoe, AMS, PCAM · VP of Operations, Professional Properties Management' },
-                { q: '"This transformational experience has forever changed the way I practice law and relate to people."', a: 'Augustus Shaw IV, Esq., CCAL · President, CCAL' }
+                { q: '"Clear tools to separate facts from reactions."', a: 'Michael Tillotson, CMCA®, AMS® · VP of Community Management, HOALiving/CAM' }
             ];
             const qEl = document.getElementById('reelQuote');
             const aEl = document.getElementById('reelAttrib');
