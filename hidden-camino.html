@@ -36,18 +36,11 @@ body {
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  cursor: none;
 }
 a { text-decoration: none; color: var(--gold); transition: color .2s; }
 a:hover { color: var(--white); }
 img { display: block; max-width: 100%; }
 
-/* ═══════════════════════════════════
-   CURSOR
-═══════════════════════════════════ */
-.cursor { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; }
-.cursor-dot { width: 5px; height: 5px; background: var(--off); border-radius: 50%; position: absolute; transform: translate(-50%,-50%); }
-.cursor-ring { width: 34px; height: 34px; border: 1px solid rgba(240,237,232,.32); border-radius: 50%; position: absolute; transform: translate(-50%,-50%); transition: width .24s ease, height .24s ease, border-color .24s ease; }
 
 /* ═══════════════════════════════════
    NAV
@@ -548,13 +541,11 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   .stop-tooltip { display: none; }
   .proof-wrap { padding: 72px 20px; }
   footer { padding: 44px 20px 32px; }
-  .cursor { display: none; }
 }
 </style>
 </head>
 <body id="top">
 
-<div class="cursor"><div class="cursor-dot"></div><div class="cursor-ring"></div></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -1147,22 +1138,6 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </footer>
 
 <script>
-// CURSOR
-const dot = document.querySelector('.cursor-dot');
-const ring = document.querySelector('.cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-(function loop() {
-  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-  rx += (mx - rx) * .12; ry += (my - ry) * .12;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(loop);
-})();
-document.querySelectorAll('a, button, .offer-card, .side-card, .day-row, .stop-item, .proof-item').forEach(el => {
-  el.addEventListener('mouseenter', () => { ring.style.width = '50px'; ring.style.height = '50px'; ring.style.borderColor = 'rgba(212,165,116,.55)'; });
-  el.addEventListener('mouseleave', () => { ring.style.width = '34px'; ring.style.height = '34px'; ring.style.borderColor = 'rgba(240,237,232,.32)'; });
-});
-
 // NAV SCROLL
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
