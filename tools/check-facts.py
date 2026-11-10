@@ -17,8 +17,6 @@ FORBIDDEN = [
     ("twenty years",        "use the dates (2008 / 2014), not a rounded count"),
     ("20 years",            "use the dates (2008 / 2014), not a rounded count"),
     ("Best of Conference",  "CAI issued no such award; use the 95% figure"),
-    ("818.934.5140",        "personal cell; the business number is 213.423.2868"),
-    ("818 934 5140",        "personal cell; the business number is 213.423.2868"),
     ("selfworthsam",        "retired brand"),
     ("youtube.com/embed",   "corporate filters block youtube; use Cloudflare Stream"),
     ("i.ytimg.com",         "corporate filters block youtube; use Cloudflare Stream"),
@@ -27,14 +25,25 @@ FORBIDDEN = [
 # ── Facts that must agree wherever they appear ──────────────────────────────
 # label: (regex that finds the claim, the only value allowed)
 CONSISTENT = {
-    "phone":            (r"\(?213\)?[ .)-]*423[.-]2868|(\d{3})[.-](\d{3})[.-](\d{4})", "213.423.2868"),
+    "phone":            (r"\(?818\)?[ .)-]*934[.-]5140|(\d{3})[.-](\d{3})[.-](\d{4})", "818.934.5140"),
     "eval: rating":     (r"\b4\.[0-9]\s*(?:/|out of)\s*5", "4.7 / 4.9 only"),
     "eval: excellent":  (r"\b(\d{2})%\s*(?:of attendees\s*)?rated", "95%"),
     "eval: responses":  (r"\b(\d{2})\s+evaluations", "39"),
 }
 
 # ── Prices that must match the pricing ladder ───────────────────────────────
-PRICES = {"$15,000", "$30,000", "$50,000", "$38,000"}
+PRICES = {
+    # speaking
+    "$3,500", "$5,000", "$7,500", "$10,000", "$12,500", "$17,500", "$20,000",
+    # private sessions
+    "$1,100", "$4,500",
+    # leadership advisory
+    "$9,500", "$18,000", "$36,000",
+    # composure through conflict (two presenters)
+    "$15,000",
+    # hidden camino
+    "$18,500",
+}
 
 def visible(p):
     s = p.read_text(encoding="utf-8", errors="ignore")
@@ -54,8 +63,8 @@ for p in pages:
     # phone numbers that are not the business line (ignore form placeholders)
     for m in re.finditer(r"\b(\d{3})[.\- ](\d{3})[.\-](\d{4})\b", text):
         got = m.group(0)
-        if got.replace("-", ".").replace(" ", ".") not in ("213.423.2868", "555.000.0000"):
-            problems.append((p.name, f"phone {got}", "expected 213.423.2868"))
+        if got.replace("-", ".").replace(" ", ".") not in ("818.934.5140", "555.000.0000"):
+            problems.append((p.name, f"phone {got}", "expected 818.934.5140"))
     # stray prices outside the ladder
     for m in re.finditer(r"\$\d{1,3},\d{3}", text):
         if m.group(0) not in PRICES and m.group(0) not in ("$90,000", "$52,000", "$28,000", "$150,000", "$22,000"):
