@@ -1460,28 +1460,30 @@
   <!-- ═══════════════ CREDIBILITY: SPOKEN FOR + AS HEARD ON ═══════════════ -->
   <style>
     .cred-band { background: var(--bg); border-top: 1px solid var(--line); padding: 44px 40px 8px; }
-    .cred-row { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .cred-row { max-width: 1320px; margin: 0 auto; text-align: center; }
     .cred-band .heard-label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
-    .logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px 44px; }
+    .logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px 36px; }
     .logo-row li { display: flex; align-items: center; opacity: .72; transition: opacity .2s ease; }
     .logo-row li:hover { opacity: 1; }
-    .logo-row img { height: 40px; width: auto; display: block; }
-    .logo-row li.tall img { height: 50px; }
-    .logo-row li.wide img { height: 34px; }
-    .logo-row .logo-text { flex-direction: column; align-items: center; line-height: 1.05; color: #fff; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 12px; }
-    .logo-row .logo-text small { font-size: 9.5px; font-weight: 500; letter-spacing: .22em; margin-top: 4px; }
+    .logo-row img { height: 48px; width: auto; display: block; }
+    .logo-row li.tall img { height: 60px; }
+    .logo-row li.wide img { height: 41px; }
+    .logo-row .logo-text { flex-direction: column; align-items: center; line-height: 1.05; color: #fff; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 14px; }
+    .logo-row .logo-text small { font-size: 11px; font-weight: 500; letter-spacing: .22em; margin-top: 4px; }
     .cred-band .heard-on { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 22px; padding: 28px 0 32px; }
     .cred-band .heard-on .heard-label { display: inline; margin: 0; }
     .heard-list { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 8px 16px; color: rgba(245,245,247,.82); font-size: 15px; font-weight: 500; text-decoration: none; }
     .heard-list:hover { color: #fff; }
     .heard-list i { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,165,116,.6); display: inline-block; }
+    @media (max-width: 1360px) { .logo-row { gap: 22px 26px; } }
+    @media (min-width: 769px) and (max-width: 1260px) { .logo-row { max-width: 920px; margin: 0 auto; } }
     @media (max-width: 768px) {
       .cred-band { padding: 36px 20px 4px; }
       .logo-row { gap: 20px 28px; }
-      .logo-row img { height: 32px; }
-      .logo-row li.tall img { height: 40px; }
-      .logo-row li.wide img { height: 26px; }
-      .logo-row .logo-text { font-size: 10.5px; }
+      .logo-row img { height: 38px; }
+      .logo-row li.tall img { height: 48px; }
+      .logo-row li.wide img { height: 31px; }
+      .logo-row .logo-text { font-size: 12.5px; }
       .cred-band .heard-on { flex-direction: column; gap: 10px; padding: 24px 0 28px; }
       .heard-list { font-size: 14px; gap: 6px 12px; }
     }
