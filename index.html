@@ -1465,6 +1465,16 @@
     .logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px 36px; }
     .logo-row li { display: flex; align-items: center; opacity: .72; transition: opacity .2s ease; }
     .logo-row li:hover { opacity: 1; }
+    .logo-row-featured { gap: 22px 64px; margin-bottom: 30px; }
+    .logo-row li.featured { opacity: 1; }
+    .logo-row li.featured img { height: 80px; }
+    .logo-row li.featured img[src$="scfia.png"] { height: 92px; }
+    .logo-row:not(.logo-row-featured) li { opacity: .6; }
+    .logo-row:not(.logo-row-featured) li:hover { opacity: 1; }
+    .logo-row:not(.logo-row-featured) img { height: 42px; }
+    .logo-row:not(.logo-row-featured) li.tall img { height: 52px; }
+    .logo-row:not(.logo-row-featured) li.wide img { height: 36px; }
+    .logo-row:not(.logo-row-featured) .logo-text { font-size: 12.5px; }
     .logo-row img { height: 48px; width: auto; display: block; }
     .logo-row li.tall img { height: 60px; }
     .logo-row li.wide img { height: 41px; }
@@ -1477,12 +1487,22 @@
     .heard-list i { width: 4px; height: 4px; border-radius: 50%; background: rgba(212,165,116,.6); display: inline-block; }
     @media (max-width: 1360px) { .logo-row { gap: 22px 26px; } }
     @media (min-width: 769px) and (max-width: 1260px) { .logo-row { max-width: 920px; margin: 0 auto; } }
+    @media (min-width: 441px) and (max-width: 720px) { .logo-row:not(.logo-row-featured) li { flex: 0 0 calc(33.33% - 16px); justify-content: center; } }
+    @media (max-width: 440px) { .logo-row:not(.logo-row-featured) li { flex: 0 0 calc(50% - 11px); justify-content: center; } }
     @media (max-width: 768px) {
       .cred-band { padding: 36px 20px 4px; }
       .logo-row { gap: 20px 28px; }
       .logo-row img { height: 38px; }
       .logo-row li.tall img { height: 48px; }
       .logo-row li.wide img { height: 31px; }
+      .logo-row-featured { gap: 18px 30px; margin-bottom: 26px; }
+      .logo-row li.featured img { height: 56px; }
+      .logo-row li.featured img[src$="scfia.png"] { height: 64px; }
+      .logo-row:not(.logo-row-featured) img { height: 32px; }
+      .logo-row:not(.logo-row-featured) li.tall img { height: 42px; }
+      .logo-row:not(.logo-row-featured) li.wide img { height: 27px; }
+      .logo-row:not(.logo-row-featured) .logo-text { font-size: 11px; }
+      .logo-row:not(.logo-row-featured) { gap: 18px 22px; }
       .logo-row .logo-text { font-size: 12.5px; }
       .cred-band .heard-on { flex-direction: column; gap: 10px; padding: 24px 0 28px; }
       .heard-list { font-size: 14px; gap: 6px 12px; }
@@ -1491,16 +1511,18 @@
   <section class="cred-band" aria-label="Organizations and podcasts">
   <div class="cred-row">
     <span class="heard-label">Spoken for</span>
+    <ul class="logo-row logo-row-featured">
+      <li class="tall featured"><img src="images/logos/ccal.png" alt="College of Community Association Lawyers (CCAL)" loading="lazy"></li>
+      <li class="tall featured"><img src="images/logos/scfia.png" alt="Southern California Fraud Investigators' Association (SCFIA)" loading="lazy"></li>
+      <li class="tall featured"><img src="images/logos/english-australia.png" alt="English Australia" loading="lazy"></li>
+    </ul>
     <ul class="logo-row">
-      <li class="tall"><img src="images/logos/ccal.png" alt="College of Community Association Lawyers (CCAL)" loading="lazy"></li>
       <li class=""><img src="images/logos/cai.png" alt="Community Associations Institute (CAI)" loading="lazy"></li>
       <li class="logo-text" aria-label="Strata Community Association (Victoria)"><span>Strata Community</span><span>Association</span><small>Victoria</small></li>
       <li class="wide"><img src="images/logos/victoria-university.png" alt="Victoria University, Melbourne" loading="lazy"></li>
-      <li class="tall"><img src="images/logos/english-australia.png" alt="English Australia" loading="lazy"></li>
       <li class="wide"><img src="images/logos/abwa.png" alt="American Business Women's Association" loading="lazy"></li>
       <li class="wide"><img src="images/logos/glendale-college.png" alt="Glendale Community College" loading="lazy"></li>
       <li class="tall"><img src="images/logos/hispanic-business-network.png" alt="Hispanic Business Network" loading="lazy"></li>
-      <li class="tall"><img src="images/logos/scfia.png" alt="Southern California Fraud Investigators' Association (SCFIA)" loading="lazy"></li>
     </ul>
   </div>
   <div class="heard-on">
