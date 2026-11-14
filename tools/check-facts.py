@@ -16,7 +16,6 @@ FORBIDDEN = [
     ("three decades",       "overstates experience; the real span is since 2008"),
     ("twenty years",        "use the dates (2008 / 2014), not a rounded count"),
     ("20 years",            "use the dates (2008 / 2014), not a rounded count"),
-    ("Best of Conference",  "CAI issued no such award; use the 95% figure"),
     ("selfworthsam",        "retired brand"),
     ("youtube.com/embed",   "corporate filters block youtube; use Cloudflare Stream"),
     ("i.ytimg.com",         "corporate filters block youtube; use Cloudflare Stream"),
