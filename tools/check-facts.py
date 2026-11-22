@@ -66,7 +66,9 @@ for p in pages:
             problems.append((p.name, f"phone {got}", "expected 818.934.5140"))
     # stray prices outside the ladder
     for m in re.finditer(r"\$\d{1,3},\d{3}", text):
-        if m.group(0) not in PRICES and m.group(0) not in ("$90,000", "$52,000", "$28,000", "$150,000", "$22,000"):
+        if m.group(0) not in PRICES and m.group(0) not in ("$90,000", "$52,000", "$28,000", "$150,000", "$22,000",
+                                                      # healthcare cost statistics (NSI 2026, Candello 2025), not prices
+                                                      "$60,090", "$60,000", "$295,000", "$338,000"):
             problems.append((p.name, f"price {m.group(0)}", "not in the pricing ladder"))
 
 print(f"Checked {checked} pages in {ROOT.name}/\n")
