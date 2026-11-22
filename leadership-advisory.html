@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Leadership Advisory for Attorneys &amp; Executives | Sam Osborne</title>
-  <meta name="description" content="Private facilitation for attorneys, advisors and executives whose reactivity toward one person (opposing counsel, a partner, a board) is costing them judgment."/>
+  <title>Leadership Advisory for Healthcare &amp; Legal Leaders | Sam Osborne</title>
+  <meta name="description" content="Private facilitation for healthcare executives, nurse leaders, attorneys and advisors whose reactivity toward one person is costing them judgment and composure."/>
   <link rel="canonical" href="https://samosborne.net/leadership-advisory"/>
   <meta property="og:title" content="Sam Osborne | Leadership Advisory"/>
   <meta property="og:description" content="There is one person you're still arguing with in your head. Private, structured facilitation for high-stakes professionals — applied to the relationships shaping the work."/>
@@ -212,6 +212,8 @@ nav.scrolled { background: rgba(26,26,26,.88); border-bottom-color: rgba(255,255
 .problem-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 48px;
 }
+.problem-grid.problem-grid-four { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 768px) { .problem-grid.problem-grid-four { grid-template-columns: 1fr; } }
 .problem-card {
   background: rgba(255,255,255,.88); border: 1px solid rgba(0,0,0,.07);
   border-radius: 18px; padding: 32px 28px;
@@ -689,7 +691,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
    "@id": "https://samosborne.net/leadership-advisory#service",
    "name": "Leadership Advisory",
    "serviceType": "Private executive facilitation",
-   "description": "Private, structured facilitation for attorneys, advisors, executives and firm leaders whose reactivity toward specific people undermines judgment and composure.",
+   "description": "Private, structured facilitation for healthcare executives, nurse leaders, attorneys, advisors and firm leaders whose reactivity toward specific people undermines judgment and composure.",
    "provider": {
     "@id": "https://samosborne.net/#person"
    },
@@ -764,7 +766,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
   <span class="hero-kicker">Leadership Advisory · Private Facilitation</span>
   <h1>There's one person you're still arguing with in your head.</h1>
   <div class="hero-rule"></div>
-  <p class="hero-sub">Private facilitation for attorneys, advisors, and executives whose emotional charge around specific people — opposing counsel, a client, a partner, a rival, a board member — is costing them judgment, composure, and command of the room.</p>
+  <p class="hero-sub">Private facilitation for healthcare executives, nurse leaders, attorneys, and advisors whose emotional charge around specific people — a physician, a board member, a client, opposing counsel, a rival — is costing them judgment, composure, and command of the room.</p>
   <p class="hero-tagline">One relationship at a time. Not coping strategies — the perception itself.</p>
   <p class="hero-credential">If you watched the live demonstration and immediately thought of someone, this is where that same work gets applied to your actual practice.</p>
   <div class="hero-actions">
@@ -948,7 +950,11 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       <h2 class="t-xl" style="color:var(--ink); margin-top:10px;">Professionals in high-stakes practice.</h2>
       <p style="max-width:54ch; margin:16px auto 0; font-size:clamp(.96rem,1.5vw,1.15rem); font-weight:300; line-height:1.65; color:var(--muted);">Where specific people distort perception, disrupt composure, or quietly erode the authority your work depends on.</p>
     </div>
-    <div class="problem-grid reveal-stagger">
+    <div class="problem-grid problem-grid-four reveal-stagger">
+      <div class="problem-card">
+        <h3>Healthcare Executives &amp; Nurse Leaders</h3>
+        <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>CNOs, nurse managers, physician leaders, and health system executives: the physician who undermines your team, the board pushing on turnover and scores, the peer competing for the same resources. Relationships where charge quietly drains the composure your teams take their cue from.</p></div></details>
+      </div>
       <div class="problem-card">
         <h3>Litigators &amp; Trial Attorneys</h3>
         <details class="details"><summary><span>Read more</span><span class="chev">▼</span></summary><div class="details-body"><p>Depositions, cross-examination, hostile negotiations: arenas where visible reactivity is exploited the moment it appears, and where a clean read of the other side is the whole advantage.</p></div></details>
@@ -1069,7 +1075,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
           <li>Year-long private facilitation partnership</li>
           <li>Full professional ecosystem coverage</li>
           <li>Priority scheduling and direct access</li>
-          <li>Designed for managing partners, general counsel, CFOs, and firm or business leaders operating in high-charge environments</li>
+          <li>Designed for CNOs, health system executives, managing partners, general counsel, CFOs, and leaders operating in high-charge environments</li>
           <li>Includes onsite or in-person sessions where relevant</li>
           <li>Limited availability</li>
         </ul>
@@ -1175,6 +1181,8 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
             <option>Rival / Peer</option>
             <option>Direct Reports / Staff</option>
             <option>Judge / Regulator</option>
+            <option>Physician / Clinical Leadership</option>
+            <option>Patient or Family (pattern, no patient details)</option>
             <option>Other</option>
           </select>
         </div>
@@ -1208,7 +1216,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
       </div>
       <div class="form-group" style="margin-bottom:24px;">
         <label for="f-situation">What's the situation? (High-level) *</label>
-        <span class="field-note">Please do not include privileged, confidential client, or case-identifying information. A general description of the relationship and pattern is all that&rsquo;s needed &mdash; and communications through this form are not legally privileged.</span>
+        <span class="field-note">Please do not include privileged, confidential client, case-identifying, or patient-identifying information. A general description of the relationship and pattern is all that&rsquo;s needed &mdash; and communications through this form are not legally privileged.</span>
         <textarea id="f-situation" name="situation" required rows="5" placeholder="Who is carrying the charge? What is the recurring pattern? Keep it high-level."></textarea>
       </div>
       <button type="submit" class="form-submit">Request Consultation</button>
@@ -1223,6 +1231,7 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="index.html#speaking">Speaking</a>
+      <a href="/healthcare-keynote-speaker">For Healthcare</a>
       <a href="/legal-keynote-speaker">For Legal Conferences</a>
       <a href="index.html#demonstration">The Demonstration</a>
       <a href="index.html#method">The Method</a>
