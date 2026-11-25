@@ -313,8 +313,8 @@
     .hero-copy .hl1 { animation-delay: .5s; }
     .hero-copy .hl2 { animation-delay: 1.3s; }
     .hero-copy .hl3 { animation-delay: 2.1s; }
-    /* Timed for the reading path: the three lines (left to right, ~0.9s apart), the gold kicker wipes in left to right as the last line lands,
-       the description rises while the eye drops below the headline, the buttons arrive by 5s (before the description is fully read, so the next
+    /* Timed for the reading path: the three lines (left to right, ~0.9s apart), the gold kicker (below the headline) wipes in left to right as the last line lands,
+       the description rises under it, the buttons arrive by 5s (before the description is fully read, so the next
        step is waiting), then the credentials settle last (rule draws, gold bars grow, text rises) so supporting proof never competes with the CTA.
        One horizontal motion for the headline, one vertical motion for everything below it; done by ~7.6s. */
     @keyframes heroWipe { from { opacity: 0; clip-path: inset(0 100% 0 0); filter: blur(4px); } 30% { opacity: 1; } to { opacity: 1; clip-path: inset(0 0 0 0); filter: none; } }
@@ -1412,7 +1412,7 @@
 .hero { position: relative; }
 .hero-copy { background: transparent !important; }
 .hero-copy h1 { color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
-.hero-copy .hero-kicker { color: var(--gold); }
+.hero-copy .hero-kicker { color: var(--gold); margin: 20px 0 0; }
 .hero-copy .hero-sub-copy { color: rgba(245,245,247,.86) !important; }
 .hero-copy .btn-secondary { color: #fff !important; border-color: rgba(255,255,255,.55) !important; }
 .hero-copy .hero-credentials { border-top-color: rgba(255,255,255,.18); }
@@ -1434,7 +1434,7 @@
   .hero-copy .hero-kicker, .hero-copy .hero-sub-copy, .hero-copy .hero-credential p { text-shadow: 0 1px 12px rgba(0,0,0,.7), 0 1px 2px rgba(0,0,0,.6); }
   .hero-copy h1 { text-shadow: 0 2px 18px rgba(0,0,0,.6) !important; }
   /* compact type so the whole hero copy fits on one iPhone screen */
-  .hero-copy .hero-kicker { font-size: 11.5px; margin-bottom: 10px; letter-spacing: .12em; }
+  .hero-copy .hero-kicker { font-size: 11.5px; margin: 12px 0 0; letter-spacing: .12em; }
   .hero-copy h1 { font-size: 30px !important; line-height: 1.08 !important; }
   .hero-copy .hero-sub-copy { font-size: 15px !important; line-height: 1.45 !important; margin-top: 10px !important; }
   .hero-copy .btn-row { margin-top: 16px !important; gap: 10px !important; flex-wrap: wrap; }
@@ -1510,9 +1510,9 @@
     <div class="hero-copy">
       <div class="inner">
         
-        <div class="hero-kicker"><span style="white-space:nowrap;">Healthcare Keynote Speaker</span> <span style="white-space:nowrap;">Stay composed when people <br>get under your skin</span></div>
         <h1><span class="h1-full"><span class="hl hl1">Keep your staff.</span><br><span class="hl hl2">Protect patient trust.</span><br><span class="hl hl3">And cut claims.</span></span></h1>
 
+        <div class="hero-kicker"><span style="white-space:nowrap;">Healthcare Keynote Speaker</span> <span style="white-space:nowrap;">Stay composed when people <br>get under your skin</span></div>
         <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Best-of-Conference speaker Sam Osborne gives healthcare teams a step-by-step way to stay composed under pressure, proven live on stage with a real volunteer.</p>
         <div class="btn-row">
           <a class="btn-primary hero-check-btn" href="#contact">Check Availability</a>
