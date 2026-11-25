@@ -1412,8 +1412,21 @@
 @media (max-width: 980px) {
   .hero { display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - 56px); background: #0d0d0d; }
   .hero-image { position: absolute !important; inset: 0; width: auto; height: auto !important; min-height: 0 !important; }
-  .hero-image::after { background: linear-gradient(180deg, rgba(13,13,13,.15) 0%, rgba(13,13,13,0) 18%, rgba(13,13,13,.6) 32%, rgba(13,13,13,.85) 45%, rgba(13,13,13,.92) 100%) !important; }
-  .hero-copy { position: relative; z-index: 6; padding: 34vh 0 40px !important; }
+  .hero-image::after { background: linear-gradient(180deg, rgba(13,13,13,.15) 0%, rgba(13,13,13,0) 18%, rgba(13,13,13,.25) 45%, rgba(13,13,13,.6) 100%) !important; }
+  .hero-copy { position: relative; z-index: 6; padding: 30px 0 22px !important; background: linear-gradient(180deg, rgba(13,13,13,0) 0px, rgba(13,13,13,.72) 34px, rgba(13,13,13,.82) 100%) !important; }
+  /* compact type so the whole hero copy fits on one iPhone screen */
+  .hero-copy .hero-kicker { font-size: 11.5px; margin-bottom: 10px; letter-spacing: .12em; }
+  .hero-copy h1 { font-size: 30px !important; line-height: 1.08 !important; }
+  .hero-copy .hero-sub-copy { font-size: 15px !important; line-height: 1.45 !important; margin-top: 10px !important; }
+  .hero-copy .btn-row { margin-top: 16px !important; gap: 10px !important; flex-wrap: wrap; }
+  .hero-copy .btn-row a { padding: 11px 16px !important; font-size: 14px !important; white-space: nowrap; }
+  .hero-copy .hero-credentials { margin-top: 16px !important; padding-top: 12px !important; }
+  .hero-copy .hero-credential .cred-role { font-size: 10px; margin-bottom: 3px; }
+  .hero-copy .hero-credential .cred-org { font-size: 14px; }
+  .hero-copy .hero-credentials { flex-direction: row; gap: 14px !important; }
+  .hero-copy .hero-credential { flex: 1 1 0; gap: 10px; }
+  .hero-copy .hero-credential .cred-org { font-size: 13px; }
+  .hero-copy .hero-credential .cred-org br { display: none; }
   .hero-image > .loop-toggle { top: 16px; bottom: auto; left: auto; right: 16px; }
 }
 
@@ -1496,7 +1509,11 @@
         <div class="hero-credentials">
           <div class="hero-credential">
             <span class="cred-mark" aria-hidden="true"></span>
-            <p style="margin:0;"><span class="cred-role">President-Elect</span><span class="cred-org">National Speakers Association<br>of Southern California</span></p>
+            <p style="margin:0;"><span class="cred-role">President-Elect</span><span class="cred-org">National Speakers Association <br>of Southern California</span></p>
+          </div>
+          <div class="hero-credential">
+            <span class="cred-mark" aria-hidden="true"></span>
+            <p style="margin:0;"><span class="cred-role">Chapter Member of the Year 2026</span><span class="cred-org">National Speakers Association <br>of Southern California</span></p>
           </div>
         </div>
       </div>
