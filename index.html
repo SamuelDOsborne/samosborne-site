@@ -309,12 +309,12 @@
     /* Hero text: headline lines slide in one at a time, then the description fades in, then everything else */
     @keyframes heroSlide { from { opacity: 0; transform: translateX(-48px); } to { opacity: 1; transform: none; } }
     @keyframes heroFade { from { opacity: 0; } to { opacity: 1; } }
-    .hero-copy .hl { display: inline-block; opacity: 0; animation: heroSlide .8s cubic-bezier(.2,.7,.2,1) forwards; }
-    .hero-copy .hl1 { animation-delay: .3s; }
-    .hero-copy .hl2 { animation-delay: .75s; }
-    .hero-copy .hl3 { animation-delay: 1.2s; }
-    .hero-copy .hero-sub-copy { opacity: 0; animation: heroFade .9s ease 1.9s forwards; }
-    .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { opacity: 0; animation: heroFade .9s ease 2.6s forwards; }
+    .hero-copy .hl { display: inline-block; opacity: 0; animation: heroSlide 1.4s cubic-bezier(.2,.7,.2,1) forwards; }
+    .hero-copy .hl1 { animation-delay: .5s; }
+    .hero-copy .hl2 { animation-delay: 1.5s; }
+    .hero-copy .hl3 { animation-delay: 2.5s; }
+    .hero-copy .hero-sub-copy { opacity: 0; animation: heroFade 1.4s ease 3.8s forwards; }
+    .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { opacity: 0; animation: heroFade 1.4s ease 5.2s forwards; }
     @media (prefers-reduced-motion: reduce) {
       .hero-copy { animation: none !important; opacity: 1 !important; transform: none !important; }
       .hero-copy .hl, .hero-copy .hero-sub-copy, .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { animation: none !important; opacity: 1 !important; transform: none !important; }
