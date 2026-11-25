@@ -1433,7 +1433,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam-only shot from the Composure Through Conflict program video (YouTube, seconds). A still from the same shot is the poster until it plays, and the fallback for reduced motion or data saver. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-yt="FdoJZHSGE0g" data-start="163" data-end="170"></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Hero video paused: the Composure clip showed burned-in text and cropped Sam's head. Re-add <div class="hero-vid" id="heroVid" aria-hidden="true" data-yt="VIDEO_ID" data-start="S" data-end="E"></div> here once new shots are chosen. --><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2651,7 +2651,8 @@
     {box:'#reel-screen', start:44.6, end:54.4},
     {box:'#room-proof', start:59.8, end:66.6},
     /* Two speaking occasions: the reel clip, then a Sam-only clip from the Composure Through Conflict program video (YouTube, seconds) */
-    {box:'#your-room', start:76.0, end:80.7, alt:{yt:'FdoJZHSGE0g', start:163, end:170}}
+    /* add alt:{yt:'VIDEO_ID', start:S, end:E} to mix in a second clip once the audience moments are chosen */
+    {box:'#your-room', start:76.0, end:80.7}
   ];
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData=navigator.connection&&navigator.connection.saveData;
