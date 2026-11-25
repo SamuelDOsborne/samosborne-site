@@ -1377,6 +1377,7 @@
 .hero-vid.dip { opacity: 0; transition-duration: .3s; }
 .hv-layer { position: absolute; inset: 0; opacity: 0; transition: opacity .3s ease; }
 .hv-layer.on { opacity: 1; }
+.hv-stream { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); border: 0; pointer-events: none; }
 .hv-layer video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; pointer-events: none; filter: saturate(.92) brightness(.97) contrast(1.05); }
 .hero-image > .loop-toggle { z-index: 5; left: 20px; right: auto; }
 
@@ -1435,7 +1436,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: three Sam-only shots cut from the Composure Through Conflict showreel (0:47-0:55, 1:24-1:33, 3:14-3:22), cropped above the burned-in captions, no audio. Self-hosted in video/ so they start straight away. The still above is the first frame. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-audience.mp4","start":0,"end":8},{"src":"video/sam-stage-b.mp4","start":0,"end":8.4},{"src":"video/sam-stage-c.mp4","start":0,"end":8}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam on different stages. Alternates self-hosted Sam-only shots cut from the Composure Through Conflict showreel (video/, cropped above the burned-in captions) with segments of the speaker reel on Cloudflare Stream (seconds). The still above is the first frame. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-audience.mp4","start":0,"end":8},{"reel":true,"start":44.6,"end":52.6},{"src":"video/sam-stage-c.mp4","start":0,"end":8},{"reel":true,"start":64.8,"end":71.6}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2661,6 +2662,22 @@
 
   var sdk=null;
   function loadSdk(){ if(sdk) return sdk; sdk=new Promise(function(res,rej){ var sc=document.createElement('script'); sc.src='https://embed.cloudflarestream.com/embed/sdk.latest.js'; sc.onload=function(){res(window.Stream)}; sc.onerror=rej; document.head.appendChild(sc); }); return sdk; }
+  /* A muted segment of the speaker reel on Cloudflare Stream, with the same controls as fileVideo */
+  function streamVideo(parent,box,start,onReady,onPlaying){
+    var f=document.createElement('iframe'); f.className='hv-stream'; f.title='Background video'; f.setAttribute('aria-hidden','true'); f.tabIndex=-1; f.allow='autoplay; encrypted-media';
+    f.src=STREAM+REEL+'/iframe?muted=true&autoplay=false&controls=false&preload=auto&startTime='+start+'s';
+    parent.appendChild(f); cover(f,box); window.addEventListener('resize',function(){ cover(f,box); });
+    var sp=null, want=false;
+    var api={ playVideo:function(){ want=true; if(sp){ var r=sp.play(); if(r&&r.catch) r.catch(function(){}); } }, pauseVideo:function(){ want=false; if(sp) sp.pause(); }, seekTo:function(t){ if(sp) sp.currentTime=t; }, getCurrentTime:function(){ return sp?sp.currentTime:0; } };
+    loadSdk().then(function(Stream){
+      sp=Stream(f); sp.muted=true;
+      var once=false; function ready(){ if(once) return; once=true; onReady&&onReady(); }
+      sp.addEventListener('canplay',ready); sp.addEventListener('loadeddata',ready);
+      sp.addEventListener('playing',function(){ onPlaying&&onPlaying(); });
+      if(want) api.playVideo();
+    }).catch(function(){});
+    return api;
+  }
   /* A muted, self-hosted clip with simple controls (playVideo, pauseVideo, seekTo, getCurrentTime) */
   function fileVideo(parent,src,autoplay,onReady,onPlaying){
     var v=document.createElement('video'); v.muted=true; v.defaultMuted=true; v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('muted',''); v.loop=true; v.preload='auto'; v.setAttribute('aria-hidden','true'); v.tabIndex=-1; v.src=src;
@@ -2736,6 +2753,7 @@
       clips.forEach(function(c,i){
         c.layer=document.createElement('div'); c.layer.className='hv-layer'; box.appendChild(c.layer);
         if(c.src){ c.player=fileVideo(c.layer,c.src,i===0,function(){ c.ready=true; },function(){ onPlaying(i); }); }
+        else if(c.reel){ c.player=streamVideo(c.layer,box,c.start,function(){ c.ready=true; },function(){ onPlaying(i); }); if(i===0) c.player.playVideo(); }
       });
       var t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); wrap.appendChild(t);
       t.addEventListener('click',function(){
