@@ -1447,7 +1447,8 @@
 /* Reel as a framed screen: title above, never over the footage */
 .reel-screen { background: var(--bg); border-bottom: 1px solid var(--line); padding: 88px 0 80px; color: #fff; }
 .rs-head { text-align: center; margin-bottom: 34px; }
-.rs-title { font-size: clamp(1.9rem, 3.6vw, 3.2rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.08; max-width: 20ch; margin: 0 auto; text-wrap: balance; }
+.rs-title { font-size: clamp(1.6rem, 2.6vw, 2.45rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.15; margin: 0 auto; text-wrap: balance; }
+.rs-title > span { display: block; }
 .screen { position: relative; max-width: 1100px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 40px 100px rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.08); }
 .screen > .band-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .screen::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(0,0,0,.7) 100%); }
@@ -1682,7 +1683,7 @@
     <div class="container">
       <div class="rs-head">
         <span class="band-eyebrow">Watch the Reel</span>
-        <h2 class="rs-title">He doesn&rsquo;t talk about composure. He shows it.</h2>
+        <h2 class="rs-title"><span>He doesn&rsquo;t just talk about composure.</span> <span>He walks the whole room through their own real case.</span></h2>
       </div>
       <div class="screen" id="reel-screen">
         <img class="band-poster" src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/thumbnails/thumbnail.jpg?time=48s&amp;height=720" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
