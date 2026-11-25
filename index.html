@@ -1435,7 +1435,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam with an audience (Composure Through Conflict program video, 0:45-0:55), then Sam on different stages (DSDfJx5HIR8, 2:27-2:37). Seconds. The still above shows until it plays. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"yt":"FdoJZHSGE0g","start":45,"end":55,"crop":true},{"yt":"DSDfJx5HIR8","start":147,"end":157}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam with an audience (Composure Through Conflict program video, 0:47-0:55), then Sam on different stages (DSDfJx5HIR8, 2:27-2:37). Seconds. The still above shows until it plays. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"yt":"FdoJZHSGE0g","start":47,"end":55,"crop":true},{"yt":"DSDfJx5HIR8","start":147,"end":157}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2653,8 +2653,8 @@
     {box:'#reel-screen', start:44.6, end:54.4},
     {box:'#room-proof', start:59.8, end:66.6},
     /* Two speaking occasions: the reel clip, then a Sam-only clip from the Composure Through Conflict program video (YouTube, seconds) */
-    /* Two speaking occasions: the reel clip, then Sam with the audience from the Composure Through Conflict program video (YouTube, 0:45-0:55) */
-    {box:'#your-room', start:76.0, end:80.7, alt:{yt:'FdoJZHSGE0g', start:45, end:55}}
+    /* Two speaking occasions: the reel clip, then Sam with the audience from the Composure Through Conflict program video (YouTube, 0:47-0:55) */
+    {box:'#your-room', start:76.0, end:80.7, alt:{yt:'FdoJZHSGE0g', start:47, end:55}}
   ];
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData=navigator.connection&&navigator.connection.saveData;
@@ -2673,8 +2673,8 @@
     });
     return ytp;
   }
-  /* 16:9 YouTube frame scaled to cover the box, with the top 7% (title bar) and bottom 17% (burned-in captions) cropped off */
-  function coverYT(el,box){ var W=box.clientWidth,H=box.clientHeight,h=H/0.76,w=h*16/9; if(w<W*1.02){ w=W*1.02; h=w*9/16; } el.style.width=w+'px'; el.style.height=h+'px'; el.style.left=((W-w)/2)+'px'; el.style.top=(-h*0.07)+'px'; }
+  /* 16:9 YouTube frame scaled to cover the box, showing only the top ~70% so the burned-in captions stay out of view */
+  function coverYT(el,box){ var W=box.clientWidth,H=box.clientHeight,h=H/0.7,w=h*16/9; if(w<W*1.02){ w=W*1.02; h=w*9/16; } el.style.width=w+'px'; el.style.height=h+'px'; el.style.left=((W-w)/2)+'px'; el.style.top=(-h*0.02)+'px'; }
   function cover(f,box){ var w=box.clientWidth,h=box.clientHeight; if(w/h>16/9){ f.style.width=w+'px'; f.style.height=Math.ceil(w*9/16)+'px'; } else { f.style.height=h+'px'; f.style.width=Math.ceil(h*16/9)+'px'; } }
   function mount(cfg){
     var box=document.querySelector(cfg.box); if(!box) return;
@@ -2741,7 +2741,7 @@
     function fit(c){
       var f=c.layer.querySelector('iframe'); if(!f) return;
       var W=box.clientWidth, H=box.clientHeight, h, w, top;
-      if(c.crop){ h=H/0.8; w=h*16/9; if(w<W*1.02){ w=W*1.02; h=w*9/16; } top=-h*0.04; }
+      if(c.crop){ h=H/0.7; w=h*16/9; if(w<W*1.02){ w=W*1.02; h=w*9/16; } top=-h*0.02; }
       else { h=H*1.04; w=h*16/9; if(w<W*1.04){ w=W*1.04; h=w*9/16; } top=(H-h)/2; }
       f.style.width=w+'px'; f.style.height=h+'px'; f.style.left=((W-w)/2)+'px'; f.style.top=top+'px';
     }
