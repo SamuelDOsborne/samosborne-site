@@ -2383,7 +2383,7 @@
 
   <!-- CONTACT -->
   <section class="cine-band" id="your-room" aria-label="Book Sam">
-    <img class="band-poster" src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/thumbnails/thumbnail.jpg?time=78s&amp;height=720" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
+    <img class="band-poster" src="images/opt/sam-osborne-room-still.jpg" alt="" width="1280" height="544" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
     <div class="band-copy">
       <span class="band-eyebrow">Your Event</span>
       <h2 class="band-title">Bring the demonstration to your room.</h2>
@@ -2653,8 +2653,8 @@
   var LOOPS=[
     {box:'#reel-screen', start:44.6, end:54.4},
     {box:'#room-proof', start:64.8, end:71.6},
-    /* Two speaking occasions: the reel clip, then Sam working with the audience and a volunteer (video/sam-room-d.mp4, 4:37-4:46 of the Composure Through Conflict showreel) */
-    {box:'#your-room', start:76.0, end:80.7, alt:{src:'video/sam-room-d.mp4', start:0, end:9}}
+    /* Sam working with the audience and a volunteer (self-hosted: video/sam-room-d.mp4, 4:37-4:46 of the Composure Through Conflict showreel) */
+    {box:'#your-room', src:'video/sam-room-d.mp4'}
   ];
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData=navigator.connection&&navigator.connection.saveData;
@@ -2694,6 +2694,15 @@
     var started=false;
     function start(){
       if(started) return; started=true;
+      if(cfg.src){ /* a self-hosted clip that simply loops */
+        var lw=document.createElement('div'); lw.className='bg-alt on'; box.insertBefore(lw,box.querySelector('.band-copy, .band-play'));
+        var lv=fileVideo(lw,cfg.src,true,null,function(){ box.classList.add('has-loop'); });
+        var lt=document.createElement('button'); lt.type='button'; lt.className='loop-toggle'; lt.innerHTML='&#10073;&#10073;'; lt.setAttribute('aria-label','Pause background video'); box.appendChild(lt);
+        var lp=false;
+        lt.addEventListener('click',function(){ lp=!lp; if(lp){ lv.pauseVideo(); lw.classList.remove('on'); lt.innerHTML='&#9654;'; lt.setAttribute('aria-label','Play background video'); } else { lv.playVideo(); lw.classList.add('on'); lt.innerHTML='&#10073;&#10073;'; lt.setAttribute('aria-label','Pause background video'); } });
+        new IntersectionObserver(function(es){ if(lp) return; if(es[0].isIntersecting) lv.playVideo(); else lv.pauseVideo(); },{threshold:0.05}).observe(box);
+        return;
+      }
       var f=document.createElement('iframe'); f.className='bg-loop'+(box.classList.contains('cine-band')?' top':''); f.title='Background video'; f.setAttribute('aria-hidden','true'); f.tabIndex=-1; f.allow='autoplay; encrypted-media';
       f.src=STREAM+REEL+'/iframe?muted=true&autoplay=true&controls=false&preload=auto&startTime='+cfg.start+'s';
       var dip=document.createElement('div'); dip.className='bg-dip';
