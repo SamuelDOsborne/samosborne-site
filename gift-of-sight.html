@@ -1000,23 +1000,33 @@
             .section-label { font-size: 13px; }
         }
     </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site-nav.css">
 </head>
 <body>
 
     <!-- NAV -->
-    <nav id="nav">
-        <div class="nav-content">
-            <a href="index.html" class="logo">Sam Osborne</a>
-            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#story">The Story</a></li>
-                <li><a href="#method">The Method</a></li>
-                <li><a href="#impact">For Your Audience</a></li>
-                <li><a href="#book">Book This Keynote</a></li>
-                <li><a href="index.html#speaking">All Keynotes</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- NAV (matches index.html; styles in /css/site-nav.css) -->
+<div class="sitenav sitenav--fixed" role="navigation" aria-label="Main">
+  <div class="sitenav-inner">
+    <a class="sitenav-brand" href="/">Sam Osborne</a>
+    <button type="button" class="sitenav-toggle" id="sitenavToggle" aria-label="Toggle menu" aria-controls="sitenavLinks" aria-expanded="false">&#9776;</button>
+    <div class="sitenav-links" id="sitenavLinks">
+      <a href="/#demonstration">The Demonstration</a>
+      <a href="/#about">About</a>
+      <a href="/#speaking">Programs</a>
+      <a href="/healthcare-keynote-speaker">Healthcare</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#onesheet">One-Sheet</a>
+    </div>
+    <div class="sitenav-right">
+      <a class="sitenav-phone" href="tel:+18189345140">+1 818.934.5140</a>
+      <a class="sitenav-cta" href="/#contact">Check Availability</a>
+    </div>
+  </div>
+</div>
 
     <!-- HERO -->
     <section class="hero">
@@ -1310,12 +1320,6 @@
     </footer>
 
     <script>
-        // Nav scroll
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 40);
-        });
-
         // Hero parallax — desktop only
         const heroBgImg = document.querySelector('.hero-bg img');
         function heroParallax() {
@@ -1329,20 +1333,6 @@
         window.addEventListener('scroll', heroParallax, { passive: true });
         window.addEventListener('resize', heroParallax, { passive: true });
         heroParallax();
-
-        // Mobile menu
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-        navLinks.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.textContent = '☰';
-            });
-        });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1366,5 +1356,6 @@
         document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
     </script>
 
+<script src="/js/site-nav.js" defer></script>
 </body>
 </html>

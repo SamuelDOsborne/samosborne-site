@@ -540,27 +540,30 @@
       .credibility-item, .credibility-item strong { color: var(--ink); }
     }
   </style>
+<link rel="stylesheet" href="/css/site-nav.css">
 </head>
 <body>
 
   <!-- ── NAV (matches home page) ── -->
-  <nav>
-    <div class="container nav-inner">
-      <a class="nav-brand" href="/">Sam Osborne</a>
-      <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
-      <div class="nav-links" id="navLinks">
-        <a href="/#speaking">Programs</a>
-        <a href="/healthcare-keynote-speaker">Healthcare</a>
-        <a href="/#fit">Who It's For</a>
-        <a href="/#method">The Method</a>
-        <a href="/#endorsement">Endorsement</a>
-        <a href="/#about">About</a>
-        <a href="/#proof">Proof</a>
-        <a href="https://samosborne.net/leadership-advisory">Advisory</a>
-      </div>
-      <a class="nav-cta" href="#contact-cta">Check Availability</a>
+<!-- NAV (matches index.html; styles in /css/site-nav.css) -->
+<div class="sitenav" role="navigation" aria-label="Main">
+  <div class="sitenav-inner">
+    <a class="sitenav-brand" href="/">Sam Osborne</a>
+    <button type="button" class="sitenav-toggle" id="sitenavToggle" aria-label="Toggle menu" aria-controls="sitenavLinks" aria-expanded="false">&#9776;</button>
+    <div class="sitenav-links" id="sitenavLinks">
+      <a href="/#demonstration">The Demonstration</a>
+      <a href="/#about">About</a>
+      <a href="/#speaking">Programs</a>
+      <a href="/healthcare-keynote-speaker">Healthcare</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#onesheet">One-Sheet</a>
     </div>
-  </nav>
+    <div class="sitenav-right">
+      <a class="sitenav-phone" href="tel:+18189345140">+1 818.934.5140</a>
+      <a class="sitenav-cta" href="/#contact">Check Availability</a>
+    </div>
+  </div>
+</div>
 
   <!-- ── HERO ── -->
   <section class="hero">
@@ -773,22 +776,9 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('active');
-        menuToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
-      });
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          menuToggle.innerHTML = '&#9776;';
-        });
-      });
-    }
   </script>
 
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e2709f2855544dba74702553a7f1abc","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script src="/js/site-nav.js" defer></script>
 </body>
 </html>

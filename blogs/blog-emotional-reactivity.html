@@ -32,17 +32,31 @@
                 footer { background: #2c3e50; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
                 footer a { color: #1e7e8a; text-decoration: none; }
             </style>
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site-nav.css">
+</head>
   <body>
-        <nav>
-                  <ul>
-                                <li><a href="/">Home</a>a></li>
-                              <li><a href="/blog.html">Blog</a>a></li>
-                              <li><a href="/#keynotes">Keynotes</a>a></li>
-                              <li><a href="/mission-vision.html">Mission & Vision</a>a></li>
-                              <li><a href="/leadership-advisory.html">Advisory</a>a></li>
-                  </ul>
-        </nav>
+<!-- NAV (matches index.html; styles in /css/site-nav.css) -->
+<div class="sitenav" role="navigation" aria-label="Main">
+  <div class="sitenav-inner">
+    <a class="sitenav-brand" href="/">Sam Osborne</a>
+    <button type="button" class="sitenav-toggle" id="sitenavToggle" aria-label="Toggle menu" aria-controls="sitenavLinks" aria-expanded="false">&#9776;</button>
+    <div class="sitenav-links" id="sitenavLinks">
+      <a href="/#demonstration">The Demonstration</a>
+      <a href="/#about">About</a>
+      <a href="/#speaking">Programs</a>
+      <a href="/healthcare-keynote-speaker">Healthcare</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#onesheet">One-Sheet</a>
+    </div>
+    <div class="sitenav-right">
+      <a class="sitenav-phone" href="tel:+18189345140">+1 818.934.5140</a>
+      <a class="sitenav-cta" href="/#contact">Check Availability</a>
+    </div>
+  </div>
+</div>
       
       <div class="article-header">
               <h1>The Cost of Emotional Reactivity in Leadership</h1>
@@ -104,6 +118,7 @@
       </div></div></h1></li></li>
                   </ul>
         </nav>
-  </body>
+  <script src="/js/site-nav.js" defer></script>
+</body>
       </style></title>
   </head>

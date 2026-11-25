@@ -37,9 +37,28 @@ footer { border-top:1px solid var(--line); }
 footer .in { max-width:760px; margin:0 auto; padding:22px; font-size:13px; color:rgba(240,237,232,.55); display:flex; flex-wrap:wrap; gap:6px 16px; }
 footer a { color:rgba(240,237,232,.75); }
 </style>
+<link rel="stylesheet" href="/css/site-nav.css">
 </head>
 <body>
-<header><div class="in"><a class="brand" href="/">Sam Osborne</a><nav><a href="/calm">Private sessions</a><a href="/calm#book">Book a fit call</a></nav></div></header>
+<!-- NAV (matches index.html; styles in /css/site-nav.css) -->
+<div class="sitenav" role="navigation" aria-label="Main">
+  <div class="sitenav-inner">
+    <a class="sitenav-brand" href="/">Sam Osborne</a>
+    <button type="button" class="sitenav-toggle" id="sitenavToggle" aria-label="Toggle menu" aria-controls="sitenavLinks" aria-expanded="false">&#9776;</button>
+    <div class="sitenav-links" id="sitenavLinks">
+      <a href="/#demonstration">The Demonstration</a>
+      <a href="/#about">About</a>
+      <a href="/#speaking">Programs</a>
+      <a href="/healthcare-keynote-speaker">Healthcare</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#onesheet">One-Sheet</a>
+    </div>
+    <div class="sitenav-right">
+      <a class="sitenav-phone" href="tel:+18189345140">+1 818.934.5140</a>
+      <a class="sitenav-cta" href="/#contact">Check Availability</a>
+    </div>
+  </div>
+</div>
 <main>
 <span class="kicker">samosborne.net</span>
 <h1>Privacy Policy</h1>
@@ -111,5 +130,6 @@ footer a { color:rgba(240,237,232,.75); }
 <a href="/terms">Terms of Engagement</a><a href="/privacy">Privacy</a><a href="/">samosborne.net</a>
 <span style="flex-basis:100%">Educational facilitation, not therapy, counseling, or medical care. The Demartini Method&reg;, created by Dr. John F. Demartini. Property of the Demartini Institute. <a href="https://www.drdemartini.com" target="_blank" rel="noopener">www.DrDemartini.com</a></span>
 </div></footer>
+<script src="/js/site-nav.js" defer></script>
 </body>
 </html>
