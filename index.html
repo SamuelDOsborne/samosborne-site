@@ -1371,7 +1371,7 @@
 .bg-dip.on { opacity: 1; }
 .loop-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(0,0,0,.4); color: #fff; font-size: 13px; cursor: pointer; display: none; }
 .has-loop > .loop-toggle { display: block; }
-/* Homepage hero video (YouTube, muted). Sized so YouTube's title bar and the burned-in captions sit outside the frame. */
+/* Homepage hero video (YouTube, muted), scaled to cover the photo box. */
 .hero-vid { position: absolute; inset: 0; z-index: 1; overflow: hidden; opacity: 0; transition: opacity 1.1s ease; pointer-events: none; }
 .hero-vid.on { opacity: 1; }
 .hero-vid.dip { opacity: 0; transition-duration: .3s; }
@@ -1433,7 +1433,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Hero video paused: the Composure clip showed burned-in text and cropped Sam's head. Re-add <div class="hero-vid" id="heroVid" aria-hidden="true" data-yt="VIDEO_ID" data-start="S" data-end="E"></div> here once new shots are chosen. --><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam on different stages, 2:27-2:37 of YouTube DSDfJx5HIR8 (seconds). The still above shows until it plays. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-yt="DSDfJx5HIR8" data-start="147" data-end="157"></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2728,18 +2728,17 @@
     window.addEventListener('load',function(){ LOOPS.forEach(mount); });
   }
 
-  /* Homepage hero: loop the Sam-only shot from the Composure Through Conflict program video. Desktop and mobile; the still from the same shot shows until it plays. */
+  /* Homepage hero: loop shots of Sam on different stages. Desktop and mobile; the still from the same shot shows until it plays. */
   (function heroVideo(){
     var box=document.getElementById('heroVid'), wrap=box&&box.parentNode;
     if(!box||reduce||saveData) return;
     var START=+box.getAttribute('data-start'), END=+box.getAttribute('data-end'), player=null, ready=false, userPaused=false, busy=false;
-    /* 16:9 player scaled to cover the box with the top 7% and bottom 17% of the frame cropped off, centred on Sam */
+    /* 16:9 player scaled just enough to cover the box (a sliver extra hides YouTube's edges), centred */
     function fit(){
       var f=box.querySelector('iframe'); if(!f) return;
-      var W=box.clientWidth, H=box.clientHeight, h=H/0.76, w=h*16/9;
-      if(w<W*1.02){ w=W*1.02; h=w*9/16; }
-      var left=Math.min(0,Math.max(W-w, W*(window.innerWidth>980?0.4:0.5)-w*0.53));
-      f.style.width=w+'px'; f.style.height=h+'px'; f.style.left=left+'px'; f.style.top=(-h*0.07)+'px';
+      var W=box.clientWidth, H=box.clientHeight, h=H*1.04, w=h*16/9;
+      if(w<W*1.04){ w=W*1.04; h=w*9/16; }
+      f.style.width=w+'px'; f.style.height=h+'px'; f.style.left=((W-w)/2)+'px'; f.style.top=((H-h)/2)+'px';
     }
     function build(){
       var host=document.createElement('div'); box.appendChild(host);
