@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="The healthcare keynote where a real conflict dissolves on stage, live. For nurse leaders, health systems and care teams." />
   <meta name="twitter:image" content="https://samosborne.net/images/opt/og-home.jpg" />
 
-  <link rel="preload" as="image" href="images/opt/sam-osborne-audience-still.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/opt/sam-osborne-stages-still.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -177,7 +177,7 @@
       background:
         linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%),
         linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%),
-        url('images/opt/sam-osborne-audience-still.jpg') 52% center/cover no-repeat;
+        url('images/opt/sam-osborne-stages-still.jpg') 52% center/cover no-repeat;
     }
     .hero-copy {
       display: flex;
@@ -306,8 +306,18 @@
       from { opacity: 0; transform: translateY(14px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Hero text: headline lines slide in one at a time, then the description fades in, then everything else */
+    @keyframes heroSlide { from { opacity: 0; transform: translateX(-48px); } to { opacity: 1; transform: none; } }
+    @keyframes heroFade { from { opacity: 0; } to { opacity: 1; } }
+    .hero-copy .hl { display: inline-block; opacity: 0; animation: heroSlide 1.4s cubic-bezier(.2,.7,.2,1) forwards; }
+    .hero-copy .hl1 { animation-delay: .5s; }
+    .hero-copy .hl2 { animation-delay: 1.5s; }
+    .hero-copy .hl3 { animation-delay: 2.5s; }
+    .hero-copy .hero-sub-copy { opacity: 0; animation: heroFade 1.4s ease 3.8s forwards; }
+    .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { opacity: 0; animation: heroFade 1.4s ease 5.2s forwards; }
     @media (prefers-reduced-motion: reduce) {
       .hero-copy { animation: none !important; opacity: 1 !important; transform: none !important; }
+      .hero-copy .hl, .hero-copy .hero-sub-copy, .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { animation: none !important; opacity: 1 !important; transform: none !important; }
     }
 
     .endorsement {
@@ -1033,7 +1043,7 @@
         width: 100%;
         height: 60vh;
         min-height: 380px;
-        background: url('images/opt/sam-osborne-audience-still.jpg') 52% 20%/cover no-repeat;
+        background: url('images/opt/sam-osborne-stages-still.jpg') 52% 20%/cover no-repeat;
       }
       .hero-copy {
         position: relative;
@@ -1324,7 +1334,7 @@
 <style>
 /* ===== Cinematic layer ===== */
 .hero-image { overflow: hidden; background: #2a2a2a !important; }
-.hero-kb { position: absolute; inset: 0; background: url('images/opt/sam-osborne-audience-still.jpg') 52% 30%/cover no-repeat; transform-origin: 50% 30%; }
+.hero-kb { position: absolute; inset: 0; background: url('images/opt/sam-osborne-stages-still.jpg') 52% 30%/cover no-repeat; transform-origin: 50% 30%; }
 .cine .hero-kb { animation: cinePush 26s cubic-bezier(.2,.6,.3,1) forwards; }
 @keyframes cinePush { from { transform: scale(1); } to { transform: scale(1.08); } }
 .hero-image::after { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%), linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%); }
@@ -1366,6 +1376,7 @@
 .bg-loop.on { opacity: 1; }
 .bg-alt { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
 .bg-alt.on { opacity: 1; }
+#your-room .bg-alt video, #your-room > .band-poster { object-position: 80% 30%; } /* keep Sam (right of frame) in view on narrow screens */
 .bg-alt video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; pointer-events: none; }
 .bg-dip { position: absolute; inset: 0; background: #0d0d0d; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
 .bg-dip.on { opacity: 1; }
@@ -1380,6 +1391,20 @@
 .hv-stream { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); border: 0; pointer-events: none; }
 .hv-layer video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; pointer-events: none; filter: saturate(.92) brightness(.97) contrast(1.05); }
 .hero-image > .loop-toggle { z-index: 5; left: 20px; right: auto; }
+/* Desktop: the hero video runs full width, with the copy over a dark fade on the right. */
+@media (min-width: 981px) {
+  .hero { display: block; position: relative; }
+  .hero-image { position: absolute; inset: 0; min-height: 0; }
+  .hero-image::after { background: linear-gradient(90deg, rgba(13,13,13,.05) 0%, rgba(13,13,13,.1) 38%, rgba(13,13,13,.62) 58%, rgba(13,13,13,.86) 100%), linear-gradient(180deg, rgba(13,13,13,.25) 0%, rgba(13,13,13,0) 20%, rgba(13,13,13,0) 75%, rgba(13,13,13,.45) 100%); }
+  .hero-copy { position: relative; z-index: 6; background: transparent; min-height: calc(100vh - 56px); margin-left: 52%; padding-right: 3vw; }
+  .hero-copy h1 { color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+  .hero-copy .hero-kicker { color: var(--gold); }
+  .hero-copy .hero-sub-copy { color: rgba(245,245,247,.86) !important; }
+  .hero-copy .btn-secondary { color: #fff !important; border-color: rgba(255,255,255,.55) !important; }
+  .hero-copy .hero-credentials { border-top-color: rgba(255,255,255,.18); }
+  .hero-copy .hero-credential .cred-role { color: var(--gold); }
+  .hero-copy .hero-credential .cred-org { color: rgba(245,245,247,.88); }
+}
 
 /* Video lightbox */
 .vbox { position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; background: rgba(5,5,5,.92); padding: 24px; }
@@ -1436,12 +1461,12 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam on different stages. Alternates self-hosted Sam-only shots cut from the Composure Through Conflict showreel (video/, cropped above the burned-in captions) with segments of the speaker reel on Cloudflare Stream (seconds). The still above is the first frame. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-audience.mp4","start":0,"end":8},{"reel":true,"start":44.6,"end":52.6},{"src":"video/sam-stage-c.mp4","start":0,"end":8},{"reel":true,"start":64.8,"end":71.6}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: opens on video/sam-stages.mp4 (speaker reel 0:05.9-0:07 and 0:54.8-0:57.6: big ballroom audiences; then 2:27-2:34 and 2:19-2:25: horseshoe boardroom, banquet, Sam with mic, Sam on stage; cut from images/showreel-web.mp4 in commit 9c34839), then Sam in front of the audience at the horseshoe tables (video/sam-horseshoe.mp4, Composure showreel 4:16.6-4:18.7 then 4:05.6-4:09, cropped left of Dave and above the captions), then Sam on different stages. Alternates self-hosted Sam-only shots cut from the Composure Through Conflict showreel (video/, cropped above the burned-in captions) with segments of the speaker reel on Cloudflare Stream (seconds). The still above is the first frame. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-stages.mp4","start":0,"end":16.8},{"src":"video/sam-horseshoe.mp4","start":0,"end":5.4,"pos":"30% 40%"},{"src":"video/sam-room-hero.mp4","start":0,"end":8.8},{"src":"video/sam-audience.mp4","start":0,"end":8},{"reel":true,"start":44.6,"end":52.6},{"src":"video/sam-stage-c.mp4","start":0,"end":8},{"reel":true,"start":64.8,"end":71.6}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
         <div class="hero-kicker"><span style="white-space:nowrap;">Healthcare Keynote Speaker</span> <span style="white-space:nowrap;">Stay composed when people <br>get under your skin</span></div>
-        <h1><span class="h1-full">Keep your staff,<br>protect patient trust,<br>and cut claims.</span></h1>
+        <h1><span class="h1-full"><span class="hl hl1">Keep your staff.</span><br><span class="hl hl2">Protect patient trust.</span><br><span class="hl hl3">And cut claims.</span></span></h1>
 
         <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Best-of-Conference Keynote Speaker, Demartini Method Facilitator, former retina-injury patient, Australian, Sam Osborne, gives Healthcare teams what they need on the next shift: instant composure, emotional clarity, and a practical step-by-step tool for high-stakes friction, proven live on stage with a real volunteer in the room.</p>
         <div class="btn-row">
@@ -2383,7 +2408,7 @@
 
   <!-- CONTACT -->
   <section class="cine-band" id="your-room" aria-label="Book Sam">
-    <img class="band-poster" src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/thumbnails/thumbnail.jpg?time=78s&amp;height=720" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
+    <img class="band-poster" src="images/opt/sam-osborne-room-still.jpg" alt="" width="900" height="544" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
     <div class="band-copy">
       <span class="band-eyebrow">Your Event</span>
       <h2 class="band-title">Bring the demonstration to your room.</h2>
@@ -2653,8 +2678,8 @@
   var LOOPS=[
     {box:'#reel-screen', start:44.6, end:54.4},
     {box:'#room-proof', start:64.8, end:71.6},
-    /* Two speaking occasions: the reel clip, then Sam working with the audience and a volunteer (video/sam-room-d.mp4, 4:37-4:46 of the Composure Through Conflict showreel) */
-    {box:'#your-room', start:76.0, end:80.7, alt:{src:'video/sam-room-d.mp4', start:0, end:9}}
+    /* Sam working with the audience and a volunteer (self-hosted: video/sam-room-d.mp4, 4:41.6-4:50.4 of the Composure Through Conflict showreel: Sam, a short volunteer reaction, Sam; cropped left of the slide) */
+    {box:'#your-room', src:'video/sam-room-d.mp4'}
   ];
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData=navigator.connection&&navigator.connection.saveData;
@@ -2694,6 +2719,15 @@
     var started=false;
     function start(){
       if(started) return; started=true;
+      if(cfg.src){ /* a self-hosted clip that simply loops */
+        var lw=document.createElement('div'); lw.className='bg-alt on'; box.insertBefore(lw,box.querySelector('.band-copy, .band-play'));
+        var lv=fileVideo(lw,cfg.src,true,null,function(){ box.classList.add('has-loop'); });
+        var lt=document.createElement('button'); lt.type='button'; lt.className='loop-toggle'; lt.innerHTML='&#10073;&#10073;'; lt.setAttribute('aria-label','Pause background video'); box.appendChild(lt);
+        var lp=false;
+        lt.addEventListener('click',function(){ lp=!lp; if(lp){ lv.pauseVideo(); lw.classList.remove('on'); lt.innerHTML='&#9654;'; lt.setAttribute('aria-label','Play background video'); } else { lv.playVideo(); lw.classList.add('on'); lt.innerHTML='&#10073;&#10073;'; lt.setAttribute('aria-label','Pause background video'); } });
+        new IntersectionObserver(function(es){ if(lp) return; if(es[0].isIntersecting) lv.playVideo(); else lv.pauseVideo(); },{threshold:0.05}).observe(box);
+        return;
+      }
       var f=document.createElement('iframe'); f.className='bg-loop'+(box.classList.contains('cine-band')?' top':''); f.title='Background video'; f.setAttribute('aria-hidden','true'); f.tabIndex=-1; f.allow='autoplay; encrypted-media';
       f.src=STREAM+REEL+'/iframe?muted=true&autoplay=true&controls=false&preload=auto&startTime='+cfg.start+'s';
       var dip=document.createElement('div'); dip.className='bg-dip';
@@ -2735,12 +2769,13 @@
     if('IntersectionObserver' in window){ var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ io.disconnect(); start(); } },{rootMargin:'400px 0px'}); io.observe(box); }
     else start();
   }
-  if(!reduce && !saveData && window.innerWidth>1000){
-    window.addEventListener('load',function(){ LOOPS.forEach(mount); });
+  /* Reel (Stream) loops on desktop only; small self-hosted loops (cfg.src) on mobile too */
+  if(!reduce && !saveData){
+    window.addEventListener('load',function(){ LOOPS.forEach(function(c){ if(c.src||window.innerWidth>1000) mount(c); }); });
   }
 
   /* Homepage hero: a sequence of self-hosted shots of Sam (muted), set in data-clips on #heroVid. Desktop and mobile; the still shows until it plays.
-     Each clip: {src: file, start, end (seconds)}. */
+     Each clip: {src: file, start, end (seconds), pos: optional CSS object-position to frame the shot} or {reel: true, start, end}. */
   (function heroVideo(){
     var box=document.getElementById('heroVid'), wrap=box&&box.parentNode;
     if(!box||reduce||saveData) return;
@@ -2752,7 +2787,7 @@
     function build(){
       clips.forEach(function(c,i){
         c.layer=document.createElement('div'); c.layer.className='hv-layer'; box.appendChild(c.layer);
-        if(c.src){ c.player=fileVideo(c.layer,c.src,i===0,function(){ c.ready=true; },function(){ onPlaying(i); }); }
+        if(c.src){ c.player=fileVideo(c.layer,c.src,i===0,function(){ c.ready=true; },function(){ onPlaying(i); }); if(c.pos) c.player.el.style.objectPosition=c.pos; }
         else if(c.reel){ c.player=streamVideo(c.layer,box,c.start,function(){ c.ready=true; },function(){ onPlaying(i); }); if(i===0) c.player.playVideo(); }
       });
       var t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); wrap.appendChild(t);
