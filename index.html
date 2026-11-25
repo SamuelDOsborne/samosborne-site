@@ -1794,6 +1794,21 @@
     </div>
   </section>
 
+<style>
+  /* Power statements: big outcome lines between sections; each line slides in like the hero */
+  .power { background: var(--bg); border-top: 1px solid var(--line); padding: clamp(4.5rem, 10vw, 8rem) 0; overflow: hidden; }
+  .power .container { max-width: 1100px; }
+  .power .pl { display: block; font-size: clamp(2.2rem, 5.6vw, 5rem); font-weight: 800; letter-spacing: -.045em; line-height: 1.04; color: var(--text); margin: 0; }
+  .power .pl em { font-style: normal; color: var(--gold); }
+  .power .pl + .pl { margin-top: .08em; }
+</style>
+  <section class="power" aria-label="Staff retention">
+    <div class="container">
+      <p class="pl">Keep the nurses</p>
+      <p class="pl">you can&rsquo;t afford <em>to lose.</em></p>
+    </div>
+  </section>
+
   <!-- MARQUEE -->
   <div class="marquee">
     <div class="marquee-track">
@@ -1984,6 +1999,13 @@
       });
     })();
   </script>
+
+  <section class="power" aria-label="Patient trust">
+    <div class="container">
+      <p class="pl">Staff stop taking it personally.</p>
+      <p class="pl"><em>Patients feel the difference.</em></p>
+    </div>
+  </section>
 
   <!-- METHOD INTRO -->
   <section class="section section-light intro" style="padding-top: 0;">
@@ -2235,6 +2257,14 @@
     </div>
   </div>
 
+  <section class="power" aria-label="Fewer escalations">
+    <div class="container">
+      <p class="pl">Fewer escalations.</p>
+      <p class="pl">Fewer complaints.</p>
+      <p class="pl"><em>Fewer claims.</em></p>
+    </div>
+  </section>
+
   <!-- ═══════════════ ONE-SHEET + FAQ ═══════════════ -->
   <style>
     .kit-faq { background: var(--bg); }
@@ -2419,6 +2449,13 @@
   </style>
 
   <!-- CONTACT -->
+  <section class="power" aria-label="Lasting composure">
+    <div class="container">
+      <p class="pl">Composure on the next shift.</p>
+      <p class="pl"><em>Not just at the conference.</em></p>
+    </div>
+  </section>
+
   <section class="cine-band" id="your-room" aria-label="Book Sam">
     <img class="band-poster" src="images/opt/sam-osborne-room-still.jpg" alt="" width="900" height="544" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
     <div class="band-copy">
@@ -2884,6 +2921,7 @@
   mark('main h2, section h2, .principles-lead, .companion-heading, .signature-card h3, .kit-card h3','rv-x');
   /* the eye story and the principles reveal one line at a time, slowly */
   all('.eye-story > p').forEach(function(p,i){ p.classList.add('rv','rv-fade'); p.setAttribute('data-d',(i*0.9).toFixed(2)); });
+  all('.power .pl').forEach(function(p){ var i=Array.prototype.indexOf.call(p.parentNode.children,p); p.classList.add('rv','rv-x'); p.setAttribute('data-d',(i*0.6).toFixed(2)); });
   all('.principles-stack > .principle').forEach(function(p,i){ p.classList.add('rv','rv-x'); p.setAttribute('data-d',(i*0.45).toFixed(2)); });
   /* photos settle in */
   mark('.about-photo-full img, .method-photo-full img','rv-zoom');
