@@ -2791,40 +2791,56 @@
     var box=document.getElementById('heroVid'), wrap=box&&box.parentNode;
     if(!box||reduce||saveData) return;
     var clips; try{ clips=JSON.parse(box.getAttribute('data-clips')); }catch(e){ return; }
-    if(!clips||!clips.length) return;
-    var active=0, started=false, userPaused=false, busy=false;
-    function show(i){ clips.forEach(function(c,j){ c.layer.classList.toggle('on',j===i&&!userPaused); }); }
-    function onPlaying(i){ if(i===0&&!started){ started=true; clips[0].played=true; box.classList.add('on'); show(0); wrap.classList.add('has-loop'); setTimeout(function(){ wrap.classList.add('vid-live'); },1200); } }
-    function build(){
-      clips.forEach(function(c,i){
-        c.layer=document.createElement('div'); c.layer.className='hv-layer'; box.appendChild(c.layer);
-        if(c.src){ c.player=fileVideo(c.layer,c.src,i===0,function(){ c.ready=true; },function(){ onPlaying(i); }); var cp=(window.innerWidth<=980&&c.mpos)||c.pos; if(cp) c.player.el.style.objectPosition=cp; }
-        else if(c.reel){ c.player=streamVideo(c.layer,box,c.start,function(){ c.ready=true; },function(){ onPlaying(i); }); if(i===0) c.player.playVideo(); }
-      });
-      var t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); wrap.appendChild(t);
-      t.addEventListener('click',function(){
-        userPaused=!userPaused; var c=clips[active];
-        if(userPaused){ c.player.pauseVideo(); box.classList.remove('on'); wrap.classList.remove('vid-live'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
-        else { c.player.playVideo(); box.classList.add('on'); wrap.classList.add('vid-live'); show(active); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
-      });
-      /* play each clip in turn with a short fade between; a clip that isn't ready yet is skipped */
-      setInterval(function(){
-        if(!started||busy||userPaused) return;
-        var c=clips[active], now=c.player.getCurrentTime();
-        if(now<c.start-1){ c.player.seekTo(c.start,true); return; }
-        if(now<c.end-0.4) return;
-        var n=(active+1)%clips.length, k=0;
-        while(k<clips.length&&(!clips[n].ready||(clips[n].once&&clips[n].played))){ n=(n+1)%clips.length; k++; }
-        /* straight cut: the next clip already sits on its first frame (each clip is rewound when it is left) */
-        busy=true; var nx=clips[n], prev=active;
-        if(nx.player.getCurrentTime()>nx.start+0.3) nx.player.seekTo(nx.start,true);
-        nx.player.playVideo(); nx.played=true; active=n; show(n);
-        setTimeout(function(){ if(n!==prev){ c.player.pauseVideo(); c.player.seekTo(c.start,true); } busy=false; },250);
-      },150);
-      if('IntersectionObserver' in window) new IntersectionObserver(function(es){ if(userPaused||!started) return; var c=clips[active]; if(es[0].isIntersecting) c.player.playVideo(); else c.player.pauseVideo(); },{threshold:0.05}).observe(box);
+    clips=(clips||[]).filter(function(c){ return c.src; });
+    if(!clips.length) return;
+    /* Two video elements take turns (the same on desktop and phones): one plays while the other loads the next clip, then a straight cut.
+       Phones won't buffer many videos at once, so only one clip is ever loading. Clips marked "once" play only on the first pass. */
+    var small=window.innerWidth<=980, slots=[], cur=0, idx=0, started=false, userPaused=false, switching=false;
+    function mk(){
+      var layer=document.createElement('div'); layer.className='hv-layer'; box.appendChild(layer);
+      var v=document.createElement('video'); v.muted=true; v.defaultMuted=true; v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.setAttribute('muted',''); v.preload='auto'; v.setAttribute('aria-hidden','true'); v.tabIndex=-1;
+      layer.appendChild(v); return {layer:layer, v:v, i:-1};
     }
-    /* start straight away (the hero is the first thing on screen) instead of waiting for the whole page */
-    build();
+    function play(v){ var r=v.play(); if(r&&r.catch) r.catch(function(){}); }
+    function load(slot,i){
+      var c=clips[i]; slot.i=i; slot.v.style.objectPosition=(small&&c.mpos)||c.pos||'';
+      slot.v.src=c.src; slot.v.load();
+      if(c.start) slot.v.addEventListener('loadedmetadata',function f(){ slot.v.removeEventListener('loadedmetadata',f); slot.v.currentTime=c.start; });
+    }
+    function nextIdx(i){ for(var k=1;k<=clips.length;k++){ var n=(i+k)%clips.length; if(!(clips[n].once&&clips[n].played)) return n; } return i; }
+    function cut(){
+      var a=slots[cur], b=slots[1-cur];
+      if(switching||userPaused||b.v.readyState<2) return;
+      switching=true; play(b.v); b.layer.classList.add('on'); a.layer.classList.remove('on');
+      cur=1-cur; idx=b.i; clips[idx].played=true;
+      setTimeout(function(){ a.v.pause(); load(a,nextIdx(idx)); switching=false; },300);
+    }
+    function tick(){
+      if(!started||userPaused) return;
+      var s=slots[cur], c=clips[idx];
+      if(s.v.ended||s.v.currentTime>=c.end-0.12) cut();
+    }
+    slots=[mk(),mk()];
+    slots.forEach(function(s,k){
+      s.v.addEventListener('playing',function(){
+        if(started||k!==0) return;
+        started=true; clips[0].played=true; s.layer.classList.add('on'); box.classList.add('on'); wrap.classList.add('has-loop');
+        setTimeout(function(){ wrap.classList.add('vid-live'); },1200);
+        load(slots[1],nextIdx(0));
+      });
+      s.v.addEventListener('timeupdate',function(){ if(k===cur) tick(); });
+      s.v.addEventListener('ended',function(){ if(k===cur) tick(); });
+      s.v.addEventListener('canplay',function(){ if(k!==cur) tick(); });
+    });
+    load(slots[0],0); play(slots[0].v);
+    setInterval(tick,100);
+    var t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); wrap.appendChild(t);
+    t.addEventListener('click',function(){
+      userPaused=!userPaused; var v=slots[cur].v;
+      if(userPaused){ v.pause(); box.classList.remove('on'); wrap.classList.remove('vid-live'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
+      else { play(v); box.classList.add('on'); wrap.classList.add('vid-live'); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
+    });
+    if('IntersectionObserver' in window) new IntersectionObserver(function(es){ if(userPaused||!started) return; var v=slots[cur].v; if(es[0].isIntersecting) play(v); else v.pause(); },{threshold:0.05}).observe(box);
   })();
 
   var box=document.getElementById('vbox'), frame=box.querySelector('.vbox-frame'), last=null;
