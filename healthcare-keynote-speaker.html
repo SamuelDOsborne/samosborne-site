@@ -650,28 +650,30 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
  ]
 }
 </script>
+<link rel="stylesheet" href="/css/site-nav.css">
 </head>
 <body id="top">
 
 
-<nav id="nav" aria-label="Main">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Sam Osborne</a>
-    <button type="button" class="mobile-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">&#9776;</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/#speaking">Speaking</a></li>
-      <li><a href="/#demonstration">The Demonstration</a></li>
-      <li><a href="#cost">The Cost</a></li>
-      <li><a href="#sessions">Sessions</a></li>
-      <li><a href="#formats">Formats &amp; CE</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-    <div class="nav-right">
-      <a class="nav-phone" href="tel:+18189345140">+1&nbsp;818.934.5140</a>
-      <a class="nav-cta" href="/#contact">Check Availability ›</a>
+<!-- NAV (matches index.html; styles in /css/site-nav.css) -->
+<div class="sitenav sitenav--fixed" role="navigation" aria-label="Main">
+  <div class="sitenav-inner">
+    <a class="sitenav-brand" href="/">Sam Osborne</a>
+    <button type="button" class="sitenav-toggle" id="sitenavToggle" aria-label="Toggle menu" aria-controls="sitenavLinks" aria-expanded="false">&#9776;</button>
+    <div class="sitenav-links" id="sitenavLinks">
+      <a href="/#demonstration">The Demonstration</a>
+      <a href="/#about">About</a>
+      <a href="/#speaking">Programs</a>
+      <a href="/healthcare-keynote-speaker" aria-current="page">Healthcare</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#onesheet">One-Sheet</a>
+    </div>
+    <div class="sitenav-right">
+      <a class="sitenav-phone" href="tel:+18189345140">+1 818.934.5140</a>
+      <a class="sitenav-cta" href="/#contact">Check Availability</a>
     </div>
   </div>
-</nav>
+</div>
 
 <main>
 
@@ -957,19 +959,6 @@ footer { background: var(--charcoal); padding: 56px 40px 40px; border-top: 1px s
 </footer>
 
 <script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
-
-const mt=document.getElementById('menuToggle'),nl=document.getElementById('navLinks');
-function closeMenu(){nl.classList.remove('active');mt.classList.remove('is-open');mt.setAttribute('aria-expanded','false');mt.innerHTML='&#9776;';}
-mt.addEventListener('click',()=>{
-  const open=nl.classList.toggle('active');
-  mt.classList.toggle('is-open',open);
-  mt.setAttribute('aria-expanded',open?'true':'false');
-  mt.innerHTML=open?'&#x2715;':'&#9776;';
-});
-nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h==='#')return;const t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
 
 (function(){document.querySelectorAll('details.details').forEach(det=>{const summ=det.querySelector('summary'),body=det.querySelector('.details-body');if(!summ||!body)return;summ.addEventListener('click',e=>{e.preventDefault();if(!det.open){det.open=true;body.style.overflow='hidden';body.style.maxHeight='0';body.style.opacity='0';body.style.paddingTop='0';body.style.marginTop='0';body.offsetHeight;body.style.transition='max-height .5s cubic-bezier(.25,.46,.45,.94),opacity .38s ease,padding-top .38s ease,margin-top .38s ease';body.style.maxHeight=(body.scrollHeight+26)+'px';body.style.opacity='1';body.style.paddingTop='12px';body.style.marginTop='10px';body.addEventListener('transitionend',()=>{body.style.maxHeight='none';body.style.overflow='visible';body.style.transition='';body.classList.add('is-open');},{once:true});}else{body.classList.remove('is-open');body.style.overflow='hidden';body.style.maxHeight=body.scrollHeight+'px';body.style.opacity='1';body.offsetHeight;body.style.transition='max-height .42s cubic-bezier(.25,.46,.45,.94),opacity .32s ease,padding-top .32s ease,margin-top .32s ease';body.style.maxHeight='0';body.style.opacity='0';body.style.paddingTop='0';body.style.marginTop='0';body.addEventListener('transitionend',()=>{det.open=false;body.style.transition='';body.style.overflow='';},{once:true});}});});})();
@@ -977,5 +966,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 (function(){if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>el.classList.add('visible'));return;}const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>obs.observe(el));})();
 </script>
 
+<script src="/js/site-nav.js" defer></script>
 </body>
 </html>

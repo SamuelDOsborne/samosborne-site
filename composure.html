@@ -1386,29 +1386,30 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Service","name":"Composure Through Conflict","serviceType":"Conference keynote and workshop program","description":"A duo program on composure under pressure for legal and professional audiences, delivered by Sam Osborne and David J. Graf, Esq., CCAL, including a live volunteer demonstration.","url":"https://samosborne.net/composure","provider":[{"@type":"Person","name":"Sam Osborne","url":"https://samosborne.net"},{"@type":"Person","name":"David J. Graf","honorificSuffix":"Esq., CCAL"}],"areaServed":"Worldwide","offers":[{"@type":"Offer","name":"Virtual program","price":5000,"priceCurrency":"USD"},{"@type":"Offer","name":"Education session","price":7500,"priceCurrency":"USD"},{"@type":"Offer","name":"Keynote","price":10000,"priceCurrency":"USD"},{"@type":"Offer","name":"Half-day workshop","price":15000,"priceCurrency":"USD"}]}
     </script>
+<link rel="stylesheet" href="/css/site-nav.css">
 </head>
 <body>
 
     <!-- NAV -->
-    <nav id="nav">
-        <div class="nav-inner">
-            <a href="#top" class="nav-logo">Composure Through Conflict</a>
-            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#what">The Session</a></li>
-                <li id="navReel" hidden><a href="#reel">Reel</a></li>
-                <li><a href="#speakers">Speakers</a></li>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#program">Program</a></li>
-                <li><a href="#fees">Fees</a></li>
-                <li><a href="#contact" class="nav-cta">Book</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- NAV (matches index.html; styles in /css/site-nav.css) -->
+<div class="sitenav sitenav--fixed" role="navigation" aria-label="Main">
+  <div class="sitenav-inner">
+    <a class="sitenav-brand" href="/">Sam Osborne</a>
+    <button type="button" class="sitenav-toggle" id="sitenavToggle" aria-label="Toggle menu" aria-controls="sitenavLinks" aria-expanded="false">&#9776;</button>
+    <div class="sitenav-links" id="sitenavLinks">
+      <a href="/#demonstration">The Demonstration</a>
+      <a href="/#about">About</a>
+      <a href="/#speaking">Programs</a>
+      <a href="/healthcare-keynote-speaker">Healthcare</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#onesheet">One-Sheet</a>
+    </div>
+    <div class="sitenav-right">
+      <a class="sitenav-phone" href="tel:+18189345140">+1 818.934.5140</a>
+      <a class="sitenav-cta" href="/#contact">Check Availability</a>
+    </div>
+  </div>
+</div>
 
     <!-- HERO -->
     <section class="hero cine-hero" id="top">
@@ -1907,33 +1908,6 @@
     </footer>
 
     <script>
-        // Nav scroll effect
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
-
-        // Mobile menu toggle (hamburger ↔ X)
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        function closeMobileMenu() {
-            navLinks.classList.remove('open');
-            navToggle.classList.remove('open');
-            navToggle.setAttribute('aria-expanded', 'false');
-            navToggle.setAttribute('aria-label', 'Open menu');
-        }
-        
-        navToggle.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
-            navToggle.classList.toggle('open', isOpen);
-            navToggle.setAttribute('aria-expanded', isOpen);
-            navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-        });
-        
-        // Close mobile menu when a link is tapped
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', e => {
@@ -2032,7 +2006,6 @@
             const band = $('reel');
             if (!CTC.reel) return;
             band.classList.add('live');
-            document.getElementById('navReel').hidden = false;
             $('heroWatch').hidden = false; $('mctaWatch').hidden = false;
             $('heroIncluded').hidden = true;
             if (CTC.length) $('reelMeta').textContent = CTC.length + ' · with sound · captions on';
@@ -2179,5 +2152,6 @@
 
 
     </script>
+<script src="/js/site-nav.js" defer></script>
 </body>
 </html>

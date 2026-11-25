@@ -1,0 +1,50 @@
+/* Site-wide top navigation. Mirrors the nav on index.html (which keeps its own
+   inline copy). Classes are prefixed "sitenav" so each page's older nav rules
+   can't leak into it. Edit the links in each page's <div class="sitenav"> block. */
+.sitenav {
+  position: sticky; top: 0; z-index: 1050;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(20,20,20,.88);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/* Pages whose layout was built around a fixed (overlay) header keep that behavior. */
+.sitenav.sitenav--fixed { position: fixed; left: 0; right: 0; width: 100%; }
+.sitenav *, .sitenav *::before, .sitenav *::after { box-sizing: border-box; }
+.sitenav a { text-decoration: none; border: 0; padding: 0; margin: 0; background: none; }
+.sitenav .sitenav-inner {
+  width: min(1200px, calc(100% - 40px)); margin: 0 auto;
+  min-height: 56px; display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; position: relative;
+}
+.sitenav .sitenav-brand { font-weight: 800; letter-spacing: .02em; font-size: 17.6px; color: #d4a574; white-space: nowrap; }
+.sitenav .sitenav-links { display: flex; gap: 16px; font-size: 13.5px; white-space: nowrap; }
+.sitenav .sitenav-links a { color: rgba(245,245,247,.86); font-weight: 400; transition: color .18s ease; }
+.sitenav .sitenav-links a:hover, .sitenav .sitenav-links a[aria-current="page"], .sitenav .sitenav-cta:hover { color: #d4a574; }
+.sitenav .sitenav-right { display: flex; align-items: center; gap: 18px; }
+.sitenav .sitenav-phone { color: #f5f5f7; font-size: 14px; font-weight: 600; white-space: nowrap; transition: color .18s ease; }
+.sitenav .sitenav-phone:hover { color: #d4a574; }
+.sitenav .sitenav-cta { color: #d4a574; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.sitenav .sitenav-toggle {
+  display: none; background: none; border: 1px solid rgba(255,255,255,.24); color: #f5f5f7;
+  font-size: 20px; font-family: inherit; border-radius: 8px; padding: 6px 10px; margin: 0;
+  cursor: pointer; line-height: 1; width: auto; height: auto;
+}
+@media (max-width: 1240px) {
+  .sitenav .sitenav-links {
+    position: absolute; top: 56px; left: 0; width: 100%;
+    background: rgba(20,20,20,.97); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    flex-direction: column; gap: 18px; padding: 20px; display: none;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .sitenav .sitenav-links.active { display: flex; }
+  .sitenav .sitenav-links a { display: block; width: 100%; white-space: normal; }
+  .sitenav .sitenav-toggle { display: block; }
+}
+@media (max-width: 600px) {
+  .sitenav .sitenav-right { flex-direction: column; align-items: flex-end; gap: 3px; }
+  .sitenav .sitenav-phone, .sitenav .sitenav-cta { font-size: 12px; }
+}
