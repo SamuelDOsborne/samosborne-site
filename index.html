@@ -25,10 +25,6 @@
   <meta name="twitter:image" content="https://samosborne.net/images/opt/og-home.jpg" />
 
   <link rel="preload" as="image" href="images/opt/sam-osborne-audience-still.jpg" fetchpriority="high">
-  <link rel="preconnect" href="https://www.youtube.com">
-  <link rel="preconnect" href="https://www.youtube-nocookie.com">
-  <link rel="preconnect" href="https://i.ytimg.com">
-  <link rel="preconnect" href="https://www.google.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1368,22 +1364,20 @@
 /* Background loops and controls */
 .bg-loop { position: absolute; top: 50%; left: 50%; border: 0; pointer-events: none; opacity: 0; transform: translate(-50%,-50%); transition: opacity 1.4s ease; }
 .bg-loop.on { opacity: 1; }
-.bg-yt { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
-.bg-yt.on { opacity: 1; }
-.bg-yt iframe { position: absolute; border: 0; pointer-events: none; }
-.bg-yt video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; pointer-events: none; }
+.bg-alt { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
+.bg-alt.on { opacity: 1; }
+.bg-alt video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; pointer-events: none; }
 .bg-dip { position: absolute; inset: 0; background: #0d0d0d; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
 .bg-dip.on { opacity: 1; }
 .loop-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(0,0,0,.4); color: #fff; font-size: 13px; cursor: pointer; display: none; }
 .has-loop > .loop-toggle { display: block; }
-/* Homepage hero video (YouTube, muted), scaled to cover the photo box. */
+/* Homepage hero video (self-hosted clips, muted), covering the photo box. */
 .hero-vid { position: absolute; inset: 0; z-index: 1; overflow: hidden; opacity: 0; transition: opacity 1.1s ease; pointer-events: none; }
 .hero-vid.on { opacity: 1; }
 .hero-vid.dip { opacity: 0; transition-duration: .3s; }
 .hv-layer { position: absolute; inset: 0; opacity: 0; transition: opacity .3s ease; }
 .hv-layer.on { opacity: 1; }
 .hv-layer video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; pointer-events: none; filter: saturate(.92) brightness(.97) contrast(1.05); }
-.hero-vid iframe { position: absolute; border: 0; pointer-events: none; filter: saturate(.92) brightness(.97) contrast(1.05); }
 .hero-image > .loop-toggle { z-index: 5; left: 20px; right: auto; }
 
 /* Video lightbox */
@@ -1441,7 +1435,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam with an audience (video/sam-audience.mp4, cut from 0:47-0:55 of the Composure Through Conflict showreel, cropped above the captions), then Sam on different stages (DSDfJx5HIR8, 2:27-2:37). Seconds. The still above shows until it plays. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-audience.mp4","start":0,"end":8},{"yt":"DSDfJx5HIR8","start":147,"end":157}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: three Sam-only shots cut from the Composure Through Conflict showreel (0:47-0:55, 1:24-1:33, 3:14-3:22), cropped above the burned-in captions, no audio. Self-hosted in video/ so they start straight away. The still above is the first frame. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-audience.mp4","start":0,"end":8},{"src":"video/sam-stage-b.mp4","start":0,"end":8.4},{"src":"video/sam-stage-c.mp4","start":0,"end":8}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2659,8 +2653,8 @@
     {box:'#reel-screen', start:44.6, end:54.4},
     {box:'#room-proof', start:59.8, end:66.6},
     /* Two speaking occasions: the reel clip, then a Sam-only clip from the Composure Through Conflict program video (YouTube, seconds) */
-    /* Two speaking occasions: the reel clip, then Sam with the audience (video/sam-audience.mp4, cut from the Composure Through Conflict showreel) */
-    {box:'#your-room', start:76.0, end:80.7, alt:{src:'video/sam-audience.mp4', start:0, end:8}}
+    /* Two speaking occasions: the reel clip, then Sam working with the audience and a volunteer (video/sam-room-d.mp4, 4:37-4:46 of the Composure Through Conflict showreel) */
+    {box:'#your-room', start:76.0, end:80.7, alt:{src:'video/sam-room-d.mp4', start:0, end:9}}
   ];
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData=navigator.connection&&navigator.connection.saveData;
@@ -2668,7 +2662,7 @@
 
   var sdk=null;
   function loadSdk(){ if(sdk) return sdk; sdk=new Promise(function(res,rej){ var sc=document.createElement('script'); sc.src='https://embed.cloudflarestream.com/embed/sdk.latest.js'; sc.onload=function(){res(window.Stream)}; sc.onerror=rej; document.head.appendChild(sc); }); return sdk; }
-  /* A muted, self-hosted clip with the same controls as a YouTube player (playVideo, pauseVideo, seekTo, getCurrentTime) */
+  /* A muted, self-hosted clip with simple controls (playVideo, pauseVideo, seekTo, getCurrentTime) */
   function fileVideo(parent,src,autoplay,onReady,onPlaying){
     var v=document.createElement('video'); v.muted=true; v.defaultMuted=true; v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('muted',''); v.loop=true; v.preload='auto'; v.setAttribute('aria-hidden','true'); v.tabIndex=-1; v.src=src;
     v.addEventListener('canplay',function once(){ v.removeEventListener('canplay',once); onReady&&onReady(); });
@@ -2678,19 +2672,6 @@
     if(autoplay) p.playVideo();
     return p;
   }
-  /* YouTube iframe API, shared with the hero video */
-  var ytp=null;
-  function loadYT(){
-    if(ytp) return ytp;
-    ytp=new Promise(function(res){
-      if(window.YT&&YT.Player){ res(YT); return; }
-      var prior=window.onYouTubeIframeAPIReady; window.onYouTubeIframeAPIReady=function(){ if(prior) prior(); res(YT); };
-      if(!document.querySelector('script[src*="youtube.com/iframe_api"]')){ var sc=document.createElement('script'); sc.src='https://www.youtube.com/iframe_api'; document.head.appendChild(sc); }
-    });
-    return ytp;
-  }
-  /* 16:9 YouTube frame scaled to cover the box, showing only the top ~70% so the burned-in captions stay out of view */
-  function coverYT(el,box){ var W=box.clientWidth,H=box.clientHeight,h=H/0.7,w=h*16/9; if(w<W*1.02){ w=W*1.02; h=w*9/16; } el.style.width=w+'px'; el.style.height=h+'px'; el.style.left=((W-w)/2)+'px'; el.style.top=(-h*0.02)+'px'; }
   function cover(f,box){ var w=box.clientWidth,h=box.clientHeight; if(w/h>16/9){ f.style.width=w+'px'; f.style.height=Math.ceil(w*9/16)+'px'; } else { f.style.height=h+'px'; f.style.width=Math.ceil(h*16/9)+'px'; } }
   function mount(cfg){
     var box=document.querySelector(cfg.box); if(!box) return;
@@ -2707,41 +2688,29 @@
         var p=Stream(f), busy=false, userPaused=false;
         box.classList.add('has-loop');
         p.addEventListener('playing',function(){ if(!userPaused) f.classList.add('on'); });
-        /* optional second clip (another speaking occasion): alternate reel clip -> alt clip -> reel clip */
-        var alt=cfg.alt, yt=null, ytEl=null, ytReady=false, onAlt=false;
+        /* optional second, self-hosted clip (another speaking occasion): alternate reel clip -> alt clip -> reel clip */
+        var alt=cfg.alt, altV=null, altEl=null, altReady=false, onAlt=false;
         if(alt&&alt.src){
-          ytEl=document.createElement('div'); ytEl.className='bg-yt'; box.insertBefore(ytEl,dip);
-          yt=fileVideo(ytEl,alt.src,false,function(){ ytReady=true; },null);
+          altEl=document.createElement('div'); altEl.className='bg-alt'; box.insertBefore(altEl,dip);
+          altV=fileVideo(altEl,alt.src,false,function(){ altReady=true; },null);
           setInterval(function(){
             if(!onAlt||busy||userPaused) return;
-            if(yt.getCurrentTime()<alt.end-0.35) return;
-            swap(function(){ yt.pauseVideo(); ytEl.classList.remove('on'); onAlt=false; p.currentTime=cfg.start; p.play(); f.classList.add('on'); yt.seekTo(alt.start); });
+            if(altV.getCurrentTime()<alt.end-0.35) return;
+            swap(function(){ altV.pauseVideo(); altEl.classList.remove('on'); onAlt=false; p.currentTime=cfg.start; p.play(); f.classList.add('on'); altV.seekTo(alt.start); });
           },150);
-        } else if(alt){
-          ytEl=document.createElement('div'); ytEl.className='bg-yt'; var host=document.createElement('div'); ytEl.appendChild(host); box.insertBefore(ytEl,dip);
-          loadYT().then(function(YT){
-            yt=new YT.Player(host,{ host:'https://www.youtube-nocookie.com', videoId:alt.yt,
-              playerVars:{autoplay:0,mute:1,controls:0,disablekb:1,fs:0,iv_load_policy:3,modestbranding:1,playsinline:1,rel:0,start:alt.start},
-              events:{ onReady:function(e){ var fr=ytEl.querySelector('iframe'); if(fr){ fr.tabIndex=-1; fr.setAttribute('aria-hidden','true'); fr.title='Background video'; coverYT(fr,box); window.addEventListener('resize',function(){ coverYT(fr,box); }); } e.target.mute(); e.target.seekTo(alt.start,true); e.target.pauseVideo(); ytReady=true; } } });
-            setInterval(function(){
-              if(!onAlt||busy||userPaused) return;
-              if(yt.getCurrentTime()<alt.end-0.35) return;
-              swap(function(){ yt.pauseVideo(); ytEl.classList.remove('on'); onAlt=false; p.currentTime=cfg.start; p.play(); f.classList.add('on'); yt.seekTo(alt.start,true); yt.pauseVideo(); });
-            },150);
-          });
         }
         function swap(fn){ busy=true; dip.classList.add('on'); setTimeout(function(){ fn(); setTimeout(function(){ dip.classList.remove('on'); busy=false; },450); },320); }
         p.addEventListener('timeupdate',function(){
           if(onAlt||busy||p.currentTime<cfg.end-0.3) return;
-          if(alt&&ytReady) swap(function(){ p.pause(); f.classList.remove('on'); onAlt=true; yt.seekTo(alt.start,true); yt.playVideo(); ytEl.classList.add('on'); });
+          if(alt&&altReady) swap(function(){ p.pause(); f.classList.remove('on'); onAlt=true; altV.seekTo(alt.start,true); altV.playVideo(); altEl.classList.add('on'); });
           else swap(function(){ p.currentTime=cfg.start; });
         });
-        function playCur(){ if(onAlt) yt.playVideo(); else p.play(); }
-        function pauseCur(){ if(onAlt) yt.pauseVideo(); else p.pause(); }
+        function playCur(){ if(onAlt) altV.playVideo(); else p.play(); }
+        function pauseCur(){ if(onAlt) altV.pauseVideo(); else p.pause(); }
         t.addEventListener('click',function(){
           userPaused=!userPaused;
-          if(userPaused){ pauseCur(); f.classList.remove('on'); if(ytEl) ytEl.classList.remove('on'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
-          else { playCur(); (onAlt?ytEl:f).classList.add('on'); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
+          if(userPaused){ pauseCur(); f.classList.remove('on'); if(altEl) altEl.classList.remove('on'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
+          else { playCur(); (onAlt?altEl:f).classList.add('on'); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
         });
         new IntersectionObserver(function(es){ if(userPaused) return; if(es[0].isIntersecting) playCur(); else pauseCur(); },{threshold:0.05}).observe(box);
       }).catch(function(){ f.remove(); dip.remove(); t.remove(); });
@@ -2754,45 +2723,21 @@
     window.addEventListener('load',function(){ LOOPS.forEach(mount); });
   }
 
-  /* Homepage hero: a sequence of shots of Sam (YouTube, muted), set in data-clips on #heroVid. Desktop and mobile; the still shows until it plays.
-     Each clip: {yt: video id, start, end (seconds), crop: true to trim the bottom of the frame where a video has burned-in captions}. */
+  /* Homepage hero: a sequence of self-hosted shots of Sam (muted), set in data-clips on #heroVid. Desktop and mobile; the still shows until it plays.
+     Each clip: {src: file, start, end (seconds)}. */
   (function heroVideo(){
     var box=document.getElementById('heroVid'), wrap=box&&box.parentNode;
     if(!box||reduce||saveData) return;
     var clips; try{ clips=JSON.parse(box.getAttribute('data-clips')); }catch(e){ return; }
     if(!clips||!clips.length) return;
     var active=0, started=false, userPaused=false, busy=false;
-    function fit(c){
-      var f=c.layer.querySelector('iframe'); if(!f) return;
-      var W=box.clientWidth, H=box.clientHeight, h, w, top;
-      if(c.crop){ h=H/0.7; w=h*16/9; if(w<W*1.02){ w=W*1.02; h=w*9/16; } top=-h*0.02; }
-      else { h=H*1.04; w=h*16/9; if(w<W*1.04){ w=W*1.04; h=w*9/16; } top=(H-h)/2; }
-      f.style.width=w+'px'; f.style.height=h+'px'; f.style.left=((W-w)/2)+'px'; f.style.top=top+'px';
-    }
-    function fitAll(){ clips.forEach(fit); }
     function show(i){ clips.forEach(function(c,j){ c.layer.classList.toggle('on',j===i&&!userPaused); }); }
     function onPlaying(i){ if(i===0&&!started){ started=true; box.classList.add('on'); show(0); wrap.classList.add('has-loop'); } }
-    function addYT(YT,c,i){
-      var host=document.createElement('div'); c.layer.appendChild(host);
-      c.player=new YT.Player(host,{
-        host:'https://www.youtube-nocookie.com', videoId:c.yt,
-        playerVars:{autoplay:i===0?1:0,mute:1,controls:0,disablekb:1,fs:0,iv_load_policy:3,modestbranding:1,playsinline:1,rel:0,start:c.start},
-        events:{
-          onReady:function(e){ var f=c.layer.querySelector('iframe'); if(f){ f.tabIndex=-1; f.setAttribute('aria-hidden','true'); f.title='Background video'; } e.target.mute(); c.ready=true; fit(c); if(i===0) e.target.playVideo(); else { e.target.seekTo(c.start,true); e.target.pauseVideo(); } },
-          onStateChange:function(e){
-            if(e.data===0&&i===active){ e.target.seekTo(c.start,true); e.target.playVideo(); return; }
-            if(e.data===1) onPlaying(i);
-          }
-        }
-      });
-    }
     function build(){
       clips.forEach(function(c,i){
         c.layer=document.createElement('div'); c.layer.className='hv-layer'; box.appendChild(c.layer);
         if(c.src){ c.player=fileVideo(c.layer,c.src,i===0,function(){ c.ready=true; },function(){ onPlaying(i); }); }
       });
-      if(clips.some(function(c){ return c.yt; })) loadYT().then(function(YT){ clips.forEach(function(c,i){ if(c.yt) addYT(YT,c,i); }); });
-      window.addEventListener('resize',fitAll);
       var t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); wrap.appendChild(t);
       t.addEventListener('click',function(){
         userPaused=!userPaused; var c=clips[active];
