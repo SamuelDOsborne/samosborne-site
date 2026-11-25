@@ -25,6 +25,10 @@
   <meta name="twitter:image" content="https://samosborne.net/images/opt/og-home.jpg" />
 
   <link rel="preload" as="image" href="images/opt/sam-osborne-stage-still.jpg" fetchpriority="high">
+  <link rel="preconnect" href="https://www.youtube.com">
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preconnect" href="https://www.google.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -2786,8 +2790,8 @@
       },150);
       if('IntersectionObserver' in window) new IntersectionObserver(function(es){ if(userPaused||!started) return; var c=clips[active]; if(es[0].isIntersecting) c.player.playVideo(); else c.player.pauseVideo(); },{threshold:0.05}).observe(box);
     }
-    function go(){ loadYT().then(build); }
-    if(document.readyState==='complete') setTimeout(go,300); else window.addEventListener('load',function(){ setTimeout(go,300); });
+    /* start loading straight away (the hero is the first thing on screen) instead of waiting for the whole page */
+    loadYT().then(build);
   })();
 
   var box=document.getElementById('vbox'), frame=box.querySelector('.vbox-frame'), last=null;
