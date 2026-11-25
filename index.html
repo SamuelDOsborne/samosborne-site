@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="The healthcare keynote where a real conflict dissolves on stage, live. For nurse leaders, health systems and care teams." />
   <meta name="twitter:image" content="https://samosborne.net/images/opt/og-home.jpg" />
 
-  <link rel="preload" as="image" href="images/opt/sam-osborne-chair.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/opt/sam-osborne-stage-still.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -177,7 +177,7 @@
       background:
         linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%),
         linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%),
-        url('images/opt/sam-osborne-chair.jpg') center center/cover no-repeat;
+        url('images/opt/sam-osborne-stage-still.jpg') 52% center/cover no-repeat;
     }
     .hero-copy {
       display: flex;
@@ -1033,7 +1033,7 @@
         width: 100%;
         height: 60vh;
         min-height: 380px;
-        background: url('images/opt/sam-osborne-chair.jpg') center 12%/cover no-repeat;
+        background: url('images/opt/sam-osborne-stage-still.jpg') 52% 20%/cover no-repeat;
       }
       .hero-copy {
         position: relative;
@@ -1324,7 +1324,7 @@
 <style>
 /* ===== Cinematic layer ===== */
 .hero-image { overflow: hidden; background: #2a2a2a !important; }
-.hero-kb { position: absolute; inset: 0; background: url('images/opt/sam-osborne-chair.jpg') center center/cover no-repeat; transform-origin: 40% 0%; }
+.hero-kb { position: absolute; inset: 0; background: url('images/opt/sam-osborne-stage-still.jpg') 52% 30%/cover no-repeat; transform-origin: 50% 30%; }
 .cine .hero-kb { animation: cinePush 26s cubic-bezier(.2,.6,.3,1) forwards; }
 @keyframes cinePush { from { transform: scale(1); } to { transform: scale(1.08); } }
 .hero-image::after { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%), linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%); }
@@ -1336,7 +1336,7 @@
 .cine .lb { animation: lbOpen 1.6s cubic-bezier(.7,0,.2,1) both; }
 @keyframes lbOpen { from { height: 50%; } to { height: 0; } }
 @media (max-width: 980px) {
-  .hero-kb { background-position: center 12%; }
+  .hero-kb { background-position: 52% 20%; }
   .hero-image::after { background: none; }
 }
 
@@ -1430,7 +1430,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, seated in a navy pinstripe suit"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam-only shot from the Composure Through Conflict program video (YouTube, seconds). Desktop only; the chair portrait above stays as the poster and fallback. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-yt="FdoJZHSGE0g" data-start="163" data-end="170"></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam-only shot from the Composure Through Conflict program video (YouTube, seconds). A still from the same shot is the poster until it plays, and the fallback for reduced motion or data saver. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-yt="FdoJZHSGE0g" data-start="163" data-end="170"></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2691,17 +2691,17 @@
     window.addEventListener('load',function(){ LOOPS.forEach(mount); });
   }
 
-  /* Homepage hero: loop the Sam-only shot from the Composure Through Conflict program video. Desktop only, like the loops above. */
+  /* Homepage hero: loop the Sam-only shot from the Composure Through Conflict program video. Desktop and mobile; the still from the same shot shows until it plays. */
   (function heroVideo(){
     var box=document.getElementById('heroVid'), wrap=box&&box.parentNode;
-    if(!box||reduce||saveData||window.innerWidth<=1000) return;
+    if(!box||reduce||saveData) return;
     var START=+box.getAttribute('data-start'), END=+box.getAttribute('data-end'), player=null, ready=false, userPaused=false, busy=false;
     /* 16:9 player scaled to cover the box with the top 7% and bottom 17% of the frame cropped off, centred on Sam */
     function fit(){
       var f=box.querySelector('iframe'); if(!f) return;
       var W=box.clientWidth, H=box.clientHeight, h=H/0.76, w=h*16/9;
       if(w<W*1.02){ w=W*1.02; h=w*9/16; }
-      var left=Math.min(0,Math.max(W-w, W*0.4-w*0.53));
+      var left=Math.min(0,Math.max(W-w, W*(window.innerWidth>980?0.4:0.5)-w*0.53));
       f.style.width=w+'px'; f.style.height=h+'px'; f.style.left=left+'px'; f.style.top=(-h*0.07)+'px';
     }
     function build(){
