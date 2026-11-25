@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="The healthcare keynote where a real conflict dissolves on stage, live. For nurse leaders, health systems and care teams." />
   <meta name="twitter:image" content="https://samosborne.net/images/opt/og-home.jpg" />
 
-  <link rel="preload" as="image" href="images/opt/sam-osborne-chair.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/opt/sam-osborne-stage-still.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -177,7 +177,7 @@
       background:
         linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%),
         linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%),
-        url('images/opt/sam-osborne-chair.jpg') center center/cover no-repeat;
+        url('images/opt/sam-osborne-stage-still.jpg') 52% center/cover no-repeat;
     }
     .hero-copy {
       display: flex;
@@ -1033,7 +1033,7 @@
         width: 100%;
         height: 60vh;
         min-height: 380px;
-        background: url('images/opt/sam-osborne-chair.jpg') center 12%/cover no-repeat;
+        background: url('images/opt/sam-osborne-stage-still.jpg') 52% 20%/cover no-repeat;
       }
       .hero-copy {
         position: relative;
@@ -1324,7 +1324,7 @@
 <style>
 /* ===== Cinematic layer ===== */
 .hero-image { overflow: hidden; background: #2a2a2a !important; }
-.hero-kb { position: absolute; inset: 0; background: url('images/opt/sam-osborne-chair.jpg') center center/cover no-repeat; transform-origin: 40% 0%; }
+.hero-kb { position: absolute; inset: 0; background: url('images/opt/sam-osborne-stage-still.jpg') 52% 30%/cover no-repeat; transform-origin: 50% 30%; }
 .cine .hero-kb { animation: cinePush 26s cubic-bezier(.2,.6,.3,1) forwards; }
 @keyframes cinePush { from { transform: scale(1); } to { transform: scale(1.08); } }
 .hero-image::after { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(90deg, rgba(245,243,240,0) 54%, rgba(245,243,240,.98) 100%), linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.12) 100%); }
@@ -1336,7 +1336,7 @@
 .cine .lb { animation: lbOpen 1.6s cubic-bezier(.7,0,.2,1) both; }
 @keyframes lbOpen { from { height: 50%; } to { height: 0; } }
 @media (max-width: 980px) {
-  .hero-kb { background-position: center 12%; }
+  .hero-kb { background-position: 52% 20%; }
   .hero-image::after { background: none; }
 }
 
@@ -1368,6 +1368,12 @@
 .bg-dip.on { opacity: 1; }
 .loop-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(0,0,0,.4); color: #fff; font-size: 13px; cursor: pointer; display: none; }
 .has-loop > .loop-toggle { display: block; }
+/* Homepage hero video (YouTube, muted). Sized so YouTube's title bar and the burned-in captions sit outside the frame. */
+.hero-vid { position: absolute; inset: 0; z-index: 1; overflow: hidden; opacity: 0; transition: opacity 1.1s ease; pointer-events: none; }
+.hero-vid.on { opacity: 1; }
+.hero-vid.dip { opacity: 0; transition-duration: .3s; }
+.hero-vid iframe { position: absolute; border: 0; pointer-events: none; filter: saturate(.92) brightness(.97) contrast(1.05); }
+.hero-image > .loop-toggle { z-index: 5; left: 20px; right: auto; }
 
 /* Video lightbox */
 .vbox { position: fixed; inset: 0; z-index: 3000; display: none; align-items: center; justify-content: center; background: rgba(5,5,5,.92); padding: 24px; }
@@ -1424,7 +1430,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, seated in a navy pinstripe suit"><span class="hero-kb" aria-hidden="true"></span><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: Sam-only shot from the Composure Through Conflict program video (YouTube, seconds). A still from the same shot is the poster until it plays, and the fallback for reduced motion or data saver. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-yt="FdoJZHSGE0g" data-start="163" data-end="170"></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2684,6 +2690,56 @@
   if(!reduce && !saveData && window.innerWidth>1000){
     window.addEventListener('load',function(){ LOOPS.forEach(mount); });
   }
+
+  /* Homepage hero: loop the Sam-only shot from the Composure Through Conflict program video. Desktop and mobile; the still from the same shot shows until it plays. */
+  (function heroVideo(){
+    var box=document.getElementById('heroVid'), wrap=box&&box.parentNode;
+    if(!box||reduce||saveData) return;
+    var START=+box.getAttribute('data-start'), END=+box.getAttribute('data-end'), player=null, ready=false, userPaused=false, busy=false;
+    /* 16:9 player scaled to cover the box with the top 7% and bottom 17% of the frame cropped off, centred on Sam */
+    function fit(){
+      var f=box.querySelector('iframe'); if(!f) return;
+      var W=box.clientWidth, H=box.clientHeight, h=H/0.76, w=h*16/9;
+      if(w<W*1.02){ w=W*1.02; h=w*9/16; }
+      var left=Math.min(0,Math.max(W-w, W*(window.innerWidth>980?0.4:0.5)-w*0.53));
+      f.style.width=w+'px'; f.style.height=h+'px'; f.style.left=left+'px'; f.style.top=(-h*0.07)+'px';
+    }
+    function build(){
+      var host=document.createElement('div'); box.appendChild(host);
+      player=new YT.Player(host,{
+        host:'https://www.youtube-nocookie.com', videoId:box.getAttribute('data-yt'),
+        playerVars:{autoplay:1,mute:1,controls:0,disablekb:1,fs:0,iv_load_policy:3,modestbranding:1,playsinline:1,rel:0,start:START},
+        events:{
+          onReady:function(e){ var f=box.querySelector('iframe'); if(f){ f.tabIndex=-1; f.setAttribute('aria-hidden','true'); f.title='Background video'; } e.target.mute(); e.target.playVideo(); fit(); },
+          onStateChange:function(e){
+            if(e.data===0){ e.target.seekTo(START,true); e.target.playVideo(); return; }
+            if(e.data===1&&!ready){ ready=true; if(!userPaused) box.classList.add('on'); wrap.classList.add('has-loop'); }
+          }
+        }
+      });
+      window.addEventListener('resize',fit);
+      var t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); wrap.appendChild(t);
+      t.addEventListener('click',function(){
+        userPaused=!userPaused;
+        if(userPaused){ player.pauseVideo(); box.classList.remove('on'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
+        else { player.playVideo(); box.classList.add('on'); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
+      });
+      /* loop the shot with a short fade, so the cut back to the start is soft */
+      setInterval(function(){
+        if(!ready||busy||userPaused) return;
+        var now=player.getCurrentTime();
+        if(now<START-1){ player.seekTo(START,true); return; }
+        if(now<END-0.35) return;
+        busy=true; box.classList.add('dip');
+        setTimeout(function(){ player.seekTo(START,true); setTimeout(function(){ box.classList.remove('dip'); busy=false; },380); },320);
+      },150);
+      if('IntersectionObserver' in window) new IntersectionObserver(function(es){ if(userPaused||!ready) return; if(es[0].isIntersecting) player.playVideo(); else player.pauseVideo(); },{threshold:0.05}).observe(box);
+    }
+    var prior=window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady=function(){ if(prior) prior(); build(); };
+    function go(){ var sc=document.createElement('script'); sc.src='https://www.youtube.com/iframe_api'; document.head.appendChild(sc); }
+    if(document.readyState==='complete') setTimeout(go,300); else window.addEventListener('load',function(){ setTimeout(go,300); });
+  })();
 
   var box=document.getElementById('vbox'), frame=box.querySelector('.vbox-frame'), last=null;
   function open(src,title){
