@@ -306,8 +306,18 @@
       from { opacity: 0; transform: translateY(14px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Hero text: headline lines slide in one at a time, then the description fades in, then everything else */
+    @keyframes heroSlide { from { opacity: 0; transform: translateX(-48px); } to { opacity: 1; transform: none; } }
+    @keyframes heroFade { from { opacity: 0; } to { opacity: 1; } }
+    .hero-copy .hl { display: inline-block; opacity: 0; animation: heroSlide .8s cubic-bezier(.2,.7,.2,1) forwards; }
+    .hero-copy .hl1 { animation-delay: .3s; }
+    .hero-copy .hl2 { animation-delay: .75s; }
+    .hero-copy .hl3 { animation-delay: 1.2s; }
+    .hero-copy .hero-sub-copy { opacity: 0; animation: heroFade .9s ease 1.9s forwards; }
+    .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { opacity: 0; animation: heroFade .9s ease 2.6s forwards; }
     @media (prefers-reduced-motion: reduce) {
       .hero-copy { animation: none !important; opacity: 1 !important; transform: none !important; }
+      .hero-copy .hl, .hero-copy .hero-sub-copy, .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { animation: none !important; opacity: 1 !important; transform: none !important; }
     }
 
     .endorsement {
@@ -1456,7 +1466,7 @@
       <div class="inner">
         
         <div class="hero-kicker"><span style="white-space:nowrap;">Healthcare Keynote Speaker</span> <span style="white-space:nowrap;">Stay composed when people <br>get under your skin</span></div>
-        <h1><span class="h1-full">Keep your staff,<br>protect patient trust,<br>and cut claims.</span></h1>
+        <h1><span class="h1-full"><span class="hl hl1">Keep your staff.</span><br><span class="hl hl2">Protect patient trust.</span><br><span class="hl hl3">And cut claims.</span></span></h1>
 
         <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Best-of-Conference Keynote Speaker, Demartini Method Facilitator, former retina-injury patient, Australian, Sam Osborne, gives Healthcare teams what they need on the next shift: instant composure, emotional clarity, and a practical step-by-step tool for high-stakes friction, proven live on stage with a real volunteer in the room.</p>
         <div class="btn-row">
