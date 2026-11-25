@@ -1489,7 +1489,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: opens once on the big ballroom audience (video/sam-crowd.mp4, speaker reel 0:05.9-0:07, mirrored; "once" keeps it out of later loops), then alternates Sam in different speaking situations: boardroom, horseshoe tables, stage, banquet and mic, small room, plain wall, slides. sam-boardroom.mp4 and sam-banquet-mic.mp4 = speaker reel 2:27-2:30 and 2:30.5-2:34.6; sam-horseshoe.mp4 = Composure showreel 4:16.6-4:18.7 then 4:05.6-4:09, cropped left of Dave and above the captions. sam-stage-vest.mp4 and sam-stage-wide.mp4 = speaker reel 0:45.2-0:52.6 and 1:06.9-1:11.6 (self-hosted, not Stream, so no other part of the reel can show). The still above (images/opt/sam-osborne-closeup-still.jpg, a close-up of Sam from sam-room-hero.mp4 at 7.5s) shows only until the video starts; after that .vid-live hides it. Shots change with straight cuts, no fade to black. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-crowd.mp4","start":0,"end":1.05,"mpos":"0% 50%","once":true},{"src":"video/sam-boardroom.mp4","start":0,"end":3.2,"mpos":"45% 50%"},{"src":"video/sam-horseshoe.mp4","start":0,"end":5.4,"pos":"30% 100%","mpos":"10% 40%"},{"src":"video/sam-stage-vest.mp4","start":0,"end":7.4,"mpos":"40% 50%"},{"src":"video/sam-banquet-mic.mp4","start":0,"end":4.1,"mpos":"45% 50%"},{"src":"video/sam-room-hero.mp4","start":0,"end":8.8,"mpos":"10% 40%"},{"src":"video/sam-vest.mp4","start":0,"end":6.1,"mpos":"18% 40%"},{"src":"video/sam-audience.mp4","start":0,"end":8,"pos":"100% 30%","mpos":"46% 30%"},{"src":"video/sam-stage-wide.mp4","start":0,"end":4.7,"mpos":"45% 50%"},{"src":"video/sam-stage-c.mp4","start":0,"end":8}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: opens on a close-up of Sam (video/sam-closeup.mp4, the first 5.4s of the mirrored Your Event clip), then the big ballroom audience (video/sam-crowd.mp4, speaker reel 0:05.9-0:07, mirrored); "once" keeps both out of later loops. Then alternates Sam in different speaking situations: boardroom, horseshoe tables, stage, banquet and mic, small room with a volunteer (sam-room-volunteer.mp4), plain wall, slides. sam-boardroom.mp4 and sam-banquet-mic.mp4 = speaker reel 2:27-2:30 and 2:30.5-2:34.6; sam-horseshoe.mp4 = Composure showreel 4:16.6-4:18.7 then 4:05.6-4:09, cropped left of Dave and above the captions. sam-stage-vest.mp4 and sam-stage-wide.mp4 = speaker reel 0:45.2-0:52.6 and 1:06.9-1:11.6 (self-hosted, not Stream, so no other part of the reel can show). The still above (images/opt/sam-osborne-closeup-still.jpg, the first frame of sam-closeup.mp4) shows only until the video starts; after that .vid-live hides it. Shots change with straight cuts, no fade to black. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-closeup.mp4","start":0,"end":5.4,"mpos":"10% 40%","once":true},{"src":"video/sam-crowd.mp4","start":0,"end":1.05,"mpos":"0% 50%","once":true},{"src":"video/sam-boardroom.mp4","start":0,"end":3.2,"mpos":"45% 50%"},{"src":"video/sam-horseshoe.mp4","start":0,"end":5.4,"pos":"30% 100%","mpos":"10% 40%"},{"src":"video/sam-stage-vest.mp4","start":0,"end":7.4,"mpos":"40% 50%"},{"src":"video/sam-banquet-mic.mp4","start":0,"end":4.1,"mpos":"45% 50%"},{"src":"video/sam-room-volunteer.mp4","start":0,"end":3.35,"mpos":"10% 40%"},{"src":"video/sam-vest.mp4","start":0,"end":6.1,"mpos":"18% 40%"},{"src":"video/sam-audience.mp4","start":0,"end":8,"pos":"100% 30%","mpos":"46% 30%"},{"src":"video/sam-stage-wide.mp4","start":0,"end":4.7,"mpos":"45% 50%"},{"src":"video/sam-stage-c.mp4","start":0,"end":8}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2794,7 +2794,7 @@
     if(!clips||!clips.length) return;
     var active=0, started=false, userPaused=false, busy=false;
     function show(i){ clips.forEach(function(c,j){ c.layer.classList.toggle('on',j===i&&!userPaused); }); }
-    function onPlaying(i){ if(i===0&&!started){ started=true; box.classList.add('on'); show(0); wrap.classList.add('has-loop'); setTimeout(function(){ wrap.classList.add('vid-live'); },1200); } }
+    function onPlaying(i){ if(i===0&&!started){ started=true; clips[0].played=true; box.classList.add('on'); show(0); wrap.classList.add('has-loop'); setTimeout(function(){ wrap.classList.add('vid-live'); },1200); } }
     function build(){
       clips.forEach(function(c,i){
         c.layer=document.createElement('div'); c.layer.className='hv-layer'; box.appendChild(c.layer);
@@ -2814,11 +2814,11 @@
         if(now<c.start-1){ c.player.seekTo(c.start,true); return; }
         if(now<c.end-0.4) return;
         var n=(active+1)%clips.length, k=0;
-        while(k<clips.length&&(!clips[n].ready||clips[n].once)){ n=(n+1)%clips.length; k++; }
+        while(k<clips.length&&(!clips[n].ready||(clips[n].once&&clips[n].played))){ n=(n+1)%clips.length; k++; }
         /* straight cut: the next clip already sits on its first frame (each clip is rewound when it is left) */
         busy=true; var nx=clips[n], prev=active;
         if(nx.player.getCurrentTime()>nx.start+0.3) nx.player.seekTo(nx.start,true);
-        nx.player.playVideo(); active=n; show(n);
+        nx.player.playVideo(); nx.played=true; active=n; show(n);
         setTimeout(function(){ if(n!==prev){ c.player.pauseVideo(); c.player.seekTo(c.start,true); } busy=false; },250);
       },150);
       if('IntersectionObserver' in window) new IntersectionObserver(function(es){ if(userPaused||!started) return; var c=clips[active]; if(es[0].isIntersecting) c.player.playVideo(); else c.player.pauseVideo(); },{threshold:0.05}).observe(box);
