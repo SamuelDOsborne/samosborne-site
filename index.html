@@ -1386,6 +1386,8 @@
 .hero-vid { position: absolute; inset: 0; z-index: 1; overflow: hidden; opacity: 0; transition: opacity 1.1s ease; pointer-events: none; }
 .hero-vid.on { opacity: 1; }
 .hero-vid.dip { opacity: 0; transition-duration: .3s; }
+/* once the video runs, the crowd still under it is hidden so it never flashes between shots */
+.hero-image.vid-live, .hero-image.vid-live .hero-kb { background: #0d0d0d !important; }
 .hv-layer { position: absolute; inset: 0; opacity: 0; transition: opacity .3s ease; }
 .hv-layer.on { opacity: 1; }
 .hv-stream { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); border: 0; pointer-events: none; }
@@ -1488,7 +1490,7 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: opens once on the big ballroom audience (video/sam-crowd.mp4, speaker reel 0:05.9-0:07, mirrored; "once" keeps it out of later loops), then alternates Sam in different speaking situations: boardroom, horseshoe tables, stage, banquet and mic, small room, plain wall, slides. sam-boardroom.mp4 and sam-banquet-mic.mp4 = speaker reel 2:27-2:30 and 2:30.5-2:34.6; sam-horseshoe.mp4 = Composure showreel 4:16.6-4:18.7 then 4:05.6-4:09, cropped left of Dave and above the captions. The reel segment at 44.6 starts on a testimonial (cut at 44.77), so it starts at 45.2. Alternates self-hosted Sam-only shots cut from the Composure Through Conflict showreel (video/, cropped above the burned-in captions) with segments of the speaker reel on Cloudflare Stream (seconds). The still above is the first frame. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-crowd.mp4","start":0,"end":1.05,"mpos":"0% 50%","once":true},{"src":"video/sam-boardroom.mp4","start":0,"end":3.2,"mpos":"45% 50%"},{"src":"video/sam-horseshoe.mp4","start":0,"end":5.4,"pos":"30% 100%","mpos":"10% 40%"},{"reel":true,"start":45.2,"end":52.6},{"src":"video/sam-banquet-mic.mp4","start":0,"end":4.1,"mpos":"45% 50%"},{"src":"video/sam-room-hero.mp4","start":0,"end":8.8,"mpos":"10% 40%"},{"src":"video/sam-vest.mp4","start":0,"end":6.1,"mpos":"18% 40%"},{"src":"video/sam-audience.mp4","start":0,"end":8,"pos":"100% 30%","mpos":"46% 30%"},{"reel":true,"start":64.8,"end":71.6},{"src":"video/sam-stage-c.mp4","start":0,"end":8}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
+    <div class="hero-image" role="img" aria-label="Sam Osborne, healthcare keynote speaker, speaking on stage"><span class="hero-kb" aria-hidden="true"></span><!-- Background video: opens once on the big ballroom audience (video/sam-crowd.mp4, speaker reel 0:05.9-0:07, mirrored; "once" keeps it out of later loops), then alternates Sam in different speaking situations: boardroom, horseshoe tables, stage, banquet and mic, small room, plain wall, slides. sam-boardroom.mp4 and sam-banquet-mic.mp4 = speaker reel 2:27-2:30 and 2:30.5-2:34.6; sam-horseshoe.mp4 = Composure showreel 4:16.6-4:18.7 then 4:05.6-4:09, cropped left of Dave and above the captions. sam-stage-vest.mp4 and sam-stage-wide.mp4 = speaker reel 0:45.2-0:52.6 and 1:06.9-1:11.6 (self-hosted, not Stream, so no other part of the reel can show). The crowd still above shows only until the video starts; after that .vid-live hides it so it can't flash through between shots. --><div class="hero-vid" id="heroVid" aria-hidden="true" data-clips='[{"src":"video/sam-crowd.mp4","start":0,"end":1.05,"mpos":"0% 50%","once":true},{"src":"video/sam-boardroom.mp4","start":0,"end":3.2,"mpos":"45% 50%"},{"src":"video/sam-horseshoe.mp4","start":0,"end":5.4,"pos":"30% 100%","mpos":"10% 40%"},{"src":"video/sam-stage-vest.mp4","start":0,"end":7.4,"mpos":"40% 50%"},{"src":"video/sam-banquet-mic.mp4","start":0,"end":4.1,"mpos":"45% 50%"},{"src":"video/sam-room-hero.mp4","start":0,"end":8.8,"mpos":"10% 40%"},{"src":"video/sam-vest.mp4","start":0,"end":6.1,"mpos":"18% 40%"},{"src":"video/sam-audience.mp4","start":0,"end":8,"pos":"100% 30%","mpos":"46% 30%"},{"src":"video/sam-stage-wide.mp4","start":0,"end":4.7,"mpos":"45% 50%"},{"src":"video/sam-stage-c.mp4","start":0,"end":8}]'></div><span class="grain" aria-hidden="true"></span><span class="lb lb-top" aria-hidden="true"></span><span class="lb lb-bot" aria-hidden="true"></span></div>
     <div class="hero-copy">
       <div class="inner">
         
@@ -2793,7 +2795,7 @@
     if(!clips||!clips.length) return;
     var active=0, started=false, userPaused=false, busy=false;
     function show(i){ clips.forEach(function(c,j){ c.layer.classList.toggle('on',j===i&&!userPaused); }); }
-    function onPlaying(i){ if(i===0&&!started){ started=true; box.classList.add('on'); show(0); wrap.classList.add('has-loop'); } }
+    function onPlaying(i){ if(i===0&&!started){ started=true; box.classList.add('on'); show(0); wrap.classList.add('has-loop'); setTimeout(function(){ wrap.classList.add('vid-live'); },1200); } }
     function build(){
       clips.forEach(function(c,i){
         c.layer=document.createElement('div'); c.layer.className='hv-layer'; box.appendChild(c.layer);
@@ -2803,8 +2805,8 @@
       var t=document.createElement('button'); t.type='button'; t.className='loop-toggle'; t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); wrap.appendChild(t);
       t.addEventListener('click',function(){
         userPaused=!userPaused; var c=clips[active];
-        if(userPaused){ c.player.pauseVideo(); box.classList.remove('on'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
-        else { c.player.playVideo(); box.classList.add('on'); show(active); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
+        if(userPaused){ c.player.pauseVideo(); box.classList.remove('on'); wrap.classList.remove('vid-live'); t.innerHTML='&#9654;'; t.setAttribute('aria-label','Play background video'); }
+        else { c.player.playVideo(); box.classList.add('on'); wrap.classList.add('vid-live'); show(active); t.innerHTML='&#10073;&#10073;'; t.setAttribute('aria-label','Pause background video'); }
       });
       /* play each clip in turn with a short fade between; a clip that isn't ready yet is skipped */
       setInterval(function(){
