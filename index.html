@@ -309,15 +309,31 @@
     /* Hero text: headline lines slide in one at a time, then the description fades in, then everything else */
     @keyframes heroSlide { from { opacity: 0; transform: translateX(-48px); } to { opacity: 1; transform: none; } }
     @keyframes heroFade { from { opacity: 0; } to { opacity: 1; } }
-    .hero-copy .hl { display: inline-block; opacity: 0; animation: heroSlide 1.4s cubic-bezier(.2,.7,.2,1) forwards; }
-    .hero-copy .hl1 { animation-delay: .5s; }
-    .hero-copy .hl2 { animation-delay: 1.5s; }
-    .hero-copy .hl3 { animation-delay: 2.5s; }
-    .hero-copy .hero-sub-copy { opacity: 0; animation: heroFade 1.4s ease 3.8s forwards; }
-    .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { opacity: 0; animation: heroFade 1.4s ease 5.2s forwards; }
+    .hero-copy .hl { display: inline-block; opacity: 0; animation: heroSlide 1.13s cubic-bezier(.2,.7,.2,1) forwards; }
+    .hero-copy .hl1 { animation-delay: 0.43s; }
+    .hero-copy .hl2 { animation-delay: 1.13s; }
+    .hero-copy .hl3 { animation-delay: 1.83s; }
+    /* Timed for the reading path: the three lines (left to right, ~0.7s apart), the gold kicker (below the headline) wipes in left to right as the last line lands,
+       the description rises under it, the buttons arrive at ~6s (before the description is fully read, so the next
+       step is waiting), then the credentials settle last (rule draws, gold bars grow, text rises) so supporting proof never competes with the CTA.
+       One horizontal motion for the headline, one vertical motion for everything below it; done by ~8.7s, with a beat between each block. Whole sequence sped up ~13% on Osborne's ask. */
+    @keyframes heroWipe { from { opacity: 0; clip-path: inset(0 100% 0 0); filter: blur(4px); } 30% { opacity: 1; } to { opacity: 1; clip-path: inset(0 0 0 0); filter: none; } }
+    @keyframes heroRise { from { opacity: 0; transform: translateY(18px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+    @keyframes heroRule { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes heroBar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    .hero-copy .hero-kicker { opacity: 0; animation: heroWipe 1.13s cubic-bezier(.65,0,.35,1) 2.78s forwards; }
+    .hero-copy .hero-sub-copy { opacity: 0; animation: heroRise 1.13s cubic-bezier(.2,.7,.2,1) 4.7s forwards; }
+    .hero-copy .btn-row > * { opacity: 0; animation: heroRise 0.96s cubic-bezier(.2,.7,.2,1) 5.83s forwards; }
+    .hero-copy .btn-row > *:nth-child(2) { animation-delay: 6.09s; }
+    .hero-copy .hero-credentials { position: relative; border-top-color: transparent !important; }
+    .hero-copy .hero-credentials::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: rgba(255,255,255,.22); transform: scaleX(0); transform-origin: left; animation: heroRule 0.96s cubic-bezier(.65,0,.35,1) 6.79s forwards; }
+    .hero-copy .hero-credential .cred-mark { transform: scaleY(0); transform-origin: top; animation: heroBar 0.7s cubic-bezier(.2,.7,.2,1) 7.22s forwards; }
+    .hero-copy .hero-credential > p { opacity: 0; animation: heroRise 0.96s cubic-bezier(.2,.7,.2,1) 7.31s forwards; }
+    .hero-copy .hero-credential:nth-child(2) .cred-mark { animation-delay: 7.66s; }
+    .hero-copy .hero-credential:nth-child(2) > p { animation-delay: 7.74s; }
     @media (prefers-reduced-motion: reduce) {
       .hero-copy { animation: none !important; opacity: 1 !important; transform: none !important; }
-      .hero-copy .hl, .hero-copy .hero-sub-copy, .hero-copy .hero-kicker, .hero-copy .btn-row, .hero-copy .hero-credentials { animation: none !important; opacity: 1 !important; transform: none !important; }
+      .hero-copy .hl, .hero-copy .hero-sub-copy, .hero-copy .hero-kicker, .hero-copy .btn-row > *, .hero-copy .hero-credential *, .hero-copy .hero-credentials::before { animation: none !important; opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
     }
 
     .endorsement {
@@ -1396,7 +1412,15 @@
 .hero { position: relative; }
 .hero-copy { background: transparent !important; }
 .hero-copy h1 { color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
-.hero-copy .hero-kicker { color: var(--gold); }
+.hero-copy .hero-kicker { color: var(--gold); margin: 20px 0 0; }
+.hero-copy .kicker-name { display: block; font-weight: 800; font-size: 1.22em; letter-spacing: .16em; color: #fff; margin-bottom: 4px; }
+/* desktop: room to breathe between headline, kicker, description, buttons and credentials */
+@media (min-width: 981px) {
+  .hero-copy .hero-kicker { margin-top: 24px; }
+  .hero-copy .hero-sub-copy { margin-top: 20px !important; }
+  .hero-copy .btn-row { margin-top: 28px; }
+  .hero-copy .hero-credentials { margin-top: 34px !important; padding-top: 24px !important; gap: 16px !important; }
+}
 .hero-copy .hero-sub-copy { color: rgba(245,245,247,.86) !important; }
 .hero-copy .btn-secondary { color: #fff !important; border-color: rgba(255,255,255,.55) !important; }
 .hero-copy .hero-credentials { border-top-color: rgba(255,255,255,.18); }
@@ -1418,10 +1442,10 @@
   .hero-copy .hero-kicker, .hero-copy .hero-sub-copy, .hero-copy .hero-credential p { text-shadow: 0 1px 12px rgba(0,0,0,.7), 0 1px 2px rgba(0,0,0,.6); }
   .hero-copy h1 { text-shadow: 0 2px 18px rgba(0,0,0,.6) !important; }
   /* compact type so the whole hero copy fits on one iPhone screen */
-  .hero-copy .hero-kicker { font-size: 11.5px; margin-bottom: 10px; letter-spacing: .12em; }
+  .hero-copy .hero-kicker { font-size: 11.5px; margin: 14px 0 0; letter-spacing: .12em; }
   .hero-copy h1 { font-size: 30px !important; line-height: 1.08 !important; }
-  .hero-copy .hero-sub-copy { font-size: 15px !important; line-height: 1.45 !important; margin-top: 10px !important; }
-  .hero-copy .btn-row { margin-top: 16px !important; gap: 10px !important; flex-wrap: wrap; }
+  .hero-copy .hero-sub-copy { font-size: 15px !important; line-height: 1.45 !important; margin-top: 14px !important; }
+  .hero-copy .btn-row { margin-top: 20px !important; gap: 10px !important; flex-wrap: wrap; }
   .hero-copy .btn-row a { padding: 11px 16px !important; font-size: 14px !important; white-space: nowrap; }
   .hero-copy .hero-credentials { margin-top: 16px !important; padding-top: 12px !important; }
   .hero-copy .hero-credential .cred-role { font-size: 10px; margin-bottom: 3px; }
@@ -1494,9 +1518,9 @@
     <div class="hero-copy">
       <div class="inner">
         
-        <div class="hero-kicker"><span style="white-space:nowrap;">Healthcare Keynote Speaker</span> <span style="white-space:nowrap;">Stay composed when people <br>get under your skin</span></div>
         <h1><span class="h1-full"><span class="hl hl1">Keep your staff.</span><br><span class="hl hl2">Protect patient trust.</span><br><span class="hl hl3">And cut claims.</span></span></h1>
 
+        <div class="hero-kicker"><span class="kicker-name">Sam Osborne</span><span style="white-space:nowrap;">Healthcare Keynote Speaker</span> <span style="white-space:nowrap;">Stay composed when people <br>get under your skin</span></div>
         <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Best-of-Conference speaker Sam Osborne gives healthcare teams a step-by-step way to stay composed under pressure, proven live on stage with a real volunteer.</p>
         <div class="btn-row">
           <a class="btn-primary hero-check-btn" href="#contact">Check Availability</a>
