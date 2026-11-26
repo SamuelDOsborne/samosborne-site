@@ -947,7 +947,8 @@
         radial-gradient(circle at 80% 85%, rgba(74,94,127,.10) 0%, transparent 48%);
     }
     .demo-section .container { position: relative; z-index: 1; }
-    .demo-head { max-width: 720px; }
+    .demo-head { max-width: 960px; }
+    @media (max-width: 760px) { .demo-br { display: none; } }
     .demo-head h2 { font-size: clamp(1.8rem, 3.4vw, 3rem); }
     .demo-head p {
       margin: 18px 0 0; color: var(--muted); max-width: 58ch;
@@ -1749,7 +1750,7 @@
     <div class="container">
       <div class="demo-head">
         <span class="eyebrow">The Demonstration</span>
-        <h2>Most speakers explain composure. Sam dissolves <br>a real conflict on stage.</h2>
+        <h2>Most speakers explain <br class="demo-br">composure. Sam dissolves a real conflict <br class="demo-br">on stage.</h2>
         <p>Not a role-play. A volunteer names someone who genuinely gets under their skin. Minutes later, the charge is gone. Not managed. Gone.</p>
         <p style="color:var(--gold); font-weight:600; margin-top:14px;">Every format. Including the keynote.</p>
       </div>
