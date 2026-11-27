@@ -17,3 +17,14 @@
 /composure.html                    https://composurethroughconflict.com/   301
 /composure-through-conflict        https://composurethroughconflict.com/   301
 /composure-through-conflict.html   https://composurethroughconflict.com/   301
+
+# Legal audience now lives on composurethroughconflict.com
+/legal-keynote-speaker        https://composurethroughconflict.com/   301
+/legal-keynote-speaker.html   https://composurethroughconflict.com/   301
+
+# Retired pages
+/mastermind        /   301
+/mastermind.html   /   301
+/blog              /   301
+/blog.html         /   301
+/blogs/*           /   301
