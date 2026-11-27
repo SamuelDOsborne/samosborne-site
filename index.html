@@ -1532,6 +1532,21 @@
     </div>
   </section>
 
+  <!-- SHOW REEL — directly under the hero -->
+  <section class="reel-screen" id="reel" aria-label="Speaker reel">
+    <div class="container">
+      <div class="rs-head">
+        <span class="band-eyebrow">Watch the Reel</span>
+        <h2 class="rs-title"><span>He doesn&rsquo;t just talk about composure.</span> <span>He walks the whole room through their own real case.</span></h2>
+      </div>
+      <div class="screen" id="reel-screen">
+        <img class="band-poster" src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/thumbnails/thumbnail.jpg?time=48s&amp;height=720" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
+        <button class="band-play" type="button" data-stream="5fbe6dc81b04702d48532c37cac6b9f7" data-title="Sam Osborne speaker reel"><span class="bp-icon" aria-hidden="true"></span><span>Play the speaker reel<small>2 min 49 sec &middot; with sound</small></span></button>
+      </div>
+      <p class="band-fallback">Video not loading on your network? <a href="https://drive.google.com/file/d/1VCtn5fvsXfO_2RkOuyCpTpc1EnTY8hJB/view?usp=sharing" target="_blank" rel="noopener">Watch the reel here instead</a>.</p>
+    </div>
+  </section>
+
   <!-- Who Sam is, set just below the hero so the first screen holds only the promise and the buttons -->
   <section class="hero-intro" aria-label="About Sam Osborne">
     <div class="hero-intro-inner">
@@ -1561,20 +1576,6 @@
     </div>
   </section>
 
-  <!-- SHOW REEL — right after the intro and credentials -->
-  <section class="reel-screen" id="reel" aria-label="Speaker reel">
-    <div class="container">
-      <div class="rs-head">
-        <span class="band-eyebrow">Watch the Reel</span>
-        <h2 class="rs-title"><span>He doesn&rsquo;t just talk about composure.</span> <span>He walks the whole room through their own real case.</span></h2>
-      </div>
-      <div class="screen" id="reel-screen">
-        <img class="band-poster" src="https://customer-lilcuopn7rwe61gd.cloudflarestream.com/5fbe6dc81b04702d48532c37cac6b9f7/thumbnails/thumbnail.jpg?time=48s&amp;height=720" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="this.src='images/opt/sam-osborne-on-stage.jpg'">
-        <button class="band-play" type="button" data-stream="5fbe6dc81b04702d48532c37cac6b9f7" data-title="Sam Osborne speaker reel"><span class="bp-icon" aria-hidden="true"></span><span>Play the speaker reel<small>2 min 49 sec &middot; with sound</small></span></button>
-      </div>
-      <p class="band-fallback">Video not loading on your network? <a href="https://drive.google.com/file/d/1VCtn5fvsXfO_2RkOuyCpTpc1EnTY8hJB/view?usp=sharing" target="_blank" rel="noopener">Watch the reel here instead</a>.</p>
-    </div>
-  </section>
 
   <!-- ═══════════════ CREDIBILITY: SPOKEN FOR + AS HEARD ON ═══════════════ -->
   <style>
@@ -2097,9 +2098,12 @@
 
             <p>In 2008 a piece of metal pierced his retina. He knows what it is to be the frightened patient your staff meet every day, and it left him with a question he couldn&rsquo;t put down: what else is perception quietly doing that nobody notices?</p>
 
+            <p>Six years later he discovered Dr. John Demartini&rsquo;s research into how perception drives reaction, and went on to become a Trained Demartini Method Facilitator.</p>
+
             <p>His answer: <strong>the size of a reaction is a reliable measure of what a person can&rsquo;t yet see.</strong> Balance the seeing, and there&rsquo;s nothing left to manage.</p>
           </div>
           <div>
+            <figure class="about-portrait"><img src="images/opt/sam-osborne-vest.jpg" alt="Sam Osborne, seated, in a grey waistcoat and glasses" width="2000" height="1334" loading="lazy" decoding="async"></figure>
             <div class="about-rule"></div>
             <p>He is not a motivational speaker, and says so before anyone else can. People use it the next day, or it didn&rsquo;t work.</p>
             <div class="about-tags">
@@ -3246,6 +3250,12 @@ footer { background: #000; text-align: center; }
   .hero-intro-text .hero-credentials { justify-content: center; margin-left: auto; }
   .hero-intro-text .hero-credential { justify-content: center; text-align: center; }
 }
+/* About: portrait of Sam at the top of the right-hand column */
+.about-portrait { margin: 0 0 4px; position: relative; isolation: isolate; }
+.about-portrait img { position: relative; z-index: 1; display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 70% 30%; filter: saturate(.85) contrast(1.03); }
+.about-portrait::after { content: ""; position: absolute; inset: 0; z-index: 2; box-shadow: inset 0 0 0 1px rgba(242,207,131,.28); pointer-events: none; }
+.about-portrait::before { content: ""; position: absolute; inset: 16px -16px -16px 16px; border: 1px solid rgba(242,207,131,.35); z-index: 0; }
+@media (max-width: 980px) { .about-portrait { margin: 36px 12px 0 0; } .about-portrait::before { inset: 12px -12px -12px 12px; } }
 </style>
 </body>
 </html>
