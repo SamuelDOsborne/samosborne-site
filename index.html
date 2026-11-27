@@ -2097,9 +2097,12 @@
 
             <p>In 2008 a piece of metal pierced his retina. He knows what it is to be the frightened patient your staff meet every day, and it left him with a question he couldn&rsquo;t put down: what else is perception quietly doing that nobody notices?</p>
 
+            <p>Six years later he discovered Dr. John Demartini&rsquo;s research into how perception drives reaction, and went on to become a Trained Demartini Method Facilitator.</p>
+
             <p>His answer: <strong>the size of a reaction is a reliable measure of what a person can&rsquo;t yet see.</strong> Balance the seeing, and there&rsquo;s nothing left to manage.</p>
           </div>
           <div>
+            <figure class="about-portrait"><img src="images/opt/sam-osborne-vest.jpg" alt="Sam Osborne, seated, in a grey waistcoat and glasses" width="2000" height="1334" loading="lazy" decoding="async"></figure>
             <div class="about-rule"></div>
             <p>He is not a motivational speaker, and says so before anyone else can. People use it the next day, or it didn&rsquo;t work.</p>
             <div class="about-tags">
@@ -3246,6 +3249,12 @@ footer { background: #000; text-align: center; }
   .hero-intro-text .hero-credentials { justify-content: center; margin-left: auto; }
   .hero-intro-text .hero-credential { justify-content: center; text-align: center; }
 }
+/* About: portrait of Sam at the top of the right-hand column */
+.about-portrait { margin: 0 0 4px; position: relative; isolation: isolate; }
+.about-portrait img { position: relative; z-index: 1; display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 70% 30%; filter: saturate(.85) contrast(1.03); }
+.about-portrait::after { content: ""; position: absolute; inset: 0; z-index: 2; box-shadow: inset 0 0 0 1px rgba(242,207,131,.28); pointer-events: none; }
+.about-portrait::before { content: ""; position: absolute; inset: 16px -16px -16px 16px; border: 1px solid rgba(242,207,131,.35); z-index: 0; }
+@media (max-width: 980px) { .about-portrait { margin: 36px 12px 0 0; } .about-portrait::before { inset: 12px -12px -12px 12px; } }
 </style>
 </body>
 </html>
