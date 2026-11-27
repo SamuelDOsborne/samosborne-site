@@ -1746,6 +1746,12 @@
   </section>
   <!-- ▲▲▲ END KEVIN HUSTED TESTIMONIAL SECTION ▲▲▲ -->
 
+  <section class="panel-photo-band" aria-label="Sam Osborne speaking on a panel">
+    <figure class="panel-photo">
+      <img src="images/opt/sam-osborne-speaking-panel.jpg" alt="Sam Osborne speaking on a professional panel in Los Angeles" width="1280" height="720" loading="lazy" decoding="async">
+    </figure>
+  </section>
+
 
   <section class="so-testimonial-band" aria-label="Client Testimonial">
     <div class="so-testimonial-container">
@@ -3318,6 +3324,12 @@ p, li { text-wrap: pretty; }
 .booking-head p { max-width: 640px; margin-left: auto; margin-right: auto; }
 #contact .booking-head h2 { font-size: clamp(40px, 5.6vw, 96px) !important; }
 @media (max-width: 600px) { .br-wide { display: none; } }
+
+/* Panel photo between testimonials */
+.panel-photo-band { padding: clamp(24px, 4vw, 56px) 20px; }
+.panel-photo { margin: 0 auto; max-width: 1080px; position: relative; isolation: isolate; }
+.panel-photo img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; filter: saturate(.85) contrast(1.05); }
+.panel-photo::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(242,207,131,.28); pointer-events: none; }
 </style>
 </body>
 </html>
