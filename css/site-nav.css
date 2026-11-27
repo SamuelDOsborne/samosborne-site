@@ -55,3 +55,7 @@
 #fees { scroll-margin-top: 110px; }
 @media (max-width: 1240px) { .brand-tag { font-size: 9px; letter-spacing: .14em; } }
 @media (max-width: 600px) { .nav-brand, .sitenav .sitenav-brand { flex-direction: column; gap: 2px; line-height: 1.05; } .brand-tag { font-size: 7.5px; letter-spacing: .12em; } }
+
+/* match the homepage menu width exactly */
+.sitenav .sitenav-inner { width: min(1360px, calc(100% - 80px)); }
+@media (max-width: 768px) { .sitenav .sitenav-inner { width: calc(100% - 40px); } }
