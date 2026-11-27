@@ -118,3 +118,7 @@ body.spotlight .sp-hero-in { animation: spHeroSoft 1.4s cubic-bezier(.22,.61,.36
   body.spotlight .reveal, body.spotlight .reveal-stagger > *, body.spotlight .sp-rv { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
   body.spotlight .sp-hero-in, body.spotlight .sp-goldword { animation: none !important; }
 }
+
+/* even line breaks: no lonely last words in headlines and quotes */
+body.spotlight h1, body.spotlight h2, body.spotlight h3, body.spotlight blockquote, body.spotlight q, body.spotlight [class*="quote"], body.spotlight .principle { text-wrap: balance; }
+body.spotlight p, body.spotlight li { text-wrap: pretty; }

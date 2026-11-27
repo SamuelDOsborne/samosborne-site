@@ -42,16 +42,16 @@ h3 { font-size: 15pt; line-height: 1.15; }
 .num { font-family: var(--serif); font-weight: 600; color: var(--gold); line-height: 1; }
 
 /* ---------- 1 · cover: the website hero ---------- */
-.hero-bg { position: absolute; left: 0; right: 0; top: 0; height: 7.4in; background: url(../images/opt/sam-osborne-closeup-still.jpg) 12% 30% / cover no-repeat; }
-.hero-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 42%, rgba(60,48,30,.55), rgba(5,5,5,.86) 75%), linear-gradient(180deg, rgba(5,5,5,.5) 0%, rgba(5,5,5,0) 25%, rgba(5,5,5,0) 70%, #050505 100%); }
+.hero-bg { position: absolute; left: 0; right: 0; top: 0; height: 7.4in; background: url(../images/opt/sam-osborne-stage-pinstripe-cover.jpg) 20% 30% / cover no-repeat; }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,5,5,0) 0%, rgba(5,5,5,.05) 30%, rgba(5,5,5,.78) 52%, rgba(5,5,5,.9) 100%), linear-gradient(180deg, rgba(5,5,5,.55) 0%, rgba(5,5,5,0) 18%, rgba(5,5,5,0) 72%, #050505 100%); }
 .brand-tag { font-family: var(--sans); font-style: normal; font-weight: 600; font-size: 6.8pt; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-left: 10pt; vertical-align: 2pt; }
-.hero-copy { margin-top: 1.75in; text-align: center; }
-.hero-copy h1 { font-size: 50pt; line-height: 1.02; }
-.hero-copy .sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 22pt; color: #fff; line-height: 1.2; margin-top: 20pt; }
+.hero-copy { margin-top: 1.45in; margin-left: 3.35in; text-align: left; }
+.hero-copy h1 { font-size: 36pt; line-height: 1.05; white-space: nowrap; }
+.hero-copy .sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 19pt; color: #fff; line-height: 1.2; margin-top: 20pt; }
 .hero-copy .sub2 { font-family: var(--serif); font-style: italic; font-size: 14pt; color: var(--gold); margin-top: 12pt; }
-.orn { display: flex; align-items: center; justify-content: center; gap: 10pt; margin-top: 24pt; }
+.orn { display: flex; align-items: center; justify-content: flex-start; gap: 10pt; margin-top: 22pt; }
 .orn span { width: 70pt; height: 1px; background: linear-gradient(90deg, rgba(226,184,102,0), rgba(226,184,102,.8)); }
-.orn span:last-child { transform: scaleX(-1); }
+.orn span { transform: scaleX(-1); }
 .orn i { font-style: normal; color: var(--gold); font-size: 7pt; }
 .btns { display: flex; justify-content: center; gap: 12pt; margin-top: 26pt; }
 .btn { display: inline-block; font-size: 7.4pt; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; padding: 12pt 22pt; text-decoration: none; }
@@ -63,7 +63,7 @@ h3 { font-size: 15pt; line-height: 1.15; }
 .creds b { display: block; font-size: 6.8pt; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
 .creds span { display: block; font-family: var(--serif); font-style: italic; font-size: 12.5pt; color: #fff; line-height: 1.3; margin-top: 5pt; }
 /* ---------- 2 · program ---------- */
-.band { position: absolute; left: 0; right: 0; top: 0; height: 3.7in; background: url(../images/opt/sam-osborne-stage-pinstripe.jpg) 50% 8% / cover no-repeat; }
+.band { position: absolute; left: 0; right: 0; top: 0; height: 3.7in; background: url(../images/opt/sam-osborne-room-wide.jpg) 50% 45% / cover no-repeat; }
 .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,.65) 0%, rgba(5,5,5,.1) 35%, rgba(5,5,5,.35) 70%, #050505 100%); }
 .p2-head { margin-top: 2.75in; }
 .p2-head p { margin-top: 12pt; width: 5.6in; font-size: 10.2pt; line-height: 1.7; }
@@ -110,7 +110,7 @@ h3 { font-size: 15pt; line-height: 1.15; }
 .fee-note { font-size: 8pt; color: var(--muted); margin-top: 16pt; line-height: 1.6; }
 .fee-note b { color: var(--text); font-weight: 600; }
 .about { margin-top: 36pt; display: grid; grid-template-columns: 2in 1fr; gap: 26pt; align-items: start; }
-.about .photo { width: 2in; height: 2.3in; background: url(../images/opt/sam-osborne-smile.jpg) 45% 20% / cover no-repeat; }
+.about .photo { width: 2in; height: 2.3in; background: url(../images/opt/sam-osborne-grey-suit.jpg) 50% 18% / cover no-repeat; }
 .about h3 { margin: 6pt 0 10pt; font-size: 17pt; }
 .about p { font-size: 9pt; line-height: 1.65; margin-bottom: 8pt; }
 .quotes { margin-top: 32pt; display: grid; grid-template-columns: 1fr 1fr; gap: 30pt; }
@@ -136,9 +136,9 @@ h3 { font-size: 15pt; line-height: 1.15; }
     <div class="top"><div class="brand">Sam Osborne<span class="brand-tag">Healthcare Keynote Speaker</span></div></div>
     <div class="hero-copy">
       <h1>Keep your nurses.<br>Protect patient trust.<br><span class="gold">And cut claims.</span></h1>
-      <div class="sub">Stay composed when<br>people get under your skin</div>
-      <div class="sub2">Composure on the next shift. Not just at the conference.</div>
-      <div class="orn"><span></span><i>&#9670;</i><span></span></div>
+      <div class="sub">Stay composed when people<br>get under your skin</div>
+      <div class="sub2">Composure on the next shift.<br>Not just at the conference.</div>
+      <div class="orn"><i>&#9670;</i><span></span></div>
     </div>
     <div class="intro">
       <div class="eyebrow">Healthcare keynote speaker</div>

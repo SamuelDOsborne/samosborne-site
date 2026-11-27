@@ -59,3 +59,6 @@
 /* match the homepage menu width exactly */
 .sitenav .sitenav-inner { width: min(1360px, calc(100% - 80px)); }
 @media (max-width: 768px) { .sitenav .sitenav-inner { width: calc(100% - 40px); } }
+@media (max-width: 380px) { .nav-phone, .sitenav .sitenav-phone { display: none !important; } }
+@media (max-width: 380px) { .nav-cta, .sitenav .sitenav-cta { font-size: 10px !important; letter-spacing: .02em !important; } .nav-brand, .sitenav .sitenav-brand { font-size: 1rem !important; } .brand-tag { font-size: 6.5px; letter-spacing: .06em; } }
+@media (max-width: 340px) { .nav-inner, .sitenav .sitenav-inner { gap: 8px !important; width: calc(100% - 24px) !important; } .nav-cta, .sitenav .sitenav-cta { font-size: 9px !important; } }

@@ -1520,7 +1520,7 @@
     <div class="hero-copy">
       <div class="inner">
         
-        <h1><span class="h1-full"><span class="hl hl1">Keep your nurses.</span><br><span class="hl hl2">Protect patient trust.</span><br><span class="hl hl3">And cut claims.</span></span></h1>
+        <h1><span class="h1-full"><span class="hl hl1">Keep your nurses.</span><br><span class="hl hl2" style="white-space:nowrap">Protect patient trust.</span><br><span class="hl hl3">And cut claims.</span></span></h1>
 
         <p class="hero-problem">Stay composed when people get under your skin</p>
         <p class="hero-shift">Composure on the next shift. <span>Not just at the conference.</span></p>
@@ -1667,7 +1667,7 @@
   <section class="power" aria-label="Staff retention">
     <div class="container">
       <p class="pl">Keep the nurses</p>
-      <p class="pl">you can&rsquo;t afford <em>to lose.</em></p>
+      <p class="pl">you can&rsquo;t afford <em style="white-space:nowrap">to lose.</em></p>
     </div>
   </section>
 
@@ -1734,7 +1734,7 @@
 
     <div class="so-testimonial-container">
       <blockquote class="so-testimonial-quote">
-        &ldquo;Of all the speakers &hellip; at this conference,<br>Sam was by far the most powerful.&rdquo;
+        &ldquo;Of all the speakers &hellip; at this conference, Sam was by far the most powerful.&rdquo;
       </blockquote>
 
       <hr class="so-testimonial-divider" />
@@ -1764,7 +1764,7 @@
     <div class="container">
       <div class="demo-head">
         <span class="eyebrow">The Demonstration</span>
-        <h2>Most speakers explain composure. Sam dissolves <br>a real conflict on stage.</h2>
+        <h2>Most speakers explain composure. Sam dissolves a real conflict on stage.</h2>
         <p>Not a role-play. A volunteer names someone who genuinely gets under their skin. Minutes later, the charge is gone. Not managed. Gone.</p>
         <p style="color:var(--gold); font-weight:600; margin-top:14px;">Every format. Including the keynote.</p>
       </div>
@@ -1835,7 +1835,7 @@
   <section class="so-testimonial-band" aria-label="Client Testimonial">
     <div class="so-testimonial-container">
       <blockquote class="so-testimonial-quote">
-        &ldquo;I now have a tool to understand<br>why I&rsquo;m triggered.&rdquo;
+        &ldquo;I now have a tool to understand why I&rsquo;m triggered.&rdquo;
       </blockquote>
       <hr class="so-testimonial-divider" />
       <cite class="so-testimonial-attribution" style="font-style: normal;">
@@ -2140,7 +2140,7 @@
   <section class="so-testimonial-band" aria-label="Client Testimonial">
     <div class="so-testimonial-container">
       <blockquote class="so-testimonial-quote">
-        &ldquo;Forever changed the way I practice law<br>and relate to people.&rdquo;
+        &ldquo;Forever changed the way I practice law and relate to people.&rdquo;
       </blockquote>
       <hr class="so-testimonial-divider" />
       <cite class="so-testimonial-attribution" style="font-style: normal;">
@@ -2201,7 +2201,7 @@
   <section class="so-testimonial-band" aria-label="Client Testimonial">
     <div class="so-testimonial-container">
       <blockquote class="so-testimonial-quote">
-        &ldquo;One of the best sessions I&rsquo;ve attended<br>at any conference.&rdquo;
+        &ldquo;One of the best sessions I&rsquo;ve attended at any conference.&rdquo;
       </blockquote>
       <hr class="so-testimonial-divider" />
       <cite class="so-testimonial-attribution" style="font-style: normal;">
@@ -2214,7 +2214,7 @@
   <section class="section" id="fit">
     <div class="container">
       <span class="eyebrow">Who This Keynote Is For</span>
-      <h2>Built for people who <br>stay calm for a living.</h2>
+      <h2>Built for people who stay calm for a living.</h2>
       <div class="grid-2" style="margin-top:30px;">
         <article class="card">
           <h3>A strong fit when:</h3>
@@ -2239,7 +2239,7 @@
   <section class="so-testimonial-band" aria-label="Client Testimonial">
     <div class="so-testimonial-container">
       <blockquote class="so-testimonial-quote">
-        &ldquo;Working for an organization that puts on conferences &hellip; Sam delivered one of the most impactful sessions<br>I have ever experienced.&rdquo;
+        &ldquo;Working for an organization that puts on conferences &hellip; Sam delivered one of the most impactful sessions I have ever experienced.&rdquo;
       </blockquote>
       <hr class="so-testimonial-divider" />
       <cite class="so-testimonial-attribution" style="font-style: normal;">
@@ -2293,7 +2293,7 @@
   <section class="so-testimonial-band" aria-label="Client Testimonial">
     <div class="so-testimonial-container">
       <blockquote class="so-testimonial-quote">
-        &ldquo;Engaging, interactive, grounded in research,<br>and immediately applicable.&rdquo;
+        &ldquo;Engaging, interactive, grounded in research, and immediately applicable.&rdquo;
       </blockquote>
       <hr class="so-testimonial-divider" />
       <cite class="so-testimonial-attribution" style="font-style: normal;">
@@ -3304,6 +3304,14 @@ footer { background: #000; text-align: center; }
 #fees { scroll-margin-top: 110px; }
 @media (max-width: 1240px) { .brand-tag { font-size: 9px; letter-spacing: .14em; } }
 @media (max-width: 600px) { .nav-brand, .sitenav .sitenav-brand { flex-direction: column; gap: 2px; line-height: 1.05; } .brand-tag { font-size: 7.5px; letter-spacing: .12em; } }
+
+/* even line breaks: no lonely last words in headlines and quotes */
+h1, h2, h3, .pl, .band-title, .principle, .so-testimonial-quote, blockquote, q, .rs-title, .eye-line, [class*="quote"] { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+@media (max-width: 480px) { .hero-copy h1, .hero h1 { font-size: 10.2vw !important; } }
+@media (max-width: 380px) { .nav-phone, .sitenav .sitenav-phone { display: none !important; } }
+@media (max-width: 380px) { .nav-cta, .sitenav .sitenav-cta { font-size: 10px !important; letter-spacing: .02em !important; } .nav-brand, .sitenav .sitenav-brand { font-size: 1rem !important; } .brand-tag { font-size: 6.5px; letter-spacing: .06em; } }
+@media (max-width: 340px) { .nav-inner, .sitenav .sitenav-inner { gap: 8px !important; width: calc(100% - 24px) !important; } .nav-cta, .sitenav .sitenav-cta { font-size: 9px !important; } }
 </style>
 </body>
 </html>
