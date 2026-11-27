@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sam Osborne · One-Sheet</title>
+<!-- Source for /downloads/sam-osborne-one-sheet.pdf. Rebuild with: node tools/build-one-sheet.js -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 500; font-style: normal; src: url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 500; font-style: italic; src: url(fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 600; font-style: normal; src: url(fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 600; font-style: italic; src: url(fonts/cormorant-garamond-latin-600-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 700; font-style: normal; src: url(fonts/cormorant-garamond-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 700; font-style: italic; src: url(fonts/cormorant-garamond-latin-700-italic.woff2) format('woff2'); }
+
+@page { size: Letter; margin: 0; }
+:root {
+  --bg: #050505; --panel: #0F0D0A; --line: rgba(226,184,102,.22); --hair: rgba(255,255,255,.10);
+  --gold: #E2B866; --gold-soft: #F2CF83; --text: #E9E4DA; --muted: #A9A196; --faint: #6F685E;
+  --goldtext: #E6BF74;
+  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #333; }
+body { font-family: var(--sans); color: var(--text); font-size: 9.2pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 8.5in; height: 11in; position: relative; overflow: hidden; background: var(--bg); page-break-after: always; margin: 0 auto; }
+.page:last-child { page-break-after: auto; }
+.page::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 38% at 50% 0%, rgba(226,184,102,.12), rgba(226,184,102,0) 72%); pointer-events: none; }
+.pad { position: absolute; inset: .45in .6in .42in .6in; display: flex; flex-direction: column; }
+
+.top { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 9pt; border-bottom: 1px solid var(--hair); position: relative; z-index: 2; }
+.brand { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 17pt; color: #fff; letter-spacing: -.01em; }
+.top .meta { font-size: 7pt; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+.top .meta b { color: var(--gold); font-weight: 600; }
+
+.eyebrow { font-size: 7pt; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; color: #fff; letter-spacing: -.01em; }
+.gold { font-style: italic; color: var(--goldtext); }
+h2 { font-size: 22pt; line-height: 1.04; }
+h3 { font-size: 13.5pt; line-height: 1.15; }
+p { color: var(--text); }
+.muted { color: var(--muted); }
+.rule { height: 1px; background: linear-gradient(90deg, rgba(226,184,102,0), rgba(226,184,102,.55), rgba(226,184,102,0)); margin: 9pt 0; }
+
+/* ---------- page 1 ---------- */
+.hero { position: absolute; left: 0; right: 0; top: 0; height: 5.55in; background: url(../images/opt/sam-osborne-on-stage.jpg) center 40% / cover no-repeat; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,5,.78) 0%, rgba(5,5,5,.35) 30%, rgba(5,5,5,.55) 62%, #050505 100%); }
+.cover-copy { position: relative; z-index: 2; margin-top: 1.2in; text-align: center; }
+.cover-copy h1 { font-size: 46pt; line-height: .98; }
+.cover-copy .sub { font-family: var(--serif); font-style: italic; font-size: 17pt; color: #fff; margin-top: 12pt; }
+.cover-copy .sub2 { font-family: var(--serif); font-style: italic; font-size: 12.5pt; color: var(--gold-soft); margin-top: 4pt; }
+.lede { position: relative; z-index: 2; margin: 16pt auto 0; max-width: 5.6in; text-align: center; font-size: 10pt; line-height: 1.6; color: var(--text); }
+.stats { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 16pt; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { padding: 11pt 8pt; text-align: center; }
+.stat + .stat { border-left: 1px solid var(--hair); }
+.stat .n { font-family: var(--serif); font-weight: 600; font-size: 21pt; line-height: 1; color: #fff; }
+.stat .n.g { color: var(--goldtext); }
+.stat .l { font-size: 6.6pt; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 5pt; line-height: 1.4; }
+.sig { position: relative; z-index: 2; display: grid; grid-template-columns: 1.25fr 1fr; gap: 22pt; margin-top: 16pt; }
+.sig h2 { font-size: 27pt; margin: 5pt 0 8pt; }
+.sig p { font-size: 9.2pt; color: var(--text); }
+.formats { display: grid; grid-template-columns: 1fr 1fr; gap: 7pt; }
+.fmt { background: var(--panel); border: 1px solid var(--hair); border-top: 1px solid var(--line); padding: 8pt 9pt; }
+.fmt b { display: block; font-family: var(--serif); font-size: 12pt; font-weight: 600; color: #fff; line-height: 1.1; }
+.fmt span { display: block; font-size: 7.4pt; color: var(--muted); margin-top: 3pt; line-height: 1.35; }
+.quote1 { position: relative; z-index: 2; margin-top: auto; text-align: center; }
+.quote1 q { display: block; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 14pt; line-height: 1.25; color: #fff; quotes: "\201C" "\201D"; }
+.who { font-size: 6.8pt; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-top: 6pt; }
+.who span { color: var(--muted); }
+
+/* ---------- page 2 ---------- */
+.sec { margin-top: 11pt; }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10pt; }
+.sec-head .note { font-family: var(--serif); font-style: italic; font-size: 11pt; color: var(--muted); }
+.takeaways { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt 22pt; }
+.tk { display: grid; grid-template-columns: 26pt 1fr; gap: 6pt; }
+.num { font-family: var(--serif); font-weight: 600; font-size: 19pt; line-height: 1; color: var(--goldtext); }
+.tk b { display: block; font-family: var(--serif); font-size: 12.2pt; font-weight: 600; color: #fff; line-height: 1.12; margin-bottom: 3pt; }
+.tk p { font-size: 8.6pt; color: var(--muted); line-height: 1.45; }
+.demo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; }
+.step { border-top: 1px solid var(--gold); padding-top: 7pt; }
+.step .num { font-size: 15pt; }
+.step b { display: block; font-family: var(--serif); font-size: 12pt; font-weight: 600; color: #fff; margin: 4pt 0 3pt; line-height: 1.1; }
+.step p { font-size: 8pt; color: var(--muted); line-height: 1.42; }
+.meter { margin-top: 8pt; display: flex; align-items: center; justify-content: center; gap: 16pt; background: var(--panel); border: 1px solid var(--hair); padding: 9pt; }
+.meter .big { font-family: var(--serif); font-weight: 600; font-size: 22pt; color: #fff; line-height: 1; }
+.meter .big.g { color: var(--goldtext); }
+.meter .arrow { color: var(--gold); font-size: 14pt; }
+.meter .cap { font-size: 7.8pt; color: var(--muted); max-width: 2.6in; line-height: 1.4; }
+.agendas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9pt; }
+.ag { background: var(--panel); border: 1px solid var(--hair); padding: 8pt 10pt; }
+.ag .eyebrow { font-size: 6.6pt; }
+.ag h3 { margin: 2pt 0 5pt; }
+.ag ol { list-style: none; counter-reset: a; }
+.ag li { counter-increment: a; font-size: 8pt; color: var(--text); padding: 2.6pt 0; border-top: 1px solid var(--hair); display: flex; gap: 6pt; line-height: 1.35; }
+.ag li::before { content: counter(a, decimal-leading-zero); color: var(--gold); font-size: 7pt; font-weight: 600; padding-top: 1pt; }
+.fit { display: grid; grid-template-columns: 1fr 1fr; gap: 22pt; }
+.fit ul { list-style: none; }
+.fit li { font-size: 8.2pt; color: var(--text); padding: 3pt 0 3pt 14pt; position: relative; border-top: 1px solid var(--hair); line-height: 1.4; }
+.fit li::before { content: ""; position: absolute; left: 0; top: 7pt; width: 5pt; height: 5pt; background: var(--gold); transform: rotate(45deg); }
+.fit .no li { color: var(--muted); }
+.fit .no li::before { background: none; border: 1px solid var(--faint); }
+.fit h3 { font-size: 12pt; margin-bottom: 4pt; }
+
+/* ---------- page 3 ---------- */
+.fees { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9pt; }
+.fee { background: var(--panel); border: 1px solid var(--hair); border-top: 2px solid var(--line); padding: 8pt 11pt; position: relative; }
+.fee.rec { border-top-color: var(--gold); }
+.fee .tag { position: absolute; top: -7pt; right: 10pt; background: var(--gold); color: #111; font-size: 6pt; font-weight: 700; letter-spacing: .18em; padding: 2pt 6pt; text-transform: uppercase; }
+.fee h3 { font-size: 13pt; }
+.fee .from { font-size: 6.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 6pt; }
+.fee .amt { font-family: var(--serif); font-weight: 600; font-size: 27pt; line-height: 1; color: var(--goldtext); }
+.fee p { font-size: 7.8pt; color: var(--muted); margin-top: 5pt; line-height: 1.4; }
+.fee-note { font-size: 7.6pt; color: var(--muted); margin-top: 8pt; line-height: 1.5; }
+.fee-note b { color: var(--text); font-weight: 600; }
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14pt; }
+.qt q { display: block; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 10.8pt; line-height: 1.3; color: #fff; quotes: "\201C" "\201D"; }
+.qt .who { margin-top: 6pt; font-size: 6.3pt; letter-spacing: .16em; line-height: 1.5; }
+.about { display: grid; grid-template-columns: 1.55in 1fr 1.9in; gap: 16pt; align-items: start; }
+.about .photo { width: 1.55in; height: 1.7in; background: url(../images/opt/sam-osborne-podium.jpg) 52% 30% / cover no-repeat; border: 1px solid var(--line); }
+.about p { font-size: 8.3pt; line-height: 1.48; margin-bottom: 5pt; }
+.side h4 { font-size: 6.8pt; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 4pt; }
+.side ul { list-style: none; margin-bottom: 10pt; }
+.side li { font-size: 8pt; color: var(--text); padding: 2.6pt 0; border-top: 1px solid var(--hair); line-height: 1.35; }
+.side p { font-size: 8pt; color: var(--muted); line-height: 1.45; }
+.process { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ps { padding: 5pt 8pt; }
+.ps + .ps { border-left: 1px solid var(--hair); }
+.ps .num { font-size: 13pt; }
+.ps b { display: block; font-size: 7.6pt; letter-spacing: .1em; text-transform: uppercase; color: #fff; margin-top: 2pt; font-weight: 600; }
+.ps span { font-size: 7.6pt; color: var(--muted); }
+.cta { margin-top: auto; text-align: center; padding-top: 10pt; }
+.cta h2 { font-size: 23pt; }
+.cta .lines { display: flex; justify-content: center; gap: 22pt; margin-top: 7pt; font-size: 10.5pt; color: #fff; font-weight: 500; }
+.cta .lines span { color: var(--gold); }
+.cta .small { font-size: 7.2pt; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 8pt; }
+.foot { display: flex; justify-content: space-between; font-size: 6.6pt; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); border-top: 1px solid var(--hair); padding-top: 6pt; margin-top: 8pt; }
+.legal-note { font-size: 6pt; color: var(--faint); margin-top: 3pt; text-align: center; letter-spacing: 0; text-transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ======================= PAGE 1 ======================= -->
+<section class="page">
+  <div class="hero"></div>
+  <div class="pad">
+    <div class="top">
+      <div class="brand">Sam Osborne</div>
+      <div class="meta">Healthcare Keynote Speaker · <b>samosborne.net</b></div>
+    </div>
+
+    <div class="cover-copy">
+      <div class="eyebrow">Stay composed when people get under your skin</div>
+      <h1 style="margin-top:12pt">Keep your nurses.<br>Protect patient trust.<br><span class="gold">And cut claims.</span></h1>
+      <div class="sub2" style="margin-top:12pt">Composure on the next shift. Not just at the conference.</div>
+    </div>
+
+    <p class="lede">For nurse leaders, health systems and care teams. Sam Osborne teaches a repeatable method for staying composed when a frightened family turns on you, a colleague snaps or a patient panics. Then he proves it live, on stage, with a volunteer from your room.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="n g">95%</div><div class="l">Rated his delivery<br>excellent · 39 evaluations</div></div>
+      <div class="stat"><div class="n">Live</div><div class="l">Demonstration in<br>every format</div></div>
+      <div class="stat"><div class="n">2026</div><div class="l">NSA SoCal Chapter<br>Member of the Year</div></div>
+      <div class="stat"><div class="n">NSA</div><div class="l">SoCal Chapter<br>President-Elect</div></div>
+    </div>
+
+    <div class="sig">
+      <div>
+        <div class="eyebrow">The signature program</div>
+        <h2>The Conflict <span class="gold">Advantage</span></h2>
+        <p>Don&rsquo;t take the bait: how to stay calm when patients, families and colleagues push your buttons. Not tips for holding it together, but a step-by-step way to stop taking it personally. Every format includes a live demonstration, the keynote included.</p>
+      </div>
+      <div class="formats">
+        <div class="fmt"><b>Keynote</b><span>60 minutes · opening or closing · live demo</span></div>
+        <div class="fmt"><b>Breakout</b><span>90 minutes · concurrent session</span></div>
+        <div class="fmt"><b>Half-day workshop</b><span>Two to three volunteers taken all the way through</span></div>
+        <div class="fmt"><b>Multi-session intensive</b><span>Nurse-leader retreats &amp; executive cohorts</span></div>
+      </div>
+    </div>
+
+    <div class="quote1">
+      <div class="rule"></div>
+      <q>Sam&rsquo;s live demonstration is what had the entire room on edge. Within seconds, he illustrated what happens when we allow someone to get under our skin.</q>
+      <div class="who">Christine Long <span>· Strategic Marketing Leader · Former EVP, PIMCO</span></div>
+    </div>
+
+    <div class="foot"><span>The Conflict Advantage · One-Sheet</span><span>1 / 3</span></div>
+  </div>
+</section>
+
+<!-- ======================= PAGE 2 ======================= -->
+<section class="page">
+  <div class="pad">
+    <div class="top">
+      <div class="brand">Sam Osborne</div>
+      <div class="meta">The program · <b>What the room leaves with</b></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><h2>What every attendee <span class="gold">leaves able to do.</span></h2></div>
+      <div class="takeaways">
+        <div class="tk"><div class="num">01</div><div><b>Stop letting people live rent-free in their head</b><p>A repeatable way to take the charge out of a trigger, so people stop getting to them in the first place.</p></div></div>
+        <div class="tk"><div class="num">02</div><div><b>Stay composed at the end of a twelve-hour shift</b><p>Clear and in command when a family, a physician or the room turns.</p></div></div>
+        <div class="tk"><div class="num">03</div><div><b>Know when it&rsquo;s about them, and when it&rsquo;s about you</b><p>Respond to what&rsquo;s actually there, not what&rsquo;s been projected onto it.</p></div></div>
+        <div class="tk"><div class="num">04</div><div><b>Have the hard conversation without it blowing up</b><p>The words and posture for the talks that usually go sideways.</p></div></div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div>
+      <div class="sec-head"><div><div class="eyebrow">The demonstration</div><h2 style="margin-top:4pt">Most speakers explain composure. <span class="gold">Sam dissolves a real conflict on stage.</span></h2><p class="muted" style="font-size:8.4pt;margin-top:4pt">Not a role-play. It can&rsquo;t be scripted and it can&rsquo;t be faked. Your audience watches it work on a colleague.</p></div></div>
+      <div class="demo">
+        <div class="step"><div class="num">01</div><b>The drama comes out</b><p>A volunteer names someone who genuinely gets under their skin. The story goes first.</p></div>
+        <div class="step"><div class="num">02</div><b>The behavior gets named</b><p>Something small and observable. A behavior, not a villain. No patient information needed.</p></div>
+        <div class="step"><div class="num">03</div><b>The imbalance gets a number</b><p>How one-sided does it feel? Usually 100% cost, 0% benefit.</p></div>
+        <div class="step"><div class="num">04</div><b>The number moves</b><p>A handful of questions, no advice. The volunteer revises it themselves, out loud, toward 50 / 50.</p></div>
+      </div>
+      
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><div class="eyebrow">Sample agendas</div><div class="note">Adapted to your meeting structure.</div></div>
+      <div class="agendas">
+        <div class="ag"><div class="eyebrow">60 minutes</div><h3>Keynote</h3><ol><li>The trigger and what it costs your teams</li><li>The Conflict Advantage frame</li><li>Live demonstration with a volunteer</li><li>Applied exercise for the whole room</li><li>Q&amp;A and the next-shift ask</li></ol></div>
+        <div class="ag"><div class="eyebrow">Half day</div><h3>Workshop</h3><ol><li>Keynote frame and extended Q&amp;A</li><li>Live demonstration</li><li>Volunteer facilitation on audience cases</li><li>Paired practice in small groups</li><li>Integration and commitment block</li></ol></div>
+        <div class="ag"><div class="eyebrow">Multi-session</div><h3>Intensive</h3><ol><li>Trigger architecture</li><li>Values hierarchy</li><li>Projection &amp; injection</li><li>Applied case work from your units</li><li>1:1 facilitation between sessions</li></ol></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="fit">
+        <div><h3>A strong fit when</h3><ul>
+          <li>Your people face frightened patients, angry families and tense colleagues.</li>
+          <li>One bad reaction is costing you a good nurse, a patient-experience score or a team&rsquo;s trust.</li>
+          <li>Your teams have heard enough about resilience and want a process for the next shift.</li>
+        </ul></div>
+        <div class="no"><h3>Not the right fit when</h3><ul>
+          <li>You want motivation or entertainment without application.</li>
+          <li>The audience carries little pressure or consequence.</li>
+          <li>You need clinical or mental-health treatment. This is educational and complements your EAP and de-escalation training.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="foot" style="margin-top:auto"><span>The Conflict Advantage · One-Sheet</span><span>2 / 3</span></div>
+  </div>
+</section>
+
+<!-- ======================= PAGE 3 ======================= -->
+<section class="page">
+  <div class="pad">
+    <div class="top">
+      <div class="brand">Sam Osborne</div>
+      <div class="meta">Investment · Proof · <b>Booking</b></div>
+    </div>
+
+    <div class="sec" style="margin-top:12pt">
+      <div class="sec-head"><h2>Investment</h2><div class="note">Starting points, not fixed rates.</div></div>
+      <div class="fees">
+        <div class="fee"><h3>Keynote</h3><div class="from">Starting at</div><div class="amt">$7,500</div><p>Breakouts from $5,000 · virtual from $3,500</p></div>
+        <div class="fee rec"><span class="tag">Recommended</span><h3>Half-day workshop</h3><div class="from">Starting at</div><div class="amt">$12,500</div><p>Two to three volunteers taken all the way through.</p></div>
+        <div class="fee"><h3>Multi-session intensive</h3><div class="from">Starting at</div><div class="amt">$20,000</div><p>Sequential sessions, scoped to the patterns in your group.</p></div>
+      </div>
+      <p class="fee-note"><b>Keynote + half-day, same event, from $17,500.</b> One trip, two formats. The fee depends on dates, scope and tailoring. Travel and accommodation are billed separately; international engagements are quoted separately. Send your dates for an exact quote.</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div>
+      <div class="sec-head"><div class="eyebrow">More from the room</div></div>
+      <div class="quotes">
+        <div class="qt"><q>Of all the speakers at this conference, Sam was by far the most powerful.</q><div class="who">Trisha Graham <span>· Director of Account Management, Morningstar Retirement</span></div></div>
+        <div class="qt"><q>One of the best sessions I&rsquo;ve attended at any conference.</q><div class="who">Dawn Roscoe, AMS, PCAM <span>· VP of Operations, Professional Properties Management</span></div></div>
+        <div class="qt"><q>I now have a tool to understand why I&rsquo;m triggered.</q><div class="who">Adam Sokolic <span>· Chief Operating Officer, Bluespring Wealth Partners</span></div></div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="about">
+      <div class="photo"></div>
+      <div>
+        <div class="eyebrow">About Sam</div>
+        <h3 style="margin:3pt 0 6pt">He was the frightened patient once.</h3>
+        <p>In 2008 a piece of metal pierced Sam&rsquo;s retina. He nearly lost his sight, and he knows what it is to be the frightened patient your staff meet every day. His eyesight recovered. His relationship with perception did not.</p>
+        <p>Six years later he found Dr. John Demartini&rsquo;s research into how perception drives reaction and became a Trained Demartini Method Facilitator. He is President-Elect of the National Speakers Association, Southern California, and its 2026 Chapter Member of the Year. Originally from Perth, Australia, he is based in Los Angeles and travels to speak.</p>
+      </div>
+      <div class="side">
+        <h4>Recent engagements</h4>
+        <ul><li>SWAY LIVE · Boulder 2026</li><li>CAI National Law Seminar 2026</li><li>SCFIA Anti-Fraud Conference 2026</li></ul>
+        <h4>AV requirements</h4>
+        <p>Two mics to the sound desk: one for Sam, one for the audience. One chair. Slides optional. Sam can bring his own videographer; releases arranged in advance.</p>
+      </div>
+    </div>
+
+    <div class="sec" style="margin-top:10pt">
+      <div class="sec-head"><div class="eyebrow">Booking process</div><div class="note">Reply within two business days.</div></div>
+      <div class="process">
+        <div class="ps"><div class="num">01</div><b>Inquiry</b><span>Email or call</span></div>
+        <div class="ps"><div class="num">02</div><b>Discovery</b><span>20-minute fit call</span></div>
+        <div class="ps"><div class="num">03</div><b>Proposal</b><span>Scope, dates, fee</span></div>
+        <div class="ps"><div class="num">04</div><b>Tailoring</b><span>Examples from your units</span></div>
+        <div class="ps"><div class="num">05</div><b>Delivery</b><span>Onsite or virtual</span></div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="eyebrow">Your event</div>
+      <h2 style="margin-top:4pt">Bring the demonstration <span class="gold">to your room.</span></h2>
+      <div class="lines"><div><span>E</span> &nbsp;sam@samosborne.net</div><div><span>T</span> &nbsp;+1 818.934.5140</div><div><span>W</span> &nbsp;samosborne.net</div></div>
+      <div class="small">Client references on request</div>
+    </div>
+
+    <div class="foot"><span>The Conflict Advantage · One-Sheet</span><span>3 / 3</span></div>
+    <div class="legal-note">*The Demartini Method, Dr. John F. Demartini &copy; 2025 Property of the Demartini Institute. www.DrDemartini.com. Programs are educational, not clinical or mental-health treatment.</div>
+  </div>
+</section>
+</body>
+</html>

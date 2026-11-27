@@ -28,3 +28,6 @@
 /blog              /   301
 /blog.html         /   301
 /blogs/*           /   301
+
+# Short link to the one-sheet
+/one-sheet   /downloads/sam-osborne-one-sheet.pdf   302
