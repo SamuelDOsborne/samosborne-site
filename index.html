@@ -1494,12 +1494,13 @@
   <!-- NAV -->
   <nav>
     <div class="container nav-inner">
-      <a class="nav-brand" href="#top">Sam Osborne</a>
+      <a class="nav-brand" href="#top">Sam Osborne<span class="brand-tag">Healthcare Keynote Speaker</span></a>
       <button class="mobile-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
       <div class="nav-links" id="navLinks">
         <a href="#demonstration">The Demonstration</a>
         <a href="#about">About</a>
         <a href="#speaking">Programs</a>
+        <a href="#fees">Fees</a>
         <a href="/healthcare-keynote-speaker">Healthcare</a>
         <a href="#proof">Proof</a>
         <a href="#onesheet">One-Sheet</a>
@@ -2548,7 +2549,7 @@
       </div>
 
       <!-- Pricing -->
-      <div class="pricing-row">
+      <div class="pricing-row" id="fees">
         <article class="ptier">
           <span class="ptier-flag ghost">Entry</span>
           <div class="ptier-name">Keynote<span style="display:block;margin-top:5px;font-size:.82rem;font-weight:500;letter-spacing:0;color:var(--muted)">Breakouts from $5,000 &middot; virtual from $3,500</span></div>
@@ -3296,6 +3297,13 @@ footer { background: #000; text-align: center; }
   .sg-a, .sg-f { grid-column: span 2; grid-row: span 2; }
   .sg-b, .sg-c, .sg-d, .sg-e, .sg-g, .sg-h { grid-column: span 1; grid-row: span 2; }
 }
+
+/* brand line: name + "Healthcare Keynote Speaker" */
+.nav-brand, .sitenav .sitenav-brand { display: inline-flex; align-items: baseline; gap: .7em; }
+.brand-tag { font-family: 'Inter', -apple-system, sans-serif; font-style: normal; font-weight: 600; font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: #E2B866; white-space: nowrap; }
+#fees { scroll-margin-top: 110px; }
+@media (max-width: 1240px) { .brand-tag { font-size: 9px; letter-spacing: .14em; } }
+@media (max-width: 600px) { .nav-brand, .sitenav .sitenav-brand { flex-direction: column; gap: 2px; line-height: 1.05; } .brand-tag { font-size: 7.5px; letter-spacing: .12em; } }
 </style>
 </body>
 </html>
