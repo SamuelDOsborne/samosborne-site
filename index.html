@@ -1520,7 +1520,7 @@
     <div class="hero-copy">
       <div class="inner">
         
-        <h1><span class="h1-full"><span class="hl hl1">Keep your staff.</span><br><span class="hl hl2">Protect patient trust.</span><br><span class="hl hl3">And cut claims.</span></span></h1>
+        <h1><span class="h1-full"><span class="hl hl1">Keep your nurses.</span><br><span class="hl hl2">Protect patient trust.</span><br><span class="hl hl3">And cut claims.</span></span></h1>
 
         <div class="hero-kicker"><span class="kicker-name">Sam Osborne</span><span style="white-space:nowrap;">Healthcare Keynote Speaker</span> <span style="white-space:nowrap;">Stay composed when people <br>get under your skin</span></div>
         <p class="hero-sub-copy" style="font-size: clamp(1.05rem, 1.55vw, 1.28rem); font-weight: 600; color: rgba(29,29,31,.72); letter-spacing: -.015em; line-height: 1.5; margin-top: 16px; max-width: 40ch;">Best-of-Conference speaker Sam Osborne gives healthcare teams a step-by-step way to stay composed under pressure, proven live on stage with a real volunteer.</p>
@@ -3087,7 +3087,9 @@ h1, h2, h3, .pl, .stat-big, .band-title, .rs-title, .principle, .ptier-price, .p
 .hero-copy h1 .hl3 { font-style: italic; }
 @keyframes e2Rise { from { opacity: 0; transform: translateY(40px); filter: blur(16px); letter-spacing: .08em; } to { opacity: 1; transform: none; filter: none; letter-spacing: -.01em; } }
 .hero-copy .hl { animation-name: e2Rise !important; animation-duration: 1.6s !important; }
-.hero-copy .hero-kicker { letter-spacing: .3em !important; font-size: 12px !important; }
+.hero-copy .hero-kicker { letter-spacing: .16em !important; font-size: clamp(15px, 1.25vw, 19px) !important; line-height: 1.55; }
+.hero-copy .hero-kicker > span:nth-child(3) { display: block; margin-top: 2px; }
+@media (max-width: 980px) { .hero-copy .hero-kicker { font-size: 13.5px !important; letter-spacing: .12em !important; } }
 .hero-copy .kicker-name { font-family: var(--display); font-style: italic; font-weight: 600 !important; text-transform: none; letter-spacing: 0 !important; font-size: 34px !important; }
 .hero-copy .hero-credential { justify-content: center; text-align: center; }
 .hero-copy .hero-credential .cred-mark { display: none; }
