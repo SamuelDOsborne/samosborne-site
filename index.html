@@ -3165,6 +3165,28 @@ footer { background: #000; text-align: center; }
 .hero-copy h1 .hl3 { background: none; -webkit-text-fill-color: #F2CF83; color: #F2CF83 !important; animation-name: e2Rise !important; text-shadow: 0 0 40px rgba(242,207,131,.35) !important; }
 .hero-copy h1 .hl3 { animation: e2Rise 1.6s cubic-bezier(.2,.7,.2,1) 1.83s both !important; }
 
+/* Hero entrance, easy on the eyes: every piece of text arrives with the same soft motion
+   (a short rise out of a light blur), one after another in reading order, all done in about 5s. */
+@keyframes heroSoft { from { opacity: 0; transform: translateY(14px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+.hero-copy .hl, .hero-copy h1 .hl3, .hero-copy .hero-kicker > span, .hero-copy .hero-sub-copy, .hero-copy .btn-row > *, .hero-copy .hero-credential > p {
+  opacity: 0; animation: heroSoft 1.4s cubic-bezier(.22,.61,.36,1) both !important; }
+.hero-copy .hero-kicker { opacity: 1 !important; animation: none !important; clip-path: none !important; filter: none !important; }
+.hero-copy .hero-kicker > span:nth-child(2) { display: block; }
+.hero-copy .hl1 { animation-delay: .3s !important; }
+.hero-copy .hl2 { animation-delay: .65s !important; }
+.hero-copy h1 .hl3 { animation-delay: 1s !important; }
+.hero-copy .hero-kicker > span:nth-child(1) { animation-delay: 1.55s !important; }
+.hero-copy .hero-kicker > span:nth-child(2) { animation-delay: 1.8s !important; }
+.hero-copy .hero-kicker > span:nth-child(3) { animation-delay: 2.1s !important; }
+.hero-copy .hero-sub-copy { animation-delay: 2.6s !important; }
+.hero-copy .btn-row > *:nth-child(1) { animation-delay: 3.05s !important; }
+.hero-copy .btn-row > *:nth-child(2) { animation-delay: 3.2s !important; }
+.hero-copy .hero-credentials::before { animation: heroRule 1.2s cubic-bezier(.22,.61,.36,1) 3.4s forwards !important; transform-origin: center !important; }
+.hero-copy .hero-credential:nth-child(1) > p { animation-delay: 3.6s !important; }
+.hero-copy .hero-credential:nth-child(2) > p { animation-delay: 3.75s !important; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy .hl, .hero-copy h1 .hl3, .hero-copy .hero-kicker > span, .hero-copy .hero-sub-copy, .hero-copy .btn-row > *, .hero-copy .hero-credential > p, .hero-copy .hero-credentials::before { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+}
 </style>
 </body>
 </html>
