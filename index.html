@@ -2164,7 +2164,7 @@
           <div class="signature-card-body">
             <span class="signature-flag">Signature Healthcare Keynote</span>
             <h3>The Conflict Advantage</h3>
-            <p class="signature-tagline">Don&rsquo;t take the bait: how to stay calm when patients, families and colleagues push your buttons.</p>
+            <p class="signature-tagline">Stay composed when patients, families and colleagues get under your skin.</p>
             <p>For teams that lose good people or patient trust when someone gets rattled. Not tips for holding it together: a step-by-step way to stop taking it personally. <strong>Every format includes a live demonstration, the keynote included.</strong></p>
             <div class="signature-formats">Available as keynote, breakout, half-day workshop, nurse-leader retreat, or multi-session leadership intensive.</div>
             <div class="btn-row" style="margin-top:24px;">
@@ -2535,7 +2535,7 @@
 
       <div class="booking-head">
         <span class="eyebrow">Booking</span>
-        <h2 style="font-size: clamp(1.8rem, 3.4vw, 3rem);">Tell me what your care teams are up against.</h2>
+        <h2>Tell me what your care teams<br class="br-wide"> are up against.</h2>
         <p>Send the slot, the room, and the pressure your audience is under. I&rsquo;ll tell you which format fits, and if it isn&rsquo;t a fit, I&rsquo;ll say so.</p>
       </div>
 
@@ -3312,6 +3312,12 @@ p, li { text-wrap: pretty; }
 @media (max-width: 380px) { .nav-phone, .sitenav .sitenav-phone { display: none !important; } }
 @media (max-width: 380px) { .nav-cta, .sitenav .sitenav-cta { font-size: 10px !important; letter-spacing: .02em !important; } .nav-brand, .sitenav .sitenav-brand { font-size: 1rem !important; } .brand-tag { font-size: 6.5px; letter-spacing: .06em; } }
 @media (max-width: 340px) { .nav-inner, .sitenav .sitenav-inner { gap: 8px !important; width: calc(100% - 24px) !important; } .nav-cta, .sitenav .sitenav-cta { font-size: 9px !important; } }
+
+/* Booking heading: two lines on wider screens */
+.booking-head { max-width: 1240px; }
+.booking-head p { max-width: 640px; margin-left: auto; margin-right: auto; }
+#contact .booking-head h2 { font-size: clamp(40px, 5.6vw, 96px) !important; }
+@media (max-width: 600px) { .br-wide { display: none; } }
 </style>
 </body>
 </html>
